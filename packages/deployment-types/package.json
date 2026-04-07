@@ -1,0 +1,23 @@
+{
+  "name": "@summerfi/deployment-types",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b --preserveWatchOutput tsconfig.json",
+    "dev": "tsc -b --preserveWatchOutput tsconfig.json -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*",
+    "@summerfi/common": "workspace:*"
+  }
+}

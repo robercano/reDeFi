@@ -1,0 +1,40 @@
+{
+  "name": "@summerfi/swap-service",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "test": "jest tests/ --passWithNoTests",
+    "testw": "jest --watch",
+    "e2e": "jest e2e/",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@cowprotocol/contracts": "^1.8.0",
+    "@cowprotocol/cow-sdk": "^6.3.2",
+    "@summerfi/allowance-manager-common": "workspace:*",
+    "@summerfi/common": "workspace:*",
+    "@summerfi/configuration-provider-common": "workspace:*",
+    "@summerfi/sdk-common": "workspace:*",
+    "@summerfi/sdk-server-common": "workspace:*",
+    "@summerfi/swap-common": "workspace:*",
+    "@summerfi/tokens-common": "workspace:*",
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/jest-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*"
+  }
+}

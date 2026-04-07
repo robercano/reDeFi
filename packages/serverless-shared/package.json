@@ -1,0 +1,37 @@
+{
+  "name": "@summerfi/serverless-shared",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "test": "jest --passWithNoTests",
+    "build": "tsc -b --preserveWatchOutput",
+    "prebuild": "tsc -b --preserveWatchOutput",
+    "dev": "tsc -b --preserveWatchOutput -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "viem": "2.43.5",
+    "zod": "3.25.61"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*",
+    "@types/node": "^20.12.7",
+    "eslint": "^8.57.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+query GetStakingStatsV2($id: ID!) {
+  governanceStakings(where: { id: $id }) {
+    id
+    summerStakedNormalized
+    averageLockupPeriod
+    amountOfLockedStakes
+  }
+}
+
+query GetStakingStakesV2($first: Int!, $skip: Int!) {
+  stakeLockups(first: $first, skip: $skip, orderBy: amount, orderDirection: desc) {
+    id
+    index
+    account {
+      id
+    }
+    amount
+    weightedAmount
+    weightedAmountNormalized
+    lockupPeriod
+    startTimestamp
+    endTimestamp
+  }
+}

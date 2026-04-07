@@ -1,0 +1,62 @@
+.bannerWrapper {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  height: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bannerWrapperVisible {
+  height: 36px;
+  display: flex;
+  opacity: 1;
+  pointer-events: all;
+  margin-bottom: 20px;
+}
+
+.bannerWrapperWarning {
+  background-color: var(--color-background-warning);
+  color: var(--color-text-warning);
+}
+
+.bannerWrapperCritical {
+  background-color: var(--color-background-critical);
+  color: var(--color-text-critical);
+}
+
+.bannerWrapperSuccess {
+  background-color: var(--color-background-success);
+  color: var(--color-text-success);
+}
+
+.globalIssueBannerWrapper {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--general-space-16);
+  background-color: var(--earn-protocol-critical-10);
+  color: var(--earn-protocol-secondary-100);
+  position: relative;
+  z-index: 2;
+}
+
+.globalNoticeBannerWrapper {
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--general-space-16);
+  background-color: var(--earn-protocol-warning-10);
+  color: var(--earn-protocol-warning-100);
+  border-radius: var(--radius-large);
+  margin-bottom: var(--spacing-space-large);
+}

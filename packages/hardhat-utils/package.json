@@ -1,0 +1,27 @@
+{
+  "name": "@summerfi/hardhat-utils",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput -v",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*",
+    "hardhat": "^2.22.2",
+    "hardhat-abi-exporter": "^2.10.1",
+    "solidity-docgen": "0.6.0-beta.36"
+  }
+}

@@ -1,0 +1,139 @@
+query GetProducts($protocols: [String!], $first: Int = 1000) {
+  products(first: $first, where: { protocol_in: $protocols }) {
+    id
+    protocol
+    name
+    token {
+      id
+      symbol
+      decimals
+      precision
+    }
+    network
+    pool
+  }
+}
+query GetInterestRates($productId: String!) {
+  # as this query result can get very big very fast
+  # please please reconsider adding more fields
+  dailyInterestRates(
+    where: { productId: $productId }
+    first: 365 # 365 days
+    orderBy: date
+    orderDirection: desc
+  ) {
+    id
+    averageRate
+    date
+  }
+  hourlyInterestRates(
+    where: { productId: $productId }
+    first: 720 # 24 * 30 = one month
+    orderBy: date
+    orderDirection: desc
+  ) {
+    id
+    averageRate
+    date
+  }
+  weeklyInterestRates(
+    where: { productId: $productId }
+    first: 156 # 52 * 3 = three years
+    orderBy: weekTimestamp
+    orderDirection: desc
+  ) {
+    id
+    averageRate
+    date: weekTimestamp
+  }
+  # latest interest rate, used in the arks list
+  latestInterestRate: hourlyInterestRates(
+    where: { productId: $productId }
+    first: 1
+    orderBy: date
+    orderDirection: desc
+  ) {
+    rate: interestRates(first: 1, orderBy: timestamp, orderDirection: desc) {
+      id
+      rate
+      timestamp
+    }
+  }
+}
+
+query GetArkRates($productId: String!) {
+  interestRates(
+    where: { productId: $productId }
+    orderBy: timestamp
+    orderDirection: desc
+    first: 20
+  ) {
+    timestamp
+    rate
+    productId
+    protocol
+    token {
+      symbol
+      address
+    }
+  }
+}
+
+query GetArksRates($productIds: [ID!]!) {
+  products(where: { id_in: $productIds }) {
+    id
+    interestRates(orderBy: timestamp, orderDirection: desc, first: 1) {
+      timestamp
+      rate
+      productId
+      protocol
+      token {
+        symbol
+        address
+      }
+    }
+  }
+}
+# we get first 10 in case there are multiple rewards with the same timestamp
+query GetArksRewardsRates($productIds: [ID!]!) {
+  products(where: { id_in: $productIds }) {
+    id
+    rewardsInterestRates(orderBy: timestamp, orderDirection: desc, first: 10) {
+      timestamp
+      rate
+      productId
+      protocol
+      token {
+        symbol
+        address
+        decimals
+      }
+      rewardToken {
+        symbol
+        address
+        decimals
+      }
+    }
+  }
+}
+query GetHistoricalArksRates($productIds: [ID!]!, $timestamp: BigInt!) {
+  products(where: { id_in: $productIds }) {
+    id
+    interestRates(
+      where: { timestamp_gte: $timestamp }
+      orderBy: timestamp
+      orderDirection: asc
+      first: 5000
+    ) {
+      timestamp
+      blockNumber
+      rate
+      productId
+      protocol
+      token {
+        symbol
+        address
+      }
+    }
+  }
+}

@@ -1,0 +1,218 @@
+name: Deploy Earn Protocol App Staging
+on:
+  workflow_dispatch:
+    inputs:
+      forceDeploy:
+        description: "Force deployment even if no changes"
+        type: boolean
+        required: false
+        default: false
+  push:
+    branches:
+      - dev
+
+jobs:
+  changes:
+    name: Check for earn protocol changes
+    runs-on: ubuntu-22.04
+    if: ${{ github.event_name == 'push' }}
+    permissions:
+      pull-requests: read
+    outputs:
+      build-earn-protocol: ${{ steps.filter.outputs.build-earn-protocol }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            build-earn-protocol:
+              - 'apps/earn-protocol/**'
+              - 'packages/app-types/**'
+              - 'packages/app-earn-ui/**'
+              - 'packages/app-icons/**'
+              - 'packages/app-server-handlers/**'
+              - '.github/workflows/deploy-earn-protocol-app-staging.yaml'
+              - 'sdk/sdk-client/**'
+              - 'sdk/sdk-client-react/**'
+
+  build-earn-protocol:
+    name: Build and deploy Earn Protocol App
+    runs-on: ubuntu-22.04
+    permissions:
+      id-token: write
+    environment: staging
+    needs: changes
+    if: ${{ needs.changes.outputs.build-earn-protocol == 'true' || github.event.inputs.forceDeploy }}
+    env:
+      AWS_REGION: eu-central-1
+      ENVIRONMENT_TAG: dev
+      SERVICE_NAME: summer-fi-earn-service-dev
+      CLUSTER_NAME: summer-fi-earn-dev
+      CONFIG_URL: ${{ secrets.CONFIG_URL }}
+      CONFIG_URL_EARN: ${{ secrets.CONFIG_URL_EARN }}
+      FUNCTIONS_API_URL: ${{ vars.FUNCTIONS_API_URL }}
+      EARN_PROTOCOL_DB_CONNECTION_STRING: ${{ secrets.EARN_PROTOCOL_DB_CONNECTION_STRING }}
+      EARN_MIXPANEL_KEY: ${{ secrets.EARN_MIXPANEL_KEY }}
+      NEXT_PUBLIC_EARN_MIXPANEL_KEY: ${{ secrets.NEXT_PUBLIC_EARN_MIXPANEL_KEY }}
+      ACCOUNT_KIT_API_KEY: ${{ secrets.ACCOUNT_KIT_API_KEY }}
+      FORECAST_API_URL: ${{ secrets.FORECAST_API_URL }}
+      NEXT_PUBLIC_TRANSAK_API_KEY: ${{ secrets.NEXT_PUBLIC_TRANSAK_API_KEY }}
+      NEXT_PUBLIC_TRANSAK_ENVIRONMENT: ${{ secrets.NEXT_PUBLIC_TRANSAK_ENVIRONMENT }}
+      TRANSAK_SECRET: ${{ secrets.TRANSAK_SECRET }}
+      SUBGRAPH_BASE: ${{ vars.SUBGRAPH_BASE }}
+      SDK_API_URL: ${{ vars.SDK_API_URL }}
+      EARN_PROTOCOL_JWT_SECRET: ${{ secrets.EARN_PROTOCOL_JWT_SECRET }}
+      VAULTS_BENCHMARK_API_KEY: ${{ vars.VAULTS_BENCHMARK_API_KEY }}
+      RECAPTCHA_SECRET_KEY: ${{ secrets.RECAPTCHA_SECRET_KEY }}
+      EARN_PROTOCOL_JWT_CHALLENGE_SECRET: ${{ secrets.EARN_PROTOCOL_JWT_CHALLENGE_SECRET }}
+      RPC_GATEWAY: ${{ secrets.RPC_GATEWAY }}
+      TRM_API_KEY: ${{ secrets.TRM_API_KEY }}
+      TALLY_API_KEY: ${{ secrets.TALLY_API_KEY }}
+      NEWSLETTER_API_KEY: ${{ secrets.NEWSLETTER_API_KEY }}
+      NEWSLETTER_PUBLICATION_ID: ${{ secrets.NEWSLETTER_PUBLICATION_ID }}
+      NEWSLETTER_ENDPOINT: ${{ secrets.NEWSLETTER_ENDPOINT }}
+      NEXT_TELEMETRY_DISABLED: ${{ secrets.NEXT_TELEMETRY_DISABLED }}
+      SUMMER_DEPLOYMENT_CONFIG: ${{ vars.SUMMER_DEPLOYMENT_CONFIG }}
+      EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN: ${{ secrets.EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN }}
+      EARN_APP_URL: ${{ secrets.EARN_APP_URL }}
+      BEACH_CLUB_REWARDS_DB_CONNECTION_STRING: ${{ secrets.BEACH_CLUB_REWARDS_DB_CONNECTION_STRING }}
+      SECURE_PAGE_COOKIE_AUTH_TOKEN: ${{ secrets.SECURE_PAGE_COOKIE_AUTH_TOKEN }}
+      BLOG_POSTS_API_KEY: ${{ secrets.BLOG_POSTS_API_KEY }}
+      MERCHANDISE_FORM_KEY: ${{ secrets.MERCHANDISE_FORM_KEY }}
+      DUNE_LAZYSUMMER_ACCOUNT_API_KEY: ${{ secrets.DUNE_LAZYSUMMER_ACCOUNT_API_KEY }}
+      COINGECKO_API_URL: ${{ secrets.COINGECKO_API_URL }}
+      COINGECKO_API_VERSION: ${{ secrets.COINGECKO_API_VERSION }}
+      COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+      COINGECKO_API_AUTH_HEADER: ${{ secrets.COINGECKO_API_AUTH_HEADER }}
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Set up turbo cache
+        uses: rharkor/caching-for-turbo@v2.2.0
+        with:
+          max-age: 1mo
+          max-size: 10gb
+          cache-prefix: turbogha_
+          provider: s3
+          s3-bucket: staging-turbo-monorepo
+          s3-region: eu-central-1
+          s3-prefix: monorepo-cache/
+          s3-endpoint: https://s3.amazonaws.com
+          s3-access-key-id: ${{ secrets.TURBOREPO_S3_BUCKET_ACCESS_KEY_ID }}
+          s3-secret-access-key: ${{ secrets.TURBOREPO_S3_BUCKET_SECRET_ACCESS_KEY }}
+
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 8.14.1
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Setup Earn Protocol App Next.js Cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/apps/earn-protocol/.next/cache
+          key:
+            ${{ runner.os }}-earn-protocol-app-${{ hashFiles('pnpm-lock.yaml') }}-${{
+            hashFiles('apps/earn-protocol/**/*.ts', 'apps/earn-protocol/**/*.tsx') }}
+          restore-keys: ${{ runner.os }}-earn-protocol-app-${{ hashFiles('pnpm-lock.yaml') }}-
+
+      - name: Extract commit hash
+        id: vars
+        run: |
+          calculatedSha=$(git rev-parse --short ${{ github.sha }})
+          echo "NEXT_PUBLIC_SHA=$calculatedSha" >> $GITHUB_ENV
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Prebuild
+        run: pnpm prebuild
+
+      - name: Build
+        run: pnpm build-earn-frontend
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.BUILD_DEPLOY_OIDC_ROLE_STAGING }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Build docker image, copy build output and push to ECR
+        id: build-image
+        env:
+          LATEST_TAG: latest
+          ECR_REPO_NAME: summer-fi-earn-dev
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          NEXT_PUBLIC_SHA: ${{ env.NEXT_PUBLIC_SHA }}
+        run: |
+          # Build a docker container and
+          # push it to ECR so that it can
+          # be deployed to ECS.
+          docker build -f apps/earn-protocol/docker/Dockerfile \
+                       --build-arg EARN_PROTOCOL_DB_CONNECTION_STRING=${{ secrets.EARN_PROTOCOL_DB_CONNECTION_STRING }} \
+                       --build-arg CONFIG_URL=${{ secrets.CONFIG_URL }} \
+                       --build-arg CONFIG_URL_EARN=${{ secrets.CONFIG_URL_EARN }} \
+                       --build-arg FUNCTIONS_API_URL=${{ env.FUNCTIONS_API_URL }} \
+                       --build-arg EARN_MIXPANEL_KEY=${{ secrets.EARN_MIXPANEL_KEY }} \
+                       --build-arg SUBGRAPH_BASE=${{ secrets.SUBGRAPH_BASE }} \
+                       --build-arg NEXT_PUBLIC_EARN_MIXPANEL_KEY=${{ secrets.NEXT_PUBLIC_EARN_MIXPANEL_KEY }} \
+                       --build-arg ACCOUNT_KIT_API_KEY=${{ secrets.ACCOUNT_KIT_API_KEY }} \
+                       --build-arg FORECAST_API_URL=${{ secrets.FORECAST_API_URL }} \
+                       --build-arg NEXT_PUBLIC_TRANSAK_API_KEY=${{ secrets.NEXT_PUBLIC_TRANSAK_API_KEY }} \
+                       --build-arg TRANSAK_SECRET=${{ secrets.TRANSAK_SECRET }} \
+                       --build-arg EARN_PROTOCOL_JWT_SECRET=${{ secrets.EARN_PROTOCOL_JWT_SECRET }} \
+                       --build-arg VAULTS_BENCHMARK_API_KEY=${{ vars.VAULTS_BENCHMARK_API_KEY }} \
+                       --build-arg RECAPTCHA_SECRET_KEY=${{ secrets.RECAPTCHA_SECRET_KEY }} \
+                       --build-arg EARN_PROTOCOL_JWT_CHALLENGE_SECRET=${{ secrets.EARN_PROTOCOL_JWT_CHALLENGE_SECRET }} \
+                       --build-arg NEXT_PUBLIC_TRANSAK_ENVIRONMENT=${{ secrets.NEXT_PUBLIC_TRANSAK_ENVIRONMENT }} \
+                       --build-arg RPC_GATEWAY=${{ secrets.RPC_GATEWAY }} \
+                       --build-arg TRM_API_KEY=${{ secrets.TRM_API_KEY }} \
+                       --build-arg TALLY_API_KEY=${{ secrets.TALLY_API_KEY }} \
+                       --build-arg NEWSLETTER_API_KEY=${{ secrets.NEWSLETTER_API_KEY }} \
+                       --build-arg NEWSLETTER_PUBLICATION_ID=${{ secrets.NEWSLETTER_PUBLICATION_ID }} \
+                       --build-arg NEWSLETTER_ENDPOINT=${{ secrets.NEWSLETTER_ENDPOINT }} \
+                       --build-arg NEXT_TELEMETRY_DISABLED=${{ secrets.NEXT_TELEMETRY_DISABLED }} \
+                       --build-arg SDK_API_URL=${{ env.SDK_API_URL }} \
+                       --build-arg EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN=${{ secrets.EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN }} \
+                       --build-arg EARN_APP_URL=${{ secrets.EARN_APP_URL }} \
+                       --build-arg NEXT_PUBLIC_SHA=${{ env.NEXT_PUBLIC_SHA }} \
+                       --build-arg ENVIRONMENT_TAG=${{ env.ENVIRONMENT_TAG }} \
+                       --build-arg BEACH_CLUB_REWARDS_DB_CONNECTION_STRING=${{ secrets.BEACH_CLUB_REWARDS_DB_CONNECTION_STRING }} \
+                       --build-arg SECURE_PAGE_COOKIE_AUTH_TOKEN=${{ secrets.SECURE_PAGE_COOKIE_AUTH_TOKEN }} \
+                       --build-arg BLOG_POSTS_API_KEY=${{ secrets.BLOG_POSTS_API_KEY }} \
+                       --build-arg MERCHANDISE_FORM_KEY=${{ secrets.MERCHANDISE_FORM_KEY }} \
+                       --build-arg DUNE_LAZYSUMMER_ACCOUNT_API_KEY=${{ secrets.DUNE_LAZYSUMMER_ACCOUNT_API_KEY }} \
+                       --build-arg COINGECKO_API_URL=${{ secrets.COINGECKO_API_URL }} \
+                       --build-arg COINGECKO_API_VERSION=${{ secrets.COINGECKO_API_VERSION }} \
+                       --build-arg COINGECKO_API_KEY=${{ secrets.COINGECKO_API_KEY }} \
+                       --build-arg COINGECKO_API_AUTH_HEADER=${{ secrets.COINGECKO_API_AUTH_HEADER }} \
+                       --cache-from type=registry,ref=189194422115.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/buildkit-test:cache \
+                       -t $ECR_REGISTRY/$ECR_REPO_NAME:$NEXT_PUBLIC_SHA \
+                       -t $ECR_REGISTRY/$ECR_REPO_NAME:$LATEST_TAG \
+                       -t $ECR_REGISTRY/$ECR_REPO_NAME:$ENVIRONMENT_TAG \
+                       ./apps/earn-protocol
+          docker push $ECR_REGISTRY/$ECR_REPO_NAME --all-tags
+
+      - name: Update ECS service with latest Docker image
+        id: service-update
+        run: |
+          aws ecs update-service --cluster $CLUSTER_NAME --service ${{ env.SERVICE_NAME }} --force-new-deployment --region $AWS_REGION
+          # Wait for the new tasks to be healthy
+          aws ecs wait services-stable --cluster $CLUSTER_NAME --services ${{ env.SERVICE_NAME }} --region $AWS_REGION
+
+      - name: Invalidate CloudFront
+        run: |
+          INVALIDATION_ID=$(aws cloudfront create-invalidation --distribution-id ${{ secrets.EARN_CF_DIST_ID }} --paths "/*" --query 'Invalidation.Id' --output text)
+          aws cloudfront wait invalidation-completed --distribution-id ${{ secrets.EARN_CF_DIST_ID }} --id $INVALIDATION_ID

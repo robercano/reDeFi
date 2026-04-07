@@ -1,0 +1,115 @@
+'use client'
+import { useRouter } from 'next/navigation'
+
+import { CACHE_TAGS } from '@/constants/revalidation'
+import { getUserDataCacheHandler } from '@/helpers/get-cache-handler-name'
+
+const fetchRevalidate = async ({
+  tags,
+  paths,
+}: {
+  tags?: (string | undefined)[]
+  paths?: (string | undefined)[]
+}) => {
+  await fetch('/earn/api/revalidate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ tags, paths }),
+  })
+}
+
+export const useRevalidateTags = () => {
+  const { refresh: refreshView } = useRouter()
+
+  const revalidateTags = ({ tags }: { tags: string[] }) => {
+    fetchRevalidate({ tags: tags.filter(Boolean) }).then(() => {
+      refreshView()
+    })
+  }
+
+  return {
+    revalidateTags,
+  }
+}
+
+export const useRevalidateUser = () => {
+  const { refresh: refreshView } = useRouter()
+
+  return (walletAddress?: string) => {
+    if (!walletAddress) return
+
+    fetchRevalidate({
+      tags: [getUserDataCacheHandler(walletAddress)].filter(Boolean),
+    }).then(() => {
+      refreshView()
+    })
+  }
+}
+
+export const useRevalidateVaultsListData = () => {
+  const { refresh: refreshView } = useRouter()
+
+  return () => {
+    fetchRevalidate({
+      tags: [CACHE_TAGS.VAULTS_LIST, CACHE_TAGS.INTEREST_RATES].filter(Boolean),
+    }).then(() => {
+      refreshView()
+    })
+  }
+}
+
+export const useRevalidatePositionData = () => {
+  const { refresh: refreshView } = useRouter()
+
+  return ({
+    chainName,
+    vaultId,
+    walletAddress,
+    vaultToken,
+  }: {
+    chainName?: string
+    vaultId?: string
+    walletAddress?: string
+    vaultToken?: string
+  }) => {
+    const vaultPerformanceAsset = vaultToken
+      ? ['ETH', 'WETH'].includes(vaultToken.toUpperCase())
+        ? 'ETH'
+        : 'USD'
+      : undefined
+
+    fetchRevalidate({
+      tags: [
+        CACHE_TAGS.VAULTS_LIST,
+        CACHE_TAGS.INTEREST_RATES,
+        chainName && vaultPerformanceAsset
+          ? `${CACHE_TAGS.VAULT_PERFORMANCE}-${chainName.toLowerCase()}-${vaultPerformanceAsset.toLowerCase()}`
+          : undefined,
+        walletAddress ? getUserDataCacheHandler(walletAddress) : undefined,
+      ].filter(Boolean),
+      paths: (chainName && vaultId
+        ? [`/earn/${chainName}/position/${vaultId}${walletAddress ? `/${walletAddress}` : ''}`]
+        : []
+      ).filter(Boolean),
+    }).then(() => {
+      refreshView()
+    })
+  }
+}
+
+export const useRevalidateMigrationData = () => {
+  const { refresh: refreshView } = useRouter()
+
+  return ({ walletAddress }: { walletAddress?: string }) => {
+    fetchRevalidate({
+      tags: [
+        CACHE_TAGS.MIGRATION_DATA,
+        walletAddress ? getUserDataCacheHandler(walletAddress) : undefined,
+      ].filter(Boolean),
+    }).then(() => {
+      refreshView()
+    })
+  }
+}

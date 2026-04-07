@@ -1,0 +1,22 @@
+{
+  "name": "@summerfi/abis",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "build": "tsc -b --preserveWatchOutput -v",
+    "dev": "tsc -b --preserveWatchOutput -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*",
+    "eslint": "^8.57.0"
+  },
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  }
+}

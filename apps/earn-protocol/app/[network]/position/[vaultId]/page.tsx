@@ -1,0 +1,330 @@
+import { getDisplayToken, isVaultAtLeastDaysOld, Text } from '@summerfi/app-earn-ui'
+import { getArksInterestRates } from '@summerfi/app-server-handlers'
+import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import {
+  formatCryptoBalance,
+  formatDecimalAsPercent,
+  getServerSideCookies,
+  humanNetworktoSDKNetwork,
+  parseServerResponseToClient,
+  subgraphNetworkToId,
+  supportedSDKNetwork,
+  ten,
+} from '@summerfi/app-utils'
+import BigNumber from 'bignumber.js'
+import dayjs from 'dayjs'
+import { capitalize } from 'lodash-es'
+import { type Metadata } from 'next'
+import { cookies, headers } from 'next/headers'
+import { redirect } from 'next/navigation'
+import { isAddress } from 'viem'
+
+import { getCachedMedianDefiYield } from '@/app/server-handlers/cached/defillama/get-median-defi-yield'
+import { getCachedConfig } from '@/app/server-handlers/cached/get-config'
+import {
+  getCachedIsVaultDaoManaged,
+  getDaoManagedVaultsIDsList,
+} from '@/app/server-handlers/cached/get-vault-dao-managed'
+import { getCachedVaultDetails } from '@/app/server-handlers/cached/get-vault-details'
+import { getCachedVaultInfo } from '@/app/server-handlers/cached/get-vault-info'
+import { getCachedVaultsApy } from '@/app/server-handlers/cached/get-vaults-apy'
+import { getCachedVaultsBenchmark } from '@/app/server-handlers/cached/get-vaults-benchmark'
+import { getCachedVaultsHistoricalApy } from '@/app/server-handlers/cached/get-vaults-historical-apy'
+import { getCachedVaultsList } from '@/app/server-handlers/cached/get-vaults-list'
+import { getCachedRewardTokenPrice } from '@/app/server-handlers/reward-token-price'
+import { getPaginatedLatestActivity } from '@/app/server-handlers/tables-data/latest-activity/api'
+import { getPaginatedRebalanceActivity } from '@/app/server-handlers/tables-data/rebalance-activity/api'
+import { getPaginatedTopDepositors } from '@/app/server-handlers/tables-data/top-depositors/api'
+import { VaultOpenView } from '@/components/layout/VaultOpenView/VaultOpenView'
+import { getArkHistoricalChartData } from '@/helpers/chart-helpers/get-ark-historical-data'
+import { getSeoKeywords } from '@/helpers/seo-keywords'
+import {
+  decorateVaultsWithConfig,
+  getVaultIdByVaultCustomName,
+} from '@/helpers/vault-custom-value-helpers'
+
+type EarnVaultOpenPageProps = {
+  params: Promise<{
+    vaultId: string // could be vault address or the vault name
+    network: SupportedSDKNetworks
+  }>
+}
+
+const EarnVaultOpenPage = async ({ params }: EarnVaultOpenPageProps) => {
+  const [{ network: paramsNetwork, vaultId }, cookieRaw, configRaw] = await Promise.all([
+    params,
+    cookies(),
+    getCachedConfig(),
+  ])
+  const parsedNetwork = humanNetworktoSDKNetwork(paramsNetwork)
+  const parsedNetworkId = subgraphNetworkToId(parsedNetwork)
+  const systemConfig = parseServerResponseToClient(configRaw)
+  const cookie = cookieRaw.toString()
+
+  const referralCode = getServerSideCookies('referralCode', cookie)
+
+  const parsedVaultId = isAddress(vaultId)
+    ? vaultId.toLowerCase()
+    : getVaultIdByVaultCustomName(vaultId, String(parsedNetworkId), systemConfig)
+
+  if (!parsedVaultId) {
+    redirect('/not-found')
+  }
+
+  const strategy = `${parsedVaultId}-${parsedNetwork}`
+
+  // Fetch initial data and start DAO check in parallel
+  const [
+    vault,
+    { vaults },
+    medianDefiYield,
+    topDepositors,
+    latestActivity,
+    rebalanceActivity,
+    rewardTokenPrices,
+  ] = await Promise.all([
+    getCachedVaultDetails({
+      vaultAddress: parsedVaultId,
+      network: parsedNetwork,
+    }),
+    getCachedVaultsList(),
+    getCachedMedianDefiYield(),
+    getPaginatedTopDepositors({
+      page: 1,
+      limit: 4,
+      strategies: [strategy],
+    }),
+    getPaginatedLatestActivity({
+      page: 1,
+      limit: 4,
+      strategies: [strategy],
+    }),
+    getPaginatedRebalanceActivity({
+      page: 1,
+      limit: 4,
+      strategies: [strategy],
+      startTimestamp: dayjs().subtract(30, 'days').unix(),
+    }),
+    getCachedRewardTokenPrice(),
+  ])
+
+  if (!vault) {
+    return (
+      <Text>
+        No vault found with the id {parsedVaultId} on the network {parsedNetwork}
+      </Text>
+    )
+  }
+
+  // Now get DAO managed vaults and vault info in parallel
+  const [daoManagedVaultsList, vaultInfo] = await Promise.all([
+    getDaoManagedVaultsIDsList(vaults),
+    getCachedVaultInfo({ network: parsedNetwork, vaultAddress: parsedVaultId }),
+  ])
+
+  const [vaultWithConfig] = decorateVaultsWithConfig({
+    vaults: [vault],
+    systemConfig,
+    daoManagedVaultsList,
+  })
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (vault && !vaultWithConfig) {
+    return (
+      <Text>
+        No vault found with the id {parsedVaultId} on the network {parsedNetwork}
+      </Text>
+    )
+  }
+
+  const allVaultsWithConfig = decorateVaultsWithConfig({
+    vaults,
+    systemConfig,
+    daoManagedVaultsList,
+  })
+
+  const [
+    { apy30d: vaultBenchmarkApy30d, chartData: vaultBenchmark },
+    fullArkInterestRatesMap,
+    latestArkInterestRatesMap,
+    vaultInterestRates,
+    vaultsApyRaw,
+  ] = await Promise.all([
+    getCachedVaultsBenchmark({
+      vaultChainId: subgraphNetworkToId(parsedNetwork),
+      vaultToken: vault.inputToken.symbol,
+    }),
+    getArksInterestRates({
+      network: parsedNetwork,
+      arksList: vaultWithConfig.arks.filter(
+        (ark): boolean => Number(ark.depositCap) > 0 || Number(ark.inputTokenBalance) > 0,
+      ),
+    }),
+    getArksInterestRates({
+      network: parsedNetwork,
+      arksList: vaultWithConfig.arks,
+      justLatestRates: true,
+    }),
+    getCachedVaultsHistoricalApy({
+      // just the vault displayed
+      fleets: [vaultWithConfig].map(({ id, protocol: { network } }) => ({
+        fleetAddress: id,
+        chainId: subgraphNetworkToId(supportedSDKNetwork(network)),
+      })),
+    }),
+    getCachedVaultsApy({
+      fleets: allVaultsWithConfig.map(({ id, protocol: { network } }) => ({
+        fleetAddress: id,
+        chainId: subgraphNetworkToId(supportedSDKNetwork(network)),
+      })),
+    }),
+  ])
+
+  const arksHistoricalChartData = getArkHistoricalChartData({
+    vault: vaultWithConfig,
+    arkInterestRatesMap: fullArkInterestRatesMap,
+    vaultInterestRates,
+    vaultBenchmark,
+  })
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  const vaultApyData = vaultsApyRaw[
+    `${vaultWithConfig.id}-${subgraphNetworkToId(supportedSDKNetwork(vaultWithConfig.protocol.network))}`
+  ] || { sma7d: null, sma30d: null, current: null }
+
+  const vaultInfoParsed = parseServerResponseToClient(vaultInfo)
+
+  return (
+    <VaultOpenView
+      vault={vaultWithConfig}
+      vaults={allVaultsWithConfig}
+      latestActivity={latestActivity}
+      topDepositors={topDepositors}
+      rebalanceActivity={rebalanceActivity}
+      medianDefiYield={
+        vaultBenchmarkApy30d && Number(Number(vaultBenchmarkApy30d) * 100) > 0
+          ? Number(vaultBenchmarkApy30d) * 100
+          : medianDefiYield
+      }
+      arksHistoricalChartData={arksHistoricalChartData}
+      arksInterestRates={latestArkInterestRatesMap}
+      vaultApyData={vaultApyData}
+      vaultsApyRaw={vaultsApyRaw}
+      referralCode={referralCode}
+      vaultInfo={vaultInfoParsed}
+      rewardTokenPrices={rewardTokenPrices}
+    />
+  )
+}
+
+export async function generateMetadata({
+  params,
+  searchParams,
+}: EarnVaultOpenPageProps & {
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+}): Promise<Metadata> {
+  const [{ network: paramsNetwork, vaultId }, systemConfig, headersList, searchParamsAwaited] =
+    await Promise.all([params, getCachedConfig(), headers(), searchParams])
+  const parsedNetwork = humanNetworktoSDKNetwork(paramsNetwork)
+  const parsedNetworkId = subgraphNetworkToId(parsedNetwork)
+  const prodHost = headersList.get('host')
+  const baseUrl = new URL(`https://${prodHost}`)
+
+  const parsedVaultId = isAddress(vaultId)
+    ? vaultId.toLowerCase()
+    : getVaultIdByVaultCustomName(vaultId, String(parsedNetworkId), systemConfig)
+
+  if (!parsedVaultId) {
+    return {
+      title: `Lazy Summer Protocol - Vault not found`,
+      openGraph: {
+        siteName: 'Lazy Summer Protocol',
+      },
+      keywords: getSeoKeywords(),
+    }
+  }
+
+  const [vault] = await Promise.all([
+    getCachedVaultDetails({
+      vaultAddress: parsedVaultId,
+      network: parsedNetwork,
+    }),
+  ])
+
+  if (!vault) {
+    return {
+      title: `Lazy Summer Protocol - Vault not found`,
+      openGraph: {
+        siteName: 'Lazy Summer Protocol',
+      },
+      keywords: getSeoKeywords(),
+    }
+  }
+
+  const isDaoManaged = await getCachedIsVaultDaoManaged({
+    fleetAddress: vault.id,
+    network: supportedSDKNetwork(vault.protocol.network),
+  })
+
+  const [vaultWithConfig] = decorateVaultsWithConfig({
+    vaults: [vault],
+    systemConfig,
+    daoManagedVaultsList: isDaoManaged ? [vault.id as `0x${string}`] : [],
+  })
+
+  // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+  if (!vaultWithConfig) {
+    return {
+      title: `Lazy Summer Protocol - Vault not found`,
+      openGraph: {
+        siteName: 'Lazy Summer Protocol',
+      },
+      keywords: getSeoKeywords(),
+    }
+  }
+
+  const [vaultsApyRaw] = await Promise.all([
+    getCachedVaultsApy({
+      fleets: [vaultWithConfig].map(({ id, protocol: { network } }) => ({
+        fleetAddress: id,
+        chainId: subgraphNetworkToId(supportedSDKNetwork(network)),
+      })),
+    }),
+  ])
+
+  const vaultApyData =
+    vaultsApyRaw[
+      `${vaultWithConfig.id}-${subgraphNetworkToId(supportedSDKNetwork(vaultWithConfig.protocol.network))}`
+    ]
+
+  const totalValueLockedTokenParsed = formatCryptoBalance(
+    new BigNumber(vault.inputTokenBalance.toString()).div(ten.pow(vault.inputToken.decimals)),
+  )
+
+  const isVaultAtLeast30dOld = isVaultAtLeastDaysOld({ vault: vaultWithConfig, days: 30 })
+
+  const apy30d = isVaultAtLeast30dOld
+    ? vaultApyData.sma30d
+      ? formatDecimalAsPercent(vaultApyData.sma30d, { noPercentSign: true })
+      : 'n/a'
+    : 'New'
+
+  let ogImageUrl = ''
+
+  if (typeof searchParamsAwaited.game !== 'undefined') {
+    ogImageUrl = `${baseUrl}earn/img/misc/yield_racer.png`
+  } else {
+    ogImageUrl = `${baseUrl}earn/api/og/vault?tvl=${totalValueLockedTokenParsed}&apy30d=${apy30d}&token=${vaultWithConfig.inputToken.symbol}`
+  }
+
+  return {
+    title: `Lazy Summer Protocol - ${getDisplayToken(vault.inputToken.symbol)} on ${capitalize(paramsNetwork)}, $${totalValueLockedTokenParsed} TVL`,
+    openGraph: {
+      siteName: 'Lazy Summer Protocol',
+      images: ogImageUrl,
+    },
+    keywords: getSeoKeywords(),
+  }
+}
+
+export default EarnVaultOpenPage

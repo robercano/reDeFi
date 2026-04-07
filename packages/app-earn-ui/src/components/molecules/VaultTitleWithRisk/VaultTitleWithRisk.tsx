@@ -1,0 +1,78 @@
+import { type FC } from 'react'
+import {
+  type NetworkIds,
+  type RiskType,
+  type SDKVaultType,
+  type SupportedSDKNetworks,
+} from '@summerfi/app-types'
+import { getVaultRiskTooltipLabel } from '@summerfi/app-utils'
+
+import { Icon } from '@/components/atoms/Icon/Icon'
+import { Risk } from '@/components/atoms/Risk/Risk'
+import type TextVariants from '@/components/atoms/Text/Text.module.css'
+import { Tooltip } from '@/components/molecules/Tooltip/Tooltip'
+import { VaultTitle } from '@/components/molecules/VaultTitle/VaultTitle'
+import { riskColors } from '@/helpers/risk-colors'
+
+interface VaultTitleWithRiskProps {
+  risk: RiskType
+  symbol: SDKVaultType['inputToken']['symbol']
+  networkId?: NetworkIds
+  networkName?: SupportedSDKNetworks
+  selected?: boolean
+  isVaultCard?: boolean
+  titleVariant?: keyof typeof TextVariants
+  tooltipName?: string
+  onTooltipOpen?: (tooltipName: string) => void
+  isNewVault?: boolean
+  isDaoManagedVault?: boolean
+}
+
+export const VaultTitleWithRisk: FC<VaultTitleWithRiskProps> = ({
+  symbol,
+  risk,
+  networkId,
+  networkName,
+  selected,
+  isVaultCard,
+  titleVariant = 'h4semi',
+  tooltipName,
+  onTooltipOpen,
+  isNewVault = false,
+  isDaoManagedVault,
+}) => {
+  const resolvedRisk = isDaoManagedVault ? 'higher' : risk
+  const color = riskColors[resolvedRisk]
+  const riskTooltipLabel = getVaultRiskTooltipLabel({
+    risk: resolvedRisk,
+    isDaoManagedVault,
+  })
+
+  return (
+    <VaultTitle
+      symbol={symbol}
+      networkId={networkId}
+      selected={selected}
+      titleVariant={titleVariant}
+      isVaultCard={isVaultCard}
+      isNewVault={isNewVault}
+      isDaoManagedVault={isDaoManagedVault}
+      /* networkName should work 99% of the time, because SDKVault returns very similar results for that */
+      networkName={networkName}
+      value={
+        <>
+          <Risk risk={resolvedRisk} variant="p3semi" />
+          <Tooltip
+            tooltip={riskTooltipLabel}
+            tooltipWrapperStyles={{ minWidth: '300px' }}
+            stopPropagation
+            tooltipName={tooltipName}
+            onTooltipOpen={onTooltipOpen}
+          >
+            <Icon iconName="question_o" variant="s" color={color} />
+          </Tooltip>
+        </>
+      }
+    />
+  )
+}

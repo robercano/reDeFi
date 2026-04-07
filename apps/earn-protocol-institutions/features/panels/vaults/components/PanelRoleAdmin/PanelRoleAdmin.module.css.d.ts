@@ -1,0 +1,15 @@
+declare const styles: {
+  readonly "addRoleForm": string;
+  readonly "currentUser": string;
+  readonly "inputContainer": string;
+  readonly "inputFilter": string;
+  readonly "inputWrapper": string;
+  readonly "panelRoleAdminWrapper": string;
+  readonly "table": string;
+  readonly "tableCellAddress": string;
+  readonly "tableWrapper": string;
+  readonly "titleWithInput": string;
+  readonly "trashButton": string;
+};
+export = styles;
+

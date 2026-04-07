@@ -1,0 +1,102 @@
+query UserPositions($userAddress: String!) {
+  positions(where: { account: $userAddress }) {
+    id
+    inputTokenBalance
+    outputTokenBalance
+    inputTokenBalanceNormalized
+    inputTokenBalanceNormalizedInUSD
+    claimedSummerTokenNormalized
+    account {
+      id
+      claimedSummerTokenNormalized
+    }
+    vault {
+      rewardsManager {
+        id
+      }
+    }
+  }
+}
+query UsersPositions($userAddresses: [String!]) {
+  positions(where: { account_in: $userAddresses }, first: 5000) {
+    id
+    inputTokenBalance
+    outputTokenBalance
+    inputTokenBalanceNormalized
+    inputTokenBalanceNormalizedInUSD
+    claimedSummerTokenNormalized
+    account {
+      id
+      claimedSummerTokenNormalized
+    }
+    vault {
+      rewardsManager {
+        id
+      }
+    }
+  }
+}
+query Vaults {
+  vaults(first: 1000) {
+    id
+    name
+    totalValueLockedUSD
+    rewardsManager {
+      id
+    }
+    arks {
+      id
+      name
+      details
+      productId
+      totalValueLockedUSD
+      vault {
+        id
+      }
+    }
+  }
+}
+
+query Users($first: Int, $skip: Int) {
+  accounts(first: $first, skip: $skip, orderBy: id, orderDirection: asc) {
+    id
+    claimedSummerTokenNormalized
+  }
+}
+
+query HistoricalVaults($blockNumber: Int!) {
+  vaults(block: { number: $blockNumber }, first: 1000) {
+    id
+    name
+    totalValueLockedUSD
+    rewardsManager {
+      id
+    }
+    arks {
+      id
+      name
+      details
+      productId
+      totalValueLockedUSD
+      vault {
+        id
+      }
+    }
+  }
+}
+
+query OkxQuestData($userAddressID: ID!, $userAddressString: String!) {
+  okxAccountData: accounts(where: { id: $userAddressID }) {
+    stakedSummerTokenNormalized
+    claimedSummerTokenNormalized
+  }
+  okxPositionsData: positions(where: { account_contains_nocase: $userAddressString }) {
+    vault {
+      inputToken {
+        symbol
+      }
+    }
+    createdTimestamp
+    inputTokenBalanceNormalized
+  }
+}

@@ -1,0 +1,35 @@
+.expander {
+  width: 100%;
+  overflow: hidden;
+  padding: var(--spacing-space-x-small) 0;
+}
+
+.expanderButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  padding: var(--general-space-8) var(--general-space-10);
+}
+
+.chevron {
+  margin-left: 24px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.expanderContent {
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.collapsed {
+  max-height: 0;
+  transition: max-height 0.4s ease;
+  margin-top: 0;
+}

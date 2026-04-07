@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "preserveWatchOutput": true,
+    "target": "ES2022",
+    "useDefineForClassFields": true,
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "moduleResolution": "bundler",
+    "declarationMap": true,
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": false,
+    "isolatedDeclarations": true,
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
+    "incremental": true,
+    "strictNullChecks": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "outDir": "./dist/types/src"
+  },
+  "include": ["src"]
+}

@@ -1,0 +1,33 @@
+declare const styles: {
+  readonly "beachClubLarge": string;
+  readonly "beachClubMedium": string;
+  readonly "beachClubSmall": string;
+  readonly "colorful": string;
+  readonly "neutralLarge": string;
+  readonly "neutralMedium": string;
+  readonly "neutralSmall": string;
+  readonly "primaryLarge": string;
+  readonly "primaryLargeColorful": string;
+  readonly "primaryMedium": string;
+  readonly "primaryMediumColorful": string;
+  readonly "primarySmall": string;
+  readonly "primarySmallColorful": string;
+  readonly "secondaryLarge": string;
+  readonly "secondaryLargeActive": string;
+  readonly "secondaryMedium": string;
+  readonly "secondaryMediumActive": string;
+  readonly "secondarySmall": string;
+  readonly "secondarySmallActive": string;
+  readonly "textBeachClubLarge": string;
+  readonly "textBeachClubMedium": string;
+  readonly "textBeachClubSmall": string;
+  readonly "textPrimaryLarge": string;
+  readonly "textPrimaryMedium": string;
+  readonly "textPrimarySmall": string;
+  readonly "textSecondaryLarge": string;
+  readonly "textSecondaryMedium": string;
+  readonly "textSecondarySmall": string;
+  readonly "unstyled": string;
+};
+export = styles;
+

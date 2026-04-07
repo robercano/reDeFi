@@ -1,0 +1,11 @@
+{
+  "network": "sonic-mainnet",
+  "config-manager": {
+    "address": "0xDff0fc7bFa32Fb536807820FB3Be6C9828463e32",
+    "start-block": 14240174
+  },
+  "institutional-vault-registry": {
+    "address": "0x0000000000000000000000000000000000000000",
+    "start-block": 14240174
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "network": "base",
+  "config-manager": {
+    "address": "0x8ae7fbAeCfBDb21c28b1854272BB7A3a813e2A66",
+    "start-block": 25773560
+  },
+  "institutional-vault-registry": {
+    "address": "0x0000000000000000000000000000000000000000",
+    "start-block": 25773560
+  }
+}
