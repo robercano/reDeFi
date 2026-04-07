@@ -1,0 +1,18 @@
+{
+  "name": "@summer_fi/sdk-client",
+  "version": "2.3.0",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "summer.fi",
+    "email": "integration@summer.fi",
+    "url": "https://summer.fi"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@cowprotocol/cow-sdk": "^6.3.2",
+    "@ethersproject/abstract-signer": "^5.8.0",
+    "@trpc/client": "11.8.0",
+    "bignumber.js": "^9.1.2"
+  }
+}

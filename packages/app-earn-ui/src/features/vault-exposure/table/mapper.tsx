@@ -1,0 +1,464 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
+
+import {
+  type InterestRates,
+  type SDKVaultType,
+  type SupportedSDKNetworks,
+  type TokenSymbolsList,
+} from '@summerfi/app-types'
+import {
+  formatCryptoBalance,
+  formatDecimalAsPercent,
+  sdkNetworkToHumanNetwork,
+  subgraphNetworkToId,
+  zero,
+} from '@summerfi/app-utils'
+import BigNumber from 'bignumber.js'
+import dayjs from 'dayjs'
+import { memoize } from 'lodash-es'
+import Link from 'next/link'
+import { maxUint256 } from 'viem'
+
+import { Icon } from '@/components/atoms/Icon/Icon'
+import { TableRowAccent } from '@/components/atoms/TableRowAccent/TableRowAccent'
+import { Text } from '@/components/atoms/Text/Text'
+import { WithArrow } from '@/components/atoms/WithArrow/WithArrow'
+import { Emphasis } from '@/components/molecules/Emphasis/Emphasis'
+import {
+  TableCellAllocationCap,
+  TableCellAllocationCapTooltipDataBlock,
+} from '@/components/molecules/TableCellCustomComponents/TableCellCustomComponents'
+import { TableCellNodes } from '@/components/molecules/TableCellNodes/TableCellNodes'
+import { TableCellText } from '@/components/molecules/TableCellText/TableCellText'
+import { type TableRow, type TableSortedColumn } from '@/components/organisms/Table/Table'
+import { vaultExposureSorter } from '@/features/vault-exposure/table/sorter'
+import { getDisplayToken } from '@/helpers/get-display-token'
+import { getProtocolLabel } from '@/helpers/get-protocol-label'
+import { getScannerAddressUrl } from '@/helpers/get-scanner-url'
+import { getUniqueColor } from '@/helpers/get-unique-color'
+import { mapArkLatestInterestRates } from '@/helpers/map-ark-interest-rates'
+
+import { arkDetailsMap } from './ark-details'
+
+const protocolLabelMaxLength = 30
+
+type YieldRange = {
+  low: BigNumber
+  high: BigNumber
+}
+
+type ExtendedArk = SDKVaultType['arks'][0] & {
+  apy: BigNumber
+  avgApy30d: BigNumber
+  avgApy1y: BigNumber
+  yearlyYieldRange: YieldRange
+  arkTokenTVL: BigNumber
+  allocationRatio: BigNumber
+  capRatio: BigNumber
+  vaultTvlAllocationCap: BigNumber
+  mainAllocationCap: BigNumber
+  absoluteAllocationCap: BigNumber
+  maxPercentageTVL: BigNumber
+  isDaoManaged: boolean
+  isNoLimitAbsoluteAllocationCap: boolean
+}
+
+/**
+ * Calculates the average APY for a given set of rates over a specified number of days
+ * @param rates - Array of rate objects containing averageRate and date
+ * @param days - Number of days to consider for the average calculation
+ * @returns BigNumber representing the average APY
+ */
+const calculateAverageApy = (rates: { averageRate: number; date: string }[], days: number) => {
+  const now = dayjs().unix()
+  // eslint-disable-next-line no-mixed-operators
+  const cutoffDate = now - days * 24 * 60 * 60
+  const relevantRates = rates.filter((rate) => Number(rate.date) >= cutoffDate)
+
+  if (relevantRates.length === 0) return new BigNumber(0)
+
+  const sum = relevantRates.reduce(
+    (acc, rate) => acc.plus(new BigNumber(rate.averageRate).div(100)),
+    new BigNumber(0),
+  )
+
+  const avgApy = sum.div(relevantRates.length)
+
+  return avgApy.isNaN() ? new BigNumber(0) : avgApy
+}
+
+/**
+ * Calculates the yearly yield range for a given set of rates
+ * @param rates - Array of rate objects containing averageRate and date
+ * @returns Object containing the lowest and highest yearly yield
+ */
+const calculateYearlyYieldRange = (rates: { averageRate: number; date: string }[]): YieldRange => {
+  const now = dayjs().unix()
+  // eslint-disable-next-line no-mixed-operators
+  const oneYearAgo = now - 365 * 24 * 60 * 60
+  const yearlyRates = rates.filter((rate) => Number(rate.date) >= oneYearAgo)
+
+  if (yearlyRates.length === 0) return { low: new BigNumber(0), high: new BigNumber(0) }
+
+  const apyValues = yearlyRates.map((rate) => new BigNumber(rate.averageRate).div(100))
+
+  const low = BigNumber.min(...apyValues)
+  const high = BigNumber.max(...apyValues)
+
+  return {
+    low: low.isNaN() ? new BigNumber(0) : low,
+    high: high.isNaN() ? new BigNumber(0) : high,
+  }
+}
+
+const getDaoManagedVaultArkCategory = (maxPercentageTVL: BigNumber | string) => {
+  const maxPercentageTVLBN = new BigNumber(maxPercentageTVL)
+
+  if (maxPercentageTVLBN.gte(1)) {
+    return 'Category A'
+  }
+  if (maxPercentageTVLBN.gte(0.7)) {
+    return 'Category B'
+  }
+
+  return 'Category C'
+}
+
+const truncateProtocolLabel = (
+  label: string,
+  maxLength: number = protocolLabelMaxLength,
+): string => {
+  if (label.length <= maxLength) {
+    return label
+  }
+
+  return `${label.substring(0, maxLength - 1)}…`
+}
+
+type MapperVaultNetwork =
+  | SupportedSDKNetworks.Mainnet
+  | SupportedSDKNetworks.ArbitrumOne
+  | SupportedSDKNetworks.Base
+
+/**
+ * Maps extended ark objects to table rows
+ * @param vaultNetwork - The network of the vault
+ * @returns Function that maps extended ark objects to table rows
+ */
+const sortedArksMapper = (vaultNetwork: MapperVaultNetwork) => {
+  return memoize((item: ExtendedArk): TableRow<string> => {
+    const arkTokenSymbol = item.inputToken.symbol
+    const arkScannerUrl = getScannerAddressUrl(subgraphNetworkToId(vaultNetwork), item.id)
+
+    const protocol = item.name?.split('-') ?? ['n/a']
+    const protocolLabel = getProtocolLabel(protocol)
+    const isBuffer = protocolLabel === 'Buffer'
+
+    let arkDetails
+
+    try {
+      arkDetails = arkDetailsMap[vaultNetwork][item.id]
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(`Error fetching ark details for ${item.id} on ${vaultNetwork}`, error)
+    }
+    if (!arkDetails) {
+      // eslint-disable-next-line no-console
+      console.warn(
+        `No ark details found for ${protocolLabel} - ${item.id} on ${sdkNetworkToHumanNetwork(vaultNetwork)}`,
+      )
+    }
+
+    const arkDaysSinceCreated = dayjs().diff(dayjs(Number(item.createdTimestamp) * 1000), 'day')
+
+    const isArkNew = arkDaysSinceCreated < 30
+
+    const isCapZero = item.depositCap.toString() === '0'
+
+    return {
+      content: {
+        vault: (
+          <TableCellNodes
+            style={{
+              opacity: isCapZero ? 0.5 : 1,
+            }}
+          >
+            <TableRowAccent backgroundColor={getUniqueColor(protocolLabel)} />
+            <Icon tokenName={getDisplayToken(arkTokenSymbol) as TokenSymbolsList} variant="m" />
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <div style={{ position: 'relative' }}>
+                {protocolLabel.length > protocolLabelMaxLength ? (
+                  <>
+                    <TableCellText
+                      style={{
+                        maxWidth: '200px',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        whiteSpace: 'nowrap',
+                      }}
+                    >
+                      {truncateProtocolLabel(protocolLabel)}
+                    </TableCellText>
+                    <TableCellText
+                      style={{
+                        position: 'absolute',
+                        top: '-2px',
+                        left: '-2px',
+                        opacity: 0,
+                        // pointerEvents: 'none',
+                        transition: 'opacity 0.2s ease',
+                        zIndex: 10,
+                        textWrap: 'nowrap',
+                        backgroundColor: 'var(--earn-protocol-neutral-80)',
+                        padding: '2px',
+                        borderRadius: '4px',
+                        boxShadow: '0px 0px 8px 0px rgba(0, 0, 0, 0.1)',
+                        whiteSpace: 'pre',
+                        maxWidth: '340px',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = '1'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = '0'
+                      }}
+                    >
+                      {protocolLabel}
+                    </TableCellText>
+                  </>
+                ) : (
+                  <TableCellText>{protocolLabel}</TableCellText>
+                )}
+              </div>
+              <TableCellText small style={{ color: 'var(--color-text-secondary)' }}>
+                {isArkNew && <Text variant="p3semiColorful">New!&nbsp;</Text>}
+                {formatDecimalAsPercent(item.allocationRatio)} allocated
+                {item.isDaoManaged && !isBuffer ? (
+                  <>
+                    &nbsp;|&nbsp;
+                    <Emphasis variant="p4semiColorfulBeachClub">
+                      {getDaoManagedVaultArkCategory(item.maxPercentageTVL)}
+                    </Emphasis>
+                  </>
+                ) : null}
+              </TableCellText>
+            </div>
+          </TableCellNodes>
+        ),
+        liveApy: <TableCellText>{isBuffer ? '-' : formatDecimalAsPercent(item.apy)}</TableCellText>,
+        avgApy30d: <TableCellText>{formatDecimalAsPercent(item.avgApy30d)}</TableCellText>,
+        avgApy1y: <TableCellText>{formatDecimalAsPercent(item.avgApy1y)}</TableCellText>,
+        yearlyLow: (
+          <TableCellText>{formatDecimalAsPercent(item.yearlyYieldRange.low)}</TableCellText>
+        ),
+        yearlyHigh: (
+          <TableCellText>{formatDecimalAsPercent(item.yearlyYieldRange.high)}</TableCellText>
+        ),
+        allocated: <TableCellText>{formatCryptoBalance(item.arkTokenTVL)}</TableCellText>,
+        allocationCap: (
+          <TableCellNodes>
+            <TableCellAllocationCap
+              isBuffer={isBuffer}
+              isCapZero={isCapZero}
+              capPercent={isBuffer ? 'n/a' : formatDecimalAsPercent(item.capRatio)}
+              tooltipContent={
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: 'var(--general-space-24)',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: 'var(--spacing-space-2x-small)',
+                    }}
+                  >
+                    <Text variant="p2semi" style={{ color: 'var(--color-text-primary)' }}>
+                      Allocation cap
+                    </Text>
+                    <Text variant="p3semiColorful" style={{ color: 'var(--color-text-secondary)' }}>
+                      {formatCryptoBalance(item.mainAllocationCap)} {arkTokenSymbol}
+                    </Text>
+                    <Text variant="p3" style={{ color: 'var(--color-text-secondary)' }}>
+                      This is the maximum allocation for this strategy in the Vault - it’s set to
+                      the lower value between the absolute cap and the TVL based cap (see below).
+                    </Text>
+                  </div>
+                  <div style={{ height: '1px', backgroundColor: 'var(--color-border)' }} />
+                  <TableCellAllocationCapTooltipDataBlock
+                    title="Absolute allocation cap"
+                    value={
+                      item.isNoLimitAbsoluteAllocationCap
+                        ? 'No limit'
+                        : `${formatCryptoBalance(item.absoluteAllocationCap)} ${arkTokenSymbol}`
+                    }
+                  />
+                  <TableCellAllocationCapTooltipDataBlock
+                    title="TVL allocation cap %"
+                    value={`${formatDecimalAsPercent(item.maxPercentageTVL)} (${formatCryptoBalance(item.vaultTvlAllocationCap)})`}
+                  />
+                  <TableCellAllocationCapTooltipDataBlock
+                    title="Cap utilisation"
+                    value={`${formatDecimalAsPercent(item.capRatio)} (${formatCryptoBalance(item.arkTokenTVL)} / ${formatCryptoBalance(item.mainAllocationCap)})`}
+                  />
+                </div>
+              }
+            />
+          </TableCellNodes>
+        ),
+      },
+      details: arkDetails ? (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--spacing-space-medium)',
+            maxWidth: '600px',
+          }}
+        >
+          <Text as="p" variant="p4semi" style={{ color: 'var(--earn-protocol-secondary-60)' }}>
+            Why this vault?
+          </Text>
+          <Text
+            as="p"
+            variant="p3"
+            style={{ color: 'var(--earn-protocol-secondary-100)', fontWeight: '500' }}
+          >
+            {arkDetails.description}
+          </Text>
+          <div style={{ display: 'flex', gap: 'var(--spacing-space-x-large)' }}>
+            {arkDetails.link && (
+              <Link href={arkDetails.link} target="_blank" rel="noreferrer">
+                <WithArrow
+                  as="p"
+                  variant="p4semi"
+                  style={{ color: 'var(--earn-protocol-primary-100)' }}
+                >
+                  Learn more
+                </WithArrow>
+              </Link>
+            )}
+            <Link href={arkScannerUrl} target="_blank" rel="noreferrer">
+              <WithArrow
+                as="p"
+                variant="p4semi"
+                style={{ color: 'var(--earn-protocol-secondary-60)' }}
+              >
+                View contract
+              </WithArrow>
+            </Link>
+          </div>
+        </div>
+      ) : (
+        <div
+          style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-space-medium)' }}
+          title={`${item.id} on ${vaultNetwork}`}
+        >
+          <Text
+            as="p"
+            variant="p3"
+            style={{ color: 'var(--earn-protocol-secondary-100)', fontWeight: '500' }}
+          >
+            No description available for this ark.
+          </Text>
+          <div style={{ display: 'flex', gap: 'var(--spacing-space-x-large)' }}>
+            <Link href={arkScannerUrl} target="_blank" rel="noreferrer">
+              <WithArrow
+                as="p"
+                variant="p4semi"
+                style={{ color: 'var(--earn-protocol-secondary-60)' }}
+              >
+                View contract
+              </WithArrow>
+            </Link>
+          </div>
+        </div>
+      ),
+    }
+  })
+}
+
+/**
+ * Maps vault arks to table rows with extended information
+ * @param vault - The vault to map
+ * @param arksInterestRates - Interest rates data for the arks
+ * @param sortConfig - Optional configuration for sorting the arks
+ * @returns Array of table rows with extended ark information
+ */
+export const vaultExposureMapper = (
+  vault?: SDKVaultType,
+  arksInterestRates?: InterestRates,
+  sortConfig?: TableSortedColumn<string>,
+  isDaoManaged = false,
+): TableRow<string>[] => {
+  if (!vault || !arksInterestRates) {
+    return []
+  }
+  const vaultInputTokenBalance = vault.inputTokenBalance
+
+  const arksLatestInterestRates = mapArkLatestInterestRates(arksInterestRates)
+
+  const extendedArks = vault.arks.map((ark) => {
+    const currentApy = arksLatestInterestRates[ark.name as string]
+    const arkRates = arksInterestRates[ark.name as string]
+
+    const apy = isNaN(Number(currentApy))
+      ? new BigNumber(0)
+      : new BigNumber(currentApy ?? 0).div(100)
+
+    const avgApy30d = calculateAverageApy(arkRates.dailyInterestRates ?? [], 30)
+    const avgApy1y = calculateAverageApy(arkRates.dailyInterestRates ?? [], 365)
+    const yearlyYieldRange = calculateYearlyYieldRange(arkRates.dailyInterestRates ?? [])
+    const maxPercentageTVL = new BigNumber(ark.maxDepositPercentageOfTVL).shiftedBy(
+      -18 - 2, // -18 because its 'in wei' and then -2 because we want to use formatDecimalAsPercent
+    )
+    const arkTokenTVL = new BigNumber(ark.inputTokenBalance).shiftedBy(-vault.inputToken.decimals)
+    const allocationRatio =
+      vaultInputTokenBalance.toString() !== '0'
+        ? new BigNumber(ark.inputTokenBalance).div(vaultInputTokenBalance.toString())
+        : zero
+    const absoluteAllocationCap =
+      ark.depositCap.toString() !== '0'
+        ? new BigNumber(ark.depositCap).shiftedBy(-ark.inputToken.decimals)
+        : zero
+
+    const isNoLimitAbsoluteAllocationCap = ark.depositCap.toString() === maxUint256.toString()
+
+    const vaultTvlAllocationCap = new BigNumber(
+      new BigNumber(vaultInputTokenBalance).shiftedBy(-vault.inputToken.decimals),
+    ).times(maxPercentageTVL)
+    const mainAllocationCap = BigNumber.minimum(absoluteAllocationCap, vaultTvlAllocationCap)
+
+    const capRatio = BigNumber.minimum(arkTokenTVL.div(mainAllocationCap), 1).isNaN()
+      ? new BigNumber(0)
+      : BigNumber.minimum(arkTokenTVL.div(mainAllocationCap), 1)
+
+    const extendedArk: ExtendedArk = {
+      ...ark,
+      apy,
+      avgApy30d,
+      avgApy1y,
+      yearlyYieldRange,
+      arkTokenTVL,
+      absoluteAllocationCap,
+      allocationRatio,
+      capRatio,
+      vaultTvlAllocationCap,
+      mainAllocationCap,
+      maxPercentageTVL,
+      isDaoManaged,
+      isNoLimitAbsoluteAllocationCap,
+    }
+
+    return extendedArk
+  })
+
+  const sortedArks = vaultExposureSorter({ extendedArks, sortConfig })
+
+  const vaultNetwork = vault.protocol.network as unknown as MapperVaultNetwork
+
+  return sortedArks.map(sortedArksMapper(vaultNetwork))
+}

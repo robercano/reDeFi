@@ -1,0 +1,160 @@
+'use client'
+
+import { type ReactNode, useCallback, useMemo } from 'react'
+import {
+  type DropdownRawOption,
+  type SDKVaultishType,
+  type SDKVaultsListType,
+  type SDKVaultType,
+} from '@summerfi/app-types'
+import { supportedSDKNetwork } from '@summerfi/app-utils'
+import dayjs from 'dayjs'
+import Link from 'next/link'
+
+import { Button } from '@/components/atoms/Button/Button'
+import { Text } from '@/components/atoms/Text/Text'
+import { WithArrow } from '@/components/atoms/WithArrow/WithArrow'
+import { Dropdown } from '@/components/molecules/Dropdown/Dropdown'
+import { VaultTitleDropdownContent } from '@/components/molecules/VaultTitleDropdownContent/VaultTitleDropdownContent'
+import { VaultTitleWithRisk } from '@/components/molecules/VaultTitleWithRisk/VaultTitleWithRisk'
+import { getDisplayToken } from '@/helpers/get-display-token'
+import { getUniqueVaultId } from '@/helpers/get-unique-vault-id'
+import { getVaultDetailsUrl, getVaultUrl } from '@/helpers/get-vault-url'
+
+import vaultGridDetailsStyles from './VaultGridDetails.module.css'
+
+export const VaultGridDetails = ({
+  vault,
+  vaults,
+  children,
+}: {
+  vault: SDKVaultType
+  vaults: SDKVaultsListType
+  children: ReactNode
+}): React.ReactNode => {
+  const vaultInceptionDate = dayjs(Number(vault.createdTimestamp) * 1000)
+  const isNewVault = dayjs().diff(vaultInceptionDate, 'day') <= 30
+
+  const mapVaultToDropdownItem = useCallback(
+    (item: SDKVaultishType) => ({
+      value: getUniqueVaultId(item),
+      content: (
+        <VaultTitleDropdownContent
+          vault={item}
+          link={getVaultDetailsUrl(item)}
+          isDaoManaged={item.isDaoManaged}
+        />
+      ),
+    }),
+    [],
+  )
+
+  const vaultsDropdownOptions: DropdownRawOption[] = useMemo(() => {
+    const regularVaults = vaults.filter((v) => !v.isDaoManaged)
+    const daoManagedVaults = vaults.filter((v) => v.isDaoManaged)
+
+    return [
+      ...(daoManagedVaults.length > 0
+        ? [
+            {
+              value: 'dao-managed-vaults',
+              content: (
+                <div
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--earn-protocol-secondary-100)',
+                  }}
+                >
+                  DAO Risk-Managed Vaults
+                </div>
+              ),
+              isSeparator: true,
+            },
+            ...daoManagedVaults.map(mapVaultToDropdownItem),
+          ]
+        : []),
+      ...(regularVaults.length > 0
+        ? [
+            {
+              value: 'other-vaults',
+              content: (
+                <div
+                  style={{
+                    fontSize: '12px',
+                    color: 'var(--earn-protocol-secondary-100)',
+                  }}
+                >
+                  Risk-Managed&nbsp;by&nbsp;Block&nbsp;Analitica
+                </div>
+              ),
+              isSeparator: true,
+            },
+            ...regularVaults.map(mapVaultToDropdownItem),
+          ]
+        : []),
+    ]
+  }, [mapVaultToDropdownItem, vaults])
+
+  return (
+    <>
+      <div className={vaultGridDetailsStyles.vaultGridDetailsBreadcrumbsWrapper}>
+        <div style={{ display: 'inline-block' }}>
+          <Link href="/">
+            <Text as="span" variant="p3" style={{ color: 'var(--color-text-primary-disabled)' }}>
+              Earn /
+            </Text>
+          </Link>
+          <Link href={getVaultUrl(vault)}>
+            <Text as="span" variant="p3" style={{ color: 'var(--color-text-primary-disabled)' }}>
+              {' '}
+              {vault.id}{' '}
+            </Text>
+          </Link>
+          <Text as="span" variant="p3" color="white">
+            / Details
+          </Text>
+        </div>
+      </div>
+      <div className={vaultGridDetailsStyles.vaultGridDetailsWrapper}>
+        <div className={vaultGridDetailsStyles.vaultGridDetailsHeaderWrapper}>
+          <Dropdown
+            options={vaultsDropdownOptions}
+            dropdownValue={{
+              value: getUniqueVaultId(vault),
+              content: (
+                <VaultTitleDropdownContent
+                  vault={vault}
+                  link={getVaultDetailsUrl(vault)}
+                  isDaoManaged={vault.isDaoManaged}
+                />
+              ),
+            }}
+          >
+            <VaultTitleWithRisk
+              symbol={getDisplayToken(vault.inputToken.symbol)}
+              risk={vault.customFields?.risk ?? 'lower'}
+              networkName={supportedSDKNetwork(vault.protocol.network)}
+              isNewVault={isNewVault}
+              isDaoManagedVault={vault.isDaoManaged}
+            />
+          </Dropdown>
+          <Button
+            variant="primarySmall"
+            style={{ height: '48px', paddingRight: '30px', minWidth: '128px' }}
+          >
+            <Link href={getVaultUrl(vault)}>
+              <WithArrow
+                as="span"
+                variant="p2semi"
+                style={{ color: 'var(-earn-protocol-secondary-100)' }}
+              >
+                Deposit
+              </WithArrow>
+            </Link>
+          </Button>
+        </div>
+        <div className={vaultGridDetailsStyles.vaultGridDetailsContentWrapper}>{children}</div>
+      </div>
+    </>
+  )
+}

@@ -1,0 +1,24 @@
+{
+  "name": "@summerfi/common",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "testw": "jest --watch",
+    "build": "tsc -b --preserveWatchOutput -v ",
+    "dev": "tsc -b --preserveWatchOutput -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*"
+  }
+}

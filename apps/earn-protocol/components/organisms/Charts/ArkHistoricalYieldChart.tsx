@@ -1,0 +1,132 @@
+'use client'
+
+import { useMemo, useState } from 'react'
+import { Card } from '@summerfi/app-earn-ui'
+import { type ArksHistoricalChartData, type TimeframesType } from '@summerfi/app-types'
+
+import { ChartHeader } from '@/components/organisms/Charts/ChartHeader'
+import { NotEnoughData } from '@/components/organisms/Charts/components/NotEnoughData'
+import { YieldsChart } from '@/components/organisms/Charts/components/Yields'
+import { POINTS_REQUIRED_FOR_CHART } from '@/constants/charts'
+import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'
+import { useTimeframes } from '@/hooks/use-timeframes'
+
+type ArkHistoricalYieldChartProps = {
+  chartData: ArksHistoricalChartData
+  summerVaultName: string
+  vaultBenchmarkName: string
+  chartId: string
+}
+
+export const ArkHistoricalYieldChart = ({
+  chartData,
+  summerVaultName,
+  vaultBenchmarkName,
+  chartId,
+}: ArkHistoricalYieldChartProps) => {
+  const buttonClickEventHandler = useHandleButtonClickEvent()
+  const {
+    timeframe,
+    setTimeframe,
+    timeframes,
+    isZoomed,
+    zoomedData,
+    handleResetZoom,
+    isSelectingZoom,
+    selectionZoomStart,
+    selectionZoomEnd,
+    createSelectionHandlers,
+  } = useTimeframes({
+    chartData: chartData.data,
+  })
+  const [compare, setCompare] = useState(false)
+
+  const colors = {
+    [`${summerVaultName}`]: '#FF49A4',
+    ...chartData.colors,
+  }
+
+  const dataNames = [
+    summerVaultName,
+    ...((compare
+      ? // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+        chartData.dataNames ?? []
+      : [chartData.dataNames.includes(vaultBenchmarkName) ? vaultBenchmarkName : null]
+    ).filter(Boolean) as string[]),
+  ].filter(Boolean) as string[]
+
+  const parsedData = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (!chartData) {
+      return []
+    }
+
+    if (!compare) {
+      return chartData.data[timeframe].map((point) =>
+        vaultBenchmarkName
+          ? {
+              timestamp: point.timestamp,
+              [summerVaultName]: point[summerVaultName],
+              [vaultBenchmarkName]: point[vaultBenchmarkName],
+            }
+          : {
+              timestamp: point.timestamp,
+              [summerVaultName]: point[summerVaultName],
+            },
+      )
+    }
+
+    return chartData.data[timeframe]
+  }, [timeframe, chartData, compare, summerVaultName, vaultBenchmarkName])
+
+  const dataToDisplay = isZoomed ? (zoomedData as typeof parsedData) : parsedData
+
+  const parsedDataWithCutoff =
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    !chartData || chartData.data['7d'].length <= POINTS_REQUIRED_FOR_CHART['7d']
+      ? []
+      : dataToDisplay
+
+  const handleSetNextTimeframe = (nextTimeframe: string) => {
+    setTimeframe(nextTimeframe as TimeframesType)
+    buttonClickEventHandler(`${chartId}-arks-historical-chart-timeframe-set-${nextTimeframe}`)
+  }
+
+  const handleSetCompare = (nextCompare: boolean) => {
+    setCompare(nextCompare)
+    buttonClickEventHandler(`${chartId}-arks-historical-chart-compare-set-${nextCompare}`)
+  }
+
+  return (
+    <Card
+      style={{
+        marginTop: 'var(--spacing-space-medium)',
+        flexDirection: 'column',
+        position: 'relative',
+      }}
+    >
+      {!parsedDataWithCutoff.length && <NotEnoughData />}
+      <ChartHeader
+        timeframes={timeframes}
+        checkboxValue={compare}
+        setCheckboxValue={handleSetCompare}
+        checkboxLabel="Compare to others"
+        timeframe={timeframe}
+        setTimeframe={handleSetNextTimeframe}
+        isZoomed={isZoomed}
+        onResetZoom={handleResetZoom}
+      />
+      <YieldsChart
+        summerVaultName={summerVaultName}
+        timeframe={timeframe}
+        colors={colors}
+        data={parsedDataWithCutoff}
+        dataNames={dataNames}
+        isSelectingZoom={isSelectingZoom}
+        selectionZoomStart={selectionZoomStart}
+        selectionZoomEnd={selectionZoomEnd}
+        selectionHandlers={createSelectionHandlers(parsedData)}
+      />
+    </Card>
+  )
+}

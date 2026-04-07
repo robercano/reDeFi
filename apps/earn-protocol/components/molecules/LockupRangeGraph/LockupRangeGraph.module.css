@@ -1,0 +1,132 @@
+.lockupRangeGraph {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 16px;
+
+  .lockupRangeGraphTitle {
+    display: flex;
+    gap: var(--spacing-space-2x-small);
+    color: var(--color-text-secondary);
+  }
+
+  .lockupRangeGraphBars {
+    display: flex;
+    gap: 2px;
+
+    .lockupRangeGraphBar {
+      box-sizing: content-box;
+      height: 4px;
+      border-radius: 4px;
+      text-align: center;
+
+      span {
+        white-space: pre;
+        font-size: 10px;
+        font-weight: 800;
+        margin-top: 5px;
+        color: var(--color-text-secondary);
+        display: block;
+        padding-top: 2px;
+        width: 100%;
+      }
+    }
+
+    .gray {
+      background-color: var(--color-border);
+    }
+
+    .low {
+      background-color: var(--color-text-critical);
+    }
+
+    .medium {
+      background-color: var(--color-background-warning-bold);
+    }
+
+    .high {
+      background-color: var(--earn-protocol-success-100);
+    }
+  }
+}
+
+@keyframes highlightAnimationCritical {
+  0% {
+    box-shadow: 0;
+  }
+
+  50% {
+    box-shadow: 0 0 15px var(--color-text-critical);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--color-text-critical);
+  }
+}
+
+@keyframes highlightAnimationWarning {
+  0% {
+    box-shadow: 0;
+  }
+
+  50% {
+    box-shadow: 0 0 15px var(--color-background-warning-bold);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--color-background-warning-bold);
+  }
+}
+
+@keyframes highlightAnimationSuccess {
+  0% {
+    box-shadow: 0;
+  }
+
+  50% {
+    box-shadow: 0 0 15px var(--earn-protocol-success-100);
+  }
+
+  100% {
+    box-shadow: 0 0 5px var(--earn-protocol-success-100);
+  }
+}
+
+.highlightAnimation_low,
+.highlightAnimation_gray {
+  animation: highlightAnimationCritical 0.3s 1 forwards;
+}
+
+.highlightAnimation_medium {
+  animation: highlightAnimationWarning 0.3s 1 forwards;
+}
+
+.highlightAnimation_high {
+  animation: highlightAnimationSuccess 0.3s 1 forwards;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.lockupRangeGraphTooltip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  .lockupRangeGraphTooltipMiniChartDescription {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .lockupRangeGraphTooltipMiniChart {
+    width: 16px;
+    height: 4px;
+    border-radius: 4px;
+  }
+}
+
+.faded {
+  opacity: 0.5;
+}

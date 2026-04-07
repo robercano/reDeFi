@@ -1,0 +1,298 @@
+import { router } from './SDKTRPC'
+
+import { addArk } from './armada-protocol-handlers/admin/addArk'
+import { arks } from './armada-protocol-handlers/admin/arks'
+import { arkConfig } from './armada-protocol-handlers/admin/arkConfig'
+import { addArks } from './armada-protocol-handlers/admin/addArks'
+import { emergencyShutdown } from './armada-protocol-handlers/admin/emergencyShutdown'
+import { forceRebalance } from './armada-protocol-handlers/admin/forceRebalance'
+import { getFeeRevenueConfig } from './armada-protocol-handlers/admin/getFeeRevenueConfig'
+import { removeArk } from './armada-protocol-handlers/admin/removeArk'
+import { setArkDepositCap } from './armada-protocol-handlers/admin/setArkDepositCap'
+import { setArkMaxDepositPercentageOfTVL } from './armada-protocol-handlers/admin/setArkMaxDepositPercentageOfTVL'
+import { setArkMaxRebalanceInflow } from './armada-protocol-handlers/admin/setArkMaxRebalanceInflow'
+import { setArkMaxRebalanceOutflow } from './armada-protocol-handlers/admin/setArkMaxRebalanceOutflow'
+import { setFleetDepositCap } from './armada-protocol-handlers/admin/setFleetDepositCap'
+import { setMinimumBufferBalance } from './armada-protocol-handlers/admin/setMinimumBufferBalance'
+import { setTipJar } from './armada-protocol-handlers/admin/setTipJar'
+import { setTipRate } from './armada-protocol-handlers/admin/setTipRate'
+import { tipRate } from './armada-protocol-handlers/admin/tipRate'
+import { updateRebalanceCooldown } from './armada-protocol-handlers/admin/updateRebalanceCooldown'
+import { rebalance } from './armada-protocol-handlers/admin/rebalance'
+import { getDepositTx } from './armada-protocol-handlers/users/getDepositTxTx'
+import { getVaultsRaw } from './armada-protocol-handlers/users/getVaults'
+import { getVaultsHistoricalRates } from './armada-protocol-handlers/users/getVaultsHistoricalRates'
+import { getVaultRaw } from './armada-protocol-handlers/users/getVault'
+import { getVaultInfo } from './armada-protocol-handlers/users/getVaultInfo'
+import { getPosition as getArmadaPosition } from './armada-protocol-handlers/users/getPosition'
+import { getPositionHistory } from './armada-protocol-handlers/users/getPositionHistory'
+import { getDeposits } from './armada-protocol-handlers/users/getDeposits'
+import { getWithdrawals } from './armada-protocol-handlers/users/getWithdrawals'
+import { getUserPositions } from './armada-protocol-handlers/users/getUserPositions'
+import { getUserPosition } from './armada-protocol-handlers/users/getUserPosition'
+import { getWithdrawTx } from './armada-protocol-handlers/users/getWithdrawTxTx'
+import { buildOrder } from './handlers/buildOrder'
+import { getArmadaSimulation } from './handlers/getArmadaSimulation'
+import { getImportSimulation } from './handlers/getImportSimulation'
+import { getLendingPool } from './handlers/getLendingPool'
+import { getLendingPoolInfo } from './handlers/getLendingPoolInfo'
+import { getPosition } from './handlers/getPosition'
+import { getRefinanceSimulation } from './handlers/getRefinanceSimulation'
+import { getSwapDataExactInput } from './handlers/getSwapData'
+import { getSwapQuoteExactInput } from './handlers/getSwapQuote'
+import { getTokenByAddress } from './handlers/getTokenByAddress'
+import { getTokenByName } from './handlers/getTokenByName'
+import { getTokenBySymbol } from './handlers/getTokenBySymbol'
+import { getGlobalRebalancesRaw } from './armada-protocol-handlers/users/getGlobalRebalancesRaw'
+import { getUsersActivityRaw } from './armada-protocol-handlers/users/getUsersActivityRaw'
+import { getUserActivityRaw } from './armada-protocol-handlers/users/getUserActivityRaw'
+import { getFleetBalance } from './armada-protocol-handlers/users/getFleetBalance'
+import { getStakedBalance } from './armada-protocol-handlers/users/getStakedBalance'
+import { getTotalBalance } from './armada-protocol-handlers/users/getTotalBalance'
+import { getAggregatedRewards } from './armada-protocol-handlers/users/getAggregatedRewards'
+import { getAggregatedRewardsIncludingMerkl } from './armada-protocol-handlers/users/getAggregatedRewardsIncludingMerkl'
+import { getAggregatedClaimsForChainTx } from './armada-protocol-handlers/users/getAggregatedClaimsForChainTX'
+import { getUserDelegatee } from './armada-protocol-handlers/users/getUserDelegatee'
+import { getUserDelegateeV2 } from './armada-protocol-handlers/users/getUserDelegateeV2'
+import { getDelegateTx } from './armada-protocol-handlers/users/getDelegateTx'
+import { getDelegateTxV2 } from './armada-protocol-handlers/users/getDelegateTxV2'
+import { getErc20TokenTransferTx } from './armada-protocol-handlers/users/getErc20TokenTransferTx'
+import { getUndelegateTx } from './armada-protocol-handlers/users/getUndelegateTx'
+import { getUserVotes } from './armada-protocol-handlers/users/getUserVotes'
+import { getUserStakedBalance } from './armada-protocol-handlers/users/getUserStakedBalance'
+import { getStakeTx } from './armada-protocol-handlers/users/getStakeTx'
+import { getUnstakeTx } from './armada-protocol-handlers/users/getUnstakeTx'
+import { getStakeTxV2 } from './armada-protocol-handlers/users/getStakeTxV2'
+import { getStakeOnBehalfTxV2 } from './armada-protocol-handlers/users/getStakeOnBehalfTxV2'
+import { getUnstakeTxV2 } from './armada-protocol-handlers/users/getUnstakeTxV2'
+import { getUserStakesCount } from './armada-protocol-handlers/users/getUserStakesCount'
+import { getUserStakesV2 } from './armada-protocol-handlers/users/getUserStakesV2'
+import { getStakingStakesV2 } from './armada-protocol-handlers/users/getStakingStakesV2'
+import { getUserStakingBalanceV2 } from './armada-protocol-handlers/users/getUserStakingBalanceV2'
+import { getUserStakingWeightedBalanceV2 } from './armada-protocol-handlers/users/getUserStakingWeightedBalanceV2'
+import { getUserBlendedYieldBoost } from './armada-protocol-handlers/users/getUserBlendedYieldBoost'
+import { getUserStakingEarnedV2 } from './armada-protocol-handlers/users/getUserStakingEarnedV2'
+import { getUserStakingSumrStaked } from './armada-protocol-handlers/users/getUserStakingSumrStaked'
+import { getStakingRewardRatesV2 } from './armada-protocol-handlers/users/getStakingRewardRatesV2'
+import { getCalculatePenaltyPercentage } from './armada-protocol-handlers/users/getCalculatePenaltyPercentage'
+import { getCalculatePenaltyAmount } from './armada-protocol-handlers/users/getCalculatePenaltyAmount'
+import { getStakingBucketsInfoV2 } from './armada-protocol-handlers/users/getStakingBucketsInfoV2'
+import { getStakingCalculateWeightedStakeV2 } from './armada-protocol-handlers/users/getStakingCalculateWeightedStakeV2'
+import { getStakingTotalWeightedSupplyV2 } from './armada-protocol-handlers/users/getStakingTotalWeightedSupplyV2'
+import { getStakingTotalSumrStakedV2 } from './armada-protocol-handlers/users/getStakingTotalSumrStakedV2'
+import { getStakingRevenueShareV2 } from './armada-protocol-handlers/users/getStakingRevenueShareV2'
+import { getStakingSimulationDataV2 } from './armada-protocol-handlers/users/getStakingSimulationDataV2'
+import { getStakingEarningsEstimationV2 } from './armada-protocol-handlers/users/getStakingEarningsEstimationV2'
+import { getStakingConfigV2 } from './armada-protocol-handlers/users/getStakingConfigV2'
+import { getStakingStatsV2 } from './armada-protocol-handlers/users/getStakingStatsV2'
+import { getUnstakeFleetTokensTx } from './armada-protocol-handlers/users/getUnstakeFleetTokensTx'
+import { getUserEarnedRewards } from './armada-protocol-handlers/users/getUserEarnedRewards'
+import { getUserBalance } from './armada-protocol-handlers/users/getUserBalance'
+import { getSummerToken } from './armada-protocol-handlers/users/getSummerToken'
+import { getSummerPrice } from './armada-protocol-handlers/users/getSummerPrice'
+import { getDelegationChainLength } from './armada-protocol-handlers/users/getDelegationChainLength'
+import { pingHandler } from './handlers/pingHandler'
+import { getMigratablePositions } from './armada-protocol-handlers/users/getMigratablePositions'
+import { getMigrationTX } from './armada-protocol-handlers/users/getMigrationTX'
+import { getBridgeTx } from './armada-protocol-handlers/users/getBridgeTx'
+import { getMigratablePositionsApy } from './armada-protocol-handlers/users/getMigratablePositionsApy'
+import { getSpotPrice } from './handlers/getSpotPrice'
+import { getSpotPrices } from './handlers/getSpotPrices'
+import { intentSwapsGetSellOrderQuote } from './handlers/intentSwapsGetSellOrderQuote'
+import { intentSwapsSendOrder } from './handlers/intentSwapsSendOrder'
+import { intentSwapsCancelOrder } from './handlers/intentSwapsCancelOrder'
+import { intentSwapsCheckOrder } from './handlers/intentSwapsCheckOrder'
+import { getVaultSwitchTx } from './armada-protocol-handlers/users/getVaultSwitchTx'
+import { getVaultInfoList } from './armada-protocol-handlers/users/getVaultInfoList'
+import { getProtocolRevenue } from './armada-protocol-handlers/users/getProtocolRevenue'
+import { getProtocolTvl } from './armada-protocol-handlers/users/getProtocolTvl'
+import { getCrossChainDepositTx } from './armada-protocol-handlers/users/getCrossChainDepositTx'
+import { getCrossChainWithdrawTx } from './armada-protocol-handlers/users/getCrossChainWithdrawTx'
+import { getUserMerklRewards } from './armada-protocol-handlers/users/getUserMerklRewards'
+import { getUserMerklClaimTx } from './armada-protocol-handlers/users/getUserMerklClaimTx'
+import { getReferralFeesMerklClaimTx } from './armada-protocol-handlers/users/getReferralFeesMerklClaimTx'
+import { getVaultRewardsMerklClaimTx } from './armada-protocol-handlers/users/getVaultRewardsMerklClaimTx'
+import { getAuthorizeAsMerklRewardsOperatorTx } from './armada-protocol-handlers/users/getAuthorizeAsMerklRewardsOperatorTx'
+import { getIsAuthorizedAsMerklRewardsOperator } from './armada-protocol-handlers/users/getIsAuthorizedAsMerklRewardsOperator'
+import { getClaimStakingV2UserRewardsTx } from './armada-protocol-handlers/users/getClaimStakingV2UserRewardsTx'
+import { authorizeStakingRewardsCallerV2 } from './armada-protocol-handlers/users/authorizeStakingRewardsCallerV2'
+import { isAuthorizedStakingRewardsCallerV2 } from './armada-protocol-handlers/users/isAuthorizedStakingRewardsCallerV2'
+import { hasGlobalRole } from './armada-protocol-handlers/access-control/hasGlobalRole'
+import { hasContractSpecificRole } from './armada-protocol-handlers/access-control/hasContractSpecificRole'
+import { grantGlobalRole } from './armada-protocol-handlers/access-control/grantGlobalRole'
+import { revokeGlobalRole } from './armada-protocol-handlers/access-control/revokeGlobalRole'
+import { grantContractSpecificRole } from './armada-protocol-handlers/access-control/grantContractSpecificRole'
+import { revokeContractSpecificRole } from './armada-protocol-handlers/access-control/revokeContractSpecificRole'
+import { getAllAddressesWithGlobalRole } from './armada-protocol-handlers/access-control/getAllAddressesWithGlobalRole'
+import { getAllAddressesWithContractSpecificRole } from './armada-protocol-handlers/access-control/getAllAddressesWithContractSpecificRole'
+import { isWhitelisted } from './armada-protocol-handlers/access-control/isWhitelisted'
+import { setWhitelisted } from './armada-protocol-handlers/access-control/setWhitelisted'
+import { setWhitelistedBatch } from './armada-protocol-handlers/access-control/setWhitelistedBatch'
+import { isWhitelistedAQ } from './armada-protocol-handlers/access-control/isWhitelistedAQ'
+import { setWhitelistedAQ } from './armada-protocol-handlers/access-control/setWhitelistedAQ'
+import { setWhitelistedBatchAQ } from './armada-protocol-handlers/access-control/setWhitelistedBatchAQ'
+import { getAllRoles } from './armada-protocol-handlers/access-control/getAllRoles'
+
+/**
+ * Server
+ */
+export const sdkAppRouter = router({
+  debug: {
+    ping: pingHandler,
+  },
+  protocols: {
+    getPosition: getPosition,
+    getLendingPool: getLendingPool,
+    getLendingPoolInfo: getLendingPoolInfo,
+  },
+  tokens: {
+    getTokenBySymbol: getTokenBySymbol,
+    getTokenByName: getTokenByName,
+    getTokenByAddress: getTokenByAddress,
+  },
+  simulation: {
+    refinance: getRefinanceSimulation,
+    import: getImportSimulation,
+    armada: getArmadaSimulation,
+  },
+  orders: {
+    buildOrder: buildOrder,
+  },
+  intentSwaps: {
+    getSellOrderQuote: intentSwapsGetSellOrderQuote,
+    sendOrder: intentSwapsSendOrder,
+    cancelOrder: intentSwapsCancelOrder,
+    checkOrder: intentSwapsCheckOrder,
+  },
+  swaps: {
+    getSwapDataExactInput: getSwapDataExactInput,
+    getSwapQuoteExactInput: getSwapQuoteExactInput,
+  },
+  oracle: {
+    getSpotPrice: getSpotPrice,
+    getSpotPrices: getSpotPrices,
+  },
+  armada: {
+    users: {
+      getVaultsRaw: getVaultsRaw,
+      getVaultRaw: getVaultRaw,
+      getGlobalRebalancesRaw: getGlobalRebalancesRaw,
+      getUsersActivityRaw: getUsersActivityRaw,
+      getUserActivityRaw: getUserActivityRaw,
+      getVaultInfo: getVaultInfo,
+      getVaultInfoList: getVaultInfoList,
+      getProtocolRevenue: getProtocolRevenue,
+      getProtocolTvl: getProtocolTvl,
+      getVaultsHistoricalRates: getVaultsHistoricalRates,
+      getPosition: getArmadaPosition,
+      getPositionHistory: getPositionHistory,
+      getDeposits: getDeposits,
+      getWithdrawals: getWithdrawals,
+      getUserPositions: getUserPositions,
+      getUserPosition: getUserPosition,
+      getDepositTx: getDepositTx,
+      getWithdrawTx: getWithdrawTx,
+      getCrossChainDepositTx: getCrossChainDepositTx,
+      getCrossChainWithdrawTx: getCrossChainWithdrawTx,
+      getFleetBalance: getFleetBalance,
+      getStakedBalance: getStakedBalance,
+      getTotalBalance: getTotalBalance,
+      getBridgeTx: getBridgeTx,
+      getAggregatedRewards: getAggregatedRewards,
+      getAggregatedRewardsIncludingMerkl: getAggregatedRewardsIncludingMerkl,
+      getAggregatedClaimsForChainTx: getAggregatedClaimsForChainTx,
+      getUserDelegatee: getUserDelegatee,
+      getUserDelegateeV2: getUserDelegateeV2,
+      getDelegateTx: getDelegateTx,
+      getDelegateTxV2: getDelegateTxV2,
+      getErc20TokenTransferTx: getErc20TokenTransferTx,
+      getUndelegateTx: getUndelegateTx,
+      getUserVotes: getUserVotes,
+      getUserStakedBalance: getUserStakedBalance,
+      getUserEarnedRewards: getUserEarnedRewards,
+      getStakeTx: getStakeTx,
+      getUnstakeTx: getUnstakeTx,
+      getStakeTxV2: getStakeTxV2,
+      getStakeOnBehalfTxV2: getStakeOnBehalfTxV2,
+      getUnstakeTxV2: getUnstakeTxV2,
+      getUserStakesCount: getUserStakesCount,
+      getUserStakesV2: getUserStakesV2,
+      getStakingStakesV2: getStakingStakesV2,
+      getUserStakingBalanceV2: getUserStakingBalanceV2,
+      getUserStakingWeightedBalanceV2: getUserStakingWeightedBalanceV2,
+      getUserBlendedYieldBoost: getUserBlendedYieldBoost,
+      getUserStakingEarnedV2: getUserStakingEarnedV2,
+      getUserStakingSumrStaked: getUserStakingSumrStaked,
+      getCalculatePenaltyPercentage: getCalculatePenaltyPercentage,
+      getCalculatePenaltyAmount: getCalculatePenaltyAmount,
+      getStakingRewardRatesV2: getStakingRewardRatesV2,
+      getStakingBucketsInfoV2: getStakingBucketsInfoV2,
+      getStakingCalculateWeightedStakeV2: getStakingCalculateWeightedStakeV2,
+      getStakingTotalWeightedSupplyV2: getStakingTotalWeightedSupplyV2,
+      getStakingTotalSumrStakedV2: getStakingTotalSumrStakedV2,
+      getStakingRevenueShareV2: getStakingRevenueShareV2,
+      getStakingSimulationDataV2: getStakingSimulationDataV2,
+      getStakingEarningsEstimationV2: getStakingEarningsEstimationV2,
+      getStakingConfigV2: getStakingConfigV2,
+      getStakingStatsV2: getStakingStatsV2,
+      getUnstakeFleetTokensTx: getUnstakeFleetTokensTx,
+      getUserBalance: getUserBalance,
+      getSummerToken: getSummerToken,
+      getSummerPrice: getSummerPrice,
+      getDelegationChainLength: getDelegationChainLength,
+      getMigratablePositions: getMigratablePositions,
+      getMigratablePositionsApy: getMigratablePositionsApy,
+      getMigrationTx: getMigrationTX,
+      getVaultSwitchTx: getVaultSwitchTx,
+      getUserMerklRewards: getUserMerklRewards,
+      getUserMerklClaimTx: getUserMerklClaimTx,
+      getClaimStakingV2UserRewardsTx: getClaimStakingV2UserRewardsTx,
+      authorizeStakingRewardsCallerV2: authorizeStakingRewardsCallerV2,
+      isAuthorizedStakingRewardsCallerV2: isAuthorizedStakingRewardsCallerV2,
+      getReferralFeesMerklClaimTx: getReferralFeesMerklClaimTx,
+      getVaultRewardsMerklClaimTx: getVaultRewardsMerklClaimTx,
+      getAuthorizeAsMerklRewardsOperatorTx: getAuthorizeAsMerklRewardsOperatorTx,
+      getIsAuthorizedAsMerklRewardsOperator: getIsAuthorizedAsMerklRewardsOperator,
+    },
+    admin: {
+      rebalance: rebalance,
+      setFleetDepositCap: setFleetDepositCap,
+      setTipJar: setTipJar,
+      setTipRate: setTipRate,
+      addArk: addArk,
+      addArks: addArks,
+      removeArk: removeArk,
+      setArkDepositCap: setArkDepositCap,
+      setArkMaxDepositPercentageOfTVL: setArkMaxDepositPercentageOfTVL,
+      setArkMaxRebalanceInflow: setArkMaxRebalanceInflow,
+      setArkMaxRebalanceOutflow: setArkMaxRebalanceOutflow,
+      setMinimumBufferBalance: setMinimumBufferBalance,
+      forceRebalance: forceRebalance,
+      updateRebalanceCooldown: updateRebalanceCooldown,
+      emergencyShutdown: emergencyShutdown,
+      arks: arks,
+      arkConfig: arkConfig,
+      getFeeRevenueConfig: getFeeRevenueConfig,
+      tipRate: tipRate,
+    },
+    accessControl: {
+      hasGlobalRole: hasGlobalRole,
+      hasContractSpecificRole: hasContractSpecificRole,
+      grantGlobalRole: grantGlobalRole,
+      revokeGlobalRole: revokeGlobalRole,
+      grantContractSpecificRole: grantContractSpecificRole,
+      revokeContractSpecificRole: revokeContractSpecificRole,
+      getAllAddressesWithGlobalRole: getAllAddressesWithGlobalRole,
+      getAllAddressesWithContractSpecificRole: getAllAddressesWithContractSpecificRole,
+      isWhitelisted: isWhitelisted,
+      setWhitelisted: setWhitelisted,
+      setWhitelistedBatch: setWhitelistedBatch,
+      isWhitelistedAQ: isWhitelistedAQ,
+      setWhitelistedAQ: setWhitelistedAQ,
+      setWhitelistedBatchAQ: setWhitelistedBatchAQ,
+      getAllRoles: getAllRoles,
+    },
+  },
+})
+
+export type SDKAppRouter = typeof sdkAppRouter

@@ -1,0 +1,18 @@
+{
+  "name": "@summer_fi/summerfi-protocol-plugins",
+  "version": "0.3.3",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "summer.fi",
+    "email": "integration@summer.fi",
+    "url": "https://summer.fi"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "packageManager": "yarn@1.22.21",
+  "scripts": {},
+  "dependencies": {
+    "bignumber.js": "^9.3.0",
+    "zod": "3.25.61"
+  }
+}

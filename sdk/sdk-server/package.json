@@ -1,0 +1,61 @@
+{
+  "name": "@summerfi/sdk-server",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput -v tsconfig.build.json",
+    "test": "jest tests/ --passWithNoTests",
+    "testw": "jest --watch",
+    "e2e": "jest e2e/",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@cowprotocol/cow-sdk": "^6.3.2",
+    "@summerfi/abi-provider-common": "workspace:*",
+    "@summerfi/abi-provider-service": "workspace:*",
+    "@summerfi/address-book-common": "workspace:*",
+    "@summerfi/address-book-service": "workspace:*",
+    "@summerfi/allowance-manager-common": "workspace:*",
+    "@summerfi/allowance-manager-service": "workspace:*",
+    "@summerfi/armada-protocol-common": "workspace:*",
+    "@summerfi/armada-protocol-service": "workspace:*",
+    "@summerfi/blockchain-client-common": "workspace:*",
+    "@summerfi/blockchain-client-provider": "workspace:*",
+    "@summerfi/common": "workspace:*",
+    "@summerfi/configuration-provider": "workspace:*",
+    "@summerfi/configuration-provider-common": "workspace:*",
+    "@summerfi/contracts-provider-common": "workspace:*",
+    "@summerfi/contracts-provider-service": "workspace:*",
+    "@summerfi/core-contracts": "workspace:*",
+    "@summerfi/deployment-utils": "workspace:*",
+    "@summerfi/oracle-common": "workspace:*",
+    "@summerfi/oracle-service": "workspace:*",
+    "@summerfi/order-planner-common": "workspace:*",
+    "@summerfi/order-planner-service": "workspace:*",
+    "@summerfi/protocol-manager-common": "workspace:*",
+    "@summerfi/protocol-manager-service": "workspace:*",
+    "@summerfi/protocol-plugins": "workspace:*",
+    "@summerfi/protocol-plugins-common": "workspace:*",
+    "@summerfi/sdk-common": "workspace:*",
+    "@summerfi/sdk-server-common": "workspace:*",
+    "@summerfi/simulator-service": "workspace:^",
+    "@summerfi/subgraph-manager-service": "workspace:*",
+    "@summerfi/swap-common": "workspace:*",
+    "@summerfi/swap-service": "workspace:*",
+    "@summerfi/tokens-common": "workspace:*",
+    "@summerfi/tokens-service": "workspace:*",
+    "@trpc/server": "11.8.0"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/jest-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*"
+  }
+}

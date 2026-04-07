@@ -1,0 +1,20 @@
+{
+  "name": "@summerfi/update-summer-earn-paginated-tables",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest --passWithNoTests",
+    "build": "tsc -b --preserveWatchOutput -v",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@aws-lambda-powertools/logger": "^2.0.2"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*",
+    "@types/node": "^20.11.5",
+    "eslint": "^8.56.0",
+    "typescript": "^5.7.3"
+  }
+}

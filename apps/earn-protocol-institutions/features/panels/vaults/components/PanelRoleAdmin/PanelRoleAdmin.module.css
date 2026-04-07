@@ -1,0 +1,72 @@
+.panelRoleAdminWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-space-large);
+
+  .trashButton {
+    color: var(--earn-protocol-primary-100);
+
+    &:hover {
+      opacity: 0.6;
+      transition: opacity 0.2s ease-in-out;
+    }
+  }
+
+  .tableWrapper {
+    overflow-x: auto;
+
+    .table {
+      min-width: 600px;
+    }
+  }
+
+  .tableCellAddress {
+    font-family: monospace;
+    font-weight: 500;
+    user-select: auto;
+  }
+
+  .inputContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .inputWrapper {
+      max-width: 178px;
+      height: 28px;
+      padding: var(--spacing-space-2x-small) var(--spacing-space-x-small);
+      border-radius: var(--radius-small);
+      font-size: 12px;
+      text-align: right;
+    }
+  }
+}
+
+.addRoleForm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-space-large);
+  width: 100%;
+}
+
+.currentUser {
+  color: var(--earn-protocol-success-50);
+}
+
+.titleWithInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-space-medium);
+  width: 100%;
+}
+
+.inputFilter {
+  width: 260px;
+  input {
+    padding: var(--spacing-space-small) var(--spacing-space-medium);
+    font-size: 14px;
+    background-color: var(--earn-protocol-neutral-95);
+  }
+}

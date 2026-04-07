@@ -1,0 +1,109 @@
+import { getRewardsTokenBonus, sumrNetApyConfigCookieName } from '@summerfi/app-earn-ui'
+import {
+  getServerSideCookies,
+  parseServerResponseToClient,
+  safeParseJson,
+} from '@summerfi/app-utils'
+import { type Metadata } from 'next'
+import { cookies } from 'next/headers'
+
+import { getCachedConfig } from '@/app/server-handlers/cached/get-config'
+import { getCachedVaultsInfo } from '@/app/server-handlers/cached/get-vaults-info'
+import { getCachedSumrPrice } from '@/app/server-handlers/reward-token-price'
+import { SumrPageView } from '@/components/layout/SumrPageView/SumrPageView'
+import { SumrV2PageView } from '@/components/layout/SumrV2PageView/SumrV2PageView'
+import { getEstimatedSumrPrice } from '@/helpers/get-estimated-sumr-price'
+
+const SumrPage = async () => {
+  const [configRaw, vaultsInfo, cookieRaw, sumrPrice] = await Promise.all([
+    getCachedConfig(),
+    getCachedVaultsInfo(),
+    cookies(),
+    getCachedSumrPrice(),
+  ])
+  const cookie = cookieRaw.toString()
+  const sumrNetApyConfig = safeParseJson(getServerSideCookies(sumrNetApyConfigCookieName, cookie))
+  const systemConfig = parseServerResponseToClient(configRaw)
+  const apyRanges: {
+    eth: { minApy: number; maxApy: number }
+    stablecoins: { minApy: number; maxApy: number }
+  } = vaultsInfo.reduce(
+    (ranges, vault) => {
+      const isEthVault = vault.assetToken.symbol === 'ETH' || vault.assetToken.symbol === 'WETH'
+      const apy = Number(vault.apy?.value.toString() ?? '0')
+
+      if (isEthVault) {
+        ranges.eth.minApy = Math.min(ranges.eth.minApy === 0 ? apy : ranges.eth.minApy, apy)
+        ranges.eth.maxApy = Math.max(ranges.eth.maxApy, apy)
+      } else {
+        ranges.stablecoins.minApy = Math.min(
+          ranges.stablecoins.minApy === 0 ? apy : ranges.stablecoins.minApy,
+          apy,
+        )
+        ranges.stablecoins.maxApy = Math.max(ranges.stablecoins.maxApy, apy)
+      }
+
+      return ranges
+    },
+    {
+      eth: { minApy: 0, maxApy: 0 },
+      stablecoins: { minApy: 0, maxApy: 0 },
+    },
+  )
+
+  const sumrPriceUsd = getEstimatedSumrPrice({
+    config: systemConfig,
+    sumrPrice: sumrPrice.usd,
+    sumrNetApyConfig: sumrNetApyConfig ?? {},
+  })
+
+  const sumrRewards: {
+    eth: number
+    stablecoins: number
+  } = vaultsInfo.reduce(
+    (rewards, vault) => {
+      if (
+        vault.id.fleetAddress.value.toLowerCase() ===
+        '0x4F63cfEa7458221CB3a0EEE2F31F7424Ad34bb58'.toLowerCase()
+      ) {
+        return rewards
+      }
+
+      const isEthVault = vault.assetToken.symbol === 'ETH' || vault.assetToken.symbol === 'WETH'
+
+      const { rawTokenBonus } = getRewardsTokenBonus({
+        merklRewards: vault.merklRewards,
+        tokensPriceMap: sumrPriceUsd ? { SUMR: sumrPriceUsd } : {},
+        totalValueLockedUSD: vault.tvlUsd.amount.toString(),
+      })
+
+      if (isEthVault) {
+        rewards.eth = Math.max(rewards.eth, Number(rawTokenBonus))
+      } else {
+        rewards.stablecoins = Math.max(rewards.stablecoins, Number(rawTokenBonus))
+      }
+
+      return rewards
+    },
+    {
+      eth: 0,
+      stablecoins: 0,
+    },
+  )
+
+  return systemConfig.features?.StakingV2 ? (
+    <SumrV2PageView apyRanges={apyRanges} sumrRewards={sumrRewards} sumrPriceUsd={sumrPriceUsd} />
+  ) : (
+    <SumrPageView />
+  )
+}
+
+export function generateMetadata(): Metadata {
+  return {
+    title: `Lazy Summer Protocol - $SUMR Token`,
+    description:
+      'Check if you are eligible for $SUMR - the token that powers DeFi’s best yield optimizer.',
+  }
+}
+
+export default SumrPage

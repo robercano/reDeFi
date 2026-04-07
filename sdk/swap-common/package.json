@@ -1,0 +1,33 @@
+{
+  "name": "@summerfi/swap-common",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/index.d.ts"
+    },
+    "./*": {
+      "import": "./src/*/index.ts",
+      "types": "./src/*/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@cowprotocol/cow-sdk": "^6.3.2",
+    "@summerfi/sdk-common": "workspace:*",
+    "@summerfi/sdk-server-common": "workspace:*",
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@summerfi/eslint-config": "workspace:*",
+    "@summerfi/jest-config": "workspace:*",
+    "@summerfi/typescript-config": "workspace:*"
+  }
+}

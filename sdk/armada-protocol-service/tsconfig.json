@@ -1,0 +1,29 @@
+{
+  "extends": "@summerfi/typescript-config/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"],
+      "@summerfi/sdk-common": ["node_modules/@summerfi/sdk-common/src/index.ts"],
+      "@summerfi/common": ["node_modules/@summerfi/common/src/index.ts"],
+      "@summerfi/configuration-provider": [
+        "node_modules/@summerfi/configuration-provider/src/index.ts"
+      ],
+      "@summerfi/testing-utils": ["node_modules/@summerfi/testing-utils/src/index.ts"],
+      "@summerfi/testing-utils/*": ["node_modules/@summerfi/testing-utils/src/*"],
+      "@summerfi/contracts-provider-service": [
+        "node_modules/@summerfi/contracts-provider-service/src/index.ts"
+      ],
+      "@summerfi/allowance-manager-service": [
+        "node_modules/@summerfi/allowance-manager-service/src/index.ts"
+      ],
+      "@summerfi/blockchain-client-provider": [
+        "node_modules/@summerfi/blockchain-client-provider/src/index.ts"
+      ]
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts", "e2e/**/*.ts", "src/**/*.json"],
+  "exclude": ["node_modules", "dist"]
+}

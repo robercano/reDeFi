@@ -1,0 +1,209 @@
+{
+  "$schema": "https://turbo.build/schema.v2.json",
+  "globalDependencies": ["**/.env.*local"],
+  "globalEnv": [
+    "SUBGRAPH_BASE",
+    "SUBGRAPH_BASE_PROD",
+    "DEBANK_API_KEY",
+    "DEBANK_API_URL",
+    "RPC_GATEWAY",
+    "NEXT_PUBLIC_SHA",
+    "GET_TRIGGERS_URL",
+    "MIXPANEL_LOG",
+    "MIXPANEL_ENV",
+    "MIXPANEL_KEY",
+    "EARN_MIXPANEL_KEY",
+    "NEXT_PUBLIC_EARN_MIXPANEL_KEY",
+    "NEXT_PUBLIC_MIXPANEL_KEY",
+    "NEXT_PUBLIC_SWAP_WIDGET_ONBOARDING_HIDDEN",
+    "NEXT_PUBLIC_DEV_WALLETS",
+    "ACCOUNT_KIT_API_KEY",
+    "NEXT_PUBLIC_TRANSAK_API_KEY",
+    "NEXT_PUBLIC_TRANSAK_ENVIRONMENT",
+    "TRANSAK_SECRET",
+    "CONFIG_URL",
+    "CONFIG_URL_EARN",
+    "FUNCTIONS_API_URL",
+    "SKIP_VALIDATION",
+    "AWS_REGION",
+    "AWS_PROFILE",
+    "POWERTOOLS_LOG_LEVEL",
+    "SST_USER",
+    "CONTRACTS_DEPLOYMENT_TYPE",
+    "CONTRACTS_ENABLE_GAS_REPORT",
+    "COINMARKETCAP_API_KEY",
+    "ETHERSCAN_API_KEY",
+    "CONTRACTS_GAS_REPORT_FILE",
+    "DEPLOYER_PRIVATE_KEY",
+    "DEPLOYER_MNEMONIC",
+    "RPC_ENDPOINT_PROVIDER",
+    "INFURA_ENDPOINT_API_KEY",
+    "ALCHEMY_ENDPOINT_API_KEY",
+    "CONTRACTS_DEPLOYMENT_MAX_GAS",
+    "CONTRACTS_DEPLOYMENT_GAS_PRICE",
+    "ONE_INCH_API_URL",
+    "ONE_INCH_API_VERSION",
+    "ONE_INCH_API_KEY",
+    "ONE_INCH_API_AUTH_HEADER",
+    "ONE_INCH_SWAP_CHAIN_IDS",
+    "ONE_INCH_ALLOWED_SWAP_PROTOCOLS",
+    "ONE_INCH_EXCLUDED_SWAP_PROTOCOLS",
+    "ONE_INCH_API_SPOT_URL",
+    "ONE_INCH_API_SPOT_KEY",
+    "ONE_INCH_API_SPOT_VERSION",
+    "ONE_INCH_API_SPOT_AUTH_HEADER",
+    "ONE_INCH_API_SPOT_CHAIN_IDS",
+    "COINGECKO_API_URL",
+    "COINGECKO_API_VERSION",
+    "COINGECKO_API_KEY",
+    "COINGECKO_API_AUTH_HEADER",
+    "COINGECKO_SUPPORTED_CHAIN_IDS",
+    "SDK_RPC_GATEWAY",
+    "SDK_SUBGRAPH_CONFIG",
+    "SDK_SUBGRAPH_CONFIG_INSTI",
+    "SDK_LOGGING_ENABLED",
+    "SDK_DEBUG_ENABLED",
+    "SUMMER_HUB_CHAIN_ID",
+    "SUMMER_DEPLOYED_CHAINS_ID",
+    "SUMMER_DEPLOYED_CHAINS_ID_INSTI",
+    "SUMMER_DEPLOYMENT_CONFIG",
+    "FORECAST_API_URL",
+    "REDIS_CACHE_URL",
+    "REDIS_CACHE_USER",
+    "REDIS_CACHE_PASSWORD",
+    "STAGE",
+    "VPC_ID",
+    "SECURITY_GROUP_ID",
+    "IS_LOCAL",
+    "NODE_ENV",
+    "E2E_SDK_API_URL",
+    "E2E_USER_ADDRESS",
+    "E2E_USER_PRIVATE_KEY",
+    "TEST_USER_ADDRESS",
+    "TEST_USER_PRIVATE_KEY",
+    "E2E_SDK_FORK_URL_MAINNET",
+    "E2E_SDK_FORK_URL_BASE",
+    "E2E_SDK_FORK_URL_ARBITRUM",
+    "E2E_SDK_FORK_URL_OPTIMISM",
+    "E2E_SDK_FORK_URL_SONIC",
+    "E2E_SDK_FORK_URL_HYPERLIQUID",
+    "E2E_DPM_ADDRESS",
+    "TENDERLY_USER",
+    "TENDERLY_PROJECT",
+    "TENDERLY_ACCESS_KEY",
+    "SDK_API_URL",
+    "SDK_USE_FORK",
+    "SDK_FORK_CONFIG",
+    "SDK_DISTRIBUTIONS_BASE_URL",
+    "SDK_DISTRIBUTIONS_FILES",
+    "SDK_NAMED_REFERRALS_FILE",
+    "EARN_PROTOCOL_DB_CONNECTION_STRING",
+    "EARN_PROTOCOL_INSTITUTION_DB_CONNECTION_STRING",
+    "EARN_PROTOCOL_JWT_SECRET",
+    "EARN_PROTOCOL_JWT_CHALLENGE_SECRET",
+    "TRM_API_KEY",
+    "TALLY_API_KEY",
+    "NEWSLETTER_API_KEY",
+    "NEWSLETTER_PUBLICATION_ID",
+    "NEWSLETTER_ENDPOINT",
+    "EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN",
+    "EARN_APP_URL",
+    "SUMMER_PRO_PRODUCT_HUB_KEY",
+    "PRO_APP_URL",
+    "ENVIRONMENT_TAG",
+    "BEACH_CLUB_REWARDS_DB_CONNECTION_STRING",
+    "SECURE_PAGE_COOKIE_AUTH_TOKEN",
+    "RECAPTCHA_SECRET_KEY",
+    "BLOG_POSTS_API_KEY",
+    "MERCHANDISE_FORM_KEY",
+    "INSTITUTIONS_COGNITO_USER_POOL_ID",
+    "INSTITUTIONS_COGNITO_CLIENT_ID",
+    "INSTITUTIONS_COGNITO_CLIENT_SECRET",
+    "INSTITUTIONS_SESSION_SECRET",
+    "INSTITUTIONS_COGNITO_ADMIN_ACCESS_KEY",
+    "INSTITUTIONS_COGNITO_ADMIN_SECRET_ACCESS_KEY",
+    "DUNE_LAZYSUMMER_ACCOUNT_API_KEY",
+    "ENSO_API_KEY",
+    "PARTNERS_API_URL",
+    "VAULTS_BENCHMARK_API_KEY"
+  ],
+  "tasks": {
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "prebuild": {
+      "dependsOn": ["^prebuild", "^prebuild:nocache"],
+      "outputs": [
+        "src/types/graphql/generated.ts",
+        "src/generated",
+        "dist/**",
+        "graphql/clients/**",
+        "**/*.css.d.ts",
+        ".cache/tsbuildinfo.json"
+      ]
+    },
+    "prebuild:nocache": {
+      "dependsOn": ["^prebuild:nocache"],
+      "cache": false
+    },
+    "build": {
+      "dependsOn": ["prebuild", "^build"],
+      "outputs": [
+        ".next/**",
+        ".next/server/pages/**",
+        "!.next/cache/**",
+        "dist/**",
+        "artifacts/**",
+        ".sst/**",
+        ".cache/tsbuildinfo.json"
+      ]
+    },
+    "build:apps": {
+      "dependsOn": ["prebuild", "^build", "^build:apps"],
+      "outputs": [
+        ".next/**",
+        ".next/server/pages/**",
+        "!.next/cache/**",
+        "apps/earn-protocol-landing-page/out/**",
+        "dist/**",
+        "artifacts/**",
+        ".sst/**",
+        ".cache/tsbuildinfo.json"
+      ]
+    },
+    "test": {
+      "dependsOn": ["prebuild", "build", "^test"]
+    },
+    "test:integration": {
+      "dependsOn": ["prebuild", "build", "^test:integration"]
+    },
+    "lint": {
+      "dependsOn": ["prebuild", "build", "^lint"]
+    },
+    "format": {
+      "dependsOn": ["prebuild", "build", "^format"]
+    },
+    "check-circular": {
+      "dependsOn": ["prebuild", "build", "^check-circular"]
+    },
+    "db:migrate": {
+      "dependsOn": ["prebuild"],
+      "cache": false
+    },
+    "cicheck": {
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "test",
+        "test:integration",
+        "lint",
+        "check-circular",
+        "format"
+      ]
+    },
+    "deploy:staging": {
+      "dependsOn": ["cicheck", "^deploy:staging"]
+    }
+  }
+}

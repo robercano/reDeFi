@@ -1,0 +1,34 @@
+.allocationBar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: var(--radius-medium);
+  overflow: hidden;
+  cursor: pointer;
+
+  .allocationBarItem {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.large {
+  height: 40px;
+}
+
+.medium {
+  height: 20px;
+}
+
+.small {
+  height: 10px;
+}
+
+.allocationBarItemEmpty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: var(--color-background-secondary);
+}
