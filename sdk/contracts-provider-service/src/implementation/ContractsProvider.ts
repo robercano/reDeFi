@@ -4,25 +4,11 @@ import {
   IContractsProvider,
   IErc20Contract,
   IErc4626Contract,
-  IFleetCommanderContract,
-  IProtocolAccessManagerWhiteListContract,
-  IArkContract,
-  IAdmiralsQuartersContract,
-  IConfigurationManagerContract,
-  ISummerStakingContract,
-  type IFleetCommanderWhitelistContract,
 } from '@summerfi/contracts-provider-common'
-import { IAddress, IChainInfo, getChainInfoByChainId, type ChainId } from '@summerfi/sdk-common'
+import { IAddress, IChainInfo } from '@summerfi/sdk-common'
 import type { ITokensManager } from '@summerfi/tokens-common'
 import { Erc20Contract } from './contracts/Erc20Contract/Erc20Contract'
 import { Erc4626Contract } from './contracts/Erc4626Contract/Erc4626Contract'
-import { FleetCommanderContract } from './contracts/FleetCommanderContract/FleetCommanderContract'
-import { ProtocolAccessManagerWhiteListContract } from './contracts/ProtocolAccessManagerWhiteListContract/ProtocolAccessManagerWhiteListContract'
-import { ArkContract } from './contracts/ArkContract'
-import { AdmiralsQuartersContract } from './contracts/AdmiralsQuartersContract/AdmiralsQuartersContract'
-import { ConfigurationManagerContract } from './contracts/ConfigurationManagerContract/ConfigurationManagerContract'
-import { SummerStakingContract } from './contracts/SummerStakingContract/SummerStakingContract'
-import { FleetCommanderWhitelistContract } from './contracts/FleetCommanderContract/FleetCommanderWhitelistContract'
 
 /**
  * @name ContractsProvider
@@ -71,108 +57,6 @@ export class ContractsProvider implements IContractsProvider {
         chainInfo: params.chainInfo,
       }),
       tokensManager: this._tokensManager,
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getFleetCommanderContract */
-  async getFleetCommanderContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IFleetCommanderContract> {
-    return FleetCommanderContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
-      tokensManager: this._tokensManager,
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  async getFleetCommanderWhitelistContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IFleetCommanderWhitelistContract> {
-    return FleetCommanderWhitelistContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
-      tokensManager: this._tokensManager,
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getProtocolAccessManagerWhiteListContract */
-  async getProtocolAccessManagerWhiteListContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IProtocolAccessManagerWhiteListContract> {
-    return ProtocolAccessManagerWhiteListContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getArkContract */
-  async getArkContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IArkContract> {
-    return ArkContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
-      tokensManager: this._tokensManager,
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getAdmiralsQuartersContract */
-  async getAdmiralsQuartersContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IAdmiralsQuartersContract> {
-    return AdmiralsQuartersContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
-      chainInfo: params.chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getConfigurationManagerContract */
-  async getConfigurationManagerContract(params: {
-    chainId: ChainId
-    address: IAddress
-  }): Promise<IConfigurationManagerContract> {
-    const chainInfo = getChainInfoByChainId(params.chainId)
-
-    return ConfigurationManagerContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo,
-      }),
-      chainInfo,
-      address: params.address,
-    })
-  }
-
-  /** @see IContractsProvider.getSummerStakingContract */
-  async getSummerStakingContract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<ISummerStakingContract> {
-    return SummerStakingContract.create({
-      blockchainClient: this._blockchainClientProvider.getBlockchainClient({
-        chainInfo: params.chainInfo,
-      }),
       chainInfo: params.chainInfo,
       address: params.address,
     })

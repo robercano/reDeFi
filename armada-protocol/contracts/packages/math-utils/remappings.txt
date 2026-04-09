@@ -1,2 +1,0 @@
-forge-std/=node_modules/@summerfi/dependencies/lib/forge-std/src/
-@summerfi/percentage-solidity/contracts/=node_modules/@summerfi/percentage-solidity/contracts/

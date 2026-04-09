@@ -1,14 +1,14 @@
 'use client'
 import { SupportedNetworkIds } from '@summerfi/app-types'
 import { ADDRESS_ZERO } from '@summerfi/app-utils'
-import { SummerTokenAbi } from '@summerfi/armada-protocol-abis'
 import { getChainInfoByChainId } from '@summerfi/sdk-common'
 import { useQuery } from '@tanstack/react-query'
 import BigNumber from 'bignumber.js'
 import { type Address } from 'viem'
 import { base } from 'viem/chains'
-
+import { base } from 'viem/chains'
 import { useAppSDK } from '@/hooks/use-app-sdk'
+import { usePublicClient } from '@/hooks/use-public-client'
 import { usePublicClient } from '@/hooks/use-public-client'
 
 type DecayFactorResponse = {

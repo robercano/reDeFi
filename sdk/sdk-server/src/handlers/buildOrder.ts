@@ -1,5 +1,5 @@
-import { Maybe, SDKError, SDKErrorType } from '@summerfi/sdk-common'
 import type { Order } from '@summerfi/sdk-common'
+import { Maybe, SDKError, SDKErrorType } from '@summerfi/sdk-common'
 
 import { isBuildOrderInputs } from '@summerfi/order-planner-common/'
 import { z } from 'zod'
@@ -22,7 +22,6 @@ export const buildOrder = publicProcedure
       user: opts.input.user,
       positionsManager: opts.input.positionsManager,
       simulation: opts.input.simulation,
-      armadaManager: opts.ctx.armadaManager,
       swapManager: opts.ctx.swapManager,
       addressBookManager: opts.ctx.addressBookManager,
       protocolsRegistry: opts.ctx.protocolsRegistry,

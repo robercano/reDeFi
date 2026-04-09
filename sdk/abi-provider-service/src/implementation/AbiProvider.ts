@@ -5,7 +5,6 @@ import {
   IAbiProvider,
 } from '@summerfi/abi-provider-common'
 
-import { FleetCommanderAbi } from '@summerfi/armada-protocol-abis'
 import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
 import { erc20Abi, erc4626Abi } from 'viem'
 
@@ -39,7 +38,6 @@ export class AbiProvider implements IAbiProvider {
     return {
       [AbiContractType.ERC20]: erc20Abi,
       [AbiContractType.ERC4626]: erc4626Abi,
-      [AbiContractType.ArmadaFleetCommander]: FleetCommanderAbi,
     }
   }
 }

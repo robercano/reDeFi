@@ -31,7 +31,6 @@ const nextConfig: (phase: string) => NextConfig = (phase) => ({
       '@summerfi/app-types',
       '@summerfi/app-utils',
       '@summerfi/app-server-handlers',
-      '@summerfi/armada-protocol-abis',
       '@summerfi/sdk-client-react',
       '@summerfi/subgraph-manager-common',
       '@summerfi/summer-beach-club-db',

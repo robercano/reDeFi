@@ -4,15 +4,6 @@ import { IAddressBookManager } from '@summerfi/address-book-common'
 import { AddressBookManagerFactory } from '@summerfi/address-book-service'
 import type { IAllowanceManager } from '@summerfi/allowance-manager-common'
 import { AllowanceManagerFactory } from '@summerfi/allowance-manager-service'
-import { IArmadaManager, setTestDeployment } from '@summerfi/armada-protocol-common'
-import {
-  ArmadaManagerFactory,
-  DeploymentProvider,
-  fetchPublicDeploymentProviderConfig,
-  fetchInstiDeploymentProviderConfig,
-  type DeploymentProviderConfig,
-  type IDeploymentProvider,
-} from '@summerfi/armada-protocol-service'
 import { BlockchainClientProvider } from '@summerfi/blockchain-client-provider'
 import { ConfigurationProvider } from '@summerfi/configuration-provider'
 import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
@@ -27,13 +18,10 @@ import { ProtocolManager } from '@summerfi/protocol-manager-service'
 import { IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
 import { SubgraphManagerFactory } from '@summerfi/subgraph-manager-service'
 import { ISwapManager } from '@summerfi/swap-common'
-import { SwapManagerFactory, CowSwapProvider } from '@summerfi/swap-service'
+import { CowSwapProvider, SwapManagerFactory } from '@summerfi/swap-service'
 import { ITokensManager } from '@summerfi/tokens-common'
 import { TokensManagerFactory } from '@summerfi/tokens-service'
 
-import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
-import type { APIGatewayProxyEventV2 } from 'aws-lambda'
-import { createProtocolsPluginsRegistry } from './CreateProtocolPluginsRegistry'
 import {
   getChainInfoByChainId,
   isChainId,
@@ -41,6 +29,9 @@ import {
   type ChainId,
   type IChainInfo,
 } from '@summerfi/sdk-common'
+import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
+import type { APIGatewayProxyEventV2 } from 'aws-lambda'
+import { createProtocolsPluginsRegistry } from './CreateProtocolPluginsRegistry'
 
 export type SDKContextOptions = CreateAWSLambdaContextOptions<APIGatewayProxyEventV2>
 
@@ -59,7 +50,6 @@ export type SDKAppContext = {
   protocolManager: IProtocolManager
   orderPlannerService: IOrderPlannerService
   allowanceManager: IAllowanceManager
-  armadaManager: IArmadaManager
   intentSwapsManager: CowSwapProvider
 }
 
@@ -83,14 +73,12 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
   const summerDeployment = configProvider.getConfigurationItem({
     name: 'SUMMER_DEPLOYMENT_CONFIG',
   })
-  setTestDeployment(summerDeployment)
 
   const armadaSubgraphManager = SubgraphManagerFactory.newArmadaSubgraph({
     configProvider,
     clientId,
   })
 
-  let deploymentProviderConfigs: DeploymentProviderConfig[]
   let supportedChains: IChainInfo[]
 
   if (clientId) {
@@ -102,17 +90,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     }
     const instiChainIds: ChainId[] = rawInstiChainIds.split(',').map(Number).filter(isChainId)
     supportedChains = instiChainIds.map(getChainInfoByChainId)
-
-    try {
-      deploymentProviderConfigs = await fetchInstiDeploymentProviderConfig(
-        armadaSubgraphManager,
-        instiChainIds,
-        clientId,
-      )
-    } catch (error) {
-      console.error(`Failed to fetch integrator config:`, error)
-      throw new Error(`Failed to fetch integrator config for Client-Id ${clientId}`)
-    }
   } else {
     // if no Client-Id header, use default deployment provider config
     const publicDeploymentChainIds: ChainId[] = configProvider
@@ -123,16 +100,7 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
       .map(Number)
       .filter(isChainId)
     supportedChains = publicDeploymentChainIds.map(getChainInfoByChainId)
-
-    deploymentProviderConfigs = fetchPublicDeploymentProviderConfig(publicDeploymentChainIds)
   }
-
-  const supportedChainIds = supportedChains.map((c) => c.chainId)
-
-  const deploymentProvider: IDeploymentProvider = DeploymentProvider(
-    supportedChainIds,
-    deploymentProviderConfigs,
-  )
 
   const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })
@@ -169,20 +137,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     tokensManager,
   })
 
-  const armadaManager = ArmadaManagerFactory.newArmadaManager({
-    configProvider,
-    deploymentProvider,
-    blockchainClientProvider,
-    allowanceManager,
-    contractsProvider,
-    subgraphManager: armadaSubgraphManager,
-    swapManager,
-    oracleManager,
-    tokensManager,
-    supportedChains,
-    clientId,
-  })
-
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,
     callKey: quickHashCode(`${opts.event.rawPath}${opts.event.rawQueryString}`),
@@ -198,7 +152,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     protocolManager,
     orderPlannerService,
     allowanceManager,
-    armadaManager,
     intentSwapsManager,
   }
 }

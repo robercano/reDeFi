@@ -10,7 +10,6 @@
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.0.2",
     "bignumber.js": "^9.1.2",
-    "@summerfi/armada-protocol-abis": "workspace:*",
     "@summerfi/ssr-public-client": "workspace:*",
     "@summerfi/summer-protocol-db": "workspace:*"
   },

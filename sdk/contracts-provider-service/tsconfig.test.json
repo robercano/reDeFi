@@ -19,8 +19,7 @@
       "@summerfi/tokens-service": ["node_modules/@summerfi/tokens-service/src"],
       "@summerfi/contracts-provider-common": [
         "node_modules/@summerfi/contracts-provider-common/src"
-      ],
-      "@summerfi/armada-protocol-abis": ["node_modules/@summerfi/armada-protocol-abis/src"]
+      ]
     }
   },
   "include": ["src/**/*.ts"],

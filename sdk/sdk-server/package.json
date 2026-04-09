@@ -24,8 +24,6 @@
     "@summerfi/address-book-service": "workspace:*",
     "@summerfi/allowance-manager-common": "workspace:*",
     "@summerfi/allowance-manager-service": "workspace:*",
-    "@summerfi/armada-protocol-common": "workspace:*",
-    "@summerfi/armada-protocol-service": "workspace:*",
     "@summerfi/blockchain-client-common": "workspace:*",
     "@summerfi/blockchain-client-provider": "workspace:*",
     "@summerfi/common": "workspace:*",

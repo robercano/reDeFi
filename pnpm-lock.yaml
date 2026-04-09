@@ -162,12 +162,6 @@ importers:
       '@summerfi/app-utils':
         specifier: workspace:*
         version: link:../../packages/app-utils
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../../sdk/armada-protocol-common
       '@summerfi/sdk-client':
         specifier: workspace:^
         version: link:../../sdk/sdk-client
@@ -358,9 +352,6 @@ importers:
       '@summerfi/app-utils':
         specifier: workspace:*
         version: link:../../packages/app-utils
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
       '@summerfi/sdk-client':
         specifier: workspace:^
         version: link:../../sdk/sdk-client
@@ -595,15 +586,6 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  armada-protocol/abis:
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-
   background-jobs/update-beach-club-rewards-function:
     dependencies:
       '@aws-lambda-powertools/logger':
@@ -759,9 +741,6 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.2
         version: 2.16.0
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
       '@summerfi/ssr-public-client':
         specifier: workspace:*
         version: link:../../packages/ssr-public-client
@@ -802,9 +781,6 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.4
         version: 2.16.0
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
       '@summerfi/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
@@ -1023,9 +999,6 @@ importers:
       '@number-flow/react':
         specifier: ^0.5.10
         version: 0.5.10(react-dom@19.2.3)(react@19.2.3)
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../../sdk/armada-protocol-common
       '@summerfi/summer-earn-rates-subgraph':
         specifier: workspace:*
         version: link:../summer-earn-rates-subgraph
@@ -1445,12 +1418,6 @@ importers:
 
   packages/app-types:
     dependencies:
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../../sdk/armada-protocol-common
-      '@summerfi/armada-protocol-service':
-        specifier: workspace:*
-        version: link:../../sdk/armada-protocol-service
       '@summerfi/sdk-client-react':
         specifier: workspace:*
         version: link:../../sdk/sdk-client-react
@@ -2383,9 +2350,6 @@ importers:
       '@summerfi/abi-provider-common':
         specifier: workspace:*
         version: link:../abi-provider-common
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
       '@summerfi/common':
         specifier: workspace:*
         version: link:../../packages/common
@@ -2514,107 +2478,6 @@ importers:
       '@summerfi/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/testing-utils':
-        specifier: workspace:*
-        version: link:../testing-utils
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-
-  sdk/armada-protocol-common:
-    dependencies:
-      '@summerfi/contracts-provider-common':
-        specifier: workspace:*
-        version: link:../contracts-provider-common
-      '@summerfi/sdk-common':
-        specifier: workspace:*
-        version: link:../sdk-common
-      '@summerfi/subgraph-manager-common':
-        specifier: workspace:*
-        version: link:../subgraph-manager-common
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
-        specifier: workspace:*
-        version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-
-  sdk/armada-protocol-service:
-    dependencies:
-      '@ensofinance/sdk':
-        specifier: ^2.0.12
-        version: 2.0.12
-      '@layerzerolabs/lz-v2-utilities':
-        specifier: ^3.0.67
-        version: 3.0.67
-      '@summerfi/allowance-manager-common':
-        specifier: workspace:^
-        version: link:../allowance-manager-common
-      '@summerfi/allowance-manager-service':
-        specifier: workspace:*
-        version: link:../allowance-manager-service
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
-      '@summerfi/blockchain-client-common':
-        specifier: workspace:*
-        version: link:../blockchain-client-common
-      '@summerfi/common':
-        specifier: workspace:*
-        version: link:../../packages/common
-      '@summerfi/configuration-provider-common':
-        specifier: workspace:*
-        version: link:../configuration-provider-common
-      '@summerfi/contracts-provider-common':
-        specifier: workspace:*
-        version: link:../contracts-provider-common
-      '@summerfi/contracts-provider-service':
-        specifier: workspace:*
-        version: link:../contracts-provider-service
-      '@summerfi/oracle-common':
-        specifier: workspace:*
-        version: link:../oracle-common
-      '@summerfi/sdk-common':
-        specifier: workspace:*
-        version: link:../sdk-common
-      '@summerfi/subgraph-manager-common':
-        specifier: workspace:*
-        version: link:../subgraph-manager-common
-      '@summerfi/subgraph-manager-service':
-        specifier: workspace:*
-        version: link:../subgraph-manager-service
-      '@summerfi/swap-common':
-        specifier: workspace:*
-        version: link:../swap-common
-      '@summerfi/swap-service':
-        specifier: workspace:*
-        version: link:../swap-service
-      '@summerfi/tokens-common':
-        specifier: workspace:*
-        version: link:../tokens-common
-      '@types/node-fetch':
-        specifier: ^2.6.11
-        version: 2.6.11
-      node-fetch:
-        specifier: ^2.7.0
-        version: 2.7.0
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
-        specifier: workspace:*
-        version: link:../../packages/jest-config
-      '@summerfi/sdk-server-common':
-        specifier: workspace:*
-        version: link:../sdk-server-common
       '@summerfi/testing-utils':
         specifier: workspace:*
         version: link:../testing-utils
@@ -2768,12 +2631,6 @@ importers:
       '@summerfi/abi-provider-common':
         specifier: workspace:*
         version: link:../abi-provider-common
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
       '@summerfi/blockchain-client-common':
         specifier: workspace:*
         version: link:../blockchain-client-common
@@ -2891,9 +2748,6 @@ importers:
       '@summerfi/address-book-common':
         specifier: workspace:*
         version: link:../address-book-common
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
       '@summerfi/contracts-provider-common':
         specifier: workspace:*
         version: link:../contracts-provider-common
@@ -2928,9 +2782,6 @@ importers:
       '@summerfi/address-book-common':
         specifier: workspace:*
         version: link:../address-book-common
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
       '@summerfi/configuration-provider-common':
         specifier: workspace:*
         version: link:../configuration-provider-common
@@ -3143,12 +2994,6 @@ importers:
       '@ethersproject/abstract-signer':
         specifier: ^5.8.0
         version: 5.8.0
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
-      '@summerfi/armada-protocol-service':
-        specifier: workspace:*
-        version: link:../armada-protocol-service
       '@summerfi/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins
@@ -3243,15 +3088,6 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
     devDependencies:
-      '@summerfi/armada-protocol-abis':
-        specifier: workspace:*
-        version: link:../../armada-protocol/abis
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
-      '@summerfi/armada-protocol-service':
-        specifier: workspace:*
-        version: link:../armada-protocol-service
       '@summerfi/core-contracts':
         specifier: workspace:*
         version: link:../../packages/core-contracts
@@ -3340,12 +3176,6 @@ importers:
       '@summerfi/allowance-manager-service':
         specifier: workspace:*
         version: link:../allowance-manager-service
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
-      '@summerfi/armada-protocol-service':
-        specifier: workspace:*
-        version: link:../armada-protocol-service
       '@summerfi/blockchain-client-common':
         specifier: workspace:*
         version: link:../blockchain-client-common
@@ -3481,9 +3311,6 @@ importers:
 
   sdk/simulator-service:
     dependencies:
-      '@summerfi/armada-protocol-common':
-        specifier: workspace:*
-        version: link:../armada-protocol-common
       '@summerfi/oracle-common':
         specifier: workspace:*
         version: link:../oracle-common
@@ -8685,7 +8512,7 @@ packages:
       '@babel/core': 7.26.0
       '@babel/helper-compilation-targets': 7.25.9
       '@babel/helper-plugin-utils': 7.26.5
-      debug: 4.4.0
+      debug: 4.4.3
       lodash.debounce: 4.0.8
       resolve: 1.22.8
     transitivePeerDependencies:
@@ -10375,14 +10202,6 @@ packages:
     dependencies:
       tslib: 2.8.1
     optional: true
-
-  /@ensofinance/sdk@2.0.12:
-    resolution: {integrity: sha512-+Mohddgxaadn+yN0Z7S84gu0PrlbjK+lKUq0z4qqXv1vgk3I3qv84OXkhqLsxDxNbVK+Xr6uwfo7AnyENeZBlw==}
-    dependencies:
-      axios: 1.8.4
-    transitivePeerDependencies:
-      - debug
-    dev: false
 
   /@envelop/core@3.0.6:
     resolution: {integrity: sha512-06t1xCPXq6QFN7W1JUEf68aCwYN0OUDNAIoJe7bAqhaoa2vn7NCcuX1VHkJ/OWpmElUgCsRO6RiBbIru1in0Ig==}
@@ -14385,19 +14204,6 @@ packages:
     resolution: {integrity: sha512-gbkePEBupNydxCelHCESvFSFM8XPh1Zs/OAVRW/rKpEqPAl5PbOM90Si8mv9bvnR53uPD2s/FiRxdvSejpRJew==}
     dev: true
 
-  /@layerzerolabs/lz-v2-utilities@3.0.67:
-    resolution: {integrity: sha512-Nl1wsbgnj/SeHiR+nKf86DlwDd6Q2biVCpzIuXuVlLXB9PgJDOQXHKWU1sFjSrPAydI4pJFh6dGItRN3+QM69A==}
-    dependencies:
-      '@ethersproject/abi': 5.7.0
-      '@ethersproject/address': 5.7.0
-      '@ethersproject/bignumber': 5.7.0
-      '@ethersproject/bytes': 5.7.0
-      '@ethersproject/keccak256': 5.7.0
-      '@ethersproject/solidity': 5.7.0
-      bs58: 5.0.0
-      tiny-invariant: 1.3.3
-    dev: false
-
   /@layerzerolabs/scan-client@0.0.8(axios@1.13.2):
     resolution: {integrity: sha512-V9vvt9GW0+AHoWXfOSNmZ9WUa28fVBmC93J/f9RLeDMEy5VR8srW2Du5pf1mMAg6ncEL0kQ1xkVCu+X6ARFBtQ==}
     peerDependencies:
@@ -14765,7 +14571,7 @@ packages:
     dependencies:
       '@ethereumjs/tx': 4.2.0
       '@types/debug': 4.1.12
-      debug: 4.4.0
+      debug: 4.4.3
       semver: 7.7.4
       superstruct: 1.0.4
     transitivePeerDependencies:
@@ -15390,7 +15196,7 @@ packages:
       '@ethersproject/address': 5.8.0
       cbor: 8.1.0
       chalk: 2.4.2
-      debug: 4.4.0
+      debug: 4.4.3
       hardhat: 2.22.2(ts-node@10.9.2)(typescript@5.0.4)
       lodash.clonedeep: 4.5.0
       semver: 6.3.1
@@ -23425,10 +23231,6 @@ packages:
     dependencies:
       safe-buffer: 5.2.1
 
-  /base-x@4.0.0:
-    resolution: {integrity: sha512-FuwxlW4H5kh37X/oW59pwTzzTKRzfrrQwhmyspRM7swOEZcHtDZSCt45U6oKgtuFE+WYPblePMVIPR4RZrh/hw==}
-    dev: false
-
   /base-x@5.0.1:
     resolution: {integrity: sha512-M7uio8Zt++eg3jPj+rHMfCC+IuygQHHCOU+IYsVtik6FWjuYpVt/+MRKcgsAMHh8mMFAwnB+Bs+mTrFiXjMzKg==}
     dev: false
@@ -23720,12 +23522,6 @@ packages:
     resolution: {integrity: sha512-Ok3Wdf5vOIlBrgCvTq96gBkJw+JUEzdBgyaza5HLtPm7yTHkjRy8+JzNyHF7BHa0bNWOQIp3m5YF0nnFcOIKLw==}
     dependencies:
       base-x: 3.0.9
-
-  /bs58@5.0.0:
-    resolution: {integrity: sha512-r+ihvQJvahgYT50JD05dyJNKlmmSlMoOGwn1lCcEzanPglg7TxYjioQUYehQ9mAR/+hOSd2jRc/Z2y5UxBymvQ==}
-    dependencies:
-      base-x: 4.0.0
-    dev: false
 
   /bs58@6.0.0:
     resolution: {integrity: sha512-PD0wEnEYg6ijszw/u8s+iI3H17cTymlrwkKhDhPZq+Sokl3AU4htyBFTjAeNAlCCmg0f53g6ih3jATyCKftTfw==}
@@ -25184,7 +24980,6 @@ packages:
         optional: true
     dependencies:
       ms: 2.1.3
-    dev: true
 
   /decamelize-keys@1.1.1:
     resolution: {integrity: sha512-WiPxgEirIV0/eIOMcnFBA3/IJZAZqKnwAwWyvvdi4lsr1WCN22nhdf/3db3DoZcUjTV2SqfzIwNyp6y2xs3nmg==}
@@ -34950,7 +34745,7 @@ packages:
     dependencies:
       '@assemblyscript/loader': 0.9.4
       bl: 5.1.0
-      debug: 4.4.0
+      debug: 4.4.3
       minimist: 1.2.8
       node-fetch: 2.7.0
       readable-stream: 3.6.2

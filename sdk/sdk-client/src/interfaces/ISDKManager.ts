@@ -1,4 +1,3 @@
-import type { IArmadaManagerClient } from './ArmadaManager/IArmadaManagerClient'
 import type { IChainsManagerClient } from './IChainsManager'
 import type { IOracleManagerClient } from './IOracleManagerClient'
 import type { IPortfolioManager } from './IPortfolioManager'
@@ -23,8 +22,6 @@ export interface ISDKManager {
   readonly users: IUsersManager
   /** Portfolio Manager for retrieving information about a user's portfolio */
   readonly portfolio: IPortfolioManager
-  /** Armada Manager for interacting with the Armada protocol */
-  readonly armada: IArmadaManagerClient
   /** Swap Manager for interacting with the swaps */
   readonly swaps: ISwapManagerClient
   /** Swap Manager for interacting with the swaps */
