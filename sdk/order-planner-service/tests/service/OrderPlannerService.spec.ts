@@ -1,31 +1,31 @@
 import { IContractsProvider } from '@summerfi/contracts-provider-common'
 import { IOracleManager } from '@summerfi/oracle-common'
-import { ActionCall, IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
 import {
-  ProtocolPluginsRegistry,
   FlashloanAction,
-  ReturnFundsAction,
-  SetApprovalAction,
   MakerPaybackAction,
   MakerProtocolPlugin,
   MakerWithdrawAction,
-  isMakerLendingPositionId,
+  ProtocolPluginsRegistry,
+  ReturnFundsAction,
+  SetApprovalAction,
   SparkBorrowAction,
   SparkDepositAction,
   SparkProtocolPlugin,
+  isMakerLendingPositionId,
 } from '@summerfi/protocol-plugins'
+import { ActionCall, IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
 import {
-  IRefinanceSimulation,
   Address,
   ChainFamilyMap,
   ChainInfo,
-  ProtocolName,
-  Wallet,
-  IPositionsManager,
   FlashloanProvider,
-  SimulationType,
+  IPositionsManager,
+  IRefinanceSimulation,
   IUser,
+  ProtocolName,
+  SimulationType,
   User,
+  Wallet,
 } from '@summerfi/sdk-common'
 import { ISwapManager } from '@summerfi/swap-common'
 import {
@@ -36,7 +36,6 @@ import {
   decodeStrategyExecutorCalldata,
 } from '@summerfi/testing-utils'
 
-import { IArmadaManager } from '@summerfi/armada-protocol-common'
 import { ITokensManager } from '@summerfi/tokens-common'
 import assert from 'assert'
 import { createPublicClient, http } from 'viem'
@@ -110,7 +109,6 @@ describe('Order Planner Service', () => {
       simulation: refinanceSimulation,
       addressBookManager,
       contractsProvider: {} as unknown as IContractsProvider,
-      armadaManager: {} as unknown as IArmadaManager,
     })
 
     assert(order, 'Order is not defined')

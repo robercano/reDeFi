@@ -1,6 +1,5 @@
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context } from 'aws-lambda'
 import { ResponseInternalServerError, ResponseOk } from '@summerfi/serverless-shared/responses'
-import { SummerTokenAbi } from '@summerfi/armada-protocol-abis'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { z } from 'zod'
 import { addressSchema, ChainId } from '@summerfi/serverless-shared'

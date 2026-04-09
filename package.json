@@ -33,11 +33,7 @@
     "console": "sst console",
     "format": "prettier --log-level=error --cache --cache-strategy metadata --cache-location=.turbo/prettier --check \"./**/*.{ts,tsx,js,jsx,json}\"",
     "format:fix": "prettier --write --log-level=error --cache --cache-strategy metadata --cache-location=.turbo/prettier-fix \"./**/*.{ts,tsx,js,jsx,json}\"",
-    "coverage:total": "node scripts/coverage-report/GenerateCoverageReport.js",
-    "armada:install": "git submodule update --init armada-protocol/contracts && cd armada-protocol/contracts && pnpm i",
-    "armada:generate": "zx bin/generate.mjs",
-    "armada:genindex": "cd armada-protocol/abis && pnpm run genindex",
-    "armada:upconfig": "cd armada-protocol/contracts/packages/deployment/config && cp -r index.json ../../../../../sdk/armada-protocol-common/src/deployments/config.json"
+    "coverage:total": "node scripts/coverage-report/GenerateCoverageReport.js"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.732.0",

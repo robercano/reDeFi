@@ -14,4 +14,3 @@ packages:
   - 'external-api/**'
   - '!**/test/**'
   - '!**/.sst/**'
-  - 'armada-protocol/abis'

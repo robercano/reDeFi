@@ -4,7 +4,7 @@ import {
   IOrderPlannerService,
   OrderPlannerClass,
 } from '@summerfi/order-planner-common'
-import { SDKError, SDKErrorType, Maybe, Order, SimulationType } from '@summerfi/sdk-common'
+import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@summerfi/sdk-common'
 import { assert } from 'console'
 import { ActionBuildersConfig } from '../config/Config'
 import { DMAOrderPlanner } from './planners/DMAOrderPlanner'
@@ -32,7 +32,6 @@ export class OrderPlannerService implements IOrderPlannerService {
       user: params.user,
       positionsManager: params.positionsManager,
       simulation: params.simulation,
-      armadaManager: params.armadaManager,
       actionBuildersMap: ActionBuildersConfig,
       addressBookManager: params.addressBookManager,
       swapManager: params.swapManager,
