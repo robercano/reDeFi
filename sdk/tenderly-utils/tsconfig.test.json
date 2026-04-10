@@ -6,7 +6,7 @@
     "paths": {
       "@summerfi/sdk-common": ["../../sdk/sdk-common/src"],
       "@summerfi/sdk-common/*": ["../../sdk/sdk-common/src/*"],
-      "@summerfi/configuration-provider": ["../../sdk/configuration-provider/src"],
+      "@summerfi/configuration-provider": ["../configuration-provider/service/service/src"],
       "@summerfi/testing-utils/*": ["../../sdk/testing-utils/src/*"]
     }
   },
