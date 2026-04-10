@@ -3,7 +3,7 @@ import {
   ConfigKey,
   IConfigurationProvider,
 } from '@summerfi/configuration-provider-common'
-import TurboConfig from '../../../../turbo.json'
+import TurboConfig from '../../../../../turbo.json'
 
 /** @see IConfigurationProvider */
 export class ConfigurationProvider implements IConfigurationProvider {

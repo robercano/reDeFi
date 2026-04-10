@@ -14,6 +14,7 @@
     "watch": "tsc -w",
     "e2e": "jest e2e/",
     "testw": "jest --watch",
+    "prebuild": "npx tsx ../../tools/abi-wrapper-generator.ts",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -22,10 +23,10 @@
     "@summerfi/abi-provider-common": "workspace:*",
     "@summerfi/blockchain-client-common": "workspace:*",
     "@summerfi/blockchain-client-provider": "workspace:*",
-    "@summerfi/configuration-provider": "workspace:*",
-    "@summerfi/contracts-provider-common": "workspace:*",
     "@summerfi/common": "workspace:*",
+    "@summerfi/configuration-provider": "workspace:*",
     "@summerfi/configuration-provider-common": "workspace:*",
+    "@summerfi/contracts-provider-common": "workspace:*",
     "@summerfi/sdk-common": "workspace:*",
     "@summerfi/tenderly-utils": "workspace:*",
     "@summerfi/testing-utils": "workspace:*",
@@ -35,6 +36,8 @@
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
+    "@openzeppelin/contracts": "^4.9.6",
+    "@openzeppelin/contracts-5.6.1": "npm:@openzeppelin/contracts@5.6.1",
     "@summerfi/eslint-config": "workspace:*",
     "@summerfi/jest-config": "workspace:*",
     "@summerfi/testing-utils": "workspace:*",
