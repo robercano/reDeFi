@@ -5,7 +5,7 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 // Package folders to process (relative to sdk-client)
-const packageFolders = ['../sdk-common', '../protocol-plugins']
+const packageFolders = ['../sdk-common', '../../protocol-plugins/service/service']
 
 /**
  * Recursively copy a directory

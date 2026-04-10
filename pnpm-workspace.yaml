@@ -3,6 +3,8 @@ packages:
   - 'apps/*'
   - 'sdk'
   - 'sdk/*'
+  - 'sdk/*/*'
+  - 'sdk/*/*/*'
   - '!sdk/.sst'
   - '!sdk/node_modules'
   - '!sdk/sdk-client/bundle'

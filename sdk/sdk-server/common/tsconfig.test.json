@@ -18,7 +18,7 @@
       "@summerfi/configuration-provider-mock": [
         "node_modules/@summerfi/configuration-provider-mock/src/index.ts"
       ],
-      "@summerfi/configuration-provider": ["../configuration-provider/src/index.ts"]
+      "@summerfi/configuration-provider": ["../../configuration-provider/service/service/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"],
