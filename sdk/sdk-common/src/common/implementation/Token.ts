@@ -31,7 +31,7 @@ export class Token implements IToken {
   }
 
   /** SEALED CONSTRUCTOR */
-  private constructor(params: TokenParameters) {
+  protected constructor(params: TokenParameters) {
     this.chainInfo = ChainInfo.createFrom(params.chainInfo)
     this.address = Address.createFromEthereum(params.address)
     this.symbol = params.symbol
