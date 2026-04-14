@@ -1,6 +1,6 @@
 import { request } from 'graphql-request'
 import { OneTriggerQuery, TriggersDocument, TriggersQuery } from './types/graphql/generated'
-import { ChainId } from '@summerfi/serverless-shared/domain-types'
+import { ChainId } from '@thesolidchain/serverless-shared/domain-types'
 import { Logger } from '@aws-lambda-powertools/logger'
 
 const chainIdSubgraphMap: Partial<Record<ChainId, string>> = {

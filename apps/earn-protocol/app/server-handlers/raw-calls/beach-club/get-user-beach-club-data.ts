@@ -1,6 +1,6 @@
 /* eslint-disable camelcase */
-import { getBeachClubDb } from '@summerfi/summer-beach-club-db'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getBeachClubDb } from '@thesolidchain/summer-beach-club-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 
 import { getCachedClaimableSUMRLVUSDCMerkleRewards } from '@/app/server-handlers/cached/claimable-merkle-rewards'
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'

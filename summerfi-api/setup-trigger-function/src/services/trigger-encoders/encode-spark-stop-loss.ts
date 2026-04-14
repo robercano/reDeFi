@@ -6,9 +6,9 @@ import {
   parseAbiParameters,
   stringToBytes,
 } from 'viem'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { DmaSparkStopLossTriggerData } from '~types'
-import { PositionLike, CurrentTriggerLike } from '@summerfi/triggers-shared'
+import { PositionLike, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
 
 import { TriggerType } from '@oasisdex/automation'
 import { getMaxCoverage } from './get-max-coverage'

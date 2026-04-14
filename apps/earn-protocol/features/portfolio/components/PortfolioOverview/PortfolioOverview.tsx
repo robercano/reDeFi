@@ -13,7 +13,7 @@ import {
   useLocalStorage,
   useMobileCheck,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type GetVaultsApyResponse,
   type RewardTokenPrices,
@@ -21,13 +21,13 @@ import {
   type SingleSourceChartData,
   type TimeframesType,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatFiatBalance,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { type BlogPosts } from '@/app/server-handlers/raw-calls/blog-posts/types'

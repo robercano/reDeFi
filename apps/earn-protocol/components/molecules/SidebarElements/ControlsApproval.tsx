@@ -1,5 +1,5 @@
-import { Input, SelectionBlock, Text } from '@summerfi/app-earn-ui'
-import { type EarnAllowanceTypes, TransactionAction } from '@summerfi/app-types'
+import { Input, SelectionBlock, Text } from '@thesolidchain/app-earn-ui'
+import { type EarnAllowanceTypes, TransactionAction } from '@thesolidchain/app-types'
 import type BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 

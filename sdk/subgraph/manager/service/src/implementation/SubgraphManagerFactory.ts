@@ -1,4 +1,4 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { ArmadaSubgraphManager } from './armada/ArmadaSubgraphManager'
 
 /**

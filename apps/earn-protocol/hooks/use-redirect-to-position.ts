@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect } from 'react'
-import { getVaultPositionUrl, getVaultUrl, useUserWallet } from '@summerfi/app-earn-ui'
-import { type IArmadaPosition, type SDKVaultishType } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+import { getVaultPositionUrl, getVaultUrl, useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type IArmadaPosition, type SDKVaultishType } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import { usePathname, useRouter } from 'next/navigation'
 

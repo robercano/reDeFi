@@ -10,13 +10,13 @@ import {
   useRef,
   useState,
 } from 'react'
-import { Emphasis, GradientBox, Icon, Text } from '@summerfi/app-earn-ui'
+import { Emphasis, GradientBox, Icon, Text } from '@thesolidchain/app-earn-ui'
 import {
   type LandingPageData,
   supportedDefillamaProtocols,
   supportedDefillamaProtocolsConfig,
-} from '@summerfi/app-types'
-import { formatAsShorthandNumbers } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatAsShorthandNumbers } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { useScreenSize } from '@/hooks/use-screen-size'

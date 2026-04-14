@@ -1,4 +1,4 @@
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 
 export const filterTrigger =
   (triggerType: bigint) => (trigger: TriggersQuery['triggers'][number]) =>

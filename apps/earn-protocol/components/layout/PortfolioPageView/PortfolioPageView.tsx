@@ -8,13 +8,13 @@ import {
   TabBar,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type GetVaultsApyResponse,
   type RewardTokenPrices,
   type SDKVaultishType,
   type SingleSourceChartData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { type PortfolioAssetsResponse } from '@/app/server-handlers/cached/get-wallet-assets/types'
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'

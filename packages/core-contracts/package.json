@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/core-contracts",
+  "name": "@thesolidchain/core-contracts",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -30,15 +30,15 @@
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
     "@openzeppelin/contracts": "4.9.6",
     "@prb/math": "2.5.0",
-    "@summerfi/common": "workspace:*",
-    "@summerfi/contracts-utils": "workspace:*",
-    "@summerfi/deployment-configs": "workspace:*",
-    "@summerfi/deployment-types": "workspace:*",
-    "@summerfi/deployment-utils": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/hardhat-utils": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/contracts-utils": "workspace:*",
+    "@thesolidchain/deployment-configs": "workspace:*",
+    "@thesolidchain/deployment-types": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/hardhat-utils": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "hardhat": "^2.22.2"
   }
 }

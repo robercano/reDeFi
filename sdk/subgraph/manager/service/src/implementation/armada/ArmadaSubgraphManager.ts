@@ -1,12 +1,12 @@
-import type { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import type { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   IArmadaSubgraphManager,
   createProtocolGraphQLClient,
   createInstitutionsGraphQLClient,
   SubgraphType,
   SubgraphTypes,
-} from '@summerfi/subgraph-manager-common'
-import { LoggingService, toBytes32InHex, type ChainId, type HexData } from '@summerfi/sdk-common'
+} from '@thesolidchain/subgraph-manager-common'
+import { LoggingService, toBytes32InHex, type ChainId, type HexData } from '@thesolidchain/sdk-common'
 import gql from 'graphql-tag'
 import { GraphQLClient } from 'graphql-request'
 

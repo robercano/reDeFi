@@ -12,16 +12,16 @@ import {
   Text,
   useAmount,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultType, type SupportedNetworkIds } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultType, type SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
-import { Address, getChainInfoByChainId, TokenAmount, TransactionType } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { Address, getChainInfoByChainId, TokenAmount, TransactionType } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { capitalize } from 'lodash-es'
 import Link from 'next/link'

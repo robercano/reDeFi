@@ -3,8 +3,8 @@ import {
   mapChainIdToDbNetwork,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
-import { type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/app-utils'
+import { type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 
 import { DB_BATCH_SIZE } from '@/app/server-handlers/tables-data/consts'
 

@@ -1,4 +1,4 @@
-import { formatCryptoBalance, formatPercent } from '@summerfi/app-utils'
+import { formatCryptoBalance, formatPercent } from '@thesolidchain/app-utils'
 
 import { getCachedInstitutionVaults } from '@/app/server-handlers/institution/institution-vaults'
 import { InstitutionTabBar } from '@/components/layout/TabBar/InstitutionTabBar'

@@ -1,4 +1,4 @@
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { rootAdminGetFeedbackList } from '@/app/server-handlers/admin/institution'

@@ -1,4 +1,4 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
 
 /**
  * Checks if the provided network is supported.

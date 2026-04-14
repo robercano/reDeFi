@@ -1,10 +1,10 @@
-import { ChainInfo, Address, AddressType } from '@summerfi/sdk-common'
-import { ITokensManager } from '@summerfi/tokens-common'
+import { ChainInfo, Address, AddressType } from '@thesolidchain/sdk-common'
+import { ITokensManager } from '@thesolidchain/tokens-common'
 import assert from 'assert'
 
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { TokensManagerFactory } from '../src'
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
 
 describe('TokensManagerFactory', () => {
   let tokensManager: ITokensManager

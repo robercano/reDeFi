@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/template-function",
+  "name": "@thesolidchain/template-function",
   "version": "0.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -24,13 +24,13 @@
     "@aws-lambda-powertools/logger": "^1.17.0",
     "@aws-lambda-powertools/metrics": "^1.17.0",
     "@aws-lambda-powertools/tracer": "^1.17.0",
-    "@summerfi/serverless-shared": "workspace:*",
-    "@summerfi/template-function": "link:"
+    "@thesolidchain/serverless-shared": "workspace:*",
+    "@thesolidchain/template-function": "link:"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "typescript": "^5.7.3"
   }
 }

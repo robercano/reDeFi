@@ -1,4 +1,4 @@
-import { type SupportedNetworkIds } from '@summerfi/app-types'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
 
 const chainsMap: {
   [key in SupportedNetworkIds]: string

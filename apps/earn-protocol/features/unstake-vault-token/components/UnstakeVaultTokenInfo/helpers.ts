@@ -1,4 +1,4 @@
-import { humanReadableChainToLabelMap } from '@summerfi/app-utils'
+import { humanReadableChainToLabelMap } from '@thesolidchain/app-utils'
 
 import {
   type UnstakeVaultTokenBalance,

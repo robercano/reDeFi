@@ -2,8 +2,8 @@ import type {
   StakingBucketInfo,
   StakingEarningsEstimationForStakesV2,
   UserStakeV2,
-} from '@summerfi/armada-protocol-common'
-import type { StakingStake } from '@summerfi/sdk-common'
+} from '@thesolidchain/armada-protocol-common'
+import type { StakingStake } from '@thesolidchain/sdk-common'
 
 type RecursiveObjectWithNumberInsteadOfBigInt<T> = {
   [K in keyof T]: T[K] extends bigint

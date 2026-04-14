@@ -1,5 +1,5 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
-import { ChainFamilyMap, ChainInfo, ProtocolName, type ChainId } from '@summerfi/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { ChainFamilyMap, ChainInfo, ProtocolName, type ChainId } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { MakerLendingPositionId } from '../../../src/plugins/maker/implementation/MakerLendingPositionId'
 import { MakerProtocolPlugin } from '../../../src/plugins/maker/implementation/MakerProtocolPlugin'

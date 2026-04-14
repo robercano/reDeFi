@@ -1,6 +1,6 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 
-import { IContractsProvider } from '@summerfi/contracts-provider-common'
+import { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { AllowanceManager } from './AllowanceManager'
 
 /**

@@ -1,4 +1,4 @@
-import { TokenDependencyConfig } from '@summerfi/deployment-types'
+import { TokenDependencyConfig } from '@thesolidchain/deployment-types'
 
 export const TokensDependeciesConfiguration: TokenDependencyConfig = {
   AAVE: {

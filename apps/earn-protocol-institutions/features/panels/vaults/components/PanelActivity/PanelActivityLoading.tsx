@@ -1,4 +1,4 @@
-import { Button, Card, Icon, Table, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Icon, Table, Text } from '@thesolidchain/app-earn-ui'
 import dayjs from 'dayjs'
 
 import { CHART_TIMESTAMP_FORMAT_SHORT } from '@/features/charts/helpers'

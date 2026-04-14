@@ -1,5 +1,5 @@
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds, SupportedSDKNetworks } from '@summerfi/app-types'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds, SupportedSDKNetworks } from '@thesolidchain/app-types'
 import BigNumber from 'bignumber.js'
 
 import {

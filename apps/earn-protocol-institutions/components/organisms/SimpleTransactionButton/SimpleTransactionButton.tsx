@@ -1,7 +1,7 @@
 'use client'
 import { useCallback, useMemo } from 'react'
-import { Button, LoadingSpinner, Text, Tooltip } from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
+import { Button, LoadingSpinner, Text, Tooltip } from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
 
 import { type SDKTransactionItem } from '@/hooks/useSDKTransactionQueue'
 import { useSimpleTransaction } from '@/hooks/useSimpleTransaction'

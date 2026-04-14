@@ -1,4 +1,4 @@
-import { depositToPosition, steps } from '@summerfi/sdk-common'
+import { depositToPosition, steps } from '@thesolidchain/sdk-common'
 import { addBalance, getValueFromReference, subtractBalance } from '../../utils'
 import { ISimulationState } from '../../../interfaces/simulation'
 

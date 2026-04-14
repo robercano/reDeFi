@@ -1,6 +1,6 @@
 import { getMorphoBlueSubgraphClient, MorphoBlueSubgraphClient } from '.'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 
 const logger = new Logger({
   serviceName: 'moorpho-blue-subgraph-tests',

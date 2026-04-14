@@ -5,8 +5,8 @@ import {
   type DeviceType,
   type EarnAppFleetCustomConfigType,
   type IconNamesList,
-} from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { Pill } from '@/components/atoms/Pill/Pill'

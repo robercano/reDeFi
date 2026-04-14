@@ -6,12 +6,12 @@ import {
   Price,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
-import { SwapProviderType } from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
+import { SwapProviderType } from '@thesolidchain/sdk-common'
 
-import { FiatCurrency } from '@summerfi/sdk-common'
-import { AddressBookManagerMock } from '@summerfi/testing-utils'
+import { FiatCurrency } from '@thesolidchain/sdk-common'
+import { AddressBookManagerMock } from '@thesolidchain/testing-utils'
 import { SwapAction } from '../../../src/plugins/common/actions/SwapAction'
 import { SwapActionBuilder } from '../../../src/plugins/common/builders/SwapActionBuilder'
 import { SetupBuilderReturnType, setupBuilderParams } from '../../utils/SetupBuilderParams'

@@ -1,8 +1,8 @@
 import {
   DEBANK_SUPPORTED_PROTOCOL_IDS,
   DEBANK_SUPPORTED_PROXY_IDS,
-} from '@summerfi/serverless-shared/debank-helpers'
-import { DebankComplexProtocol } from '@summerfi/serverless-shared/debank-types'
+} from '@thesolidchain/serverless-shared/debank-helpers'
+import { DebankComplexProtocol } from '@thesolidchain/serverless-shared/debank-types'
 
 export function getSupportedPositions(json: DebankComplexProtocol[]) {
   return (

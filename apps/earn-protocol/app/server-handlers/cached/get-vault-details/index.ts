@@ -1,4 +1,4 @@
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getVaultDetails } from '@/app/server-handlers/sdk/get-vault-details'

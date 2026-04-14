@@ -1,5 +1,5 @@
-import { IContractsProvider } from '@summerfi/contracts-provider-common'
-import { IOracleManager } from '@summerfi/oracle-common'
+import { IContractsProvider } from '@thesolidchain/contracts-provider-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
 import {
   FlashloanAction,
   MakerPaybackAction,
@@ -12,8 +12,8 @@ import {
   SparkDepositAction,
   SparkProtocolPlugin,
   isMakerLendingPositionId,
-} from '@summerfi/protocol-plugins'
-import { ActionCall, IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
+} from '@thesolidchain/protocol-plugins'
+import { ActionCall, IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
 import {
   Address,
   ChainFamilyMap,
@@ -26,17 +26,17 @@ import {
   SimulationType,
   User,
   Wallet,
-} from '@summerfi/sdk-common'
-import { ISwapManager } from '@summerfi/swap-common'
+} from '@thesolidchain/sdk-common'
+import { ISwapManager } from '@thesolidchain/swap-common'
 import {
   AddressBookManagerMock,
   SwapManagerMock,
   decodeActionCalldata,
   decodePositionsManagerCalldata,
   decodeStrategyExecutorCalldata,
-} from '@summerfi/testing-utils'
+} from '@thesolidchain/testing-utils'
 
-import { ITokensManager } from '@summerfi/tokens-common'
+import { ITokensManager } from '@thesolidchain/tokens-common'
 import assert from 'assert'
 import { createPublicClient, http } from 'viem'
 import { mainnet } from 'viem/chains'

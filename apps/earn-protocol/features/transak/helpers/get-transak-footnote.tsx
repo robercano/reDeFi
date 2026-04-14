@@ -1,5 +1,5 @@
 import { type Dispatch, type ReactElement } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 import { TransakFootNoteLink } from '@/features/transak/components/TransakFootNoteLink/TransakFootNoteLink'
 import {

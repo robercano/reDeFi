@@ -1,7 +1,7 @@
-import { ActionBuildersMap } from '@summerfi/protocol-plugins-common'
+import { ActionBuildersMap } from '@thesolidchain/protocol-plugins-common'
 import { MakerPaybackWithdrawActionBuilder } from '../builders/MakerPaybackWithdrawActionBuilder'
 import { MakerImportPositionActionBuilder } from '../builders/MakerImportPositionActionBuilder'
-import { SimulationSteps } from '@summerfi/sdk-common'
+import { SimulationSteps } from '@thesolidchain/sdk-common'
 import { MakerOpenPositionActionBuilder } from '../builders/MakerOpenPositionActionBuilder'
 
 /**

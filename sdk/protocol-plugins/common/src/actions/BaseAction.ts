@@ -11,7 +11,7 @@ import { ActionConfig, ActionCall } from './Types'
 import { InputSlotsMapping } from '../types/InputSlotsMapping'
 import { AbiParametersToPrimitiveTypes } from 'abitype'
 import { IAction } from '../interfaces/IAction'
-import { HexData } from '@summerfi/sdk-common'
+import { HexData } from '@thesolidchain/sdk-common'
 
 /**
  * @class Base class for all actions. It provides the basic functionality to encode the call to the action and provide

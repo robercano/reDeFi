@@ -1,7 +1,7 @@
-import { ContractAbi } from '@summerfi/abi-provider-common'
-import { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { IContractWrapper } from '@summerfi/contracts-provider-common'
-import { IAddress, IChainInfo, TransactionInfo } from '@summerfi/sdk-common'
+import { ContractAbi } from '@thesolidchain/abi-provider-common'
+import { IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import { IContractWrapper } from '@thesolidchain/contracts-provider-common'
+import { IAddress, IChainInfo, TransactionInfo } from '@thesolidchain/sdk-common'
 import {
   type AbiStateMutability,
   type ContractFunctionArgs,

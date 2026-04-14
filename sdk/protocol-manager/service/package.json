@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/protocol-manager-service",
+  "name": "@thesolidchain/protocol-manager-service",
   "version": "0.0.1",
   "exports": {
     ".": {
@@ -18,17 +18,17 @@
     "bundle": "esbuild src/index.ts --bundle --minify --platform=node --target=node20 --outfile=dist/index.js --sourcemap"
   },
   "dependencies": {
-    "@summerfi/deployment-types": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/protocol-manager-common": "workspace:*",
-    "@summerfi/protocol-plugins": "workspace:*",
-    "@summerfi/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/deployment-types": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/protocol-manager-common": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
     "@types/node-fetch": "^2.6.11"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
-    "@summerfi/order-planner-common": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/order-planner-common": "workspace:*"
   }
 }

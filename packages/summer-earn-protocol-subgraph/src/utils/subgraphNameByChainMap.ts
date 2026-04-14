@@ -1,4 +1,4 @@
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 
 export const subgraphNameByChainMap: Partial<Record<ChainId, string>> = {
   [ChainId.BASE]: 'summer-protocol-base',

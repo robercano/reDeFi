@@ -1,6 +1,6 @@
 'use client'
 import { type FC } from 'react'
-import { BigGradientBox, Text, useUserWallet, WithArrow } from '@summerfi/app-earn-ui'
+import { BigGradientBox, Text, useUserWallet, WithArrow } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 

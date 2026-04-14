@@ -1,14 +1,14 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 import {
   type IArmadaPosition,
   type SDKVaultishType,
   type SingleSourceChartData,
   type TimeframesType,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { HistoricalChart } from '@/components/organisms/Charts/components/Historical'
 

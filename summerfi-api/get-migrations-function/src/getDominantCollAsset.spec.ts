@@ -1,4 +1,4 @@
-import { PortfolioMigrationAsset } from '@summerfi/serverless-shared/domain-types'
+import { PortfolioMigrationAsset } from '@thesolidchain/serverless-shared/domain-types'
 import { getDominantCollAsset } from './getDominantCollAsset'
 
 describe('getDominantCollAsset', () => {

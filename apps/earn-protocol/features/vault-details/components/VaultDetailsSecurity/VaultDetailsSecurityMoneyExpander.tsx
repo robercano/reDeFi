@@ -9,9 +9,9 @@ import {
   Text,
   Tooltip,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'

@@ -1,5 +1,5 @@
-import { Button, TableCellText, WithArrow } from '@summerfi/app-earn-ui'
-import { formatAddress, formatFiatBalance } from '@summerfi/app-utils'
+import { Button, TableCellText, WithArrow } from '@thesolidchain/app-earn-ui'
+import { formatAddress, formatFiatBalance } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { type BeachClubReferralList } from '@/features/beach-club/types'

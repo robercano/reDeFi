@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { type QuoteData, type SdkClient } from '@summerfi/app-types'
+import { type QuoteData, type SdkClient } from '@thesolidchain/app-types'
 import BigNumber from 'bignumber.js'
 
 /**

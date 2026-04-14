@@ -1,7 +1,7 @@
 import { OneInchSpotResponse } from './Types'
 
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { IOracleProvider } from '@summerfi/oracle-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IOracleProvider } from '@thesolidchain/oracle-common'
 import {
   FiatCurrency,
   IAddress,
@@ -13,8 +13,8 @@ import {
   LoggingService,
   OracleProviderType,
   isChainId,
-} from '@summerfi/sdk-common'
-import { ManagerProviderBase } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import { ManagerProviderBase } from '@thesolidchain/sdk-server-common'
 import fetch from 'node-fetch'
 import type { OracleProviderConfig } from '../Types'
 import { BigNumber } from 'bignumber.js'

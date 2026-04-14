@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Icon, Text } from '@summerfi/app-earn-ui'
-import { UiTransactionStatuses } from '@summerfi/app-types'
+import { Icon, Text } from '@thesolidchain/app-earn-ui'
+import { UiTransactionStatuses } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { type ClaimDelegateState, ClaimDelegateSteps } from '@/features/claim-and-delegate/types'

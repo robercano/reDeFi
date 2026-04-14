@@ -10,7 +10,7 @@ import {
   type EarnProtocolTooltipHoveredEventProps,
   type EarnProtocolTransactionEventProps,
   type EarnProtocolViewPositionEventProps,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import browserDetect from 'browser-detect'
 import { upperFirst } from 'lodash-es'
 

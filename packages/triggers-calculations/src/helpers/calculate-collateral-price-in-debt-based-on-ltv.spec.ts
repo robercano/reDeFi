@@ -1,5 +1,5 @@
 import { calculateCollateralPriceInDebtBasedOnLtv } from '../helpers/calculate-collateral-price-in-debt-based-on-ltv'
-import { PRICE_DECIMALS } from '@summerfi/triggers-shared'
+import { PRICE_DECIMALS } from '@thesolidchain/triggers-shared'
 
 describe('calculateExecutionPrice', () => {
   it('should return value greater than 0', () => {

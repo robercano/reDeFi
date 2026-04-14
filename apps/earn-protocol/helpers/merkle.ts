@@ -1,4 +1,4 @@
-import { type MerklReward } from '@summerfi/armada-protocol-common'
+import { type MerklReward } from '@thesolidchain/armada-protocol-common'
 
 export const getMerkleNowClaimableTokenAmount = (
   merklRewards: MerklReward[] | undefined,

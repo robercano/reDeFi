@@ -1,4 +1,4 @@
-import { ILendingPositionId, LendingPositionIdDataSchema } from '@summerfi/sdk-common'
+import { ILendingPositionId, LendingPositionIdDataSchema } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { MakerVaultId, MakerVaultIdSchema } from '../types/MakerVaultId'
 

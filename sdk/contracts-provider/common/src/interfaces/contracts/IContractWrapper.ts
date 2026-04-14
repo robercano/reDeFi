@@ -1,6 +1,6 @@
-import { ContractAbi } from '@summerfi/abi-provider-common'
-import { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { ContractAbi } from '@thesolidchain/abi-provider-common'
+import { IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 
 /**
  * @name IContractWrapper

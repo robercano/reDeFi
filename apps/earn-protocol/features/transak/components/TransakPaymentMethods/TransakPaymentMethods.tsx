@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import { type TransakPaymentOptions } from '@/features/transak/types'

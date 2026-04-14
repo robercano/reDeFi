@@ -1,5 +1,5 @@
-import { Button, Icon, Text } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Button, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { type ForecastData, type SupportedNetworkIds } from '@summerfi/app-types'
+import { type ForecastData, type SupportedNetworkIds } from '@thesolidchain/app-types'
 import BigNumber from 'bignumber.js'
 import debounce from 'lodash-es/debounce'
 

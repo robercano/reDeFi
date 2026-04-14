@@ -1,6 +1,6 @@
 'use client'
 
-import { type AnalyticsCookieName } from '@summerfi/app-earn-ui'
+import { type AnalyticsCookieName } from '@thesolidchain/app-earn-ui'
 
 import { mixpanelBrowser } from '@/helpers/mixpanel-init'
 

@@ -1,4 +1,4 @@
-import type { ChainId, IAddress, IArmadaPositionId, IUser } from '@summerfi/sdk-common'
+import type { ChainId, IAddress, IArmadaPositionId, IUser } from '@thesolidchain/sdk-common'
 import type {
   GetUserPositionQuery,
   GetUserPositionsQuery,

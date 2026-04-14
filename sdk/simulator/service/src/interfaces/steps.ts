@@ -1,4 +1,4 @@
-import { SimulationStrategy, ValueReference, steps, StrategyStep } from '@summerfi/sdk-common'
+import { SimulationStrategy, ValueReference, steps, StrategyStep } from '@thesolidchain/sdk-common'
 import { EmptyArray, Head, Where } from './helperTypes'
 import { ISimulationState } from './simulation'
 

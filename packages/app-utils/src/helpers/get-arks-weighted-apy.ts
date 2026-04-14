@@ -1,4 +1,4 @@
-import { type SDKVaultishType, type SDKVaultType } from '@summerfi/app-types'
+import { type SDKVaultishType, type SDKVaultType } from '@thesolidchain/app-types'
 import { BigNumber } from 'bignumber.js'
 
 /**

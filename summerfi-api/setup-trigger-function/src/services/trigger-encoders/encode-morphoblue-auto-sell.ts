@@ -8,9 +8,9 @@ import {
 } from 'viem'
 import { OPERATION_NAMES } from '@oasisdex/dma-library'
 import { DEFAULT_DEVIATION } from './defaults'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { MorphoBlueAutoSellTriggerData } from '~types'
-import { CurrentTriggerLike, PositionLike } from '@summerfi/triggers-shared'
+import { CurrentTriggerLike, PositionLike } from '@thesolidchain/triggers-shared'
 
 import { getMaxCoverage } from './get-max-coverage'
 import { getMorphoOraclePriceConverted } from './get-morpho-oracle-price-converted'

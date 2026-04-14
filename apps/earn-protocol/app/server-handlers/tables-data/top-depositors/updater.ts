@@ -1,12 +1,12 @@
-// import { type FleetRate } from '@summerfi/app-types'
-import { getVaultsApy } from '@summerfi/app-server-handlers'
+// import { type FleetRate } from '@thesolidchain/app-types'
+import { getVaultsApy } from '@thesolidchain/app-server-handlers'
 import {
   mapChainIdToDbNetwork,
   subgraphNetworkToId,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
-import { type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/app-utils'
+import { type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { BigNumber } from 'bignumber.js'
 import { type GraphQLClient } from 'graphql-request'
 

@@ -3,7 +3,7 @@ import {
   type EarnAppFleetCustomConfigType,
   type IArmadaPosition,
   type SDKVaultishType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { subgraphNetworkToId, supportedSDKNetwork } from '@/helpers/earn-network-tools'
 

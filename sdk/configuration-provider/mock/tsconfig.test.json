@@ -1,19 +1,19 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.test.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@summerfi/order-planner-common/*": ["node_modules/@summerfi/order-planner-common/src/*"],
-      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"],
-      "@summerfi/core-contracts": ["node_modules/@summerfi/core-contracts/src/index.ts"],
-      "@summerfi/swap-common/*": ["node_modules/@summerfi/swap-common/src/*"],
-      "@summerfi/deployment-utils": ["node_modules/@summerfi/deployment-utils/src/index.ts"],
-      "@summerfi/protocol-plugins": ["node_modules/@summerfi/protocol-plugins/src/index.ts"],
-      "@summerfi/protocol-plugins-common": [
-        "node_modules/@summerfi/protocol-plugins-common/src/index.ts"
+      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/core-contracts": ["node_modules/@thesolidchain/core-contracts/src/index.ts"],
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/deployment-utils": ["node_modules/@thesolidchain/deployment-utils/src/index.ts"],
+      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/protocol-plugins-common": [
+        "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],
-      "@summerfi/tokens-service": ["node_modules/@summerfi/tokens-service/src/index.ts"]
+      "@thesolidchain/tokens-service": ["node_modules/@thesolidchain/tokens-service/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"],

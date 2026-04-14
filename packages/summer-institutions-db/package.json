@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/summer-protocol-institutions-db",
+  "name": "@thesolidchain/summer-protocol-institutions-db",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,12 +17,12 @@
   "dependencies": {
     "kysely": "^0.27.3",
     "pg": "^8.14.1",
-    "@summerfi/abstractions": "workspace:*",
-    "@summerfi/serverless-shared": "workspace:*"
+    "@thesolidchain/abstractions": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/pg": "^8.11.11",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",

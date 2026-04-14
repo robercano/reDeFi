@@ -1,4 +1,4 @@
-import { type Network, type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { type Network, type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 
 /**
  * Get the latest timestamp for a given network from the database.

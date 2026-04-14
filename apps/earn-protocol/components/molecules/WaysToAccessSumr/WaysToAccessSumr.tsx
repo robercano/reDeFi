@@ -1,5 +1,5 @@
-import { Button, DataBlock, Icon, SkeletonLine, Text } from '@summerfi/app-earn-ui'
-import { formatDecimalAsPercent, formatPercent } from '@summerfi/app-utils'
+import { Button, DataBlock, Icon, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
+import { formatDecimalAsPercent, formatPercent } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 

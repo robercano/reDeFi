@@ -1,6 +1,6 @@
 import { useChain, useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType } from '@summerfi/app-earn-ui'
-import { type AddressValue } from '@summerfi/sdk-common'
+import { getAccountType } from '@thesolidchain/app-earn-ui'
+import { type AddressValue } from '@thesolidchain/sdk-common'
 
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'
 import { useAppSDK } from '@/hooks/use-app-sdk'

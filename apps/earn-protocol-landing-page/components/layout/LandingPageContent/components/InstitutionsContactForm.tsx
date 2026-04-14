@@ -10,8 +10,8 @@ import {
   LoadingSpinner,
   Text,
   ToggleButton,
-} from '@summerfi/app-earn-ui'
-import { handleCaptcha, RECAPTCHA_SITE_KEY } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { handleCaptcha, RECAPTCHA_SITE_KEY } from '@thesolidchain/app-utils'
 import { throttle } from 'lodash-es'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

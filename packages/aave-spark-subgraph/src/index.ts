@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
 
-import type { Address } from '@summerfi/serverless-shared'
-import { ChainId, ProtocolId } from '@summerfi/serverless-shared'
+import type { Address } from '@thesolidchain/serverless-shared'
+import { ChainId, ProtocolId } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { CollateralLockedDocument, GetInterestRatesDocument } from './types/graphql/generated'
 

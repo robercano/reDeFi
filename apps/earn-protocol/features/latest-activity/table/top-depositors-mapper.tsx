@@ -5,16 +5,16 @@ import {
   Icon,
   TableCellText,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { type TokenSymbolsList } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatAddress,
   formatCryptoBalance,
   formatDateDifference,
   mapDbNetworkToChainId,
-} from '@summerfi/app-utils'
-import { type TopDepositors } from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/app-utils'
+import { type TopDepositors } from '@thesolidchain/summer-protocol-db'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 

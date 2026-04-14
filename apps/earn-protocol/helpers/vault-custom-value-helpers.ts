@@ -3,8 +3,8 @@ import {
   type EarnAppFleetCustomConfigType,
   type IArmadaPosition,
   type SDKVaultishType,
-} from '@summerfi/app-types'
-import { decorateWithFleetConfig } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { decorateWithFleetConfig } from '@thesolidchain/app-utils'
 
 type VaultConfigDecorator = {
   vaults: SDKVaultishType[]

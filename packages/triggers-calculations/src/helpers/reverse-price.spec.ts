@@ -1,4 +1,4 @@
-import { Price, PRICE_DECIMALS, PRICE_DECIMALS_NUMBER } from '@summerfi/triggers-shared'
+import { Price, PRICE_DECIMALS, PRICE_DECIMALS_NUMBER } from '@thesolidchain/triggers-shared'
 import { reversePrice } from './reverse-price'
 
 describe('Reverse Price', () => {

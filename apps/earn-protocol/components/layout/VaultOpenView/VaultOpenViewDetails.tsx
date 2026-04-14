@@ -1,19 +1,19 @@
 'use client'
 import { type FC } from 'react'
-import { Card, Expander, getUniqueVaultId, Text, VaultExposure } from '@summerfi/app-earn-ui'
+import { Card, Expander, getUniqueVaultId, Text, VaultExposure } from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type InterestRates,
   type SDKVaultishType,
   type SDKVaultType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatDecimalAsPercent,
   getVaultNiceName,
   sdkNetworkToHumanNetwork,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'

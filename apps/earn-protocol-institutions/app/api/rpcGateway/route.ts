@@ -1,4 +1,4 @@
-import { type NetworkNames } from '@summerfi/app-types'
+import { type NetworkNames } from '@thesolidchain/app-types'
 import { type NextRequest, NextResponse } from 'next/server'
 
 import { getRpcGatewayUrl } from '@/helpers/rpc-gateway'

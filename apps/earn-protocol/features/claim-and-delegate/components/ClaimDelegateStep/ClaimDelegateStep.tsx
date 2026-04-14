@@ -15,13 +15,13 @@ import {
   useClientChainId,
   useUserWallet,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type DropdownRawOption,
   SupportedNetworkIds,
   UiTransactionStatuses,
-} from '@summerfi/app-types'
-import { ADDRESS_ZERO, formatPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { ADDRESS_ZERO, formatPercent } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 import { useParams, useRouter } from 'next/navigation'
 

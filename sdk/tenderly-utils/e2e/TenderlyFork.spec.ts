@@ -1,5 +1,5 @@
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import { Address, AddressValue, ChainFamilyMap, Token, TokenAmount } from '@summerfi/sdk-common'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import { Address, AddressValue, ChainFamilyMap, Token, TokenAmount } from '@thesolidchain/sdk-common'
 import { createPublicClient, erc20Abi, getContract, http } from 'viem'
 import { arbitrum, mainnet } from 'viem/chains'
 import { Tenderly } from '../src/Tenderly'

@@ -1,6 +1,6 @@
 'use client'
 import { useLayoutEffect, useState } from 'react'
-import { DeviceType } from '@summerfi/app-types'
+import { DeviceType } from '@thesolidchain/app-types'
 
 interface ScreenInfo {
   isMobile: boolean

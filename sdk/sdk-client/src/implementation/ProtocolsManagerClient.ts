@@ -1,5 +1,5 @@
-import { ILendingPool, ILendingPoolIdData, ILendingPoolInfo } from '@summerfi/sdk-common'
-import type { ChainInfo, Maybe } from '@summerfi/sdk-common'
+import { ILendingPool, ILendingPoolIdData, ILendingPoolInfo } from '@thesolidchain/sdk-common'
+import type { ChainInfo, Maybe } from '@thesolidchain/sdk-common'
 import { IProtocolsManagerClient } from '../interfaces/IProtocolsManagerClient'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'

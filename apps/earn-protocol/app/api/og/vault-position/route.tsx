@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-import { getDisplayToken, getTokenGuarded } from '@summerfi/app-earn-ui'
-import { iconsSync } from '@summerfi/app-icons/static'
-import { type TokenSymbolsList } from '@summerfi/app-types'
-import { formatAddress } from '@summerfi/app-utils'
+import { getDisplayToken, getTokenGuarded } from '@thesolidchain/app-earn-ui'
+import { iconsSync } from '@thesolidchain/app-icons/static'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
+import { formatAddress } from '@thesolidchain/app-utils'
 import { ImageResponse } from 'next/og'
 import { type NextRequest } from 'next/server'
 

@@ -1,8 +1,8 @@
 'use client'
 import { useEffect, useState } from 'react'
 import { useChain, useUser } from '@account-kit/react'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
-import { supportedSDKNetworkId } from '@summerfi/app-utils'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
+import { supportedSDKNetworkId } from '@thesolidchain/app-utils'
 
 import { AccountKitAccountType } from '@/account-kit/types'
 import { useIsIframe } from '@/hooks/use-is-iframe'

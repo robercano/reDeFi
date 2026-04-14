@@ -1,11 +1,11 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.test.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@summerfi/common": ["node_modules/@summerfi/common/src/index.ts"],
-      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"]
+      "@thesolidchain/common": ["node_modules/@thesolidchain/common/src/index.ts"],
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"]
     }
   },
   "include": ["src/**/*.ts"],

@@ -1,4 +1,4 @@
-import { makeAdminSDK, makeSDK } from '@summerfi/sdk-client'
+import { makeAdminSDK, makeSDK } from '@thesolidchain/sdk-client'
 import { SDKApiUrl } from './testConfig'
 
 /**

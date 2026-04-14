@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/subgraph-manager-common",
+  "name": "@thesolidchain/subgraph-manager-common",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -21,15 +21,15 @@
     "generate:institutions": "DOTENV_CONFIG_PATH=../../.env graphql-codegen --config summer-institutions.yml -r dotenv/config"
   },
   "dependencies": {
-    "@summerfi/sdk-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.12.6"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "^5.0.2",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "graphql": "^16.8.1"
   }
 }

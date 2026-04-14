@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { ten } from '@summerfi/app-utils'
-import { getChainInfoByChainId, type HexData, type IToken } from '@summerfi/sdk-common'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { ten } from '@thesolidchain/app-utils'
+import { getChainInfoByChainId, type HexData, type IToken } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { erc20Abi, type PublicClient } from 'viem'
 

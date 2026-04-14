@@ -6,11 +6,11 @@ import {
   Token,
   TokenAmount,
   type Maybe,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
-import { Deployments } from '@summerfi/core-contracts'
-import { DeploymentIndex } from '@summerfi/deployment-utils'
-import { makeSDK, type Chain } from '@summerfi/sdk-client'
+import { Deployments } from '@thesolidchain/core-contracts'
+import { DeploymentIndex } from '@thesolidchain/deployment-utils'
+import { makeSDK, type Chain } from '@thesolidchain/sdk-client'
 import {
   CommonTokenSymbols,
   Order,
@@ -19,13 +19,13 @@ import {
   LendingPositionType,
   IRefinanceSimulation,
   isRefinanceSimulation,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   TransactionUtils,
   decodeActionCalldata,
   decodePositionsManagerCalldata,
   decodeStrategyExecutorCalldata,
-} from '@summerfi/testing-utils'
+} from '@thesolidchain/testing-utils'
 
 import {
   EmodeType,
@@ -53,7 +53,7 @@ import {
   isSparkLendingPosition,
   isSparkLendingPositionId,
   isSparkProtocol,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import assert from 'assert'
 import { Hex } from 'viem'
 

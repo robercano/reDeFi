@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import dayjs from 'dayjs'
 
 const getDbInstance = async () => {

@@ -2,8 +2,8 @@
 
 import { Suspense } from 'react'
 import { type StoredState } from '@account-kit/core'
-import { type SavedAnalyticsCookiesSettings } from '@summerfi/app-earn-ui'
-import { type DeviceType, type EarnAppConfigType } from '@summerfi/app-types'
+import { type SavedAnalyticsCookiesSettings } from '@thesolidchain/app-earn-ui'
+import { type DeviceType, type EarnAppConfigType } from '@thesolidchain/app-types'
 import dynamic from 'next/dynamic'
 
 import { MasterPage } from '@/components/layout/MasterPage/MasterPage'

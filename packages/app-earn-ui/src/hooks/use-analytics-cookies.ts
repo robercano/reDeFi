@@ -1,5 +1,5 @@
 'use client'
-import { getCookie, setCookie } from '@summerfi/app-utils'
+import { getCookie, setCookie } from '@thesolidchain/app-utils'
 
 import {
   analyticsCookieName,

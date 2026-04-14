@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/summer-events-subgraph",
+  "name": "@thesolidchain/summer-events-subgraph",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "graphql-request": "^6.1.0",
-    "@summerfi/abstractions": "workspace:*",
-    "@summerfi/serverless-shared": "workspace:*"
+    "@thesolidchain/abstractions": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^20.12.7",
     "eslint": "^8.57.0"
   }

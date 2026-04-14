@@ -1,4 +1,4 @@
-import { getBeachClubDb } from '@summerfi/summer-beach-club-db'
+import { getBeachClubDb } from '@thesolidchain/summer-beach-club-db'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 

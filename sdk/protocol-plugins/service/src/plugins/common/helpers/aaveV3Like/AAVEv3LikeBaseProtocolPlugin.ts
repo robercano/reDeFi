@@ -1,4 +1,4 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   CollateralInfo,
   DebtInfo,
@@ -13,7 +13,7 @@ import {
   TokenAmount,
   IChainInfo,
   IToken,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { BaseProtocolPlugin } from '../../../../implementation/BaseProtocolPlugin'
 import { ChainContractsProvider, GenericAbiMap } from '../../../utils/ChainContractProvider'

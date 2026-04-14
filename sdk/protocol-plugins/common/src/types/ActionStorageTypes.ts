@@ -1,4 +1,4 @@
-import { steps, ReferenceableField } from '@summerfi/sdk-common'
+import { steps, ReferenceableField } from '@thesolidchain/sdk-common'
 import { ActionConfig } from '../actions/Types'
 
 //export type Slot = number

@@ -1,4 +1,4 @@
-import { useUserWallet } from '@summerfi/app-earn-ui'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
 import { useQuery } from '@tanstack/react-query'
 import { zeroAddress } from 'viem'
 

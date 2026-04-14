@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/sdk-client",
+  "name": "@thesolidchain/sdk-client",
   "version": "0.0.1",
   "private": true,
   "main": "dist/index.js",
@@ -32,18 +32,18 @@
   "dependencies": {
     "@cowprotocol/cow-sdk": "^6.3.2",
     "@ethersproject/abstract-signer": "^5.8.0",
-    "@summerfi/protocol-plugins": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/sdk-server": "workspace:*",
-    "@summerfi/subgraph-manager-common": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/sdk-server": "workspace:*",
+    "@thesolidchain/subgraph-manager-common": "workspace:*",
     "@trpc/client": "11.8.0"
   },
   "devDependencies": {
     "@microsoft/api-extractor": "^7.52.13",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "tsx": "^4.19.4"
   }
 }

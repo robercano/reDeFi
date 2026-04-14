@@ -1,4 +1,4 @@
-import { UiTransactionStatuses } from '@summerfi/app-types'
+import { UiTransactionStatuses } from '@thesolidchain/app-types'
 
 import { type ClaimDelegateState } from '@/features/claim-and-delegate/types'
 

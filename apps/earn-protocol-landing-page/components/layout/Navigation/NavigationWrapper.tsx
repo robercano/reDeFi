@@ -6,7 +6,7 @@ import {
   getNavigationItems,
   Navigation,
   NavigationExtraComponents,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

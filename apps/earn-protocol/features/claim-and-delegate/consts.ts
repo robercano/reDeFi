@@ -1,4 +1,4 @@
-import { isValidLink } from '@summerfi/app-utils'
+import { isValidLink } from '@thesolidchain/app-utils'
 
 import { type TallyDelegate } from '@/app/server-handlers/raw-calls/tally'
 

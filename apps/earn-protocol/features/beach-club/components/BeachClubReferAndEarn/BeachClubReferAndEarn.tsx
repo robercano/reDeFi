@@ -1,6 +1,6 @@
 import { type FC, useMemo } from 'react'
-import { Card, Icon, TabBar, Text } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Card, Icon, TabBar, Text } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'
 import { BeachClubHowItWorks } from '@/features/beach-club/components/BeachClubHowItWorks/BeachClubHowItWorks'

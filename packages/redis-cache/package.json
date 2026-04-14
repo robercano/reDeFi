@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/redis-cache",
+  "name": "@thesolidchain/redis-cache",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,12 +12,12 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@summerfi/abstractions": "workspace:*",
+    "@thesolidchain/abstractions": "workspace:*",
     "redis": "^4.6.13"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "eslint": "^8.57.0"
   }
 }

@@ -1,11 +1,11 @@
-import { getPositionValues } from '@summerfi/app-earn-ui'
+import { getPositionValues } from '@thesolidchain/app-earn-ui'
 import {
   type ChartsDataTimeframes,
   type ForecastData,
   type IArmadaPosition,
   type PerformanceChartData,
   type SDKVaultishType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 
 import { type GetPositionHistoryReturnType } from '@/app/server-handlers/cached/get-position-history'

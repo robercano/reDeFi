@@ -1,7 +1,7 @@
-import { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { BlockchainClientProvider } from '@summerfi/blockchain-client-provider'
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { IChainInfo } from '@summerfi/sdk-common'
+import { IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import { BlockchainClientProvider } from '@thesolidchain/blockchain-client-provider'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IChainInfo } from '@thesolidchain/sdk-common'
 
 export class BlockchainClientProviderMock extends BlockchainClientProvider {
   public readonly rpcUrl: string

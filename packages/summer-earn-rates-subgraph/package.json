@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/summer-earn-rates-subgraph",
+  "name": "@thesolidchain/summer-earn-rates-subgraph",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -30,13 +30,13 @@
     "@graphql-codegen/typescript": "^4.0.9",
     "@graphql-codegen/typescript-graphql-request": "^6.2.0",
     "@graphql-codegen/typescript-operations": "^4.2.0",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^20.12.7"
   },
   "dependencies": {
-    "@summerfi/serverless-shared": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*",
     "graphql-request": "^6.1.0",
     "graphql-tag": "^2.12.6"
   }

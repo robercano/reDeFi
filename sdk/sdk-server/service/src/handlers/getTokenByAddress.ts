@@ -1,5 +1,5 @@
 import { publicProcedure } from '../SDKTRPC'
-import { IToken, isAddress, isChainInfo } from '@summerfi/sdk-common'
+import { IToken, isAddress, isChainInfo } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 
 export const getTokenByAddress = publicProcedure

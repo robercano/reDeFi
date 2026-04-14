@@ -1,6 +1,6 @@
 'use client'
-import { Card, FaqSection, vaultFaqData } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Card, FaqSection, vaultFaqData } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'
 

@@ -1,4 +1,4 @@
-import { addressSchema } from '@summerfi/serverless-shared'
+import { addressSchema } from '@thesolidchain/serverless-shared'
 import { NextResponse } from 'next/server'
 import { zeroAddress } from 'viem'
 import { z } from 'zod'

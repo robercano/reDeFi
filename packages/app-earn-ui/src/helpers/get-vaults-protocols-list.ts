@@ -1,4 +1,4 @@
-import { type SDKVaultsListType } from '@summerfi/app-types'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
 
 import { getArkNiceName } from '@/helpers/get-ark-nice-name'
 

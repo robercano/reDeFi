@@ -1,6 +1,6 @@
 'use client'
 import { type CSSProperties, Fragment, type ReactNode, useState } from 'react'
-import { SortDirection } from '@summerfi/app-utils'
+import { SortDirection } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

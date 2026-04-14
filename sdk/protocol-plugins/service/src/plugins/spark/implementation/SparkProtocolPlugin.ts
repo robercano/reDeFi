@@ -12,11 +12,11 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { SparkLendingPool } from './SparkLendingPool'
 
-import { SparkContractNames } from '@summerfi/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { SparkContractNames } from '@thesolidchain/deployment-types'
+import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { IAaveV3LendingPositionIdData } from '../../aave-v3/interfaces/IAaveV3LendingPositionId'
 import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AAVEv3LikeBaseProtocolPlugin'
 import { ContractInfo } from '../../common/types/ContractInfo'

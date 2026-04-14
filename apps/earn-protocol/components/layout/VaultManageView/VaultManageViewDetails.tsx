@@ -8,20 +8,20 @@ import {
   Text,
   VaultExposure,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type InterestRates,
   type PerformanceChartData,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatDecimalAsPercent,
   getVaultNiceName,
   sdkNetworkToHumanNetwork,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 import Link from 'next/link'
 

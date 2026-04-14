@@ -2,7 +2,7 @@ import {
   ConfigItem,
   ConfigKey,
   IConfigurationProvider,
-} from '@summerfi/configuration-provider-common'
+} from '@thesolidchain/configuration-provider-common'
 import TurboConfig from '../../../../../turbo.json'
 
 /** @see IConfigurationProvider */

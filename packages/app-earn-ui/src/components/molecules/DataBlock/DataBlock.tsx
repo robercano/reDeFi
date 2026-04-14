@@ -1,5 +1,5 @@
 import { type CSSProperties, type ReactNode } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { Text } from '@/components/atoms/Text/Text'

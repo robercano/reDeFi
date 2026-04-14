@@ -1,4 +1,4 @@
-import { getArkProductId } from '@summerfi/app-utils'
+import { getArkProductId } from '@thesolidchain/app-utils'
 
 import { type ArkType } from '@/arks-interest-rates/types'
 

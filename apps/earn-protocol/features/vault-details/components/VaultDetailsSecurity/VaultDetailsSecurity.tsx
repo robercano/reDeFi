@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
+import { Card } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
 
 import { VaultDetailsSecurityAuditsExpander } from '@/features/vault-details/components/VaultDetailsSecurity/VaultDetailsSecurityAuditsExpander'
 import { VaultDetailsSecurityMoneyExpander } from '@/features/vault-details/components/VaultDetailsSecurity/VaultDetailsSecurityMoneyExpander'

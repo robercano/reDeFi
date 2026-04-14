@@ -1,6 +1,6 @@
 import { type ReactNode, useEffect, useState } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { type TransactionInfo } from '@summerfi/sdk-common'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type TransactionInfo } from '@thesolidchain/sdk-common'
 
 export type SDKTransactionItem = {
   id: string

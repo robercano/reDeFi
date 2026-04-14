@@ -1,5 +1,5 @@
-import { PERCENT_DECIMALS, TokenBalance } from '@summerfi/triggers-shared'
-import { Percentage } from '@summerfi/serverless-shared'
+import { PERCENT_DECIMALS, TokenBalance } from '@thesolidchain/triggers-shared'
+import { Percentage } from '@thesolidchain/serverless-shared'
 
 export const subtractPercentage = (
   tokenBalance: TokenBalance,

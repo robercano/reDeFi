@@ -1,4 +1,4 @@
-# @summerfi/app-risk
+# @thesolidchain/app-risk
 
 # useRisk Hook
 

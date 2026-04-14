@@ -1,4 +1,4 @@
-import { humanNetworktoSDKNetwork } from '@summerfi/app-utils'
+import { humanNetworktoSDKNetwork } from '@thesolidchain/app-utils'
 
 import {
   getCachedInstitutionVault,

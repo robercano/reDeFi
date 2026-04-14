@@ -1,6 +1,6 @@
-import { Price, PRICE_DECIMALS, Token, TokenBalance } from '@summerfi/triggers-shared'
+import { Price, PRICE_DECIMALS, Token, TokenBalance } from '@thesolidchain/triggers-shared'
 import { calculateCollateral } from './calculate-collateral'
-import { LTV } from '@summerfi/serverless-shared'
+import { LTV } from '@thesolidchain/serverless-shared'
 
 describe('calculate collateral', () => {
   it(`should return value of 1 ETH`, () => {

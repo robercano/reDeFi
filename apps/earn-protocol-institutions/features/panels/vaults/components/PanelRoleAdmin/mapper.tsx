@@ -1,4 +1,4 @@
-import { Button, Icon, TableCellNodes, TableCellText, Tooltip } from '@summerfi/app-earn-ui'
+import { Button, Icon, TableCellNodes, TableCellText, Tooltip } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import { getRevokeContractRoleTransactionId } from '@/helpers/get-transaction-id'

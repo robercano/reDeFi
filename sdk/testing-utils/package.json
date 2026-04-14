@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/testing-utils",
+  "name": "@thesolidchain/testing-utils",
   "version": "0.0.1",
   "exports": {
     ".": {
@@ -22,25 +22,25 @@
     "encode:makerGive": "tsx ./scripts/encodeMakerGive.ts"
   },
   "dependencies": {
-    "@summerfi/address-book-common": "workspace:*",
-    "@summerfi/configuration-provider": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*",
-    "@summerfi/deployment-types": "workspace:*",
-    "@summerfi/deployment-utils": "workspace:*",
-    "@summerfi/oracle-common": "workspace:*",
-    "@summerfi/protocol-plugins-common": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/sdk-server-common": "workspace:*",
-    "@summerfi/swap-common": "workspace:*",
-    "@summerfi/tokens-common": "workspace:*",
-    "@summerfi/blockchain-client-provider": "workspace:*",
-    "@summerfi/blockchain-client-common": "workspace:*",
-    "@summerfi/tokens-service": "workspace:^"
+    "@thesolidchain/address-book-common": "workspace:*",
+    "@thesolidchain/configuration-provider": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/deployment-types": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/oracle-common": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/sdk-server-common": "workspace:*",
+    "@thesolidchain/swap-common": "workspace:*",
+    "@thesolidchain/tokens-common": "workspace:*",
+    "@thesolidchain/blockchain-client-provider": "workspace:*",
+    "@thesolidchain/blockchain-client-common": "workspace:*",
+    "@thesolidchain/tokens-service": "workspace:^"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/yargs": "^17.0.32",
     "tsx": "^4.7.2",
     "yargs": "^17.7.2"

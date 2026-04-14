@@ -1,6 +1,6 @@
-import { getProtocolLabel, Input, TableCellText } from '@summerfi/app-earn-ui'
-import { type SDKVaultType } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { getProtocolLabel, Input, TableCellText } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultType } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 
 import styles from './PanelAssetReallocation.module.css'
 

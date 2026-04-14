@@ -1,4 +1,4 @@
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 
 export const getVaultsBenchmark = async ({
   networkId,

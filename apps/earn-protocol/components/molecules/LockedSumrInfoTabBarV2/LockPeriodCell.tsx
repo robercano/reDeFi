@@ -1,6 +1,6 @@
 'use client'
 import { type ReactNode, useMemo } from 'react'
-import { Tooltip } from '@summerfi/app-earn-ui'
+import { Tooltip } from '@thesolidchain/app-earn-ui'
 import dayjs from 'dayjs'
 
 import { formatStakeLockupPeriod } from '@/helpers/format-stake-lockup-period'

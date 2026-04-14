@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, useEffect, useRef, useState } from 'react'
-import { formatWithSeparators } from '@summerfi/app-utils'
+import { formatWithSeparators } from '@thesolidchain/app-utils'
 
 import { Card } from '@/components/atoms/Card/Card'
 import { Text } from '@/components/atoms/Text/Text'

@@ -1,4 +1,4 @@
-import { EXTERNAL_LINKS, INTERNAL_LINKS, Text } from '@summerfi/app-earn-ui'
+import { EXTERNAL_LINKS, INTERNAL_LINKS, Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 export const sumrFaqData = [

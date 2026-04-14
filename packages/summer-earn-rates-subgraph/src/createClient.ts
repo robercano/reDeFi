@@ -1,6 +1,6 @@
 import { getSdk } from './generated/client'
 import { GraphQLClient } from 'graphql-request'
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 import { supportedChains, subgraphNameByChainMap } from './utils'
 
 export const createClient = (chainId: ChainId, baseUrl: string): ReturnType<typeof getSdk> => {

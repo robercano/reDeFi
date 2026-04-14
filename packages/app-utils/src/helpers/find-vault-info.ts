@@ -1,4 +1,4 @@
-import { type IArmadaVaultInfo, type SDKVaultishType } from '@summerfi/app-types'
+import { type IArmadaVaultInfo, type SDKVaultishType } from '@thesolidchain/app-types'
 
 import { subgraphNetworkToSDKId, supportedSDKNetwork } from './earn-network-tools'
 

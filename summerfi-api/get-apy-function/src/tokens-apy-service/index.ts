@@ -1,5 +1,5 @@
-import { CacheableYieldsService, curatedYieldPools, PoolHistory } from '@summerfi/defi-llama-client'
-import { Logger } from '@summerfi/abstractions'
+import { CacheableYieldsService, curatedYieldPools, PoolHistory } from '@thesolidchain/defi-llama-client'
+import { Logger } from '@thesolidchain/abstractions'
 import { TokenApyService } from './token-apy-service'
 import {
   addDays,

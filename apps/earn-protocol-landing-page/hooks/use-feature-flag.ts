@@ -1,4 +1,4 @@
-import { type EarnAppConfigType } from '@summerfi/app-types'
+import { type EarnAppConfigType } from '@thesolidchain/app-types'
 import { useRouter } from 'next/navigation'
 
 export const useFeatureFlagRedirect = ({

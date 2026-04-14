@@ -1,4 +1,4 @@
-import { Button, Card, Emphasis, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Emphasis, Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 

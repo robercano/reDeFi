@@ -2,7 +2,7 @@
 
 import { useActionState, useEffect, useRef } from 'react'
 import { toast } from 'react-toastify'
-import { BASIC_TOAST_CONFIG, Button, Card } from '@summerfi/app-earn-ui'
+import { BASIC_TOAST_CONFIG, Button, Card } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { FormSubmitButton } from '@/components/molecules/FormSubmitButton/FormSubmitButton'

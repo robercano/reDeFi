@@ -1,5 +1,5 @@
 import { awsLambdaRequestHandler } from '@trpc/server/adapters/aws-lambda'
-import { sdkAppRouter, createSDKContext } from '@summerfi/sdk-server'
+import { sdkAppRouter, createSDKContext } from '@thesolidchain/sdk-server'
 
 export const baseHandler = awsLambdaRequestHandler({
   router: sdkAppRouter,

@@ -10,7 +10,7 @@ import {
   SkeletonLine,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import dynamic from 'next/dynamic'
 import { usePathname, useRouter } from 'next/navigation'
 

@@ -1,4 +1,4 @@
-import { getBeachClubDb } from '@summerfi/summer-beach-club-db'
+import { getBeachClubDb } from '@thesolidchain/summer-beach-club-db'
 import BigNumber from 'bignumber.js'
 import { NextResponse } from 'next/server'
 

@@ -5,7 +5,7 @@ import {
   LoadingSpinner,
   Text,
   VaultExposureLoading,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import styles from './PanelVaultExposure.module.css'
 

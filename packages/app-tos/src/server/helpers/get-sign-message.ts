@@ -1,4 +1,4 @@
-import { type JWTChallenge } from '@summerfi/app-types'
+import { type JWTChallenge } from '@thesolidchain/app-types'
 
 import { type TOSMessageType } from '@/types'
 

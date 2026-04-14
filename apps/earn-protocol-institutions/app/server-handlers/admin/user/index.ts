@@ -9,11 +9,11 @@ import {
   CognitoIdentityProviderClient,
   ListUsersCommand,
 } from '@aws-sdk/client-cognito-identity-provider'
-import { slugify } from '@summerfi/app-utils'
+import { slugify } from '@thesolidchain/app-utils'
 import {
   getSummerProtocolInstitutionDB,
   type UserRole,
-} from '@summerfi/summer-protocol-institutions-db'
+} from '@thesolidchain/summer-protocol-institutions-db'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 

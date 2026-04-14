@@ -7,7 +7,7 @@ import {
   LTV,
   ltvSchema,
   ProtocolId,
-} from '@summerfi/serverless-shared'
+} from '@thesolidchain/serverless-shared'
 
 export const priceSchema = bigIntSchema.describe(`Price with ${PRICE_DECIMALS} decimals`)
 

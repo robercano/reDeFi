@@ -1,4 +1,4 @@
-import { RiskRatio, RiskRatioType } from '@summerfi/sdk-common'
+import { RiskRatio, RiskRatioType } from '@thesolidchain/sdk-common'
 import {
   Address,
   ChainFamilyMap,
@@ -6,10 +6,10 @@ import {
   Percentage,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { LendingPositionType } from '@summerfi/sdk-common'
-import { SimulationSteps, TokenTransferTargetType, steps } from '@summerfi/sdk-common'
-import { getErrorMessage } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { LendingPositionType } from '@thesolidchain/sdk-common'
+import { SimulationSteps, TokenTransferTargetType, steps } from '@thesolidchain/sdk-common'
+import { getErrorMessage } from '@thesolidchain/testing-utils'
 import assert from 'assert'
 import {
   ILKType,

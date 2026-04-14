@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { ChainFamilyMap, ChainIds } from '@summerfi/sdk-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { ChainFamilyMap, ChainIds } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { TestManagerProvider, TestProviderType } from './mocks/TestManagerProvider'
 import { TestManager } from './mocks/TestManagerWithProviders'

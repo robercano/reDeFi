@@ -1,7 +1,7 @@
-import { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { IContractsProvider, IERC20, IERC4626 } from '@summerfi/contracts-provider-common'
-import { IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IContractsProvider, IERC20, IERC4626 } from '@thesolidchain/contracts-provider-common'
+import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 import { ContractsFactory } from '../factory/ContractsFactory'
 
 /**

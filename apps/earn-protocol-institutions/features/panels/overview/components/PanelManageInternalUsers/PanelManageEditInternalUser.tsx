@@ -1,4 +1,4 @@
-import { Card, Text } from '@summerfi/app-earn-ui'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
 
 import { updateInstitutionUser } from '@/app/server-handlers/institution/institution-users'
 import { type SessionPayload } from '@/features/auth/types'

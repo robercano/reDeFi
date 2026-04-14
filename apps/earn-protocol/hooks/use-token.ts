@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { getChainInfoByChainId, type IToken } from '@summerfi/sdk-common'
+import { getChainInfoByChainId, type IToken } from '@thesolidchain/sdk-common'
 
 import { useAppSDK } from './use-app-sdk'
 

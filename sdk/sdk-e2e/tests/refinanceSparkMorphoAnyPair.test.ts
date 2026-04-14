@@ -10,8 +10,8 @@ import {
   SparkProtocol,
   isSparkLendingPool,
   isSparkProtocol,
-} from '@summerfi/protocol-plugins'
-import { makeSDK } from '@summerfi/sdk-client'
+} from '@thesolidchain/protocol-plugins'
+import { makeSDK } from '@thesolidchain/sdk-client'
 import {
   Address,
   AddressValue,
@@ -24,8 +24,8 @@ import {
   LendingPositionType,
   PositionsManager,
   RefinanceParameters,
-} from '@summerfi/sdk-common'
-import { TransactionUtils } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { TransactionUtils } from '@thesolidchain/testing-utils'
 
 import assert from 'assert'
 import { Hex } from 'viem'

@@ -1,6 +1,6 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import type { IAllowanceManager } from '@summerfi/allowance-manager-common'
-import type { ITokensManager } from '@summerfi/tokens-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
+import type { ITokensManager } from '@thesolidchain/tokens-common'
 import {
   Address,
   TokenAmount,
@@ -12,9 +12,9 @@ import {
   type ITokenAmount,
   getChainInfoByChainId,
   NATIVE_CURRENCY_ADDRESS_LOWERCASE,
-} from '@summerfi/sdk-common'
-import { ManagerProviderBase, type IManagerProvider } from '@summerfi/sdk-server-common'
-import { type IIntentSwapProvider } from '@summerfi/swap-common'
+} from '@thesolidchain/sdk-common'
+import { ManagerProviderBase, type IManagerProvider } from '@thesolidchain/sdk-server-common'
+import { type IIntentSwapProvider } from '@thesolidchain/swap-common'
 import {
   OrderBookApi,
   SupportedChainId,
@@ -31,7 +31,7 @@ import {
 import { encodeFunctionData, formatEther } from 'viem'
 import { invalidateOrderAbi } from './invalidateOrderAbi'
 import { BigNumber } from 'bignumber.js'
-import { LoggingService } from '@summerfi/sdk-common'
+import { LoggingService } from '@thesolidchain/sdk-common'
 import { wrappedNativeCurrencyAbi } from './wrappedNativeCurrencyAbi'
 
 export enum CowSwapSendOrderStatus {

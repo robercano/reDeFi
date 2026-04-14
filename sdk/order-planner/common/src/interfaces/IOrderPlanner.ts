@@ -1,4 +1,4 @@
-import { Maybe, Order, SimulationType } from '@summerfi/sdk-common'
+import { Maybe, Order, SimulationType } from '@thesolidchain/sdk-common'
 import { BuildOrderParams } from '../types/BuildOrderParams'
 
 /**

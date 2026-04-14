@@ -1,5 +1,5 @@
 const { compilerOptions } = require('./tsconfig.test')
-const sharedConfig = require('@summerfi/jest-config/jest.base')
+const sharedConfig = require('@thesolidchain/jest-config/jest.base')
 
 require('dotenv').config({ path: '../../.env' })
 
@@ -7,10 +7,10 @@ require('dotenv').config({ path: '../../.env' })
 module.exports = {
   ...sharedConfig(compilerOptions),
   moduleNameMapper: {
-    '^@summerfi/serverless-shared$': '<rootDir>/../../packages/serverless-shared/src/index.ts',
-    '^@summerfi/(.*)$': '<rootDir>/../../packages/$1/src/index.ts',
+    '^@thesolidchain/serverless-shared$': '<rootDir>/../../packages/serverless-shared/src/index.ts',
+    '^@thesolidchain/(.*)$': '<rootDir>/../../packages/$1/src/index.ts',
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules', 'node_modules/(?!(@summerfi)/)'],
+  transformIgnorePatterns: ['<rootDir>/node_modules', 'node_modules/(?!(@thesolidchain)/)'],
 }
 
 

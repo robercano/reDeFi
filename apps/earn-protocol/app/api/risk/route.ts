@@ -1,5 +1,5 @@
-import { getRisk } from '@summerfi/app-risk'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getRisk } from '@thesolidchain/app-risk'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {

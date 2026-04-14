@@ -12,7 +12,7 @@ import {
   SparkLendingPosition,
   SparkLendingPositionId,
   SparkProtocol,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import {
   IRefinanceSimulation,
   RefinanceSimulation,
@@ -25,7 +25,7 @@ import {
   LendingPositionType,
   IPositionsManager,
   Order,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { UserClient } from '../../src/implementation/UserClient'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'

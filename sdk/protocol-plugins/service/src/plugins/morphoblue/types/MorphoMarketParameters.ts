@@ -1,4 +1,4 @@
-import { IAddress, IRiskRatio, IToken } from '@summerfi/sdk-common'
+import { IAddress, IRiskRatio, IToken } from '@thesolidchain/sdk-common'
 
 /**
  * @description Morpho market parameters for a given market

@@ -1,4 +1,4 @@
-import { LendingPool, SerializationService } from '@summerfi/sdk-common'
+import { LendingPool, SerializationService } from '@thesolidchain/sdk-common'
 import {
   IMakerLendingPool,
   IMakerLendingPoolData,

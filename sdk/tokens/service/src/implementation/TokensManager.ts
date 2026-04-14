@@ -1,6 +1,6 @@
-import { TokensProviderType } from '@summerfi/sdk-common'
-import { ITokensManager, ITokensProvider } from '@summerfi/tokens-common'
-import { ManagerWithProvidersBase } from '@summerfi/sdk-server-common'
+import { TokensProviderType } from '@thesolidchain/sdk-common'
+import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
+import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
 
 /**
  * @name TokensManager

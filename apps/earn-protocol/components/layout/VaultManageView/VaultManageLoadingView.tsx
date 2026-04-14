@@ -6,7 +6,7 @@ import {
   Text,
   useMobileCheck,
   VaultManageLoadingGrid,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { detailsLinks } from '@/components/layout/VaultOpenView/vault-details-links'
 import { VaultOpenHeaderBlock } from '@/components/layout/VaultOpenView/VaultOpenHeaderBlock'

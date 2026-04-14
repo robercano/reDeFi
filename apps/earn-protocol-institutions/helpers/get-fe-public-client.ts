@@ -1,5 +1,5 @@
-import { customAAKitHyperliquidConfig, customAAKitSonicConfig } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { customAAKitHyperliquidConfig, customAAKitSonicConfig } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import { createPublicClient, http, type PublicClient } from 'viem'
 import { arbitrum, base, mainnet } from 'viem/chains'
 

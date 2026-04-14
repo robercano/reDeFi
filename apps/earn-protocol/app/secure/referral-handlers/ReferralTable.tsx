@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { Button, Text } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { Button, Text } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 
 import { sanitizeReferralCode } from '@/helpers/sanitize-referral-code'
 

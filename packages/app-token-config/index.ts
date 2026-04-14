@@ -1,4 +1,4 @@
-import { type TokenConfig } from '@summerfi/app-types'
+import { type TokenConfig } from '@thesolidchain/app-types'
 
 export const tokenConfigs: TokenConfig[] = [
   {

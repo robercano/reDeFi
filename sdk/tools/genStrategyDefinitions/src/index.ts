@@ -6,8 +6,8 @@ import {
 } from './Helpers'
 import yargs from 'yargs'
 import fs from 'fs'
-import { refinanceLendingToLendingAnyPairStrategy } from '@summerfi/simulator-service/strategies'
-import { AddressValue } from '@summerfi/sdk-common'
+import { refinanceLendingToLendingAnyPairStrategy } from '@thesolidchain/simulator-service/strategies'
+import { AddressValue } from '@thesolidchain/sdk-common'
 
 async function main() {
   const args = await yargs(process.argv.slice(2))

@@ -1,7 +1,7 @@
-import { ChainId, type ITokenAmount } from '@summerfi/sdk-common'
-import { IAddress, IChainInfo, IToken } from '@summerfi/sdk-common'
-import { TokensProviderType } from '@summerfi/sdk-common'
-import { IManagerProvider } from '@summerfi/sdk-server-common'
+import { ChainId, type ITokenAmount } from '@thesolidchain/sdk-common'
+import { IAddress, IChainInfo, IToken } from '@thesolidchain/sdk-common'
+import { TokensProviderType } from '@thesolidchain/sdk-common'
+import { IManagerProvider } from '@thesolidchain/sdk-server-common'
 
 /**
  * @name ITokensProvider

@@ -4,7 +4,7 @@ import {
   ChainInfo,
   getChainInfoByChainId,
   IChainInfoData,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { IChainsManagerClient } from '../interfaces/IChainsManager'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'

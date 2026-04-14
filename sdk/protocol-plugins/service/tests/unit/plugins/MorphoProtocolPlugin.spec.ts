@@ -1,5 +1,5 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
-import { ChainFamilyMap, ChainInfo, ProtocolName } from '@summerfi/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { ChainFamilyMap, ChainInfo, ProtocolName } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { MorphoLendingPositionId } from '../../../src'
 import { MorphoProtocolPlugin } from '../../../src/plugins/morphoblue/implementation/MorphoProtocolPlugin'

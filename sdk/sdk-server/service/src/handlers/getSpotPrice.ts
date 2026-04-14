@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { isDenomination, isToken, Token, type Denomination } from '@summerfi/sdk-common'
+import { isDenomination, isToken, Token, type Denomination } from '@thesolidchain/sdk-common'
 import { publicProcedure } from '../SDKTRPC'
 
 export const getSpotPrice = publicProcedure

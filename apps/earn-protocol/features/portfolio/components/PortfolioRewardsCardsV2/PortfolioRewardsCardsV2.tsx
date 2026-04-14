@@ -16,15 +16,15 @@ import {
   useClientChainId,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { NetworkIds, SupportedNetworkIds, UiTransactionStatuses } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { NetworkIds, SupportedNetworkIds, UiTransactionStatuses } from '@thesolidchain/app-types'
 import {
   ADDRESS_ZERO,
   chainIdToSDKNetwork,
   formatCryptoBalance,
   formatFiatBalance,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 

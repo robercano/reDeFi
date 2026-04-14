@@ -8,7 +8,7 @@ import {
   HighestQualityYieldsDisclaimer,
   ProtocolStats,
   SupportedNetworksList,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import {
   HigherYieldsBlock,

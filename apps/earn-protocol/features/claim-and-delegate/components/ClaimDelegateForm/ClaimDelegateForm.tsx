@@ -1,6 +1,6 @@
 'use client'
 import { type Dispatch, type FC } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 
 import { ClaimDelegateFormContent } from '@/features/claim-and-delegate/components/ClaimDelegateFormContent/ClaimDelegateFormContent'
 import { ClaimDelegateFormHeader } from '@/features/claim-and-delegate/components/ClaimDelegateFormHeader/ClaimDelegateFormHeader'

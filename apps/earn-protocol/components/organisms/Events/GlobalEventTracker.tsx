@@ -2,7 +2,7 @@
 
 import { useLayoutEffect, useRef } from 'react'
 import { useAccount, useChain, useUser } from '@account-kit/react'
-import { getAccountType, useUserWallet } from '@summerfi/app-earn-ui'
+import { getAccountType, useUserWallet } from '@thesolidchain/app-earn-ui'
 import { usePathname } from 'next/navigation'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

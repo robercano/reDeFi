@@ -1,4 +1,4 @@
-import { IOracleManager } from '@summerfi/oracle-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
 import { OracleManagerFactory } from '../src'
 import { MockConfigurationProvider } from './mocks/MockConfigurationProvider'
 

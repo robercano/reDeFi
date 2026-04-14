@@ -1,14 +1,14 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Button, getVaultsProtocolsList, SectionTabs, Text, WithArrow } from '@summerfi/app-earn-ui'
-import { type SDKVaultsListType, type TotalRebalanceItemsPerStrategyId } from '@summerfi/app-types'
+import { Button, getVaultsProtocolsList, SectionTabs, Text, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultsListType, type TotalRebalanceItemsPerStrategyId } from '@thesolidchain/app-types'
 import {
   formatFiatBalance,
   formatWithSeparators,
   getRebalanceSavedGasCost,
   getRebalanceSavedTimeInHours,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Image, { type StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

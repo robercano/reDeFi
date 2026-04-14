@@ -1,5 +1,5 @@
-import { Button, Icon, Text } from '@summerfi/app-earn-ui'
-import { getBeachClubDb } from '@summerfi/summer-beach-club-db'
+import { Button, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { getBeachClubDb } from '@thesolidchain/summer-beach-club-db'
 import { revalidateTag, unstable_cache as unstableCache } from 'next/cache'
 import { cookies } from 'next/headers'
 

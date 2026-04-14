@@ -1,4 +1,4 @@
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

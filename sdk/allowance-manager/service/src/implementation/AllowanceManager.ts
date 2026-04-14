@@ -1,7 +1,7 @@
-import type { IAllowanceManager } from '@summerfi/allowance-manager-common'
-import type { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import type { IContractsProvider } from '@summerfi/contracts-provider-common'
-import { TransactionType, TokenAmount } from '@summerfi/sdk-common'
+import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
+import type { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
+import { TransactionType, TokenAmount } from '@thesolidchain/sdk-common'
 
 /**
  * @name AllowanceManager

@@ -1,5 +1,5 @@
-import { type SDKVaultishType, type SupportedSDKNetworks } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+import { type SDKVaultishType, type SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getIsVaultDaoManaged } from '@/app/server-handlers/get-vault-dao-managed'

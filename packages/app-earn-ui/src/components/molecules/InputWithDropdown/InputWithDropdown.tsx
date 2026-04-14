@@ -1,6 +1,6 @@
 import { type ChangeEventHandler, type FC, type ReactNode, Suspense } from 'react'
-import { type DropdownOption, type DropdownRawOption } from '@summerfi/app-types'
-import { humanReadableChainToLabelMap } from '@summerfi/app-utils'
+import { type DropdownOption, type DropdownRawOption } from '@thesolidchain/app-types'
+import { humanReadableChainToLabelMap } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

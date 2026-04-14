@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { formatCryptoBalance, formatDecimalAsPercent, formatFiatBalance } from '@summerfi/app-utils'
+import { formatCryptoBalance, formatDecimalAsPercent, formatFiatBalance } from '@thesolidchain/app-utils'
 
 import { Card } from '@/components/atoms/Card/Card'
 import { Icon } from '@/components/atoms/Icon/Icon'

@@ -1,4 +1,4 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   ChainInfo,
   Token,
@@ -8,7 +8,7 @@ import {
   TokenAmount,
   Percentage,
   ChainFamilyMap,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { SparkProtocolPlugin } from '../../src/plugins/spark/implementation/SparkProtocolPlugin'
 import { ISparkLendingPoolId } from '../../src/plugins/spark/interfaces/ISparkLendingPoolId'
 import { getSparkPoolIdMock } from '../mocks/SparkPoolIdMock'

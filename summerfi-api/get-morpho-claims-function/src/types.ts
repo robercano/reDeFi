@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/serverless-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 
 export enum ClaimsRawKeys {

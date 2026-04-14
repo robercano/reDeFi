@@ -1,5 +1,5 @@
-import { Address, Token, TokenAmount, FlashloanProvider } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, Token, TokenAmount, FlashloanProvider } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import { FlashloanAction } from '../../../src/plugins/common/actions/FlashloanAction'
 
 describe('Flashloan Action', () => {

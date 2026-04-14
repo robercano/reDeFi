@@ -1,4 +1,4 @@
-import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@summerfi/app-utils'
+import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@thesolidchain/app-utils'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getVaultsBenchmark } from '@/app/server-handlers/raw-calls/get-vaults-benchmark'

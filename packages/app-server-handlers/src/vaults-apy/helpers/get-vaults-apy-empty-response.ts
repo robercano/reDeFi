@@ -1,4 +1,4 @@
-import { type GetVaultsApyParams, type GetVaultsApyResponse } from '@summerfi/app-types'
+import { type GetVaultsApyParams, type GetVaultsApyResponse } from '@thesolidchain/app-types'
 
 /**
  * Creates an empty APY response structure for the provided fleets.

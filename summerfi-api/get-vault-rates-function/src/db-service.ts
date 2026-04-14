@@ -3,9 +3,9 @@ import {
   mapChainIdToDbNetwork,
   SummerProtocolDB,
   PgSummerProtocolDbConfig,
-} from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/summer-protocol-db'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { HistoricalFleetRateResult, FleetRate } from '@summerfi/app-types'
+import { HistoricalFleetRateResult, FleetRate } from '@thesolidchain/app-types'
 
 const logger = new Logger({ serviceName: 'vault-rates-db-service' })
 

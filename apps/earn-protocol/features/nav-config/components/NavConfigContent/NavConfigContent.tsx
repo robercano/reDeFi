@@ -15,8 +15,8 @@ import {
   Text,
   ToggleButton,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
-import { formatAddress, formatCryptoBalance, mapNumericInput } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { formatAddress, formatCryptoBalance, mapNumericInput } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 

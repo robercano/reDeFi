@@ -1,6 +1,6 @@
-import type { IImportPositionParameters } from '@summerfi/sdk-common'
-import { IImportSimulation } from '@summerfi/sdk-common'
-import { importPosition } from '@summerfi/simulator-service/strategies'
+import type { IImportPositionParameters } from '@thesolidchain/sdk-common'
+import { IImportSimulation } from '@thesolidchain/sdk-common'
+import { importPosition } from '@thesolidchain/simulator-service/strategies'
 import { z } from 'zod'
 import { publicProcedure } from '../SDKTRPC'
 

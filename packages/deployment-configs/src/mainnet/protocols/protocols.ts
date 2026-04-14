@@ -1,4 +1,4 @@
-import { ProtocolsConfig } from '@summerfi/deployment-types'
+import { ProtocolsConfig } from '@thesolidchain/deployment-types'
 import { AAVEV2Configuration } from './aaveV2'
 import { AAVEV3Configuration } from './aaveV3'
 import { AjnaConfiguration } from './ajna'

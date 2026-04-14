@@ -1,5 +1,5 @@
-import { getVaultDetailsUrl, getVaultUrl } from '@summerfi/app-earn-ui'
-import { parseServerResponseToClient } from '@summerfi/app-utils'
+import { getVaultDetailsUrl, getVaultUrl } from '@thesolidchain/app-earn-ui'
+import { parseServerResponseToClient } from '@thesolidchain/app-utils'
 import { type MetadataRoute } from 'next'
 
 import { getCachedConfig } from '@/app/server-handlers/cached/get-config'

@@ -1,6 +1,6 @@
 'use client'
 import { type FC, useReducer } from 'react'
-import { Card, Text } from '@summerfi/app-earn-ui'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { ClaimDelegateCompletedStep } from '@/features/claim-and-delegate/components/ClaimDelegateCompletedStep/ClaimDelegateCompletedStep'

@@ -1,5 +1,5 @@
-import { Token, IAddress } from '@summerfi/sdk-common'
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { Token, IAddress } from '@thesolidchain/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { Abi } from 'viem'
 
 export async function fetchReservesTokens(

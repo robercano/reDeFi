@@ -17,8 +17,8 @@ import {
   eventBodySparkBasicSellSchema,
   eventBodySparkPartialTakeProfitSchema,
 } from './validators'
-import { SupportedTriggers } from '@summerfi/triggers-shared'
-import { ChainId, ProtocolId } from '@summerfi/serverless-shared'
+import { SupportedTriggers } from '@thesolidchain/triggers-shared'
+import { ChainId, ProtocolId } from '@thesolidchain/serverless-shared'
 
 const zodIssueToIssue = (issue: ZodIssue): ValidationIssue => {
   return {

@@ -8,21 +8,21 @@ import {
   SkeletonLine,
   Text,
   useLocalConfig,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type SDKVaultishType,
   type SDKVaultType,
   type TokenSymbolsList,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatFiatBalance,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
-import { type TransactionMetadataMigration } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { type TransactionMetadataMigration } from '@thesolidchain/sdk-common'
 import { type BigNumber } from 'bignumber.js'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'

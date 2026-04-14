@@ -1,4 +1,4 @@
-import { ProtocolId, Token } from '@summerfi/serverless-shared'
+import { ProtocolId, Token } from '@thesolidchain/serverless-shared'
 import { ShortDate } from '../helpers'
 
 export interface InterestRate {

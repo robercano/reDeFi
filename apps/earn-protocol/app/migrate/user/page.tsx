@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
 import { redirect } from 'next/navigation'
 
 const MigrationRedirectUserPage = () => {

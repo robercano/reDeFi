@@ -1,4 +1,4 @@
-import type { Token, ChainId, AddressValue } from '@summerfi/sdk-common'
+import type { Token, ChainId, AddressValue } from '@thesolidchain/sdk-common'
 
 /**
  * @name ITokensManagerClient

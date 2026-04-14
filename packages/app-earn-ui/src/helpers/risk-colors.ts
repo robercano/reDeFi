@@ -1,5 +1,5 @@
 // used raw colors due to issues with Icon css computed colors
-import { type RiskType } from '@summerfi/app-types'
+import { type RiskType } from '@thesolidchain/app-types'
 
 export const riskColors: { [key in RiskType]: string } = {
   higher: 'rgba(255, 87, 57, 1)', // var(--earn-protocol-critical-100)'

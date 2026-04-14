@@ -1,4 +1,4 @@
-import { type DeviceInfo, DeviceType } from '@summerfi/app-types'
+import { type DeviceInfo, DeviceType } from '@thesolidchain/app-types'
 
 /**
  * Detects the type of device based on the user agent string.

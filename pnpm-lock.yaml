@@ -36,10 +36,10 @@ importers:
       '@graphql-typed-document-node/core':
         specifier: ^3.2.0
         version: 3.2.0(graphql@16.11.0)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
       '@tsconfig/node20':
@@ -141,51 +141,51 @@ importers:
       '@safe-global/safe-apps-sdk':
         specifier: ^9.0.0
         version: 9.1.0(typescript@5.7.3)(zod@3.25.61)
-      '@summerfi/app-earn-ui':
-        specifier: workspace:*
-        version: link:../../packages/app-earn-ui
-      '@summerfi/app-icons':
-        specifier: workspace:*
-        version: link:../../packages/app-icons
-      '@summerfi/app-risk':
-        specifier: workspace:*
-        version: link:../../packages/app-risk
-      '@summerfi/app-server-handlers':
-        specifier: workspace:*
-        version: link:../../packages/app-server-handlers
-      '@summerfi/app-tos':
-        specifier: workspace:*
-        version: link:../../packages/app-tos
-      '@summerfi/app-types':
-        specifier: workspace:*
-        version: link:../../packages/app-types
-      '@summerfi/app-utils':
-        specifier: workspace:*
-        version: link:../../packages/app-utils
-      '@summerfi/sdk-client':
-        specifier: workspace:^
-        version: link:../../sdk/sdk-client
-      '@summerfi/sdk-client-react':
-        specifier: workspace:^
-        version: link:../../sdk/sdk-client-react
-      '@summerfi/sdk-common':
-        specifier: workspace:*
-        version: link:../../sdk/sdk-common
-      '@summerfi/serverless-shared':
-        specifier: workspace:*
-        version: link:../../packages/serverless-shared
-      '@summerfi/subgraph-manager-common':
-        specifier: workspace:*
-        version: link:../../sdk/subgraph/manager/common
-      '@summerfi/summer-beach-club-db':
-        specifier: workspace:*
-        version: link:../../packages/summer-beach-club-db
-      '@summerfi/summer-protocol-db':
-        specifier: workspace:*
-        version: link:../../packages/summer-protocol-db
       '@tanstack/react-query':
         specifier: ^5.51.1
         version: 5.51.1(react@19.2.3)
+      '@thesolidchain/app-earn-ui':
+        specifier: workspace:*
+        version: link:../../packages/app-earn-ui
+      '@thesolidchain/app-icons':
+        specifier: workspace:*
+        version: link:../../packages/app-icons
+      '@thesolidchain/app-risk':
+        specifier: workspace:*
+        version: link:../../packages/app-risk
+      '@thesolidchain/app-server-handlers':
+        specifier: workspace:*
+        version: link:../../packages/app-server-handlers
+      '@thesolidchain/app-tos':
+        specifier: workspace:*
+        version: link:../../packages/app-tos
+      '@thesolidchain/app-types':
+        specifier: workspace:*
+        version: link:../../packages/app-types
+      '@thesolidchain/app-utils':
+        specifier: workspace:*
+        version: link:../../packages/app-utils
+      '@thesolidchain/sdk-client':
+        specifier: workspace:^
+        version: link:../../sdk/sdk-client
+      '@thesolidchain/sdk-client-react':
+        specifier: workspace:^
+        version: link:../../sdk/sdk-client-react
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../sdk/sdk-common
+      '@thesolidchain/serverless-shared':
+        specifier: workspace:*
+        version: link:../../packages/serverless-shared
+      '@thesolidchain/subgraph-manager-common':
+        specifier: workspace:*
+        version: link:../../sdk/subgraph/manager/common
+      '@thesolidchain/summer-beach-club-db':
+        specifier: workspace:*
+        version: link:../../packages/summer-beach-club-db
+      '@thesolidchain/summer-protocol-db':
+        specifier: workspace:*
+        version: link:../../packages/summer-protocol-db
       '@transak/transak-sdk':
         specifier: ^3.1.3
         version: 3.1.3
@@ -262,10 +262,10 @@ importers:
       '@graphql-codegen/cli':
         specifier: ^5.0.2
         version: 5.0.2(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.7.3)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/lodash-es':
@@ -331,51 +331,51 @@ importers:
       '@safe-global/safe-apps-sdk':
         specifier: ^9.0.0
         version: 9.1.0(typescript@5.7.3)(zod@3.25.61)
-      '@summerfi/app-earn-ui':
-        specifier: workspace:*
-        version: link:../../packages/app-earn-ui
-      '@summerfi/app-icons':
-        specifier: workspace:*
-        version: link:../../packages/app-icons
-      '@summerfi/app-risk':
-        specifier: workspace:*
-        version: link:../../packages/app-risk
-      '@summerfi/app-server-handlers':
-        specifier: workspace:*
-        version: link:../../packages/app-server-handlers
-      '@summerfi/app-tos':
-        specifier: workspace:*
-        version: link:../../packages/app-tos
-      '@summerfi/app-types':
-        specifier: workspace:*
-        version: link:../../packages/app-types
-      '@summerfi/app-utils':
-        specifier: workspace:*
-        version: link:../../packages/app-utils
-      '@summerfi/sdk-client':
-        specifier: workspace:^
-        version: link:../../sdk/sdk-client
-      '@summerfi/sdk-client-react':
-        specifier: workspace:^
-        version: link:../../sdk/sdk-client-react
-      '@summerfi/sdk-common':
-        specifier: workspace:*
-        version: link:../../sdk/sdk-common
-      '@summerfi/serverless-shared':
-        specifier: workspace:*
-        version: link:../../packages/serverless-shared
-      '@summerfi/subgraph-manager-common':
-        specifier: workspace:*
-        version: link:../../sdk/subgraph/manager/common
-      '@summerfi/summer-earn-rates-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/summer-earn-rates-subgraph
-      '@summerfi/summer-protocol-institutions-db':
-        specifier: workspace:*
-        version: link:../../packages/summer-institutions-db
       '@tanstack/react-query':
         specifier: ^5.51.1
         version: 5.51.1(react@19.2.3)
+      '@thesolidchain/app-earn-ui':
+        specifier: workspace:*
+        version: link:../../packages/app-earn-ui
+      '@thesolidchain/app-icons':
+        specifier: workspace:*
+        version: link:../../packages/app-icons
+      '@thesolidchain/app-risk':
+        specifier: workspace:*
+        version: link:../../packages/app-risk
+      '@thesolidchain/app-server-handlers':
+        specifier: workspace:*
+        version: link:../../packages/app-server-handlers
+      '@thesolidchain/app-tos':
+        specifier: workspace:*
+        version: link:../../packages/app-tos
+      '@thesolidchain/app-types':
+        specifier: workspace:*
+        version: link:../../packages/app-types
+      '@thesolidchain/app-utils':
+        specifier: workspace:*
+        version: link:../../packages/app-utils
+      '@thesolidchain/sdk-client':
+        specifier: workspace:^
+        version: link:../../sdk/sdk-client
+      '@thesolidchain/sdk-client-react':
+        specifier: workspace:^
+        version: link:../../sdk/sdk-client-react
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../sdk/sdk-common
+      '@thesolidchain/serverless-shared':
+        specifier: workspace:*
+        version: link:../../packages/serverless-shared
+      '@thesolidchain/subgraph-manager-common':
+        specifier: workspace:*
+        version: link:../../sdk/subgraph/manager/common
+      '@thesolidchain/summer-earn-rates-subgraph':
+        specifier: workspace:*
+        version: link:../../packages/summer-earn-rates-subgraph
+      '@thesolidchain/summer-protocol-institutions-db':
+        specifier: workspace:*
+        version: link:../../packages/summer-institutions-db
       bignumber.js:
         specifier: ^9.3.0
         version: 9.3.0
@@ -449,10 +449,10 @@ importers:
       '@graphql-codegen/cli':
         specifier: ^5.0.2
         version: 5.0.6(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.7.3)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/loadable__component':
@@ -500,22 +500,22 @@ importers:
       '@loadable/component':
         specifier: ^5.16.4
         version: 5.16.4(react@19.2.3)
-      '@summerfi/app-earn-ui':
+      '@thesolidchain/app-earn-ui':
         specifier: workspace:*
         version: link:../../packages/app-earn-ui
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../../packages/app-types
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../../packages/app-utils
-      '@summerfi/sdk-client':
+      '@thesolidchain/sdk-client':
         specifier: workspace:^
         version: link:../../sdk/sdk-client
-      '@summerfi/sdk-client-react':
+      '@thesolidchain/sdk-client-react':
         specifier: workspace:^
         version: link:../../sdk/sdk-client-react
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk/sdk-common
       browser-detect:
@@ -552,10 +552,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/loadable__component':
@@ -600,7 +600,7 @@ importers:
       '@graphql-tools/utils':
         specifier: 10.8.6
         version: 10.8.6(graphql@16.11.0)
-      '@summerfi/summer-beach-club-db':
+      '@thesolidchain/summer-beach-club-db':
         specifier: workspace:*
         version: link:../../packages/summer-beach-club-db
       graphql:
@@ -662,10 +662,10 @@ importers:
         specifier: ^2.0.2
         version: 2.0.4
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -689,19 +689,19 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.2
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
-      '@summerfi/summer-earn-institutions-subgraph':
+      '@thesolidchain/summer-earn-institutions-subgraph':
         specifier: workspace:*
         version: link:../../packages/summer-earn-institutions-subgraph
-      '@summerfi/summer-earn-protocol-subgraph':
+      '@thesolidchain/summer-earn-protocol-subgraph':
         specifier: workspace:*
         version: link:../../packages/summer-earn-protocol-subgraph
-      '@summerfi/summer-earn-rates-subgraph':
+      '@thesolidchain/summer-earn-rates-subgraph':
         specifier: workspace:*
         version: link:../../packages/summer-earn-rates-subgraph
-      '@summerfi/summer-protocol-db':
+      '@thesolidchain/summer-protocol-db':
         specifier: workspace:*
         version: link:../../packages/summer-protocol-db
       graphql-tag:
@@ -717,10 +717,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -741,23 +741,23 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.2
         version: 2.16.0
-      '@summerfi/ssr-public-client':
+      '@thesolidchain/ssr-public-client':
         specifier: workspace:*
         version: link:../../packages/ssr-public-client
-      '@summerfi/summer-protocol-db':
+      '@thesolidchain/summer-protocol-db':
         specifier: workspace:*
         version: link:../../packages/summer-protocol-db
       bignumber.js:
         specifier: ^9.1.2
         version: 9.3.0
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../../packages/app-types
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -770,160 +770,22 @@ importers:
         specifier: ^5.7.3
         version: 5.7.3
 
-  external-api/get-campaign-data-function:
-    dependencies:
-      '@aws-lambda-powertools/logger':
-        specifier: ^2.0.4
-        version: 2.16.0
-      '@aws-lambda-powertools/metrics':
-        specifier: ^2.0.4
-        version: 2.16.0
-      '@aws-lambda-powertools/tracer':
-        specifier: ^2.0.4
-        version: 2.16.0
-      '@summerfi/serverless-shared':
-        specifier: workspace:*
-        version: link:../../packages/serverless-shared
-      '@summerfi/summer-earn-protocol-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/summer-earn-protocol-subgraph
-      '@summerfi/summer-protocol-db':
-        specifier: workspace:*
-        version: link:../../packages/summer-protocol-db
-      bignumber.js:
-        specifier: ^9.1.2
-        version: 9.3.0
-      viem:
-        specifier: 2.43.5
-        version: 2.43.5(typescript@5.7.3)(zod@3.25.61)
-      zod:
-        specifier: 3.25.61
-        version: 3.25.61
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^20.12.7
-        version: 20.14.2
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.14.2)(ts-node@10.9.2)
-
-  external-api/get-collateral-locked-function:
-    dependencies:
-      '@aws-lambda-powertools/logger':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@aws-lambda-powertools/metrics':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@aws-lambda-powertools/tracer':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@summerfi/aave-spark-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/aave-spark-subgraph
-      '@summerfi/ajna-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/ajna-subgraph
-      '@summerfi/morpho-blue-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/morpho-blue-subgraph
-      '@summerfi/serverless-shared':
-        specifier: workspace:*
-        version: link:../../packages/serverless-shared
-      bignumber.js:
-        specifier: ^9.1.2
-        version: 9.1.2
-      zod:
-        specifier: 3.25.61
-        version: 3.25.61
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^20.12.7
-        version: 20.12.7
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.12.7)
-
-  external-api/get-protocol-info-function:
-    dependencies:
-      '@aws-lambda-powertools/logger':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@aws-lambda-powertools/metrics':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@aws-lambda-powertools/tracer':
-        specifier: ^2.0.4
-        version: 2.0.4
-      '@summerfi/serverless-shared':
-        specifier: workspace:*
-        version: link:../../packages/serverless-shared
-      '@summerfi/summer-earn-institutions-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/summer-earn-institutions-subgraph
-      '@summerfi/summer-earn-protocol-subgraph':
-        specifier: workspace:*
-        version: link:../../packages/summer-earn-protocol-subgraph
-      bignumber.js:
-        specifier: ^9.1.2
-        version: 9.1.2
-      viem:
-        specifier: 2.43.5
-        version: 2.43.5(typescript@5.7.3)(zod@3.25.61)
-      zod:
-        specifier: 3.25.61
-        version: 3.25.61
-    devDependencies:
-      '@summerfi/eslint-config':
-        specifier: workspace:*
-        version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
-        specifier: workspace:*
-        version: link:../../packages/typescript-config
-      '@types/node':
-        specifier: ^20.12.7
-        version: 20.14.2
-      eslint:
-        specifier: ^8.57.0
-        version: 8.57.0
-      jest:
-        specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.14.2)(ts-node@10.9.2)
-
   packages/aave-spark-subgraph:
     dependencies:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -935,10 +797,10 @@ importers:
 
   packages/abis:
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
@@ -947,10 +809,10 @@ importers:
 
   packages/abstractions:
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
@@ -962,17 +824,17 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -999,12 +861,12 @@ importers:
       '@number-flow/react':
         specifier: ^0.5.10
         version: 0.5.10(react-dom@19.2.3)(react@19.2.3)
-      '@summerfi/summer-earn-rates-subgraph':
-        specifier: workspace:*
-        version: link:../summer-earn-rates-subgraph
       '@tanstack/react-query':
         specifier: ^5.51.1
         version: 5.51.1(react@19.2.3)
+      '@thesolidchain/summer-earn-rates-subgraph':
+        specifier: workspace:*
+        version: link:../summer-earn-rates-subgraph
       bignumber.js:
         specifier: ^9.3.0
         version: 9.3.0
@@ -1069,22 +931,22 @@ importers:
         specifier: 2.10.9
         version: 2.10.9(@tanstack/react-query@5.51.1)(@types/react@19.2.3)(immer@9.0.21)(react-dom@19.2.3)(react-native@0.78.0)(react@19.2.3)(rollup@4.44.2)(typescript@5.7.3)(viem@2.43.5)(zod@3.25.61)
     devDependencies:
-      '@summerfi/app-icons':
+      '@thesolidchain/app-icons':
         specifier: workspace:*
         version: link:../app-icons
-      '@summerfi/app-token-config':
+      '@thesolidchain/app-token-config':
         specifier: workspace:*
         version: link:../app-token-config
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../app-utils
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/loadable__component':
@@ -1166,13 +1028,13 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(typescript@5.7.3)(vite@7.0.5)
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/react':
@@ -1196,7 +1058,7 @@ importers:
 
   packages/app-risk:
     dependencies:
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../app-utils
       kysely:
@@ -1218,10 +1080,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1254,16 +1116,16 @@ importers:
 
   packages/app-server-handlers:
     dependencies:
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../app-utils
-      '@summerfi/sdk-client':
+      '@thesolidchain/sdk-client':
         specifier: workspace:*
         version: link:../../sdk/sdk-client
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk/sdk-common
-      '@summerfi/summer-earn-rates-subgraph':
+      '@thesolidchain/summer-earn-rates-subgraph':
         specifier: workspace:*
         version: link:../summer-earn-rates-subgraph
       bignumber.js:
@@ -1297,13 +1159,13 @@ importers:
         specifier: ^5.1.3
         version: 5.1.4(typescript@5.7.3)(vite@7.0.5)
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/lodash-es':
@@ -1336,7 +1198,7 @@ importers:
 
   packages/app-token-config:
     dependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
 
@@ -1345,7 +1207,7 @@ importers:
       '@safe-global/safe-apps-sdk':
         specifier: ^9.0.0
         version: 9.1.0(typescript@5.7.3)(zod@3.25.61)
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       jose:
@@ -1373,16 +1235,16 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../app-utils
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1418,32 +1280,32 @@ importers:
 
   packages/app-types:
     dependencies:
-      '@summerfi/sdk-client-react':
+      '@thesolidchain/sdk-client-react':
         specifier: workspace:*
         version: link:../../sdk/sdk-client-react
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk/sdk-common
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
-      '@summerfi/subgraph-manager-common':
+      '@thesolidchain/subgraph-manager-common':
         specifier: workspace:*
         version: link:../../sdk/subgraph/manager/common
-      '@summerfi/summer-earn-rates-subgraph':
+      '@thesolidchain/summer-earn-rates-subgraph':
         specifier: workspace:*
         version: link:../summer-earn-rates-subgraph
-      '@summerfi/summer-protocol-db':
+      '@thesolidchain/summer-protocol-db':
         specifier: workspace:*
         version: link:../summer-protocol-db
       '@types/react':
         specifier: 19.2.3
         version: 19.2.3
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1489,13 +1351,13 @@ importers:
         specifier: ^5.1.3
         version: 5.1.4(typescript@5.7.3)(vite@7.0.5)
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/lodash-es':
@@ -1531,17 +1393,17 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1553,7 +1415,7 @@ importers:
 
   packages/borrow-db:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
       kysely:
@@ -1569,10 +1431,10 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       dotenv:
@@ -1590,10 +1452,10 @@ importers:
 
   packages/common:
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
@@ -1606,13 +1468,13 @@ importers:
       '@nomicfoundation/hardhat-toolbox-viem':
         specifier: ^2.0.0
         version: 2.0.0(@nomicfoundation/hardhat-network-helpers@1.0.11)(@nomicfoundation/hardhat-verify@2.0.8)(@nomicfoundation/hardhat-viem@1.0.4)(@types/chai-as-promised@7.1.8)(@types/chai@4.3.16)(@types/mocha@10.0.6)(@types/node@20.14.2)(chai@4.4.1)(hardhat-gas-reporter@1.0.10)(hardhat@2.22.2)(solidity-coverage@0.8.12)(ts-node@10.9.2)(typescript@5.0.4)(viem@2.43.5)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/hardhat-utils':
+      '@thesolidchain/hardhat-utils':
         specifier: workspace:*
         version: link:../hardhat-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       hardhat:
@@ -1633,31 +1495,31 @@ importers:
       '@prb/math':
         specifier: 2.5.0
         version: 2.5.0(@ethersproject/bignumber@5.8.0)(evm-bn@1.1.2)(mathjs@10.6.4)
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/contracts-utils':
+      '@thesolidchain/contracts-utils':
         specifier: workspace:*
         version: link:../contracts-utils
-      '@summerfi/deployment-configs':
+      '@thesolidchain/deployment-configs':
         specifier: workspace:*
         version: link:../deployment-configs
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../deployment-utils
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/hardhat-utils':
+      '@thesolidchain/hardhat-utils':
         specifier: workspace:*
         version: link:../hardhat-utils
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       hardhat:
@@ -1666,17 +1528,17 @@ importers:
 
   packages/defi-llama-client:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
       node-fetch:
         specifier: ^3.3.2
         version: 3.3.2
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
@@ -1688,28 +1550,28 @@ importers:
 
   packages/deployment-configs:
     devDependencies:
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../deployment-utils
-      '@summerfi/hardhat-utils':
+      '@thesolidchain/hardhat-utils':
         specifier: workspace:*
         version: link:../hardhat-utils
 
   packages/deployment-types:
     devDependencies:
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
 
@@ -1718,19 +1580,19 @@ importers:
       '@nomicfoundation/hardhat-toolbox-viem':
         specifier: ^2.0.0
         version: 2.0.0(@nomicfoundation/hardhat-network-helpers@1.0.11)(@nomicfoundation/hardhat-verify@2.0.8)(@nomicfoundation/hardhat-viem@1.0.4)(@types/chai-as-promised@7.1.8)(@types/chai@4.3.16)(@types/mocha@10.0.6)(@types/node@20.14.2)(chai@4.4.1)(hardhat-gas-reporter@1.0.10)(hardhat@2.22.2)(solidity-coverage@0.8.12)(ts-node@10.9.2)(typescript@5.0.4)(viem@1.21.4)
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/contracts-utils':
+      '@thesolidchain/contracts-utils':
         specifier: workspace:*
         version: link:../contracts-utils
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/hardhat-utils':
+      '@thesolidchain/hardhat-utils':
         specifier: workspace:*
         version: link:../hardhat-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       hardhat:
@@ -1793,10 +1655,10 @@ importers:
       '@nomicfoundation/hardhat-toolbox-viem':
         specifier: ^2.0.0
         version: 2.0.0(@nomicfoundation/hardhat-network-helpers@1.0.11)(@nomicfoundation/hardhat-verify@2.0.8)(@nomicfoundation/hardhat-viem@1.0.4)(@types/chai-as-promised@7.1.8)(@types/chai@4.3.16)(@types/mocha@10.0.6)(@types/node@20.14.2)(chai@4.4.1)(hardhat-gas-reporter@1.0.10)(hardhat@2.22.2)(solidity-coverage@0.8.12)(ts-node@10.9.2)(typescript@5.0.4)(viem@1.21.4)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       hardhat:
@@ -1811,7 +1673,7 @@ importers:
 
   packages/jest-config:
     dependencies:
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/jest':
@@ -1829,17 +1691,17 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1854,17 +1716,17 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1882,17 +1744,17 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1904,17 +1766,17 @@ importers:
 
   packages/redis-cache:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
       redis:
         specifier: ^4.6.13
         version: 4.6.13
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       eslint:
@@ -1930,10 +1792,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1945,20 +1807,20 @@ importers:
 
   packages/ssr-public-client:
     dependencies:
-      '@summerfi/app-utils':
+      '@thesolidchain/app-utils':
         specifier: workspace:*
         version: link:../app-utils
       viem:
         specifier: 2.43.5
         version: 2.43.5(typescript@5.7.3)(zod@3.25.61)
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../app-types
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -1979,7 +1841,7 @@ importers:
 
   packages/summer-beach-club-db:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
       kysely:
@@ -1989,10 +1851,10 @@ importers:
         specifier: ^8.16.0
         version: 8.16.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/pg':
@@ -2013,7 +1875,7 @@ importers:
 
   packages/summer-earn-institutions-subgraph:
     dependencies:
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
@@ -2035,13 +1897,13 @@ importers:
       '@graphql-codegen/typescript-operations':
         specifier: ^4.2.0
         version: 4.6.1(graphql@16.11.0)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2050,7 +1912,7 @@ importers:
 
   packages/summer-earn-protocol-subgraph:
     dependencies:
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
@@ -2072,13 +1934,13 @@ importers:
       '@graphql-codegen/typescript-operations':
         specifier: ^4.2.0
         version: 4.2.0(graphql@16.11.0)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2087,7 +1949,7 @@ importers:
 
   packages/summer-earn-rates-subgraph:
     dependencies:
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
@@ -2109,13 +1971,13 @@ importers:
       '@graphql-codegen/typescript-operations':
         specifier: ^4.2.0
         version: 4.2.0(graphql@16.11.0)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2124,20 +1986,20 @@ importers:
 
   packages/summer-events-subgraph:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       graphql-request:
         specifier: ^6.1.0
         version: 6.1.0(graphql@16.11.0)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2149,10 +2011,10 @@ importers:
 
   packages/summer-institutions-db:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       kysely:
@@ -2162,10 +2024,10 @@ importers:
         specifier: ^8.14.1
         version: 8.16.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/pg':
@@ -2186,10 +2048,10 @@ importers:
 
   packages/summer-protocol-db:
     dependencies:
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../abstractions
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       kysely:
@@ -2205,10 +2067,10 @@ importers:
         specifier: ^3.4.4
         version: 3.4.4
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/pg':
@@ -2232,16 +2094,16 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/abis':
+      '@thesolidchain/abis':
         specifier: workspace:*
         version: link:../abis
-      '@summerfi/prices-subgraph':
+      '@thesolidchain/prices-subgraph':
         specifier: workspace:*
         version: link:../prices-subgraph
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
-      '@summerfi/triggers-shared':
+      '@thesolidchain/triggers-shared':
         specifier: workspace:*
         version: link:../triggers-shared
       bignumber.js:
@@ -2251,10 +2113,10 @@ importers:
         specifier: 2.43.5
         version: 2.43.5(typescript@5.7.3)(zod@3.25.61)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2275,17 +2137,17 @@ importers:
       '@oasisdex/addresses':
         specifier: 0.1.22-automation
         version: 0.1.22-automation
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../serverless-shared
       zod:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
       '@types/node':
@@ -2331,32 +2193,32 @@ importers:
 
   sdk/abi-provider/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/abi-provider/service:
     dependencies:
-      '@summerfi/abi-provider-common':
+      '@thesolidchain/abi-provider-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
@@ -2366,97 +2228,97 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/address-book/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/address-book/service:
     dependencies:
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/core-contracts':
+      '@thesolidchain/core-contracts':
         specifier: workspace:*
         version: link:../../../packages/core-contracts
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../../packages/deployment-utils
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/allowance-manager/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/allowance-manager/service:
     dependencies:
-      '@summerfi/allowance-manager-common':
+      '@thesolidchain/allowance-manager-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/contracts-provider-common':
+      '@thesolidchain/contracts-provider-common':
         specifier: workspace:*
         version: link:../../contracts-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
@@ -2466,50 +2328,50 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/blockchain-client-provider':
+      '@thesolidchain/blockchain-client-provider':
         specifier: workspace:*
         version: link:../../blockchain-client/provider
-      '@summerfi/contracts-provider-service':
+      '@thesolidchain/contracts-provider-service':
         specifier: workspace:*
         version: link:../../contracts-provider/service
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/blockchain-client/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/blockchain-client/provider:
     dependencies:
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:^
         version: link:../common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:^
         version: link:../../configuration-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
@@ -2519,19 +2381,19 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/configuration-provider/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
@@ -2541,32 +2403,32 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/configuration-provider/mock:
     dependencies:
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
       '@types/yargs':
@@ -2581,10 +2443,10 @@ importers:
 
   sdk/configuration-provider/service:
     dependencies:
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
@@ -2594,74 +2456,74 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/contracts-provider/common:
     dependencies:
-      '@summerfi/abi-provider-common':
+      '@thesolidchain/abi-provider-common':
         specifier: workspace:*
         version: link:../../abi-provider/common
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/contracts-provider/service:
     dependencies:
-      '@summerfi/abi-provider-common':
+      '@thesolidchain/abi-provider-common':
         specifier: workspace:*
         version: link:../../abi-provider/common
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
-      '@summerfi/blockchain-client-provider':
+      '@thesolidchain/blockchain-client-provider':
         specifier: workspace:*
         version: link:../../blockchain-client/provider
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/contracts-provider-common':
+      '@thesolidchain/contracts-provider-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/tenderly-utils':
+      '@thesolidchain/tenderly-utils':
         specifier: workspace:*
         version: link:../../tenderly-utils
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
-      '@summerfi/tokens-service':
+      '@thesolidchain/tokens-service':
         specifier: workspace:*
         version: link:../../tokens/service
       '@types/node-fetch':
@@ -2677,22 +2539,22 @@ importers:
       '@openzeppelin/contracts-5.6.1':
         specifier: npm:@openzeppelin/contracts@5.6.1
         version: /@openzeppelin/contracts@5.6.1
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/oracle/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
       '@types/node-fetch':
@@ -2702,34 +2564,34 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/oracle/service:
     dependencies:
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
       '@types/node-fetch':
@@ -2739,102 +2601,102 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/order-planner/common:
     dependencies:
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../../address-book/common
-      '@summerfi/contracts-provider-common':
+      '@thesolidchain/contracts-provider-common':
         specifier: workspace:*
         version: link:../../contracts-provider/common
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/order-planner/service:
     dependencies:
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../../address-book/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/contracts-provider-common':
+      '@thesolidchain/contracts-provider-common':
         specifier: workspace:*
         version: link:../../contracts-provider/common
-      '@summerfi/core-contracts':
+      '@thesolidchain/core-contracts':
         specifier: workspace:*
         version: link:../../../packages/core-contracts
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../../packages/deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../../packages/deployment-utils
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../../oracle/common
-      '@summerfi/order-planner-common':
+      '@thesolidchain/order-planner-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:^
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
       '@types/yargs':
@@ -2849,146 +2711,146 @@ importers:
 
   sdk/protocol-manager/common:
     dependencies:
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../../packages/deployment-types
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
         specifier: ^2.6.11
         version: 2.6.11
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/order-planner-common':
+      '@thesolidchain/order-planner-common':
         specifier: workspace:*
         version: link:../../order-planner/common
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/protocol-manager/service:
     dependencies:
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../../packages/deployment-types
-      '@summerfi/protocol-manager-common':
+      '@thesolidchain/protocol-manager-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
       '@types/node-fetch':
         specifier: ^2.6.11
         version: 2.6.11
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/order-planner-common':
+      '@thesolidchain/order-planner-common':
         specifier: workspace:*
         version: link:../../order-planner/common
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/protocol-plugins/common:
     dependencies:
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../../address-book/common
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../../packages/deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../../packages/deployment-utils
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../../oracle/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
       abitype:
         specifier: ^1.0.2
         version: 1.2.3(typescript@5.7.3)(zod@3.25.61)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/protocol-plugins/service:
     dependencies:
-      '@summerfi/abis':
+      '@thesolidchain/abis':
         specifier: workspace:*
         version: link:../../../packages/abis
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../../address-book/common
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../../packages/deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../../packages/deployment-utils
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../../oracle/common
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../testing-utils
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
@@ -3009,16 +2871,16 @@ importers:
       '@ethersproject/abstract-signer':
         specifier: ^5.8.0
         version: 5.8.0
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins/service
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
-      '@summerfi/sdk-server':
+      '@thesolidchain/sdk-server':
         specifier: workspace:*
         version: link:../sdk-server/service
-      '@summerfi/subgraph-manager-common':
+      '@thesolidchain/subgraph-manager-common':
         specifier: workspace:*
         version: link:../subgraph/manager/common
       '@trpc/client':
@@ -3028,16 +2890,16 @@ importers:
       '@microsoft/api-extractor':
         specifier: ^7.52.13
         version: 7.52.13(@types/node@20.12.7)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       tsx:
@@ -3046,29 +2908,29 @@ importers:
 
   sdk/sdk-client-react:
     dependencies:
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins/service
-      '@summerfi/sdk-client':
+      '@thesolidchain/sdk-client':
         specifier: workspace:*
         version: link:../sdk-client
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
       react:
         specifier: 19.2.3
         version: 19.2.3
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/react':
@@ -3080,20 +2942,20 @@ importers:
       '@cowprotocol/cow-sdk':
         specifier: ^6.3.2
         version: 6.3.2(ethers@5.7.2)(ipfs-only-hash@4.0.0)(multiformats@9.9.0)
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../packages/common
       superjson:
         specifier: ^1.13.3
         version: 1.13.3
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
@@ -3103,40 +2965,40 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
     devDependencies:
-      '@summerfi/core-contracts':
+      '@thesolidchain/core-contracts':
         specifier: workspace:*
         version: link:../../packages/core-contracts
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../packages/deployment-utils
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/protocol-manager-service':
+      '@thesolidchain/protocol-manager-service':
         specifier: workspace:*
         version: link:../protocol-manager/service
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../protocol-plugins/common
-      '@summerfi/sdk-client':
+      '@thesolidchain/sdk-client':
         specifier: workspace:*
         version: link:../sdk-client
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
-      '@summerfi/tenderly-utils':
+      '@thesolidchain/tenderly-utils':
         specifier: workspace:*
         version: link:../tenderly-utils
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
@@ -3151,45 +3013,45 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.16.0
         version: 2.16.0
-      '@summerfi/sdk-server':
+      '@thesolidchain/sdk-server':
         specifier: workspace:*
         version: link:../sdk-server/service
       '@trpc/server':
         specifier: 11.8.0
         version: 11.8.0(typescript@5.8.2)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
   sdk/sdk-server/common:
     dependencies:
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/configuration-provider-mock':
+      '@thesolidchain/configuration-provider-mock':
         specifier: workspace:*
         version: link:../../configuration-provider/mock
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
@@ -3198,150 +3060,150 @@ importers:
       '@cowprotocol/cow-sdk':
         specifier: ^6.3.2
         version: 6.3.2(ethers@5.7.2)(ipfs-only-hash@4.0.0)(multiformats@9.9.0)
-      '@summerfi/abi-provider-common':
+      '@thesolidchain/abi-provider-common':
         specifier: workspace:*
         version: link:../../abi-provider/common
-      '@summerfi/abi-provider-service':
+      '@thesolidchain/abi-provider-service':
         specifier: workspace:*
         version: link:../../abi-provider/service
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../../address-book/common
-      '@summerfi/address-book-service':
+      '@thesolidchain/address-book-service':
         specifier: workspace:*
         version: link:../../address-book/service
-      '@summerfi/allowance-manager-common':
+      '@thesolidchain/allowance-manager-common':
         specifier: workspace:*
         version: link:../../allowance-manager/common
-      '@summerfi/allowance-manager-service':
+      '@thesolidchain/allowance-manager-service':
         specifier: workspace:*
         version: link:../../allowance-manager/service
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
-      '@summerfi/blockchain-client-provider':
+      '@thesolidchain/blockchain-client-provider':
         specifier: workspace:*
         version: link:../../blockchain-client/provider
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/contracts-provider-common':
+      '@thesolidchain/contracts-provider-common':
         specifier: workspace:*
         version: link:../../contracts-provider/common
-      '@summerfi/contracts-provider-service':
+      '@thesolidchain/contracts-provider-service':
         specifier: workspace:*
         version: link:../../contracts-provider/service
-      '@summerfi/core-contracts':
+      '@thesolidchain/core-contracts':
         specifier: workspace:*
         version: link:../../../packages/core-contracts
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../../packages/deployment-utils
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../../oracle/common
-      '@summerfi/oracle-service':
+      '@thesolidchain/oracle-service':
         specifier: workspace:*
         version: link:../../oracle/service
-      '@summerfi/order-planner-common':
+      '@thesolidchain/order-planner-common':
         specifier: workspace:*
         version: link:../../order-planner/common
-      '@summerfi/order-planner-service':
+      '@thesolidchain/order-planner-service':
         specifier: workspace:*
         version: link:../../order-planner/service
-      '@summerfi/protocol-manager-common':
+      '@thesolidchain/protocol-manager-common':
         specifier: workspace:*
         version: link:../../protocol-manager/common
-      '@summerfi/protocol-manager-service':
+      '@thesolidchain/protocol-manager-service':
         specifier: workspace:*
         version: link:../../protocol-manager/service
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/simulator-service':
+      '@thesolidchain/simulator-service':
         specifier: workspace:^
         version: link:../../simulator/service
-      '@summerfi/subgraph-manager-service':
+      '@thesolidchain/subgraph-manager-service':
         specifier: workspace:*
         version: link:../../subgraph/manager/service
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
-      '@summerfi/swap-service':
+      '@thesolidchain/swap-service':
         specifier: workspace:*
         version: link:../../swap/service
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
-      '@summerfi/tokens-service':
+      '@thesolidchain/tokens-service':
         specifier: workspace:*
         version: link:../../tokens/service
       '@trpc/server':
         specifier: 11.8.0
         version: 11.8.0(typescript@5.8.2)
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/sdk-speed-test:
     dependencies:
-      '@summerfi/sdk-client':
+      '@thesolidchain/sdk-client':
         specifier: workspace:*
         version: link:../sdk-client
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
 
   sdk/simulator/service:
     dependencies:
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../../oracle/common
-      '@summerfi/protocol-manager-common':
+      '@thesolidchain/protocol-manager-common':
         specifier: workspace:*
         version: link:../../protocol-manager/common
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../swap/common
       '@types/node-fetch':
@@ -3351,19 +3213,19 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/subgraph/manager/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../../sdk-common
       graphql-request:
@@ -3376,13 +3238,13 @@ importers:
       '@graphql-codegen/cli':
         specifier: ^5.0.2
         version: 5.0.6(@types/node@20.12.7)(graphql@16.11.0)(typescript@5.7.3)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../../packages/typescript-config
       graphql:
@@ -3391,25 +3253,25 @@ importers:
 
   sdk/subgraph/manager/service:
     dependencies:
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../../packages/common
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../../../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../../configuration-provider/common
-      '@summerfi/configuration-provider-mock':
+      '@thesolidchain/configuration-provider-mock':
         specifier: workspace:*
         version: link:../../../configuration-provider/mock
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../../sdk-server/common
-      '@summerfi/subgraph-manager-common':
+      '@thesolidchain/subgraph-manager-common':
         specifier: workspace:*
         version: link:../common
       '@types/node-fetch':
@@ -3425,16 +3287,16 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../../packages/jest-config
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../../../testing-utils
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../../packages/typescript-config
 
@@ -3443,10 +3305,10 @@ importers:
       '@cowprotocol/cow-sdk':
         specifier: ^6.3.2
         version: 6.3.2(ethers@5.7.2)(ipfs-only-hash@4.0.0)(multiformats@9.9.0)
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
       '@types/node-fetch':
@@ -3456,13 +3318,13 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
@@ -3474,25 +3336,25 @@ importers:
       '@cowprotocol/cow-sdk':
         specifier: ^6.3.2
         version: 6.3.2(ethers@5.7.2)(ipfs-only-hash@4.0.0)(multiformats@9.9.0)
-      '@summerfi/allowance-manager-common':
+      '@thesolidchain/allowance-manager-common':
         specifier: workspace:*
         version: link:../../allowance-manager/common
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../common
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../../tokens/common
       '@types/node-fetch':
@@ -3502,13 +3364,13 @@ importers:
         specifier: ^2.7.0
         version: 2.7.0
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
@@ -3517,16 +3379,16 @@ importers:
       '@inquirer/prompts':
         specifier: ^4.3.3
         version: 4.3.3
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../configuration-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
-      '@summerfi/testing-utils':
+      '@thesolidchain/testing-utils':
         specifier: workspace:*
         version: link:../testing-utils
       typescript:
@@ -3536,13 +3398,13 @@ importers:
       '@ethersproject/providers':
         specifier: ^5.7.2
         version: 5.7.2
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       axios:
@@ -3554,56 +3416,56 @@ importers:
 
   sdk/testing-utils:
     dependencies:
-      '@summerfi/address-book-common':
+      '@thesolidchain/address-book-common':
         specifier: workspace:*
         version: link:../address-book/common
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../blockchain-client/common
-      '@summerfi/blockchain-client-provider':
+      '@thesolidchain/blockchain-client-provider':
         specifier: workspace:*
         version: link:../blockchain-client/provider
-      '@summerfi/configuration-provider':
+      '@thesolidchain/configuration-provider':
         specifier: workspace:*
         version: link:../configuration-provider/service
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../configuration-provider/common
-      '@summerfi/deployment-types':
+      '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../packages/deployment-types
-      '@summerfi/deployment-utils':
+      '@thesolidchain/deployment-utils':
         specifier: workspace:*
         version: link:../../packages/deployment-utils
-      '@summerfi/oracle-common':
+      '@thesolidchain/oracle-common':
         specifier: workspace:*
         version: link:../oracle/common
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../sdk-server/common
-      '@summerfi/swap-common':
+      '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../swap/common
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../tokens/common
-      '@summerfi/tokens-service':
+      '@thesolidchain/tokens-service':
         specifier: workspace:^
         version: link:../tokens/service
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/yargs':
@@ -3618,82 +3480,82 @@ importers:
 
   sdk/tokens/common:
     dependencies:
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/tokens/service:
     dependencies:
-      '@summerfi/blockchain-client-common':
+      '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
-      '@summerfi/common':
+      '@thesolidchain/common':
         specifier: workspace:*
         version: link:../../../packages/common
-      '@summerfi/configuration-provider-common':
+      '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../../configuration-provider/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/sdk-server-common':
+      '@thesolidchain/sdk-server-common':
         specifier: workspace:*
         version: link:../../sdk-server/common
-      '@summerfi/tokens-common':
+      '@thesolidchain/tokens-common':
         specifier: workspace:*
         version: link:../common
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
 
   sdk/tools/genStrategyDefinitions:
     dependencies:
-      '@summerfi/order-planner-service':
+      '@thesolidchain/order-planner-service':
         specifier: workspace:*
         version: link:../../order-planner/service
-      '@summerfi/protocol-plugins':
+      '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../../protocol-plugins/service
-      '@summerfi/protocol-plugins-common':
+      '@thesolidchain/protocol-plugins-common':
         specifier: workspace:*
         version: link:../../protocol-plugins/common
-      '@summerfi/sdk-common':
+      '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../sdk-common
-      '@summerfi/simulator-service':
+      '@thesolidchain/simulator-service':
         specifier: workspace:*
         version: link:../../simulator/service
     devDependencies:
       '@morpho-labs/gnosis-tx-builder':
         specifier: ^2.0.0
         version: 2.0.0(ethers@6.13.2)
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../../packages/typescript-config
       '@types/yargs':
@@ -3708,10 +3570,10 @@ importers:
 
   stacks:
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../packages/typescript-config
       '@types/pg':
@@ -3744,25 +3606,25 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.2
         version: 2.0.4
-      '@summerfi/aave-spark-subgraph':
+      '@thesolidchain/aave-spark-subgraph':
         specifier: workspace:*
         version: link:../../packages/aave-spark-subgraph
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../../packages/abstractions
-      '@summerfi/ajna-subgraph':
+      '@thesolidchain/ajna-subgraph':
         specifier: workspace:*
         version: link:../../packages/ajna-subgraph
-      '@summerfi/defi-llama-client':
+      '@thesolidchain/defi-llama-client':
         specifier: workspace:*
         version: link:../../packages/defi-llama-client
-      '@summerfi/morpho-blue-subgraph':
+      '@thesolidchain/morpho-blue-subgraph':
         specifier: workspace:*
         version: link:../../packages/morpho-blue-subgraph
-      '@summerfi/redis-cache':
+      '@thesolidchain/redis-cache':
         specifier: workspace:*
         version: link:../../packages/redis-cache
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       viem:
@@ -3772,10 +3634,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -3799,10 +3661,10 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/morpho-blue-external-api-client':
+      '@thesolidchain/morpho-blue-external-api-client':
         specifier: workspace:*
         version: link:../../packages/morpho-blue-external-api-client
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       abitype:
@@ -3818,10 +3680,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -3848,7 +3710,7 @@ importers:
       '@oasisdex/addresses':
         specifier: ^0.1.84
         version: 0.1.84
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       viem:
@@ -3858,10 +3720,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/jest':
@@ -3891,7 +3753,7 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       node-fetch:
@@ -3901,10 +3763,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -3925,16 +3787,16 @@ importers:
       '@middy/core':
         specifier: ^6.0.0
         version: 6.0.0
-      '@summerfi/abstractions':
+      '@thesolidchain/abstractions':
         specifier: workspace:*
         version: link:../../packages/abstractions
-      '@summerfi/redis-cache':
+      '@thesolidchain/redis-cache':
         specifier: workspace:*
         version: link:../../packages/redis-cache
-      '@summerfi/summer-earn-rates-subgraph':
+      '@thesolidchain/summer-earn-rates-subgraph':
         specifier: workspace:*
         version: link:../../packages/summer-earn-rates-subgraph
-      '@summerfi/summer-protocol-db':
+      '@thesolidchain/summer-protocol-db':
         specifier: workspace:*
         version: link:../../packages/summer-protocol-db
       graphql:
@@ -3968,22 +3830,22 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.4
         version: 2.0.4
-      '@summerfi/abis':
+      '@thesolidchain/abis':
         specifier: workspace:*
         version: link:../../packages/abis
-      '@summerfi/automation-subgraph':
+      '@thesolidchain/automation-subgraph':
         specifier: workspace:*
         version: link:../../packages/automation-subgraph
-      '@summerfi/prices-subgraph':
+      '@thesolidchain/prices-subgraph':
         specifier: workspace:*
         version: link:../../packages/prices-subgraph
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
-      '@summerfi/triggers-calculations':
+      '@thesolidchain/triggers-calculations':
         specifier: workspace:*
         version: link:../../packages/triggers-calculations
-      '@summerfi/triggers-shared':
+      '@thesolidchain/triggers-shared':
         specifier: workspace:*
         version: link:../../packages/triggers-shared
       bignumber.js:
@@ -3996,10 +3858,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -4017,11 +3879,11 @@ importers:
       '@aws-lambda-powertools/logger':
         specifier: ^1.12.1
         version: 1.18.1(@middy/core@6.0.0)
-      '@summerfi/summer-protocol-db':
+      '@thesolidchain/summer-protocol-db':
         specifier: workspace:*
         version: link:../../packages/summer-protocol-db
     devDependencies:
-      '@summerfi/app-types':
+      '@thesolidchain/app-types':
         specifier: workspace:*
         version: link:../../packages/app-types
       '@types/aws-lambda':
@@ -4039,7 +3901,7 @@ importers:
 
   summerfi-api/portfolio-assets-function:
     dependencies:
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       node-fetch:
@@ -4049,10 +3911,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -4064,7 +3926,7 @@ importers:
 
   summerfi-api/portfolio-overview-function:
     dependencies:
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       graphql:
@@ -4080,13 +3942,13 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint:
@@ -4110,19 +3972,19 @@ importers:
       '@oasisdex/dma-library':
         specifier: 0.6.6-automation
         version: 0.6.6-automation
-      '@summerfi/abis':
+      '@thesolidchain/abis':
         specifier: workspace:*
         version: link:../../packages/abis
-      '@summerfi/prices-subgraph':
+      '@thesolidchain/prices-subgraph':
         specifier: workspace:*
         version: link:../../packages/prices-subgraph
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
-      '@summerfi/triggers-calculations':
+      '@thesolidchain/triggers-calculations':
         specifier: workspace:*
         version: link:../../packages/triggers-calculations
-      '@summerfi/triggers-shared':
+      '@thesolidchain/triggers-shared':
         specifier: workspace:*
         version: link:../../packages/triggers-shared
       bignumber.js:
@@ -4141,10 +4003,10 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/jest':
@@ -4174,7 +4036,7 @@ importers:
       '@aws-lambda-powertools/tracer':
         specifier: ^2.0.4
         version: 2.16.0
-      '@summerfi/serverless-shared':
+      '@thesolidchain/serverless-shared':
         specifier: workspace:*
         version: link:../../packages/serverless-shared
       node-fetch:
@@ -4187,13 +4049,13 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/jest-config':
+      '@thesolidchain/jest-config':
         specifier: workspace:*
         version: link:../../packages/jest-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       '@types/node':
@@ -4208,10 +4070,10 @@ importers:
 
   turbo/generators:
     devDependencies:
-      '@summerfi/eslint-config':
+      '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../packages/eslint-config
-      '@summerfi/typescript-config':
+      '@thesolidchain/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
       eslint:

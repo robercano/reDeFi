@@ -13,9 +13,9 @@ import {
   TabBar,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { supportedDefillamaProtocols, supportedDefillamaProtocolsConfig } from '@summerfi/app-types'
-import { formatCryptoBalance, formatPercent, slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { supportedDefillamaProtocols, supportedDefillamaProtocolsConfig } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatPercent, slugify } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'

@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/common'
+import { Address } from '@thesolidchain/common'
 import { MiscDependencyNames } from './misc'
 import { TokenDependencyNames } from './tokens'
 import { ConfigEntry } from '../common/configEntry'

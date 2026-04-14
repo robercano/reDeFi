@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { type TOSState, TOSStatus } from '@summerfi/app-types'
+import { type TOSState, TOSStatus } from '@thesolidchain/app-types'
 
 import { TOSRetry } from '@/components/organisms/TOSRetry/TOSRetry'
 import { TOSWaitingForAcceptance } from '@/components/organisms/TOSWaitingForAcceptance/TOSWaitingForAcceptance'

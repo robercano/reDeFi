@@ -1,4 +1,4 @@
-import { UiTransactionStatuses } from '@summerfi/app-types'
+import { UiTransactionStatuses } from '@thesolidchain/app-types'
 
 import { type BeachClubState } from '@/features/beach-club/types'
 

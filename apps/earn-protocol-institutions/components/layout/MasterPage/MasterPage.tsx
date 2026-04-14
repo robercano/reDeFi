@@ -7,7 +7,7 @@ import {
   type SavedAnalyticsCookiesSettings,
   Text,
   useAnalyticsCookies,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { NavigationWrapper } from '@/components/layout/Navigation/NavigationWrapper'
 import { manageAnalyticsCookies } from '@/features/manage-analytics-cookies/manage-analytics-cookies'

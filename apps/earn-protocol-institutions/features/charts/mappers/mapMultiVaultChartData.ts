@@ -1,6 +1,6 @@
-import { getUniqueColor } from '@summerfi/app-earn-ui'
-import { type ChartsDataTimeframes, type MultipleSourceChartData } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+import { getUniqueColor } from '@thesolidchain/app-earn-ui'
+import { type ChartsDataTimeframes, type MultipleSourceChartData } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 
 import { type InstiVaultPerformanceResponse } from '@/app/server-handlers/institution/institution-vaults/types'

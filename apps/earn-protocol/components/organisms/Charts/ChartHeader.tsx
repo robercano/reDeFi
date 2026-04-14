@@ -1,5 +1,5 @@
-import { Button, Text, Timeframes, ToggleButton } from '@summerfi/app-earn-ui'
-import { type TimeframesItem, type TimeframesType } from '@summerfi/app-types'
+import { Button, Text, Timeframes, ToggleButton } from '@thesolidchain/app-earn-ui'
+import { type TimeframesItem, type TimeframesType } from '@thesolidchain/app-types'
 
 import classNames from './ChartHeader.module.css'
 

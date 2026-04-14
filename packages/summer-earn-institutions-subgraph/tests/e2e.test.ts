@@ -16,7 +16,7 @@ import {
 } from '../src'
 import { SubgraphClientConfig } from '../src/types'
 
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 
 // Test configuration - using mainnet as it's most likely to have data
 const testConfig: SubgraphClientConfig = {

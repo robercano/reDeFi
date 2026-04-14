@@ -1,6 +1,6 @@
 import type { CSSProperties, FC } from 'react'
-import { type SDKVaultishType, type TokenSymbolsList } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+import { type SDKVaultishType, type TokenSymbolsList } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 

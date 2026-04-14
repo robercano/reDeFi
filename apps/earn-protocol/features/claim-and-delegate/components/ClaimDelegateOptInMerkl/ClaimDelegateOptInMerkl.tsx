@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Button, Card, Text } from '@summerfi/app-earn-ui'
-import { UiTransactionStatuses } from '@summerfi/app-types'
+import { Button, Card, Text } from '@thesolidchain/app-earn-ui'
+import { UiTransactionStatuses } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { getDelegateOptInMerklButtonLabel } from './helpers'

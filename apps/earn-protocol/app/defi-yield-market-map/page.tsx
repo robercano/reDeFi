@@ -10,8 +10,8 @@ import {
   SkeletonLine,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 

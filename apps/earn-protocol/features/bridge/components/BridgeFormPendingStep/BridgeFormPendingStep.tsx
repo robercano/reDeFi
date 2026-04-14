@@ -12,13 +12,13 @@ import {
   Sidebar,
   SUCCESS_TOAST_CONFIG,
   Text,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   isSupportedHumanNetwork,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import { capitalize } from 'lodash-es'
 import { useSearchParams } from 'next/navigation'

@@ -15,9 +15,9 @@ import {
   useAmount,
   useMobileCheck,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { NetworkIds, SupportedNetworkIds } from '@summerfi/app-types'
-import { formatPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { NetworkIds, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { formatPercent } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { PendingTransactionsList } from '@/components/molecules/PendingTransactionsList/PendingTransactionsList'

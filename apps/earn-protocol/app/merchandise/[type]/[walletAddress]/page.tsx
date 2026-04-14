@@ -1,4 +1,4 @@
-import { isValidAddress } from '@summerfi/serverless-shared'
+import { isValidAddress } from '@thesolidchain/serverless-shared'
 import { type Metadata } from 'next'
 import { redirect } from 'next/navigation'
 

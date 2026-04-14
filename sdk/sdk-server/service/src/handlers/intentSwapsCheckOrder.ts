@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { publicProcedure } from '../SDKTRPC'
-import { isChainId, type ChainId } from '@summerfi/sdk-common'
+import { isChainId, type ChainId } from '@thesolidchain/sdk-common'
 
 export const intentSwapsCheckOrder = publicProcedure
   .input(

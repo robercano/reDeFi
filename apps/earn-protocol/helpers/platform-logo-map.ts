@@ -1,4 +1,4 @@
-import { ArmadaMigrationType } from '@summerfi/sdk-common'
+import { ArmadaMigrationType } from '@thesolidchain/sdk-common'
 
 import aaveLogo from '@/public/img/platform_icons/platform_logo_aave.svg'
 import compoundLogo from '@/public/img/platform_icons/platform_logo_compound.svg'

@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
-import { Button, Card, Table, type TableRow, Text } from '@summerfi/app-earn-ui'
-import { type UserRole } from '@summerfi/summer-protocol-institutions-db'
+import { Button, Card, Table, type TableRow, Text } from '@thesolidchain/app-earn-ui'
+import { type UserRole } from '@thesolidchain/summer-protocol-institutions-db'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 

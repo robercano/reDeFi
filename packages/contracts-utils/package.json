@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/contracts-utils",
+  "name": "@thesolidchain/contracts-utils",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/hardhat-utils": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/hardhat-utils": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "hardhat": "^2.22.2"
   },
   "dependencies": {

@@ -1,8 +1,8 @@
 'use client'
 import { type FC, useEffect, useReducer, useState } from 'react'
 import { useChain } from '@account-kit/react'
-import { Modal, Sidebar, type SidebarProps, useMobileCheck } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { Modal, Sidebar, type SidebarProps, useMobileCheck } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import { Transak } from '@transak/transak-sdk'
 
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'

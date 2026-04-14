@@ -4,7 +4,7 @@ import {
   TOSStatus,
   type TOSWaitingForAcceptanceStep,
   type TOSWaitingForAcceptanceUpdatedStep,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { CheckboxButton } from '@/components/atoms/CheckboxButton/CheckboxButton'
 import { Text } from '@/components/atoms/Text/Text'

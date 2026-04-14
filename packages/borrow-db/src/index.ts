@@ -1,7 +1,7 @@
 import { CamelCasePlugin, Kysely } from 'kysely'
 import { PostgresJSDialect } from 'kysely-postgres-js'
 import postgres from 'postgres'
-import { Logger } from '@summerfi/abstractions'
+import { Logger } from '@thesolidchain/abstractions'
 import { DB } from './database-types'
 
 export interface PgBorrowDbConfig {

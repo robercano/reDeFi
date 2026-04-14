@@ -1,4 +1,4 @@
-import { Card, Icon, type IconNamesList, Text } from '@summerfi/app-earn-ui'
+import { Card, Icon, type IconNamesList, Text } from '@thesolidchain/app-earn-ui'
 
 import classNames from './BeachClubHowToShare.module.css'
 

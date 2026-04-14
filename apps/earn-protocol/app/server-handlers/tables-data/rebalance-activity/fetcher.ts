@@ -1,4 +1,4 @@
-import { GetRebalancesDocument, type Rebalance } from '@summerfi/subgraph-manager-common'
+import { GetRebalancesDocument, type Rebalance } from '@thesolidchain/subgraph-manager-common'
 import { type GraphQLClient } from 'graphql-request'
 
 import { SUBGRAPH_BATCH_SIZE } from '@/app/server-handlers/tables-data/consts'

@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Button, Card, Icon, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Icon, Text } from '@thesolidchain/app-earn-ui'
 
 import classNames from './ClaimDelegateActionCard.module.css'
 

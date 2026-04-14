@@ -5,7 +5,7 @@ import {
   Network,
   NetworkByChainID,
   ProtocolId,
-} from '@summerfi/serverless-shared/domain-types'
+} from '@thesolidchain/serverless-shared/domain-types'
 
 export const createAddressService = (chainId: ChainId) => {
   const network = NetworkByChainID[chainId]

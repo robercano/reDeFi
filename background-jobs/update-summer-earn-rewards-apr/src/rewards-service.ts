@@ -1,9 +1,9 @@
 import {
   Product,
   SubgraphClient as RatesSubgraphClient,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 import { Protocol } from '.'
-import { ChainId, NetworkByChainID } from '@summerfi/serverless-shared'
+import { ChainId, NetworkByChainID } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { SiloRewardFetcher } from './reward-fetchers/SiloRewardFetcher'
 import { CompoundRewardFetcher } from './reward-fetchers/CompoundRewardFetcher'

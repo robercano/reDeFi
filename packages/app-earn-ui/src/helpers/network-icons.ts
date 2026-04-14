@@ -1,4 +1,4 @@
-import { type IconNamesList, SupportedNetworkIds, SupportedSDKNetworks } from '@summerfi/app-types'
+import { type IconNamesList, SupportedNetworkIds, SupportedSDKNetworks } from '@thesolidchain/app-types'
 
 export const networkNameIconNameMap: Partial<{ [key in SupportedSDKNetworks]: IconNamesList }> = {
   [SupportedSDKNetworks.ArbitrumOne]: 'earn_network_arbitrum',

@@ -1,4 +1,4 @@
-import { type JsonValue } from '@summerfi/summer-protocol-db'
+import { type JsonValue } from '@thesolidchain/summer-protocol-db'
 
 export type GameEntry = {
   ens: string

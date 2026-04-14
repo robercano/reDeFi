@@ -11,7 +11,7 @@ import {
   useCurrentUrl,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 

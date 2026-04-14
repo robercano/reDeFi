@@ -6,8 +6,8 @@ import {
   sumrNetApyConfigCookieName,
   useLocalConfig,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { getCookie, setCookie } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { getCookie, setCookie } from '@thesolidchain/app-utils'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'
 

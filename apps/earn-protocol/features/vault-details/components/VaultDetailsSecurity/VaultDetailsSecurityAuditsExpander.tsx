@@ -1,5 +1,5 @@
 'use client'
-import { Card, Expander, LinkCard, type LinkCardWithIconName, Text } from '@summerfi/app-earn-ui'
+import { Card, Expander, LinkCard, type LinkCardWithIconName, Text } from '@thesolidchain/app-earn-ui'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'
 

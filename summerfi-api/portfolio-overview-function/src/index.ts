@@ -1,21 +1,21 @@
 import { z } from 'zod'
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2 } from 'aws-lambda'
 
-import { getDefaultErrorMessage } from '@summerfi/serverless-shared/helpers'
+import { getDefaultErrorMessage } from '@thesolidchain/serverless-shared/helpers'
 import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
+} from '@thesolidchain/serverless-shared/responses'
 import {
   DebankComplexProtocol,
   DebankPortfolioItemObject,
   DebankSimpleProtocol,
-} from '@summerfi/serverless-shared/debank-types'
-import { PortfolioOverviewResponse } from '@summerfi/serverless-shared/domain-types'
-import { DEBANK_SUPPORTED_CHAIN_IDS } from '@summerfi/serverless-shared/debank-helpers'
+} from '@thesolidchain/serverless-shared/debank-types'
+import { PortfolioOverviewResponse } from '@thesolidchain/serverless-shared/domain-types'
+import { DEBANK_SUPPORTED_CHAIN_IDS } from '@thesolidchain/serverless-shared/debank-helpers'
 import { getSupportedPositions } from './utils'
-import { addressSchema } from '@summerfi/serverless-shared/validators'
+import { addressSchema } from '@thesolidchain/serverless-shared/validators'
 import fetch from 'node-fetch'
 
 const paramsSchema = z.object({

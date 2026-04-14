@@ -1,4 +1,4 @@
-import { Card, LoadingSpinner, SkeletonLine } from '@summerfi/app-earn-ui'
+import { Card, LoadingSpinner, SkeletonLine } from '@thesolidchain/app-earn-ui'
 
 import { DashboardContentLayout } from '@/components/layout/DashboardContentLayout/DashboardContentLayout'
 

@@ -1,6 +1,6 @@
 /* eslint-disable no-mixed-operators */
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { Address, type ChainId, getChainInfoByChainId } from '@summerfi/sdk-common'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { Address, type ChainId, getChainInfoByChainId } from '@thesolidchain/sdk-common'
 
 import { backendSDK } from '@/app/server-handlers/sdk/sdk-backend-client'
 import { type MerklIsAuthorizedPerChain } from '@/features/claim-and-delegate/types'

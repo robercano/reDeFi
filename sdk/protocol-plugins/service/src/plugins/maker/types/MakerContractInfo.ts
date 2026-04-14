@@ -1,6 +1,6 @@
-import { AddressValue } from '@summerfi/sdk-common'
+import { AddressValue } from '@thesolidchain/sdk-common'
 import { MakerAbiMap } from '../abis/MakerAbiMap'
-import { MakerContractNames } from '@summerfi/deployment-types'
+import { MakerContractNames } from '@thesolidchain/deployment-types'
 
 export type MakerContractInfo<K extends MakerContractNames> = {
   address: AddressValue

@@ -1,4 +1,4 @@
-import { HexData } from '@summerfi/sdk-common'
+import { HexData } from '@thesolidchain/sdk-common'
 import { ActionConfig, ActionCall } from '../actions/Types'
 import { InputSlotsMapping } from '../types/InputSlotsMapping'
 

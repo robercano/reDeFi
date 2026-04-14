@@ -1,13 +1,13 @@
 'use client'
 import { type FC, useCallback, useMemo, useState } from 'react'
-import { AllocationBar, Badge, Card, Text, VaultExposure } from '@summerfi/app-earn-ui'
+import { AllocationBar, Badge, Card, Text, VaultExposure } from '@thesolidchain/app-earn-ui'
 import {
   type GetInterestRatesQuery,
   type InterestRates,
   type SDKVaultType,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { formatCryptoBalance, formatDecimalAsPercent, zero } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatDecimalAsPercent, zero } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 

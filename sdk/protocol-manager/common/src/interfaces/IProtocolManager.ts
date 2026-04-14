@@ -9,7 +9,7 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * @interface IProtocolManager

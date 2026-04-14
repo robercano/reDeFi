@@ -1,4 +1,4 @@
-import { ChainIds, TokenAmount, Percentage, Token } from '@summerfi/sdk-common'
+import { ChainIds, TokenAmount, Percentage, Token } from '@thesolidchain/sdk-common'
 
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 import type { SwapScenario } from './utils/types'

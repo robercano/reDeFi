@@ -1,5 +1,5 @@
-import { DistributedCache, Logger } from '@summerfi/abstractions'
-import { ChainId, ProtocolId, serialize } from '@summerfi/serverless-shared'
+import { DistributedCache, Logger } from '@thesolidchain/abstractions'
+import { ChainId, ProtocolId, serialize } from '@thesolidchain/serverless-shared'
 
 export const saveSubgraphResponsesToCache = async (params: {
   subgraphResult: unknown

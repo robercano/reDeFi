@@ -1,4 +1,4 @@
-import { steps, newEmptyPositionFromPool } from '@summerfi/sdk-common'
+import { steps, newEmptyPositionFromPool } from '@thesolidchain/sdk-common'
 import type { StepOutputProcessor } from '../../../interfaces/steps'
 
 export const openPositionProcessor: StepOutputProcessor<steps.OpenPosition> = async (step) => {

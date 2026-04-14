@@ -1,6 +1,6 @@
-# @summerfi/app-tos
+# @thesolidchain/app-tos
 
-Common Terms of Service (TOS) handling for the @summerfi apps.
+Common Terms of Service (TOS) handling for the @thesolidchain apps.
 
 This package provides `useTermsOfService` hook and types which can be used to easily integrate TOS
 flow in new apps.

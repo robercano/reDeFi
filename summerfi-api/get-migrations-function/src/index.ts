@@ -1,16 +1,16 @@
 import { z } from 'zod'
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context } from 'aws-lambda'
-import { getDefaultErrorMessage } from '@summerfi/serverless-shared/helpers'
+import { getDefaultErrorMessage } from '@thesolidchain/serverless-shared/helpers'
 import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
-import { addressSchema } from '@summerfi/serverless-shared/validators'
+} from '@thesolidchain/serverless-shared/responses'
+import { addressSchema } from '@thesolidchain/serverless-shared/validators'
 import {
   PortfolioMigration,
   PortfolioMigrationsResponse,
-} from '@summerfi/serverless-shared/domain-types'
+} from '@thesolidchain/serverless-shared/domain-types'
 import { createMigrationsClient } from './client'
 import { parseEligibleMigration } from './parseEligibleMigration'
 import { MigrationConfig } from 'migrations-config'

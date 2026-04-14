@@ -6,13 +6,13 @@ import {
   getTwitterShareUrl,
   HeadingWithCards,
   useCurrentUrl,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type GetVaultsApyResponse,
   type SDKVaultishType,
-} from '@summerfi/app-types'
-import { subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import { useRouter } from 'next/navigation'
 
 import { YieldTrendDataCard } from '@/features/yield-trend/components/YieldTrendDataCard'

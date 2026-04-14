@@ -1,11 +1,11 @@
 'use client'
-import { HomepageCarousel, SkeletonLine, Text, WithArrow } from '@summerfi/app-earn-ui'
+import { HomepageCarousel, SkeletonLine, Text, WithArrow } from '@thesolidchain/app-earn-ui'
 import {
   type GetVaultsApyResponse,
   type IArmadaVaultInfo,
   type RewardTokenPrices,
   type SDKVaultishType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

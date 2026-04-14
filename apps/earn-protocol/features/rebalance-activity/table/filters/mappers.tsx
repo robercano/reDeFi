@@ -5,9 +5,9 @@ import {
   getUniqueVaultId,
   networkNameIconNameMap,
   Risk,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultsListType, type TokenSymbolsList } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultsListType, type TokenSymbolsList } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 const getProtocolIcon = (protocolLabel: string) => {
   const lowerCasedProtocolLabel = protocolLabel.toLowerCase()

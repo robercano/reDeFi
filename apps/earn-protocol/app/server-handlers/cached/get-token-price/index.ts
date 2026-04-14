@@ -1,4 +1,4 @@
-import { type TokenPriceData } from '@summerfi/app-types'
+import { type TokenPriceData } from '@thesolidchain/app-types'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getTokenPrice, tokenPriceFallbackData } from '@/app/server-handlers/token-price'

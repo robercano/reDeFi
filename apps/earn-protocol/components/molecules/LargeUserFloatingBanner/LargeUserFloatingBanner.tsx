@@ -6,8 +6,8 @@ import {
   type FloatingBannerActionType,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { getCookie, setCookie } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { getCookie, setCookie } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 
 import { useDisplayBannerEvent, useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'

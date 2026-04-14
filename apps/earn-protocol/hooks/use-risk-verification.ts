@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useLogout } from '@account-kit/react'
-import { useClientChainId, useUserWallet } from '@summerfi/app-earn-ui'
-import { fetchRisk } from '@summerfi/app-risk'
+import { useClientChainId, useUserWallet } from '@thesolidchain/app-earn-ui'
+import { fetchRisk } from '@thesolidchain/app-risk'
 
 import { type TermsOfServiceCookiePrefix } from '@/constants/terms-of-service'
 

@@ -1,10 +1,10 @@
 'use client'
-import { InfoBox, SkeletonLine, Text } from '@summerfi/app-earn-ui'
+import { InfoBox, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 import { type Chain } from 'viem'
 

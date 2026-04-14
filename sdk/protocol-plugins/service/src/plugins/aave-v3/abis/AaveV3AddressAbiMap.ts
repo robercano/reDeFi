@@ -1,5 +1,5 @@
 // ABIs and Protocol contracts
-import { AaveV3ContractNames } from '@summerfi/deployment-types'
+import { AaveV3ContractNames } from '@thesolidchain/deployment-types'
 import { GenericAbiMap } from '../../utils/ChainContractProvider'
 import {
   AAVEV3_LENDING_POOL_ABI,

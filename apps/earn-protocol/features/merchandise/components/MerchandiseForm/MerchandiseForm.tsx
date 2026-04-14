@@ -14,9 +14,9 @@ import {
   SUCCESS_TOAST_CONFIG,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type DropdownRawOption } from '@summerfi/app-types'
-import { handleCaptcha, RECAPTCHA_SITE_KEY } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type DropdownRawOption } from '@thesolidchain/app-types'
+import { handleCaptcha, RECAPTCHA_SITE_KEY } from '@thesolidchain/app-utils'
 import isBoolean from 'lodash-es/isBoolean'
 import Link from 'next/link'
 import Script from 'next/script'

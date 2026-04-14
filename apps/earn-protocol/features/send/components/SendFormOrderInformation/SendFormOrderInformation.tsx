@@ -1,11 +1,11 @@
 import { type FC } from 'react'
-import { Icon, networkIdIconNameMap, OrderInformation } from '@summerfi/app-earn-ui'
-import { type IconNamesList } from '@summerfi/app-types'
+import { Icon, networkIdIconNameMap, OrderInformation } from '@thesolidchain/app-earn-ui'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatFiatBalance,
   humanReadableChainToLabelMap,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { type SendState } from '@/features/send/types'
 import { isValidAddress } from '@/helpers/is-valid-address'

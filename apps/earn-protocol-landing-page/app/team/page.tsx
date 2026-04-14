@@ -1,12 +1,12 @@
 'use client'
 import { createRef, useEffect, useMemo, useState } from 'react'
-import { Button, Icon, Text } from '@summerfi/app-earn-ui'
+import { Button, Icon, Text } from '@thesolidchain/app-earn-ui'
 import {
   type IconNamesList,
   supportedDefillamaProtocols,
   supportedDefillamaProtocolsConfig,
-} from '@summerfi/app-types'
-import { slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { slugify } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

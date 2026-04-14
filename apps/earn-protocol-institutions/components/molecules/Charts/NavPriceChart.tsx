@@ -1,8 +1,8 @@
 'use client'
 
 import { type ReactNode, useMemo } from 'react'
-import { Card, RechartResponsiveWrapper } from '@summerfi/app-earn-ui'
-import { type SingleSourceChartData, type TimeframesType } from '@summerfi/app-types'
+import { Card, RechartResponsiveWrapper } from '@thesolidchain/app-earn-ui'
+import { type SingleSourceChartData, type TimeframesType } from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 import { ComposedChart, Line, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
 

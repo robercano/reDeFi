@@ -8,8 +8,8 @@ import {
   Tooltip,
   WithArrow,
   YieldSourceLabel,
-} from '@summerfi/app-earn-ui'
-import { formatCryptoBalance, formatDecimalAsPercent, formatPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance, formatDecimalAsPercent, formatPercent } from '@thesolidchain/app-utils'
 import { BigNumber } from 'bignumber.js'
 import clsx from 'clsx'
 import dayjs from 'dayjs'

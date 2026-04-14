@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
 
-import { ChainId } from '@summerfi/serverless-shared'
-import { Logger } from '@summerfi/abstractions'
+import { ChainId } from '@thesolidchain/serverless-shared'
+import { Logger } from '@thesolidchain/abstractions'
 import {
   SummerPointsDocument,
   SummerPointsQuery,

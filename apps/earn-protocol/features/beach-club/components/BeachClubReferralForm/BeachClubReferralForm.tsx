@@ -1,5 +1,5 @@
 import { type FC, useCallback, useEffect, useRef, useState } from 'react'
-import { Icon, Input, LoadingSpinner, Text } from '@summerfi/app-earn-ui'
+import { Icon, Input, LoadingSpinner, Text } from '@thesolidchain/app-earn-ui'
 
 import styles from './BeachClubReferralForm.module.css'
 

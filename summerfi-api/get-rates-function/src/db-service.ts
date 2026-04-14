@@ -4,7 +4,7 @@ import {
   SummerProtocolDB,
   PgSummerProtocolDbConfig,
   DbNetworks,
-} from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/summer-protocol-db'
 import { Logger } from '@aws-lambda-powertools/logger'
 
 const logger = new Logger({ serviceName: 'rates-db-service' })

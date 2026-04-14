@@ -6,8 +6,8 @@ import {
   Percentage,
   RiskRatio,
   RiskRatioType,
-} from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import {
   MorphoDepositAction,
   MorphoLendingPool,

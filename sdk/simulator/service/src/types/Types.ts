@@ -4,7 +4,7 @@ import {
   ILendingPosition,
   steps,
   SimulatedSwapData,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 export type StepName = string
 

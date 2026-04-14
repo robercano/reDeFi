@@ -7,7 +7,7 @@ import {
   PricesUsdcTokenDocument,
   PricesUsdcTokenQuery,
 } from './types/graphql/generated'
-import { Address, ChainId } from '@summerfi/serverless-shared/domain-types'
+import { Address, ChainId } from '@thesolidchain/serverless-shared/domain-types'
 import { Logger } from '@aws-lambda-powertools/logger'
 
 const chainIdSubgraphMap: Partial<Record<ChainId, string>> = {

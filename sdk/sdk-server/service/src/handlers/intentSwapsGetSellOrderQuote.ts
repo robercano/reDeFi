@@ -9,7 +9,7 @@ import {
   type IAddress,
   type IPrice,
   isPrice,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 export const intentSwapsGetSellOrderQuote = publicProcedure
   .input(

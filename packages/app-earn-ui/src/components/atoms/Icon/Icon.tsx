@@ -1,6 +1,6 @@
 import { type FC, Suspense, useMemo } from 'react'
-import { icons } from '@summerfi/app-icons'
-import { type IconsList, type TokenSymbolsList } from '@summerfi/app-types'
+import { icons } from '@thesolidchain/app-icons'
+import { type IconsList, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 import { getTokenGuarded } from '@/tokens/helpers'
 

@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { IllustrationCircle, Text } from '@summerfi/app-earn-ui'
-import { type IconNamesList } from '@summerfi/app-types'
+import { IllustrationCircle, Text } from '@thesolidchain/app-earn-ui'
+import { type IconNamesList } from '@thesolidchain/app-types'
 
 import classNames from './MigrationLandingPageIlustration.module.css'
 

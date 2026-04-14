@@ -1,4 +1,4 @@
-import { AddressValue, type ChainId } from '@summerfi/sdk-common'
+import { AddressValue, type ChainId } from '@thesolidchain/sdk-common'
 
 /**
  * Information of a token

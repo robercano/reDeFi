@@ -1,4 +1,4 @@
-import { Icon } from '@summerfi/app-earn-ui'
+import { Icon } from '@thesolidchain/app-earn-ui'
 
 import styles from './ArrowSplitter.module.css'
 

@@ -1,4 +1,4 @@
-import type { QuoteData, IToken, ITokenAmount, IPercentage } from '@summerfi/sdk-common'
+import type { QuoteData, IToken, ITokenAmount, IPercentage } from '@thesolidchain/sdk-common'
 
 /**
  * @name ISwapManagerClient

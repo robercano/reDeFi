@@ -5,7 +5,7 @@ import {
   chainIdSchema,
   optionalPoolIdSchema,
   urlOptionalSchema,
-} from '@summerfi/serverless-shared/validators'
+} from '@thesolidchain/serverless-shared/validators'
 
 export const paramsSchema = z.object({
   account: addressSchema,

@@ -1,4 +1,4 @@
-import type { ISDKManager, ISDKAdminManager } from '@summerfi/sdk-client'
+import type { ISDKManager, ISDKAdminManager } from '@thesolidchain/sdk-client'
 
 export const getChainHandler =
   (sdk: ISDKManager | ISDKAdminManager) =>

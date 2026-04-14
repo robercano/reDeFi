@@ -1,9 +1,9 @@
 import { ServiceContainer } from './service-container'
 import { AavePartialTakeProfitEventBody, mergeValidationResults, ValidationResults } from '~types'
 import { PublicClient } from 'viem'
-import { Addresses, CurrentTriggerLike } from '@summerfi/triggers-shared'
-import { Address, ChainId, ProtocolId, safeParseBigInt } from '@summerfi/serverless-shared'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
+import { Addresses, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, ProtocolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
 import { Logger } from '@aws-lambda-powertools/logger'
 import memoize from 'just-memoize'
 import {
@@ -17,14 +17,14 @@ import {
   encodeAaveStopLoss,
 } from './trigger-encoders'
 import { encodeFunctionForDpm } from './encode-function-for-dpm'
-import { getCurrentAaveStopLoss } from '@summerfi/triggers-calculations'
-import { DerivedPrices } from '@summerfi/prices-subgraph'
-import { PositionLike, SupportedActions } from '@summerfi/triggers-shared'
+import { getCurrentAaveStopLoss } from '@thesolidchain/triggers-calculations'
+import { DerivedPrices } from '@thesolidchain/prices-subgraph'
+import { PositionLike, SupportedActions } from '@thesolidchain/triggers-shared'
 import {
   calculateCollateralPriceInDebtBasedOnLtv,
   getAavePosition,
   simulateAutoTakeProfit,
-} from '@summerfi/triggers-calculations'
+} from '@thesolidchain/triggers-calculations'
 
 export interface GetAavePartialTakeProfitServiceContainerProps {
   rpc: PublicClient

@@ -1,4 +1,4 @@
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 import { getSdk } from './generated/client'
 import {
   type InterestRate as InterestRateType,

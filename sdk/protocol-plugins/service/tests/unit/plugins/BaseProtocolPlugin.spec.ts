@@ -1,10 +1,10 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
 import { BaseProtocolPlugin } from '../../../src/implementation/BaseProtocolPlugin'
 import { MakerProtocolPlugin } from '../../../src/plugins/maker/implementation/MakerProtocolPlugin'
 import { createProtocolPluginContext } from '../../utils/CreateProtocolPluginContext'
 import assert from 'assert'
-import { ChainFamilyMap } from '@summerfi/sdk-common'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
 
 describe('Base Protocol Plugin', () => {
   let ctx: IProtocolPluginContext

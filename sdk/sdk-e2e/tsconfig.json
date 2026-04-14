@@ -1,11 +1,11 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.base.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
     "types": ["@types/jest", "jest", "ts-jest"],
-    "typeRoots": ["node_modules/@summerfi/jest-config/node_modules"]
+    "typeRoots": ["node_modules/@thesolidchain/jest-config/node_modules"]
   },
   "include": ["tests/**/*.ts", "e2e/**/*.ts"],
   "exclude": ["dist"]

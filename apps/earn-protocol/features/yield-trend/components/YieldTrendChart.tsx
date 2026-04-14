@@ -3,7 +3,7 @@ import {
   type ArksHistoricalChartData,
   type InlineButtonOption,
   type TimeframesType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { ChartHeader } from '@/components/organisms/Charts/ChartHeader'
 import { NotEnoughData } from '@/components/organisms/Charts/components/NotEnoughData'

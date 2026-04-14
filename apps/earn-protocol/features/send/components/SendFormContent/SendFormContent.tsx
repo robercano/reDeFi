@@ -1,6 +1,6 @@
 import { type Dispatch, type FC } from 'react'
-import { Alert } from '@summerfi/app-earn-ui'
-import { type DropdownOption, type DropdownRawOption } from '@summerfi/app-types'
+import { Alert } from '@thesolidchain/app-earn-ui'
+import { type DropdownOption, type DropdownRawOption } from '@thesolidchain/app-types'
 import type BigNumber from 'bignumber.js'
 
 import { SendFormInitialStep } from '@/features/send/components/SendFormInitialStep/SendFormInitialStep'

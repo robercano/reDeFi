@@ -1,4 +1,4 @@
-import { ChainIds, type AddressValue, type ChainId, type HexData } from '@summerfi/sdk-common'
+import { ChainIds, type AddressValue, type ChainId, type HexData } from '@thesolidchain/sdk-common'
 
 if (!process.env.E2E_SDK_API_URL) {
   throw new Error('Missing E2E_SDK_API_URL')

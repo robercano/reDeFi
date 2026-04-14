@@ -1,5 +1,5 @@
-import { sumrNetApyConfigCookieName } from '@summerfi/app-earn-ui'
-import { getServerSideCookies, safeParseJson } from '@summerfi/app-utils'
+import { sumrNetApyConfigCookieName } from '@thesolidchain/app-earn-ui'
+import { getServerSideCookies, safeParseJson } from '@thesolidchain/app-utils'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 

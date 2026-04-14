@@ -1,4 +1,4 @@
-import { HexData, IPrintable, LendingPoolId, SerializationService } from '@summerfi/sdk-common'
+import { HexData, IPrintable, LendingPoolId, SerializationService } from '@thesolidchain/sdk-common'
 import {
   IMorphoLendingPoolId,
   IMorphoLendingPoolIdData,

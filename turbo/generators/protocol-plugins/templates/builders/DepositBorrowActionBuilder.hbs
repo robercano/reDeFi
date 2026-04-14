@@ -1,9 +1,9 @@
-import { getValueFromReference, steps } from '@summerfi/sdk-common/simulation'
-import { ActionBuilder } from '@summerfi/protocol-plugins-common'
-import { ActionNames } from '@summerfi/deployment-types'
+import { getValueFromReference, steps } from '@thesolidchain/sdk-common/simulation'
+import { ActionBuilder } from '@thesolidchain/protocol-plugins-common'
+import { ActionNames } from '@thesolidchain/deployment-types'
 import { {{namePascalCase}}DepositAction } from '../actions/{{name}}DepositAction'
 import { {{namePascalCase}}BorrowAction } from '../actions/{{name}}BorrowAction'
-import { Address, AddressValue } from '@summerfi/sdk-common/common'
+import { Address, AddressValue } from '@thesolidchain/sdk-common/common'
 
 export const {{namePascalCase}}DepositBorrowActionList: ActionNames[] = ['{{namePascalCase}}Deposit', '{{namePascalCase}}Borrow']
 

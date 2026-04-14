@@ -1,6 +1,6 @@
 import { type Dispatch, type FC, useCallback, useMemo } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { type AddressValue } from '@summerfi/sdk-common'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type AddressValue } from '@thesolidchain/sdk-common'
 
 import { type PortfolioSumrStakingV2Data } from '@/app/server-handlers/raw-calls/sumr-staking-v2/types'
 import { LockedSumrInfoTabBarV2 } from '@/components/molecules/LockedSumrInfoTabBarV2/LockedSumrInfoTabBarV2'

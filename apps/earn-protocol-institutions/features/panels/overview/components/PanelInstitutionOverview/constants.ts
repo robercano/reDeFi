@@ -1,4 +1,4 @@
-import { type TableColumn } from '@summerfi/app-earn-ui'
+import { type TableColumn } from '@thesolidchain/app-earn-ui'
 import dayjs from 'dayjs'
 
 import { CHART_TIMESTAMP_FORMAT_DETAILED } from '@/features/charts/helpers'

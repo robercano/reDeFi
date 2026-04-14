@@ -5,7 +5,7 @@ import type {
   ChainId,
   IAddress,
   TransactionInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import type { EnrichedOrder, UnsignedOrder } from '@cowprotocol/cow-sdk'
 
 /**

@@ -2,13 +2,13 @@ import {
   getPositionValues,
   getUniqueVaultId,
   sumrNetApyConfigCookieName,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type IArmadaPosition,
   type SDKVaultishType,
   type SingleSourceChartData,
   SupportedNetworkIds,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatAddress,
   formatCryptoBalance,
@@ -19,7 +19,7 @@ import {
   subgraphNetworkToId,
   supportedSDKNetwork,
   zero,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import { type Metadata } from 'next'
 import { cookies, headers } from 'next/headers'

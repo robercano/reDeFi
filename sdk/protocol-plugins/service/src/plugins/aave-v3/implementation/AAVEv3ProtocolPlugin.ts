@@ -1,5 +1,5 @@
-import { AaveV3ContractNames } from '@summerfi/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { AaveV3ContractNames } from '@thesolidchain/deployment-types'
+import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   FiatCurrency,
   ChainFamilyName,
@@ -15,7 +15,7 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AAVEv3LikeBaseProtocolPlugin'
 import { ContractInfo } from '../../common/types/ContractInfo'
 import { ChainContractsProvider } from '../../utils/ChainContractProvider'

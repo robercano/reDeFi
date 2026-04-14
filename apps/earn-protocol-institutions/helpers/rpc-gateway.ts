@@ -1,5 +1,5 @@
-import { configProAppFetcher } from '@summerfi/app-server-handlers'
-import { type AppConfigType, NetworkNames } from '@summerfi/app-types'
+import { configProAppFetcher } from '@thesolidchain/app-server-handlers'
+import { type AppConfigType, NetworkNames } from '@thesolidchain/app-types'
 
 let cachedConfig: Partial<AppConfigType> | undefined
 let cacheExpirationTime: number | undefined

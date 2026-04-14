@@ -1,4 +1,4 @@
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
 import { ISimulationState } from '../../../interfaces/simulation'
 import type { StateReducer, StateReducers } from '../../../interfaces/steps'
 import { flashloanReducer } from './flashloanReducer'

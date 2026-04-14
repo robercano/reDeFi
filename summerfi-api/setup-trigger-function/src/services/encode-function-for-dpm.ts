@@ -1,7 +1,7 @@
 import { encodeFunctionData } from 'viem'
-import { accountImplementationAbi } from '@summerfi/abis'
-import { Address } from '@summerfi/serverless-shared/domain-types'
-import { Addresses } from '@summerfi/triggers-shared'
+import { accountImplementationAbi } from '@thesolidchain/abis'
+import { Address } from '@thesolidchain/serverless-shared/domain-types'
+import { Addresses } from '@thesolidchain/triggers-shared'
 
 export interface EncodeFunctionForDpmParams {
   dpm: Address

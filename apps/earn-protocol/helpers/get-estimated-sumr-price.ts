@@ -1,5 +1,5 @@
-import { SUMR_CAP, type SumrNetApyConfig } from '@summerfi/app-earn-ui'
-import { type EarnAppConfigType, type TokenPriceData } from '@summerfi/app-types'
+import { SUMR_CAP, type SumrNetApyConfig } from '@thesolidchain/app-earn-ui'
+import { type EarnAppConfigType, type TokenPriceData } from '@thesolidchain/app-types'
 
 import { defaultSumrMarketCap } from '@/helpers/sumr-market-cap'
 

@@ -2,7 +2,7 @@ import {
   ConfigItem,
   ConfigKey,
   IConfigurationProvider,
-} from '@summerfi/configuration-provider-common'
+} from '@thesolidchain/configuration-provider-common'
 
 export class MockConfigurationProvider implements IConfigurationProvider {
   getConfigurationItem(params: { name: ConfigKey }): ConfigItem {

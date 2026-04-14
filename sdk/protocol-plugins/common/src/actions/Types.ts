@@ -1,5 +1,5 @@
-import { ActionNames } from '@summerfi/deployment-types'
-import { HexData } from '@summerfi/sdk-common'
+import { ActionNames } from '@thesolidchain/deployment-types'
+import { HexData } from '@thesolidchain/sdk-common'
 
 /**
  * Helper types

@@ -11,8 +11,8 @@ valuesOfChainFamilyMap,
 Maybe,
 IPosition,
 ChainId,
-} from '@summerfi/sdk-common/common'
-import { PoolType, ProtocolName } from '@summerfi/sdk-common/protocols'
+} from '@thesolidchain/sdk-common/common'
+import { PoolType, ProtocolName } from '@thesolidchain/sdk-common/protocols'
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 
 import { {{namePascalCase}}LendingPool } from './{{namePascalCase}}LendingPool'
@@ -25,11 +25,11 @@ import {
 import { {{namePascalCase}}DebtConfigMap, {{namePascalCase}}DebtConfigRecord } from './{{namePascalCase}}DebtConfigMap'
 import { z } from 'zod'
 import { {{namePascalCase}}AddressAbiMap } from '../types/{{namePascalCase}}AddressAbiMap'
-import { ActionBuildersMap, IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
 {{nameCapitalised}}_PLACHOLDER_ABI
 } from '../abis/{{namePascalCase}}ABIS'
-import { {{namePascalCase}}ContractNames } from '@summerfi/deployment-types'
+import { {{namePascalCase}}ContractNames } from '@thesolidchain/deployment-types'
 import { {{namePascalCase}}PoolId } from '../types/{{namePascalCase}}PoolId'
 
 export class {{namePascalCase}}ProtocolPlugin extends BaseProtocolPlugin {

@@ -1,4 +1,4 @@
-import { handleNewsletterSubscription } from '@summerfi/app-earn-ui'
+import { handleNewsletterSubscription } from '@thesolidchain/app-earn-ui'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 

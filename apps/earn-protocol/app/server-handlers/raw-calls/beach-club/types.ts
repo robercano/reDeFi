@@ -1,5 +1,5 @@
-import { type MerklReward } from '@summerfi/armada-protocol-common'
-import { type ChainId } from '@summerfi/sdk-common'
+import { type MerklReward } from '@thesolidchain/armada-protocol-common'
+import { type ChainId } from '@thesolidchain/sdk-common'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'
 import {

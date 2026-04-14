@@ -12,7 +12,7 @@ import { aavePoolContract } from './abi/aavePoolContract'
 import { decodeBitmapToAssetsAddresses } from './decodeBitmapToAssetsAddresses'
 import { aavePoolDataProviderContract } from './abi/aavePoolDataProviderContract'
 import { aaveOracleContract } from './abi/aaveOracleContract'
-import { USD_DECIMALS } from '@summerfi/serverless-shared/constants'
+import { USD_DECIMALS } from '@thesolidchain/serverless-shared/constants'
 import { ProtocolMigrationAssets } from './types'
 import {
   Address,
@@ -22,13 +22,13 @@ import {
   PortfolioMigrationAsset,
   ProtocolId,
   Token,
-} from '@summerfi/serverless-shared/domain-types'
+} from '@thesolidchain/serverless-shared/domain-types'
 import { createAddressService } from './addressService'
 import { IMigrationConfig } from './migrations-config'
 import {
   getRpcGatewayEndpoint,
   IRpcConfig,
-} from '@summerfi/serverless-shared/getRpcGatewayEndpoint'
+} from '@thesolidchain/serverless-shared/getRpcGatewayEndpoint'
 import { getDsProxy } from './getDsProxy'
 import { Logger } from '@aws-lambda-powertools/logger'
 

@@ -1,5 +1,5 @@
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import type { ChainInfo } from '@summerfi/sdk-common'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import type { ChainInfo } from '@thesolidchain/sdk-common'
 
 import { OracleManagerFactory } from '../src/implementation/OracleManagerFactory'
 import {
@@ -9,7 +9,7 @@ import {
   FiatCurrency,
   OracleProviderType,
   ISpotPriceInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 describe('OneInch | OracleManager | Integration', () => {
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet

@@ -1,8 +1,8 @@
 'use client'
 import { type FC } from 'react'
-import { Card, TabBar, Text, WithArrow } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { slugify } from '@summerfi/app-utils'
+import { Card, TabBar, Text, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { slugify } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 

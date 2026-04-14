@@ -1,4 +1,4 @@
-import { type TimeframesType } from '@summerfi/app-types'
+import { type TimeframesType } from '@thesolidchain/app-types'
 
 export const CHART_TIMESTAMP_FORMAT_DETAILED = 'YYYY-MM-DD HH:mm:ss' // used for hourly data
 export const CHART_TIMESTAMP_FORMAT_SHORT = 'DD MMM YYYY' // used for daily and weekly data

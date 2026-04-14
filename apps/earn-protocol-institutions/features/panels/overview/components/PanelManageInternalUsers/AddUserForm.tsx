@@ -7,7 +7,7 @@ import {
   Card,
   ERROR_TOAST_CONFIG,
   SUCCESS_TOAST_CONFIG,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { FormSubmitButton } from '@/components/molecules/FormSubmitButton/FormSubmitButton'
 

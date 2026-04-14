@@ -1,4 +1,4 @@
-import { type FeedbackCategory } from '@summerfi/summer-protocol-institutions-db'
+import { type FeedbackCategory } from '@thesolidchain/summer-protocol-institutions-db'
 
 export type FeedbackThreadItem = {
   id: number

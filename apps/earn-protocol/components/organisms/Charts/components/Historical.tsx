@@ -6,15 +6,15 @@ import {
   useHoldAlt,
   useMobileCheck,
   useSumrRewardsToDate,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type ChartDataPoints,
   type IArmadaPosition,
   type SDKVaultishType,
   type TimeframesType,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 import {
   type ActiveDotProps,

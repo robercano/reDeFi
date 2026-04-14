@@ -1,6 +1,6 @@
 import { type FC, type PropsWithChildren } from 'react'
-import { Card, Text } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
 
 import styles from './VaultExposureDescription.module.css'
 

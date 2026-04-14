@@ -1,4 +1,4 @@
-import { Address, HexData, Token, IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { Address, HexData, Token, IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 import {
   AllowedProtocolNames,
   WithToken,
@@ -18,7 +18,7 @@ import {
   fetchReservesTokens,
 } from './AAVEv3LikeDataFetchers'
 import { ChainContractsProvider, GenericAbiMap } from '../../../utils/ChainContractProvider'
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { Abi } from 'viem'
 
 interface QueuedOperation<T> {

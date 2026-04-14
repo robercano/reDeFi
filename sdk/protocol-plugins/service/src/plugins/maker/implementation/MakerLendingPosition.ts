@@ -1,4 +1,4 @@
-import { LendingPosition, SerializationService } from '@summerfi/sdk-common'
+import { LendingPosition, SerializationService } from '@thesolidchain/sdk-common'
 import { IMakerLendingPool } from '../interfaces/IMakerLendingPool'
 import {
   IMakerLendingPosition,

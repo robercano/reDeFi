@@ -1,4 +1,4 @@
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import BigNumber from 'bignumber.js'
 import { PublicClient } from 'viem'
 

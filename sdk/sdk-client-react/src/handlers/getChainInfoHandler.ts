@@ -1,4 +1,4 @@
-import { getChainInfoByChainId } from '@summerfi/sdk-common'
+import { getChainInfoByChainId } from '@thesolidchain/sdk-common'
 
 export const getChainInfoHandler = (chainId?: number) => () => {
   if (chainId == null) {

@@ -1,8 +1,8 @@
 'use client'
 
 import { type CSSProperties } from 'react'
-import { TabBarSimple } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
+import { TabBarSimple } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
 import { usePathname } from 'next/navigation'
 
 import { getMainTabBarTabId } from '@/helpers/get-pathname-tab-id'

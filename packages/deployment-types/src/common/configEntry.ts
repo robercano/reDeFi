@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/common'
+import { Address } from '@thesolidchain/common'
 
 export interface ConfigEntry {
   name: string

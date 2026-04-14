@@ -6,9 +6,9 @@ import {
   Percentage,
   Price,
   isTokenAmount,
-} from '@summerfi/sdk-common'
-import { ISwapManager } from '@summerfi/swap-common'
-import { IOracleManager } from '@summerfi/oracle-common'
+} from '@thesolidchain/sdk-common'
+import { ISwapManager } from '@thesolidchain/swap-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
 import assert from 'assert'
 
 /**

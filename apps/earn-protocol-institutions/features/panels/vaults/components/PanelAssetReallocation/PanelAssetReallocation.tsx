@@ -1,9 +1,9 @@
 'use client'
 
 import { type FC, useCallback, useMemo, useState } from 'react'
-import { AllocationBar, Button, Card, Table, Text } from '@summerfi/app-earn-ui'
-import { type SDKVaultType } from '@summerfi/app-types'
-import { formatWithSeparators } from '@summerfi/app-utils'
+import { AllocationBar, Button, Card, Table, Text } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultType } from '@thesolidchain/app-types'
+import { formatWithSeparators } from '@thesolidchain/app-utils'
 
 import { getArksAllocation } from '@/features/panels/vaults/components/PanelVaultExposure/get-arks-allocation'
 

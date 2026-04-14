@@ -5,8 +5,8 @@ import {
   type SdkClient,
   type SDKVaultishType,
   TransactionAction,
-} from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import type BigNumber from 'bignumber.js'
 
 import { useSwapQuote } from './use-swap-quote'

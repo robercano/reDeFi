@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { MakerContractNames } from '@summerfi/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { MakerContractNames } from '@thesolidchain/deployment-types'
+import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   CollateralInfo,
   DebtInfo,
@@ -25,7 +25,7 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { getContract, stringToHex } from 'viem'
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'

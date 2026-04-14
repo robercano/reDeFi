@@ -32,6 +32,6 @@ export {
   type ISparkProtocol,
   type MakerLendingPositionIdParameters,
   type MakerLendingPositionParameters,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 
-export * from '@summerfi/sdk-common'
+export * from '@thesolidchain/sdk-common'

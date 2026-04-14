@@ -1,5 +1,5 @@
-import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@summerfi/sdk-common'
-import { FlashloanProvider, SimulationSteps, steps } from '@summerfi/sdk-common'
+import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import { FlashloanProvider, SimulationSteps, steps } from '@thesolidchain/sdk-common'
 import { SetupBuilderReturnType, setupBuilderParams } from '../../utils/SetupBuilderParams'
 import { FlashloanActionBuilder } from '../../../src/plugins/common/builders/FlashloanActionBuilder'
 

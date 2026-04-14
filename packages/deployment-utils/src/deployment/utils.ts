@@ -1,4 +1,4 @@
-import { Networks } from '@summerfi/hardhat-utils'
+import { Networks } from '@thesolidchain/hardhat-utils'
 import { DeploymentFileExtension, DeploymentTypeSeparator } from './constants'
 import {
   ProviderTypes,

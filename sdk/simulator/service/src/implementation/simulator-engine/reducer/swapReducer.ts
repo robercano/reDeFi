@@ -1,4 +1,4 @@
-import { Percentage, TokenAmount, steps, calculatePriceImpact } from '@summerfi/sdk-common'
+import { Percentage, TokenAmount, steps, calculatePriceImpact } from '@thesolidchain/sdk-common'
 import { ISimulationState } from '../../../interfaces/simulation'
 import { addBalance, subtractBalance } from '../../utils'
 

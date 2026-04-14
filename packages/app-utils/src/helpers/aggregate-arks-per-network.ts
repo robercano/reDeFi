@@ -1,4 +1,4 @@
-import { type SDKVaultishType, type SupportedSDKNetworks } from '@summerfi/app-types'
+import { type SDKVaultishType, type SupportedSDKNetworks } from '@thesolidchain/app-types'
 
 import { supportedSDKNetwork } from '@/helpers/earn-network-tools'
 

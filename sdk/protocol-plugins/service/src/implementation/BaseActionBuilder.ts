@@ -1,11 +1,11 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import {
   ActionBuilderParams,
   ActionBuilderUsedAction,
   FilterStep,
   IActionBuilder,
-} from '@summerfi/protocol-plugins-common'
-import { IAddress, IChainInfo, ProtocolName, SimulationSteps, steps } from '@summerfi/sdk-common'
+} from '@thesolidchain/protocol-plugins-common'
+import { IAddress, IChainInfo, ProtocolName, SimulationSteps, steps } from '@thesolidchain/sdk-common'
 import { getContractAddress } from '../plugins/utils/GetContractAddress'
 
 /**

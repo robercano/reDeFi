@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react'
 import { useChain, useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType } from '@summerfi/app-earn-ui'
+import { getAccountType } from '@thesolidchain/app-earn-ui'
 
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'
 import { useAppSDK } from '@/hooks/use-app-sdk'

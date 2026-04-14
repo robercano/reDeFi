@@ -1,5 +1,5 @@
-import { steps } from '@summerfi/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@summerfi/protocol-plugins-common'
+import { steps } from '@thesolidchain/sdk-common'
+import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
 import { isMorphoLendingPool } from '../interfaces/IMorphoLendingPool'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 

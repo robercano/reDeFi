@@ -1,7 +1,7 @@
 /* eslint-disable react/destructuring-assignment */
 import { type FC } from 'react'
-import { TransactionAction } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { TransactionAction } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 
 import { Button } from '@/components/atoms/Button/Button'
 import { SkeletonLine } from '@/components/atoms/SkeletonLine/SkeletonLine'

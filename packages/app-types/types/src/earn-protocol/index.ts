@@ -4,7 +4,7 @@ import {
   GetVaultQuery,
   GetGlobalRebalancesQuery,
   GetUsersActivityQuery,
-} from '@summerfi/subgraph-manager-common'
+} from '@thesolidchain/subgraph-manager-common'
 import {
   IArmadaPosition,
   VaultSwitchTransactionInfo,
@@ -16,8 +16,8 @@ import {
   StakeTransactionInfo,
   UnstakeTransactionInfo,
   ApproveTransactionInfo,
-} from '@summerfi/sdk-common'
-import { ChainId } from '@summerfi/serverless-shared'
+} from '@thesolidchain/sdk-common'
+import { ChainId } from '@thesolidchain/serverless-shared'
 import { EarnAppConfigType, EarnAppFleetCustomConfigType } from '../generated/earn-app-config'
 import { TimeframesType } from '../components'
 import { DeviceType } from '../device-type'
@@ -26,7 +26,7 @@ import { NetworkIds } from '../networks'
 import {
   GetInterestRatesQuery,
   GetInterestRatesDocument,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 
 export type { GetInterestRatesQuery }
 export { GetInterestRatesDocument }

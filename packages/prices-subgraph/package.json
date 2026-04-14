@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/prices-subgraph",
+  "name": "@thesolidchain/prices-subgraph",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -15,12 +15,12 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.0.4",
-    "@summerfi/serverless-shared": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*",
     "graphql-request": "^6.1.0"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^20.12.7",
     "eslint": "^8.57.0"
   }

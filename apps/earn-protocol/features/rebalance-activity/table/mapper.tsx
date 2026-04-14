@@ -8,15 +8,15 @@ import {
   TableCellText,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { type IconNamesList, type TokenSymbolsList } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type IconNamesList, type TokenSymbolsList } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
   mapDbNetworkToChainId,
   timeAgo,
-} from '@summerfi/app-utils'
-import { type RebalanceActivity } from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/app-utils'
+import { type RebalanceActivity } from '@thesolidchain/summer-protocol-db'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 

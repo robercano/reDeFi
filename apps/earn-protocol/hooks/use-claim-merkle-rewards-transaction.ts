@@ -1,9 +1,9 @@
 'use client'
 import { useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType, useIsIframe } from '@summerfi/app-earn-ui'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
-import { sdkNetworkToChain } from '@summerfi/app-utils'
-import { ChainIds } from '@summerfi/sdk-common'
+import { getAccountType, useIsIframe } from '@thesolidchain/app-earn-ui'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { sdkNetworkToChain } from '@thesolidchain/app-utils'
+import { ChainIds } from '@thesolidchain/sdk-common'
 import { type PublicClient } from 'viem'
 
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'

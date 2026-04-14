@@ -1,7 +1,7 @@
-import { ActionBuildersConfig } from '@summerfi/order-planner-service'
-import { ProtocolPluginsRecord } from '@summerfi/protocol-plugins'
-import { ActionBuilderUsedAction } from '@summerfi/protocol-plugins-common'
-import { SimulationStrategy, StrategyStep, AddressValue, HexData } from '@summerfi/sdk-common'
+import { ActionBuildersConfig } from '@thesolidchain/order-planner-service'
+import { ProtocolPluginsRecord } from '@thesolidchain/protocol-plugins'
+import { ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import { SimulationStrategy, StrategyStep, AddressValue, HexData } from '@thesolidchain/sdk-common'
 import {
   DebugDefinitions,
   OperationDefinition,

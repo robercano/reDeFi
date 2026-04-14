@@ -1,4 +1,4 @@
-import { FaqSection } from '@summerfi/app-earn-ui'
+import { FaqSection } from '@thesolidchain/app-earn-ui'
 
 import { sumrFaqData } from './sumr-faq-data'
 

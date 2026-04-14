@@ -1,5 +1,5 @@
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 import { VAULTS_STARTING_NAV_VALUES } from '@/constants/vaults-starting-nav-values'
 

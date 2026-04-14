@@ -1,9 +1,9 @@
 import { ServiceContainer } from './service-container'
 import { mergeValidationResults, SparkPartialTakeProfitEventBody, ValidationResults } from '~types'
 import { PublicClient } from 'viem'
-import { Addresses, CurrentTriggerLike } from '@summerfi/triggers-shared'
-import { Address, ChainId, ProtocolId, safeParseBigInt } from '@summerfi/serverless-shared'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
+import { Addresses, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, ProtocolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
 import { Logger } from '@aws-lambda-powertools/logger'
 import memoize from 'just-memoize'
 import {
@@ -17,14 +17,14 @@ import {
   encodeSparkStopLoss,
 } from './trigger-encoders'
 import { encodeFunctionForDpm } from './encode-function-for-dpm'
-import { DerivedPrices } from '@summerfi/prices-subgraph'
-import { getCurrentSparkStopLoss } from '@summerfi/triggers-calculations'
+import { DerivedPrices } from '@thesolidchain/prices-subgraph'
+import { getCurrentSparkStopLoss } from '@thesolidchain/triggers-calculations'
 import {
   calculateCollateralPriceInDebtBasedOnLtv,
   getSparkPosition,
   simulateAutoTakeProfit,
-} from '@summerfi/triggers-calculations'
-import { PositionLike, SupportedActions } from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-calculations'
+import { PositionLike, SupportedActions } from '@thesolidchain/triggers-shared'
 
 export interface GetSparkPartialTakeProfitServiceContainerProps {
   rpc: PublicClient

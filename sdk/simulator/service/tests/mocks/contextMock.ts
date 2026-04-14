@@ -19,7 +19,7 @@ import {
   TransactionInfo,
   SwapProviderType,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   testTargetLendingPool,
   testTargetLendingPoolInfo,

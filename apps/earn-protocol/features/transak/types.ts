@@ -1,4 +1,4 @@
-import { type IconNamesList, type SupportedNetworkIds } from '@summerfi/app-types'
+import { type IconNamesList, type SupportedNetworkIds } from '@thesolidchain/app-types'
 import { type Transak } from '@transak/transak-sdk'
 
 import { type NetworkNames } from '@/constants/networks-list'

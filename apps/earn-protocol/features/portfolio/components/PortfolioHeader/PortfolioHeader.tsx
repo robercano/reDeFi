@@ -15,14 +15,14 @@ import {
   Text,
   useTokenTransfer,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type DropdownRawOption, SupportedNetworkIds } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type DropdownRawOption, SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   formatAddress,
   formatCryptoBalance,
   formatFiatBalance,
   safeBTOA,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 

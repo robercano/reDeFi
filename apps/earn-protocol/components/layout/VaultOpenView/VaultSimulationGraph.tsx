@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { Card, getDisplayToken, SkeletonLine, Text } from '@summerfi/app-earn-ui'
-import { type ForecastData, type SDKVaultishType, type TimeframesType } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { Card, getDisplayToken, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
+import { type ForecastData, type SDKVaultishType, type TimeframesType } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 

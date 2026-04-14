@@ -1,5 +1,5 @@
-import { Address, Token, TokenAmount, ChainFamilyMap } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, Token, TokenAmount, ChainFamilyMap } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import { AaveV3BorrowAction } from '../../../../src'
 
 describe('AaveV3BorrowAction Action', () => {

@@ -1,7 +1,7 @@
 import { type ChangeEvent, type FC, useState } from 'react'
-import { Dropdown, Icon, Text } from '@summerfi/app-earn-ui'
-import { type DropdownOption, type DropdownRawOption } from '@summerfi/app-types'
-import { mapNumericInput } from '@summerfi/app-utils'
+import { Dropdown, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type DropdownOption, type DropdownRawOption } from '@thesolidchain/app-types'
+import { mapNumericInput } from '@thesolidchain/app-utils'
 
 import classNames from './TransakExchangeInput.module.css'
 

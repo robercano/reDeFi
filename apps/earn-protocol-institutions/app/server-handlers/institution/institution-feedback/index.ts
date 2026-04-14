@@ -1,4 +1,4 @@
-import { getSummerProtocolInstitutionDB } from '@summerfi/summer-protocol-institutions-db'
+import { getSummerProtocolInstitutionDB } from '@thesolidchain/summer-protocol-institutions-db'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { type SessionPayload } from '@/features/auth/types'

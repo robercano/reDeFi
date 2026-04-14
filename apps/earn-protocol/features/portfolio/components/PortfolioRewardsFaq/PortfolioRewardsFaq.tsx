@@ -1,5 +1,5 @@
-import { Card, FaqSection } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Card, FaqSection } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 
 import { sumrFaqData } from '@/features/sumr-claim/components/SumrFaq/sumr-faq-data'
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'

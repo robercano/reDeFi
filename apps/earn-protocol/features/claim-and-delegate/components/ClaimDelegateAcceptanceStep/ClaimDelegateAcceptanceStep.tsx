@@ -10,9 +10,9 @@ import {
   useMobileCheck,
   useUserWallet,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { useTermsOfService } from '@summerfi/app-tos'
-import { type SupportedNetworkIds, TOSStatus } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { useTermsOfService } from '@thesolidchain/app-tos'
+import { type SupportedNetworkIds, TOSStatus } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { TermsOfServiceCookiePrefix, TermsOfServiceVersion } from '@/constants/terms-of-service'

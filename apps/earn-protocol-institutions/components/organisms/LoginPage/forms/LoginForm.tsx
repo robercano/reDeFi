@@ -6,7 +6,7 @@ import {
   Input,
   LoadingSpinner,
   Text,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import styles from '@/components/organisms/LoginPage/LoginPage.module.css'

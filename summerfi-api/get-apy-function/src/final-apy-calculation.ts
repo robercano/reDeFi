@@ -1,5 +1,5 @@
 import { CalculateRates, GroupedRates } from './protocols/types'
-import { LTV } from '@summerfi/serverless-shared'
+import { LTV } from '@thesolidchain/serverless-shared'
 import { ONE_DAY, secondTimestampToShortDate, StartOfDayTimestamp } from './helpers'
 
 const LtvToNumber = (ltv: LTV) => Number(ltv) / 10_000

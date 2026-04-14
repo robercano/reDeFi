@@ -1,4 +1,4 @@
-import { IRefinanceParameters, IRefinanceSimulation } from '@summerfi/sdk-common'
+import { IRefinanceParameters, IRefinanceSimulation } from '@thesolidchain/sdk-common'
 
 /**
  * Interface for the Refinance Simulation Manager

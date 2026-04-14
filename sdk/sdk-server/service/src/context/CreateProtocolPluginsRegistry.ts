@@ -1,12 +1,12 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import { IOracleManager } from '@summerfi/oracle-common'
-import { ProtocolPluginsRecord, ProtocolPluginsRegistry } from '@summerfi/protocol-plugins'
-import { IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
-import { ChainFamilyMap } from '@summerfi/sdk-common'
-import { ISwapManager } from '@summerfi/swap-common'
-import { ITokensManager } from '@summerfi/tokens-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import { IOracleManager } from '@thesolidchain/oracle-common'
+import { ProtocolPluginsRecord, ProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins'
+import { IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
+import { ISwapManager } from '@thesolidchain/swap-common'
+import { ITokensManager } from '@thesolidchain/tokens-common'
 
 /**
  * Create the protocol plugins registry

@@ -1,5 +1,5 @@
-import { Card, type CardVariant } from '@summerfi/app-earn-ui'
-import { type ForecastDataPoints, type TimeframesType } from '@summerfi/app-types'
+import { Card, type CardVariant } from '@thesolidchain/app-earn-ui'
+import { type ForecastDataPoints, type TimeframesType } from '@thesolidchain/app-types'
 
 import { ChartHeader } from '@/components/organisms/Charts/ChartHeader'
 import { ForecastChart } from '@/components/organisms/Charts/components/Forecast'

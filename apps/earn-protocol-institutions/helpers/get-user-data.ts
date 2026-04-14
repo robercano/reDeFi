@@ -1,4 +1,4 @@
-import { type GlobalRoles } from '@summerfi/sdk-client'
+import { type GlobalRoles } from '@thesolidchain/sdk-client'
 
 export const getUserData = async ({
   walletAddress,

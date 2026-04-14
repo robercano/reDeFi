@@ -1,7 +1,7 @@
 /* eslint-disable  no-mixed-operators */
 'use client'
 import { type CSSProperties, type FC, type ReactNode } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

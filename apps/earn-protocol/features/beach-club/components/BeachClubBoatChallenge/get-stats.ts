@@ -1,4 +1,4 @@
-import { formatWithSeparators } from '@summerfi/app-utils'
+import { formatWithSeparators } from '@thesolidchain/app-utils'
 
 export const getBeachClubBoatChallengeStats = ({
   currentPoints,

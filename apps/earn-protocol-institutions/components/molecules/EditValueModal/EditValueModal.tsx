@@ -8,8 +8,8 @@ import {
   Text,
   useAmount,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 

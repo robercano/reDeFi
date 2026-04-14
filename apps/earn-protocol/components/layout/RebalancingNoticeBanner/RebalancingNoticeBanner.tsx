@@ -1,7 +1,7 @@
 import { type FC, useMemo } from 'react'
-import { EXTERNAL_LINKS, GlobalNoticeBanner } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType, type SDKVaultType } from '@summerfi/app-types'
-import { ten } from '@summerfi/app-utils'
+import { EXTERNAL_LINKS, GlobalNoticeBanner } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType, type SDKVaultType } from '@thesolidchain/app-types'
+import { ten } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 

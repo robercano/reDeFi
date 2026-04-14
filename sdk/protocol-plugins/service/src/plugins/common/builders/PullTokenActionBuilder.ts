@@ -1,5 +1,5 @@
-import { steps, getValueFromReference } from '@summerfi/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@summerfi/protocol-plugins-common'
+import { steps, getValueFromReference } from '@thesolidchain/sdk-common'
+import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
 import { PullTokenAction } from '../actions/PullTokenAction'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 

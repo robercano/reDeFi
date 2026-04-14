@@ -4,17 +4,17 @@ import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
+} from '@thesolidchain/serverless-shared/responses'
 import {
   addressSchema,
   bigIntSchema,
   chainIdSchema,
   urlOptionalSchema,
-} from '@summerfi/serverless-shared/validators'
+} from '@thesolidchain/serverless-shared/validators'
 
 import { Logger } from '@aws-lambda-powertools/logger'
-import { Address, ChainId } from '@summerfi/serverless-shared'
-import { getMorphoBlueApiClient } from '@summerfi/morpho-blue-external-api-client'
+import { Address, ChainId } from '@thesolidchain/serverless-shared'
+import { getMorphoBlueApiClient } from '@thesolidchain/morpho-blue-external-api-client'
 import { getRewards, MorphoMarket, MorphoReward } from './get-rewards'
 import BigNumber from 'bignumber.js'
 

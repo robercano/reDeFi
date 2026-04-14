@@ -7,8 +7,8 @@ import {
   INTERNAL_LINKS,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { getCookie, setCookie } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { getCookie, setCookie } from '@thesolidchain/app-utils'
 
 import { useSystemConfig } from '@/contexts/SystemConfigContext/SystemConfigContext'
 import { PortfolioTabs } from '@/features/portfolio/types'

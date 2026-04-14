@@ -1,4 +1,4 @@
-import type { ReferenceableField, SimulationStrategy, ValueReference } from '@summerfi/sdk-common'
+import type { ReferenceableField, SimulationStrategy, ValueReference } from '@thesolidchain/sdk-common'
 import type { Tail } from '../../interfaces/helperTypes'
 
 export function makeStrategy<T extends Readonly<SimulationStrategy>>(strategy: T): Readonly<T> {

@@ -1,7 +1,7 @@
-import { ChainInfo, FiatCurrency, OracleProviderType, Token, Address } from '@summerfi/sdk-common'
+import { ChainInfo, FiatCurrency, OracleProviderType, Token, Address } from '@thesolidchain/sdk-common'
 
 import { MockOracleProvider } from './mocks/MockOracleProvider'
-import { IOracleManager } from '@summerfi/oracle-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
 import { OracleManager } from '../src'
 
 describe('OracleManager', () => {

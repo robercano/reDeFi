@@ -1,5 +1,5 @@
 'use client'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
 
 import { sdkApiUrl } from '@/constants/sdk'
 

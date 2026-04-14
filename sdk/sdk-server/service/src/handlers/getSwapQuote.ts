@@ -1,5 +1,5 @@
 import { z } from 'zod'
-import { Token, TokenAmount, QuoteData, Percentage } from '@summerfi/sdk-common'
+import { Token, TokenAmount, QuoteData, Percentage } from '@thesolidchain/sdk-common'
 import { publicProcedure } from '../SDKTRPC'
 
 export const getSwapQuoteExactInput = publicProcedure

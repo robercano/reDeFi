@@ -1,5 +1,5 @@
-import { ChainFamilyMap } from '@summerfi/sdk-common'
-import { TokensManagerMock } from '@summerfi/testing-utils'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
+import { TokensManagerMock } from '@thesolidchain/testing-utils'
 import { ISparkLendingPoolId, SparkLendingPoolId, SparkProtocol } from '../../src'
 import { EmodeType } from '../../src/plugins/common/enums/EmodeType'
 

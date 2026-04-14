@@ -1,5 +1,5 @@
-import { TableCellNodes, TableCellText } from '@summerfi/app-earn-ui'
-import { formatWithSeparators } from '@summerfi/app-utils'
+import { TableCellNodes, TableCellText } from '@thesolidchain/app-earn-ui'
+import { formatWithSeparators } from '@thesolidchain/app-utils'
 
 import { type MarketRiskParameters } from './types'
 

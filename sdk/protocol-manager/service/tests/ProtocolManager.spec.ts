@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IProtocolManager, IProtocolManagerContext } from '@summerfi/protocol-manager-common'
+import { IProtocolManager, IProtocolManagerContext } from '@thesolidchain/protocol-manager-common'
 import {
   EmodeType,
   SparkLendingPoolId,
   SparkProtocol,
   ProtocolPluginConstructor,
   ProtocolPluginsRegistry,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import {
   IProtocolPlugin,
   IProtocolPluginContext,
   IProtocolPluginsRegistry,
-} from '@summerfi/protocol-plugins-common'
-import { Address, ChainFamilyMap, ChainInfo, ProtocolName, Token } from '@summerfi/sdk-common'
+} from '@thesolidchain/protocol-plugins-common'
+import { Address, ChainFamilyMap, ChainInfo, ProtocolName, Token } from '@thesolidchain/sdk-common'
 import { PublicClient, createPublicClient, http } from 'viem'
 import { mainnet } from 'viem/chains'
 import { ProtocolManager } from '../src'

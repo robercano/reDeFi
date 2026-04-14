@@ -6,11 +6,11 @@ import {
   parseAbiParameters,
   stringToBytes,
 } from 'viem'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { DmaSparkTrailingStopLossTriggerData } from '~types'
-import { PositionLike, CurrentTriggerLike } from '@summerfi/triggers-shared'
+import { PositionLike, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
 
-import { DerivedPrices } from '@summerfi/prices-subgraph'
+import { DerivedPrices } from '@thesolidchain/prices-subgraph'
 import { getMaxCoverage } from './get-max-coverage'
 import { OPERATION_NAMES } from '@oasisdex/dma-library'
 import { AddableTrigger, RemovableTrigger } from './automation-bot-helper'

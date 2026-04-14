@@ -3,7 +3,7 @@ import {
   NetworkIds,
   type SupportedNetworkIds,
   SupportedSDKNetworks,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 export const networkIdIconNameMap: {
   [key in SupportedNetworkIds]: IconNamesList

@@ -1,4 +1,4 @@
-import { type IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { OracleManager } from './OracleManager'
 import { OneInchOracleProvider } from './oneinch/OneInchOracleProvider'
 import { CoingeckoOracleProvider } from './coingecko/CoingeckoOracleProvider'

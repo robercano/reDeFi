@@ -3,8 +3,8 @@ import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
-import { getAutomationSubgraphClient } from '@summerfi/automation-subgraph'
+} from '@thesolidchain/serverless-shared/responses'
+import { getAutomationSubgraphClient } from '@thesolidchain/automation-subgraph'
 import { getSimpleTriggers } from './helpers/get-simple-triggers'
 import { getAdvancedTriggers } from './helpers/get-advanced-triggers'
 import { logger } from './helpers/logger'

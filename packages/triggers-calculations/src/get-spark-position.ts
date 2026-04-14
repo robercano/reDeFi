@@ -1,7 +1,7 @@
-import { PositionLike, PRICE_DECIMALS, TokenBalance } from '@summerfi/triggers-shared'
-import { Address } from '@summerfi/serverless-shared'
+import { PositionLike, PRICE_DECIMALS, TokenBalance } from '@thesolidchain/triggers-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 import { PublicClient } from 'viem'
-import { aavePoolDataProviderAbi, aaveOracleAbi, erc20Abi } from '@summerfi/abis'
+import { aavePoolDataProviderAbi, aaveOracleAbi, erc20Abi } from '@thesolidchain/abis'
 import { calculateLtv, isStablecoin } from './helpers'
 import { Logger } from '@aws-lambda-powertools/logger'
 

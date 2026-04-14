@@ -8,7 +8,7 @@ import {
   type SavedAnalyticsCookiesSettings,
   Text,
   useAnalyticsCookies,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import { usePathname } from 'next/navigation'
 
 import { NavigationWrapper } from '@/components/layout/Navigation/NavigationWrapper'

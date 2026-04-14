@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/ssr-public-client",
+  "name": "@thesolidchain/ssr-public-client",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "type": "module",
@@ -17,13 +17,13 @@
     "knip": "knip"
   },
   "dependencies": {
-    "@summerfi/app-utils": "workspace:*",
+    "@thesolidchain/app-utils": "workspace:*",
     "viem": "2.43.5"
   },
   "devDependencies": {
-    "@summerfi/app-types": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^22.14.1",
     "eslint": "8.57.0",
     "glob": "^11.0.0",

@@ -1,4 +1,4 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import { type Chain, createPublicClient, http, type PublicClient } from 'viem'
 import { arbitrum, base, hyperliquid, mainnet, sonic } from 'viem/chains'
 

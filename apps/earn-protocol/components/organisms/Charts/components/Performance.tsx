@@ -1,5 +1,5 @@
-import { RechartResponsiveWrapper } from '@summerfi/app-earn-ui'
-import { type PerformanceChartData, type TimeframesType } from '@summerfi/app-types'
+import { RechartResponsiveWrapper } from '@thesolidchain/app-earn-ui'
+import { type PerformanceChartData, type TimeframesType } from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 import {
   type ActiveDotProps,

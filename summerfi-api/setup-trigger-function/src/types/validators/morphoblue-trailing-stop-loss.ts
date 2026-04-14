@@ -1,10 +1,10 @@
 import { z } from 'zod'
-import { addressSchema, poolIdSchema, urlOptionalSchema } from '@summerfi/serverless-shared'
+import { addressSchema, poolIdSchema, urlOptionalSchema } from '@thesolidchain/serverless-shared'
 import {
   positionAddressesSchema,
   priceSchema,
   supportedActionsSchema,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import { TriggerType } from '@oasisdex/automation'
 
 export const dmaMorphoBlueTrailingStopLossTriggerDataSchema = z.object({

@@ -1,6 +1,6 @@
 import { ProtocolMigrationAssets } from './types'
 import { getDominantCollAsset } from './getDominantCollAsset'
-import { PortfolioMigration, ProtocolId } from '@summerfi/serverless-shared'
+import { PortfolioMigration, ProtocolId } from '@thesolidchain/serverless-shared'
 
 export const parseEligibleMigration = ({
   debtAssets,

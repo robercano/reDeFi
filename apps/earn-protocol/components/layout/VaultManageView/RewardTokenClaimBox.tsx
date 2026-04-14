@@ -8,13 +8,13 @@ import {
   Text,
   useClientChainId,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type RewardTokenPrices } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type RewardTokenPrices } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { delayPerNetwork } from '@/constants/delay-per-network'
 import { getMerkleRewardsTag } from '@/helpers/get-cache-handler-name'

@@ -1,5 +1,5 @@
-import { Address, Percentage, Token, TokenAmount } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, Percentage, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import { SwapAction } from '../../../src/plugins/common/actions'
 
 describe('Swap Action', () => {

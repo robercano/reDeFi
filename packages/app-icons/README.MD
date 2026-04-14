@@ -1,3 +1,3 @@
-## @summerfi/summerfi/app-icons
+## @thesolidchain/summerfi/app-icons
 
 Separated package for app icons.

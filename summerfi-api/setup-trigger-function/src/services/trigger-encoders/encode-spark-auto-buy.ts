@@ -5,9 +5,9 @@ import {
   parseAbiParameters,
   stringToBytes,
 } from 'viem'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { SparkAutoBuyTriggerData } from '~types'
-import { maxUnit256, PositionLike, CurrentTriggerLike } from '@summerfi/triggers-shared'
+import { maxUnit256, PositionLike, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
 
 import { DEFAULT_DEVIATION } from './defaults'
 import { TriggerTransactions } from './types'

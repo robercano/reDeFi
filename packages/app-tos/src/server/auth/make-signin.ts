@@ -1,5 +1,5 @@
-import { type JWTChallenge, type JwtPayload, SupportedNetworkIds } from '@summerfi/app-types'
-import { chainIdSchema, getRpcGatewayEndpoint, type IRpcConfig } from '@summerfi/serverless-shared'
+import { type JWTChallenge, type JwtPayload, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { chainIdSchema, getRpcGatewayEndpoint, type IRpcConfig } from '@thesolidchain/serverless-shared'
 import { jwtVerify, SignJWT } from 'jose'
 import type { ResponseCookie } from 'next/dist/compiled/@edge-runtime/cookies'
 import { type NextRequest, NextResponse } from 'next/server'

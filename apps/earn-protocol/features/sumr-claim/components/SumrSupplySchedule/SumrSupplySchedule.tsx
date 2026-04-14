@@ -1,5 +1,5 @@
-import { Card, RechartResponsiveWrapper, Text, useMobileCheck } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { Card, RechartResponsiveWrapper, Text, useMobileCheck } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import {
   Area,
   ComposedChart,

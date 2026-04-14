@@ -1,7 +1,7 @@
 'use client'
 import { type FC, type ReactNode } from 'react'
-import { Dropdown, Icon, Text } from '@summerfi/app-earn-ui'
-import { type DropdownRawOption } from '@summerfi/app-types'
+import { Dropdown, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type DropdownRawOption } from '@thesolidchain/app-types'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 

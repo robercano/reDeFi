@@ -3,8 +3,8 @@ import {
   ActionBuilderUsedAction,
   ActionConfig,
   BaseAction,
-} from '@summerfi/protocol-plugins-common'
-import { steps } from '@summerfi/sdk-common'
+} from '@thesolidchain/protocol-plugins-common'
+import { steps } from '@thesolidchain/sdk-common'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 
 // TODO: temporary solution until we remove the Operations Registry

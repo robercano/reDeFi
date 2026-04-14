@@ -1,11 +1,11 @@
-import { Token, Address, Price, TokenAmount, Percentage } from '@summerfi/sdk-common'
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { Token, Address, Price, TokenAmount, Percentage } from '@thesolidchain/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { MakerProtocolPlugin } from '../../src/plugins/maker/implementation/MakerProtocolPlugin'
 import { IMakerLendingPoolId } from '../../src/plugins/maker/interfaces/IMakerLendingPoolId'
 import { getMakerPoolIdMock } from '../mocks/MakerPoolIdMock'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
-import { OracleManagerMock } from '@summerfi/testing-utils'
-import { ChainFamilyMap, FiatCurrency, OracleProviderType } from '@summerfi/sdk-common'
+import { OracleManagerMock } from '@thesolidchain/testing-utils'
+import { ChainFamilyMap, FiatCurrency, OracleProviderType } from '@thesolidchain/sdk-common'
 
 describe('Maker Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext

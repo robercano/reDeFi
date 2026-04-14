@@ -1,7 +1,7 @@
-import type { Maybe } from '@summerfi/sdk-common'
-import { isToken, OracleProviderType } from '@summerfi/sdk-common'
-import { IOracleManager, IOracleProvider } from '@summerfi/oracle-common'
-import { ManagerWithProvidersBase } from '@summerfi/sdk-server-common'
+import type { Maybe } from '@thesolidchain/sdk-common'
+import { isToken, OracleProviderType } from '@thesolidchain/sdk-common'
+import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
+import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
 
 export type OracleManagerProviderConfig = {
   provider: IOracleProvider

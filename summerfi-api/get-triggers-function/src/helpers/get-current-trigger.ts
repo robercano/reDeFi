@@ -1,4 +1,4 @@
-import { Trigger } from '@summerfi/triggers-shared/contracts'
+import { Trigger } from '@thesolidchain/triggers-shared/contracts'
 
 export const getCurrentTrigger = (...args: (Trigger | undefined)[]): Trigger | undefined => {
   return args

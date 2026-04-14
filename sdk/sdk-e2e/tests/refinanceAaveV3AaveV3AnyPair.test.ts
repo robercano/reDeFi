@@ -7,8 +7,8 @@ import {
   isAaveV3LendingPoolId,
   isAaveV3Protocol,
   EmodeType,
-} from '@summerfi/protocol-plugins'
-import { makeSDK, type Chain } from '@summerfi/sdk-client'
+} from '@thesolidchain/protocol-plugins'
+import { makeSDK, type Chain } from '@thesolidchain/sdk-client'
 import {
   Address,
   AddressValue,
@@ -18,15 +18,15 @@ import {
   Percentage,
   TokenAmount,
   type Maybe,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   LendingPositionType,
   isLendingPool,
   Order,
   PositionsManager,
   RefinanceParameters,
-} from '@summerfi/sdk-common'
-import { TransactionUtils } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { TransactionUtils } from '@thesolidchain/testing-utils'
 import assert from 'assert'
 import { Hex } from 'viem'
 

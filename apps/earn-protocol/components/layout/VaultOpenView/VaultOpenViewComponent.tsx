@@ -21,8 +21,8 @@ import {
   useTokenSelector,
   useUserWallet,
   VaultOpenGrid,
-} from '@summerfi/app-earn-ui'
-import { useTermsOfService } from '@summerfi/app-tos'
+} from '@thesolidchain/app-earn-ui'
+import { useTermsOfService } from '@thesolidchain/app-tos'
 import {
   type ArksHistoricalChartData,
   type DropdownRawOption,
@@ -36,14 +36,14 @@ import {
   TOSStatus,
   TransactionAction,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { slugify, subgraphNetworkToSDKId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { slugify, subgraphNetworkToSDKId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import {
   getChainInfoByChainId,
   type IArmadaVaultInfo,
   type IToken,
   TransactionType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'

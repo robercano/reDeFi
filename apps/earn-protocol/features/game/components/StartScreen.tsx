@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Card, Icon, Text, useUserWallet } from '@summerfi/app-earn-ui'
+import { Button, Card, Icon, Text, useUserWallet } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import WalletLabel from '@/components/molecules/WalletLabel/WalletLabel'

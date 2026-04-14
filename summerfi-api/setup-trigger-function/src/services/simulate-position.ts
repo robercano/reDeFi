@@ -7,9 +7,9 @@ import {
   PositionLike,
   Price,
   PRICE_DECIMALS,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { LTV } from '@summerfi/serverless-shared'
+import { LTV } from '@thesolidchain/serverless-shared'
 
 export interface SimulatedPosition {
   targetLTV: LTV

@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/address-book-service",
+  "name": "@thesolidchain/address-book-service",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,16 +20,16 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@summerfi/common": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/address-book-common": "workspace:*",
-    "@summerfi/deployment-utils": "workspace:*",
-    "@summerfi/core-contracts": "workspace:*"
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/address-book-common": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/core-contracts": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

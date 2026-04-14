@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useMemo, useState } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
-import { type PerformanceChartData, type TimeframesType } from '@summerfi/app-types'
+import { Card } from '@thesolidchain/app-earn-ui'
+import { type PerformanceChartData, type TimeframesType } from '@thesolidchain/app-types'
 
 import { ChartHeader } from '@/components/organisms/Charts/ChartHeader'
 import { PerformanceChart } from '@/components/organisms/Charts/components/Performance'

@@ -1,4 +1,4 @@
-import { isToken, IToken, ILendingPoolId, LendingPoolIdDataSchema } from '@summerfi/sdk-common'
+import { isToken, IToken, ILendingPoolId, LendingPoolIdDataSchema } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { EmodeType, EmodeTypeSchema } from '../../common/enums/EmodeType'
 import { ISparkProtocol, isSparkProtocol } from './ISparkProtocol'

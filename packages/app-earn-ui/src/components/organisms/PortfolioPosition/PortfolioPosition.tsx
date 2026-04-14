@@ -4,8 +4,8 @@ import {
   type IArmadaVaultInfo,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { formatDecimalAsPercent, slugifyVault, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatDecimalAsPercent, slugifyVault, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 

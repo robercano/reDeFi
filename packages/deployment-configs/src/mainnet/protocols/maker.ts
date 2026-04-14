@@ -1,4 +1,4 @@
-import { MakerConfig } from '@summerfi/deployment-types'
+import { MakerConfig } from '@thesolidchain/deployment-types'
 
 export const MakerConfiguration: MakerConfig = {
   dependencies: {

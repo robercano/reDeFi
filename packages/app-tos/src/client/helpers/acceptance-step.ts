@@ -1,4 +1,4 @@
-import { TOSStatus } from '@summerfi/app-types'
+import { TOSStatus } from '@thesolidchain/app-types'
 
 import { actionErrorWrapper } from '@/client/helpers/action-error-wrapper'
 import { saveTermsOfServiceAcceptance } from '@/client/helpers/save-terms-of-service-acceptance'

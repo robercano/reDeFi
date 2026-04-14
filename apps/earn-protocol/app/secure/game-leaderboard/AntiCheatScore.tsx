@@ -1,6 +1,6 @@
 'use client'
 
-import { Tooltip } from '@summerfi/app-earn-ui'
+import { Tooltip } from '@thesolidchain/app-earn-ui'
 
 import { type GameEntry, type SacScore } from './types'
 

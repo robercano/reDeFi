@@ -1,4 +1,4 @@
-import { SupportedNetworkIds, type TokenSymbolsList } from '@summerfi/app-types'
+import { SupportedNetworkIds, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 // For swap testing purposes only adding testToken to dropdown
 const swapTokens: { [key: number]: TokenSymbolsList[] | undefined } = {

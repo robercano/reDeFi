@@ -1,4 +1,4 @@
-import { type JwtPayload } from '@summerfi/app-types'
+import { type JwtPayload } from '@thesolidchain/app-types'
 import { jwtVerify } from 'jose'
 
 /**

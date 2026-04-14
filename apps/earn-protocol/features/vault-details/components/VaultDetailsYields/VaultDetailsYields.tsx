@@ -1,12 +1,12 @@
 'use client'
 import { type FC } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type InterestRates,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import { capitalize } from 'lodash-es'
 
 import { VaultDetailsAdvancedYield } from '@/features/vault-details/components/VaultDetailsAdvancedYield/VaultDetailsAdvancedYield'

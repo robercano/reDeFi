@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/app-utils",
+  "name": "@thesolidchain/app-utils",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "type": "module",
@@ -28,9 +28,9 @@
     "knip": "knip"
   },
   "devDependencies": {
-    "@summerfi/app-types": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^22.14.1",
     "eslint": "8.57.0",

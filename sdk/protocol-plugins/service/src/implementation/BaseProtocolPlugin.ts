@@ -4,7 +4,7 @@ import {
   IActionBuilder,
   IProtocolPlugin,
   IProtocolPluginContext,
-} from '@summerfi/protocol-plugins-common'
+} from '@thesolidchain/protocol-plugins-common'
 import {
   ChainInfo,
   IAddress,
@@ -23,7 +23,7 @@ import {
   SimulationSteps,
   steps,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import { getContractAddress } from '../plugins/utils/GetContractAddress'
 

@@ -8,7 +8,7 @@ import {
   Text,
   useMobileCheck,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'

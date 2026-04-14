@@ -1,5 +1,5 @@
-import type { ISDKAdminManager, ISDKManager } from '@summerfi/sdk-client'
-import { type FiatCurrency, type IToken, type IChainInfo } from '@summerfi/sdk-common'
+import type { ISDKAdminManager, ISDKManager } from '@thesolidchain/sdk-client'
+import { type FiatCurrency, type IToken, type IChainInfo } from '@thesolidchain/sdk-common'
 
 export const getSpotPricesHandler =
   (sdk: ISDKManager | ISDKAdminManager) =>

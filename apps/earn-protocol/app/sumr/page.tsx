@@ -1,9 +1,9 @@
-import { getRewardsTokenBonus, sumrNetApyConfigCookieName } from '@summerfi/app-earn-ui'
+import { getRewardsTokenBonus, sumrNetApyConfigCookieName } from '@thesolidchain/app-earn-ui'
 import {
   getServerSideCookies,
   parseServerResponseToClient,
   safeParseJson,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { type Metadata } from 'next'
 import { cookies } from 'next/headers'
 

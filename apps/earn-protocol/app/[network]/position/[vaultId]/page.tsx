@@ -1,6 +1,6 @@
-import { getDisplayToken, isVaultAtLeastDaysOld, Text } from '@summerfi/app-earn-ui'
-import { getArksInterestRates } from '@summerfi/app-server-handlers'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { getDisplayToken, isVaultAtLeastDaysOld, Text } from '@thesolidchain/app-earn-ui'
+import { getArksInterestRates } from '@thesolidchain/app-server-handlers'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
@@ -10,7 +10,7 @@ import {
   subgraphNetworkToId,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 import { capitalize } from 'lodash-es'

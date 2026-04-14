@@ -1,4 +1,4 @@
-import { type DropdownOption, NetworkNames, SupportedNetworkIds } from '@summerfi/app-types'
+import { type DropdownOption, NetworkNames, SupportedNetworkIds } from '@thesolidchain/app-types'
 
 import {
   type TransakNetworkOption,

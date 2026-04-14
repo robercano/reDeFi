@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import { GlobalStyles, GoogleTagManager } from '@summerfi/app-earn-ui'
+import { GlobalStyles, GoogleTagManager } from '@thesolidchain/app-earn-ui'
 import type { Metadata } from 'next'
 
 import { LandingMasterPage } from '@/components/layout/LandingMasterPage/LandingMasterPage'

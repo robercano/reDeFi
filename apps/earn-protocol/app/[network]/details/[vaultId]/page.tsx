@@ -1,13 +1,13 @@
-import { getDisplayToken, Text, VaultGridDetails } from '@summerfi/app-earn-ui'
-import { getArksInterestRates } from '@summerfi/app-server-handlers'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { getDisplayToken, Text, VaultGridDetails } from '@thesolidchain/app-earn-ui'
+import { getArksInterestRates } from '@thesolidchain/app-server-handlers'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import {
   getVaultNiceName,
   humanNetworktoSDKNetwork,
   parseServerResponseToClient,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import capitalize from 'lodash-es/capitalize'
 import { type Metadata } from 'next'
 import { redirect } from 'next/navigation'

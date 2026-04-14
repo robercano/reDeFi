@@ -1,5 +1,5 @@
-import { SDKChainIdToAAChainMap } from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
+import { SDKChainIdToAAChainMap } from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
 import type { Chain } from 'viem'
 
 import { CACHE_TIMES } from '@/constants/revalidation'

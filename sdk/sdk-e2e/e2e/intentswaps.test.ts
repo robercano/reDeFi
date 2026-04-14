@@ -4,12 +4,12 @@ import {
   TokenAmount,
   type ChainId,
   type TransactionInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { RpcUrls, SDKApiUrl, SharedConfig } from './utils/testConfig'
 import assert from 'assert'
-import { makeSDKWithSigner } from '@summerfi/sdk-client'
+import { makeSDKWithSigner } from '@thesolidchain/sdk-client'
 import { Wallet } from 'ethers'
-import { createSendTransactionTool } from '@summerfi/testing-utils'
+import { createSendTransactionTool } from '@thesolidchain/testing-utils'
 
 jest.setTimeout(300000)
 

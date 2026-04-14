@@ -10,7 +10,7 @@ import {
   Modal,
   Text,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import Link from 'next/dist/client/link'
 import Image from 'next/image'
 

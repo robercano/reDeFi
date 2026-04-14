@@ -1,5 +1,5 @@
-import { Box, getScannerUrl, Icon, Text } from '@summerfi/app-earn-ui'
-import { type TransactionType } from '@summerfi/sdk-common'
+import { Box, getScannerUrl, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type TransactionType } from '@thesolidchain/sdk-common'
 import Link from 'next/link'
 
 import transactionsStyles from './TransactionHashPill.module.css'

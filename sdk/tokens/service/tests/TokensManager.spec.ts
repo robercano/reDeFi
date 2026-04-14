@@ -1,5 +1,5 @@
-import { ITokensManager } from '@summerfi/tokens-common'
-import { ChainInfo, Address, AddressType } from '@summerfi/sdk-common'
+import { ITokensManager } from '@thesolidchain/tokens-common'
+import { ChainInfo, Address, AddressType } from '@thesolidchain/sdk-common'
 import { TokensManager } from '../src/implementation/TokensManager'
 import assert from 'assert'
 import { MockTokensProvider } from './mocks/MockTokensProvider'

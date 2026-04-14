@@ -1,4 +1,4 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   Address,
   AddressType,
@@ -9,9 +9,9 @@ import {
   TokensProviderType,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { ManagerProviderBase } from '@summerfi/sdk-server-common'
-import { ITokensProvider } from '@summerfi/tokens-common'
+} from '@thesolidchain/sdk-common'
+import { ManagerProviderBase } from '@thesolidchain/sdk-server-common'
+import { ITokensProvider } from '@thesolidchain/tokens-common'
 
 export class MockTokensProvider
   extends ManagerProviderBase<TokensProviderType>

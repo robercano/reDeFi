@@ -1,4 +1,4 @@
-import { SparkConfig } from '@summerfi/deployment-types'
+import { SparkConfig } from '@thesolidchain/deployment-types'
 
 export const SparkConfiguration: SparkConfig = {
   dependencies: {

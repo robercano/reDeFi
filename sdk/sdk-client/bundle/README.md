@@ -2245,12 +2245,12 @@ calculated metrics:
 
 **Breaking Changes:**
 
-- `@summerfi/sdk-common` package was deprecated and merged into `@summerfi/sdk-client`
+- `@thesolidchain/sdk-common` package was deprecated and merged into `@thesolidchain/sdk-client`
 
 **Migration steps:**
 
-- Update all imports from `@summerfi/sdk-common` to `@summerfi/sdk-client` and remove deprecated
-  `@summerfi/sdk-common` package from your project.
+- Update all imports from `@thesolidchain/sdk-common` to `@thesolidchain/sdk-client` and remove deprecated
+  `@thesolidchain/sdk-common` package from your project.
 
 ### v1.1.0
 

@@ -1,4 +1,4 @@
-import { Address, ChainInfo } from '@summerfi/sdk-common'
+import { Address, ChainInfo } from '@thesolidchain/sdk-common'
 import type { IUserClient } from './IUserClient'
 
 /**

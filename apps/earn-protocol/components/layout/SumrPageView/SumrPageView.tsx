@@ -1,7 +1,7 @@
 'use client'
 import { type FC } from 'react'
-import { HighestQualityYieldsDisclaimer } from '@summerfi/app-earn-ui'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
+import { HighestQualityYieldsDisclaimer } from '@thesolidchain/app-earn-ui'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
 
 import { sdkApiUrl } from '@/constants/sdk'
 import { SumrClaimSearch } from '@/features/sumr-claim/components/SumrClaimSearch/SumrClaimSearch'

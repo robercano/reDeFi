@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/contracts-provider-service",
+  "name": "@thesolidchain/contracts-provider-service",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -20,27 +20,27 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@summerfi/abi-provider-common": "workspace:*",
-    "@summerfi/blockchain-client-common": "workspace:*",
-    "@summerfi/blockchain-client-provider": "workspace:*",
-    "@summerfi/common": "workspace:*",
-    "@summerfi/configuration-provider": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*",
-    "@summerfi/contracts-provider-common": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/tenderly-utils": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*",
-    "@summerfi/tokens-common": "workspace:*",
-    "@summerfi/tokens-service": "workspace:*",
+    "@thesolidchain/abi-provider-common": "workspace:*",
+    "@thesolidchain/blockchain-client-common": "workspace:*",
+    "@thesolidchain/blockchain-client-provider": "workspace:*",
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/configuration-provider": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/contracts-provider-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/tenderly-utils": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/tokens-common": "workspace:*",
+    "@thesolidchain/tokens-service": "workspace:*",
     "@types/node-fetch": "^2.6.11",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
     "@openzeppelin/contracts": "^4.9.6",
     "@openzeppelin/contracts-5.6.1": "npm:@openzeppelin/contracts@5.6.1",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

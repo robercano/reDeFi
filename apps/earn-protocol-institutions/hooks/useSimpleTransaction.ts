@@ -11,9 +11,9 @@ import {
   SUCCESS_TOAST_CONFIG,
   useIsIframe,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type EarnTransactionViewStates, SupportedNetworkIds } from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type EarnTransactionViewStates, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'
 import { getSafeTxHash } from '@/helpers/get-safe-tx-hash'

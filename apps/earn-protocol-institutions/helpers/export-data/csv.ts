@@ -1,5 +1,5 @@
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 
 import { CHART_TIMESTAMP_FORMAT_DETAILED } from '@/features/charts/helpers'

@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/swap-service",
+  "name": "@thesolidchain/swap-service",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -22,19 +22,19 @@
   "dependencies": {
     "@cowprotocol/contracts": "^1.8.0",
     "@cowprotocol/cow-sdk": "^6.3.2",
-    "@summerfi/allowance-manager-common": "workspace:*",
-    "@summerfi/common": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/sdk-server-common": "workspace:*",
-    "@summerfi/swap-common": "workspace:*",
-    "@summerfi/tokens-common": "workspace:*",
+    "@thesolidchain/allowance-manager-common": "workspace:*",
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/sdk-server-common": "workspace:*",
+    "@thesolidchain/swap-common": "workspace:*",
+    "@thesolidchain/tokens-common": "workspace:*",
     "@types/node-fetch": "^2.6.11",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

@@ -1,17 +1,17 @@
 {
-  "name": "@summerfi/sdk-speed-test",
+  "name": "@thesolidchain/sdk-speed-test",
   "version": "0.0.1",
   "type": "module",
   "scripts": {
     "speed-test": "dotenvx -e ../../.env -e ../../.env.local -- bun run src/index.ts"
   },
   "dependencies": {
-    "@summerfi/sdk-client": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*"
+    "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

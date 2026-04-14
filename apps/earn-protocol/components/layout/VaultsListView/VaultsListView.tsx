@@ -24,7 +24,7 @@ import {
   VaultCard,
   VaultGrid,
   VaultSimulationForm,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type DropdownRawOption,
   type GetVaultsApyResponse,
@@ -35,7 +35,7 @@ import {
   type SupportedSDKNetworks,
   type TokenSymbolsList,
   TransactionAction,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   convertWethToEth,
   findVaultInfo,
@@ -48,8 +48,8 @@ import {
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
   zero,
-} from '@summerfi/app-utils'
-import { type IArmadaVaultInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { type IArmadaVaultInfo } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { capitalize } from 'lodash-es'
 import { useRouter, useSearchParams } from 'next/navigation'

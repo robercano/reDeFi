@@ -1,6 +1,6 @@
 import { bytesToHex, encodeAbiParameters, parseAbiParameters, stringToBytes } from 'viem'
 import { MorphoBluePartialTakeProfitTriggerData } from '~types'
-import { CurrentTriggerLike, PositionLike } from '@summerfi/triggers-shared'
+import { CurrentTriggerLike, PositionLike } from '@thesolidchain/triggers-shared'
 import { DEFAULT_DEVIATION } from './defaults'
 import { EncodedTriggers } from './types'
 import { OPERATION_NAMES } from '@oasisdex/dma-library'

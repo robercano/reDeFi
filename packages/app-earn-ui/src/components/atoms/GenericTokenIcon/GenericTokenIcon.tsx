@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC } from 'react'
-import { safeBTOA } from '@summerfi/app-utils'
+import { safeBTOA } from '@thesolidchain/app-utils'
 
 import { LoadableAvatar } from '@/components/atoms/LoadableAvatar/LoadableAvatar'
 

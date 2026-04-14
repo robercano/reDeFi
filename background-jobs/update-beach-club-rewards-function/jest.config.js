@@ -14,7 +14,7 @@ module.exports = {
           allowSyntheticDefaultImports: true,
           baseUrl: '.',
           paths: {
-            '@summerfi/*': ['../../packages/*/src'],
+            '@thesolidchain/*': ['../../packages/*/src'],
           },
         },
       },
@@ -30,8 +30,8 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
-  transformIgnorePatterns: ['node_modules/(?!(graphql-request|@summerfi)/)'],
+  transformIgnorePatterns: ['node_modules/(?!(graphql-request|@thesolidchain)/)'],
   moduleNameMapper: {
-    '^@summerfi/(.*)$': '<rootDir>/../../packages/$1/src',
+    '^@thesolidchain/(.*)$': '<rootDir>/../../packages/$1/src',
   },
 }

@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
 
 import { publicClientMap } from '@/helpers/get-fe-public-client'
 import { useUpdateAANetwork } from '@/hooks/useUpdateAaNetwork'

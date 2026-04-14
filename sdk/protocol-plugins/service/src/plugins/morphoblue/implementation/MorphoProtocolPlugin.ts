@@ -20,10 +20,10 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
-import { morphoBlueAbi, morphoBlueOracleAbi } from '@summerfi/abis'
-import { ActionBuildersMap, IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { morphoBlueAbi, morphoBlueOracleAbi } from '@thesolidchain/abis'
+import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { BigNumber } from 'bignumber.js'
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 import { MorphoStepBuilders } from '../builders/MorphoStepBuilders'

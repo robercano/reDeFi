@@ -1,4 +1,4 @@
-import { Icon, type IconNamesList } from '@summerfi/app-earn-ui'
+import { Icon, type IconNamesList } from '@thesolidchain/app-earn-ui'
 
 import classNames from './TransakIconWrapper.module.css'
 

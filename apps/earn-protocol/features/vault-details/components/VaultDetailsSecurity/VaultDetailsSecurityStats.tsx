@@ -1,7 +1,7 @@
 import { type ReactNode, useMemo } from 'react'
-import { Card, DataBlock } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { formatCryptoBalance, formatWithSeparators } from '@summerfi/app-utils'
+import { Card, DataBlock } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatWithSeparators } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 import Link from 'next/link'
 

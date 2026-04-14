@@ -4,13 +4,13 @@ import {
   positionAddressesSchema,
   priceSchema,
   supportedActionsSchema,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import {
   addressSchema,
   ltvSchema,
   percentageSchema,
   urlOptionalSchema,
-} from '@summerfi/serverless-shared'
+} from '@thesolidchain/serverless-shared'
 import { dmaAaveStopLossTriggerDataSchema } from './aave-stop-loss'
 
 export const aavePartialTakeProfitTriggerDataSchema = z.object({

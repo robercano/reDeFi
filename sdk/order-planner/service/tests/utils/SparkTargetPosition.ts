@@ -1,4 +1,4 @@
-import { EmodeType } from '@summerfi/protocol-plugins'
+import { EmodeType } from '@thesolidchain/protocol-plugins'
 import {
   ISparkLendingPool,
   ISparkLendingPosition,
@@ -7,7 +7,7 @@ import {
   SparkLendingPosition,
   SparkLendingPositionId,
   SparkProtocol,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import {
   LendingPositionType,
   Address,
@@ -15,7 +15,7 @@ import {
   ChainInfo,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 export function getSparkPosition(): ISparkLendingPosition {
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet

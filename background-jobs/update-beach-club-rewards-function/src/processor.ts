@@ -3,7 +3,7 @@ import { ReferralClient } from './client'
 import { DatabaseService } from './db'
 import { Account, HourlySnapshot, AssetVolatility, PositionUpdate, ReferralCodeType } from './types'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { DB } from '@summerfi/summer-beach-club-db'
+import { DB } from '@thesolidchain/summer-beach-club-db'
 
 export interface ProcessingResult {
   success: boolean

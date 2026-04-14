@@ -1,7 +1,7 @@
 // run this file with "pnpx tsx test.ts" from this folder
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getRpcGatewayEndpoint, IRpcConfig, ChainId } from '@summerfi/serverless-shared'
+import { getRpcGatewayEndpoint, IRpcConfig, ChainId } from '@thesolidchain/serverless-shared'
 
 import { config } from 'dotenv'
 config({ path: '../../.env' })

@@ -4,7 +4,7 @@ import {
   type ChainId,
   type HexData,
   type TransactionInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { isHex } from 'viem/utils'
 import { TransactionUtils } from './TransactionUtils'
 

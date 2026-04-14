@@ -1,4 +1,4 @@
-import type { ChainId } from '@summerfi/sdk-common'
+import type { ChainId } from '@thesolidchain/sdk-common'
 import { defineChain, extractChain } from 'viem'
 import { arbitrum, base, mainnet, optimism, sonic } from 'viem/chains'
 

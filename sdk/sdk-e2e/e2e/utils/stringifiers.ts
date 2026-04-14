@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { IArmadaPosition, IArmadaVaultInfo } from '@summerfi/sdk-common'
+import type { IArmadaPosition, IArmadaVaultInfo } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { SUMR_DECIMALS } from './constants'
 

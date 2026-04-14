@@ -1,9 +1,9 @@
-import { supportedSDKNetworkId } from '@summerfi/app-utils'
+import { supportedSDKNetworkId } from '@thesolidchain/app-utils'
 import {
   type ArmadaMigratablePosition,
   type ArmadaMigratablePositionApy,
   type IChainInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * Maps and transforms migration response data from multiple chains into a flattened and sorted array of positions.

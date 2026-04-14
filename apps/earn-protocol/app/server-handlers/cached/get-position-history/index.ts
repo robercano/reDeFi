@@ -1,7 +1,7 @@
 'use server'
 
-import { type SDKVaultishType, type SDKVaultType, SupportedSDKNetworks } from '@summerfi/app-types'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { type SDKVaultishType, type SDKVaultType, SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { GraphQLClient } from 'graphql-request'
 
 import { CACHE_TAGS, CACHE_TIMES } from '@/constants/revalidation'

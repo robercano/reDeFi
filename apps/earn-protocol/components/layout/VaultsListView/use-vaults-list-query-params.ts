@@ -1,5 +1,5 @@
 import { useCallback } from 'react'
-import { type DropdownRawOption } from '@summerfi/app-types'
+import { type DropdownRawOption } from '@thesolidchain/app-types'
 import { type ReadonlyURLSearchParams, useRouter } from 'next/navigation'
 
 import { useHandleDropdownChangeEvent } from '@/hooks/use-mixpanel-event'

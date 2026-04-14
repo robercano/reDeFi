@@ -2,18 +2,18 @@ import {
   DmaSparkPartialTakeProfit,
   DmaSparkPartialTakeProfitID,
   Trigger,
-} from '@summerfi/triggers-shared/contracts'
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+} from '@thesolidchain/triggers-shared/contracts'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { mapTriggerCommonParams } from '../helpers'
 import {
   getSparkPosition,
   simulateAutoTakeProfit,
   getCurrentSparkStopLoss,
-} from '@summerfi/triggers-calculations'
-import { Address, safeParseBigInt } from '@summerfi/serverless-shared'
+} from '@thesolidchain/triggers-calculations'
+import { Address, safeParseBigInt } from '@thesolidchain/serverless-shared'
 import { PublicClient } from 'viem'
-import { Addresses } from '@summerfi/triggers-shared'
+import { Addresses } from '@thesolidchain/triggers-shared'
 
 export const getDmaSparkPartialTakeProfit = async ({
   triggers,

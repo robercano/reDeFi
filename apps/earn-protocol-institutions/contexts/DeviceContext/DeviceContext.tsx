@@ -1,6 +1,6 @@
 'use client'
 import { createContext, type FC, type ReactNode, useContext } from 'react'
-import { DeviceType } from '@summerfi/app-types'
+import { DeviceType } from '@thesolidchain/app-types'
 
 const DeviceContext = createContext<DeviceType | null>(null)
 

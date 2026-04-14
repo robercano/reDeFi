@@ -1,5 +1,5 @@
 import { type FC, useCallback, useState } from 'react'
-import { Button, Card, Expander, Text, WithArrow } from '@summerfi/app-earn-ui'
+import { Button, Card, Expander, Text, WithArrow } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 import Link from 'next/link'
 

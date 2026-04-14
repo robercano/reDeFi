@@ -1,9 +1,9 @@
 import { Logger } from '@aws-lambda-powertools/logger'
-import { AjnaPoolInterestRateResult } from '@summerfi/ajna-subgraph'
+import { AjnaPoolInterestRateResult } from '@thesolidchain/ajna-subgraph'
 import { CustomDate } from '../helpers'
 import { calculateBorrowRates } from './borrow-rates'
 import { calculateSupplyRates } from './supply-rates'
-import { Address, ProtocolId, Token } from '@summerfi/serverless-shared'
+import { Address, ProtocolId, Token } from '@thesolidchain/serverless-shared'
 import { GroupedRates, ProtocolResponse } from './types'
 import { PositionMode } from '../contracts'
 

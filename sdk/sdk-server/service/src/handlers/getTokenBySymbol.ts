@@ -1,5 +1,5 @@
 import { publicProcedure } from '../SDKTRPC'
-import { IToken, isChainInfo } from '@summerfi/sdk-common'
+import { IToken, isChainInfo } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 
 export const getTokenBySymbol = publicProcedure

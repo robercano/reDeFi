@@ -6,8 +6,8 @@ import {
   LocalConfigContextProvider,
   type LocalConfigState,
   type SavedAnalyticsCookiesSettings,
-} from '@summerfi/app-earn-ui'
-import { type DeviceType, type EarnAppConfigType } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type DeviceType, type EarnAppConfigType } from '@thesolidchain/app-types'
 import dynamic from 'next/dynamic'
 
 import { MasterPage } from '@/components/layout/MasterPage/MasterPage'

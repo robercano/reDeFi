@@ -9,9 +9,9 @@ import {
   type SDKVaultsListType,
   type SDKVaultType,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
-import { type IArmadaVaultInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-types'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
+import { type IArmadaVaultInfo } from '@thesolidchain/sdk-common'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'
 import { type RebalanceActivityPagination } from '@/app/server-handlers/tables-data/rebalance-activity/types'

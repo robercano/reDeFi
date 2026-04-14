@@ -3,7 +3,7 @@ import type {
   IAddress,
   IChainInfo,
   ITokenAmount,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * @name IAllowanceManager

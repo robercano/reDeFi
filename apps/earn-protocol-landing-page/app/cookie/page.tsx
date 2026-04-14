@@ -1,4 +1,4 @@
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import styles from './page.module.css' // Assuming you have a CSS module for styling

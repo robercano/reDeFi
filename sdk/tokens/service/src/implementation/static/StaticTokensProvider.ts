@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
 import {
   Address,
   ChainId,
@@ -12,9 +12,9 @@ import {
   TokensProviderType,
   AddressType,
   NATIVE_CURRENCY_ADDRESS_LOWERCASE,
-} from '@summerfi/sdk-common'
-import { ManagerProviderBase } from '@summerfi/sdk-server-common'
-import { ITokensProvider } from '@summerfi/tokens-common'
+} from '@thesolidchain/sdk-common'
+import { ManagerProviderBase } from '@thesolidchain/sdk-server-common'
+import { ITokensProvider } from '@thesolidchain/tokens-common'
 import { erc20Abi } from 'viem'
 import assert from 'assert'
 import { StaticTokensData } from './StaticTokensList'

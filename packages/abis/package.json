@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/abis",
+  "name": "@thesolidchain/abis",
   "version": "1.0.0",
   "scripts": {
     "test": "jest --passWithNoTests",
@@ -9,8 +9,8 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "eslint": "^8.57.0"
   },
   "exports": {

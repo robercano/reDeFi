@@ -13,7 +13,7 @@ import {
   SimulationSteps,
   steps,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import { ActionBuildersMap, FilterStep, IActionBuilder } from './IActionBuilder'
 import { type IProtocolPluginContext } from './IProtocolPluginContext'

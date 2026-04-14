@@ -1,13 +1,13 @@
-import { TriggersQuery } from '@summerfi/automation-subgraph'
-import { getPricesSubgraphClient } from '@summerfi/prices-subgraph'
-import { ChainId, getRpcGatewayEndpoint, IRpcConfig } from '@summerfi/serverless-shared'
-import { getAddresses } from '@summerfi/triggers-shared'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
+import { getPricesSubgraphClient } from '@thesolidchain/prices-subgraph'
+import { ChainId, getRpcGatewayEndpoint, IRpcConfig } from '@thesolidchain/serverless-shared'
+import { getAddresses } from '@thesolidchain/triggers-shared'
 import {
   MakerAutoTakeProfitToCollateralID,
   MakerAutoTakeProfitToDaiID,
   MakerAutoTakeProfitToCollateral,
   MakerAutoTakeProfitToDebt,
-} from '@summerfi/triggers-shared/contracts'
+} from '@thesolidchain/triggers-shared/contracts'
 import { createPublicClient, http, PublicClient, Chain as ViemChain } from 'viem'
 import { arbitrum, base, hyperliquid, mainnet, optimism, sepolia, sonic } from 'viem/chains'
 import { z } from 'zod'

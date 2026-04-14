@@ -1,7 +1,7 @@
 'use client'
 
 import { type CSSProperties, type FC, type ReactNode, useEffect, useMemo, useState } from 'react'
-import { type EarnAppConfigType, type NavigationMenuPanelLinkType } from '@summerfi/app-types'
+import { type EarnAppConfigType, type NavigationMenuPanelLinkType } from '@thesolidchain/app-types'
 
 import { NavigationActions } from '@/components/layout/Navigation/NavigationActions'
 import { NavigationBranding } from '@/components/layout/Navigation/NavigationBranding'

@@ -1,4 +1,4 @@
-import { Config } from '@summerfi/deployment-types'
+import { Config } from '@thesolidchain/deployment-types'
 import { SystemConfiguration } from '../system'
 import { DependenciesConfiguration } from './dependencies/dependencies'
 import { ProtocolsConfiguration } from './protocols/protocols'

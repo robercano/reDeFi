@@ -1,5 +1,5 @@
 'use client'
-import { type TagOption, TagRow } from '@summerfi/app-earn-ui'
+import { type TagOption, TagRow } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import styles from './QuickActionTags.module.css'

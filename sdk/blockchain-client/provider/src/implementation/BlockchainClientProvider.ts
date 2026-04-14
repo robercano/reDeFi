@@ -1,9 +1,9 @@
 import { createPublicClient, defineChain, http, type Chain } from 'viem'
 import { arbitrum, base, mainnet, sonic } from 'viem/chains'
 
-import { IBlockchainClient, IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { type IChainInfo, chainIdToGraphChain, hyperliquid } from '@summerfi/sdk-common'
+import { IBlockchainClient, IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { type IChainInfo, chainIdToGraphChain, hyperliquid } from '@thesolidchain/sdk-common'
 import { assert } from 'console'
 import { getForkUrl } from './getForkUrl'
 

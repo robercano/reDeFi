@@ -1,4 +1,4 @@
-import { User, type IUser } from '@summerfi/sdk-common'
+import { User, type IUser } from '@thesolidchain/sdk-common'
 import {
   IChainInfo,
   IProtocol,
@@ -10,7 +10,7 @@ import {
   Order,
   ISimulation,
   SerializationService,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { IUserClient } from '../interfaces/IUserClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'
 import { IRPCClient } from '../interfaces/IRPCClient'

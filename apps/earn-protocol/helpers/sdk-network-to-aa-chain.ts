@@ -1,6 +1,6 @@
 import { arbitrum, base, mainnet } from '@account-kit/infra'
-import { customAAKitHyperliquidConfig, customAAKitSonicConfig } from '@summerfi/app-earn-ui'
-import { SupportedSDKNetworks } from '@summerfi/app-types'
+import { customAAKitHyperliquidConfig, customAAKitSonicConfig } from '@thesolidchain/app-earn-ui'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { type Chain } from 'viem'
 
 /**

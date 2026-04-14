@@ -1,6 +1,6 @@
-import { Price, steps, IChainInfo, IPercentage, IToken, ITokenAmount } from '@summerfi/sdk-common'
-import type { ISwapManager } from '@summerfi/swap-common'
-import { IOracleManager } from '@summerfi/oracle-common'
+import { Price, steps, IChainInfo, IPercentage, IToken, ITokenAmount } from '@thesolidchain/sdk-common'
+import type { ISwapManager } from '@thesolidchain/swap-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
 
 export async function getSwapStepData(params: {
   chainInfo: IChainInfo

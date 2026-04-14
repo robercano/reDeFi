@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { parseQueryStringServerSide, parseServerResponseToClient } from '@summerfi/app-utils'
+import { parseQueryStringServerSide, parseServerResponseToClient } from '@thesolidchain/app-utils'
 import { type Metadata } from 'next'
 import { type ReadonlyURLSearchParams } from 'next/navigation'
 

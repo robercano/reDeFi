@@ -1,5 +1,5 @@
-import { LoggingService, SerializationService } from '@summerfi/sdk-common'
-import type { SDKAppRouter } from '@summerfi/sdk-server'
+import { LoggingService, SerializationService } from '@thesolidchain/sdk-common'
+import type { SDKAppRouter } from '@thesolidchain/sdk-server'
 import { createTRPCClient, httpBatchLink, loggerLink } from '@trpc/client'
 
 export type RPCMainClientType = ReturnType<typeof createTRPCClient<SDKAppRouter>>

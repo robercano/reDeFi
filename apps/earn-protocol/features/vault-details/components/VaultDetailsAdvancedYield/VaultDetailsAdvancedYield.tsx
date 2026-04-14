@@ -1,13 +1,13 @@
 import { type FC, useMemo, useState } from 'react'
-import { InlineButtons, Text, VaultExposure } from '@summerfi/app-earn-ui'
+import { InlineButtons, Text, VaultExposure } from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type InlineButtonOption,
   type InterestRates,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { slugifyVault } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { slugifyVault } from '@thesolidchain/app-utils'
 
 import { vaultExposureColumnsToHideDetails } from '@/constants/tables'
 import { VaultDetailsHistoricalYieldChart } from '@/features/vault-details/components/VaultDetailsHistoricalYieldChart/VaultDetailsHistoricalYieldChart'

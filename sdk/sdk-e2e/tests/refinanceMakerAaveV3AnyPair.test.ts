@@ -1,6 +1,6 @@
-import { Address, ChainFamilyMap, Percentage, TokenAmount, type Maybe } from '@summerfi/sdk-common'
+import { Address, ChainFamilyMap, Percentage, TokenAmount, type Maybe } from '@thesolidchain/sdk-common'
 
-import { makeSDK, type Chain } from '@summerfi/sdk-client'
+import { makeSDK, type Chain } from '@thesolidchain/sdk-client'
 import {
   ExternalLendingPositionId,
   ExternalLendingPositionType,
@@ -17,7 +17,7 @@ import {
   LendingPositionType,
   Token,
   isLendingPool,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import {
   AaveV3LendingPoolId,
@@ -32,8 +32,8 @@ import {
   MakerProtocol,
   isMakerLendingPool,
   isMakerProtocol,
-} from '@summerfi/protocol-plugins'
-import { TransactionUtils } from '@summerfi/testing-utils'
+} from '@thesolidchain/protocol-plugins'
+import { TransactionUtils } from '@thesolidchain/testing-utils'
 import assert from 'assert'
 import { Hex } from 'viem'
 

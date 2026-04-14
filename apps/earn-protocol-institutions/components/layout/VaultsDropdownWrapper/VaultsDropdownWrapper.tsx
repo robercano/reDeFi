@@ -1,8 +1,8 @@
 'use client'
 
 import { type FC } from 'react'
-import { Dropdown, VaultTitleDropdownContentBlock } from '@summerfi/app-earn-ui'
-import { type DropdownRawOption, type SDKVaultishType } from '@summerfi/app-types'
+import { Dropdown, VaultTitleDropdownContentBlock } from '@thesolidchain/app-earn-ui'
+import { type DropdownRawOption, type SDKVaultishType } from '@thesolidchain/app-types'
 import { usePathname, useRouter } from 'next/navigation'
 
 import { getInstiVaultNiceName } from '@/helpers/get-insti-vault-nice-name'

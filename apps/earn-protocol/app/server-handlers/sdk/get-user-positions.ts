@@ -1,5 +1,5 @@
-import { type IArmadaPosition, SupportedNetworkIds } from '@summerfi/app-types'
-import { Address, getChainInfoByChainId, User, Wallet } from '@summerfi/sdk-common'
+import { type IArmadaPosition, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { Address, getChainInfoByChainId, User, Wallet } from '@thesolidchain/sdk-common'
 
 import { serverOnlyErrorHandler } from '@/app/server-handlers/error-handler'
 import { backendSDK } from '@/app/server-handlers/sdk/sdk-backend-client'

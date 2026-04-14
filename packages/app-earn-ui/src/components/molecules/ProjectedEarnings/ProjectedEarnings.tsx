@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { type TokenSymbolsList } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import type BigNumber from 'bignumber.js'
 
 import { Card } from '@/components/atoms/Card/Card'

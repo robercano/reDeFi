@@ -3,15 +3,15 @@ import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
+} from '@thesolidchain/serverless-shared/responses'
 import { Logger } from '@aws-lambda-powertools/logger'
 
-import { getRedisInstance } from '@summerfi/redis-cache'
-import { getCachableYieldService } from '@summerfi/defi-llama-client'
+import { getRedisInstance } from '@thesolidchain/redis-cache'
+import { getCachableYieldService } from '@thesolidchain/defi-llama-client'
 import { getTokenApyService } from './tokens-apy-service'
 import * as process from 'node:process'
 import { getFinalApy } from './final-apy-calculation'
-import { DistributedCache } from '@summerfi/abstractions'
+import { DistributedCache } from '@thesolidchain/abstractions'
 import { ONE_HOUR } from './helpers'
 import { ApyResponse, pathParamsSchema } from './contracts'
 import { getUnifiedProtocolRates } from './get-unified-protocol-rates'

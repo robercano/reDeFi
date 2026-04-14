@@ -1,7 +1,7 @@
 'use client'
 
 import { type ReactNode, useState } from 'react'
-import { Modal, PanelNavigation, useMobileCheck } from '@summerfi/app-earn-ui'
+import { Modal, PanelNavigation, useMobileCheck } from '@thesolidchain/app-earn-ui'
 
 import { FeedbackModal } from '@/components/molecules/FeedbackModal/FeedbackModal'
 import { panelNavigationStaticItems } from '@/constants/panel-navigation-static-items'

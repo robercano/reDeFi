@@ -7,15 +7,15 @@ import {
   Risk,
   SkeletonLine,
   Text,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type RiskType,
   type SDKVaultishType,
   type TokenSymbolsList,
   type TransactionWithStatus,
-} from '@summerfi/app-types'
-import { formatCryptoBalance, formatFiatBalance } from '@summerfi/app-utils'
-import { TransactionType, type VaultSwitchTransactionInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatFiatBalance } from '@thesolidchain/app-utils'
+import { TransactionType, type VaultSwitchTransactionInfo } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 

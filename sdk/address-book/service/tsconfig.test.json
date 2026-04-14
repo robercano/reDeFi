@@ -1,21 +1,21 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.test.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"],
-      "@summerfi/sdk-common": ["node_modules/@summerfi/sdk-common/src/index.ts"],
-      "@summerfi/sdk-client": ["../sdk-client/src"],
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/sdk-client": ["../sdk-client/src"],
 
-      "@summerfi/swap-common/*": ["node_modules/@summerfi/swap-common/src/*"],
-      "@summerfi/common": ["node_modules/@summerfi/common/src/index.ts"],
-      "@summerfi/configuration-provider": [
-        "node_modules/@summerfi/configuration-provider/src/index.ts"
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/common": ["node_modules/@thesolidchain/common/src/index.ts"],
+      "@thesolidchain/configuration-provider": [
+        "node_modules/@thesolidchain/configuration-provider/src/index.ts"
       ],
-      "@summerfi/core-contracts": ["node_modules/@summerfi/core-contracts/src/index.ts"],
-      "@summerfi/deployment-utils": ["node_modules/@summerfi/deployment-utils/src/index.ts"],
-      "@summerfi/hardhat-utils": ["../../packages/hardhat-utils/src/index.ts"]
+      "@thesolidchain/core-contracts": ["node_modules/@thesolidchain/core-contracts/src/index.ts"],
+      "@thesolidchain/deployment-utils": ["node_modules/@thesolidchain/deployment-utils/src/index.ts"],
+      "@thesolidchain/hardhat-utils": ["../../packages/hardhat-utils/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"],

@@ -3,7 +3,7 @@ import {
   type SDKVaultType,
   type TokenSymbolsList,
   TransactionAction,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { AnimateHeight } from '@/components/atoms/AnimateHeight/AnimateHeight'
 import { ProjectedEarnings } from '@/components/molecules/ProjectedEarnings/ProjectedEarnings'

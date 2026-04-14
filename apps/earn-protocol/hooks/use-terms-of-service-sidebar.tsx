@@ -5,9 +5,9 @@ import {
   Text,
   useMobileCheck,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { type TOSState, TOSStatus } from '@summerfi/app-types'
-import { slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type TOSState, TOSStatus } from '@thesolidchain/app-types'
+import { slugify } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { TermsOfServiceCookiePrefix } from '@/constants/terms-of-service'

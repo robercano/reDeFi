@@ -1,5 +1,5 @@
 import { calculateLtv } from './calculate-ltv'
-import { PRICE_DECIMALS, TokenBalance } from '@summerfi/triggers-shared'
+import { PRICE_DECIMALS, TokenBalance } from '@thesolidchain/triggers-shared'
 
 describe('calculateLTV', () => {
   it(`should return value of 50% where 1% is 100`, () => {

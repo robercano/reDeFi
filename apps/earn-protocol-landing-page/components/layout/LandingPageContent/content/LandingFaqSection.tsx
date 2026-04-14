@@ -1,5 +1,5 @@
-import { FaqSection, vaultFaqData } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { FaqSection, vaultFaqData } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import { usePathname } from 'next/navigation'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

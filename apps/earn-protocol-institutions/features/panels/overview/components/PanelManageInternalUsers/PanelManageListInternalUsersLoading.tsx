@@ -1,4 +1,4 @@
-import { Button, Card, SkeletonLine, Table, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, SkeletonLine, Table, Text } from '@thesolidchain/app-earn-ui'
 
 import { usersPanelColumns } from '@/features/panels/overview/components/PanelManageInternalUsers/constants'
 

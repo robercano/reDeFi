@@ -1,5 +1,5 @@
-import { isRefinanceParameters, IRefinanceSimulation } from '@summerfi/sdk-common'
-import { refinanceLendingToLending } from '@summerfi/simulator-service/strategies'
+import { isRefinanceParameters, IRefinanceSimulation } from '@thesolidchain/sdk-common'
+import { refinanceLendingToLending } from '@thesolidchain/simulator-service/strategies'
 import { z } from 'zod'
 import { publicProcedure } from '../SDKTRPC'
 

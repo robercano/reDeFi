@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Icon, IllustrationCircle, LoadingSpinner, Text } from '@summerfi/app-earn-ui'
-import { formatAddress } from '@summerfi/app-utils'
+import { Icon, IllustrationCircle, LoadingSpinner, Text } from '@thesolidchain/app-earn-ui'
+import { formatAddress } from '@thesolidchain/app-utils'
 
 import { type SendState, SendStep } from '@/features/send/types'
 

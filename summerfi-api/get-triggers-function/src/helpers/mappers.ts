@@ -1,7 +1,7 @@
-import type { TriggersQuery } from '@summerfi/automation-subgraph'
+import type { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import { getTriggerPoolId } from './get-trigger-pool-id'
 import BigNumber from 'bignumber.js'
-import { maxUnit256 } from '@summerfi/triggers-shared'
+import { maxUnit256 } from '@thesolidchain/triggers-shared'
 import { getMakerInfo } from './get-maker-info'
 
 const one = new BigNumber(1)

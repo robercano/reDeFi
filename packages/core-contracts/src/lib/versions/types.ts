@@ -1,4 +1,4 @@
-import { ContractHash, ContractName, ContractPath } from '@summerfi/contracts-utils'
+import { ContractHash, ContractName, ContractPath } from '@thesolidchain/contracts-utils'
 
 export type ContractVersion = number
 

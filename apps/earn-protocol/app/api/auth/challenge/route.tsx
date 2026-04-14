@@ -1,4 +1,4 @@
-import { makeChallenge } from '@summerfi/app-tos'
+import { makeChallenge } from '@thesolidchain/app-tos'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {

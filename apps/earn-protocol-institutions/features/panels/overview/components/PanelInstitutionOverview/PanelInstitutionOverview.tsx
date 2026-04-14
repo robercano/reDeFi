@@ -6,14 +6,14 @@ import {
   type TableRow,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { type MultipleSourceChartData, type SDKVaultishType } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type MultipleSourceChartData, type SDKVaultishType } from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatPercent,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { type VaultAdditionalInfo } from '@/app/server-handlers/institution/institution-vaults/types'

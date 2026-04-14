@@ -1,4 +1,4 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   ChainFamilyMap,
   FiatCurrency,
@@ -8,8 +8,8 @@ import {
   Price,
   RiskRatio,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { OracleManagerMock } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { OracleManagerMock } from '@thesolidchain/testing-utils'
 import { isMorphoLendingPool, isMorphoLendingPoolId } from '../../src'
 import { MorphoProtocolPlugin } from '../../src/plugins/morphoblue/implementation/MorphoProtocolPlugin'
 import { morphoPoolIdMock, morphoPoolMarketParams } from '../mocks/MorphoPoolIdMock'

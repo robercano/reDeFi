@@ -1,5 +1,5 @@
 import { type Dispatch, type FC, useEffect, useState } from 'react'
-import { Icon, Text, Tooltip, useMobileCheck } from '@summerfi/app-earn-ui'
+import { Icon, Text, Tooltip, useMobileCheck } from '@thesolidchain/app-earn-ui'
 import debounce from 'lodash-es/debounce'
 import { useParams } from 'next/navigation'
 

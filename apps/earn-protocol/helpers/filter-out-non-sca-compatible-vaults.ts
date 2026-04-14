@@ -1,5 +1,5 @@
-import { type SDKVaultsListType } from '@summerfi/app-types'
-import { Network } from '@summerfi/subgraph-manager-common'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
+import { Network } from '@thesolidchain/subgraph-manager-common'
 
 /**
   Filters out vaults that are not compatible with Smart Contract Accounts (SCA)

@@ -7,7 +7,7 @@ import {
   GlobalIssueBanner,
   NewsletterWrapper,
   Text,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 

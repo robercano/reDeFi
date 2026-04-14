@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/deployment-types",
+  "name": "@thesolidchain/deployment-types",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -16,8 +16,8 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
-    "@summerfi/common": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/common": "workspace:*"
   }
 }

@@ -1,4 +1,4 @@
-import { IImportPositionParameters, IImportSimulation } from '@summerfi/sdk-common'
+import { IImportPositionParameters, IImportSimulation } from '@thesolidchain/sdk-common'
 
 /**
  * Interface for the Importing Simulation Manager

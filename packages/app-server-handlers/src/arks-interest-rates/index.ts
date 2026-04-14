@@ -1,7 +1,7 @@
 'use server'
 
-import { type GetInterestRatesParams, type InterestRates } from '@summerfi/app-types'
-import { getArkProductId, getArkRatesBatchUrl } from '@summerfi/app-utils'
+import { type GetInterestRatesParams, type InterestRates } from '@thesolidchain/app-types'
+import { getArkProductId, getArkRatesBatchUrl } from '@thesolidchain/app-utils'
 
 import { isProperInterestRatesNetwork } from '@/arks-interest-rates/helpers/is-proper-interest-rates-network'
 import { mapArkName } from '@/arks-interest-rates/helpers/map-ark-name'

@@ -1,7 +1,7 @@
 'use client'
 
 import { type CSSProperties, type FC, type ReactNode, useEffect, useRef, useState } from 'react'
-import { type DropdownRawOption } from '@summerfi/app-types'
+import { type DropdownRawOption } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

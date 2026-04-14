@@ -2,20 +2,20 @@ import { ServiceContainer } from './service-container'
 import { SparkAutoBuyEventBody } from '~types'
 import { simulatePosition } from './simulate-position'
 import { PublicClient } from 'viem'
-import { Addresses, CurrentTriggerLike } from '@summerfi/triggers-shared'
-import { Address, ChainId, ProtocolId, safeParseBigInt } from '@summerfi/serverless-shared'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
+import { Addresses, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, ProtocolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
 import { Logger } from '@aws-lambda-powertools/logger'
 import memoize from 'just-memoize'
 import { encodeSparkAutoBuy } from './trigger-encoders'
 import { encodeFunctionForDpm } from './encode-function-for-dpm'
-import { getCurrentSparkStopLoss } from '@summerfi/triggers-calculations'
+import { getCurrentSparkStopLoss } from '@thesolidchain/triggers-calculations'
 import { sparkAutoBuyValidator } from './against-position-validators'
 import {
   getSparkPosition,
   calculateCollateralPriceInDebtBasedOnLtv,
-} from '@summerfi/triggers-calculations'
-import { SupportedActions } from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-calculations'
+import { SupportedActions } from '@thesolidchain/triggers-shared'
 
 export interface GetSparkAutoBuyServiceContainerProps {
   rpc: PublicClient

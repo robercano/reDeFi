@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, useState } from 'react'
-import { Button, Card, Icon, ZoomableImage } from '@summerfi/app-earn-ui'
+import { Button, Card, Icon, ZoomableImage } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import { MerchandiseType } from '@/features/merchandise/types'

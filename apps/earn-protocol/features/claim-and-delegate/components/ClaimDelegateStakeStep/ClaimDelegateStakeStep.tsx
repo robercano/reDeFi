@@ -18,15 +18,15 @@ import {
   useMobileCheck,
   useUserWallet,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds, UiTransactionStatuses } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds, UiTransactionStatuses } from '@thesolidchain/app-types'
 import {
   ADDRESS_ZERO,
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatDecimalToBigInt,
   formatFiatBalance,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'

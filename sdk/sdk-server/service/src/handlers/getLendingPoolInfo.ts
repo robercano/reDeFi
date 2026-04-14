@@ -1,4 +1,4 @@
-import { isLendingPoolId } from '@summerfi/sdk-common'
+import { isLendingPoolId } from '@thesolidchain/sdk-common'
 import { publicProcedure } from '../SDKTRPC'
 import { z } from 'zod'
 

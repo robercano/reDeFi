@@ -5,14 +5,14 @@ import {
   customAAKitHyperliquidConfig,
   customAAKitSonicConfig,
   useClientChainId,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   humanNetworktoSDKNetwork,
   subgraphNetworkToId,
   supportedSDKNetwork,
   supportedSDKNetworkId,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { useParams } from 'next/navigation'
 import { type Chain } from 'viem'
 import { arbitrum, base, mainnet } from 'viem/chains'

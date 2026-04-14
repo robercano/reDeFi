@@ -1,5 +1,5 @@
 import { type useSmartAccountClient } from '@account-kit/react'
-import { overridesGasSponsorship } from '@summerfi/app-earn-ui'
+import { overridesGasSponsorship } from '@thesolidchain/app-earn-ui'
 
 /**
  * Determines if gas sponsorship should be overridden based on eligibility check

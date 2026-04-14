@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Button, WithArrow } from '@summerfi/app-earn-ui'
+import { Button, WithArrow } from '@thesolidchain/app-earn-ui'
 
 import classNames from './ClaimDelegateClaimStep.module.css'
 

@@ -1,5 +1,5 @@
-import { Icon, SimpleGrid, Text } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { Icon, SimpleGrid, Text } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import dayjs from 'dayjs'
 import { type TooltipContentProps } from 'recharts'

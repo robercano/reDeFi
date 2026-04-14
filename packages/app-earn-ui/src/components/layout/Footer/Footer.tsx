@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, type ReactNode, useEffect } from 'react'
-import { slugify } from '@summerfi/app-utils'
+import { slugify } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

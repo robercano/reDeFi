@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC } from 'react'
-import { Button, Card, SkeletonLine } from '@summerfi/app-earn-ui'
+import { Button, Card, SkeletonLine } from '@thesolidchain/app-earn-ui'
 
 import BridgeFormTitle from '@/features/bridge/components/BridgeFormTitle/BridgeFormTitle'
 import { Spacer } from '@/features/bridge/components/Spacer/Spacer'

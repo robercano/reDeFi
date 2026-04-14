@@ -6,7 +6,7 @@ import {
   isToken,
   type FiatCurrency,
   type IToken,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { publicProcedure } from '../SDKTRPC'
 
 export const getSpotPrices = publicProcedure

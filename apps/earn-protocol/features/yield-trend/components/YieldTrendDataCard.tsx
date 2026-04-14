@@ -8,13 +8,13 @@ import {
   LoadingSpinner,
   Text,
   VaultTitleWithRisk,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type InlineButtonOption,
   type SDKVaultishType,
-} from '@summerfi/app-types'
-import { getVaultNiceName, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { getVaultNiceName, supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 import { YieldTrendChart } from '@/features/yield-trend/components/YieldTrendChart'
 

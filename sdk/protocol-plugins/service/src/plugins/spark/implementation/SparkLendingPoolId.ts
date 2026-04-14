@@ -1,4 +1,4 @@
-import { IPrintable, IToken, LendingPoolId, SerializationService } from '@summerfi/sdk-common'
+import { IPrintable, IToken, LendingPoolId, SerializationService } from '@thesolidchain/sdk-common'
 import { EmodeType } from '../../common/enums/EmodeType'
 import {
   ISparkLendingPoolId,

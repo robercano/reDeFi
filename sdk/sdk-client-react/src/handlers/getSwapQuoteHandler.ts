@@ -1,5 +1,5 @@
-import type { ISDKAdminManager, ISDKManager } from '@summerfi/sdk-client'
-import { type IToken, Percentage, TokenAmount } from '@summerfi/sdk-common'
+import type { ISDKAdminManager, ISDKManager } from '@thesolidchain/sdk-client'
+import { type IToken, Percentage, TokenAmount } from '@thesolidchain/sdk-common'
 
 export const getSwapQuoteHandler =
   (sdk: ISDKManager | ISDKAdminManager) =>

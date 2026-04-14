@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Button, Card, Input, SkeletonLine, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Input, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import QRCode from 'qrcode'
 

@@ -1,4 +1,4 @@
-import type { IChainInfo } from '@summerfi/sdk-common'
+import type { IChainInfo } from '@thesolidchain/sdk-common'
 import { type IBlockchainClient } from './IBlockchainClient'
 
 /**

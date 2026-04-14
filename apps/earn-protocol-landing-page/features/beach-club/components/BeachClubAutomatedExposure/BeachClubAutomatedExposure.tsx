@@ -1,4 +1,4 @@
-import { SectionTabs, Text } from '@summerfi/app-earn-ui'
+import { SectionTabs, Text } from '@thesolidchain/app-earn-ui'
 import { usePathname } from 'next/navigation'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

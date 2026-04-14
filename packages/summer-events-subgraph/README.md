@@ -18,13 +18,13 @@ This package provides a typed GraphQL client for interacting with the Summer Ear
 To install the package, run the following command in your project directory:
 
 ```bash
-pnpm install @summerfi/summer-earn-protocol-subgraph
+pnpm install @thesolidchain/summer-earn-protocol-subgraph
 ```
 
 Or if you're using Yarn:
 
 ```bash
-yarn add @summerfi/summer-earn-protocol-subgraph
+yarn add @thesolidchain/summer-earn-protocol-subgraph
 ```
 
 ## Usage
@@ -42,7 +42,7 @@ or
 
 ```typescript
 import { GraphQLClient } from 'graphql-request';
-import { getSdk } from '@summerfi/summer-earn-protocol-subgraph';
+import { getSdk } from '@thesolidchain/summer-earn-protocol-subgraph';
 
 const client = new GraphQLClient('YOUR_SUBGRAPH_ENDPOINT');
 const sdk = getSdk(client);

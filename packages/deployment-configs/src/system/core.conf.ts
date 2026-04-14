@@ -1,4 +1,4 @@
-import { SystemCoreConfig } from '@summerfi/deployment-types'
+import { SystemCoreConfig } from '@thesolidchain/deployment-types'
 
 export const CoreConfiguration: SystemCoreConfig = {
   ServiceRegistry: {

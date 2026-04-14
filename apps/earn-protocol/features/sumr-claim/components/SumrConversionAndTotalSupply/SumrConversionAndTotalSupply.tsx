@@ -1,6 +1,6 @@
 'use client'
 import { type FC } from 'react'
-import { Card, Text } from '@summerfi/app-earn-ui'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
 
 import classNames from './SumrConversionAndTotalSupply.module.css'
 

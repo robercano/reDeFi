@@ -1,4 +1,4 @@
-import { Button, Icon, Input, Text } from '@summerfi/app-earn-ui'
+import { Button, Icon, Input, Text } from '@thesolidchain/app-earn-ui'
 
 import styles from '@/components/organisms/LoginPage/LoginPage.module.css'
 

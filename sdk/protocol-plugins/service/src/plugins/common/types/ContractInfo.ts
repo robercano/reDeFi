@@ -1,4 +1,4 @@
-import { AddressValue } from '@summerfi/sdk-common'
+import { AddressValue } from '@thesolidchain/sdk-common'
 
 /**
  * Contains the contract address and ABI for a given contract

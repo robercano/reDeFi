@@ -1,4 +1,4 @@
-import { SupportedNetworkIds, SupportedSDKNetworks } from '@summerfi/app-types'
+import { SupportedNetworkIds, SupportedSDKNetworks } from '@thesolidchain/app-types'
 
 /**
  * Generates URL for fetching historical rates from Arks API based on network

@@ -1,4 +1,4 @@
-import { type AppConfigType, type EarnAppConfigType } from '@summerfi/app-types'
+import { type AppConfigType, type EarnAppConfigType } from '@thesolidchain/app-types'
 
 /**
  * Fetches the Earn App configuration from the remote endpoint.

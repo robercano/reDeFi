@@ -1,7 +1,7 @@
 import { type Dispatch, type FC } from 'react'
-import { Alert, Input, InputWithDropdown, SkeletonLine, Text } from '@summerfi/app-earn-ui'
-import { type DropdownOption, type DropdownRawOption } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { Alert, Input, InputWithDropdown, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
+import { type DropdownOption, type DropdownRawOption } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import type BigNumber from 'bignumber.js'
 
 import { type SendReducerAction, type SendState, SendTxStatuses } from '@/features/send/types'

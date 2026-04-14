@@ -1,4 +1,4 @@
-import { ProtocolName } from '@summerfi/sdk-common'
+import { ProtocolName } from '@thesolidchain/sdk-common'
 
 export interface IContractProvider {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
