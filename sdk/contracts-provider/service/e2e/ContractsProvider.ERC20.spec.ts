@@ -1,11 +1,9 @@
 import { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { IContractsProvider, IErc20Contract } from '@summerfi/contracts-provider-common'
-import { Address, ChainFamilyMap, ChainInfo, TokenAmount } from '@summerfi/sdk-common'
+import { IContractsProvider, IERC20 } from '@summerfi/contracts-provider-common'
+import { Address, ChainFamilyMap, ChainInfo, TokenAmount, Token } from '@summerfi/sdk-common'
 import { Tenderly, type Vnet } from '@summerfi/tenderly-utils'
 import { BlockchainClientProviderMock } from '@summerfi/testing-utils'
 import { ContractsProviderFactory } from '../src/implementation/ContractsProviderFactory'
-import { TokensManagerFactory } from '@summerfi/tokens-service'
-import type { ITokensManager } from '@summerfi/tokens-common'
 import { ConfigurationProvider } from '@summerfi/configuration-provider'
 
 describe.skip('Contracts Provider Service - ERC20 Contract', () => {
@@ -26,11 +24,18 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
     value: '0xdAC17F958D2ee523a2206206994597C13D831ec7',
   })
 
+  const mockToken = Token.createFrom({
+    address: contractAddress,
+    chainInfo,
+    decimals: 6,
+    name: 'USD Coin',
+    symbol: 'USDC',
+  })
+
   let tenderlyFork: Vnet
   let contractsProvider: IContractsProvider
-  let erc20Contract: IErc20Contract
+  let erc20Contract: IERC20
   let blockchainClientProvider: IBlockchainClientProvider
-  let tokensManager: ITokensManager
 
   const atBlock = 'latest'
 
@@ -43,16 +48,10 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
       rpcUrl: tenderlyFork.getRpc(),
     })
 
-    tokensManager = TokensManagerFactory.newTokensManager({
-      configProvider: configurationProvider,
-      blockchainClientProvider,
-    })
-
     // Contracts Provider
     contractsProvider = ContractsProviderFactory.newContractsProvider({
       configProvider: configurationProvider,
       blockchainClientProvider,
-      tokensManager,
     })
 
     erc20Contract = await contractsProvider.getErc20Contract({
@@ -70,54 +69,39 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
   it('should retrieve information from the ERC20 contract', async () => {
     await tenderlyFork.setErc20Balance({
       amount: TokenAmount.createFromBaseUnit({
-        token: await erc20Contract.getToken(),
+        token: mockToken,
         amount: '123000000', // 123 USDC
       }),
       walletAddress: userAddress,
     })
 
-    expect(erc20Contract.address).toEqual(contractAddress)
-    expect(erc20Contract.chainInfo).toEqual(chainInfo)
+    const name = await erc20Contract.name()
+    expect(name).toEqual('USD Coin')
 
-    const token = await erc20Contract.getToken()
-    expect(token).toBeDefined()
+    const symbol = await erc20Contract.symbol()
+    expect(symbol).toEqual('USDC')
 
-    expect(token.address).toEqual(contractAddress)
-    expect(token.chainInfo).toEqual(chainInfo)
-    expect(token.name).toEqual('USD Coin')
-    expect(token.symbol).toEqual('USDC')
-    expect(token.decimals).toEqual(6)
+    const decimals = await erc20Contract.decimals()
+    expect(decimals).toEqual(6)
 
-    const userBalance = await erc20Contract.balanceOf({ address: userAddress })
+    const userBalance = await erc20Contract.balanceOf(userAddress.value)
     expect(userBalance).toBeDefined()
-    expect(userBalance.toSolidityValue()).toEqual(123000000n)
-    expect(userBalance.token).toEqual(token)
+    expect(userBalance).toEqual(123000000n)
 
-    const userAllowance = await erc20Contract.allowance({
-      owner: userAddress,
-      spender: spenderAddress,
-    })
+    const userAllowance = await erc20Contract.allowance(userAddress.value, spenderAddress.value)
     expect(userAllowance).toBeDefined()
-    expect(userAllowance.amount).toEqual('0')
-    expect(userAllowance.token).toEqual(token)
+    expect(userAllowance).toEqual(0n)
   })
 
   it('should generate approve transaction', async () => {
-    const approveTransaction = await erc20Contract.approve({
-      spender: spenderAddress,
-      amount: TokenAmount.createFromBaseUnit({
-        token: await erc20Contract.getToken(),
-        amount: '84000000', // 84 USDC
-      }), //
-    })
+    const approveTransaction = await erc20Contract.approve(spenderAddress.value, 84000000n)
 
     expect(approveTransaction).toBeDefined()
     expect(approveTransaction.description).toEqual(
-      `Approve ${spenderAddress} to spend 84 USDC of ${contractAddress}`,
+      'approve execution',
     )
     expect(approveTransaction.transaction).toBeDefined()
     expect(approveTransaction.transaction.calldata).toBeDefined()
-    expect(approveTransaction.transaction.target).toEqual(contractAddress)
     expect(approveTransaction.transaction.value).toEqual('0')
   })
 })

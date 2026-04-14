@@ -1,7 +1,7 @@
 import type { IAllowanceManager } from '@summerfi/allowance-manager-common'
 import type { IConfigurationProvider } from '@summerfi/configuration-provider-common'
 import type { IContractsProvider } from '@summerfi/contracts-provider-common'
-import { TransactionType } from '@summerfi/sdk-common'
+import { TransactionType, TokenAmount } from '@summerfi/sdk-common'
 
 /**
  * @name AllowanceManager
@@ -30,18 +30,17 @@ export class AllowanceManager implements IAllowanceManager {
       chainInfo: params.chainInfo,
     })
 
-    const [allowance, approveTx] = await Promise.all([
+    const [allowanceRaw, approveTx] = await Promise.all([
       params.owner != null
-        ? erc20Contract.allowance({
-            owner: params.owner,
-            spender: params.spender,
-          })
+        ? erc20Contract.allowance(params.owner.value, params.spender.value)
         : Promise.resolve(null),
-      erc20Contract.approve({
-        amount: params.amount,
-        spender: params.spender,
-      }),
+      erc20Contract.approve(params.spender.value, params.amount.toSolidityValue()),
     ])
+
+    const allowance =
+      allowanceRaw != null
+        ? TokenAmount.createFromBaseUnit({ token: params.amount.token, amount: allowanceRaw.toString() })
+        : null
 
     if (allowance != null && allowance.isGreaterOrEqualThan(params.amount)) {
       return undefined
