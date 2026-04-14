@@ -1,6 +1,6 @@
 import { IAddress, IChainInfo } from '@summerfi/sdk-common'
-import { IErc20Contract } from './contracts/IErc20Contract'
-import { IErc4626Contract } from './contracts/IErc4626Contract'
+import { IERC20 } from '../generated/ERC20'
+import { IERC4626 } from '../generated/ERC4626'
 
 /**
  * @name IContractsProvider
@@ -20,9 +20,9 @@ export interface IContractsProvider {
    * @param {IChainInfo} chainInfo The chain information where the contract is deployed
    * @param {IAddress} address The address of the ERC20 contract
    *
-   * @returns {IErc20Contract}
+   * @returns {IERC20}
    */
-  getErc20Contract(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IErc20Contract>
+  getErc20Contract(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IERC20>
 
   /**
    * @name getErc4626Contract
@@ -31,10 +31,10 @@ export interface IContractsProvider {
    * @param {IChainInfo} chainInfo The chain information where the contract is deployed
    * @param {IAddress} address The address of the ERC4626 contract
    *
-   * @returns {IErc4626Contract}
+   * @returns {IERC4626}
    */
   getErc4626Contract(params: {
     chainInfo: IChainInfo
     address: IAddress
-  }): Promise<IErc4626Contract>
+  }): Promise<IERC4626>
 }

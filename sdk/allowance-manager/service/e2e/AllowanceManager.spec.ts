@@ -59,6 +59,6 @@ describe('Armada Protocol Service', () => {
     }
 
     expect(decodedCalldata.spender.toString()).toBe(fleetAddress.value)
-    expect(decodedCalldata.amount.toString()).toBe(tokenAmount.toSolidityValue())
+    expect(decodedCalldata.amount.toString()).toBe(tokenAmount.toSolidityValue().toString())
   })
 })

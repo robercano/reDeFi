@@ -1,11 +1,10 @@
 import { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { IErc20Contract, IErc4626Contract } from '@summerfi/contracts-provider-common'
+import { IERC20, IERC4626 } from '@summerfi/contracts-provider-common'
 import { IAddress, IChainInfo } from '@summerfi/sdk-common'
 import { ContractWrapper } from './ContractWrapper'
+import { ContractsFactory } from '../../factory/ContractsFactory'
 
-import { Erc4626Contract } from './Erc4626Contract/Erc4626Contract'
 import type { ContractAbi } from '@summerfi/abi-provider-common'
-import type { ITokensManager } from '@summerfi/tokens-common'
 
 /**
  * @name GenericContractWrapper
@@ -16,12 +15,12 @@ export class GenericContractWrapper<
   TAddress extends IAddress,
   TAbi extends ContractAbi,
 > extends ContractWrapper<TAbi, TClient, TAddress> {
-  readonly _erc4626Contract: IErc4626Contract
+  readonly _erc4626Contract: IERC4626
   readonly _abi: TAbi
 
   /** FACTORY METHOD */
   /**
-   * Creates a new instance of the Erc4626Contract
+   * Creates a new instance of the GenericContractWrapper
    *
    * @see constructor
    */
@@ -31,12 +30,11 @@ export class GenericContractWrapper<
     TAbi extends ContractAbi,
   >(params: {
     blockchainClient: TClient
-    tokensManager: ITokensManager
     chainInfo: IChainInfo
     address: TAddress
     abi: TAbi
   }): Promise<GenericContractWrapper<TClient, TAddress, TAbi>> {
-    const erc4626Contract = await Erc4626Contract.create(params)
+    const erc4626Contract = ContractsFactory.getERC4626(params) as unknown as IERC4626
 
     const instance = new GenericContractWrapper({
       blockchainClient: params.blockchainClient,
@@ -54,7 +52,7 @@ export class GenericContractWrapper<
     blockchainClient: TClient
     chainInfo: IChainInfo
     address: TAddress
-    erc4626Contract: IErc4626Contract
+    erc4626Contract: IERC4626
     abi: TAbi
   }) {
     super(params)
@@ -64,11 +62,15 @@ export class GenericContractWrapper<
   }
 
   /** CASTING METHODS */
-  asErc20(): IErc20Contract {
-    return this.asErc4626().asErc20()
+  asErc20(): IERC20 {
+    return ContractsFactory.getERC20({
+      blockchainClient: this.blockchainClient,
+      chainInfo: this.chainInfo,
+      address: this.address,
+    }) as unknown as IERC20
   }
 
-  asErc4626(): IErc4626Contract {
+  asErc4626(): IERC4626 {
     return this._erc4626Contract
   }
 

@@ -44,17 +44,17 @@ export abstract class ContractWrapper<
 
   /** GETTERS */
 
-  /** @see IErc20Contract.chainInfo */
+  /** @see IContractWrapper.chainInfo */
   get chainInfo(): IChainInfo {
     return this._chainInfo
   }
 
-  /** @see IErc20Contract.address */
+  /** @see IContractWrapper.address */
   get address(): TAddress {
     return this._address
   }
 
-  /** @see IErc20Contract.blockchainProvider */
+  /** @see IContractWrapper.blockchainProvider */
   get blockchainClient(): TClient {
     return this._blockchainClient
   }
