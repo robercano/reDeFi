@@ -45,6 +45,7 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
 
     tokensManager = TokensManagerFactory.newTokensManager({
       configProvider: configurationProvider,
+      blockchainClientProvider,
     })
 
     // Contracts Provider
