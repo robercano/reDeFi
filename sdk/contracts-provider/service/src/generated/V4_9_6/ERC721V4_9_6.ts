@@ -3,7 +3,7 @@ import { ContractWrapper } from '../../implementation/contracts/ContractWrapper'
 import { IBlockchainClient } from '@summerfi/blockchain-client-common'
 import { IAddress, TransactionInfo, AddressValue } from '@summerfi/sdk-common'
 import { ERC721V4_9_6Abi } from './abis/ERC721V4_9_6Abi'
-import { IERC721V4_9_6 } from './interfaces/IERC721V4_9_6'
+import { IERC721V4_9_6 } from '@summerfi/contracts-provider-common'
 
 export class ERC721V4_9_6<TClient extends IBlockchainClient, TAddress extends IAddress> extends ContractWrapper<typeof ERC721V4_9_6Abi, TClient, TAddress> implements IERC721V4_9_6 {
   public constructor(params: { blockchainClient: TClient; chainInfo: import('@summerfi/sdk-common').IChainInfo; address: TAddress }) {
