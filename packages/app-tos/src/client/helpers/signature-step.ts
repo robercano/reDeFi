@@ -1,4 +1,4 @@
-import { TOSStatus } from '@summerfi/app-types'
+import { TOSStatus } from '@thesolidchain/app-types'
 
 import { requestJWT } from '@/client/auth/request-jwt'
 import { acceptanceStep } from '@/client/helpers/acceptance-step'

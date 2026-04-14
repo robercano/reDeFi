@@ -1,4 +1,4 @@
-import { Address, AddressValue, HexData } from '@summerfi/sdk-common'
+import { Address, AddressValue, HexData } from '@thesolidchain/sdk-common'
 import { decodeFunctionData, parseAbi } from 'viem'
 
 export function decodePositionsManagerCalldata(params: { calldata: HexData | string }):

@@ -1,6 +1,6 @@
 'use client'
 
-import { EXTERNAL_LINKS, HeaderDisclaimer } from '@summerfi/app-earn-ui'
+import { EXTERNAL_LINKS, HeaderDisclaimer } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 import Script from 'next/script'
 

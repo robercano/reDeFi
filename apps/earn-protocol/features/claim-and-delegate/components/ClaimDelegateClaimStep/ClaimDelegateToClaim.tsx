@@ -1,7 +1,7 @@
 import { type FC, type ReactNode, useMemo } from 'react'
-import { Button, Card, Icon, LoadingSpinner, Text, Tooltip, WithArrow } from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
-import { humanReadableChainToLabelMap } from '@summerfi/app-utils'
+import { Button, Card, Icon, LoadingSpinner, Text, Tooltip, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
+import { humanReadableChainToLabelMap } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { networkSDKChainIdIconMap } from '@/constants/network-id-to-icon'

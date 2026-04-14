@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import graphIcon from '@/public/img/misc/graph_icon.svg'

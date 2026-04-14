@@ -1,5 +1,5 @@
-import { BigGradientBox, ProtocolStats, Text } from '@summerfi/app-earn-ui'
-import { parseServerResponseToClient } from '@summerfi/app-utils'
+import { BigGradientBox, ProtocolStats, Text } from '@thesolidchain/app-earn-ui'
+import { parseServerResponseToClient } from '@thesolidchain/app-utils'
 import { unstable_cache as unstableCache } from 'next/cache'
 import Image from 'next/image'
 

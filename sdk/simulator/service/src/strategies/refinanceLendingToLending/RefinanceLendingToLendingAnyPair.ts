@@ -13,7 +13,7 @@ import {
   SimulationSteps,
   TokenTransferTargetType,
   getValueFromReference,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { Simulator } from '../../implementation/simulator-engine'
 import { estimateSwapFromAmount } from '../../implementation/utils/EstimateSwapFromAmount'
 import { getSwapStepData } from '../../implementation/utils/GetSwapStepData'

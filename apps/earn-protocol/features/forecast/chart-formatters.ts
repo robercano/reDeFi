@@ -1,5 +1,5 @@
-import { chartTimestampFormat } from '@summerfi/app-earn-ui'
-import { formatAsShorthandNumbers } from '@summerfi/app-utils'
+import { chartTimestampFormat } from '@thesolidchain/app-earn-ui'
+import { formatAsShorthandNumbers } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 

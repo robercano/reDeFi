@@ -1,5 +1,5 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
-import { type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { GraphQLClient } from 'graphql-request'
 import { NextResponse } from 'next/server'
 

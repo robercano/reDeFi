@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { type IArmadaPosition } from '@summerfi/app-types'
+import { type IArmadaPosition } from '@thesolidchain/app-types'
 import BigNumber from 'bignumber.js'
 
 export const useSumrRewardsToDate = (portfolioPosition: IArmadaPosition): BigNumber => {

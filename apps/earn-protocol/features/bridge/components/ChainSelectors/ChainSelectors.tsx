@@ -1,5 +1,5 @@
 'use client'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { type Chain } from 'viem'
 
 import { ArrowSplitter } from '@/features/bridge/components/ArrowSplitter/ArrowSplitter'

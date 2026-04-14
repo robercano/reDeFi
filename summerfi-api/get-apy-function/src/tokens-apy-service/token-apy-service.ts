@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/serverless-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 import { GroupedRates } from '../protocols/types'
 import { SecondTimestamp } from '../helpers'
 

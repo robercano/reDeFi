@@ -11,12 +11,12 @@ const nextConfig: (phase: string) => NextConfig = (phase) => ({
   experimental: {
     serverComponentsHmrCache: true,
     optimizePackageImports: [
-      '@summerfi/app-earn-ui',
-      '@summerfi/app-types',
-      '@summerfi/app-utils',
-      '@summerfi/sdk-client',
-      '@summerfi/sdk-client-react',
-      '@summerfi/sdk-common',
+      '@thesolidchain/app-earn-ui',
+      '@thesolidchain/app-types',
+      '@thesolidchain/app-utils',
+      '@thesolidchain/sdk-client',
+      '@thesolidchain/sdk-client-react',
+      '@thesolidchain/sdk-common',
       'mixpanel-browser',
       'zod',
     ],

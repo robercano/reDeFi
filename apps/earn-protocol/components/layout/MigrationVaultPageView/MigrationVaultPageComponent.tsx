@@ -16,7 +16,7 @@ import {
   useMobileCheck,
   useUserWallet,
   VaultOpenGrid,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type IArmadaVaultInfo,
@@ -27,8 +27,8 @@ import {
   type SDKVaultType,
   TransactionAction,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import { usePathname, useRouter } from 'next/navigation'
 import { type Address } from 'viem'

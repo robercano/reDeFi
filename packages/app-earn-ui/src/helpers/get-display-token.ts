@@ -1,4 +1,4 @@
-import { formatAddress } from '@summerfi/app-utils'
+import { formatAddress } from '@thesolidchain/app-utils'
 
 export const getDisplayToken = (
   tokenSymbol: string,

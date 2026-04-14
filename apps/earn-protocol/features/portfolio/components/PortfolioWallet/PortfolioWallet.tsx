@@ -3,7 +3,7 @@ import {
   type GetVaultsApyResponse,
   type RewardTokenPrices,
   type SDKVaultsListType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { type PortfolioAssetsResponse } from '@/app/server-handlers/cached/get-wallet-assets/types'
 import { PortfolioAssets } from '@/features/portfolio/components/PortfolioAssets/PortfolioAssets'

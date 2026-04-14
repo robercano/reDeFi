@@ -10,14 +10,14 @@ import {
   Text,
   Tooltip,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   ADDRESS_ZERO,
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatFiatBalance,
   formatShorthandNumber,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
 

@@ -1,4 +1,4 @@
-import { configEarnAppFetcher } from '@summerfi/app-server-handlers'
+import { configEarnAppFetcher } from '@thesolidchain/app-server-handlers'
 import dayjs from 'dayjs'
 import { unstable_cache as unstableCache } from 'next/cache'
 

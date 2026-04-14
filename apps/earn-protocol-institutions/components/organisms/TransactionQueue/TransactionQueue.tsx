@@ -10,9 +10,9 @@ import {
   SDKChainIdToAAChainMap,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
-import { sdkChainIdToHumanNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
+import { sdkChainIdToHumanNetwork } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import { capitalize } from 'lodash-es'
 

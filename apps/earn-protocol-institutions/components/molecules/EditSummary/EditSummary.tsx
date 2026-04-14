@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Button, Text } from '@summerfi/app-earn-ui'
+import { Button, Text } from '@thesolidchain/app-earn-ui'
 
 import { EditSummaryChange } from '@/components/molecules/EditSummaryChange/EditSummaryChange'
 import { EditSummaryListChange } from '@/components/molecules/EditSummaryListChange/EditSummaryListChange'

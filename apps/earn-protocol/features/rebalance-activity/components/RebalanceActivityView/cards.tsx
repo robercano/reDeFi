@@ -1,5 +1,5 @@
-import { Icon, Tooltip } from '@summerfi/app-earn-ui'
-import { formatFiatBalance, formatWithSeparators } from '@summerfi/app-utils'
+import { Icon, Tooltip } from '@thesolidchain/app-earn-ui'
+import { formatFiatBalance, formatWithSeparators } from '@thesolidchain/app-utils'
 
 export const rebalanceActivityHeading = {
   title: 'Lazy Summer Global Rebalance Activity',

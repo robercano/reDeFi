@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/get-vault-rates-function",
+  "name": "@thesolidchain/get-vault-rates-function",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,7 @@
     "typecheck": "tsc -noEmit"
   },
   "devDependencies": {
-    "@summerfi/app-types": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
     "@types/aws-lambda": "^8.10.119",
     "@types/node": "^20.5.0",
     "sst": "^2.24.22",
@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^1.12.1",
-    "@summerfi/summer-protocol-db": "workspace:*"
+    "@thesolidchain/summer-protocol-db": "workspace:*"
   }
 }

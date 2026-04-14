@@ -5,7 +5,7 @@ import {
   PositionsManagerDataSchema,
   SimulationSchema,
   UserDataSchema,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 
 /**

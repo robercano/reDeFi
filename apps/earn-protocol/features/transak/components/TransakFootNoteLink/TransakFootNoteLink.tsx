@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Text, WithArrow } from '@summerfi/app-earn-ui'
+import { Text, WithArrow } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 interface TransakFootNoteLinkProps {

@@ -1,4 +1,4 @@
-import { ILendingPool, LendingPoolDataSchema } from '@summerfi/sdk-common'
+import { ILendingPool, LendingPoolDataSchema } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IAaveV3LendingPoolId, isAaveV3LendingPoolId } from './IAaveV3LendingPoolId'
 

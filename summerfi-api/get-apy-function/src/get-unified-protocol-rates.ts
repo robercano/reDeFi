@@ -1,17 +1,17 @@
-import { ChainId, ProtocolId } from '@summerfi/serverless-shared'
-import { DistributedCache } from '@summerfi/abstractions'
+import { ChainId, ProtocolId } from '@thesolidchain/serverless-shared'
+import { DistributedCache } from '@thesolidchain/abstractions'
 import { ProtocolResponse } from './protocols/types'
 import {
   AaveSparkInterestRateResult,
   getAaveSparkSubgraphClient,
-} from '@summerfi/aave-spark-subgraph'
+} from '@thesolidchain/aave-spark-subgraph'
 import { getEndOfDayTimestamp, SecondTimestamp, ShortDate, yearsAgo } from './helpers'
 import { getAaveSparkRates, getAjnaRates, getMorphoBlueRates } from './protocols'
-import { AjnaPoolInterestRateResult, getAjnaSubgraphClient } from '@summerfi/ajna-subgraph'
+import { AjnaPoolInterestRateResult, getAjnaSubgraphClient } from '@thesolidchain/ajna-subgraph'
 import {
   getMorphoBlueSubgraphClient,
   MorphoBlueMarketInterestRateResult,
-} from '@summerfi/morpho-blue-subgraph'
+} from '@thesolidchain/morpho-blue-subgraph'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { APIGatewayProxyEventV2 } from 'aws-lambda'
 import {

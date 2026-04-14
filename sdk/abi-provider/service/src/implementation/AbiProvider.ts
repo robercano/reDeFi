@@ -3,9 +3,9 @@ import {
   ContractAbi,
   ContractAbiRecord,
   IAbiProvider,
-} from '@summerfi/abi-provider-common'
+} from '@thesolidchain/abi-provider-common'
 
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { erc20Abi, erc4626Abi } from 'viem'
 
 /**

@@ -1,4 +1,4 @@
-import { type EarnAppConfigType, type IconNamesList } from '@summerfi/app-types'
+import { type EarnAppConfigType, type IconNamesList } from '@thesolidchain/app-types'
 
 import { Text } from '@/components/atoms/Text/Text'
 import { type EarnNavigationProps } from '@/components/layout/Navigation/Navigation'

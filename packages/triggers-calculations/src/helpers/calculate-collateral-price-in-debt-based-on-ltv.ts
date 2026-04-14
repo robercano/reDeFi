@@ -1,4 +1,4 @@
-import { PERCENT_DECIMALS, PositionLike, Price, PRICE_DECIMALS } from '@summerfi/triggers-shared'
+import { PERCENT_DECIMALS, PositionLike, Price, PRICE_DECIMALS } from '@thesolidchain/triggers-shared'
 import { getTheLeastCommonMultiple, normalizeBalance } from './normalize-balance'
 
 export function calculateCollateralPriceInDebtBasedOnLtv(

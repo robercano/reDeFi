@@ -1,6 +1,6 @@
 import { getMorphoBlueApiClient, MetaMorphoAllocations, MorphoBlueApiClient } from '.'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { Address } from '@summerfi/serverless-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 
 const logger = new Logger({
   serviceName: 'moorpho-blue-external-api-client-tests',

@@ -1,4 +1,4 @@
-import { supportedSDKNetwork, ten } from '@summerfi/app-utils'
+import { supportedSDKNetwork, ten } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import {

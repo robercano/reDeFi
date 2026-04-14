@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { addressSchema } from '@summerfi/serverless-shared'
-import { getBeachClubDb } from '@summerfi/summer-beach-club-db'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { addressSchema } from '@thesolidchain/serverless-shared'
+import { getBeachClubDb } from '@thesolidchain/summer-beach-club-db'
 import { type NextRequest, NextResponse } from 'next/server'
 import z from 'zod'
 

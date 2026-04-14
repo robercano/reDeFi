@@ -8,15 +8,15 @@ import {
   LoadableAvatar,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds, UiTransactionStatuses } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds, UiTransactionStatuses } from '@thesolidchain/app-types'
 import {
   ADDRESS_ZERO,
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatFiatBalance,
   safeBTOA,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { useParams } from 'next/navigation'
 
 import { getDelegateTitle } from '@/features/claim-and-delegate/helpers'

@@ -1,6 +1,6 @@
 import { type FC, Fragment } from 'react'
-import { type SDKVaultsListType } from '@summerfi/app-types'
-import { formatCryptoBalance, formatWithSeparators } from '@summerfi/app-utils'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatWithSeparators } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { Card } from '@/components/atoms/Card/Card'

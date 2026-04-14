@@ -1,7 +1,7 @@
 import { type FC, type ReactNode } from 'react'
-import { getProtocolLabel, getUniqueColor, Text } from '@summerfi/app-earn-ui'
-import { type SDKVaultType } from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { getProtocolLabel, getUniqueColor, Text } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultType } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 export interface AllocationItem {
   label: string

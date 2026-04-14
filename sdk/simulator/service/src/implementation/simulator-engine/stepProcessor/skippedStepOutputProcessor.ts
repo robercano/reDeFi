@@ -1,4 +1,4 @@
-import { steps } from '@summerfi/sdk-common'
+import { steps } from '@thesolidchain/sdk-common'
 import type { StepOutputProcessor } from '../../../interfaces/steps'
 
 export const skippedStepOutputProcessor: StepOutputProcessor<steps.SkippedStep> = async (step) => {

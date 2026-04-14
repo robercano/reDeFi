@@ -1,8 +1,8 @@
-import { LendingPool } from '@summerfi/sdk-common/protocols'
+import { LendingPool } from '@thesolidchain/sdk-common/protocols'
 import { I{{namePascalCase}}LendingPool } from '../interfaces/I{{namePascalCase}}LendingPool'
 import { {{namePascalCase}}CollateralConfigMap } from './{{namePascalCase}}CollateralConfigMap'
 import { {{namePascalCase}}DebtConfigMap } from './{{namePascalCase}}DebtConfigMap'
-import { SerializationService } from '@summerfi/sdk-common/services'
+import { SerializationService } from '@thesolidchain/sdk-common/services'
 
 export class {{namePascalCase}}LendingPool extends LendingPool implements I{{namePascalCase}}LendingPool {
 readonly collaterals: {{namePascalCase}}CollateralConfigMap

@@ -1,5 +1,5 @@
-import { type NetworkNames } from '@summerfi/app-types'
-import { decorateWithFleetConfig, humanNetworktoSDKNetwork } from '@summerfi/app-utils'
+import { type NetworkNames } from '@thesolidchain/app-types'
+import { decorateWithFleetConfig, humanNetworktoSDKNetwork } from '@thesolidchain/app-utils'
 
 import { getCachedConfig } from '@/app/server-handlers/config'
 import {

@@ -1,5 +1,5 @@
-import { Button, Icon, Text, Tooltip } from '@summerfi/app-earn-ui'
-import { formatWithSeparators } from '@summerfi/app-utils'
+import { Button, Icon, Text, Tooltip } from '@thesolidchain/app-earn-ui'
+import { formatWithSeparators } from '@thesolidchain/app-utils'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 

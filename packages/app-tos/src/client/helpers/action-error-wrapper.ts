@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from 'react'
-import { type TOSState, TOSStatus } from '@summerfi/app-types'
+import { type TOSState, TOSStatus } from '@thesolidchain/app-types'
 
 /**
  * Wraps an asynchronous function to handle errors and update state accordingly.

@@ -1,5 +1,5 @@
 import { ActionCall, ActionCallBatch } from '../actions/Types'
-import { Maybe } from '@summerfi/sdk-common'
+import { Maybe } from '@thesolidchain/sdk-common'
 
 /**
  * @name ActionCallsStack

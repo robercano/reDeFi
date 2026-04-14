@@ -1,4 +1,4 @@
-import { IChainInfo } from '@summerfi/sdk-common'
+import { IChainInfo } from '@thesolidchain/sdk-common'
 import { IProtocolsManagerClient } from './IProtocolsManagerClient'
 import { ITokensManagerClient } from './ITokensManagerClient'
 

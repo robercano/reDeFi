@@ -1,6 +1,6 @@
-import { ActionBuildersMap } from '@summerfi/protocol-plugins-common'
+import { ActionBuildersMap } from '@thesolidchain/protocol-plugins-common'
 import { MorphoDepositBorrowActionBuilder } from './MorphoDepositBorrowActionBuilder'
-import { SimulationSteps } from '@summerfi/sdk-common'
+import { SimulationSteps } from '@thesolidchain/sdk-common'
 import { MorphoPaybackWithdrawActionBuilder } from './MorphoPaybackWithdrawActionBuilder'
 import { MorphoOpenPositionActionBuilder } from './MorphoOpenPositionActionBuilder'
 

@@ -1,4 +1,4 @@
-import { ADDRESS_ZERO, formatAddress } from '@summerfi/app-utils'
+import { ADDRESS_ZERO, formatAddress } from '@thesolidchain/app-utils'
 
 import { type TallyDelegate } from '@/app/server-handlers/raw-calls/tally'
 

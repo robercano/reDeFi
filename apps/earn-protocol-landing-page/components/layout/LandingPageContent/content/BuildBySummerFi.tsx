@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Emphasis, Text, WithArrow } from '@summerfi/app-earn-ui'
+import { Emphasis, Text, WithArrow } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 

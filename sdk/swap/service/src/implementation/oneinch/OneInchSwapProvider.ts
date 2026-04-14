@@ -1,4 +1,4 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   Address,
   IAddress,
@@ -17,9 +17,9 @@ import {
   SwapRoute,
   LoggingService,
   isChainId,
-} from '@summerfi/sdk-common'
-import { ManagerProviderBase } from '@summerfi/sdk-server-common'
-import { type ISwapProvider } from '@summerfi/swap-common'
+} from '@thesolidchain/sdk-common'
+import { ManagerProviderBase } from '@thesolidchain/sdk-server-common'
+import { type ISwapProvider } from '@thesolidchain/swap-common'
 import fetch from 'node-fetch'
 import {
   OneInchAuthHeader,

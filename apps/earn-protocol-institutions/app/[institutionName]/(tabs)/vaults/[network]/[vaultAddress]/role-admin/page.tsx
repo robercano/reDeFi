@@ -1,5 +1,5 @@
-import { type NetworkNames } from '@summerfi/app-types'
-import { humanNetworktoSDKNetwork, networkNameToSDKId } from '@summerfi/app-utils'
+import { type NetworkNames } from '@thesolidchain/app-types'
+import { humanNetworktoSDKNetwork, networkNameToSDKId } from '@thesolidchain/app-utils'
 
 import { getCachedVaultSpecificRoles } from '@/app/server-handlers/institution/institution-vaults'
 import { ClientSideSdkWrapper } from '@/components/organisms/ClientSideSDKWrapper/ClientSideSDKWrapper'

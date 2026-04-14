@@ -1,6 +1,6 @@
-import { ActionBuildersMap } from '@summerfi/protocol-plugins-common'
+import { ActionBuildersMap } from '@thesolidchain/protocol-plugins-common'
 import { AaveV3DepositBorrowActionBuilder } from './AaveV3DepositBorrowActionBuilder'
-import { SimulationSteps } from '@summerfi/sdk-common'
+import { SimulationSteps } from '@thesolidchain/sdk-common'
 import { AaveV3PaybackWithdrawActionBuilder } from './AaveV3PaybackWithdrawActionBuilder'
 import { AaveV3OpenPositionActionBuilder } from './AaveV3OpenPositionActionBuilder'
 

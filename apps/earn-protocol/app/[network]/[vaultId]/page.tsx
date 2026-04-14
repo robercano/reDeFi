@@ -1,4 +1,4 @@
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { redirect } from 'next/navigation'
 
 const RedirectToVaultDetails = async ({

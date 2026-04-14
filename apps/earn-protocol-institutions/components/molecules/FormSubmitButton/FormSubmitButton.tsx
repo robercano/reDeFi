@@ -2,7 +2,7 @@
 
 import { type ReactNode } from 'react'
 import { useFormStatus } from 'react-dom'
-import { Button } from '@summerfi/app-earn-ui'
+import { Button } from '@thesolidchain/app-earn-ui'
 
 export function FormSubmitButton({
   className,

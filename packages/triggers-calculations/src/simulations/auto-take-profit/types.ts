@@ -1,6 +1,6 @@
-import { PositionLike, Price, TokenBalance } from '@summerfi/triggers-shared'
+import { PositionLike, Price, TokenBalance } from '@thesolidchain/triggers-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { Address, LTV, Percentage } from '@summerfi/serverless-shared'
+import { Address, LTV, Percentage } from '@thesolidchain/serverless-shared'
 
 export interface AutoTakeProfitRealized {
   triggerPrice: Price

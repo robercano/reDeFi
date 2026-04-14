@@ -1,4 +1,4 @@
-import { ONE_DOLLAR, Price, TEN_CENTS } from '@summerfi/triggers-shared'
+import { ONE_DOLLAR, Price, TEN_CENTS } from '@thesolidchain/triggers-shared'
 
 export function isStablecoin(tokenPrice: Price) {
   const difference = tokenPrice - ONE_DOLLAR

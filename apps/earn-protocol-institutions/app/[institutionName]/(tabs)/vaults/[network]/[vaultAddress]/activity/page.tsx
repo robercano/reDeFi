@@ -1,9 +1,9 @@
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import {
   humanNetworktoSDKNetwork,
   subgraphNetworkToId,
   supportedSDKNetworkId,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import {
   getCachedInstitutionVaultActivityLog,

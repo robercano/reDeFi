@@ -6,7 +6,7 @@ import { resolve } from 'path'
 dotenv.config({ path: resolve(__dirname, './.env') })
 
 import { HardhatUserConfig } from 'hardhat/config'
-import { getHardhatConfig } from '@summerfi/hardhat-utils'
+import { getHardhatConfig } from '@thesolidchain/hardhat-utils'
 
 // import './tasks/deploy'
 // import './tasks/create-position'

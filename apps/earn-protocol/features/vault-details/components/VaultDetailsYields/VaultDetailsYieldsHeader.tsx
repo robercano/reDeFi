@@ -1,5 +1,5 @@
 import { type FC, type ReactNode } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 interface VaultDetailsYieldsHeaderProps {
   tokenSymbol: ReactNode

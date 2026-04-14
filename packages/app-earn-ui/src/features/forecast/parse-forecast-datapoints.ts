@@ -3,7 +3,7 @@ import {
   type ForecastData,
   type ForecastDataPoints,
   type PositionForecastAPIResponse,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 import weekOfYear from 'dayjs/plugin/weekOfYear'
 

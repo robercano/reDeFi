@@ -1,9 +1,9 @@
-import { ExternalLendingPosition, ExternalLendingPositionId } from '@summerfi/sdk-common'
-import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@summerfi/sdk-common'
-import { LendingPositionType } from '@summerfi/sdk-common'
-import { ExternalLendingPositionType } from '@summerfi/sdk-common'
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
-import { getErrorMessage } from '@summerfi/testing-utils'
+import { ExternalLendingPosition, ExternalLendingPositionId } from '@thesolidchain/sdk-common'
+import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import { LendingPositionType } from '@thesolidchain/sdk-common'
+import { ExternalLendingPositionType } from '@thesolidchain/sdk-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
+import { getErrorMessage } from '@thesolidchain/testing-utils'
 import assert from 'assert'
 import {
   ImportPositionActionBuilder,

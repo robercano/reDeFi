@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC } from 'react'
-import { Icon, NonOwnerPortfolioBanner, SkeletonLine, TabBar } from '@summerfi/app-earn-ui'
+import { Icon, NonOwnerPortfolioBanner, SkeletonLine, TabBar } from '@thesolidchain/app-earn-ui'
 
 import { useSystemConfig } from '@/contexts/SystemConfigContext/SystemConfigContext'
 import { PortfolioHeader } from '@/features/portfolio/components/PortfolioHeader/PortfolioHeader'

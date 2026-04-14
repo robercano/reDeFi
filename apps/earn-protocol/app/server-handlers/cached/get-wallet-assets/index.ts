@@ -1,4 +1,4 @@
-import { type TokenSymbolsList } from '@summerfi/app-types'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
 
 import {
   type PortfolioAssetsResponse,

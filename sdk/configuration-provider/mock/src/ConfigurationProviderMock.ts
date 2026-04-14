@@ -1,5 +1,5 @@
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import { ConfigItem, ConfigKey } from '@summerfi/configuration-provider-common'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import { ConfigItem, ConfigKey } from '@thesolidchain/configuration-provider-common'
 
 export class ConfigurationProviderMock extends ConfigurationProvider {
   readonly configItems: Map<ConfigKey, ConfigItem> = new Map<ConfigKey, ConfigItem>()

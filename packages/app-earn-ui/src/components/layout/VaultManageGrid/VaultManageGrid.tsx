@@ -9,7 +9,7 @@ import {
   type SDKVaultishType,
   type SDKVaultsListType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
@@ -19,7 +19,7 @@ import {
   slugifyVault,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 import dayjs from 'dayjs'

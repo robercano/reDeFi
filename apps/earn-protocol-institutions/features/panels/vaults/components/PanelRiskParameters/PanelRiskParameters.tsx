@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from 'react'
 import { useChain } from '@account-kit/react'
-import { Card, getArkNiceName, Icon, Table, Text } from '@summerfi/app-earn-ui'
-import { type NetworkNames, type SDKVaultishType } from '@summerfi/app-types'
+import { Card, getArkNiceName, Icon, Table, Text } from '@thesolidchain/app-earn-ui'
+import { type NetworkNames, type SDKVaultishType } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatAddress,
@@ -11,8 +11,8 @@ import {
   formatWithSeparators,
   networkNameToSDKId,
   ten,
-} from '@summerfi/app-utils'
-import { type IToken } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { type IToken } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { useRouter } from 'next/navigation'
 

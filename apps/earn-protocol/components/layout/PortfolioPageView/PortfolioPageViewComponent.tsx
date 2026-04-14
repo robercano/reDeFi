@@ -5,8 +5,8 @@ import {
   type RewardTokenPrices,
   type SDKVaultishType,
   type SingleSourceChartData,
-} from '@summerfi/app-types'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
+} from '@thesolidchain/app-types'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
 
 import { type PortfolioAssetsResponse } from '@/app/server-handlers/cached/get-wallet-assets/types'
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'

@@ -7,10 +7,10 @@ import type {
   QuoteData,
   SwapData,
   SwapProviderType,
-} from '@summerfi/sdk-common'
-import { ChainId, Percentage } from '@summerfi/sdk-common'
-import { ISwapProvider, ISwapManager } from '@summerfi/swap-common'
-import { ManagerWithProvidersBase } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import { ChainId, Percentage } from '@thesolidchain/sdk-common'
+import { ISwapProvider, ISwapManager } from '@thesolidchain/swap-common'
+import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
 
 /**
  * @typedef SwapManagerProviderConfig

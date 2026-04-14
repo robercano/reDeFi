@@ -1,5 +1,5 @@
-import { type IArmadaVaultInfo } from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { type IArmadaVaultInfo } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 /**
  * Gets the annual rewards token bonus for reward tokens

@@ -1,5 +1,5 @@
-import { LoadingSpinner, RechartResponsiveWrapper } from '@summerfi/app-earn-ui'
-import { type ForecastDataPoints } from '@summerfi/app-types'
+import { LoadingSpinner, RechartResponsiveWrapper } from '@thesolidchain/app-earn-ui'
+import { type ForecastDataPoints } from '@thesolidchain/app-types'
 import {
   type ActiveDotProps,
   Area,

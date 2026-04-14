@@ -1,4 +1,4 @@
-import { Percentage, TokenAmount, LendingPosition } from '@summerfi/sdk-common'
+import { Percentage, TokenAmount, LendingPosition } from '@thesolidchain/sdk-common'
 
 import { BigNumber } from 'bignumber.js'
 import { PositionUtils } from '../src/utils/PositionUtils'

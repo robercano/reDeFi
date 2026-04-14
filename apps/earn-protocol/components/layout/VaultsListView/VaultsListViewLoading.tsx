@@ -8,7 +8,7 @@ import {
   Text,
   useMobileCheck,
   VaultGrid,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'
 

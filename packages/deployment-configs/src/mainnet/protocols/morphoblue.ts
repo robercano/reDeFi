@@ -1,4 +1,4 @@
-import { MorphoBlueConfig } from '@summerfi/deployment-types'
+import { MorphoBlueConfig } from '@thesolidchain/deployment-types'
 
 export const MorphoBlueConfiguration: MorphoBlueConfig = {
   dependencies: {

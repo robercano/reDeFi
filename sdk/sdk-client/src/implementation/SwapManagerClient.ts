@@ -1,4 +1,4 @@
-import type { Percentage, QuoteData, Token, TokenAmount } from '@summerfi/sdk-common'
+import type { Percentage, QuoteData, Token, TokenAmount } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import type { ISwapManagerClient } from '../interfaces/ISwapManagerClient'
 import type { RPCMainClientType } from '../rpc/SDKMainClient'

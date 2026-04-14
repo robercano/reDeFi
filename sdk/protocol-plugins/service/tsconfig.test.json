@@ -1,23 +1,23 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.test.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"],
-      "@summerfi/sdk-common": ["node_modules/@summerfi/sdk-common/src/index.ts"],
-      "@summerfi/order-planner-common/*": ["node_modules/@summerfi/order-planner-common/src/*"],
-      "@summerfi/protocol-plugins-common": [
-        "node_modules/@summerfi/protocol-plugins-common/src/index.ts"
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/protocol-plugins-common": [
+        "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],
-      "@summerfi/testing-utils": ["node_modules/@summerfi/testing-utils/src/index.ts"],
-      "@summerfi/swap-common/*": ["node_modules/@summerfi/swap-common/src/*"],
-      "@summerfi/oracle-common": ["../../oracle/common/src/index.ts"],
-      "@summerfi/abis": ["node_modules/@summerfi/abis/src/index.ts"],
-      "@summerfi/sdk-server-common": ["../../sdk-server/service/service-common/src/index.ts"],
-      "@summerfi/tokens-service": ["../../tokens/service/src/index.ts"],
-      "@summerfi/serverless-shared": ["../../packages/serverless-shared/src/index.ts"],
-      "@summerfi/blockchain-client-provider": ["../../blockchain-client/provider/src/index.ts"]
+      "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src/index.ts"],
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/oracle-common": ["../../oracle/common/src/index.ts"],
+      "@thesolidchain/abis": ["node_modules/@thesolidchain/abis/src/index.ts"],
+      "@thesolidchain/sdk-server-common": ["../../sdk-server/service/service-common/src/index.ts"],
+      "@thesolidchain/tokens-service": ["../../tokens/service/src/index.ts"],
+      "@thesolidchain/serverless-shared": ["../../packages/serverless-shared/src/index.ts"],
+      "@thesolidchain/blockchain-client-provider": ["../../blockchain-client/provider/src/index.ts"]
     }
   },
   "include": ["src/**/*.ts"],

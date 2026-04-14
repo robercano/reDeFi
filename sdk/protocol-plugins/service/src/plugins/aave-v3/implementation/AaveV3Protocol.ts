@@ -1,4 +1,4 @@
-import { Protocol, ProtocolName, SerializationService } from '@summerfi/sdk-common'
+import { Protocol, ProtocolName, SerializationService } from '@thesolidchain/sdk-common'
 import { IAaveV3Protocol, IAaveV3ProtocolData, __signature__ } from '../interfaces/IAaveV3Protocol'
 
 /**

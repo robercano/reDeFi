@@ -3,7 +3,7 @@ import {
   type ChartsDataTimeframes,
   type TimeframesItem,
   type TimeframesType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { POINTS_REQUIRED_FOR_CHART } from '@/constants/charts'
 

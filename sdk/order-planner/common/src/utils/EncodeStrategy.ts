@@ -1,11 +1,11 @@
-import { ActionCall } from '@summerfi/protocol-plugins-common'
+import { ActionCall } from '@thesolidchain/protocol-plugins-common'
 import {
   HexData,
   Maybe,
   IPositionsManager,
   TransactionInfo,
   type IAddress,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { encodeFunctionData, parseAbi } from 'viem'
 
 function encodeForExecutor(params: { strategyName: string; actions: ActionCall[] }): HexData {

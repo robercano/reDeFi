@@ -1,4 +1,4 @@
-import { DistributedCache, Logger } from '@summerfi/abstractions'
+import { DistributedCache, Logger } from '@thesolidchain/abstractions'
 import { PoolHistoryResponse, PoolsResponse } from './types'
 
 export interface CacheableYieldsService {

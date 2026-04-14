@@ -24,7 +24,7 @@ import {
   useClientChainId,
   useIsIframe,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type EarnAllowanceTypes,
   type EarnTransactionViewStates,
@@ -32,21 +32,21 @@ import {
   type SupportedNetworkIds,
   TransactionAction,
   type TransactionWithStatus,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   sdkNetworkToHumanNetwork,
   slugify,
   slugifyVault,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import {
   Address,
   getChainInfoByChainId,
   type IToken,
   TokenAmount,
   TransactionType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import type BigNumber from 'bignumber.js'
 import { capitalize } from 'lodash-es'
 import { useRouter } from 'next/navigation'

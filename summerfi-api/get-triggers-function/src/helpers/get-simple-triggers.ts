@@ -1,4 +1,4 @@
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import {
   AaveStopLossToCollateral,
   AaveStopLossToCollateralDMA,
@@ -42,7 +42,7 @@ import {
   MakerStopLossToDai,
   MakerBasicBuy,
   MakerBasicSell,
-} from '@summerfi/triggers-shared/contracts'
+} from '@thesolidchain/triggers-shared/contracts'
 import { z } from 'zod'
 import { paramsSchema } from '../constants'
 import {

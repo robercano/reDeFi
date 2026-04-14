@@ -1,6 +1,6 @@
-import { IAddress, IPercentage, IToken, ITokenAmount } from '@summerfi/sdk-common'
-import type { QuoteData, SwapData, SwapProviderType } from '@summerfi/sdk-common'
-import { IManagerProvider } from '@summerfi/sdk-server-common'
+import { IAddress, IPercentage, IToken, ITokenAmount } from '@thesolidchain/sdk-common'
+import type { QuoteData, SwapData, SwapProviderType } from '@thesolidchain/sdk-common'
+import { IManagerProvider } from '@thesolidchain/sdk-server-common'
 /**
  * @name ISwapProvider
  * @description this is for implementing different swap provider plugins

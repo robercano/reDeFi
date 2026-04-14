@@ -1,12 +1,12 @@
-import { Text } from '@summerfi/app-earn-ui'
-import { getArksInterestRates } from '@summerfi/app-server-handlers'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { Text } from '@thesolidchain/app-earn-ui'
+import { getArksInterestRates } from '@thesolidchain/app-server-handlers'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import {
   humanNetworktoSDKNetwork,
   parseServerResponseToClient,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 import { redirect } from 'next/navigation'
 import { isAddress } from 'viem'

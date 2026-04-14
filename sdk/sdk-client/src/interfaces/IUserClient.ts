@@ -6,7 +6,7 @@ import {
   Order,
   ISimulation,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * @interface IUserClient

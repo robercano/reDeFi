@@ -1,6 +1,6 @@
 'use client'
 import { type FC, useCallback, useState } from 'react'
-import { type TOSState } from '@summerfi/app-types'
+import { type TOSState } from '@thesolidchain/app-types'
 
 import { TOSButtons } from '@/components/organisms/TOSButtons/TOSButtons'
 import { TOSContent } from '@/components/organisms/TOSContent/TOSContent'

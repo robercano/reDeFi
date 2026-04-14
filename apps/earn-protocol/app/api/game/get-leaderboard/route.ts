@@ -1,4 +1,4 @@
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { NextResponse } from 'next/server'
 
 import { type LeaderboardResponse } from '@/features/game/types'

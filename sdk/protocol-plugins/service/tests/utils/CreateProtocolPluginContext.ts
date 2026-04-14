@@ -1,4 +1,4 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { createPublicClient, http, PublicClient } from 'viem'
 import { mainnet } from 'viem/chains'
 import { SetupDeployments } from './SetupDeployments'
@@ -7,8 +7,8 @@ import {
   OracleManagerMock,
   SwapManagerMock,
   TokensManagerMock,
-} from '@summerfi/testing-utils'
-import { IChainInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/testing-utils'
+import { IChainInfo } from '@thesolidchain/sdk-common'
 
 export async function createProtocolPluginContext(
   chainInfo: IChainInfo,

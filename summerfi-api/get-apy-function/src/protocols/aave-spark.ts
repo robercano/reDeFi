@@ -1,6 +1,6 @@
-import { Address, ProtocolId, Token } from '@summerfi/serverless-shared'
+import { Address, ProtocolId, Token } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { AaveSparkInterestRateResult } from '@summerfi/aave-spark-subgraph'
+import { AaveSparkInterestRateResult } from '@thesolidchain/aave-spark-subgraph'
 import { calculateBorrowRates } from './borrow-rates'
 import { CustomDate } from '../helpers'
 import { ProtocolResponse } from './types'

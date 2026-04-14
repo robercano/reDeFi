@@ -1,8 +1,8 @@
-import { BlockchainClientProvider } from '@summerfi/blockchain-client-provider'
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import { ContractsProviderFactory } from '@summerfi/contracts-provider-service'
-import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@summerfi/sdk-common'
-import { decodeAllowanceCalldata } from '@summerfi/testing-utils/utils/AllowanceDecoding'
+import { BlockchainClientProvider } from '@thesolidchain/blockchain-client-provider'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import { ContractsProviderFactory } from '@thesolidchain/contracts-provider-service'
+import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import { decodeAllowanceCalldata } from '@thesolidchain/testing-utils/utils/AllowanceDecoding'
 import { AllowanceManagerFactory, type AllowanceManager } from '../src'
 
 describe('Armada Protocol Service', () => {

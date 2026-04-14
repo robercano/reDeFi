@@ -2,18 +2,18 @@ import {
   MorphoBluePartialTakeProfit,
   MorphoBluePartialTakeProfitID,
   Trigger,
-} from '@summerfi/triggers-shared/contracts'
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+} from '@thesolidchain/triggers-shared/contracts'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { mapTriggerCommonParams, mapTriggersWithSamePoolId } from '../helpers'
 import {
   simulateAutoTakeProfit,
   getCurrentMorphoBlueStopLoss,
   getMorphoBluePosition,
-} from '@summerfi/triggers-calculations'
-import { Address, PoolId, safeParseBigInt } from '@summerfi/serverless-shared'
+} from '@thesolidchain/triggers-calculations'
+import { Address, PoolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
 import { PublicClient } from 'viem'
-import { Addresses } from '@summerfi/triggers-shared'
+import { Addresses } from '@thesolidchain/triggers-shared'
 
 export const getMorphoBluePartialTakeProfit = async ({
   triggers,

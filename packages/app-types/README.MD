@@ -1,3 +1,3 @@
-# @summerfi/app-types
+# @thesolidchain/app-types
 
-Common types for the @summerfi apps.
+Common types for the @thesolidchain apps.

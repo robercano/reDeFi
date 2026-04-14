@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
 import { Fragment } from 'react/jsx-runtime'
-import { type EarnAppConfigType } from '@summerfi/app-types'
+import { type EarnAppConfigType } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 import Link from 'next/link'
 

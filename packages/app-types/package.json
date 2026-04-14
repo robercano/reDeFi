@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/app-types",
+  "name": "@thesolidchain/app-types",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "main": "./types/index.ts",
@@ -9,16 +9,16 @@
     "get-config-types": "concurrently \"node scripts/get-config-types.js\" \"node scripts/get-earn-config-types.js\""
   },
   "dependencies": {
-    "@summerfi/sdk-client-react": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/subgraph-manager-common": "workspace:*",
-    "@summerfi/summer-earn-rates-subgraph": "workspace:*",
-    "@summerfi/summer-protocol-db": "workspace:*",
+    "@thesolidchain/sdk-client-react": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/subgraph-manager-common": "workspace:*",
+    "@thesolidchain/summer-earn-rates-subgraph": "workspace:*",
+    "@thesolidchain/summer-protocol-db": "workspace:*",
     "@types/react": "19.2.3"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node-fetch": "^2.6.11",
     "@types/node": "^20.14.2",
     "@types/react": "19.2.3",
@@ -27,6 +27,6 @@
     "node-fetch": "^2.7.0"
   },
   "peerDependencies": {
-    "@summerfi/serverless-shared": "workspace:*"
+    "@thesolidchain/serverless-shared": "workspace:*"
   }
 }

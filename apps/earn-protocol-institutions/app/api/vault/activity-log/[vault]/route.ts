@@ -1,4 +1,4 @@
-import { chainIdToSDKNetwork, supportedSDKNetworkId } from '@summerfi/app-utils'
+import { chainIdToSDKNetwork, supportedSDKNetworkId } from '@thesolidchain/app-utils'
 import { type NextRequest, NextResponse } from 'next/server'
 import { isAddress } from 'viem'
 

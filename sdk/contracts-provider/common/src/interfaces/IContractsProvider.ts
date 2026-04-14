@@ -1,4 +1,4 @@
-import { IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 import { IERC20 } from '../generated/ERC20'
 import { IERC4626 } from '../generated/ERC4626'
 

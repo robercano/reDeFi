@@ -1,11 +1,11 @@
 import { type FC, useMemo } from 'react'
-import { Card, DataBlock, Icon, Text, Tooltip, WithArrow } from '@summerfi/app-earn-ui'
+import { Card, DataBlock, Icon, Text, Tooltip, WithArrow } from '@thesolidchain/app-earn-ui'
 import {
   formatFiatBalance,
   formatWithSeparators,
   getRebalanceSavedGasCost,
   getRebalanceSavedTimeInHours,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { type RebalanceActivityPagination } from '@/app/server-handlers/tables-data/rebalance-activity/types'

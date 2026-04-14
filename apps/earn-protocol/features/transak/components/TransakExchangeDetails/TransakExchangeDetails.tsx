@@ -1,5 +1,5 @@
 import { type FC, type PropsWithChildren } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 import { type TransakPriceQuoteResponse } from '@/features/transak/types'
 

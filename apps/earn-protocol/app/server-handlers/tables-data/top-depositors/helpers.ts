@@ -1,5 +1,5 @@
-import { getPastTimestamp } from '@summerfi/app-utils'
-import { type Position } from '@summerfi/subgraph-manager-common'
+import { getPastTimestamp } from '@thesolidchain/app-utils'
+import { type Position } from '@thesolidchain/subgraph-manager-common'
 import BigNumber from 'bignumber.js'
 
 export const calculateTopDepositors7daysChange = ({ position }: { position: Position }) => {

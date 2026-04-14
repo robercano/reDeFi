@@ -1,5 +1,5 @@
-import { TableCellNodes, TableCellText } from '@summerfi/app-earn-ui'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { TableCellNodes, TableCellText } from '@thesolidchain/app-earn-ui'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 import { type InstitutionVaultFeeRevenueItem } from '@/types/institution-data'
 

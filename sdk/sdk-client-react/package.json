@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/sdk-client-react",
+  "name": "@thesolidchain/sdk-client-react",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,15 +19,15 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@summerfi/protocol-plugins": "workspace:*",
-    "@summerfi/sdk-client": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*"
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/react": "^19.0.8"
   },
   "peerDependencies": {

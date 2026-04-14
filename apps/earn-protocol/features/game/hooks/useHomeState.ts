@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
 
 import { useSystemConfig } from '@/contexts/SystemConfigContext/SystemConfigContext'
 import { playGameStartSound } from '@/features/game/helpers/audioHelpers'

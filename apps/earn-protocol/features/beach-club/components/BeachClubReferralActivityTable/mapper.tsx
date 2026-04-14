@@ -1,7 +1,7 @@
-import { Button, Icon, TableCellText, WithArrow } from '@summerfi/app-earn-ui'
-import { type TokenSymbolsList } from '@summerfi/app-types'
-import { formatAddress, formatCryptoBalance, timeAgo } from '@summerfi/app-utils'
-import { type LatestActivity } from '@summerfi/summer-protocol-db'
+import { Button, Icon, TableCellText, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
+import { formatAddress, formatCryptoBalance, timeAgo } from '@thesolidchain/app-utils'
+import { type LatestActivity } from '@thesolidchain/summer-protocol-db'
 import Link from 'next/link'
 
 import { PortfolioTabs } from '@/features/portfolio/types'

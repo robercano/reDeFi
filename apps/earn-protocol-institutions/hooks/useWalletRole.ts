@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { type GlobalRoles } from '@summerfi/sdk-client'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type GlobalRoles } from '@thesolidchain/sdk-client'
 
 import { getUserData } from '@/helpers/get-user-data'
 import { globalRoleToHuman } from '@/helpers/wallet-roles'

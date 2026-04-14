@@ -1,4 +1,4 @@
-import { Icon, Text } from '@summerfi/app-earn-ui'
+import { Icon, Text } from '@thesolidchain/app-earn-ui'
 
 export enum DelegateSortOptions {
   HIGHEST_VOTE_AMOUNT = 'highest-vote-amount',

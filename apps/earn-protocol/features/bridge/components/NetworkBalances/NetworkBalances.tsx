@@ -1,5 +1,5 @@
 import { useChain } from '@account-kit/react'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { ArrowSplitter } from '@/features/bridge/components/ArrowSplitter/ArrowSplitter'

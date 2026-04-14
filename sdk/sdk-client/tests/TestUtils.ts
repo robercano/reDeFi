@@ -1,4 +1,4 @@
-import { Address, ChainFamilyMap, Token, AddressType } from '@summerfi/sdk-common'
+import { Address, ChainFamilyMap, Token, AddressType } from '@thesolidchain/sdk-common'
 
 export const chainInfo = ChainFamilyMap.Ethereum.Mainnet
 

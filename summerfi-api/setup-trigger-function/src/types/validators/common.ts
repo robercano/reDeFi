@@ -3,7 +3,7 @@ import {
   supportedTriggersSchema,
   supportedChainSchema,
   supportedProtocolsSchema,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 
 export const pathParamsSchema = z.object({
   trigger: supportedTriggersSchema,

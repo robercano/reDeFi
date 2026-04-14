@@ -1,5 +1,5 @@
-import { ActionCall, BaseAction, InputSlotsMapping } from '@summerfi/protocol-plugins-common'
-import { IPercentage, ITokenAmount, HexData } from '@summerfi/sdk-common'
+import { ActionCall, BaseAction, InputSlotsMapping } from '@thesolidchain/protocol-plugins-common'
+import { IPercentage, ITokenAmount, HexData } from '@thesolidchain/sdk-common'
 
 export class SwapAction extends BaseAction<typeof SwapAction.Config> {
   public static readonly Config = {

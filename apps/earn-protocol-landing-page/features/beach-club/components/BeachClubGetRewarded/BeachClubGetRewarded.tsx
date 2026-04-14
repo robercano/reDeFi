@@ -1,4 +1,4 @@
-import { BeachClubSteps, Card, Text } from '@summerfi/app-earn-ui'
+import { BeachClubSteps, Card, Text } from '@thesolidchain/app-earn-ui'
 
 import classNames from './BeachClubGetRewarded.module.css'
 

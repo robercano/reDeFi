@@ -1,4 +1,4 @@
-import { Button, Card, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { rootAdminActionGetInstitutionsList } from '@/app/server-handlers/admin/institution'

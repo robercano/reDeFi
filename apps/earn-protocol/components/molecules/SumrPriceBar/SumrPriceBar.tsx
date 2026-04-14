@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { DataBlock, DataModule, Icon, Text } from '@summerfi/app-earn-ui'
+import { DataBlock, DataModule, Icon, Text } from '@thesolidchain/app-earn-ui'
 
 import { BuySumrModal } from '@/components/molecules/BuySumrModal/BuySumrModal'
 

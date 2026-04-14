@@ -1,5 +1,5 @@
 'use client'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 import styles from './BridgeFormTitle.module.css'
 

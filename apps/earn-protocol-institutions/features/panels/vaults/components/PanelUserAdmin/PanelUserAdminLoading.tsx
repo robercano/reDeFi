@@ -1,4 +1,4 @@
-import { Card, Input, Table, Text } from '@summerfi/app-earn-ui'
+import { Card, Input, Table, Text } from '@thesolidchain/app-earn-ui'
 
 import { TransactionQueue } from '@/components/organisms/TransactionQueue/TransactionQueue'
 import { AddWhitelistForm } from '@/features/panels/vaults/components/PanelRoleAdmin/AddWhitelistForm'

@@ -4,9 +4,9 @@ import {
   type GetVaultsApyResponse,
   type RewardTokenPrices,
   type SDKVaultsListType,
-} from '@summerfi/app-types'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
-import { type IArmadaVaultInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-types'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
+import { type IArmadaVaultInfo } from '@thesolidchain/sdk-common'
 import dynamic from 'next/dynamic'
 
 import { VaultsListViewLoading } from '@/components/layout/VaultsListView/VaultsListViewLoading'

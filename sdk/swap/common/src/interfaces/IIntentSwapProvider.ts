@@ -1,12 +1,12 @@
-import { IAddress, IToken, ITokenAmount } from '@summerfi/sdk-common'
+import { IAddress, IToken, ITokenAmount } from '@thesolidchain/sdk-common'
 import type {
   IntentSwapProviderType,
   IntentQuoteData,
   ChainId,
   TransactionInfo,
   IPrice,
-} from '@summerfi/sdk-common'
-import { IManagerProvider } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import { IManagerProvider } from '@thesolidchain/sdk-server-common'
 import type { EnrichedOrder, SigningResult, UnsignedOrder } from '@cowprotocol/cow-sdk'
 
 /**

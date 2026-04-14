@@ -17,14 +17,14 @@ import {
   riskColors,
   SkeletonLine,
   Text,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type SDKVaultishType,
   type SupportedNetworkIds,
   type TokenSymbolsList,
   type TransactionWithStatus,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
@@ -32,8 +32,8 @@ import {
   formatPercent,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
-import { TransactionType, type VaultSwitchTransactionInfo } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { TransactionType, type VaultSwitchTransactionInfo } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 import { capitalize } from 'lodash-es'

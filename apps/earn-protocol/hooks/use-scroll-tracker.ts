@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { type EarnProtocolScrolledEventProps } from '@summerfi/app-types'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type EarnProtocolScrolledEventProps } from '@thesolidchain/app-types'
 import { usePathname } from 'next/navigation'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

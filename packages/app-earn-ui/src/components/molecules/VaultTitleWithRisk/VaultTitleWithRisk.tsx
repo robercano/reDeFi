@@ -4,8 +4,8 @@ import {
   type RiskType,
   type SDKVaultType,
   type SupportedSDKNetworks,
-} from '@summerfi/app-types'
-import { getVaultRiskTooltipLabel } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { getVaultRiskTooltipLabel } from '@thesolidchain/app-utils'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { Risk } from '@/components/atoms/Risk/Risk'

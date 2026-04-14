@@ -1,4 +1,4 @@
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { capitalize } from 'lodash-es'
 
 import { sdkNetworkToHumanNetwork } from './earn-network-tools'

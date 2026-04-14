@@ -5,13 +5,13 @@ import {
   type DropdownOption,
   type DropdownRawOption,
   type SDKVaultishType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   sdkNetworkToHumanNetwork,
   slugifyVault,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import type BigNumber from 'bignumber.js'
 import { capitalize } from 'lodash-es'
 import Link from 'next/link'

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 import Link from 'next/link'
 

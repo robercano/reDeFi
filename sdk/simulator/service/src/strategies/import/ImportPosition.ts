@@ -3,7 +3,7 @@ import {
   ImportSimulation,
   IImportPositionParameters,
   SimulationSteps,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { Simulator } from '../../implementation/simulator-engine'
 import { importPositionStrategy } from './Strategy'
 

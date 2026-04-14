@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Card, Expander, Icon, Text, WithArrow } from '@summerfi/app-earn-ui'
+import { Card, Expander, Icon, Text, WithArrow } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 

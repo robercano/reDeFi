@@ -2,8 +2,8 @@ import {
   type AuthorizedStakingRewardsCallerBaseStatus,
   type SupportedNetworkIds,
   type UiTransactionStatuses,
-} from '@summerfi/app-types'
-import { type HumanReadableNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { type HumanReadableNetwork } from '@thesolidchain/app-utils'
 
 import { type TallyDelegate } from '@/app/server-handlers/raw-calls/tally'
 import { type SumrBalancesData } from '@/app/server-handlers/sumr-balances'

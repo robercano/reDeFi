@@ -1,7 +1,7 @@
 import {
   getSummerProtocolInstitutionDB,
   type UserRole,
-} from '@summerfi/summer-protocol-institutions-db'
+} from '@thesolidchain/summer-protocol-institutions-db'
 
 import { type SignInResponse } from '@/features/auth/types'
 

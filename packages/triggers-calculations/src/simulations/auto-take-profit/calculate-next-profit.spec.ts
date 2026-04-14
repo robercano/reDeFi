@@ -1,6 +1,6 @@
 import { getEmptyProfit } from './get-empty-profit'
 import { MinimalAutoTakeProfitTriggerData, MinimalPositionLike } from './types'
-import { PRICE_DECIMALS } from '@summerfi/triggers-shared'
+import { PRICE_DECIMALS } from '@thesolidchain/triggers-shared'
 import { calculateNextProfit } from './calculate-next-profit'
 
 const assertBigintToBeCloseTo = (received: bigint, expected: bigint, precision: bigint) => {

@@ -1,5 +1,5 @@
 import { encodeFunctionData } from 'viem'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 
 export interface AddableTrigger {
   continuous: boolean

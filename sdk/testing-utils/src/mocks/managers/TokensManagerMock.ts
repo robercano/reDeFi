@@ -1,6 +1,6 @@
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import type { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { TokensManager, StaticTokensProvider } from '@summerfi/tokens-service'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { TokensManager, StaticTokensProvider } from '@thesolidchain/tokens-service'
 
 export class TokensManagerMock extends TokensManager {
   constructor() {

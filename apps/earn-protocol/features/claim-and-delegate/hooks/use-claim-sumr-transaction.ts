@@ -1,9 +1,9 @@
 'use client'
 import { useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType, useIsIframe, useUserWallet } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds, type SupportedSDKNetworks } from '@summerfi/app-types'
-import { sdkNetworkToChain } from '@summerfi/app-utils'
-import { type ChainId } from '@summerfi/sdk-common'
+import { getAccountType, useIsIframe, useUserWallet } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds, type SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { sdkNetworkToChain } from '@thesolidchain/app-utils'
+import { type ChainId } from '@thesolidchain/sdk-common'
 import { type PublicClient } from 'viem'
 
 import { AQ_BASE_ADDRESS } from '@/constants/addresses'

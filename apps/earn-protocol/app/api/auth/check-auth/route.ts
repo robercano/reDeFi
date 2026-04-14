@@ -1,4 +1,4 @@
-import { checkAuth } from '@summerfi/app-tos'
+import { checkAuth } from '@thesolidchain/app-tos'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export function GET(req: NextRequest) {

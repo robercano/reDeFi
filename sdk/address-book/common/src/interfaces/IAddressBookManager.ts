@@ -1,4 +1,4 @@
-import type { Maybe, IChainInfo, IAddress } from '@summerfi/sdk-common'
+import type { Maybe, IChainInfo, IAddress } from '@thesolidchain/sdk-common'
 
 /**
  * @name IAddressBookManager

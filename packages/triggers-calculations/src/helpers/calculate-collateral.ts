@@ -4,7 +4,7 @@ import {
   PRICE_DECIMALS,
   Token,
   TokenBalance,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import { getTheLeastCommonMultiple, normalizeAmount, normalizeBalance } from './normalize-balance'
 
 export const calculateCollateral = ({

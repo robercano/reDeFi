@@ -1,6 +1,6 @@
-import { Button, Icon } from '@summerfi/app-earn-ui'
-import { formatAddress, timeAgo } from '@summerfi/app-utils'
-import { type JsonValue } from '@summerfi/summer-protocol-db'
+import { Button, Icon } from '@thesolidchain/app-earn-ui'
+import { formatAddress, timeAgo } from '@thesolidchain/app-utils'
+import { type JsonValue } from '@thesolidchain/summer-protocol-db'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 

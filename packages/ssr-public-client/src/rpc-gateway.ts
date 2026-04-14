@@ -1,4 +1,4 @@
-import { type AppConfigType, NetworkNames } from '@summerfi/app-types'
+import { type AppConfigType, NetworkNames } from '@thesolidchain/app-types'
 
 /**
  * RPC configuration for the RPC Gateway

@@ -1,4 +1,4 @@
-import { type ContractSpecificRoleName, type GlobalRoles } from '@summerfi/sdk-client'
+import { type ContractSpecificRoleName, type GlobalRoles } from '@thesolidchain/sdk-client'
 
 import {
   type getCachedInstitutionData,

@@ -1,6 +1,6 @@
-import { type TotalRebalanceItemsPerStrategyId } from '@summerfi/app-types'
-import { type Rebalance } from '@summerfi/subgraph-manager-common'
-import { type RebalanceActivity as RebalanceActivityDb } from '@summerfi/summer-protocol-db'
+import { type TotalRebalanceItemsPerStrategyId } from '@thesolidchain/app-types'
+import { type Rebalance } from '@thesolidchain/subgraph-manager-common'
+import { type RebalanceActivity as RebalanceActivityDb } from '@thesolidchain/summer-protocol-db'
 
 export type RebalanceActivity = Rebalance & {
   actionType: 'deposit' | 'withdraw' | 'risk_reduction' | 'rate_enhancement' | 'n/a'

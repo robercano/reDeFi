@@ -1,4 +1,4 @@
-import { type TokenPriceData } from '@summerfi/app-types'
+import { type TokenPriceData } from '@thesolidchain/app-types'
 
 import { getCachedConfig } from '@/app/server-handlers/cached/get-config'
 import { getCachedTokenPrice } from '@/app/server-handlers/cached/get-token-price'

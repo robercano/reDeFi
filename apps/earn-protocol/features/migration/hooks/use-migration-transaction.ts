@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useChain, useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType, SDKChainIdToAAChainMap, useIsIframe } from '@summerfi/app-earn-ui'
-import { type Address, type SupportedNetworkIds, type TransactionHash } from '@summerfi/app-types'
-import { chainIdToSDKNetwork, supportedSDKNetworkId } from '@summerfi/app-utils'
+import { getAccountType, SDKChainIdToAAChainMap, useIsIframe } from '@thesolidchain/app-earn-ui'
+import { type Address, type SupportedNetworkIds, type TransactionHash } from '@thesolidchain/app-types'
+import { chainIdToSDKNetwork, supportedSDKNetworkId } from '@thesolidchain/app-utils'
 import {
   type ApproveTransactionInfo,
   getChainInfoByChainId,
   type MigrationTransactionInfo,
   TransactionType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import { MigrationSteps } from '@/features/migration/types'
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'

@@ -10,19 +10,19 @@ import {
   useAmount,
   useClientChainId,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type Address,
   type DropdownRawOption,
   type SupportedNetworkIds,
   SupportedSDKNetworks,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   networkNameToSDKId,
   networkNameToSDKNetwork,
   supportedSDKNetworkId,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { isAddress } from 'viem'
 
 import { type PortfolioAssetsResponse } from '@/app/server-handlers/cached/get-wallet-assets/types'

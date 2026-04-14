@@ -11,9 +11,9 @@ import {
   slippageConfigCookieName,
   sumrNetApyConfigCookieName,
   Text,
-} from '@summerfi/app-earn-ui'
-import { DeviceType } from '@summerfi/app-types'
-import { getDeviceType, getServerSideCookies, safeParseJson } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { DeviceType } from '@thesolidchain/app-types'
+import { getDeviceType, getServerSideCookies, safeParseJson } from '@thesolidchain/app-utils'
 import type { Metadata } from 'next'
 import { cookies, headers } from 'next/headers'
 import Image from 'next/image'

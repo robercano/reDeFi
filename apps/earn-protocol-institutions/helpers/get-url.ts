@@ -1,5 +1,5 @@
-import { type SDKVaultishType } from '@summerfi/app-types'
-import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@summerfi/app-utils'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
+import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 export const getInstitutionVaultUrl = ({
   institutionName,

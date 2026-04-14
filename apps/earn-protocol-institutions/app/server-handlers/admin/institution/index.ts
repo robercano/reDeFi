@@ -1,5 +1,5 @@
 import { CognitoIdentityProviderClient } from '@aws-sdk/client-cognito-identity-provider'
-import { getSummerProtocolInstitutionDB } from '@summerfi/summer-protocol-institutions-db'
+import { getSummerProtocolInstitutionDB } from '@thesolidchain/summer-protocol-institutions-db'
 import { redirect } from 'next/navigation'
 
 import { rootAdminActionDeleteCognitoUser } from '@/app/server-handlers/admin/user'

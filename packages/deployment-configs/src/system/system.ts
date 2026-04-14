@@ -1,4 +1,4 @@
-import { SystemConfig } from '@summerfi/deployment-types'
+import { SystemConfig } from '@thesolidchain/deployment-types'
 import { CoreConfiguration } from './core.conf'
 import { ActionsConfiguration } from './actions.conf'
 import { AutomationConfiguration } from './automation.conf'

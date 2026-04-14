@@ -1,6 +1,6 @@
 'use client'
 import { type FC, type ReactNode } from 'react'
-import { type TOSRetryStep } from '@summerfi/app-types'
+import { type TOSRetryStep } from '@thesolidchain/app-types'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { Text } from '@/components/atoms/Text/Text'

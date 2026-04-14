@@ -9,7 +9,7 @@ import {
   SectionTabs,
   SupportedNetworksList,
   Text,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'
 import chainSecurityLogo from '@/public/img/campaigns/auditor-logos/chainsecurity.svg'

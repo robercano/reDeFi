@@ -1,4 +1,4 @@
-import { AddressValue, HexData } from '@summerfi/sdk-common'
+import { AddressValue, HexData } from '@thesolidchain/sdk-common'
 
 export type ActionDefinition = {
   name: string

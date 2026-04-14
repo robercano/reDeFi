@@ -2,7 +2,7 @@ import {
   ILendingPosition,
   LendingPositionDataSchema,
   LendingPositionType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IAaveV3LendingPool, isAaveV3LendingPool } from './IAaveV3LendingPool'
 import { IAaveV3LendingPositionId, isAaveV3LendingPositionId } from './IAaveV3LendingPositionId'

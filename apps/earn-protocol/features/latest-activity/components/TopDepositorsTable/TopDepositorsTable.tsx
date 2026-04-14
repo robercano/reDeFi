@@ -1,7 +1,7 @@
 'use client'
 import { type FC, type ReactNode, useMemo } from 'react'
-import { Table, type TableSortedColumn, Text, useMobileCheck } from '@summerfi/app-earn-ui'
-import { type TopDepositors } from '@summerfi/summer-protocol-db'
+import { Table, type TableSortedColumn, Text, useMobileCheck } from '@thesolidchain/app-earn-ui'
+import { type TopDepositors } from '@thesolidchain/summer-protocol-db'
 
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'
 import {

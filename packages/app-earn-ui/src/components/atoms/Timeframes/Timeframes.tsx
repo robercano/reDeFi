@@ -1,4 +1,4 @@
-import { type TimeframesItem, type TimeframesType } from '@summerfi/app-types'
+import { type TimeframesItem, type TimeframesType } from '@thesolidchain/app-types'
 
 import { Text } from '@/components/atoms/Text/Text'
 

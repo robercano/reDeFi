@@ -1,7 +1,7 @@
 'use client'
 import { type FC, useEffect, useRef, useState } from 'react'
-import { Card, TabBar, type TableSortedColumn, WithArrow } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Card, TabBar, type TableSortedColumn, WithArrow } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'

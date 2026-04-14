@@ -4,7 +4,7 @@ import {
   type SDKVaultType,
   type SupportedSDKNetworks,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { GenericTokenIcon } from '@/components/atoms/GenericTokenIcon/GenericTokenIcon'
 import { Icon } from '@/components/atoms/Icon/Icon'

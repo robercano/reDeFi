@@ -12,10 +12,10 @@ import {
   supportedActionsSchema,
   SupportedActions,
   CurrentStopLoss,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import { z } from 'zod'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
-import { chainIdSchema, ProtocolId, safeParseBigInt } from '@summerfi/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
+import { chainIdSchema, ProtocolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
 
 const paramsSchema = z.object({
   position: positionSchema,

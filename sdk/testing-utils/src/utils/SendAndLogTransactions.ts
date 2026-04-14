@@ -1,4 +1,4 @@
-import { IChainInfo, type TransactionInfo } from '@summerfi/sdk-common'
+import { IChainInfo, type TransactionInfo } from '@thesolidchain/sdk-common'
 import { isHex } from 'viem/utils'
 import { TransactionUtils } from './TransactionUtils'
 

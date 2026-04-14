@@ -5,8 +5,8 @@ import {
   PositionCard,
   Text,
   TokenWithNetworkIcon,
-} from '@summerfi/app-earn-ui'
-import { formatCryptoBalance, formatDecimalAsPercent, formatFiatBalance } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance, formatDecimalAsPercent, formatFiatBalance } from '@thesolidchain/app-utils'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'
 import { mapMigrationToPortfolioCard } from '@/features/migration/helpers/map-migration-to-portfolio-card'

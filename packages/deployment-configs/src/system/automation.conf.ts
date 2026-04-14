@@ -1,4 +1,4 @@
-import { SystemAutomationConfig } from '@summerfi/deployment-types'
+import { SystemAutomationConfig } from '@thesolidchain/deployment-types'
 
 export const AutomationConfiguration: SystemAutomationConfig = {
   AutomationBot: {

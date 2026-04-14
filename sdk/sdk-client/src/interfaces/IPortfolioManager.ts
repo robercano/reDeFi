@@ -1,4 +1,4 @@
-import type { ChainInfo, Wallet, Position } from '@summerfi/sdk-common'
+import type { ChainInfo, Wallet, Position } from '@thesolidchain/sdk-common'
 
 /**
  * @interface IPortfolioManager

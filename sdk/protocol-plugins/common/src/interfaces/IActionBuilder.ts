@@ -1,9 +1,9 @@
-import { SimulationSteps, steps, IUser } from '@summerfi/sdk-common'
-import { ISwapManager } from '@summerfi/swap-common'
-import { type IPositionsManager } from '@summerfi/sdk-common'
+import { SimulationSteps, steps, IUser } from '@thesolidchain/sdk-common'
+import { ISwapManager } from '@thesolidchain/swap-common'
+import { type IPositionsManager } from '@thesolidchain/sdk-common'
 import { IStepBuilderContext } from './IStepBuilderContext'
 import { type IProtocolPluginsRegistry } from './IProtocolPluginsRegistry'
-import { IAddressBookManager } from '@summerfi/address-book-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import { IActionConstructor } from './IAction'
 
 /**

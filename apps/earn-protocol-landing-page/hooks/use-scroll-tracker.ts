@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { type EarnProtocolScrolledEventProps } from '@summerfi/app-types'
+import { type EarnProtocolScrolledEventProps } from '@thesolidchain/app-types'
 import { usePathname } from 'next/navigation'
 
 import { EarnProtocolEvents } from '@/helpers/mixpanel'

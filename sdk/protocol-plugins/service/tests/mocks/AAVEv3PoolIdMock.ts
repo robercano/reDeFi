@@ -1,5 +1,5 @@
-import { ChainFamilyMap } from '@summerfi/sdk-common'
-import { TokensManagerMock } from '@summerfi/testing-utils'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
+import { TokensManagerMock } from '@thesolidchain/testing-utils'
 import { AaveV3LendingPoolId, AaveV3Protocol } from '../../src'
 import { IAaveV3LendingPoolId } from '../../src/plugins/aave-v3/interfaces/IAaveV3LendingPoolId'
 import { EmodeType } from '../../src/plugins/common/enums/EmodeType'

@@ -12,9 +12,9 @@ import {
   Text,
   useClientChainId,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultishType, type TokenSymbolsList } from '@summerfi/app-types'
-import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType, type TokenSymbolsList } from '@thesolidchain/app-types'
+import { subgraphNetworkToSDKId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { delayPerNetwork } from '@/constants/delay-per-network'

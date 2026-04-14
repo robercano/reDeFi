@@ -4,7 +4,7 @@ import {
   PortfolioMigrationAddressType,
   PortfolioMigrationAsset,
   ProtocolId,
-} from '@summerfi/serverless-shared/domain-types'
+} from '@thesolidchain/serverless-shared/domain-types'
 
 export type ProtocolMigrationAssets = {
   debtAssets: PortfolioMigrationAsset[]

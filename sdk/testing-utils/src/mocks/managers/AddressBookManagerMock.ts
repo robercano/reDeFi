@@ -1,5 +1,5 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import { AddressValue, ChainId, IChainInfo, Address, IAddress, Maybe } from '@summerfi/sdk-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { AddressValue, ChainId, IChainInfo, Address, IAddress, Maybe } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 
 export class AddressBookManagerMock implements IAddressBookManager {

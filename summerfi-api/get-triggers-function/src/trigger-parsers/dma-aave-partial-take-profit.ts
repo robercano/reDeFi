@@ -2,8 +2,8 @@ import {
   DmaAavePartialTakeProfit,
   DmaAavePartialTakeProfitID,
   Trigger,
-} from '@summerfi/triggers-shared/contracts'
-import { TriggersQuery } from '@summerfi/automation-subgraph'
+} from '@thesolidchain/triggers-shared/contracts'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { mapTriggerCommonParams } from '../helpers'
 import { PublicClient } from 'viem'
@@ -11,9 +11,9 @@ import {
   getAavePosition,
   getCurrentAaveStopLoss,
   simulateAutoTakeProfit,
-} from '@summerfi/triggers-calculations'
-import { Address, safeParseBigInt } from '@summerfi/serverless-shared'
-import { Addresses } from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-calculations'
+import { Address, safeParseBigInt } from '@thesolidchain/serverless-shared'
+import { Addresses } from '@thesolidchain/triggers-shared'
 
 export const getDmaAavePartialTakeProfit = async ({
   triggers,

@@ -3,14 +3,14 @@ import {
   positionAddressesSchema,
   priceSchema,
   supportedActionsSchema,
-} from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-shared'
 import {
   addressSchema,
   ltvSchema,
   percentageSchema,
   poolIdSchema,
   urlOptionalSchema,
-} from '@summerfi/serverless-shared'
+} from '@thesolidchain/serverless-shared'
 import { dmaMorphoBlueStopLoss } from './morphoblue-stop-loss'
 import { TriggerType } from '@oasisdex/automation'
 

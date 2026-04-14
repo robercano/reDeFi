@@ -8,13 +8,13 @@ import {
   Icon,
   Text,
   VaultTitle,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatFiatBalance,
   networkNameToSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { type PortfolioWalletAsset } from '@/app/server-handlers/cached/get-wallet-assets/types'

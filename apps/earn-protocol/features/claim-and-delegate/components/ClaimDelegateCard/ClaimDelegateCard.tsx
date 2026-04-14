@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Card, Icon, LoadableAvatar, Text } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance, safeBTOA } from '@summerfi/app-utils'
+import { Card, Icon, LoadableAvatar, Text } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance, safeBTOA } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'

@@ -1,5 +1,5 @@
-import { IProtocolManager } from '@summerfi/protocol-manager-common'
-import { IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
+import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
+import { IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
 import {
   IPositionId,
   Maybe,
@@ -14,7 +14,7 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * @class ProtocolManager

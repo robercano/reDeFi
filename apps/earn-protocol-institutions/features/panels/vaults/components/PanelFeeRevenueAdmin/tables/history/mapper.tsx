@@ -1,5 +1,5 @@
-import { TableCellText } from '@summerfi/app-earn-ui'
-import { formatFiatBalance } from '@summerfi/app-utils'
+import { TableCellText } from '@thesolidchain/app-earn-ui'
+import { formatFiatBalance } from '@thesolidchain/app-utils'
 
 import { type InstitutionVaultFeeRevenueHistoryItem } from '@/types/institution-data'
 

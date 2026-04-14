@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/summer-protocol-db",
+  "name": "@thesolidchain/summer-protocol-db",
   "version": "1.0.0",
   "type": "module",
   "main": "dist/index.js",
@@ -27,12 +27,12 @@
     "pg": "^8.14.1",
     "postgres": "^3.4.4",
     "kysely-postgres-js": "^2.0.0",
-    "@summerfi/abstractions": "workspace:*",
-    "@summerfi/serverless-shared": "workspace:*"
+    "@thesolidchain/abstractions": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/pg": "^8.11.11",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",

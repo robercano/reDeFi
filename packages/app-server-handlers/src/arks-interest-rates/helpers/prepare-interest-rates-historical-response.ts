@@ -1,8 +1,8 @@
-import { getArkHistoricalRatesUrl, getArkProductId } from '@summerfi/app-utils'
+import { getArkHistoricalRatesUrl, getArkProductId } from '@thesolidchain/app-utils'
 import {
   GetInterestRatesDocument,
   type GetInterestRatesQuery,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 
 import { graphqlClients, noInterestRates } from '@/arks-interest-rates/constants'
 import { type ArkType } from '@/arks-interest-rates/types'

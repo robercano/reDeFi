@@ -1,5 +1,5 @@
-import { ProtocolId, Token } from '@summerfi/serverless-shared'
-import { MorphoBlueMarketInterestRateResult } from '@summerfi/morpho-blue-subgraph/dist'
+import { ProtocolId, Token } from '@thesolidchain/serverless-shared'
+import { MorphoBlueMarketInterestRateResult } from '@thesolidchain/morpho-blue-subgraph/dist'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { CustomDate } from '../helpers'
 import { calculateBorrowRates } from './borrow-rates'

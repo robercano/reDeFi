@@ -8,8 +8,8 @@ import {
   SUCCESS_TOAST_CONFIG,
   useAmount,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
@@ -18,8 +18,8 @@ import {
   isSupportedSDKChain,
   sdkNetworkToChain,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
-import { Address } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { Address } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { useRouter, useSearchParams } from 'next/navigation'
 

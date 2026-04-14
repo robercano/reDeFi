@@ -14,13 +14,13 @@ import {
   useClientChainId,
   useIsIframe,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   formatAddress,
   safeBTOA,
   sdkChainIdToHumanNetwork,
   supportedSDKNetworkId,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import walletLabelStyles from './WalletLabel.module.css'

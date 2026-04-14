@@ -5,7 +5,7 @@ import {
   MakerLendingPosition,
   MakerLendingPositionId,
   MakerProtocol,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import {
   RefinanceParameters,
   RefinanceSimulation,
@@ -17,7 +17,7 @@ import {
   TokenAmount,
   LendingPositionType,
   SimulationType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
 import { getTargetPosition } from '../utils/getTargetPosition'

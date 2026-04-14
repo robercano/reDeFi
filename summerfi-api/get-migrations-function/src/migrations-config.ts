@@ -1,4 +1,4 @@
-import { ChainId, ProtocolId } from '@summerfi/serverless-shared'
+import { ChainId, ProtocolId } from '@thesolidchain/serverless-shared'
 
 export type IMigrationConfig = Record<ChainId, ProtocolId[]>
 

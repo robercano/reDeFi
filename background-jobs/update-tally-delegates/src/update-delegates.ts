@@ -1,4 +1,4 @@
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { SumrDelegates } from './get-sumr-delegates'
 import { SumrDecayFactorData } from './get-sumr-decay-factor'
 import { Logger } from '@aws-lambda-powertools/logger'

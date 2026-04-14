@@ -103,12 +103,12 @@ async function generateDeclarations(): Promise<void> {
   console.log('🎉 Declaration generation process completed!')
 
   console.log('📝 Updating declaration imports...')
-  // Update all declaration files to replace @summerfi imports with absolute paths
+  // Update all declaration files to replace @thesolidchain imports with absolute paths
   updateDeclarationImports()
 }
 
 /**
- * Update all .d.ts files in bundle/dist to replace @summerfi imports with absolute paths
+ * Update all .d.ts files in bundle/dist to replace @thesolidchain imports with absolute paths
  */
 function updateDeclarationImports(): void {
   try {
@@ -134,14 +134,14 @@ function updateDeclarationImports(): void {
       const distRelativeToFile = path.relative(path.dirname(filePath), path.resolve('bundle/dist'))
       console.log('distRelativeToFile:', distRelativeToFile)
 
-      // Replace @summerfi imports with absolute paths
-      content = content.replace(/@summerfi\/sdk-common/g, `${distRelativeToFile || '.'}/sdk-common`)
+      // Replace @thesolidchain imports with absolute paths
+      content = content.replace(/@thesolidchain\/sdk-common/g, `${distRelativeToFile || '.'}/sdk-common`)
       content = content.replace(
-        /@summerfi\/protocol-plugins/g,
+        /@thesolidchain\/protocol-plugins/g,
         `${distRelativeToFile || '.'}/protocol-plugins`,
       )
       content = content.replace(
-        /@summerfi\/armada-protocol-common/g,
+        /@thesolidchain\/armada-protocol-common/g,
         `${distRelativeToFile || '.'}/armada-protocol-common`,
       )
 

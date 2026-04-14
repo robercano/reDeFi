@@ -1,5 +1,5 @@
-// import { type FleetRate } from '@summerfi/app-types'
-import { type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+// import { type FleetRate } from '@thesolidchain/app-types'
+import { type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 
 const NETWORKS = [
   'arbitrum',

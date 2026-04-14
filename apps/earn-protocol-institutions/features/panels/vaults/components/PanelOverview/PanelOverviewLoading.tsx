@@ -1,4 +1,4 @@
-import { Card, LoadingSpinner, Table, Text } from '@summerfi/app-earn-ui'
+import { Card, LoadingSpinner, Table, Text } from '@thesolidchain/app-earn-ui'
 
 import { ChartHeader } from '@/components/molecules/Charts/ChartHeader'
 import { allTimeframesNotAvailable } from '@/helpers/timeframes'

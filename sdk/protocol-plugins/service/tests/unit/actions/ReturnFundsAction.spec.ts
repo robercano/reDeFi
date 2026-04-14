@@ -1,5 +1,5 @@
-import { Address, Token } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, Token } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import { ReturnFundsAction } from '../../../src/plugins/common/actions'
 
 describe('ReturnFunds Action', () => {

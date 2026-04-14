@@ -5,7 +5,7 @@ import {
   type InputHTMLAttributes,
   type ReactNode,
 } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { getAtomClassList } from '@/components/atoms/getAtomClassList'

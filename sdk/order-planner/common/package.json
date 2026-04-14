@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/order-planner-common",
+  "name": "@thesolidchain/order-planner-common",
   "version": "0.0.1",
   "exports": {
     "./*": {
@@ -21,17 +21,17 @@
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/swap-common": "workspace:*",
-    "@summerfi/address-book-common": "workspace:*",
-    "@summerfi/protocol-plugins-common": "workspace:*",
-    "@summerfi/protocol-plugins": "workspace:*",
-    "@summerfi/contracts-provider-common": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*"
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/swap-common": "workspace:*",
+    "@thesolidchain/address-book-common": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/contracts-provider-common": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

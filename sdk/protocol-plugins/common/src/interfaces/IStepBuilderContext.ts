@@ -1,6 +1,6 @@
 import { BaseAction } from '../actions/BaseAction'
 import { ActionCallBatch, ActionConfig } from '../actions/Types'
-import { steps, Maybe, TransactionInfo } from '@summerfi/sdk-common'
+import { steps, Maybe, TransactionInfo } from '@thesolidchain/sdk-common'
 import { StorageInputsMapType, StorageOutputsMapType } from '../types/ActionStorageTypes'
 
 /**

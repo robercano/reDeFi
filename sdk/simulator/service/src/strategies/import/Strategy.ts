@@ -1,4 +1,4 @@
-import { SimulationSteps } from '@summerfi/sdk-common'
+import { SimulationSteps } from '@thesolidchain/sdk-common'
 import { makeStrategy } from '../../implementation/utils'
 
 export const importPositionStrategy = makeStrategy([

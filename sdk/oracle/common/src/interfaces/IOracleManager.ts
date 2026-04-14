@@ -6,9 +6,9 @@ import type {
   OracleProviderType,
   ISpotPriceInfo,
   SpotPricesInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { IOracleProvider } from './IOracleProvider'
-import { IManagerWithProviders } from '@summerfi/sdk-server-common'
+import { IManagerWithProviders } from '@thesolidchain/sdk-server-common'
 /**
  * @name IOracleManager
  * @description This is the highest level interface that will choose and call appropriate provider for a price consultation

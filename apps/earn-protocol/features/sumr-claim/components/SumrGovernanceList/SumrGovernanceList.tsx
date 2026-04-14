@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { type IconNamesList, IconWithBackground, Text } from '@summerfi/app-earn-ui'
+import { type IconNamesList, IconWithBackground, Text } from '@thesolidchain/app-earn-ui'
 
 import classNames from './SumrGovernanceList.module.css'
 

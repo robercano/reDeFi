@@ -1,6 +1,6 @@
 'use client'
-import { Card, Expander, Icon, Text, WithArrow } from '@summerfi/app-earn-ui'
-import { type IconNamesList } from '@summerfi/app-types'
+import { Card, Expander, Icon, Text, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'

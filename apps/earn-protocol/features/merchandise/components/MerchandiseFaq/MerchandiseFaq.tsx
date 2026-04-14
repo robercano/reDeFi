@@ -1,4 +1,4 @@
-import { Card, FaqSection } from '@summerfi/app-earn-ui'
+import { Card, FaqSection } from '@thesolidchain/app-earn-ui'
 
 import classNames from './MerchandiseFaq.module.css'
 

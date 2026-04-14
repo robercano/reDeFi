@@ -1,7 +1,7 @@
-import { makeAdminSDK } from '@summerfi/sdk-client'
-import { Address } from '@summerfi/sdk-common'
+import { makeAdminSDK } from '@thesolidchain/sdk-client'
+import { Address } from '@thesolidchain/sdk-common'
 import { SDKApiUrl, SharedConfig, TestClientIds, InstiTestConfigs } from './testConfig'
-import { createSendTransactionTool } from '@summerfi/testing-utils'
+import { createSendTransactionTool } from '@thesolidchain/testing-utils'
 
 /**
  * Shared setup for Armada Protocol Access Control tests

@@ -1,11 +1,11 @@
 'use client'
-import { Dropdown, Icon, networkNameIconNameMap, Text } from '@summerfi/app-earn-ui'
+import { Dropdown, Icon, networkNameIconNameMap, Text } from '@thesolidchain/app-earn-ui'
 import {
   type DropdownOption,
   type DropdownRawOption,
   SupportedSDKNetworks,
-} from '@summerfi/app-types'
-import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 import { type Chain } from 'viem'
 

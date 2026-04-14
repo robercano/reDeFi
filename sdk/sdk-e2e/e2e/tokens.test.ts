@@ -1,4 +1,4 @@
-import { ChainIds, type AddressValue, type ChainId } from '@summerfi/sdk-common'
+import { ChainIds, type AddressValue, type ChainId } from '@thesolidchain/sdk-common'
 
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 

@@ -1,4 +1,4 @@
-import { type UiTransactionStatuses } from '@summerfi/app-types'
+import { type UiTransactionStatuses } from '@thesolidchain/app-types'
 
 import { type MerklIsAuthorizedPerChain } from '@/features/claim-and-delegate/types'
 

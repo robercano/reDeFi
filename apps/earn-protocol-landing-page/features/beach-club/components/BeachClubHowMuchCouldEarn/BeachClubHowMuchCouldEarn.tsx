@@ -1,4 +1,4 @@
-import { BeachClubRewardSimulation, Text } from '@summerfi/app-earn-ui'
+import { BeachClubRewardSimulation, Text } from '@thesolidchain/app-earn-ui'
 import { debounce } from 'lodash-es'
 import { usePathname } from 'next/navigation'
 

@@ -1,4 +1,4 @@
-import { Address, ChainId, getRpcGatewayEndpoint, IRpcConfig } from '@summerfi/serverless-shared'
+import { Address, ChainId, getRpcGatewayEndpoint, IRpcConfig } from '@thesolidchain/serverless-shared'
 import { Chain as ViemChain, createPublicClient, http, PublicClient } from 'viem'
 import { arbitrum, base, hyperliquid, mainnet, optimism, sepolia, sonic } from 'viem/chains'
 import { morphoEmissionDataProviderAbi, morphoBlueAbi } from './abis'

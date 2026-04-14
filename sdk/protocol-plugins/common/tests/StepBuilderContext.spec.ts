@@ -4,7 +4,7 @@ import {
   LendingPositionType,
   PoolType,
   ProtocolName,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   Address,
   ChainFamilyMap,
@@ -13,8 +13,8 @@ import {
   PositionType,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { SimulationSteps, TokenTransferTargetType, steps } from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
+import { SimulationSteps, TokenTransferTargetType, steps } from '@thesolidchain/sdk-common'
 import { DerivedAction } from './DerivedAction'
 import { StepBuilderContext } from '../src/context'
 

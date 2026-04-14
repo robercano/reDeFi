@@ -1,4 +1,4 @@
-import { Card, Table, Text } from '@summerfi/app-earn-ui'
+import { Card, Table, Text } from '@thesolidchain/app-earn-ui'
 
 import { feeRevenueColumns } from './tables/fee-revenue/columns'
 import { thirdPartyCostsColumns } from './tables/third-party-costs/columns'

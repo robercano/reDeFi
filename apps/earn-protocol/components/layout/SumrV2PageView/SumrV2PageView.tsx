@@ -13,9 +13,9 @@ import {
   useUserWallet,
   WithArrow,
   YieldSourceLabel,
-} from '@summerfi/app-earn-ui'
-import { formatPercent } from '@summerfi/app-utils'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
+} from '@thesolidchain/app-earn-ui'
+import { formatPercent } from '@thesolidchain/app-utils'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 import Image from 'next/image'

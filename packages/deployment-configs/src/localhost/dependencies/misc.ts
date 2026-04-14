@@ -1,4 +1,4 @@
-import { MiscDependencyConfig } from '@summerfi/deployment-types'
+import { MiscDependencyConfig } from '@thesolidchain/deployment-types'
 
 export const MiscDependenciesConfiguration: MiscDependencyConfig = {
   GnosisSafe: {

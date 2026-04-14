@@ -1,13 +1,13 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import { ActionBuildersMap, IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
-import { Address, ChainInfo, Wallet } from '@summerfi/sdk-common'
-import { IPositionsManager } from '@summerfi/sdk-common'
-import { IUser, User } from '@summerfi/sdk-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { ActionBuildersMap, IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
+import { Address, ChainInfo, Wallet } from '@thesolidchain/sdk-common'
+import { IPositionsManager } from '@thesolidchain/sdk-common'
+import { IUser, User } from '@thesolidchain/sdk-common'
 import {
   AddressBookManagerMock,
   StepBuilderContextMock,
   SwapManagerMock,
-} from '@summerfi/testing-utils'
+} from '@thesolidchain/testing-utils'
 import {
   createEmptyBuildersProtocolPluginsRegistry,
   createEmptyProtocolPluginsRegistry,

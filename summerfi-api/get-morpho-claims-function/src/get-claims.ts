@@ -1,4 +1,4 @@
-import { ChainId, safeParseBigInt } from '@summerfi/serverless-shared'
+import { ChainId, safeParseBigInt } from '@thesolidchain/serverless-shared'
 import {
   UserRewardsResponse,
   UserRewardsDistributionResponse,

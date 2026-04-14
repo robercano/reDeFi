@@ -5,7 +5,7 @@ import {
   cookieStorage,
   createConfig,
 } from '@account-kit/react'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import { QueryClient } from '@tanstack/react-query'
 import { type Chain } from 'viem'
 import { entryPoint07Address } from 'viem/account-abstraction'

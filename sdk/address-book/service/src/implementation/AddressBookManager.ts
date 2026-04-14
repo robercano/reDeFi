@@ -1,7 +1,7 @@
-import type { Maybe, IAddress, IChainInfo } from '@summerfi/sdk-common'
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import { DeploymentIndex } from '@summerfi/deployment-utils'
-import { Address, AddressValue } from '@summerfi/sdk-common'
+import type { Maybe, IAddress, IChainInfo } from '@thesolidchain/sdk-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { DeploymentIndex } from '@thesolidchain/deployment-utils'
+import { Address, AddressValue } from '@thesolidchain/sdk-common'
 
 /**
  * @name AddressBookManager

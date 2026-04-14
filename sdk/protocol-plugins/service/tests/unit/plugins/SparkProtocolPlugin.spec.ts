@@ -1,5 +1,5 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
-import { ChainFamilyMap, ChainInfo, ProtocolName, type ChainId } from '@summerfi/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { ChainFamilyMap, ChainInfo, ProtocolName, type ChainId } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { SparkLendingPositionId } from '../../../src/plugins/spark/implementation/SparkLendingPositionId'
 import { SparkProtocolPlugin } from '../../../src/plugins/spark/implementation/SparkProtocolPlugin'

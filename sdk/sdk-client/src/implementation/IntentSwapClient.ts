@@ -7,7 +7,7 @@ import {
   ALL_SUPPORTED_CHAIN_IDS,
 } from '@cowprotocol/cow-sdk'
 import type { SDKSigner } from './MakeSDKWithSigner'
-import { Price } from '@summerfi/sdk-common'
+import { Price } from '@thesolidchain/sdk-common'
 
 /**
  * @name IntentSwapClient

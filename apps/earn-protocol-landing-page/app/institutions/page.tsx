@@ -10,8 +10,8 @@ import {
   INTERNAL_LINKS,
   Text,
   WithArrow,
-} from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'

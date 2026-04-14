@@ -1,4 +1,4 @@
-import { PositionLike } from '@summerfi/triggers-shared'
+import { PositionLike } from '@thesolidchain/triggers-shared'
 import { AutoTakeProfitRealized } from './types'
 
 export const getEmptyProfit = (

@@ -33,7 +33,7 @@ import {
   isDeploymentParams,
   isWalletClient,
 } from './utils'
-import { Address } from '@summerfi/common'
+import { Address } from '@thesolidchain/common'
 import { toCamelCase } from '../utils/camelCase'
 
 export class Deployments {

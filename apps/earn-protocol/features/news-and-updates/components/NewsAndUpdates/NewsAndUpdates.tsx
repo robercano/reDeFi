@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Card, Text } from '@summerfi/app-earn-ui'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
 
 import { type BlogPosts } from '@/app/server-handlers/raw-calls/blog-posts/types'
 import { NewsAndUpdatesList } from '@/features/news-and-updates/components/NewsAndUpdatesList/NewsAndUpdatesList'

@@ -1,7 +1,7 @@
 import { type FC, type ReactNode, useMemo, useState } from 'react'
-import { DataBlock, Icon, PillSelector } from '@summerfi/app-earn-ui'
-import { NetworkNames } from '@summerfi/app-types'
-import { formatDecimalAsPercent, formatFiatBalance, slugify } from '@summerfi/app-utils'
+import { DataBlock, Icon, PillSelector } from '@thesolidchain/app-earn-ui'
+import { NetworkNames } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent, formatFiatBalance, slugify } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { type PortfolioAssetsResponse } from '@/app/server-handlers/cached/get-wallet-assets/types'

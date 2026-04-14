@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/summer-beach-club-db",
+  "name": "@thesolidchain/summer-beach-club-db",
   "version": "1.0.0",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,11 +19,11 @@
   "dependencies": {
     "kysely": "^0.28.2",
     "pg": "^8.16.0",
-    "@summerfi/abstractions": "workspace:*"
+    "@thesolidchain/abstractions": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/pg": "^8.11.11",
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",

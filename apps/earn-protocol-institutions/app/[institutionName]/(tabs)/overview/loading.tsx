@@ -1,4 +1,4 @@
-import { Card, LoadingSpinner } from '@summerfi/app-earn-ui'
+import { Card, LoadingSpinner } from '@thesolidchain/app-earn-ui'
 
 export default function InstitutionOverviewLayoutLoading() {
   return (

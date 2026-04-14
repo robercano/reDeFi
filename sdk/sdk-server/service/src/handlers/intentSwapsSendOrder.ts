@@ -8,7 +8,7 @@ import {
   isTokenAmount,
   type IAddress,
   isAddress,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { EcdsaSigningScheme } from '@cowprotocol/cow-sdk'
 
 export const intentSwapsSendOrder = publicProcedure

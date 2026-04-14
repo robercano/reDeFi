@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/app-risk",
+  "name": "@thesolidchain/app-risk",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "type": "module",
@@ -17,8 +17,8 @@
     "knip": "knip"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^22.14.1",
     "@types/react": "19.2.3",
     "@vitejs/plugin-react-swc": "^3.8.0",
@@ -30,7 +30,7 @@
     "vite": "7.0.5"
   },
   "peerDependencies": {
-    "@summerfi/app-utils": "workspace:*",
+    "@thesolidchain/app-utils": "workspace:*",
     "kysely": "^0.27.3",
     "next": "16.2.1",
     "react": "19.2.3",

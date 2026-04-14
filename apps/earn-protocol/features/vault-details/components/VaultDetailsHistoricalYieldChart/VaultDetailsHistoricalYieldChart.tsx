@@ -1,13 +1,13 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 import {
   type ArksHistoricalChartData,
   type ChartDataPoints,
   type InlineButtonOption,
   type TimeframesType,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { ChartHeader } from '@/components/organisms/Charts/ChartHeader'
 import { NotEnoughData } from '@/components/organisms/Charts/components/NotEnoughData'

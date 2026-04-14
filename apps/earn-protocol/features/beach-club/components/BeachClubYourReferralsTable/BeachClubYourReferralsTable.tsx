@@ -1,5 +1,5 @@
 import { type FC, type ReactNode, useMemo } from 'react'
-import { Table, type TableSortedColumn, Text, useMobileCheck } from '@summerfi/app-earn-ui'
+import { Table, type TableSortedColumn, Text, useMobileCheck } from '@thesolidchain/app-earn-ui'
 
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'
 import { type BeachClubReferralList } from '@/features/beach-club/types'

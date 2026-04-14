@@ -1,9 +1,9 @@
 {
-  "name": "@summerfi/jest-config",
+  "name": "@thesolidchain/jest-config",
   "version": "0.0.1",
   "private": true,
   "peerDependencies": {
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/typescript-config": "workspace:*"
   },
   "dependencies": {
     "jest": "^29.7.0",

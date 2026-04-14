@@ -1,4 +1,4 @@
-import { TableCellNodes, TableCellText } from '@summerfi/app-earn-ui'
+import { TableCellNodes, TableCellText } from '@thesolidchain/app-earn-ui'
 
 import { type VaultRiskParameters } from './types'
 

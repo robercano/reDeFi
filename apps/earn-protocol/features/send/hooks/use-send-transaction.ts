@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSendUserOperation, useSmartAccountClient } from '@account-kit/react'
-import { getAccountType, useIsIframe } from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds, type TransactionHash } from '@summerfi/app-types'
-import { chainIdToSDKNetwork } from '@summerfi/app-utils'
-import { Address, type IToken, TransactionType } from '@summerfi/sdk-common'
+import { getAccountType, useIsIframe } from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds, type TransactionHash } from '@thesolidchain/app-types'
+import { chainIdToSDKNetwork } from '@thesolidchain/app-utils'
+import { Address, type IToken, TransactionType } from '@thesolidchain/sdk-common'
 import { encodeFunctionData, type PublicClient } from 'viem'
 
 import { getGasSponsorshipOverride } from '@/helpers/get-gas-sponsorship-override'

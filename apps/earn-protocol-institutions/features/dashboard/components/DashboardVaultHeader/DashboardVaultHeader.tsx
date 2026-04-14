@@ -1,10 +1,10 @@
 import { type FC } from 'react'
-import { DataBlock } from '@summerfi/app-earn-ui'
+import { DataBlock } from '@thesolidchain/app-earn-ui'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
   formatWithSeparators,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 
 import styles from './DashboardVaultHeader.module.css'

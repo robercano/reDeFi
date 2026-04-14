@@ -7,9 +7,9 @@ import {
 } from 'viem'
 import { OPERATION_NAMES } from '@oasisdex/dma-library'
 import { DEFAULT_DEVIATION } from './defaults'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { AaveAutoSellTriggerData } from '~types'
-import { PositionLike, CurrentTriggerLike } from '@summerfi/triggers-shared'
+import { PositionLike, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
 
 import { getMaxCoverage } from './get-max-coverage'
 import { TriggerTransactions } from './types'

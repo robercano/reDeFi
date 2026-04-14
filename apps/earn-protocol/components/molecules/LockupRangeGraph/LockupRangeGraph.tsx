@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Icon, Text, Tooltip } from '@summerfi/app-earn-ui'
+import { Icon, Text, Tooltip } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import {

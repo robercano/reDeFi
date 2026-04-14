@@ -1,10 +1,10 @@
-import { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { IContractsProvider, IERC4626 } from '@summerfi/contracts-provider-common'
-import { Address, ChainFamilyMap, ChainInfo } from '@summerfi/sdk-common'
-import { Tenderly, type Vnet } from '@summerfi/tenderly-utils'
-import { BlockchainClientProviderMock } from '@summerfi/testing-utils'
+import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IContractsProvider, IERC4626 } from '@thesolidchain/contracts-provider-common'
+import { Address, ChainFamilyMap, ChainInfo } from '@thesolidchain/sdk-common'
+import { Tenderly, type Vnet } from '@thesolidchain/tenderly-utils'
+import { BlockchainClientProviderMock } from '@thesolidchain/testing-utils'
 import { ContractsProviderFactory } from '../src/implementation/ContractsProviderFactory'
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 
 describe.skip('Contracts Provider Service - ERC4626 Contract', () => {
   const configurationProvider = new ConfigurationProvider()

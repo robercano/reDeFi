@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import { Button, Input, Text } from '@summerfi/app-earn-ui'
+import { Button, Input, Text } from '@thesolidchain/app-earn-ui'
 
 import { isValidAddress } from '@/helpers/is-valid-address'
 

@@ -1,5 +1,5 @@
-import { Address, Token, TokenAmount } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import { SetApprovalAction } from '../../../src/plugins/common/actions'
 
 describe('SetApproval Action', () => {

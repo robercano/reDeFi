@@ -1,5 +1,5 @@
-import { type TimeframesType } from '@summerfi/app-types'
-import { formatAsShorthandNumbers } from '@summerfi/app-utils'
+import { type TimeframesType } from '@thesolidchain/app-types'
+import { formatAsShorthandNumbers } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 const PERCENTAGE_SHORTHAND_THRESHOLD = 1000

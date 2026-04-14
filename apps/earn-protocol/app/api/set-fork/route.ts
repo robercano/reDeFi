@@ -1,4 +1,4 @@
-import { forksCookieName } from '@summerfi/app-earn-ui'
+import { forksCookieName } from '@thesolidchain/app-earn-ui'
 import { cookies } from 'next/headers'
 import { type NextRequest } from 'next/server'
 

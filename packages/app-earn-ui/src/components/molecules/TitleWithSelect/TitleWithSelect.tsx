@@ -1,7 +1,7 @@
 'use client'
 
 import type { FC, ReactNode } from 'react'
-import { type DropdownOption, type DropdownRawOption } from '@summerfi/app-types'
+import { type DropdownOption, type DropdownRawOption } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 
 import { Icon } from '@/components/atoms/Icon/Icon'

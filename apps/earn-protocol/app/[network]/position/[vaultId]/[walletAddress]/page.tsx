@@ -4,13 +4,13 @@ import {
   getPositionValues,
   parseForecastDatapoints,
   Text,
-} from '@summerfi/app-earn-ui'
-import { getArksInterestRates } from '@summerfi/app-server-handlers'
+} from '@thesolidchain/app-earn-ui'
+import { getArksInterestRates } from '@thesolidchain/app-server-handlers'
 import {
   type IArmadaPosition,
   type PositionForecastAPIResponse,
   type SupportedSDKNetworks,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   humanNetworktoSDKNetwork,
@@ -18,7 +18,7 @@ import {
   subgraphNetworkToId,
   supportedSDKNetwork,
   zero,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 import { capitalize } from 'lodash-es'

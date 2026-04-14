@@ -19,7 +19,7 @@ import {
   useUserWallet,
   VaultCard,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type DropdownOption,
   type DropdownRawOption,
@@ -29,14 +29,14 @@ import {
   type SDKVaultsListType,
   type SupportedSDKNetworks,
   type TokenPriceData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   sdkNetworkToHumanNetwork,
   subgraphNetworkToId,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'

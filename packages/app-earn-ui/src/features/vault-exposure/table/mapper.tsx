@@ -5,14 +5,14 @@ import {
   type SDKVaultType,
   type SupportedSDKNetworks,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   formatCryptoBalance,
   formatDecimalAsPercent,
   sdkNetworkToHumanNetwork,
   subgraphNetworkToId,
   zero,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 import { memoize } from 'lodash-es'

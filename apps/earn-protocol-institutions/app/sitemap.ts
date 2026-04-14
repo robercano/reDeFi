@@ -1,4 +1,4 @@
-import { parseServerResponseToClient } from '@summerfi/app-utils'
+import { parseServerResponseToClient } from '@thesolidchain/app-utils'
 import { type MetadataRoute } from 'next'
 
 import { getCachedConfig } from '@/app/server-handlers/config'

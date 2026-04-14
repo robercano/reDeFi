@@ -1,4 +1,4 @@
-import { type TableColumn } from '@summerfi/app-earn-ui'
+import { type TableColumn } from '@thesolidchain/app-earn-ui'
 
 import { type ActiveUsersListColumns } from '@/features/panels/vaults/components/PanelUserAdmin/types'
 

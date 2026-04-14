@@ -1,7 +1,7 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { SECONDS_PER_DAY } from '@summerfi/app-utils'
-import { GovernanceRewardsManagerAbi, SummerTokenAbi } from '@summerfi/armada-protocol-abis'
-import { getChainInfoByChainId } from '@summerfi/sdk-common'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { SECONDS_PER_DAY } from '@thesolidchain/app-utils'
+import { GovernanceRewardsManagerAbi, SummerTokenAbi } from '@thesolidchain/armada-protocol-abis'
+import { getChainInfoByChainId } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 
 import { serverOnlyErrorHandler } from '@/app/server-handlers/error-handler'

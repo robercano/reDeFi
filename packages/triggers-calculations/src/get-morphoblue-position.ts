@@ -1,10 +1,10 @@
-import { PositionLike, PRICE_DECIMALS, TokenBalance } from '@summerfi/triggers-shared'
-import { Address, ChainId, PoolId } from '@summerfi/serverless-shared'
+import { PositionLike, PRICE_DECIMALS, TokenBalance } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, PoolId } from '@thesolidchain/serverless-shared'
 import { PublicClient } from 'viem'
-import { chainlinkPairOracleAbi, erc20Abi, morphoBlueAbi } from '@summerfi/abis'
+import { chainlinkPairOracleAbi, erc20Abi, morphoBlueAbi } from '@thesolidchain/abis'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { calculateLtv, isStablecoin, normalizeAmount } from './helpers'
-import { getPricesSubgraphClient, UsdcAndTokenPrice } from '@summerfi/prices-subgraph'
+import { getPricesSubgraphClient, UsdcAndTokenPrice } from '@thesolidchain/prices-subgraph'
 import { BigNumber } from 'bignumber.js'
 
 export interface GetMorphoBluePositionParams {

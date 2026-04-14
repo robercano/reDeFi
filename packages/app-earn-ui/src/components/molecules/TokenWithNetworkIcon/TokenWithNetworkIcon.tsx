@@ -4,7 +4,7 @@ import {
   type SupportedNetworkIds,
   type SupportedSDKNetworks,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { networkIdIconNameMap, networkNameIconNameMap } from '@/constants/icon-maps'

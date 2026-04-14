@@ -1,11 +1,11 @@
-import { arkDetailsMap, getProtocolLabel } from '@summerfi/app-earn-ui'
+import { arkDetailsMap, getProtocolLabel } from '@thesolidchain/app-earn-ui'
 import {
   type LandingPageData,
   type SDKVaultishType,
   type SDKVaultType,
   SupportedNetworkIds,
   type SupportedSDKNetworks,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   decorateWithFleetConfig,
@@ -13,15 +13,15 @@ import {
   subgraphNetworkToId,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
-import { FleetCommanderAbi } from '@summerfi/armada-protocol-abis'
+} from '@thesolidchain/app-utils'
+import { FleetCommanderAbi } from '@thesolidchain/armada-protocol-abis'
 import {
   Address,
   ArmadaVaultId,
   getChainInfoByChainId,
   GraphRoleName,
   type Role,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import dayjs from 'dayjs'
 import { unstable_cache as unstableCache } from 'next/cache'
 

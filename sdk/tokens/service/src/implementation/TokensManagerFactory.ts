@@ -1,6 +1,6 @@
-import { type IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { ITokensManager, ITokensProvider } from '@summerfi/tokens-common'
+import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 import { TokensManager } from './TokensManager'
 import { StaticTokensProvider } from './static/StaticTokensProvider'
 

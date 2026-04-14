@@ -1,4 +1,4 @@
-import { Address, getChainInfoByChainId } from '@summerfi/sdk-common'
+import { Address, getChainInfoByChainId } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'
 import { ITokensManagerClient2 } from '../interfaces/ITokensManagerClient2'

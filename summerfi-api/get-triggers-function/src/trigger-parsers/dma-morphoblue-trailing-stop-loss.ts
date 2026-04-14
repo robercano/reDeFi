@@ -1,10 +1,10 @@
 import {
   MorphoBlueTrailingStopLossID,
   MorphoBlueTrailingStopLoss,
-} from '@summerfi/triggers-shared/contracts'
-import { PricesSubgraphClient } from '@summerfi/prices-subgraph'
-import { TriggersQuery } from '@summerfi/automation-subgraph'
-import { safeParseBigInt } from '@summerfi/serverless-shared'
+} from '@thesolidchain/triggers-shared/contracts'
+import { PricesSubgraphClient } from '@thesolidchain/prices-subgraph'
+import { TriggersQuery } from '@thesolidchain/automation-subgraph'
+import { safeParseBigInt } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { mapTriggerCommonParams, mapTriggersWithSamePoolId } from '../helpers'
 

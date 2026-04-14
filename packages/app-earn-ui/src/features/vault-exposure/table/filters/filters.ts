@@ -1,4 +1,4 @@
-import type { SDKVaultType } from '@summerfi/app-types'
+import type { SDKVaultType } from '@thesolidchain/app-types'
 
 import { VaultExposureFilterType } from '@/features/vault-exposure/types'
 

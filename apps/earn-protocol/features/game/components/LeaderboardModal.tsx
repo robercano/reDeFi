@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { SkeletonLine } from '@summerfi/app-earn-ui'
-import { formatAddress, formatCryptoBalance, timeAgo } from '@summerfi/app-utils'
+import { SkeletonLine } from '@thesolidchain/app-earn-ui'
+import { formatAddress, formatCryptoBalance, timeAgo } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 
 import { type LeaderboardResponse } from '@/features/game/types'

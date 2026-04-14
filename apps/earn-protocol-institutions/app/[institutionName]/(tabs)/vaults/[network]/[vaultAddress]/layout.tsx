@@ -5,7 +5,7 @@ import {
   subgraphNetworkToId,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { getCachedInstitutionData } from '@/app/server-handlers/institution/institution-data'

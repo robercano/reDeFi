@@ -2,9 +2,9 @@ import {
   analyticsCookieName,
   slippageConfigCookieName,
   sumrNetApyConfigCookieName,
-} from '@summerfi/app-earn-ui'
-import { type DeviceType, type UserConfigResponse } from '@summerfi/app-types'
-import { getServerSideCookies, safeParseJson } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type DeviceType, type UserConfigResponse } from '@thesolidchain/app-types'
+import { getServerSideCookies, safeParseJson } from '@thesolidchain/app-utils'
 import { cookies } from 'next/headers'
 import { NextResponse } from 'next/server'
 

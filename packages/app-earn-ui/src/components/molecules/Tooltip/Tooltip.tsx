@@ -14,7 +14,7 @@ import {
   useState,
 } from 'react'
 import { createPortal } from 'react-dom'
-import { type DeviceType } from '@summerfi/app-types'
+import { type DeviceType } from '@thesolidchain/app-types'
 
 import { Card } from '@/components/atoms/Card/Card'
 import type CardVariants from '@/components/atoms/Card/Card.module.css'

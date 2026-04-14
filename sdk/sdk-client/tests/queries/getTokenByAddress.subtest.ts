@@ -1,6 +1,6 @@
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
-import { Address, Token } from '@summerfi/sdk-common'
+import { Address, Token } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 
 export default async function getTokenByAddress() {

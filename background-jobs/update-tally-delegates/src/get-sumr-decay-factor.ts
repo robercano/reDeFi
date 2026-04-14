@@ -1,8 +1,8 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { GovernanceRewardsManagerAbi } from '@summerfi/armada-protocol-abis'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { GovernanceRewardsManagerAbi } from '@thesolidchain/armada-protocol-abis'
 import BigNumber from 'bignumber.js'
 
-import { getSSRPublicClient } from '@summerfi/ssr-public-client'
+import { getSSRPublicClient } from '@thesolidchain/ssr-public-client'
 import { Logger } from '@aws-lambda-powertools/logger'
 
 // Governance Rewards Manager address on Base

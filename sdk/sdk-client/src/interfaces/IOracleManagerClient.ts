@@ -5,7 +5,7 @@ import type {
   Denomination,
   FiatCurrency,
   IChainInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 /**
  * @name IOracleManagerClient

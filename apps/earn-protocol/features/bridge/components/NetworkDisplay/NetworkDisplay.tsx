@@ -1,5 +1,5 @@
-import { Icon, networkNameIconNameMap, Text } from '@summerfi/app-earn-ui'
-import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@summerfi/app-utils'
+import { Icon, networkNameIconNameMap, Text } from '@thesolidchain/app-earn-ui'
+import { chainIdToSDKNetwork, sdkNetworkToHumanNetwork } from '@thesolidchain/app-utils'
 import { capitalize } from 'lodash-es'
 
 import styles from './NetworkDisplay.module.css'

@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/configuration-provider",
+  "name": "@thesolidchain/configuration-provider",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,14 +19,14 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
     "@types/node-fetch": "^2.6.11",
     "node-fetch": "^2.7.0"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   }
 }

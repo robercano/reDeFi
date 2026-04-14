@@ -1,12 +1,12 @@
 import { type Dispatch, type FC } from 'react'
 import { useChain } from '@account-kit/react'
-import { Icon, Sidebar, Text } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { Icon, Sidebar, Text } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   isSupportedHumanNetwork,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { useSearchParams } from 'next/navigation'
 
 import { BridgeFormStepFallback } from '@/features/bridge/components/BridgeFormFallbackStep/BridgeFormStepFallback'

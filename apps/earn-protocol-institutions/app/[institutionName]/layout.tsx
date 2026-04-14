@@ -1,4 +1,4 @@
-import { Button } from '@summerfi/app-earn-ui'
+import { Button } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { readSession } from '@/app/server-handlers/auth/session'

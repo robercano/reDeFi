@@ -5,8 +5,8 @@ import {
   type SlippageConfig,
   slippageConfigCookieName,
   useLocalConfig,
-} from '@summerfi/app-earn-ui'
-import { getCookie, setCookie } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { getCookie, setCookie } from '@thesolidchain/app-utils'
 
 /**
  * Custom hook to manage slippage configuration.

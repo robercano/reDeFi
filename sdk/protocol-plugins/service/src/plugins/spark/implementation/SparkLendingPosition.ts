@@ -1,4 +1,4 @@
-import { LendingPosition, SerializationService } from '@summerfi/sdk-common'
+import { LendingPosition, SerializationService } from '@thesolidchain/sdk-common'
 import { ISparkLendingPositionId } from '../interfaces/ISparkLendingPositionId'
 import { ISparkLendingPool } from '../interfaces/ISparkLendingPool'
 import {

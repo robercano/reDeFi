@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { type TOSState, TOSStatus } from '@summerfi/app-types'
+import { type TOSState, TOSStatus } from '@thesolidchain/app-types'
 
 import { Button } from '@/components/atoms/Button/Button'
 import { Text } from '@/components/atoms/Text/Text'

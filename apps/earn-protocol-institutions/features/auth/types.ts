@@ -1,4 +1,4 @@
-import { type UserRole } from '@summerfi/summer-protocol-institutions-db'
+import { type UserRole } from '@thesolidchain/summer-protocol-institutions-db'
 
 export interface LoginCredentials {
   email: string

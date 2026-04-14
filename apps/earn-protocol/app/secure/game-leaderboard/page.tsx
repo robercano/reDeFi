@@ -1,5 +1,5 @@
-import { Button, Icon, Text } from '@summerfi/app-earn-ui'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { Button, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { revalidateTag, unstable_cache as unstableCache } from 'next/cache'
 import { cookies } from 'next/headers'
 

@@ -4,7 +4,7 @@
 import { useCallback, useLayoutEffect, useState } from 'react'
 import { useChain, useConnect } from '@account-kit/react'
 import Safe from '@safe-global/safe-apps-sdk'
-import { SDKChainIdToAAChainMap, useIsIframe } from '@summerfi/app-earn-ui'
+import { SDKChainIdToAAChainMap, useIsIframe } from '@thesolidchain/app-earn-ui'
 import { safe } from 'wagmi/connectors'
 
 export const AutoConnectSafe = () => {

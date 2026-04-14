@@ -5,9 +5,9 @@ import {
   TableCellText,
   type TableSortedColumn,
   Tooltip,
-} from '@summerfi/app-earn-ui'
-import { formatCryptoBalance } from '@summerfi/app-utils'
-import { type Role } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
+import { type Role } from '@thesolidchain/sdk-common'
 import clsx from 'clsx'
 import dayjs from 'dayjs'
 

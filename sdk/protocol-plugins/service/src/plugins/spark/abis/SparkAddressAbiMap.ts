@@ -1,4 +1,4 @@
-import { SparkContractNames } from '@summerfi/deployment-types'
+import { SparkContractNames } from '@thesolidchain/deployment-types'
 import { GenericAbiMap } from '../../utils/ChainContractProvider'
 import {
   SPARK_ORACLE_ABI,

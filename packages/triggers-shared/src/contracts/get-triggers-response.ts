@@ -1,4 +1,4 @@
-import { ProtocolId } from '@summerfi/serverless-shared'
+import { ProtocolId } from '@thesolidchain/serverless-shared'
 import { Price, TokenBalance } from '../types'
 
 // maker legacy ids

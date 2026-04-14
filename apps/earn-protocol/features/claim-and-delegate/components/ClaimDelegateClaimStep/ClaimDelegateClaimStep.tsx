@@ -10,18 +10,18 @@ import {
   useClientChainId,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   AuthorizedStakingRewardsCallerBaseStatus,
   SupportedNetworkIds,
   UiTransactionStatuses,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   isSupportedHumanNetwork,
   sdkNetworkToHumanNetwork,
   sdkNetworkToHumanNetworkStrict,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { redirect, useParams, useRouter, useSearchParams } from 'next/navigation'
 
 import { delayPerNetwork } from '@/constants/delay-per-network'

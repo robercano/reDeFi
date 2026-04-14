@@ -1,7 +1,7 @@
 'use client'
 import { type FC, type ReactNode, useCallback, useMemo, useState } from 'react'
-import { type InterestRates, type SDKVaultType, type VaultApyData } from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { type InterestRates, type SDKVaultType, type VaultApyData } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 import { Table, type TableSortedColumn } from '@/components/organisms/Table/Table'
 import { vaultExposureColumns } from '@/features/vault-exposure/table/columns'

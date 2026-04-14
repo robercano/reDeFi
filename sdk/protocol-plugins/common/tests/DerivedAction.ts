@@ -1,5 +1,5 @@
-import { ActionNames } from '@summerfi/deployment-types'
-import { ActionCall, BaseAction } from '@summerfi/protocol-plugins-common'
+import { ActionNames } from '@thesolidchain/deployment-types'
+import { ActionCall, BaseAction } from '@thesolidchain/protocol-plugins-common'
 import { Hex } from 'viem'
 
 export class DerivedAction extends BaseAction<typeof DerivedAction.Config> {

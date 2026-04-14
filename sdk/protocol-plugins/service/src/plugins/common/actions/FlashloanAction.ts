@@ -1,5 +1,5 @@
-import { ActionCall, BaseAction, InputSlotsMapping } from '@summerfi/protocol-plugins-common'
-import { ITokenAmount, FlashloanProvider } from '@summerfi/sdk-common'
+import { ActionCall, BaseAction, InputSlotsMapping } from '@thesolidchain/protocol-plugins-common'
+import { ITokenAmount, FlashloanProvider } from '@thesolidchain/sdk-common'
 
 export class FlashloanAction extends BaseAction<typeof FlashloanAction.Config> {
   public static Config = {

@@ -15,14 +15,14 @@ import {
   useClientChainId,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds, UiTransactionStatuses } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds, UiTransactionStatuses } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatCryptoBalance,
   formatFiatBalance,
   sdkNetworkToHumanNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'
 import { delayPerNetwork } from '@/constants/delay-per-network'

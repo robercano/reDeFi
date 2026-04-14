@@ -2,7 +2,7 @@ import {
   type GetVaultsApyParams,
   type GetVaultsApyRAWResponse,
   type GetVaultsApyResponse,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { getVaultsApyEmptyResponse } from '@/vaults-apy/helpers/get-vaults-apy-empty-response'
 

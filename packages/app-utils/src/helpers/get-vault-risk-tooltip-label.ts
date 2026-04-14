@@ -1,4 +1,4 @@
-import { type RiskType, type SDKVaultishType } from '@summerfi/app-types'
+import { type RiskType, type SDKVaultishType } from '@thesolidchain/app-types'
 
 const riskTooltipLabels: {
   [key in RiskType]: string

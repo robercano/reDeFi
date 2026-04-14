@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/app-icons",
+  "name": "@thesolidchain/app-icons",
   "version": "0.0.0",
   "license": "Apache-2.0",
   "type": "module",
@@ -34,9 +34,9 @@
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {
-    "@summerfi/app-types": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/react": "19.2.3",
     "eslint": "8.57.0",
     "glob": "^11.0.0",

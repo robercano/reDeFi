@@ -1,6 +1,6 @@
-import type { ChainsType } from '@summerfi/hardhat-utils'
+import type { ChainsType } from '@thesolidchain/hardhat-utils'
 import { Contract, TransactionReceipt } from './viem-types'
-import { Address } from '@summerfi/common'
+import { Address } from '@thesolidchain/common'
 
 export enum ProviderTypes {
   Internal = 'internal',

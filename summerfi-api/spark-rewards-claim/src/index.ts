@@ -1,18 +1,18 @@
 import { Logger } from '@aws-lambda-powertools/logger'
-import { IRpcConfig } from '@summerfi/serverless-shared/getRpcGatewayEndpoint'
+import { IRpcConfig } from '@thesolidchain/serverless-shared/getRpcGatewayEndpoint'
 import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
-import { addressSchema } from '@summerfi/serverless-shared/validators'
+} from '@thesolidchain/serverless-shared/responses'
+import { addressSchema } from '@thesolidchain/serverless-shared/validators'
 import type { APIGatewayProxyEventV2, APIGatewayProxyResultV2, Context } from 'aws-lambda'
 import { z } from 'zod'
 import { fetchRewardsData as fetchRewardsRecords } from './fetchRewardsData'
 import type { RewardsData as RewardsRecord } from './types'
 import { sparkRewardsAbi } from './abi/rewards'
 import { getRewardsContractAddressByClaimType, assertValidRootHash } from './mappings'
-import { ChainId, getRpcGatewayEndpoint } from '@summerfi/serverless-shared'
+import { ChainId, getRpcGatewayEndpoint } from '@thesolidchain/serverless-shared'
 import { createPublicClient, encodeFunctionData, extractChain, http, type Hex } from 'viem'
 import { mainnet } from 'viem/chains'
 import { multicall3Abi } from './abi/multicall3'

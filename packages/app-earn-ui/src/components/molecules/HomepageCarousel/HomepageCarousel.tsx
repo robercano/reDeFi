@@ -5,8 +5,8 @@ import {
   type RewardTokenPrices,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { findVaultInfo } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { findVaultInfo } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import useEmblaCarousel from 'embla-carousel-react'
 

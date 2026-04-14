@@ -70,7 +70,7 @@ export default defineConfig(({ mode }) => {
           'bignumber.js',
           'dayjs',
           'lodash-es',
-          '@summerfi/app-types',
+          '@thesolidchain/app-types',
           'next',
           'next/navigation',
           'jose',

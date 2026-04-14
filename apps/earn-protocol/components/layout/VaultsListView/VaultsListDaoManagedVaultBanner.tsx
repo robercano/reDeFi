@@ -1,6 +1,6 @@
-import { Card, getDisplayToken, Icon, Text } from '@summerfi/app-earn-ui'
-import { type TokenSymbolsList } from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { Card, getDisplayToken, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 import vaultsListViewStyles from './VaultsListView.module.css'
 

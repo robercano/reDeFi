@@ -1,4 +1,4 @@
-import { ActionCall, BaseAction, InputSlotsMapping } from '@summerfi/protocol-plugins-common'
+import { ActionCall, BaseAction, InputSlotsMapping } from '@thesolidchain/protocol-plugins-common'
 import { EmodeType } from '../../common/enums/EmodeType'
 import { aaveV3EmodeCategoryMap } from '../implementation/EmodeCategoryMap'
 

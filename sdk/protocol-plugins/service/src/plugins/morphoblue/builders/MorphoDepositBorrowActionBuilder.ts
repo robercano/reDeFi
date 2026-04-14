@@ -1,5 +1,5 @@
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@summerfi/protocol-plugins-common'
-import { TokenTransferTargetType, getValueFromReference, steps } from '@summerfi/sdk-common'
+import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import { TokenTransferTargetType, getValueFromReference, steps } from '@thesolidchain/sdk-common'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 import { SetApprovalAction } from '../../common/actions/SetApprovalAction'
 import { SendTokenAction } from '../../common/actions/SendTokenAction'

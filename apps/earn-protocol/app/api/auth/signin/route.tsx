@@ -1,4 +1,4 @@
-import { makeSignIn } from '@summerfi/app-tos'
+import { makeSignIn } from '@thesolidchain/app-tos'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {

@@ -1,5 +1,5 @@
 import { type CSSProperties, type FC, type ReactNode } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { Card, type CardVariant } from '@/components/atoms/Card/Card'

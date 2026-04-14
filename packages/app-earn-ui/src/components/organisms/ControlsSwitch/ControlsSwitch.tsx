@@ -8,8 +8,8 @@ import {
   type SDKVaultsListType,
   type TokenSymbolsList,
   type VaultApyData,
-} from '@summerfi/app-types'
-import { formatCryptoBalance, formatDecimalAsPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatDecimalAsPercent } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 
 import { Card } from '@/components/atoms/Card/Card'

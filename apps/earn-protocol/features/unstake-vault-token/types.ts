@@ -3,7 +3,7 @@ import {
   type SupportedNetworkIds,
   type TokenSymbolsList,
   type UiTransactionStatuses,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 export enum UnstakeVaultTokenStep {
   INIT = 'init',

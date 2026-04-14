@@ -1,4 +1,4 @@
-import { type SummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { type SummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { type GraphQLClient } from 'graphql-request'
 
 import { getLatestTimestamp } from '@/app/server-handlers/tables-data/helpers'

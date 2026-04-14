@@ -1,5 +1,5 @@
 import { type Dispatch, type FC, Fragment } from 'react'
-import { Button, Text } from '@summerfi/app-earn-ui'
+import { Button, Text } from '@thesolidchain/app-earn-ui'
 import { useRouter } from 'next/navigation'
 
 import { TransakIconWrapper } from '@/features/transak/components/TransakIconWrapper/TransakIconWrapper'

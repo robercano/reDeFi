@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/configuration-provider-mock",
+  "name": "@thesolidchain/configuration-provider-mock",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -18,13 +18,13 @@
     "encode:makerGive": "tsx ./scripts/encodeMakerGive.ts"
   },
   "dependencies": {
-    "@summerfi/configuration-provider": "workspace:*",
-    "@summerfi/configuration-provider-common": "workspace:*"
+    "@thesolidchain/configuration-provider": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/yargs": "^17.0.32",
     "tsx": "^4.7.2",
     "yargs": "^17.7.2"

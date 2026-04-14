@@ -2,6 +2,6 @@
 module.exports = {
   root: true,
   ignorePatterns: ['jest.config.js', 'tests'],
-  extends: ['@summerfi/eslint-config/function.cjs'],
+  extends: ['@thesolidchain/eslint-config/function.cjs'],
   parser: '@typescript-eslint/parser',
 }

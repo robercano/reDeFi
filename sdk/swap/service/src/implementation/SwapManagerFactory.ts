@@ -1,4 +1,4 @@
-import { type IConfigurationProvider } from '@summerfi/configuration-provider-common'
+import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { SwapManager } from './SwapManager'
 import { OneInchSwapProvider } from './oneinch/OneInchSwapProvider'
 

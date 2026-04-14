@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Button, EXTERNAL_LINKS, Text } from '@summerfi/app-earn-ui'
+import { Button, EXTERNAL_LINKS, Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { UnstakeVaultTokenContent } from '@/features/unstake-vault-token/components/UnstakeVaultTokenContent/UnstakeVaultTokenContent'

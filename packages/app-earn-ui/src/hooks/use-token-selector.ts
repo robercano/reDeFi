@@ -5,7 +5,7 @@ import {
   type DropdownRawOption,
   type SDKVaultishType,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { getSwapTokens } from '@/constants/swap-tokens'
 import { getDisplayToken } from '@/helpers/get-display-token'

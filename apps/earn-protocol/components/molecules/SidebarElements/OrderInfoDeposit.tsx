@@ -1,11 +1,11 @@
-import { Icon, OrderInformation, Text } from '@summerfi/app-earn-ui'
+import { Icon, OrderInformation, Text } from '@thesolidchain/app-earn-ui'
 import {
   type SupportedNetworkIds,
   type TokenSymbolsList,
   type TransactionWithStatus,
-} from '@summerfi/app-types'
-import { formatCryptoBalance, formatFiatBalance, formatPercent } from '@summerfi/app-utils'
-import { type IToken, TransactionType } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatFiatBalance, formatPercent } from '@thesolidchain/app-utils'
+import { type IToken, TransactionType } from '@thesolidchain/sdk-common'
 import type BigNumber from 'bignumber.js'
 
 import orderInfoDepositWithdrawStyles from './OrderInfoDepositWithdraw.module.css'

@@ -6,7 +6,7 @@ import {
   type HexData,
   type IAddress,
   type MigrationTransactionInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { formatEther, type PublicClient } from 'viem'
 
 import { useAppSDK } from './use-app-sdk'

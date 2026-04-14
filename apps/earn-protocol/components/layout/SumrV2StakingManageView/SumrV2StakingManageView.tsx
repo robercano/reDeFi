@@ -25,11 +25,11 @@ import {
   useUserWallet,
   WithArrow,
   YieldSourceLabel,
-} from '@summerfi/app-earn-ui'
-import { UiTransactionStatuses } from '@summerfi/app-types'
-import { formatCryptoBalance, formatDecimalToBigInt, formatPercent } from '@summerfi/app-utils'
-import { SDKContextProvider } from '@summerfi/sdk-client-react'
-import { type AddressValue, ChainIds } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-earn-ui'
+import { UiTransactionStatuses } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatDecimalToBigInt, formatPercent } from '@thesolidchain/app-utils'
+import { SDKContextProvider } from '@thesolidchain/sdk-client-react'
+import { type AddressValue, ChainIds } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import clsx from 'clsx'
 import dayjs from 'dayjs'

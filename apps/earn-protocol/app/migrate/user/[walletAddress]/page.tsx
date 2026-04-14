@@ -2,7 +2,7 @@ import {
   parseServerResponseToClient,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { redirect } from 'next/navigation'
 
 import { getCachedConfig } from '@/app/server-handlers/cached/get-config'

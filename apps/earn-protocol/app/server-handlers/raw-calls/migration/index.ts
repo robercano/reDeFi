@@ -1,5 +1,5 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { Address, type ArmadaMigratablePosition, getChainInfoByChainId } from '@summerfi/sdk-common'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { Address, type ArmadaMigratablePosition, getChainInfoByChainId } from '@thesolidchain/sdk-common'
 
 import { backendSDK } from '@/app/server-handlers/sdk/sdk-backend-client'
 import { mapMigrationResponse } from '@/features/migration/helpers/map-migration-response'

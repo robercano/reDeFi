@@ -1,5 +1,5 @@
 import { type FC, type ReactNode } from 'react'
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { Text } from '@/components/atoms/Text/Text'

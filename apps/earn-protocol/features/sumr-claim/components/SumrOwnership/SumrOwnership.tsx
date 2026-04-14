@@ -1,6 +1,6 @@
 import type { FC } from 'react'
-import { RechartResponsiveWrapper, Text } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance, formatDecimalAsPercent } from '@summerfi/app-utils'
+import { RechartResponsiveWrapper, Text } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance, formatDecimalAsPercent } from '@thesolidchain/app-utils'
 import {
   Pie,
   PieChart,

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { IllustrationCircle, Text } from '@summerfi/app-earn-ui'
-import { type VaultApyData } from '@summerfi/app-types'
-import { formatCryptoBalance, formatDecimalAsPercent } from '@summerfi/app-utils'
+import { IllustrationCircle, Text } from '@thesolidchain/app-earn-ui'
+import { type VaultApyData } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatDecimalAsPercent } from '@thesolidchain/app-utils'
 
 import classNames from './MigrationFormCompleteStep.module.css'
 

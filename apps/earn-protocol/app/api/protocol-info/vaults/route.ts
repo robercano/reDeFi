@@ -1,4 +1,4 @@
-import { subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+import { subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import { NextResponse } from 'next/server'
 
 import { getCachedVaultsApy } from '@/app/server-handlers/cached/get-vaults-apy'

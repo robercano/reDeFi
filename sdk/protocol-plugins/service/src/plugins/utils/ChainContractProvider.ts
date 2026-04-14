@@ -1,4 +1,4 @@
-import { Maybe } from '@summerfi/sdk-common'
+import { Maybe } from '@thesolidchain/sdk-common'
 
 /**
  * @type GenericAbiMap

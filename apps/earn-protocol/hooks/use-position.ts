@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { useUserWallet } from '@summerfi/app-earn-ui'
-import { type IArmadaPosition, type SupportedNetworkIds } from '@summerfi/app-types'
-import { Address, getChainInfoByChainId, User, Wallet } from '@summerfi/sdk-common'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
+import { type IArmadaPosition, type SupportedNetworkIds } from '@thesolidchain/app-types'
+import { Address, getChainInfoByChainId, User, Wallet } from '@thesolidchain/sdk-common'
 
 import { useAppSDK } from '@/hooks/use-app-sdk'
 

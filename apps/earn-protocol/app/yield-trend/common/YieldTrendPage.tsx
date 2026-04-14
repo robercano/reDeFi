@@ -1,10 +1,10 @@
 import { type FC } from 'react'
-import { getArksInterestRates, getVaultsHistoricalApy } from '@summerfi/app-server-handlers'
+import { getArksInterestRates, getVaultsHistoricalApy } from '@thesolidchain/app-server-handlers'
 import {
   parseServerResponseToClient,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { getCachedConfig } from '@/app/server-handlers/cached/get-config'
 import { getDaoManagedVaultsIDsList } from '@/app/server-handlers/cached/get-vault-dao-managed'

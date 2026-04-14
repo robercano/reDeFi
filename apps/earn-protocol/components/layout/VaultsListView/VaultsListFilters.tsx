@@ -13,14 +13,14 @@ import {
   ToggleButton,
   useMobileCheck,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type DropdownRawOption,
   type IconNamesList,
   type SDKVaultsListType,
-} from '@summerfi/app-types'
-import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@summerfi/app-utils'
-import { type Network } from '@summerfi/subgraph-manager-common'
+} from '@thesolidchain/app-types'
+import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@thesolidchain/app-utils'
+import { type Network } from '@thesolidchain/subgraph-manager-common'
 import { capitalize } from 'lodash-es'
 import { type ReadonlyURLSearchParams } from 'next/navigation'
 

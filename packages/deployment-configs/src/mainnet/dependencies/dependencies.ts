@@ -1,4 +1,4 @@
-import { DependenciesConfig } from '@summerfi/deployment-types'
+import { DependenciesConfig } from '@thesolidchain/deployment-types'
 import { MiscDependenciesConfiguration } from './misc'
 import { TokensDependeciesConfiguration } from './tokens'
 

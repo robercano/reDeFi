@@ -1,6 +1,6 @@
 'use client'
 import { createContext, type FC, type ReactNode, useContext, useEffect, useState } from 'react'
-import { type LandingPageData, type UserConfigResponse } from '@summerfi/app-types'
+import { type LandingPageData, type UserConfigResponse } from '@thesolidchain/app-types'
 
 const LandingPageDataContext = createContext<Partial<{
   userConfig: UserConfigResponse

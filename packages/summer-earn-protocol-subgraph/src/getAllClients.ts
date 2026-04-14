@@ -1,4 +1,4 @@
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 import { createClient } from './createClient'
 import { supportedChains } from './utils/supportedChains'
 import { SubgraphClient } from './types'

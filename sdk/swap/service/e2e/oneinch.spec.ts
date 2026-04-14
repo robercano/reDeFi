@@ -1,4 +1,4 @@
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 import {
   SDKError,
   SDKErrorType,
@@ -9,7 +9,7 @@ import {
   SwapErrorType,
   SwapProviderType,
   isSwapError,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   Address,
   ChainFamilyMap,
@@ -19,7 +19,7 @@ import {
   Token,
   TokenAmount,
   type ChainInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { SwapManagerFactory } from '../src/implementation/SwapManagerFactory'
 

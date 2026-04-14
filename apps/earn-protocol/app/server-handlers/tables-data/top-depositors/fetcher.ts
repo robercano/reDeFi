@@ -1,4 +1,4 @@
-import { GetTopDepositorsDocument, type Position } from '@summerfi/subgraph-manager-common'
+import { GetTopDepositorsDocument, type Position } from '@thesolidchain/subgraph-manager-common'
 import { type GraphQLClient } from 'graphql-request'
 
 import { SUBGRAPH_BATCH_SIZE } from '@/app/server-handlers/tables-data/consts'

@@ -9,8 +9,8 @@ import {
   Table,
   type TableRow,
   Text,
-} from '@summerfi/app-earn-ui'
-import { subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 import { useRouter } from 'next/navigation'
 

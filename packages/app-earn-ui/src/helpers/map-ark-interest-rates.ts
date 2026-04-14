@@ -1,4 +1,4 @@
-import { type InterestRates } from '@summerfi/app-types'
+import { type InterestRates } from '@thesolidchain/app-types'
 
 /**
  * Maps Ark interest rates data to a simplified key-value object format.

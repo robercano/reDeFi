@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/serverless-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 import { createAddressService } from './addressService'
 import { Chain, HttpTransport, createPublicClient } from 'viem'
 import { dsProxyRegistryContract } from './abi/dsProxyRegistryContract'

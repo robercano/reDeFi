@@ -1,6 +1,6 @@
 'use client'
 
-import { useUserWallet } from '@summerfi/app-earn-ui'
+import { useUserWallet } from '@thesolidchain/app-earn-ui'
 
 import { BeachClubFloatingBanner } from '@/components/molecules/BeachClubFloatingBanner/BeachClubFloatingBanner'
 import {

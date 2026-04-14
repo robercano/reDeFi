@@ -1,4 +1,4 @@
-import { type Rebalance } from '@summerfi/subgraph-manager-common'
+import { type Rebalance } from '@thesolidchain/subgraph-manager-common'
 
 export const rebalancesActionTypeMapper = (
   item: Rebalance,

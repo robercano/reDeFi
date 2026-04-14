@@ -1,14 +1,14 @@
 {
-  "extends": "@summerfi/typescript-config/tsconfig.test.json",
+  "extends": "@thesolidchain/typescript-config/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@summerfi/sdk-common/*": ["node_modules/@summerfi/sdk-common/src/*"],
-      "@summerfi/sdk-common": ["node_modules/@summerfi/sdk-common/src/index.ts"],
-      "@summerfi/order-planner-common/*": ["node_modules/@summerfi/order-planner-common/src/*"],
-      "@summerfi/protocol-plugins-common": ["./src/index.ts"],
-      "@summerfi/testing-utils/*": ["../testing-utils/src/*"]
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/protocol-plugins-common": ["./src/index.ts"],
+      "@thesolidchain/testing-utils/*": ["../testing-utils/src/*"]
     }
   },
   "include": ["src/**/*.ts"],

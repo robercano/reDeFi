@@ -6,8 +6,8 @@ import {
   type SDKVaultishType,
   type SDKVaultsListType,
   type SDKVaultType,
-} from '@summerfi/app-types'
-import { supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 

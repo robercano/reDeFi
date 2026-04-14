@@ -6,8 +6,8 @@ import {
   useSmartAccountClient,
   useUser,
 } from '@account-kit/react'
-import { AccountKitAccountType, getAccountType } from '@summerfi/app-earn-ui'
-import { type TOSSignMessage } from '@summerfi/app-tos'
+import { AccountKitAccountType, getAccountType } from '@thesolidchain/app-earn-ui'
+import { type TOSSignMessage } from '@thesolidchain/app-tos'
 
 /**
  * Hook to handle signing Terms of Service messages for both EOA and Smart Contract accounts

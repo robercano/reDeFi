@@ -1,5 +1,5 @@
-import { Address, ChainFamilyMap, User, Wallet, getChainInfoByChainId } from '@summerfi/sdk-common'
-import { ConfigurationProviderMock } from '@summerfi/configuration-provider-mock'
+import { Address, ChainFamilyMap, User, Wallet, getChainInfoByChainId } from '@thesolidchain/sdk-common'
+import { ConfigurationProviderMock } from '@thesolidchain/configuration-provider-mock'
 import { SubgraphManagerFactory, type ArmadaSubgraphManager } from '../src'
 
 describe('Subgraph Manager', () => {

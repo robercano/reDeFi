@@ -1,6 +1,6 @@
-import { type ISwapManager } from '@summerfi/swap-common'
-import { type IProtocolManager } from '@summerfi/protocol-manager-common'
-import { type IOracleManager } from '@summerfi/oracle-common'
+import { type ISwapManager } from '@thesolidchain/swap-common'
+import { type IProtocolManager } from '@thesolidchain/protocol-manager-common'
+import { type IOracleManager } from '@thesolidchain/oracle-common'
 
 /**
  * @name IRefinanceDependencies

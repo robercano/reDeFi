@@ -1,10 +1,10 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import {
   BuildOrderParams,
   IOrderPlanner,
   encodeStrategy,
   generateStrategyName,
-} from '@summerfi/order-planner-common'
+} from '@thesolidchain/order-planner-common'
 import {
   ActionBuildersMap,
   ActionCall,
@@ -12,7 +12,7 @@ import {
   IActionBuilder,
   IStepBuilderContext,
   StepBuilderContext,
-} from '@summerfi/protocol-plugins-common'
+} from '@thesolidchain/protocol-plugins-common'
 import {
   IUser,
   SDKError,
@@ -27,8 +27,8 @@ import {
   isRefinanceSimulation,
   Order,
   TransactionInfo,
-} from '@summerfi/sdk-common'
-import type { IPositionsManager } from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
+import type { IPositionsManager } from '@thesolidchain/sdk-common'
 
 /**
  * @name DMAOrderPlanner

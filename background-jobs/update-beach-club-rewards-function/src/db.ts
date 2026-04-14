@@ -2,7 +2,7 @@ import { Kysely, sql } from 'kysely'
 
 import { ConfigService, PointsConfig } from './config'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { getBeachClubDb, DB } from '@summerfi/summer-beach-club-db'
+import { getBeachClubDb, DB } from '@thesolidchain/summer-beach-club-db'
 import * as dotenv from 'dotenv'
 import path from 'node:path'
 import {

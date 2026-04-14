@@ -1,4 +1,4 @@
-import { IChainInfo, type IAddress, type ITokenAmount } from '@summerfi/sdk-common'
+import { IChainInfo, type IAddress, type ITokenAmount } from '@thesolidchain/sdk-common'
 import { numberToHex } from 'viem'
 
 export type ForkResponse = {

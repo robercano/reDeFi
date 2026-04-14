@@ -1,4 +1,4 @@
-import { ContractsHashMap, getContractsHashes } from '@summerfi/contracts-utils'
+import { ContractsHashMap, getContractsHashes } from '@thesolidchain/contracts-utils'
 import { ContractsVersionsMap, ContractsVersionsSnapshot } from './types'
 import fs from 'fs'
 import path from 'path'

@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
-import { AuthorizedStakingRewardsCallerBaseStatus, SupportedNetworkIds } from '@summerfi/app-types'
-import { formatCryptoBalance, formatFiatBalance } from '@summerfi/app-utils'
+import { AuthorizedStakingRewardsCallerBaseStatus, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { formatCryptoBalance, formatFiatBalance } from '@thesolidchain/app-utils'
 
 import { ClaimDelegateToBridge } from './ClaimDelegateToBridge'
 import { ClaimDelegateToClaim } from './ClaimDelegateToClaim'

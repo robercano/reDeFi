@@ -1,6 +1,6 @@
 'use client'
 import { type ReactNode } from 'react'
-import { Button, Card, Icon, Text } from '@summerfi/app-earn-ui'
+import { Button, Card, Icon, Text } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

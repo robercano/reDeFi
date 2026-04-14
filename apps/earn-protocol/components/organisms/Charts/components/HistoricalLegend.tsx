@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
-import { Icon, Text } from '@summerfi/app-earn-ui'
-import { type TokenSymbolsList } from '@summerfi/app-types'
+import { Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type TokenSymbolsList } from '@thesolidchain/app-types'
 
 import { historicalPerformanceLabelMap } from '@/components/organisms/Charts/labels'
 

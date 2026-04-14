@@ -1,4 +1,4 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
 
 export const arkDetailsMap: {
   [key in

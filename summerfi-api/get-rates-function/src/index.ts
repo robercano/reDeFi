@@ -6,11 +6,11 @@ import {
   type DailyInterestRates,
   type HourlyInterestRates,
   LatestInterestRate,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 import { RatesService, DBRate, DBAggregatedRate, DBHistoricalRates } from './db-service'
 import middy from '@middy/core'
-import { getRedisInstance } from '@summerfi/redis-cache'
-import { DistributedCache } from '@summerfi/abstractions'
+import { getRedisInstance } from '@thesolidchain/redis-cache'
+import { DistributedCache } from '@thesolidchain/abstractions'
 import { createHash } from 'crypto'
 
 const logger = new Logger({

@@ -1,4 +1,4 @@
-import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@summerfi/app-utils'
+import { sdkNetworkToHumanNetwork, supportedSDKNetwork } from '@thesolidchain/app-utils'
 
 export const getInstiVaultNiceName = ({
   symbol,

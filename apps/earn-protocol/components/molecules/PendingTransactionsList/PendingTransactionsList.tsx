@@ -1,8 +1,8 @@
 import { type CSSProperties } from 'react'
-import { Expander, getDisplayToken, getScannerUrl, Icon, Text } from '@summerfi/app-earn-ui'
-import { type TransactionWithStatus } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
-import { TransactionType } from '@summerfi/sdk-common'
+import { Expander, getDisplayToken, getScannerUrl, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type TransactionWithStatus } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
+import { TransactionType } from '@thesolidchain/sdk-common'
 import Link from 'next/link'
 
 import pendingTransactionsListStyles from './PendingTransactionsList.module.css'

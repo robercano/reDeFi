@@ -1,4 +1,4 @@
-import { AddressValue, Maybe, ChainId } from '@summerfi/sdk-common'
+import { AddressValue, Maybe, ChainId } from '@thesolidchain/sdk-common'
 import { TokenData } from './TokensData'
 
 /**

@@ -1,4 +1,4 @@
-import { getVaultsProtocolsList, sumrNetApyConfigCookieName } from '@summerfi/app-earn-ui'
+import { getVaultsProtocolsList, sumrNetApyConfigCookieName } from '@thesolidchain/app-earn-ui'
 import {
   formatCryptoBalance,
   getServerSideCookies,
@@ -8,7 +8,7 @@ import {
   subgraphNetworkToId,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { type Metadata } from 'next'
 import { cookies, headers } from 'next/headers'
 

@@ -1,4 +1,4 @@
-import type { TriggersQuery } from '@summerfi/automation-subgraph'
+import type { TriggersQuery } from '@thesolidchain/automation-subgraph'
 
 /**
  * @param trigger - trigger object from automation subgraph response

@@ -1,4 +1,4 @@
-import { type IconNamesList } from '@summerfi/app-earn-ui'
+import { type IconNamesList } from '@thesolidchain/app-earn-ui'
 
 type SumrGovernListData = {
   iconName: IconNamesList

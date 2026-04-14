@@ -7,12 +7,12 @@ import {
   ProtocolName,
   Token,
   TokenAmount,
-} from '@summerfi/sdk-common'
-import { SimulationSteps, TokenTransferTargetType, steps } from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
+import { SimulationSteps, TokenTransferTargetType, steps } from '@thesolidchain/sdk-common'
 import { ExecutionStorageMapper } from '../src/context/ExecutionStorageMapper'
 
-import { IPoolIdData, IProtocol, LendingPositionType } from '@summerfi/sdk-common'
-import { LendingPosition } from '@summerfi/sdk-common'
+import { IPoolIdData, IProtocol, LendingPositionType } from '@thesolidchain/sdk-common'
+import { LendingPosition } from '@thesolidchain/sdk-common'
 import { DerivedAction } from './DerivedAction'
 
 describe('Execution Storage Mapper', () => {

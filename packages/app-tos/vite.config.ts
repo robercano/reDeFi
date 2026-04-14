@@ -88,8 +88,8 @@ export default defineConfig(({ mode }) => {
           'graphql',
           '@safe-global/safe-apps-sdk',
           'jose',
-          '@summerfi/app-types',
-          '@summerfi/serverless-shared',
+          '@thesolidchain/app-types',
+          '@thesolidchain/serverless-shared',
         ],
         output: {
           assetFileNames: 'assets/[name][extname]',

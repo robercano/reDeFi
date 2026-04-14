@@ -1,4 +1,4 @@
-import { type NetworkNames, type TokenSymbolsList } from '@summerfi/app-types'
+import { type NetworkNames, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 export type PortfolioWalletAsset = {
   id: string

@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/update-tally-delegates",
+  "name": "@thesolidchain/update-tally-delegates",
   "version": "0.0.1",
   "scripts": {
     "test": "jest --passWithNoTests",
@@ -10,13 +10,13 @@
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.0.2",
     "bignumber.js": "^9.1.2",
-    "@summerfi/ssr-public-client": "workspace:*",
-    "@summerfi/summer-protocol-db": "workspace:*"
+    "@thesolidchain/ssr-public-client": "workspace:*",
+    "@thesolidchain/summer-protocol-db": "workspace:*"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
-    "@summerfi/app-types": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
     "@types/node": "^20.11.5",
     "eslint": "^8.56.0",
     "typescript": "^5.7.3"

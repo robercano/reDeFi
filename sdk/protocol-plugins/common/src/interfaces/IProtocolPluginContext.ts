@@ -1,8 +1,8 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import type { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { IOracleManager } from '@summerfi/oracle-common'
-import { ISwapManager } from '@summerfi/swap-common'
-import { ITokensManager } from '@summerfi/tokens-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import type { IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import { IOracleManager } from '@thesolidchain/oracle-common'
+import { ISwapManager } from '@thesolidchain/swap-common'
+import { ITokensManager } from '@thesolidchain/tokens-common'
 
 /**
  * @name IProtocolPluginContext

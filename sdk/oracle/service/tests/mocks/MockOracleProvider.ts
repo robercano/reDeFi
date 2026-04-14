@@ -1,5 +1,5 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { IOracleProvider } from '@summerfi/oracle-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IOracleProvider } from '@thesolidchain/oracle-common'
 import {
   ChainId,
   Denomination,
@@ -8,9 +8,9 @@ import {
   Price,
   ISpotPriceInfo,
   IToken,
-} from '@summerfi/sdk-common'
-import type { SpotPricesInfo } from '@summerfi/sdk-common'
-import { ManagerProviderBase } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import type { SpotPricesInfo } from '@thesolidchain/sdk-common'
+import { ManagerProviderBase } from '@thesolidchain/sdk-server-common'
 
 export class MockOracleProvider
   extends ManagerProviderBase<OracleProviderType>

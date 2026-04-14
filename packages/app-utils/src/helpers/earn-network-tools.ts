@@ -5,7 +5,7 @@ import {
   NetworkNames,
   SupportedNetworkIds,
   SupportedSDKNetworks,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import { arbitrum, base, type Chain, hyperliquid, mainnet, sonic } from 'viem/chains'
 
 /**

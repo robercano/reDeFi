@@ -1,9 +1,9 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { Button, Dropdown, Input, Text } from '@summerfi/app-earn-ui'
-import { type DropdownRawOption } from '@summerfi/app-types'
-import { ContractSpecificRoleName } from '@summerfi/sdk-common'
+import { Button, Dropdown, Input, Text } from '@thesolidchain/app-earn-ui'
+import { type DropdownRawOption } from '@thesolidchain/app-types'
+import { ContractSpecificRoleName } from '@thesolidchain/sdk-common'
 
 import { vaultSpecificRolesList } from '@/constants/vaults'
 import { isValidAddress } from '@/helpers/is-valid-address'

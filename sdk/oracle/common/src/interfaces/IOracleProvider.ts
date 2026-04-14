@@ -1,6 +1,6 @@
-import type { SpotPricesInfo, FiatCurrency, IChainInfo } from '@summerfi/sdk-common'
-import { Denomination, IToken, OracleProviderType, ISpotPriceInfo } from '@summerfi/sdk-common'
-import { IManagerProvider } from '@summerfi/sdk-server-common'
+import type { SpotPricesInfo, FiatCurrency, IChainInfo } from '@thesolidchain/sdk-common'
+import { Denomination, IToken, OracleProviderType, ISpotPriceInfo } from '@thesolidchain/sdk-common'
+import { IManagerProvider } from '@thesolidchain/sdk-server-common'
 
 /**
  * @name IOracleProvider

@@ -1,5 +1,5 @@
-import { ActionConfig, BaseAction } from '@summerfi/protocol-plugins-common'
-import { HexData } from '@summerfi/sdk-common'
+import { ActionConfig, BaseAction } from '@thesolidchain/protocol-plugins-common'
+import { HexData } from '@thesolidchain/sdk-common'
 
 import {
   decodeAbiParameters,

@@ -7,7 +7,7 @@ import type {
   ChainId,
   FiatCurrency,
   Percentage,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import type { TestConfigs, TestClientIds } from './testConfig'
 
 export type ContractRoleScenario = {

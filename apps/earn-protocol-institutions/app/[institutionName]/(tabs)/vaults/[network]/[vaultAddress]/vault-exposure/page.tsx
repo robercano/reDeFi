@@ -1,10 +1,10 @@
-import { getArksInterestRates, getVaultsApy } from '@summerfi/app-server-handlers'
+import { getArksInterestRates, getVaultsApy } from '@thesolidchain/app-server-handlers'
 import {
   decorateWithFleetConfig,
   humanNetworktoSDKNetwork,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getCachedConfig } from '@/app/server-handlers/config'

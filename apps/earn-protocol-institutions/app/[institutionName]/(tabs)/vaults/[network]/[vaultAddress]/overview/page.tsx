@@ -1,7 +1,7 @@
-import { Text } from '@summerfi/app-earn-ui'
-import { getArksInterestRates, getVaultsHistoricalApy } from '@summerfi/app-server-handlers'
-import { humanNetworktoSDKNetwork, subgraphNetworkToId, ten } from '@summerfi/app-utils'
-import { Address, ArmadaVaultId, getChainInfoByChainId, isAddress } from '@summerfi/sdk-common'
+import { Text } from '@thesolidchain/app-earn-ui'
+import { getArksInterestRates, getVaultsHistoricalApy } from '@thesolidchain/app-server-handlers'
+import { humanNetworktoSDKNetwork, subgraphNetworkToId, ten } from '@thesolidchain/app-utils'
+import { Address, ArmadaVaultId, getChainInfoByChainId, isAddress } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { redirect } from 'next/navigation'
 

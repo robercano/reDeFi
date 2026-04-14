@@ -8,13 +8,13 @@ import {
   useLocalConfig,
   useMobileCheck,
   VaultCard,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type GetVaultsApyResponse,
   type RewardTokenPrices,
   type SDKVaultsListType,
-} from '@summerfi/app-types'
-import { slugifyVault, subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { slugifyVault, subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import { useRouter } from 'next/navigation'
 
 import { useHandleButtonClickEvent, useHandleTooltipOpenEvent } from '@/hooks/use-mixpanel-event'

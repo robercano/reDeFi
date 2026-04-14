@@ -1,4 +1,4 @@
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 
 import sectionCardStyles from './SectionCard.module.css'

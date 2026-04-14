@@ -1,4 +1,4 @@
-import { type ForecastData } from '@summerfi/app-types'
+import { type ForecastData } from '@thesolidchain/app-types'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 

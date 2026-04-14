@@ -1,4 +1,4 @@
-import { Protocol, ProtocolName, SerializationService } from '@summerfi/sdk-common'
+import { Protocol, ProtocolName, SerializationService } from '@thesolidchain/sdk-common'
 import { IMakerProtocol, IMakerProtocolData, __signature__ } from '../interfaces/IMakerProtocol'
 
 /**

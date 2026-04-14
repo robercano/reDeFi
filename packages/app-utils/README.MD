@@ -1,3 +1,3 @@
-# @summerfi/app-utils
+# @thesolidchain/app-utils
 
 Common utils for all apps

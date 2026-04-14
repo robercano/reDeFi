@@ -6,7 +6,7 @@ import {
   type InterestRates,
   type SDKVaultishType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { VaultDetailsFaq } from '@/features/vault-details/components/VaultDetailsFaq/VaultDetailsFaq'
 import { VaultDetailsHowItWorks } from '@/features/vault-details/components/VaultDetailsHowItWorks/VaultDetailsHowItWorks'

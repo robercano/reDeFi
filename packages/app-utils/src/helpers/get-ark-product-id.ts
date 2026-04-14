@@ -1,4 +1,4 @@
-import { type ArkDetailsType, type SDKVaultishType, type SDKVaultType } from '@summerfi/app-types'
+import { type ArkDetailsType, type SDKVaultishType, type SDKVaultType } from '@thesolidchain/app-types'
 
 export const getArkProductId = (
   ark: SDKVaultishType['arks'][number] | SDKVaultType['arks'][number],

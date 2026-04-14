@@ -1,4 +1,4 @@
-import { type IconNamesList } from '@summerfi/app-types'
+import { type IconNamesList } from '@thesolidchain/app-types'
 
 import { UnstakeVaultTokenStep } from '@/features/unstake-vault-token/types'
 

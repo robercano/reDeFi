@@ -1,7 +1,7 @@
 'use client'
 import { type ChangeEvent, useState } from 'react'
 import { useAuthModal, useUser } from '@account-kit/react'
-import { Button, Input, Text, useUserWallet } from '@summerfi/app-earn-ui'
+import { Button, Input, Text, useUserWallet } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 import { isAddress } from 'viem'
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, type ReactNode } from 'react'
-import { type DeviceType } from '@summerfi/app-types'
+import { type DeviceType } from '@thesolidchain/app-types'
 
 import { Icon } from '@/components/atoms/Icon/Icon'
 import { Pill } from '@/components/atoms/Pill/Pill'

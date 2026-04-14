@@ -1,5 +1,5 @@
-import { Address, ChainInfo, Token, TokenAmount, LendingPositionType } from '@summerfi/sdk-common'
-import { decodeActionCalldata, getTargetHash } from '@summerfi/testing-utils'
+import { Address, ChainInfo, Token, TokenAmount, LendingPositionType } from '@thesolidchain/sdk-common'
+import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import {
   EmodeType,
   SparkLendingPool,

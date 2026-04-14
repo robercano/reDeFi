@@ -3,8 +3,8 @@ import {
   IOrderPlanner,
   IOrderPlannerService,
   OrderPlannerClass,
-} from '@summerfi/order-planner-common'
-import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@summerfi/sdk-common'
+} from '@thesolidchain/order-planner-common'
+import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@thesolidchain/sdk-common'
 import { assert } from 'console'
 import { ActionBuildersConfig } from '../config/Config'
 import { DMAOrderPlanner } from './planners/DMAOrderPlanner'

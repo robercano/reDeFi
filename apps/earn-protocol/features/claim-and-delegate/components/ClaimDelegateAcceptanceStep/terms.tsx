@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (

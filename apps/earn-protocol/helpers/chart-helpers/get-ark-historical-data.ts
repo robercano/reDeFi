@@ -1,5 +1,5 @@
-import { getProtocolLabel, getUniqueColor } from '@summerfi/app-earn-ui'
-import { type GetVaultsHistoricalApyResponse } from '@summerfi/app-server-handlers'
+import { getProtocolLabel, getUniqueColor } from '@thesolidchain/app-earn-ui'
+import { type GetVaultsHistoricalApyResponse } from '@thesolidchain/app-server-handlers'
 import {
   type ArksHistoricalChartData,
   type ChartsDataTimeframes,
@@ -7,8 +7,8 @@ import {
   type SDKVaultishType,
   type SDKVaultType,
   type TimeframesType,
-} from '@summerfi/app-types'
-import { getVaultNiceName, subgraphNetworkToId, supportedSDKNetwork } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { getVaultNiceName, subgraphNetworkToId, supportedSDKNetwork } from '@thesolidchain/app-utils'
 import dayjs from 'dayjs'
 
 import { CHART_TIMESTAMP_FORMAT_DETAILED } from '@/constants/charts'

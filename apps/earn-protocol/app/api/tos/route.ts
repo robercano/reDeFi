@@ -1,5 +1,5 @@
-import { signTos } from '@summerfi/app-tos'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { signTos } from '@thesolidchain/app-tos'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export async function POST(req: NextRequest) {

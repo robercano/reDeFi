@@ -1,28 +1,28 @@
 import type { Context, EventBridgeEvent } from 'aws-lambda'
 import { Logger } from '@aws-lambda-powertools/logger'
-import { getSummerProtocolDB, Network } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB, Network } from '@thesolidchain/summer-protocol-db'
 import process from 'node:process'
 import {
   getAllClients as getAllRatesSubgraphClients,
   SubgraphClient as RatesSubgraphClient,
   Products,
   Product,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 import {
   getAllClients as getAllProtocolSubgraphClients,
   VaultsQuery,
-} from '@summerfi/summer-earn-protocol-subgraph'
+} from '@thesolidchain/summer-earn-protocol-subgraph'
 import {
   getAllClients as getAllInstitutionsSubgraphClients,
   VaultsQuery as InstitutionsVaultsQuery,
-} from '@summerfi/summer-earn-institutions-subgraph'
+} from '@thesolidchain/summer-earn-institutions-subgraph'
 
 import { RewardsService } from './rewards-service'
 import { Transaction } from 'kysely'
-import { Database, mapDbNetworkToChainId } from '@summerfi/summer-protocol-db'
-import { ChainId } from '@summerfi/serverless-shared'
+import { Database, mapDbNetworkToChainId } from '@thesolidchain/summer-protocol-db'
+import { ChainId } from '@thesolidchain/serverless-shared'
 
-import { GetArksRatesQuery, GetProductsQuery } from '@summerfi/summer-earn-rates-subgraph'
+import { GetArksRatesQuery, GetProductsQuery } from '@thesolidchain/summer-earn-rates-subgraph'
 
 const logger = new Logger({ serviceName: 'update-summer-earn-rewards-apr', logLevel: 'DEBUG' })
 

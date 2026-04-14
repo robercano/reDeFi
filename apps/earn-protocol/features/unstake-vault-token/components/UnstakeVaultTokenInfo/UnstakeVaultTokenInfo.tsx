@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Button, Card, Icon, Text } from '@summerfi/app-earn-ui'
-import { formatCryptoBalance, formatFiatBalance } from '@summerfi/app-utils'
+import { Button, Card, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { formatCryptoBalance, formatFiatBalance } from '@thesolidchain/app-utils'
 
 import { UnstakeVaultTokenContent } from '@/features/unstake-vault-token/components/UnstakeVaultTokenContent/UnstakeVaultTokenContent'
 import {

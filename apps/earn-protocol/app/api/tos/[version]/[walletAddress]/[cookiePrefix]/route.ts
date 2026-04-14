@@ -1,6 +1,6 @@
-import { getTos, type TOSRequestContext } from '@summerfi/app-tos'
-import { parseServerResponseToClient } from '@summerfi/app-utils'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getTos, type TOSRequestContext } from '@thesolidchain/app-tos'
+import { parseServerResponseToClient } from '@thesolidchain/app-utils'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { type NextRequest, NextResponse } from 'next/server'
 
 import { getCachedConfig } from '@/app/server-handlers/cached/get-config'

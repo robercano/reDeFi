@@ -7,8 +7,8 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { type IToken } from '@summerfi/app-types'
-import { cleanAmount, formatCryptoBalance, formatFiatBalance } from '@summerfi/app-utils'
+import { type IToken } from '@thesolidchain/app-types'
+import { cleanAmount, formatCryptoBalance, formatFiatBalance } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 type UseAmountProps = {

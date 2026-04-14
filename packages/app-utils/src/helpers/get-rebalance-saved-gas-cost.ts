@@ -1,7 +1,7 @@
 import {
   type SupportedSDKNetworks,
   type TotalRebalanceItemsPerStrategyId,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { sdkNetworkToHumanNetwork } from './earn-network-tools'
 

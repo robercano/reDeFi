@@ -1,9 +1,9 @@
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { ChainInfo, Address, AddressType } from '@summerfi/sdk-common'
-import { ITokensProvider } from '@summerfi/tokens-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { ChainInfo, Address, AddressType } from '@thesolidchain/sdk-common'
+import { ITokensProvider } from '@thesolidchain/tokens-common'
 import assert from 'assert'
 import { StaticTokensProvider } from '../src/implementation/static/StaticTokensProvider'
-import type { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
+import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
 
 describe('StaticTokensProvider', () => {
   let staticTokensProvider: ITokensProvider

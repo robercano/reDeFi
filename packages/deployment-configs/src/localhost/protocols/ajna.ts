@@ -1,4 +1,4 @@
-import { AjnaConfig } from '@summerfi/deployment-types'
+import { AjnaConfig } from '@thesolidchain/deployment-types'
 
 export const AjnaConfiguration: AjnaConfig = {
   dependencies: {

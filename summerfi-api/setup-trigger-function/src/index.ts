@@ -3,7 +3,7 @@ import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
+} from '@thesolidchain/serverless-shared/responses'
 import {
   getBodySchema,
   mapZodResultToValidationResults,

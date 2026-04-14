@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/app-server-handlers",
+  "name": "@thesolidchain/app-server-handlers",
   "version": "0.0.1",
   "license": "Apache-2.0",
   "type": "module",
@@ -28,9 +28,9 @@
     "knip": "knip"
   },
   "devDependencies": {
-    "@summerfi/app-types": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/app-types": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/lodash-es": "^4.17.1",
     "@types/node": "^22.14.1",
     "eslint": "8.57.0",
@@ -45,10 +45,10 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@summerfi/summer-earn-rates-subgraph": "workspace:*",
-    "@summerfi/app-utils": "workspace:*",
-    "@summerfi/sdk-client": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
+    "@thesolidchain/summer-earn-rates-subgraph": "workspace:*",
+    "@thesolidchain/app-utils": "workspace:*",
+    "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
     "bignumber.js": "^9.3.0",
     "dayjs": "^1.11.12",
     "graphql-request": "^6.1.0",

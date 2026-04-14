@@ -1,5 +1,5 @@
 import { Fragment } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 import { TransakIconWrapper } from '@/features/transak/components/TransakIconWrapper/TransakIconWrapper'
 

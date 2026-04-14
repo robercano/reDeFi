@@ -6,7 +6,7 @@ import {
   Text,
   useMobileCheck,
   VaultOpenLoadingGrid,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 
 import { VaultOpenHeaderBlock } from '@/components/layout/VaultOpenView/VaultOpenHeaderBlock'
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'

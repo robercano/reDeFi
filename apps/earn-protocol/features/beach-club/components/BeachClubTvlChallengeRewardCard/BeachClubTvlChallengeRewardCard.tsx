@@ -1,6 +1,6 @@
 import { type FC, useState } from 'react'
-import { AnimateHeight, Card, getTwitterShareUrl, Icon, Text } from '@summerfi/app-earn-ui'
-import { formatAsShorthandNumbers, formatDecimalAsPercent, slugify } from '@summerfi/app-utils'
+import { AnimateHeight, Card, getTwitterShareUrl, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { formatAsShorthandNumbers, formatDecimalAsPercent, slugify } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 

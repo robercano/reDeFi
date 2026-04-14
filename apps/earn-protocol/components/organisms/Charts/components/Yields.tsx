@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { RechartResponsiveWrapper } from '@summerfi/app-earn-ui'
-import { type ArksHistoricalChartData, type TimeframesType } from '@summerfi/app-types'
+import { RechartResponsiveWrapper } from '@thesolidchain/app-earn-ui'
+import { type ArksHistoricalChartData, type TimeframesType } from '@thesolidchain/app-types'
 import {
   Area,
   ComposedChart,

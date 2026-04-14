@@ -13,7 +13,7 @@ import {
   Percentage,
   Price,
   RiskRatio,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 import {
   EmodeType,
@@ -25,7 +25,7 @@ import {
   SparkLendingPoolId,
   SparkLendingPoolInfo,
   SparkProtocol,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 
 const testChain = ChainInfo.createFrom({ chainId: 1, name: 'test' })
 

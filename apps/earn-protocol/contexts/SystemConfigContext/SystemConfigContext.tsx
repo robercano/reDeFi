@@ -1,6 +1,6 @@
 'use client'
 import { createContext, type FC, type ReactNode, useContext, useState } from 'react'
-import { type EarnAppConfigType } from '@summerfi/app-types'
+import { type EarnAppConfigType } from '@thesolidchain/app-types'
 
 const SystemConfigContext = createContext<Partial<
   EarnAppConfigType & {

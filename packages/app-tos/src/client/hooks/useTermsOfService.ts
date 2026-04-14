@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import { type TOSState, TOSStatus } from '@summerfi/app-types'
+import { type TOSState, TOSStatus } from '@thesolidchain/app-types'
 
 import { acceptanceStep } from '@/client/helpers/acceptance-step'
 import { isValidVersion } from '@/client/helpers/is-valid-version'

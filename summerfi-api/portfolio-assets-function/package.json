@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/portfolio-assets-function",
+  "name": "@thesolidchain/portfolio-assets-function",
   "version": "1.0.0",
   "scripts": {
     "test": "jest --passWithNoTests",
@@ -8,13 +8,13 @@
     "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^20.12.7",
     "eslint": "^8.57.0"
   },
   "dependencies": {
-    "@summerfi/serverless-shared": "workspace:*",
+    "@thesolidchain/serverless-shared": "workspace:*",
     "node-fetch": "^3.3.2",
     "zod": "3.25.61"
   }

@@ -1,4 +1,4 @@
-import { Address } from '@summerfi/serverless-shared/domain-types'
+import { Address } from '@thesolidchain/serverless-shared/domain-types'
 
 export function decodeBitmapToAssetsAddresses(
   userConfigData: bigint,

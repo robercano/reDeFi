@@ -5,8 +5,8 @@ import {
   getUniqueColor,
   Icon,
   TableCellText,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
 import {
   formatAddress,
   formatCryptoBalance,
@@ -14,7 +14,7 @@ import {
   subgraphNetworkToId,
   supportedSDKNetwork,
   ten,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat'

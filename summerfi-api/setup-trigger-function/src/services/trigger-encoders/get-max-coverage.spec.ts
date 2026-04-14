@@ -1,5 +1,5 @@
 import { getMaxCoverage } from './get-max-coverage'
-import { PositionLike, PRICE_DECIMALS } from '@summerfi/triggers-shared'
+import { PositionLike, PRICE_DECIMALS } from '@thesolidchain/triggers-shared'
 
 describe('get-max-coverage', () => {
   it('Should return 1500 USD in USDC', () => {

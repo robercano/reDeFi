@@ -1,11 +1,11 @@
-import { getPropertyFromTriggerParams, Trigger } from '@summerfi/triggers-shared/contracts'
-import { safeParseBigInt } from '@summerfi/serverless-shared'
+import { getPropertyFromTriggerParams, Trigger } from '@thesolidchain/triggers-shared/contracts'
+import { safeParseBigInt } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 import {
   calculateLtv,
   calculateCollateralPriceInDebtBasedOnLtv,
-} from '@summerfi/triggers-calculations'
-import { CurrentStopLoss, PositionLike } from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-calculations'
+import { CurrentStopLoss, PositionLike } from '@thesolidchain/triggers-shared'
 
 export function getCurrentAaveStopLoss(
   triggers: { triggerGroup: { aaveStopLoss?: Trigger }; triggersCount: number },

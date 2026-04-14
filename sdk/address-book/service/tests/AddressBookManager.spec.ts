@@ -1,7 +1,7 @@
-import { ChainFamilyMap, AddressType } from '@summerfi/sdk-common'
+import { ChainFamilyMap, AddressType } from '@thesolidchain/sdk-common'
 import { AddressBookManager } from '../src'
-import { DeploymentIndex } from '@summerfi/deployment-utils'
-import { IAddressBookManager } from '@summerfi/address-book-common'
+import { DeploymentIndex } from '@thesolidchain/deployment-utils'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import assert from 'assert'
 
 describe('AddressBookManager', () => {

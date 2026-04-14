@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { publicProcedure } from '../SDKTRPC'
-import { IPosition, Maybe, isPositionId } from '@summerfi/sdk-common'
+import { IPosition, Maybe, isPositionId } from '@thesolidchain/sdk-common'
 
 export const getPosition = publicProcedure
   .input(z.any())

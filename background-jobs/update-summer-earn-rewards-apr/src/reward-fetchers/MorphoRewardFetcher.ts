@@ -1,5 +1,5 @@
-import { Product } from '@summerfi/summer-earn-rates-subgraph'
-import { ChainId } from '@summerfi/serverless-shared'
+import { Product } from '@thesolidchain/summer-earn-rates-subgraph'
+import { ChainId } from '@thesolidchain/serverless-shared'
 import { Logger } from '@aws-lambda-powertools/logger'
 import { IRewardFetcher } from './IRewardFetcher'
 import { RewardRate } from '../rewards-service'

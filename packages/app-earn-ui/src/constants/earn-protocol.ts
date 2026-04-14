@@ -1,4 +1,4 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 
 export const SUMR_CAP = 1000000000

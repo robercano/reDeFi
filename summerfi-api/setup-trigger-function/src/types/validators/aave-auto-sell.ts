@@ -6,8 +6,8 @@ import {
   positionAddressesSchema,
   priceSchema,
   supportedActionsSchema,
-} from '@summerfi/triggers-shared'
-import { addressSchema, ltvSchema, urlOptionalSchema } from '@summerfi/serverless-shared'
+} from '@thesolidchain/triggers-shared'
+import { addressSchema, ltvSchema, urlOptionalSchema } from '@thesolidchain/serverless-shared'
 
 export const aaveBasicSellTriggerDataSchema = z
   .object({

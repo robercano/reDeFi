@@ -1,4 +1,4 @@
-import { ContractSpecificRoleName } from '@summerfi/sdk-common'
+import { ContractSpecificRoleName } from '@thesolidchain/sdk-common'
 
 import { type InstitutionVaultRoleType } from '@/types/institution-data'
 

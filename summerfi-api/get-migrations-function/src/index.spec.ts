@@ -1,5 +1,5 @@
-import { ProtocolId } from '@summerfi/serverless-shared/domain-types'
-import { serialize } from '@summerfi/serverless-shared/serialize'
+import { ProtocolId } from '@thesolidchain/serverless-shared/domain-types'
+import { serialize } from '@thesolidchain/serverless-shared/serialize'
 import { handler } from './index'
 import { APIGatewayProxyEventV2, Context } from 'aws-lambda'
 import dotenv from 'dotenv'

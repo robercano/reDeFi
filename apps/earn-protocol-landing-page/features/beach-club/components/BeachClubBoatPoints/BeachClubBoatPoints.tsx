@@ -1,4 +1,4 @@
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import classNames from './BeachClubBoatPoints.module.css'

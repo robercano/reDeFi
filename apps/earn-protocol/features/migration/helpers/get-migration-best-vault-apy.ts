@@ -1,9 +1,9 @@
-import { type GetVaultsApyResponse, type SDKVaultsListType } from '@summerfi/app-types'
+import { type GetVaultsApyResponse, type SDKVaultsListType } from '@thesolidchain/app-types'
 import {
   subgraphNetworkToId,
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'
 import { type MigrationEarningsDataByChainId } from '@/features/migration/types'

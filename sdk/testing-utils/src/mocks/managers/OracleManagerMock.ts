@@ -1,7 +1,7 @@
-import { IToken, OracleProviderType } from '@summerfi/sdk-common'
-import { ISpotPriceInfo, type SpotPricesInfo } from '@summerfi/sdk-common'
-import { IOracleManager, IOracleProvider } from '@summerfi/oracle-common'
-import { ManagerWithProvidersBase } from '@summerfi/sdk-server-common'
+import { IToken, OracleProviderType } from '@thesolidchain/sdk-common'
+import { ISpotPriceInfo, type SpotPricesInfo } from '@thesolidchain/sdk-common'
+import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
+import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
 
 export class OracleManagerMock
   extends ManagerWithProvidersBase<OracleProviderType, IOracleProvider>

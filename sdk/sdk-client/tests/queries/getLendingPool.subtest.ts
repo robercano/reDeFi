@@ -4,8 +4,8 @@ import {
   MakerLendingPoolId,
   MakerProtocol,
   isMakerLendingPoolId,
-} from '@summerfi/protocol-plugins'
-import { Address, ChainFamilyMap, PoolType, ProtocolName, Token } from '@summerfi/sdk-common'
+} from '@thesolidchain/protocol-plugins'
+import { Address, ChainFamilyMap, PoolType, ProtocolName, Token } from '@thesolidchain/sdk-common'
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
 

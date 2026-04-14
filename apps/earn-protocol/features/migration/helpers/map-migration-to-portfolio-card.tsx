@@ -1,4 +1,4 @@
-import { type PlatformLogo, type TokenSymbolsList } from '@summerfi/app-types'
+import { type PlatformLogo, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'
 import { platformLogoMapByMigrationType } from '@/helpers/platform-logo-map'

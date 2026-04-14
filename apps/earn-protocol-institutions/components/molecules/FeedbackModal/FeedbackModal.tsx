@@ -10,8 +10,8 @@ import {
   SkeletonLine,
   SUCCESS_TOAST_CONFIG,
   Text,
-} from '@summerfi/app-earn-ui'
-import { type FeedbackCategory } from '@summerfi/summer-protocol-institutions-db'
+} from '@thesolidchain/app-earn-ui'
+import { type FeedbackCategory } from '@thesolidchain/summer-protocol-institutions-db'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { capitalize } from 'lodash-es'

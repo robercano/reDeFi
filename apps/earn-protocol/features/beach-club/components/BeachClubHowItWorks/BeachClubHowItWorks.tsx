@@ -12,7 +12,7 @@ import {
   Text,
   useUserWallet,
   WithArrow,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'

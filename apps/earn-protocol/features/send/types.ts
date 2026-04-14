@@ -1,4 +1,4 @@
-import { type SupportedNetworkIds, type TokenSymbolsList } from '@summerfi/app-types'
+import { type SupportedNetworkIds, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 export enum SendStep {
   INIT = 'init',

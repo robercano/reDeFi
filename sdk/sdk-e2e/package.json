@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/sdk-e2e",
+  "name": "@thesolidchain/sdk-e2e",
   "version": "0.0.1",
   "scripts": {
     "test": "jest",
@@ -23,18 +23,18 @@
     "e2e:tokens": "jest --roots e2e -- ./e2e/tokens.test.ts"
   },
   "devDependencies": {
-    "@summerfi/core-contracts": "workspace:*",
-    "@summerfi/deployment-utils": "workspace:*",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/jest-config": "workspace:*",
-    "@summerfi/protocol-manager-service": "workspace:*",
-    "@summerfi/protocol-plugins": "workspace:*",
-    "@summerfi/protocol-plugins-common": "workspace:*",
-    "@summerfi/sdk-client": "workspace:*",
-    "@summerfi/sdk-common": "workspace:*",
-    "@summerfi/tenderly-utils": "workspace:*",
-    "@summerfi/testing-utils": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*"
+    "@thesolidchain/core-contracts": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/jest-config": "workspace:*",
+    "@thesolidchain/protocol-manager-service": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/tenderly-utils": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*"
   },
   "dependencies": {
     "ethers": "^5.7.2"

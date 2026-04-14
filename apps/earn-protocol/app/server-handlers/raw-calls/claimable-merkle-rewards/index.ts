@@ -1,4 +1,4 @@
-import { type AddressValue, ChainIds } from '@summerfi/sdk-common'
+import { type AddressValue, ChainIds } from '@thesolidchain/sdk-common'
 
 import { backendSDK } from '@/app/server-handlers/sdk/sdk-backend-client'
 

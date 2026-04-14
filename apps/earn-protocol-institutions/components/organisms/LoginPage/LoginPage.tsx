@@ -1,4 +1,4 @@
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 
 import { LoginForm } from '@/components/organisms/LoginPage/forms/LoginForm'
 import { MfaForm } from '@/components/organisms/LoginPage/forms/MfaForm'

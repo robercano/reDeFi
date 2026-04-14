@@ -1,4 +1,4 @@
-import { verifyAccessToken } from '@summerfi/app-utils'
+import { verifyAccessToken } from '@thesolidchain/app-utils'
 import type { Kysely } from 'kysely'
 import { type NextRequest, NextResponse } from 'next/server'
 import * as z from 'zod'

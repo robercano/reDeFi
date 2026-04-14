@@ -5,7 +5,7 @@ import {
   chainIdSchema,
   ltvSchema,
   protocolIdSchema,
-} from '@summerfi/serverless-shared'
+} from '@thesolidchain/serverless-shared'
 import { CalculateRates } from './protocols/types'
 import { z } from 'zod'
 

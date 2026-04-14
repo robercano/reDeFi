@@ -1,4 +1,4 @@
-import { steps } from '@summerfi/sdk-common'
+import { steps } from '@thesolidchain/sdk-common'
 import { addBalance, getValueFromReference } from '../../utils'
 import { ISimulationState } from '../../../interfaces/simulation'
 

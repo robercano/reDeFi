@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { type ClaimDelegateState, ClaimDelegateSteps } from '@/features/claim-and-delegate/types'

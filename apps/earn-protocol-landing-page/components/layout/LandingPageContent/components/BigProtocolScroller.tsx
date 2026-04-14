@@ -10,8 +10,8 @@ import {
   useRef,
   useState,
 } from 'react'
-import { Card, Icon, Text } from '@summerfi/app-earn-ui'
-import { type IconNamesList } from '@summerfi/app-types'
+import { Card, Icon, Text } from '@thesolidchain/app-earn-ui'
+import { type IconNamesList } from '@thesolidchain/app-types'
 import Link from 'next/link'
 
 import { useScreenSize } from '@/hooks/use-screen-size'

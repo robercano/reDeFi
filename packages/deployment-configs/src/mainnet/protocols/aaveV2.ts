@@ -1,4 +1,4 @@
-import { AaveV2Config } from '@summerfi/deployment-types'
+import { AaveV2Config } from '@thesolidchain/deployment-types'
 
 export const AAVEV2Configuration: AaveV2Config = {
   dependencies: {

@@ -1,5 +1,5 @@
 import { type FC, useEffect, useState } from 'react'
-import { Dial, EXTERNAL_LINKS, type IconNamesList, Text } from '@summerfi/app-earn-ui'
+import { Dial, EXTERNAL_LINKS, type IconNamesList, Text } from '@thesolidchain/app-earn-ui'
 import Link from 'next/link'
 
 import { TransakIconWrapper } from '@/features/transak/components/TransakIconWrapper/TransakIconWrapper'

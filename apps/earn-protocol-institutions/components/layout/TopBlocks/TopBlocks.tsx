@@ -1,4 +1,4 @@
-import { Card, DataBlock } from '@summerfi/app-earn-ui'
+import { Card, DataBlock } from '@thesolidchain/app-earn-ui'
 
 import topBlocksStyles from './TopBlocks.module.css'
 

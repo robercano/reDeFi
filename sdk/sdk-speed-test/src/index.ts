@@ -1,4 +1,4 @@
-import { makeSDK } from '@summerfi/sdk-client'
+import { makeSDK } from '@thesolidchain/sdk-client'
 import {
   ArmadaVaultId,
   Address,
@@ -6,7 +6,7 @@ import {
   getChainFamilyInfoByChainId,
   User,
   Wallet,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 // usage:
 // pnpm speed-test [ChainId] [WalletAddress] [FleetAddress]

@@ -1,7 +1,7 @@
 import { type FC } from 'react'
-import { Alert, Button, Card, Icon, Text, WithArrow } from '@summerfi/app-earn-ui'
-import { type SupportedNetworkIds } from '@summerfi/app-types'
-import { humanReadableChainToLabelMap } from '@summerfi/app-utils'
+import { Alert, Button, Card, Icon, Text, WithArrow } from '@thesolidchain/app-earn-ui'
+import { type SupportedNetworkIds } from '@thesolidchain/app-types'
+import { humanReadableChainToLabelMap } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Link from 'next/link'
 

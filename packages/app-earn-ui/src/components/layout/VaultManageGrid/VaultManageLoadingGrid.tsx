@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, type ReactNode } from 'react'
-import { getVaultRiskTooltipLabel } from '@summerfi/app-utils'
+import { getVaultRiskTooltipLabel } from '@thesolidchain/app-utils'
 
 import { Box } from '@/components/atoms/Box/Box'
 import { Icon } from '@/components/atoms/Icon/Icon'

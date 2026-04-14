@@ -1,7 +1,7 @@
 'use client'
 
 import { type FC, type ReactNode } from 'react'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 

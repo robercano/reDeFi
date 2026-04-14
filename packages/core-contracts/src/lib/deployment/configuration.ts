@@ -1,6 +1,6 @@
-import { Config, ConfigEntry } from '@summerfi/deployment-types'
-import { Contract, Deployments } from '@summerfi/deployment-utils'
-import { Address } from '@summerfi/common'
+import { Config, ConfigEntry } from '@thesolidchain/deployment-types'
+import { Contract, Deployments } from '@thesolidchain/deployment-utils'
+import { Address } from '@thesolidchain/common'
 import { getContractLabel, getLabelHash, recurseConfig } from './utils'
 import { ContractsVersionsSnapshot } from '../versions/types'
 

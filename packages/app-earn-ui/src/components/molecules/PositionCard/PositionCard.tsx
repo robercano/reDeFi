@@ -1,5 +1,5 @@
 import { type FC, type ReactNode } from 'react'
-import { type PlatformLogo } from '@summerfi/app-types'
+import { type PlatformLogo } from '@thesolidchain/app-types'
 import clsx from 'clsx'
 import Image from 'next/image'
 

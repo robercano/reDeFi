@@ -1,12 +1,12 @@
 import { Logger } from '@aws-lambda-powertools/logger'
-import { getSummerProtocolDB, mapDbNetworkToChainId } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB, mapDbNetworkToChainId } from '@thesolidchain/summer-protocol-db'
 import {
   getAllClients as getAllRatesSubgraphClients,
   GetHistoricalArksRatesQuery,
-} from '@summerfi/summer-earn-rates-subgraph'
+} from '@thesolidchain/summer-earn-rates-subgraph'
 
-import { Database } from '@summerfi/summer-protocol-db'
-import { HistoricalVaultsQuery } from '@summerfi/summer-earn-protocol-subgraph'
+import { Database } from '@thesolidchain/summer-protocol-db'
+import { HistoricalVaultsQuery } from '@thesolidchain/summer-earn-protocol-subgraph'
 import { Transaction } from 'kysely'
 import {
   retrySubgraphQuery,
@@ -20,7 +20,7 @@ import {
   SubgraphClient as ProtocolSubgraphClient,
   VaultsQuery,
   getAllClients as getAllProtocolSubgraphClients,
-} from '@summerfi/summer-earn-protocol-subgraph'
+} from '@thesolidchain/summer-earn-protocol-subgraph'
 import dotenv from 'dotenv'
 
 dotenv.config()

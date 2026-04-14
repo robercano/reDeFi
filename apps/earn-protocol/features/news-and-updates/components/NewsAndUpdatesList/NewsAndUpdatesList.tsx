@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
-import { slugify } from '@summerfi/app-utils'
+import { Text } from '@thesolidchain/app-earn-ui'
+import { slugify } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { useHandleButtonClickEvent } from '@/hooks/use-mixpanel-event'

@@ -1,4 +1,4 @@
-import { Protocol, ProtocolName, SerializationService } from '@summerfi/sdk-common'
+import { Protocol, ProtocolName, SerializationService } from '@thesolidchain/sdk-common'
 import { ISparkProtocol, ISparkProtocolData, __signature__ } from '../interfaces/ISparkProtocol'
 
 /**

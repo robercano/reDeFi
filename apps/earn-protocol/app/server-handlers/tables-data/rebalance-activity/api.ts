@@ -2,7 +2,7 @@ import {
   type Database,
   type ExpressionBuilder,
   getSummerProtocolDB,
-} from '@summerfi/summer-protocol-db'
+} from '@thesolidchain/summer-protocol-db'
 import { NextResponse } from 'next/server'
 
 import { type TableSortOrder } from '@/app/server-handlers/tables-data/types'

@@ -1,6 +1,6 @@
 'use client'
 
-import { type JsonValue } from '@summerfi/summer-protocol-db'
+import { type JsonValue } from '@thesolidchain/summer-protocol-db'
 import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 export function ResponseTimesChart({ responseTimes }: { responseTimes?: JsonValue }) {

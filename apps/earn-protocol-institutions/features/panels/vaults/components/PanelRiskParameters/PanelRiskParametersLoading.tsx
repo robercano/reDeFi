@@ -1,4 +1,4 @@
-import { Card, Icon, Table, Text } from '@summerfi/app-earn-ui'
+import { Card, Icon, Table, Text } from '@thesolidchain/app-earn-ui'
 
 import { TransactionQueue } from '@/components/organisms/TransactionQueue/TransactionQueue'
 

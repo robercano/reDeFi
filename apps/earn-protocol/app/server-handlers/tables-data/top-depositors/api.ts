@@ -1,4 +1,4 @@
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { NextResponse } from 'next/server'
 
 import { userAddresesToFilterOut } from '@/app/server-handlers/tables-data/consts'

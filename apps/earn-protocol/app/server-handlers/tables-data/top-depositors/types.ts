@@ -1,5 +1,5 @@
-import { type Position } from '@summerfi/subgraph-manager-common'
-import { type TopDepositors } from '@summerfi/summer-protocol-db'
+import { type Position } from '@thesolidchain/subgraph-manager-common'
+import { type TopDepositors } from '@thesolidchain/summer-protocol-db'
 
 export type TopDepositorPosition = Position & {
   changeSevenDays: string

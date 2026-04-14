@@ -12,15 +12,15 @@ import {
   Text,
   useUserWallet,
   WARNING_TOAST_CONFIG,
-} from '@summerfi/app-earn-ui'
-import { type NetworkNames } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type NetworkNames } from '@thesolidchain/app-types'
 import {
   chainIdToSDKNetwork,
   formatAddress,
   networkNameToSDKId,
   SortDirection,
-} from '@summerfi/app-utils'
-import { type Role } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { type Role } from '@thesolidchain/sdk-common'
 
 import { type InstiVaultActiveUsersResponse } from '@/app/server-handlers/institution/institution-vaults/types'
 import { TransactionQueue } from '@/components/organisms/TransactionQueue/TransactionQueue'

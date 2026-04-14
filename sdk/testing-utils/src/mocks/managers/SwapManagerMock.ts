@@ -6,9 +6,9 @@ import {
   SwapData,
   QuoteData,
   SwapProviderType,
-} from '@summerfi/sdk-common'
-import { ISwapManager, ISwapProvider } from '@summerfi/swap-common'
-import { ManagerWithProvidersBase } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
+import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
 export class SwapManagerMock
   extends ManagerWithProvidersBase<SwapProviderType, ISwapProvider>
   implements ISwapManager

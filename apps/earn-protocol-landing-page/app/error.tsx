@@ -1,7 +1,7 @@
 'use client' // Error boundaries must be Client Components
 
 import { useEffect } from 'react'
-import { Button, Text } from '@summerfi/app-earn-ui'
+import { Button, Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'

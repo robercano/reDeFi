@@ -1,4 +1,4 @@
-import { Price, PRICE_DECIMALS_NUMBER, Token, TokenBalance } from '@summerfi/triggers-shared'
+import { Price, PRICE_DECIMALS_NUMBER, Token, TokenBalance } from '@thesolidchain/triggers-shared'
 
 export const calculateBalance = (from: TokenBalance, to: Token, fromPrice: Price): TokenBalance => {
   const balance =

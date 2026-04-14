@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/stacks",
+  "name": "@thesolidchain/stacks",
   "version": "0.0.1",
   "description": "Wrapper for the STT stacks",
   "scripts": {
@@ -10,8 +10,8 @@
   },
   "type": "module",
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/pg": "^8.11.5",
     "eslint": "^8.56.0",
     "kysely": "^0.27.3",

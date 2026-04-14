@@ -1,5 +1,5 @@
 import { type CSSProperties } from 'react'
-import { type InlineButtonOption } from '@summerfi/app-types'
+import { type InlineButtonOption } from '@thesolidchain/app-types'
 
 import { Button } from '@/components/atoms/Button/Button'
 import { Text, type TextAllowedHtmlTags } from '@/components/atoms/Text/Text'

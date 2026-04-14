@@ -1,6 +1,6 @@
-import { SupportedNetworkIds, type SupportedSDKNetworks } from '@summerfi/app-types'
-import { serverOnlyErrorHandler, subgraphNetworkToId } from '@summerfi/app-utils'
-import { getChainInfoByChainId, type IArmadaVaultInfo } from '@summerfi/sdk-common'
+import { SupportedNetworkIds, type SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { serverOnlyErrorHandler, subgraphNetworkToId } from '@thesolidchain/app-utils'
+import { getChainInfoByChainId, type IArmadaVaultInfo } from '@thesolidchain/sdk-common'
 
 import { backendSDK } from '@/sdk/sdk-backend-client'
 

@@ -1,4 +1,4 @@
-import { Card, SkeletonLine, Text } from '@summerfi/app-earn-ui'
+import { Card, SkeletonLine, Text } from '@thesolidchain/app-earn-ui'
 
 import { VaultDetailsFaq } from '@/features/vault-details/components/VaultDetailsFaq/VaultDetailsFaq'
 import { VaultDetailsHowItWorks } from '@/features/vault-details/components/VaultDetailsHowItWorks/VaultDetailsHowItWorks'

@@ -1,5 +1,5 @@
-import { ActionCall, BaseAction, InputSlotsMapping } from '@summerfi/protocol-plugins-common'
-import { IToken } from '@summerfi/sdk-common'
+import { ActionCall, BaseAction, InputSlotsMapping } from '@thesolidchain/protocol-plugins-common'
+import { IToken } from '@thesolidchain/sdk-common'
 
 export class ReturnFundsAction extends BaseAction<typeof ReturnFundsAction.Config> {
   static Config = {

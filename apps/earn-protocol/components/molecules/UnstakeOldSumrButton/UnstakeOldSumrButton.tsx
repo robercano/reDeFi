@@ -10,9 +10,9 @@ import {
   SUCCESS_TOAST_CONFIG,
   Text,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { formatDecimalToBigInt } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { formatDecimalToBigInt } from '@thesolidchain/app-utils'
 
 import { MINIMUM_OLD_STAKED_SUMR_TO_WITHDRAW } from '@/constants/sumr-staking-v2'
 import { useUnstakeSumrTransaction } from '@/features/claim-and-delegate/hooks/use-unstake-sumr-transaction'

@@ -1,5 +1,5 @@
 import { type Dispatch, type FC } from 'react'
-import { InfoBox, Sidebar, Text } from '@summerfi/app-earn-ui'
+import { InfoBox, Sidebar, Text } from '@thesolidchain/app-earn-ui'
 import { redirect, useSearchParams } from 'next/navigation'
 
 import { type BridgeReducerAction, type BridgeState } from '@/features/bridge/types'

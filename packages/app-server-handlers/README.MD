@@ -1,3 +1,3 @@
-# @summerfi/app-server-handlers
+# @thesolidchain/app-server-handlers
 
 Common server handlers for all apps

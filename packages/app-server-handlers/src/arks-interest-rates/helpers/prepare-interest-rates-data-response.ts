@@ -1,4 +1,4 @@
-import { type GetInterestRatesQuery } from '@summerfi/summer-earn-rates-subgraph'
+import { type GetInterestRatesQuery } from '@thesolidchain/summer-earn-rates-subgraph'
 
 /**
  * Prepares the final interest rates response by mapping Ark names to their data.

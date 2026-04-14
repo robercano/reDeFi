@@ -5,9 +5,9 @@ import {
   parseAbiParameters,
   stringToBytes,
 } from 'viem'
-import { automationBotAbi } from '@summerfi/abis'
+import { automationBotAbi } from '@thesolidchain/abis'
 import { MorphoBlueAutoBuyTriggerData } from '~types'
-import { CurrentTriggerLike, maxUnit256, PositionLike } from '@summerfi/triggers-shared'
+import { CurrentTriggerLike, maxUnit256, PositionLike } from '@thesolidchain/triggers-shared'
 
 import { DEFAULT_DEVIATION } from './defaults'
 import { TriggerTransactions } from './types'

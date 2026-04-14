@@ -1,5 +1,5 @@
-import { tokenConfigs } from '@summerfi/app-token-config'
-import { type TokenConfig } from '@summerfi/app-types'
+import { tokenConfigs } from '@thesolidchain/app-token-config'
+import { type TokenConfig } from '@thesolidchain/app-types'
 import { keyBy } from 'lodash-es'
 
 export const tokens: TokenConfig[] = [...tokenConfigs]

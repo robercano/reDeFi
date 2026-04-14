@@ -4,12 +4,12 @@ import {
   supportedDefillamaProtocols,
   supportedDefillamaProtocolsConfig,
   type SupportedDefillamaTvlProtocols,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   parseServerResponseToClient,
   subgraphNetworkToId,
   supportedSDKNetwork,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 import { unstable_cache as unstableCache } from 'next/cache'
 import { NextResponse } from 'next/server'
 

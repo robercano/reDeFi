@@ -1,4 +1,4 @@
-import { IProtocol, ProtocolDataSchema, ProtocolName } from '@summerfi/sdk-common'
+import { IProtocol, ProtocolDataSchema, ProtocolName } from '@thesolidchain/sdk-common'
 
 import { z } from 'zod'
 

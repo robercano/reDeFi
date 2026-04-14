@@ -1,4 +1,4 @@
-import { Card, Text } from '@summerfi/app-earn-ui'
+import { Card, Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import logoBeachClub from '@/public/img/branding/logo-beach-club.svg'

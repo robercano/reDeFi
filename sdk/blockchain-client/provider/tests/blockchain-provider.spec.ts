@@ -1,6 +1,6 @@
-import { IBlockchainClientProvider } from '@summerfi/blockchain-client-common'
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { ChainFamilyMap } from '@summerfi/sdk-common'
+import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
 import { BlockchainClientProvider } from '../src/implementation/BlockchainClientProvider'
 
 describe('Blockchain Provider', () => {

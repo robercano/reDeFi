@@ -11,14 +11,14 @@ import {
   SparkLendingPosition,
   SparkLendingPositionId,
   isSparkLendingPool,
-} from '@summerfi/protocol-plugins'
+} from '@thesolidchain/protocol-plugins'
 import {
   TokenAmount,
   ProtocolName,
   ILendingPool,
   ILendingPosition,
   LendingPositionType,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 export function getTargetPosition(params: {
   sourcePosition: ILendingPosition

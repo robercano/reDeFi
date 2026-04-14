@@ -6,7 +6,7 @@ import {
   SimulationSteps,
   TokenTransferTargetType,
   steps,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 
 export function getRefinanceSimulation(params: {
   sourcePosition: ILendingPosition

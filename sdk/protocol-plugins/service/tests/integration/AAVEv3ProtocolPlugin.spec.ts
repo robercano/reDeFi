@@ -1,10 +1,10 @@
-import { IProtocolPluginContext } from '@summerfi/protocol-plugins-common'
-import { Price, RiskRatio, TokenAmount, Percentage } from '@summerfi/sdk-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { Price, RiskRatio, TokenAmount, Percentage } from '@thesolidchain/sdk-common'
 import { AaveV3ProtocolPlugin } from '../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
 import { getAaveV3PoolIdMock } from '../mocks/AAVEv3PoolIdMock'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
 import { IAaveV3LendingPoolId } from '../../src/plugins/aave-v3/interfaces/IAaveV3LendingPoolId'
-import { ChainFamilyMap } from '@summerfi/sdk-common'
+import { ChainFamilyMap } from '@thesolidchain/sdk-common'
 
 describe('AAVEv3 Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext

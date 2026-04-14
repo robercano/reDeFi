@@ -6,7 +6,7 @@ import {
   type SDKVaultishType,
   type SDKVaultType,
   type VaultApyData,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 import { TabBar } from '@/components/molecules/TabBar/TabBar'
 import { Table } from '@/components/organisms/Table/Table'

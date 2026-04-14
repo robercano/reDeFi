@@ -1,6 +1,6 @@
 import { type ReactNode } from 'react'
-import { type TableRow } from '@summerfi/app-earn-ui'
-import { type SDKVaultishType } from '@summerfi/app-types'
+import { type TableRow } from '@thesolidchain/app-earn-ui'
+import { type SDKVaultishType } from '@thesolidchain/app-types'
 
 import { type GetVaultActivityLogByTimestampFromQuery } from '@/graphql/clients/vault-history/client'
 

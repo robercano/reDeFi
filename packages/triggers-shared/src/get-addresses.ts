@@ -4,7 +4,7 @@ import {
   NetworkByChainID,
   Address,
   Network,
-} from '@summerfi/serverless-shared/domain-types'
+} from '@thesolidchain/serverless-shared/domain-types'
 
 export interface Addresses {
   AutomationBot: Address

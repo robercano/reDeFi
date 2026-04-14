@@ -1,4 +1,4 @@
-import { ILendingPosition, IPercentage, ITokenAmount, Percentage } from '@summerfi/sdk-common'
+import { ILendingPosition, IPercentage, ITokenAmount, Percentage } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 
 // TODO: refactor BigNumbers to use the SDK's TokenAmount operations

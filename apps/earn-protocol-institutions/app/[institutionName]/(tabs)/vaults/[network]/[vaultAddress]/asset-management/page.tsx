@@ -1,4 +1,4 @@
-import { humanNetworktoSDKNetwork } from '@summerfi/app-utils'
+import { humanNetworktoSDKNetwork } from '@thesolidchain/app-utils'
 
 import { getCachedVaultDetails } from '@/app/server-handlers/institution/institution-vaults'
 import { ClientSideSdkWrapper } from '@/components/organisms/ClientSideSDKWrapper/ClientSideSDKWrapper'

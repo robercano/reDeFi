@@ -1,4 +1,4 @@
-import { TokenBalance } from '@summerfi/triggers-shared'
+import { TokenBalance } from '@thesolidchain/triggers-shared'
 
 export function normalizeBalance(token: TokenBalance, targetDecimals: number): bigint {
   return token.balance * 10n ** BigInt(targetDecimals - token.token.decimals)

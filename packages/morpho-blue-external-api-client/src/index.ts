@@ -1,7 +1,7 @@
 import { request } from 'graphql-request'
 
 import { Logger } from '@aws-lambda-powertools/logger'
-import { Address } from '@summerfi/serverless-shared'
+import { Address } from '@thesolidchain/serverless-shared'
 import { MetaMorphoDetailsDocument } from './types/graphql/generated'
 
 const ApiUrl = 'https://blue-api.morpho.org/graphql'

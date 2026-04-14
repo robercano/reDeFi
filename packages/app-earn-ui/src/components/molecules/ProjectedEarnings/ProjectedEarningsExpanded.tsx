@@ -1,8 +1,8 @@
 'use client'
 
 import { type FC, useState } from 'react'
-import { type TransactionAction } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { type TransactionAction } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 
 import { Button } from '@/components/atoms/Button/Button'
 import { Card } from '@/components/atoms/Card/Card'

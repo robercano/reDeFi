@@ -1,21 +1,21 @@
 import { ServiceContainer } from './service-container'
 import { AaveAutoBuyEventBody } from '~types'
-import { SupportedActions } from '@summerfi/triggers-shared'
+import { SupportedActions } from '@thesolidchain/triggers-shared'
 import { simulatePosition } from './simulate-position'
 import { PublicClient } from 'viem'
-import { Addresses, CurrentTriggerLike } from '@summerfi/triggers-shared'
-import { Address, ChainId, ProtocolId, safeParseBigInt } from '@summerfi/serverless-shared'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
+import { Addresses, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, ProtocolId, safeParseBigInt } from '@thesolidchain/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
 import { Logger } from '@aws-lambda-powertools/logger'
 import memoize from 'just-memoize'
 import {
   getAavePosition,
   calculateCollateralPriceInDebtBasedOnLtv,
-} from '@summerfi/triggers-calculations'
+} from '@thesolidchain/triggers-calculations'
 import { aaveAutoBuyValidator } from './against-position-validators'
 import { encodeAaveAutoBuy } from './trigger-encoders'
 import { encodeFunctionForDpm } from './encode-function-for-dpm'
-import { getCurrentAaveStopLoss } from '@summerfi/triggers-calculations'
+import { getCurrentAaveStopLoss } from '@thesolidchain/triggers-calculations'
 
 export interface GetAaveAutoBuyServiceContainerProps {
   rpc: PublicClient

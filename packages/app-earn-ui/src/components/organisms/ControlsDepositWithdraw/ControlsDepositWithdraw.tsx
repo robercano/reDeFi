@@ -1,5 +1,5 @@
-import { type DropdownOption, type DropdownRawOption, TransactionAction } from '@summerfi/app-types'
-import { formatCryptoBalance } from '@summerfi/app-utils'
+import { type DropdownOption, type DropdownRawOption, TransactionAction } from '@thesolidchain/app-types'
+import { formatCryptoBalance } from '@thesolidchain/app-utils'
 import type BigNumber from 'bignumber.js'
 
 import { SkeletonLine } from '@/components/atoms/SkeletonLine/SkeletonLine'

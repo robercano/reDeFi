@@ -1,4 +1,4 @@
-import { ChainFamilyMap, ChainIds } from '@summerfi/sdk-common'
+import { ChainFamilyMap, ChainIds } from '@thesolidchain/sdk-common'
 import { TokenListData } from './TokensListData'
 
 export const StaticTokensData: TokenListData = {

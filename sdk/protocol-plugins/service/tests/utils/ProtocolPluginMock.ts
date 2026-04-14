@@ -6,11 +6,11 @@ import {
   IActionBuilder,
   IProtocolPlugin,
   IProtocolPluginContext,
-} from '@summerfi/protocol-plugins-common'
-import { ChainFamilyMap, IPoolId, Maybe, ProtocolName } from '@summerfi/sdk-common'
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
+} from '@thesolidchain/protocol-plugins-common'
+import { ChainFamilyMap, IPoolId, Maybe, ProtocolName } from '@thesolidchain/sdk-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
 
-import { TransactionInfo } from '@summerfi/sdk-common'
+import { TransactionInfo } from '@thesolidchain/sdk-common'
 import {
   ILendingPool,
   ILendingPoolId,
@@ -18,10 +18,10 @@ import {
   ILendingPoolInfo,
   ILendingPosition,
   ILendingPositionId,
-} from '@summerfi/sdk-common'
-import { IExternalLendingPosition, IPositionsManager } from '@summerfi/sdk-common'
-import { IUser } from '@summerfi/sdk-common'
-import { StepBuilderContextMock } from '@summerfi/testing-utils'
+} from '@thesolidchain/sdk-common'
+import { IExternalLendingPosition, IPositionsManager } from '@thesolidchain/sdk-common'
+import { IUser } from '@thesolidchain/sdk-common'
+import { StepBuilderContextMock } from '@thesolidchain/testing-utils'
 import { BaseActionBuilder } from '../../src/implementation/BaseActionBuilder'
 
 /* eslint-disable @typescript-eslint/no-unused-vars */

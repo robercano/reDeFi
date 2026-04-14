@@ -1,4 +1,4 @@
-import { ChainId } from '@summerfi/serverless-shared'
+import { ChainId } from '@thesolidchain/serverless-shared'
 
 export type DbNetworks = 'arbitrum' | 'optimism' | 'base' | 'mainnet' | 'sonic' | 'hyperliquid'
 

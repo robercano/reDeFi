@@ -1,4 +1,4 @@
-import { StepBuilderContext } from '@summerfi/protocol-plugins-common'
+import { StepBuilderContext } from '@thesolidchain/protocol-plugins-common'
 
 export class StepBuilderContextMock extends StepBuilderContext {
   public checkpoints: string[] = []

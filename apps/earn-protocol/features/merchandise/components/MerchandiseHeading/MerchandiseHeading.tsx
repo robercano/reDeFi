@@ -1,4 +1,4 @@
-import { Icon, Text } from '@summerfi/app-earn-ui'
+import { Icon, Text } from '@thesolidchain/app-earn-ui'
 import capitalize from 'lodash-es/capitalize'
 import Link from 'next/link'
 

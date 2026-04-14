@@ -1,10 +1,10 @@
-import { IBlockchainClient } from '@summerfi/blockchain-client-common'
-import { IERC20, IERC4626 } from '@summerfi/contracts-provider-common'
-import { IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import { IERC20, IERC4626 } from '@thesolidchain/contracts-provider-common'
+import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 import { ContractWrapper } from './ContractWrapper'
 import { ContractsFactory } from '../../factory/ContractsFactory'
 
-import type { ContractAbi } from '@summerfi/abi-provider-common'
+import type { ContractAbi } from '@thesolidchain/abi-provider-common'
 
 /**
  * @name GenericContractWrapper

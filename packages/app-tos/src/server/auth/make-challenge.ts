@@ -1,5 +1,5 @@
-import { type JWTChallenge } from '@summerfi/app-types'
-import { getRandomString } from '@summerfi/app-utils'
+import { type JWTChallenge } from '@thesolidchain/app-types'
+import { getRandomString } from '@thesolidchain/app-utils'
 import { SignJWT } from 'jose'
 import { type NextRequest, NextResponse } from 'next/server'
 import { type Address } from 'viem'

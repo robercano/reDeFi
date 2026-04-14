@@ -10,15 +10,15 @@ import {
   Text,
   Tooltip,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultsListType } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
 import {
   formatFiatBalance,
   formatWithSeparators,
   getRebalanceSavedGasCost,
   getRebalanceSavedTimeInHours,
   slugify,
-} from '@summerfi/app-utils'
+} from '@thesolidchain/app-utils'
 
 import { type RebalanceActivityPagination } from '@/app/server-handlers/tables-data/rebalance-activity/types'
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'

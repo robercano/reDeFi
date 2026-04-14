@@ -1,26 +1,26 @@
-import { IAbiProvider } from '@summerfi/abi-provider-common'
-import { AbiProviderFactory } from '@summerfi/abi-provider-service'
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import { AddressBookManagerFactory } from '@summerfi/address-book-service'
-import type { IAllowanceManager } from '@summerfi/allowance-manager-common'
-import { AllowanceManagerFactory } from '@summerfi/allowance-manager-service'
-import { BlockchainClientProvider } from '@summerfi/blockchain-client-provider'
-import { ConfigurationProvider } from '@summerfi/configuration-provider'
-import { IConfigurationProvider } from '@summerfi/configuration-provider-common'
-import { IContractsProvider } from '@summerfi/contracts-provider-common'
-import { ContractsProviderFactory } from '@summerfi/contracts-provider-service'
-import { IOracleManager } from '@summerfi/oracle-common'
-import { OracleManagerFactory } from '@summerfi/oracle-service'
-import { IOrderPlannerService } from '@summerfi/order-planner-common'
-import { OrderPlannerService } from '@summerfi/order-planner-service'
-import { IProtocolManager } from '@summerfi/protocol-manager-common'
-import { ProtocolManager } from '@summerfi/protocol-manager-service'
-import { IProtocolPluginsRegistry } from '@summerfi/protocol-plugins-common'
-import { SubgraphManagerFactory } from '@summerfi/subgraph-manager-service'
-import { ISwapManager } from '@summerfi/swap-common'
-import { CowSwapProvider, SwapManagerFactory } from '@summerfi/swap-service'
-import { ITokensManager } from '@summerfi/tokens-common'
-import { TokensManagerFactory } from '@summerfi/tokens-service'
+import { IAbiProvider } from '@thesolidchain/abi-provider-common'
+import { AbiProviderFactory } from '@thesolidchain/abi-provider-service'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { AddressBookManagerFactory } from '@thesolidchain/address-book-service'
+import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
+import { AllowanceManagerFactory } from '@thesolidchain/allowance-manager-service'
+import { BlockchainClientProvider } from '@thesolidchain/blockchain-client-provider'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IContractsProvider } from '@thesolidchain/contracts-provider-common'
+import { ContractsProviderFactory } from '@thesolidchain/contracts-provider-service'
+import { IOracleManager } from '@thesolidchain/oracle-common'
+import { OracleManagerFactory } from '@thesolidchain/oracle-service'
+import { IOrderPlannerService } from '@thesolidchain/order-planner-common'
+import { OrderPlannerService } from '@thesolidchain/order-planner-service'
+import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
+import { ProtocolManager } from '@thesolidchain/protocol-manager-service'
+import { IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
+import { SubgraphManagerFactory } from '@thesolidchain/subgraph-manager-service'
+import { ISwapManager } from '@thesolidchain/swap-common'
+import { CowSwapProvider, SwapManagerFactory } from '@thesolidchain/swap-service'
+import { ITokensManager } from '@thesolidchain/tokens-common'
+import { TokensManagerFactory } from '@thesolidchain/tokens-service'
 
 import {
   getChainInfoByChainId,
@@ -28,7 +28,7 @@ import {
   LoggingService,
   type ChainId,
   type IChainInfo,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
 import type { APIGatewayProxyEventV2 } from 'aws-lambda'
 import { createProtocolsPluginsRegistry } from './CreateProtocolPluginsRegistry'
@@ -111,7 +111,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
   const contractsProvider = ContractsProviderFactory.newContractsProvider({
     configProvider,
     blockchainClientProvider,
-    tokensManager,
   })
   const addressBookManager = AddressBookManagerFactory.newAddressBookManager({ configProvider })
   const orderPlannerService = new OrderPlannerService()

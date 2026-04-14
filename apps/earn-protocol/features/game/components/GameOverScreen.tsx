@@ -12,7 +12,7 @@ import {
   Text,
   Tooltip,
   useUserWallet,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import clsx from 'clsx'
 import Link from 'next/link'
 

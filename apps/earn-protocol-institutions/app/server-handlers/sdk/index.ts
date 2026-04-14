@@ -1,4 +1,4 @@
-import { makeAdminSDK, type SDKAdminManager } from '@summerfi/sdk-client'
+import { makeAdminSDK, type SDKAdminManager } from '@thesolidchain/sdk-client'
 
 const apiClientsList: {
   [institutionName: string]: SDKAdminManager

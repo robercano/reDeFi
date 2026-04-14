@@ -9,14 +9,14 @@ import {
   TextNumberAnimated,
   useAmount,
   VaultTitleDropdownContentBlock,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type DropdownRawOption,
   type GetVaultsApyResponse,
   type IToken,
   type SDKVaultishType,
-} from '@summerfi/app-types'
-import { formatDecimalAsPercent } from '@summerfi/app-utils'
+} from '@thesolidchain/app-types'
+import { formatDecimalAsPercent } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 import clsx from 'clsx'
 

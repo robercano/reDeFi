@@ -1,5 +1,5 @@
-import { type IArmadaPosition, type SDKVaultishType } from '@summerfi/app-types'
-import { zero } from '@summerfi/app-utils'
+import { type IArmadaPosition, type SDKVaultishType } from '@thesolidchain/app-types'
+import { zero } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 type PositionValues = {

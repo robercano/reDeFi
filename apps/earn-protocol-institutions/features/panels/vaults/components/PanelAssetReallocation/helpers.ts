@@ -1,4 +1,4 @@
-import { type SDKVaultType } from '@summerfi/app-types'
+import { type SDKVaultType } from '@thesolidchain/app-types'
 
 /**
  * Returns an object with the initial balance state for each Ark in the vault.

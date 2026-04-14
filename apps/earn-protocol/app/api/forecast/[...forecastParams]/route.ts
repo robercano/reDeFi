@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
-import { fetchForecastData, parseForecastDatapoints } from '@summerfi/app-earn-ui'
-import { type ForecastData, type PositionForecastAPIResponse } from '@summerfi/app-types'
-import { isSupportedSDKChain } from '@summerfi/app-utils'
+import { fetchForecastData, parseForecastDatapoints } from '@thesolidchain/app-earn-ui'
+import { type ForecastData, type PositionForecastAPIResponse } from '@thesolidchain/app-types'
+import { isSupportedSDKChain } from '@thesolidchain/app-utils'
 import { NextResponse } from 'next/server'
 
 import { isValidAddress } from '@/helpers/is-valid-address'

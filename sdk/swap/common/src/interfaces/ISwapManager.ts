@@ -6,8 +6,8 @@ import type {
   QuoteData,
   SwapData,
   SwapProviderType,
-} from '@summerfi/sdk-common'
-import { IManagerWithProviders } from '@summerfi/sdk-server-common'
+} from '@thesolidchain/sdk-common'
+import { IManagerWithProviders } from '@thesolidchain/sdk-server-common'
 import { ISwapProvider } from './ISwapProvider'
 
 /**

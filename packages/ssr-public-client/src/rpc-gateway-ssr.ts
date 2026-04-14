@@ -1,4 +1,4 @@
-import { NetworkNames, SupportedNetworkIds } from '@summerfi/app-types'
+import { NetworkNames, SupportedNetworkIds } from '@thesolidchain/app-types'
 
 import { getRpcGatewayUrl } from './rpc-gateway'
 

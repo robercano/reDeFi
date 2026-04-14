@@ -1,4 +1,4 @@
-import { SystemActionConfig } from '@summerfi/deployment-types'
+import { SystemActionConfig } from '@thesolidchain/deployment-types'
 
 export const ActionsConfiguration: SystemActionConfig = {
   PositionCreated: {

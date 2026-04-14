@@ -1,4 +1,4 @@
-import { IPercentage, ITokenAmount } from '@summerfi/sdk-common'
+import { IPercentage, ITokenAmount } from '@thesolidchain/sdk-common'
 
 /**
  * @description Morpho market info retrieved from the protocol

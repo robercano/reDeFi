@@ -1,7 +1,7 @@
 'use client'
 
 import { type CSSProperties, type FC, useState } from 'react'
-import { EMAIL_REGEX } from '@summerfi/app-utils'
+import { EMAIL_REGEX } from '@thesolidchain/app-utils'
 import Link from 'next/link'
 
 import { Text } from '@/components/atoms/Text/Text'

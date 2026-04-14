@@ -2,8 +2,8 @@
 /* eslint-disable @typescript-eslint/prefer-reduce-type-parameter */
 'use client'
 import { type FC, useReducer } from 'react'
-import { AuthorizedStakingRewardsCallerBaseStatus, SupportedNetworkIds } from '@summerfi/app-types'
-import { type HumanReadableNetwork, isSupportedHumanNetwork } from '@summerfi/app-utils'
+import { AuthorizedStakingRewardsCallerBaseStatus, SupportedNetworkIds } from '@thesolidchain/app-types'
+import { type HumanReadableNetwork, isSupportedHumanNetwork } from '@thesolidchain/app-utils'
 
 import { ClaimDelegateForm } from '@/features/claim-and-delegate/components/ClaimDelegateForm/ClaimDelegateForm'
 import { ClaimDelegateHeader } from '@/features/claim-and-delegate/components/ClaimDelegateHeader/ClaimDelegateHeader'

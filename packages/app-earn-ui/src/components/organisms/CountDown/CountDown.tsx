@@ -1,6 +1,6 @@
 'use client'
 import { type FC, useEffect, useMemo, useState } from 'react'
-import { timeUntil } from '@summerfi/app-utils'
+import { timeUntil } from '@thesolidchain/app-utils'
 
 import { CountDownItem } from '@/components/molecules/CountDownItem/CountDownItem'
 

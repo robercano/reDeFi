@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { formatAddress } from '@summerfi/app-utils'
+import { formatAddress } from '@thesolidchain/app-utils'
 import { ImageResponse } from 'next/og'
 import { type NextRequest } from 'next/server'
 

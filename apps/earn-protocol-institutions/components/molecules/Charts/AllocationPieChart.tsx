@@ -1,6 +1,6 @@
 'use client'
 
-import { Card } from '@summerfi/app-earn-ui'
+import { Card } from '@thesolidchain/app-earn-ui'
 import { Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 import { formatChartPercentageValue } from '@/features/charts/helpers'

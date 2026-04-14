@@ -1,5 +1,5 @@
-import { parseJsonSafelyWithBigInt } from '@summerfi/app-utils'
-import { type AddressValue, ChainIds, User } from '@summerfi/sdk-common'
+import { parseJsonSafelyWithBigInt } from '@thesolidchain/app-utils'
+import { type AddressValue, ChainIds, User } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 
 import {

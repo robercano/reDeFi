@@ -1,5 +1,5 @@
-import { IChainInfo } from '@summerfi/sdk-common'
-import { AddressBookManagerMock } from '@summerfi/testing-utils'
+import { IChainInfo } from '@thesolidchain/sdk-common'
+import { AddressBookManagerMock } from '@thesolidchain/testing-utils'
 
 export function SetupDeployments(
   chainInfo: IChainInfo,

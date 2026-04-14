@@ -1,6 +1,6 @@
 import { type FC } from 'react'
-import { type SDKVaultishType, type VaultApyData } from '@summerfi/app-types'
-import { type TransactionMetadataMigration } from '@summerfi/sdk-common'
+import { type SDKVaultishType, type VaultApyData } from '@thesolidchain/app-types'
+import { type TransactionMetadataMigration } from '@thesolidchain/sdk-common'
 import { type BigNumber } from 'bignumber.js'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'

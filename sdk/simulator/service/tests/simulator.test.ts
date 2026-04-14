@@ -3,7 +3,7 @@ import {
   RefinanceParameters,
   Percentage,
   SimulationSteps,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { refinanceLendingToLending } from '../src/strategies'
 import { mockRefinanceContext, mockRefinanceContextRequiredSwaps } from './mocks/contextMock'
 import {

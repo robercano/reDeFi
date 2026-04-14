@@ -1,5 +1,5 @@
-import { type SDKVaultType } from '@summerfi/app-types'
-import { simpleSort, SortDirection } from '@summerfi/app-utils'
+import { type SDKVaultType } from '@thesolidchain/app-types'
+import { simpleSort, SortDirection } from '@thesolidchain/app-utils'
 import BigNumber from 'bignumber.js'
 
 import { type TableSortedColumn } from '@/components/organisms/Table/Table'

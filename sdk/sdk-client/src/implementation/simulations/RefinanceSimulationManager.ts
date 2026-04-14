@@ -1,4 +1,4 @@
-import { IRefinanceSimulation, IRefinanceParameters } from '@summerfi/sdk-common'
+import { IRefinanceSimulation, IRefinanceParameters } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../../interfaces/IRPCClient'
 import { IRefinanceSimulationManager } from '../../interfaces/simulations/IRefinanceSimulationManager'
 import { RPCMainClientType } from '../../rpc/SDKMainClient'

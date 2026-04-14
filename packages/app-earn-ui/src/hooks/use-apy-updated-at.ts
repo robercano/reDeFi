@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { type VaultApyData } from '@summerfi/app-types'
+import { type VaultApyData } from '@thesolidchain/app-types'
 import dayjs from 'dayjs'
 
 const nbsp = '\u00A0'

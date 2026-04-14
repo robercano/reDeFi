@@ -1,4 +1,4 @@
-import { ProtocolId } from '@summerfi/serverless-shared'
+import { ProtocolId } from '@thesolidchain/serverless-shared'
 
 // do not use this, its just for backwards compatibility
 export enum LendingProtocol {

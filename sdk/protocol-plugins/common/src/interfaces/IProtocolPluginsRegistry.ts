@@ -1,4 +1,4 @@
-import { Maybe, ProtocolName } from '@summerfi/sdk-common'
+import { Maybe, ProtocolName } from '@thesolidchain/sdk-common'
 import { type IProtocolPlugin } from './IProtocolPlugin'
 
 export interface IProtocolPluginsRegistry {

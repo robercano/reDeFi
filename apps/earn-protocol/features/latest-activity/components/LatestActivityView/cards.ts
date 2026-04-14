@@ -1,4 +1,4 @@
-import { formatCryptoBalance, formatWithSeparators } from '@summerfi/app-utils'
+import { formatCryptoBalance, formatWithSeparators } from '@thesolidchain/app-utils'
 
 export const latestActivityHeading = {
   title: 'Lazy Summer Global User Activity',

@@ -1,5 +1,5 @@
-import { IAddressBookManager } from '@summerfi/address-book-common'
-import { IAddress, IChainInfo } from '@summerfi/sdk-common'
+import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 
 /**
  * Utility function to retrieve contract addresses

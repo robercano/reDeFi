@@ -1,4 +1,4 @@
-import { IPrintable, IToken, LendingPoolId, SerializationService } from '@summerfi/sdk-common'
+import { IPrintable, IToken, LendingPoolId, SerializationService } from '@thesolidchain/sdk-common'
 import { ILKType } from '../enums/ILKType'
 import {
   IMakerLendingPoolId,

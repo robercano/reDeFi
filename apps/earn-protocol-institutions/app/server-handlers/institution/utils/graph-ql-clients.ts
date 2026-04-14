@@ -1,4 +1,4 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
 import { GraphQLClient } from 'graphql-request'
 
 export const graphqlVaultHistoryClients: { [key in SupportedSDKNetworks]: GraphQLClient } = {

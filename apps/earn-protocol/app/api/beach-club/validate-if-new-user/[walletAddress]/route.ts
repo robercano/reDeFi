@@ -1,5 +1,5 @@
-import { addressSchema } from '@summerfi/serverless-shared'
-import { getSummerProtocolDB } from '@summerfi/summer-protocol-db'
+import { addressSchema } from '@thesolidchain/serverless-shared'
+import { getSummerProtocolDB } from '@thesolidchain/summer-protocol-db'
 import { type NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 

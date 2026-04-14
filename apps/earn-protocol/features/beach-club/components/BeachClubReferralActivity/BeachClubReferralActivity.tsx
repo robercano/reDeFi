@@ -1,5 +1,5 @@
 import { type FC, useState } from 'react'
-import { Button, Card } from '@summerfi/app-earn-ui'
+import { Button, Card } from '@thesolidchain/app-earn-ui'
 
 import { type BeachClubData } from '@/app/server-handlers/raw-calls/beach-club/types'
 import { BeachClubReferralActivityTable } from '@/features/beach-club/components/BeachClubReferralActivityTable/BeachClubReferralActivityTable'

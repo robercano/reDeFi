@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/serverless-shared",
+  "name": "@thesolidchain/serverless-shared",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -17,8 +17,8 @@
     "zod": "3.25.61"
   },
   "devDependencies": {
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "@types/node": "^20.12.7",
     "eslint": "^8.57.0"
   },

@@ -2,7 +2,7 @@ import {
   type AggregatedFleetRate,
   type FleetRate,
   type HistoricalFleetRateResult,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 
 type GetVaultsHistoricalApyParams = {
   fleets: {

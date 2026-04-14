@@ -1,5 +1,5 @@
-import { type SupportedSDKNetworks } from '@summerfi/app-types'
-import { subgraphNetworkToSDKId } from '@summerfi/app-utils'
+import { type SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { subgraphNetworkToSDKId } from '@thesolidchain/app-utils'
 
 import { getSSRPublicClient } from '@/helpers/get-ssr-public-client'
 

@@ -6,9 +6,9 @@ import {
   Text,
   TokenWithNetworkIcon,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
-import { type PlatformLogo, type TokenSymbolsList } from '@summerfi/app-types'
-import { formatDecimalAsPercent, formatFiatBalance } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type PlatformLogo, type TokenSymbolsList } from '@thesolidchain/app-types'
+import { formatDecimalAsPercent, formatFiatBalance } from '@thesolidchain/app-utils'
 import clsx from 'clsx'
 import Image from 'next/image'
 

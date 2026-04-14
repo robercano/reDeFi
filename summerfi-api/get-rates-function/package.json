@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/get-rates-function",
+  "name": "@thesolidchain/get-rates-function",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -15,10 +15,10 @@
   "dependencies": {
     "@aws-lambda-powertools/logger": "^1.12.1",
     "@middy/core": "^6.0.0",
-    "@summerfi/abstractions": "workspace:*",
-    "@summerfi/redis-cache": "workspace:*",
-    "@summerfi/summer-earn-rates-subgraph": "workspace:*",
-    "@summerfi/summer-protocol-db": "workspace:*",
+    "@thesolidchain/abstractions": "workspace:*",
+    "@thesolidchain/redis-cache": "workspace:*",
+    "@thesolidchain/summer-earn-rates-subgraph": "workspace:*",
+    "@thesolidchain/summer-protocol-db": "workspace:*",
     "graphql": "^16.8.1",
     "graphql-request": "^6.1.0"
   }

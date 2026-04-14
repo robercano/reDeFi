@@ -1,5 +1,5 @@
-import { getArkProductId } from '@summerfi/app-utils'
-import { type GetInterestRatesQuery } from '@summerfi/summer-earn-rates-subgraph'
+import { getArkProductId } from '@thesolidchain/app-utils'
+import { type GetInterestRatesQuery } from '@thesolidchain/summer-earn-rates-subgraph'
 
 import { noInterestRates } from '@/arks-interest-rates/constants'
 import { type ArkType } from '@/arks-interest-rates/types'

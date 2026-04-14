@@ -1,5 +1,5 @@
-import { type Deposit, type Withdraw } from '@summerfi/subgraph-manager-common'
-import { type LatestActivity as LatestActivityDb } from '@summerfi/summer-protocol-db'
+import { type Deposit, type Withdraw } from '@thesolidchain/subgraph-manager-common'
+import { type LatestActivity as LatestActivityDb } from '@thesolidchain/summer-protocol-db'
 
 type DepositOrWithdraw = Deposit | Withdraw
 

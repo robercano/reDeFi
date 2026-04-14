@@ -5,8 +5,8 @@ import {
   useSendUserOperation,
   useSmartAccountClient,
 } from '@account-kit/react'
-import { getAccountType } from '@summerfi/app-earn-ui'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { getAccountType } from '@thesolidchain/app-earn-ui'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 import {
   type BridgeTransactionInfo,
   type Denomination,
@@ -16,7 +16,7 @@ import {
   type ITokenAmount,
   type QuoteData,
   TokenAmount,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { type Chain, formatEther } from 'viem'
 

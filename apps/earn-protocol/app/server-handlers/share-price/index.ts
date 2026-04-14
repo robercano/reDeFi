@@ -1,4 +1,4 @@
-import { FleetCommanderAbi } from '@summerfi/armada-protocol-abis'
+import { FleetCommanderAbi } from '@thesolidchain/armada-protocol-abis'
 import BigNumber from 'bignumber.js'
 
 import { getSSRPublicClient } from '@/helpers/get-ssr-public-client'

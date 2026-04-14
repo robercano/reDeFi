@@ -1,4 +1,4 @@
-import { SimulationSteps, steps } from '@summerfi/sdk-common'
+import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
 import type {
   StepOutputProcessor,
   StepOutputProcessors,

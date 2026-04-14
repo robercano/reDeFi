@@ -1,4 +1,4 @@
-import { Address, ChainInfo, IToken, TokenSymbol } from '@summerfi/sdk-common'
+import { Address, ChainInfo, IToken, TokenSymbol } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'
 import { ITokensManagerClient } from '../interfaces/ITokensManagerClient'

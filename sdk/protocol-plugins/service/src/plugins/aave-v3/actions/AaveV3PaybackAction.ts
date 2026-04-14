@@ -1,5 +1,5 @@
-import { ActionCall, BaseAction, InputSlotsMapping } from '@summerfi/protocol-plugins-common'
-import { IAddress, ITokenAmount } from '@summerfi/sdk-common'
+import { ActionCall, BaseAction, InputSlotsMapping } from '@thesolidchain/protocol-plugins-common'
+import { IAddress, ITokenAmount } from '@thesolidchain/sdk-common'
 
 export class AaveV3PaybackAction extends BaseAction<typeof AaveV3PaybackAction.Config> {
   public static readonly Config = {

@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react'
-import { BigGradientBox, Text } from '@summerfi/app-earn-ui'
+import { BigGradientBox, Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import bestOfDecentralizedFinanceChart1 from '@/public/img/landing-page/best-of-decentralised-finance_chart-1.svg'

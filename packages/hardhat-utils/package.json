@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/hardhat-utils",
+  "name": "@thesolidchain/hardhat-utils",
   "version": "0.0.1",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -18,8 +18,8 @@
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
-    "@summerfi/eslint-config": "workspace:*",
-    "@summerfi/typescript-config": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/typescript-config": "workspace:*",
     "hardhat": "^2.22.2",
     "hardhat-abi-exporter": "^2.10.1",
     "solidity-docgen": "0.6.0-beta.36"

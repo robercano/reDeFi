@@ -1,6 +1,6 @@
 'use client'
 import { type FC } from 'react'
-import { Text } from '@summerfi/app-earn-ui'
+import { Text } from '@thesolidchain/app-earn-ui'
 import Image from 'next/image'
 
 import sumrBigCircle from '@/public/img/sumr/sumr_big_circle.svg'

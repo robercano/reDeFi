@@ -1,22 +1,22 @@
 import { ServiceContainer } from './service-container'
 import { MorphoBlueTrailingStopLossEventBody } from '~types'
 import { PublicClient } from 'viem'
-import { Addresses, CurrentTriggerLike } from '@summerfi/triggers-shared'
-import { Address, ChainId, PoolId } from '@summerfi/serverless-shared'
-import { GetTriggersResponse } from '@summerfi/triggers-shared/contracts'
+import { Addresses, CurrentTriggerLike } from '@thesolidchain/triggers-shared'
+import { Address, ChainId, PoolId } from '@thesolidchain/serverless-shared'
+import { GetTriggersResponse } from '@thesolidchain/triggers-shared/contracts'
 import { Logger } from '@aws-lambda-powertools/logger'
 import memoize from 'just-memoize'
 import { encodeFunctionForDpm } from './encode-function-for-dpm'
-import { DerivedPrices } from '@summerfi/prices-subgraph'
+import { DerivedPrices } from '@thesolidchain/prices-subgraph'
 import { dmaMorphoBlueTrailingStopLossValidator } from './against-position-validators'
-import { getCurrentMorphoBlueStopLoss } from '@summerfi/triggers-calculations'
+import { getCurrentMorphoBlueStopLoss } from '@thesolidchain/triggers-calculations'
 import { encodeMorphoBlueTrailingStopLoss } from './trigger-encoders'
 import {
   calculateCollateralPriceInDebtBasedOnLtv,
   calculateLtv,
   getMorphoBluePosition,
-} from '@summerfi/triggers-calculations'
-import { maxUnit256, SupportedActions } from '@summerfi/triggers-shared'
+} from '@thesolidchain/triggers-calculations'
+import { maxUnit256, SupportedActions } from '@thesolidchain/triggers-shared'
 
 export interface GetMorphoBlueTrailingStopLossServiceContainerProps {
   rpc: PublicClient

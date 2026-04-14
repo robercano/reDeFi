@@ -6,12 +6,12 @@ import {
   SkeletonLine,
   Text,
   TokenWithNetworkIcon,
-} from '@summerfi/app-earn-ui'
+} from '@thesolidchain/app-earn-ui'
 import {
   type PlatformLogo,
   type SupportedNetworkIds,
   type TokenSymbolsList,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import { capitalize } from 'lodash-es'
 import Image from 'next/image'
 

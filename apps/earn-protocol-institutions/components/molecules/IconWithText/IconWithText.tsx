@@ -1,6 +1,6 @@
 import { type FC, type ReactNode } from 'react'
-import { Icon } from '@summerfi/app-earn-ui'
-import { type IconNamesList, type TokenSymbolsList } from '@summerfi/app-types'
+import { Icon } from '@thesolidchain/app-earn-ui'
+import { type IconNamesList, type TokenSymbolsList } from '@thesolidchain/app-types'
 
 interface IconWithTextProps {
   iconName?: IconNamesList

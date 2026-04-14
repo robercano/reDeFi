@@ -27,8 +27,8 @@ import {
   useTokenSelector,
   useUserWallet,
   VaultManageGrid,
-} from '@summerfi/app-earn-ui'
-import { useTermsOfService } from '@summerfi/app-tos'
+} from '@thesolidchain/app-earn-ui'
+import { useTermsOfService } from '@thesolidchain/app-tos'
 import {
   type ArksHistoricalChartData,
   type DropdownRawOption,
@@ -46,7 +46,7 @@ import {
   SupportedNetworkIds,
   TOSStatus,
   TransactionAction,
-} from '@summerfi/app-types'
+} from '@thesolidchain/app-types'
 import {
   slugify,
   slugifyVault,
@@ -54,8 +54,8 @@ import {
   subgraphNetworkToSDKId,
   supportedSDKNetwork,
   zero,
-} from '@summerfi/app-utils'
-import { TransactionType } from '@summerfi/sdk-common'
+} from '@thesolidchain/app-utils'
+import { TransactionType } from '@thesolidchain/sdk-common'
 import dynamic from 'next/dynamic'
 
 import { type MigratablePosition } from '@/app/server-handlers/raw-calls/migration'

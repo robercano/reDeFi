@@ -1,5 +1,5 @@
-import { ChainIds, GlobalRoles } from '@summerfi/sdk-client'
-import { getSummerProtocolInstitutionDB } from '@summerfi/summer-protocol-institutions-db'
+import { ChainIds, GlobalRoles } from '@thesolidchain/sdk-client'
+import { getSummerProtocolInstitutionDB } from '@thesolidchain/summer-protocol-institutions-db'
 import { unstable_cache as unstableCache } from 'next/cache'
 
 import { getInstitutionsSDK } from '@/app/server-handlers/sdk'

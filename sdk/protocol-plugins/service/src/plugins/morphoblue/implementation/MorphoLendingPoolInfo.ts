@@ -1,4 +1,4 @@
-import { LendingPoolInfo, SerializationService } from '@summerfi/sdk-common'
+import { LendingPoolInfo, SerializationService } from '@thesolidchain/sdk-common'
 import { IMorphoLendingPoolId } from '../interfaces/IMorphoLendingPoolId'
 import {
   IMorphoLendingPoolInfo,

@@ -1,4 +1,4 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 
 import { clientId } from '@/helpers/client-id'
 

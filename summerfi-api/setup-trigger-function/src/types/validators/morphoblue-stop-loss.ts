@@ -4,8 +4,8 @@ import {
   ltvSchema,
   poolIdSchema,
   urlOptionalSchema,
-} from '@summerfi/serverless-shared'
-import { positionAddressesSchema, supportedActionsSchema } from '@summerfi/triggers-shared'
+} from '@thesolidchain/serverless-shared'
+import { positionAddressesSchema, supportedActionsSchema } from '@thesolidchain/triggers-shared'
 import { TriggerType } from '@oasisdex/automation'
 
 export const dmaMorphoBlueStopLoss = z.object({

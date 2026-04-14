@@ -1,4 +1,4 @@
-import { safeParseBigInt } from '@summerfi/serverless-shared'
+import { safeParseBigInt } from '@thesolidchain/serverless-shared'
 import { type RewardsData, type SparkRewardsResponse } from './types'
 import { getClaimType } from './mappings'
 import type { Hex } from 'viem'

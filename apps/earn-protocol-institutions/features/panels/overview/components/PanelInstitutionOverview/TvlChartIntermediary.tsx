@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
-import { Card, LoadingSpinner, Text } from '@summerfi/app-earn-ui'
-import { type MultipleSourceChartData, type TimeframesType } from '@summerfi/app-types'
+import { Card, LoadingSpinner, Text } from '@thesolidchain/app-earn-ui'
+import { type MultipleSourceChartData, type TimeframesType } from '@thesolidchain/app-types'
 
 import { ChartHeader } from '@/components/molecules/Charts/ChartHeader'
 import { TvlChart } from '@/components/molecules/Charts/TvlChart'

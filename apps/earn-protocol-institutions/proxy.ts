@@ -1,4 +1,4 @@
-import { getDeviceType } from '@summerfi/app-utils'
+import { getDeviceType } from '@thesolidchain/app-utils'
 import { type NextRequest, NextResponse } from 'next/server'
 
 export function proxy(request: NextRequest) {

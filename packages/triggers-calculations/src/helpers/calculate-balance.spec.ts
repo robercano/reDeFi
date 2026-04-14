@@ -1,4 +1,4 @@
-import { Price, PRICE_DECIMALS, Token, TokenBalance } from '@summerfi/triggers-shared'
+import { Price, PRICE_DECIMALS, Token, TokenBalance } from '@thesolidchain/triggers-shared'
 import { calculateBalance } from './calculate-balance'
 import { reversePrice } from './reverse-price'
 

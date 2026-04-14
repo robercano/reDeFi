@@ -1,6 +1,6 @@
-import { SupportedNetworkIds } from '@summerfi/app-types'
-import { SummerTokenAbi, SummerVestingWalletFactoryAbi } from '@summerfi/armada-protocol-abis'
-import { ChainIds, getChainInfoByChainId, User } from '@summerfi/sdk-common'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
+import { SummerTokenAbi, SummerVestingWalletFactoryAbi } from '@thesolidchain/armada-protocol-abis'
+import { ChainIds, getChainInfoByChainId, User } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
 import { type Address } from 'viem'
 

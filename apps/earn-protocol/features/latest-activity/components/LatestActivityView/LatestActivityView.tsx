@@ -12,8 +12,8 @@ import {
   useCurrentUrl,
   useMobileCheck,
   useQueryParams,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultsListType } from '@summerfi/app-types'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'
 import { type TopDepositorsPagination } from '@/app/server-handlers/tables-data/top-depositors/types'

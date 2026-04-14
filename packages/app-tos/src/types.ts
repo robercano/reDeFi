@@ -1,5 +1,5 @@
 import { type Dispatch, type SetStateAction } from 'react'
-import { type TOSState } from '@summerfi/app-types'
+import { type TOSState } from '@thesolidchain/app-types'
 import type { ColumnType } from 'kysely'
 import { type PublicClient } from 'viem'
 import * as z from 'zod'

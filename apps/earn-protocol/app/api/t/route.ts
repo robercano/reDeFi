@@ -1,5 +1,5 @@
-import { getMixpanel, trackEventHandler } from '@summerfi/app-server-handlers'
-import { EarnProtocolEventNames } from '@summerfi/app-types'
+import { getMixpanel, trackEventHandler } from '@thesolidchain/app-server-handlers'
+import { EarnProtocolEventNames } from '@thesolidchain/app-types'
 import { snakeCase } from 'lodash-es'
 import { type NextRequest, NextResponse } from 'next/server'
 

@@ -8,9 +8,9 @@ import {
   type TableSortedColumn,
   Text,
   useMobileCheck,
-} from '@summerfi/app-earn-ui'
-import { type SDKVaultsListType } from '@summerfi/app-types'
-import { slugify } from '@summerfi/app-utils'
+} from '@thesolidchain/app-earn-ui'
+import { type SDKVaultsListType } from '@thesolidchain/app-types'
+import { slugify } from '@thesolidchain/app-utils'
 
 import { type LatestActivityPagination } from '@/app/server-handlers/tables-data/latest-activity/types'
 import { useDeviceType } from '@/contexts/DeviceContext/DeviceContext'

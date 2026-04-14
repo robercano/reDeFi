@@ -5,7 +5,7 @@ import {
   isRiskRatio,
   IAddress,
   LendingPoolDataSchema,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IMorphoLendingPoolId, isMorphoLendingPoolId } from './IMorphoLendingPoolId'
 

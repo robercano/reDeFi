@@ -4,8 +4,8 @@ import {
   ResponseBadRequest,
   ResponseInternalServerError,
   ResponseOk,
-} from '@summerfi/serverless-shared/responses'
-import { addressSchema, chainIdSchema } from '@summerfi/serverless-shared/validators'
+} from '@thesolidchain/serverless-shared/responses'
+import { addressSchema, chainIdSchema } from '@thesolidchain/serverless-shared/validators'
 
 import { Logger } from '@aws-lambda-powertools/logger'
 import { getClaims } from './get-claims'

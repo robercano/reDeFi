@@ -1,8 +1,8 @@
-import { Config, ConfigEntry } from '@summerfi/deployment-types'
-import { Deployments } from '@summerfi/deployment-utils'
+import { Config, ConfigEntry } from '@thesolidchain/deployment-types'
+import { Deployments } from '@thesolidchain/deployment-utils'
 import ContractVersions from '../../versions/contracts-versions.snapshot.json'
 import { getContractLabel, getLabelHash, recurseConfig } from './utils'
-import { Address } from '@summerfi/common'
+import { Address } from '@thesolidchain/common'
 import { ContractsVersionsSnapshot } from '../versions'
 
 async function processVerificationEntry(

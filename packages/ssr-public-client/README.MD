@@ -1,4 +1,4 @@
-# @summerfi/ssr-public-client
+# @thesolidchain/ssr-public-client
 
 A lightweight, server-side rendering (SSR) optimized public client for blockchain interactions in
 the Summer.fi ecosystem. This package provides cached Viem public clients for multiple blockchain
@@ -16,7 +16,7 @@ networks with optimized RPC gateway integration.
 ## Installation
 
 ```bash
-pnpm install @summerfi/ssr-public-client
+pnpm install @thesolidchain/ssr-public-client
 ```
 
 ## Usage
@@ -24,8 +24,8 @@ pnpm install @summerfi/ssr-public-client
 ### Basic Usage
 
 ```typescript
-import { getSSRPublicClient } from '@summerfi/ssr-public-client'
-import { SupportedNetworkIds } from '@summerfi/app-types'
+import { getSSRPublicClient } from '@thesolidchain/ssr-public-client'
+import { SupportedNetworkIds } from '@thesolidchain/app-types'
 
 // Get a public client for Ethereum Mainnet
 const mainnetClient = await getSSRPublicClient(SupportedNetworkIds.Mainnet)

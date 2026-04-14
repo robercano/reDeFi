@@ -5,7 +5,7 @@ import {
   RiskRatio,
   RiskRatioType,
   Token,
-} from '@summerfi/sdk-common'
+} from '@thesolidchain/sdk-common'
 import {
   IMorphoLendingPoolId,
   MorphoLendingPoolId,

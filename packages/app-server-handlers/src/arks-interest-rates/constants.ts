@@ -1,5 +1,5 @@
-import { SupportedSDKNetworks } from '@summerfi/app-types'
-import { type GetInterestRatesQuery } from '@summerfi/summer-earn-rates-subgraph'
+import { SupportedSDKNetworks } from '@thesolidchain/app-types'
+import { type GetInterestRatesQuery } from '@thesolidchain/summer-earn-rates-subgraph'
 import { GraphQLClient } from 'graphql-request'
 
 export const graphqlClients: { [key in SupportedSDKNetworks]: GraphQLClient } = {
