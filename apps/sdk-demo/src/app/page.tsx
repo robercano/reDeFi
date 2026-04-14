@@ -1,17 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
+import React from "react";
+import { TokenFetcher } from "../components/TokenFetcher";
 
 export default function Home() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] relative overflow-hidden font-sans">
       {/* Dynamic Background Elements */}
@@ -75,6 +67,11 @@ export default function Home() {
               <p className="text-neutral-400 font-light leading-relaxed">{feature.desc}</p>
             </div>
           ))}
+        </div>
+
+        {/* Demo Application SDK Components */}
+        <div className="w-full mt-24 flex justify-center">
+          <TokenFetcher />
         </div>
       </main>
 
