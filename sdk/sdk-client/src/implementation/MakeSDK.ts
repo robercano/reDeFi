@@ -1,6 +1,6 @@
 import { createMainRPCClient } from '../rpc/SDKMainClient'
-import { SDKManager } from './SDKManager'
 import { getApiVersion } from '../utils/getApiVersion'
+import { SDKManager } from './SDKManager'
 
 export type MakeSDKParams = { logging?: boolean; version?: 'v1' | 'v2'; apiKey?: string } & (
   | { apiDomainUrl: string }
@@ -28,7 +28,7 @@ export function makeSDK(params: MakeSDKParams) {
   }
 
   if (params.logging) {
-    console.log('Summer.fi SDK: versionedURL', versionedURL)
+    console.log('SDK: versionedURL', versionedURL)
   }
   const rpcClient = createMainRPCClient({
     apiURL: versionedURL,

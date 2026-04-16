@@ -1,6 +1,6 @@
 import type {
-  IPercentage,
   IAddress,
+  IPercentage,
   IToken,
   ITokenAmount,
   QuoteData,
@@ -39,19 +39,4 @@ export interface ISwapManager extends IManagerWithProviders<SwapProviderType, IS
    * @param toToken The token to swap to
    */
   getSwapQuoteExactInput(params: { fromAmount: ITokenAmount; toToken: IToken }): Promise<QuoteData>
-
-  /**
-   * @name getSummerFee
-   * @description Returns the Summer fee to charge on the swap
-   * @param fromToken The source token
-   * @param toToken The target token
-   */
-  getSummerFee(params: {
-    from: {
-      token: IToken
-    }
-    to: {
-      token: IToken
-    }
-  }): Promise<IPercentage>
 }

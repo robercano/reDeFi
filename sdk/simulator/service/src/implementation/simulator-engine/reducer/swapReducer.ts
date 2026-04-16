@@ -1,13 +1,10 @@
-import { Percentage, TokenAmount, steps, calculatePriceImpact } from '@thesolidchain/sdk-common'
+import { Percentage, calculatePriceImpact, steps } from '@thesolidchain/sdk-common'
 import { ISimulationState } from '../../../interfaces/simulation'
 import { addBalance, subtractBalance } from '../../utils'
 
 export function swapReducer(step: steps.SwapStep, state: ISimulationState): ISimulationState {
   const balanceWithoutFromToken = subtractBalance(step.inputs.inputAmount, state.balances)
   const balanceWithToToken = addBalance(step.outputs.received, balanceWithoutFromToken)
-  const fromAmountPreSummerFee = step.inputs.inputAmount.divide(
-    Percentage.createFrom({ value: 100.0 }).subtract(step.inputs.summerFee),
-  )
 
   return {
     ...state,
@@ -26,10 +23,6 @@ export function swapReducer(step: steps.SwapStep, state: ISimulationState): ISim
         offerPrice: step.inputs.offerPrice,
         spotPrice: step.inputs.spotPrice,
         priceImpact: calculatePriceImpact(step.inputs.spotPrice, step.inputs.offerPrice),
-        summerFee: TokenAmount.createFrom({
-          token: step.inputs.inputAmount.token,
-          amount: fromAmountPreSummerFee.multiply(step.inputs.summerFee.toProportion()).amount,
-        }),
       },
     ],
     balances: balanceWithToToken,

@@ -19,7 +19,6 @@ const envSchema = z.object({
   ONE_INCH_API_SPOT_VERSION: z.string().nonempty(),
   ONE_INCH_API_SPOT_KEY: z.string().nonempty(),
   ONE_INCH_API_SPOT_AUTH_HEADER: z.string().nonempty(),
-  SUMMER_DEPLOYMENT_CONFIG: z.string().nonempty(),
   SDK_RPC_GATEWAY: z.string().nonempty(),
   SDK_LOGGING_ENABLED: z.string().default('false'),
   SDK_DEBUG_ENABLED: z.string().default('false'),

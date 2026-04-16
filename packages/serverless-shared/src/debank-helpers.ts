@@ -22,7 +22,6 @@ export const DEBANK_SUPPORTED_PROTOCOL_IDS = [
   'base_ajna',
   'base_morphoblue',
 ]
-export const DEBANK_SUPPORTED_PROXY_IDS = ['summer', 'makerdao']
 
 export enum DebankNetworkNames {
   ethereumMainnet = 'eth',

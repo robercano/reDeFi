@@ -1,7 +1,7 @@
 import { z } from 'zod'
+import { PositionType } from '../../common/enums/PositionType'
 import { IPosition, PositionDataSchema } from '../../common/interfaces/IPosition'
 import { ITokenAmount, isTokenAmount } from '../../common/interfaces/ITokenAmount'
-import { PositionType } from '../../common/enums/PositionType'
 import { LendingPositionType } from '../types/LendingPositionType'
 import { ILendingPool, isLendingPool } from './ILendingPool'
 import { ILendingPositionId, isLendingPositionId } from './ILendingPositionId'
@@ -18,9 +18,9 @@ export const __signature__: unique symbol = Symbol()
 export interface ILendingPosition extends IPosition, ILendingPositionData {
   /** Signature to differentiate from similar interfaces */
   readonly [__signature__]: symbol
-  /** Subtype of the position in the Summer.fi system */
+  /** Subtype of the position in the Lending protocol */
   readonly subtype: LendingPositionType
-  /** Unique identifier for the position inside the Summer.fi system */
+  /** Unique identifier for the position inside the Lending protocol */
   readonly id: ILendingPositionId
   /** Amount of debt borrowed from the pool */
   readonly debtAmount: ITokenAmount

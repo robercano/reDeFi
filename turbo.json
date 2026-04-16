@@ -1,8 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.v2.json",
-  "globalDependencies": [
-    "**/.env.*local"
-  ],
+  "globalDependencies": ["**/.env.*local"],
   "globalEnv": [
     "RPC_GATEWAY",
     "NEXT_PUBLIC_SHA",
@@ -46,7 +44,6 @@
     "SDK_RPC_GATEWAY",
     "SDK_LOGGING_ENABLED",
     "SDK_DEBUG_ENABLED",
-    "SUMMER_DEPLOYMENT_CONFIG",
     "FORECAST_API_URL",
     "REDIS_CACHE_URL",
     "REDIS_CACHE_USER",
@@ -85,7 +82,6 @@
     "NEWSLETTER_ENDPOINT",
     "EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN",
     "EARN_APP_URL",
-    "SUMMER_PRO_PRODUCT_HUB_KEY",
     "PRO_APP_URL",
     "ENVIRONMENT_TAG",
     "BEACH_CLUB_REWARDS_DB_CONNECTION_STRING",
@@ -99,7 +95,6 @@
     "INSTITUTIONS_SESSION_SECRET",
     "INSTITUTIONS_COGNITO_ADMIN_ACCESS_KEY",
     "INSTITUTIONS_COGNITO_ADMIN_SECRET_ACCESS_KEY",
-    "DUNE_LAZYSUMMER_ACCOUNT_API_KEY",
     "VAULTS_BENCHMARK_API_KEY"
   ],
   "tasks": {
@@ -108,10 +103,7 @@
       "persistent": true
     },
     "prebuild": {
-      "dependsOn": [
-        "^prebuild",
-        "^prebuild:nocache"
-      ],
+      "dependsOn": ["^prebuild", "^prebuild:nocache"],
       "outputs": [
         "src/types/graphql/generated.ts",
         "src/generated",
@@ -122,16 +114,11 @@
       ]
     },
     "prebuild:nocache": {
-      "dependsOn": [
-        "^prebuild:nocache"
-      ],
+      "dependsOn": ["^prebuild:nocache"],
       "cache": false
     },
     "build": {
-      "dependsOn": [
-        "prebuild",
-        "^build"
-      ],
+      "dependsOn": ["prebuild", "^build"],
       "outputs": [
         ".next/**",
         ".next/server/pages/**",
@@ -143,11 +130,7 @@
       ]
     },
     "build:apps": {
-      "dependsOn": [
-        "prebuild",
-        "^build",
-        "^build:apps"
-      ],
+      "dependsOn": ["prebuild", "^build", "^build:apps"],
       "outputs": [
         ".next/**",
         ".next/server/pages/**",
@@ -159,44 +142,22 @@
       ]
     },
     "test": {
-      "dependsOn": [
-        "prebuild",
-        "build",
-        "^test"
-      ]
+      "dependsOn": ["prebuild", "build", "^test"]
     },
     "test:integration": {
-      "dependsOn": [
-        "prebuild",
-        "build",
-        "^test:integration"
-      ]
+      "dependsOn": ["prebuild", "build", "^test:integration"]
     },
     "lint": {
-      "dependsOn": [
-        "prebuild",
-        "build",
-        "^lint"
-      ]
+      "dependsOn": ["prebuild", "build", "^lint"]
     },
     "format": {
-      "dependsOn": [
-        "prebuild",
-        "build",
-        "^format"
-      ]
+      "dependsOn": ["prebuild", "build", "^format"]
     },
     "check-circular": {
-      "dependsOn": [
-        "prebuild",
-        "build",
-        "^check-circular"
-      ]
+      "dependsOn": ["prebuild", "build", "^check-circular"]
     },
     "db:migrate": {
-      "dependsOn": [
-        "prebuild"
-      ],
+      "dependsOn": ["prebuild"],
       "cache": false
     },
     "cicheck": {
@@ -211,10 +172,7 @@
       ]
     },
     "deploy:staging": {
-      "dependsOn": [
-        "cicheck",
-        "^deploy:staging"
-      ]
+      "dependsOn": ["cicheck", "^deploy:staging"]
     }
   }
 }

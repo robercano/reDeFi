@@ -1,16 +1,16 @@
 import type {
-  Maybe,
-  IPercentage,
   IAddress,
+  IPercentage,
   IToken,
   ITokenAmount,
+  Maybe,
   QuoteData,
   SwapData,
   SwapProviderType,
 } from '@thesolidchain/sdk-common'
-import { ChainId, Percentage } from '@thesolidchain/sdk-common'
-import { ISwapProvider, ISwapManager } from '@thesolidchain/swap-common'
+import { ChainId } from '@thesolidchain/sdk-common'
 import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
+import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
 
 /**
  * @typedef SwapManagerProviderConfig
@@ -71,17 +71,5 @@ export class SwapManager
     }
 
     return provider.getSwapQuoteExactInput(params)
-  }
-
-  /** @see ISwapManager.getSummerFee */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async getSummerFee(params: {
-    from: { token: IToken }
-    to: { token: IToken }
-  }): Promise<IPercentage> {
-    // TODO: Implement with appropriate logic
-    return Percentage.createFrom({
-      value: 0.2,
-    })
   }
 }

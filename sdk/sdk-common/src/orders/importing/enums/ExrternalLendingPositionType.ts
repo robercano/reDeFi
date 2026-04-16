@@ -3,7 +3,7 @@ import { z } from 'zod'
 /**
  * Type of external position
  *
- * Used for importing positions from external sources into the Summer system
+ * Used for importing positions from external sources into the protocol system
  */
 export enum ExternalLendingPositionType {
   /** EOA directly owned position */

@@ -1,7 +1,7 @@
 import { createMainRPCClient } from '../rpc/SDKMainClient'
-import { SDKAdminManager } from './SDKAdminManager'
-import type { MakeSDKParams } from './MakeSDK'
 import { getApiVersion } from '../utils/getApiVersion'
+import type { MakeSDKParams } from './MakeSDK'
+import { SDKAdminManager } from './SDKAdminManager'
 
 export type MakeAdminSDKParams = MakeSDKParams & { clientId: string }
 
@@ -26,7 +26,7 @@ export function makeAdminSDK(params: MakeAdminSDKParams) {
   }
 
   if (params.logging) {
-    console.log('Summer.fi Admin SDK: versionedURL', versionedURL)
+    console.log('Admin SDK: versionedURL', versionedURL)
   }
   const rpcClient = createMainRPCClient({
     apiURL: versionedURL,
