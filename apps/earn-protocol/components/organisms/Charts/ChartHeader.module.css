@@ -1,7 +1,0 @@
-.wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--general-space-16);
-}

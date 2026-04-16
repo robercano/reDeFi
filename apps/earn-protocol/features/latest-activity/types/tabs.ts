@@ -1,4 +1,0 @@
-export enum UserActivityTab {
-  TOP_DEPOSITORS = 'TOP_DEPOSITORS',
-  LATEST_ACTIVITY = 'LATEST_ACTIVITY',
-}
