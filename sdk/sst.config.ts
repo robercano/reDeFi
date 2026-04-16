@@ -3,7 +3,7 @@ import { isPersistentStage, isProductionStage } from './sst-utils'
 import { sdkDeployedVersionsMap } from './sst-environment'
 import { version as clientPkgVersion } from './sdk-client/bundle/package.json'
 import { createBackend } from './create-backend'
-import { Api, Bucket, Function } from 'sst/constructs'
+import { Api, Function } from 'sst/constructs'
 import { RemovalPolicy } from 'aws-cdk-lib'
 import { config } from '@dotenvx/dotenvx'
 
@@ -47,15 +47,6 @@ export default {
         )
       }
 
-      const sdkBucket = new Bucket(stack, 'SdkBucket', {
-        cdk: {
-          bucket: {
-            publicReadAccess: true,
-            removalPolicy: RemovalPolicy.DESTROY, // Optional: to clean up the bucket on stack deletion
-          },
-        },
-      })
-
       const sdkAuthorizer = new Function(stack, 'SdkAuthorizer', {
         handler: 'authorizer-function/src/index.handler',
         runtime: 'nodejs22.x',
@@ -90,19 +81,12 @@ export default {
             production,
             persistent,
             sdkGateway,
-            sdkBucket,
           })
           deployedPaths.push(url)
         } catch (error) {
           console.error(`Failed to create backend for version ${version}:`, error)
         }
       }
-
-      // log some important variables
-      console.log('\nVariables:', {
-        FUNCTIONS_API_URL: process.env.FUNCTIONS_API_URL,
-        PARTNERS_API_URL: process.env.PARTNERS_API_URL,
-      })
 
       stack.addOutputs({
         Stage: app.stage,

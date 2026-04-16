@@ -39,10 +39,6 @@ jobs:
       matrix:
         sdk_package: [sdk-client]
     env:
-      CONFIG_URL: ${{ secrets.CONFIG_URL }}
-      CONFIG_URL_EARN: ${{ secrets.CONFIG_URL_EARN }}
-      SUBGRAPH_BASE: ${{ vars.SUBGRAPH_BASE }}
-      SUBGRAPH_BASE_PROD: ${{ vars.SUBGRAPH_BASE_PROD }}
 
     steps:
       - name: Checkout all files
