@@ -12,8 +12,6 @@
     "@thesolidchain/sdk-client-react": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/subgraph-manager-common": "workspace:*",
-    "@thesolidchain/summer-earn-rates-subgraph": "workspace:*",
-    "@thesolidchain/summer-protocol-db": "workspace:*",
     "@types/react": "19.2.3"
   },
   "devDependencies": {
