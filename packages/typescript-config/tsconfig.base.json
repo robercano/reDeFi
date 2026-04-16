@@ -24,39 +24,6 @@
   "references": [
     {
       "path": "../serverless-shared/tsconfig.json"
-    },
-    {
-      "path": "../prices-subgraph/tsconfig.json"
-    },
-    {
-      "path": "../automation-subgraph/tsconfig.json"
-    },
-    {
-      "path": "../aave-spark-subgraph/tsconfig.json"
-    },
-    {
-      "path": "../ajna-subgraph/tsconfig.json"
-    },
-    {
-      "path": "../morpho-blue-subgraph/tsconfig.json"
-    },
-    {
-      "path": "../morpho-blue-external-api-client/tsconfig.json"
-    },
-    {
-      "path": "../triggers-calculations/tsconfig.json"
-    },
-    {
-      "path": "../triggers-shared/tsconfig.json"
-    },
-    {
-      "path": "../abstractions/tsconfig.json"
-    },
-    {
-      "path": "../redis-cache/tsconfig.json"
-    },
-    {
-      "path": "../defi-llama-client/tsconfig.json"
     }
   ],
   "exclude": ["../../node_modules", "../../.sst", "../../turbo", "../../.turbo"]
