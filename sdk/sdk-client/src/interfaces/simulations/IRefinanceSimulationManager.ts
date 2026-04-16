@@ -4,7 +4,7 @@ import { IRefinanceParameters, IRefinanceSimulation } from '@thesolidchain/sdk-c
  * Interface for the Refinance Simulation Manager
  *
  * The Refinance Simulation Manager is responsible for handling all the simulation related operations
- * for refinancing a position in the Summer system. This is moving a position from one product to another in one step.
+ * for refinancing a position in the system. This is moving a position from one product to another in one step.
  * This may include changing the underlying protocol, the collateral, the leverage, etc.
  */
 export interface IRefinanceSimulationManager {

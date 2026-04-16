@@ -4,8 +4,8 @@ import { IImportPositionParameters, IImportSimulation } from '@thesolidchain/sdk
  * Interface for the Importing Simulation Manager
  *
  * The Importing Simulation Manager is responsible for handling all the simulation related operations
- * for importing a position into the Summer system. This is ingress an external position (i.e.: EOA owned position or
- * a position on a 3rd party service) into the Summer system.
+ * for importing a position into the system. This is ingress an external position (i.e.: EOA owned position or
+ * a position on a 3rd party service) into the system.
  */
 export interface IImportingSimulationManager {
   /**
