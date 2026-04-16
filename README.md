@@ -1,60 +1,117 @@
-[![codecov](https://codecov.io/gh/OasisDEX/summerfi-monorepo/graph/badge.svg?token=QL882Y3C8G)](https://codecov.io/gh/OasisDEX/summerfi-monorepo)
+# ⚡ reDeFi Framework
 
-# Summerfi monorepo
+Building modern decentralized finance interfaces shouldn't require copy-pasting hundreds of ABIs, writing custom GraphQL layers for broken subgraphs, or managing brittle contract transaction wrappers.
 
-## Structure
+**reDeFi** is a unified, strongly-typed execution and state-management framework built to dramatically simplify on-chain integration without compromising on power. Whether you are building an aggregator, a wallet, or a specialized yield application, reDeFi abstracts away the friction of EVM interaction so you can focus on building your product's core value.
 
-### Apps
+---
 
-- `summerfi-api`: Summerfi API
+## The reDeFi Advantage
 
-### Packages
+### 1. Radically Type-Safe By Default
+Forget loosely typed return limits or casting unknown network interfaces. Every aspect of the SDK, from protocol configurations (Vaults, Fleet Commanders) to native transaction parameters, is modeled deeply in TypeScript using strict validations. If it compiles, the ABI matches.  
 
-- `sdk`: Summerfi SDK
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and
-  `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+### 2. Unified Liquidity & Routing Intelligently Handled
+Integrations with tier-1 decentralized exchanges and aggregators (like 1inch, CowSwap) are baked directly into the core framework. reDeFi automatically seeks the most capital-efficient pathways to route user liquidity from raw balances directly into deployed strategies.
 
-## Commands
+### 3. Clear, Domain-Driven APIs
+You shouldn’t need to be a Solidity expert to integrate DeFi. Our domain-driven architecture organizes complex multi-contract architectures—like multi-layered yield Vaults and tipping logic—into clean, single-point operations.
 
-### Install deps
+### 4. Effortless Monorepo Design & DX
+The codebase runs purely on `pnpm` and integrates with `turborepo` for instant builds. Environment synchronization and CI pipelines natively enforce a world-class test-driven environment. Everything from smart-contract bindings to the local demo application works consistently right out of the box.
 
-```shell
-pnpm i
+---
+
+## 👩‍💻 The Developer Experience
+
+To demonstrate the power of the framework, here is an example of querying a vault strategy and preparing a secure execution payload in just a few lines.
+
+### Vault Yield & Transaction Prep
+
+```typescript
+import { ReDeFiContext } from '@thesolidchain/redefi-sdk';
+
+// 1. Initialize the unified context
+const ctx = new ReDeFiContext({
+  apiKey: process.env.SDK_API_KEY,
+  rpcGateway: process.env.SDK_RPC_GATEWAY,
+});
+
+// 2. Load the specific strategy vault
+const vault = await ctx.vaults.getVault({
+  chainId: 8453, // Seamlessly operates across Base, Arbitrum, Mainnet, etc.
+  address: '0xABC...1234',
+});
+
+// 3. Prepare the execution transaction natively
+// Gas estimations, decimal matching, and ABI encoding are calculated automatically underneath.
+const depositTxPayload = await vault.prepareDeposit({
+  userAddress: '0xClientAddress',
+  amount: 50.0, // Natural numbers accepted; BigInt conversions are handled logically.
+  slippageTolerance: 0.01 
+});
+
+// Pass payload to Ethers, viem, or your provider of choice
+await walletProvider.sendTransaction(depositTxPayload);
 ```
 
-### Build
+### Routing & Swapping
 
-To build all apps and packages, run the following command:
+Getting optimal swaps and preparing the network operations previously took dozens of lines handling nested external API error bounds. With reDeFi:
 
-```shell
-pnpm build
+```typescript
+// Query the absolute best path across multiple protocols simultaneously
+const quote = await ctx.routing.getOptimalSwapQuote({
+  fromToken: 'USDC',
+  toToken: 'WETH',
+  amountIn: '1000',
+  chainId: 1 
+});
+
+// Convert the quote into a broadcastable tx 
+const swapTx = await ctx.routing.buildSwapTransaction(quote, userWalletAddress);
 ```
 
-### Develop
+---
 
-To develop all apps and packages, run the following command:
+## 🚀 Getting Started
 
-```shell
-pnpm dev
+Bootstrapping your environment is incredibly lightweight.
+
+### 1. Installation
+
+Clone the repository and install packages using `pnpm` (which ensures strict resolving):
+```bash
+pnpm install
 ```
 
-## Submodules
+### 2. Environment Variables
 
-To initialize submodules use:
+Create your local `.env` configuration file from the template provided. It is heavily documented and split into discrete modules for easy setup:
 
-`git submodule update armada-protocol/contracts`
+```bash
+cp .env.template .env
+```
+*(You will only need specific 3rd party keys like CoinGecko or 1inch if executing live external protocol routing).*
 
-If you want to restore submodules after folder is removed or something broke, delete the submodule
-folder and run following script: `./bin/restore-git-submodule`.
+### 3. Start Development 
 
-## Useful Links
+Build all dependencies locally via Turbo and boot the complete framework alongside our sandbox `sdk-demo` frontend testbed.
 
-Learn more about the power of Turborepo:
+```bash
+# Clean builds and spins up watch mode instantly
+pnpm run dev
+```
 
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+---
+
+## 🏗 Repository Layout
+
+The monorepo operates on a clean slate structure designed for high-velocity iterations:
+
+* `sdk/` - The beating heart of reDeFi. Includes completely normalized, robust abstraction layers, automated type-generation, unified oracle queries, and integrated protocol interactions.
+* `apps/sdk-demo/` - Our native Next.js application designed to interactively test and showcase the real-time capabilities of the SDK backend in a consumer-like environment.
+
+***
+
+**reDeFi** — *The abstraction layer for tomorrow's decentralized applications. Powered by The Solid Chain.*
