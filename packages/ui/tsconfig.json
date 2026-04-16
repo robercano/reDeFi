@@ -1,0 +1,12 @@
+{
+  "extends": "@thesolidchain/typescript-config/tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {}
+  },
+  "include": ["src/**/*", ".storybook/**/*"],
+  "exclude": ["node_modules"]
+}
