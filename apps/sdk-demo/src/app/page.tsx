@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { TokenFetcher } from "../components/TokenFetcher";
+import { TokenSearch } from "../features/token-search/TokenSearch";
 
 export default function Home() {
   return (
@@ -71,7 +71,7 @@ export default function Home() {
 
         {/* Demo Application SDK Components */}
         <div className="w-full mt-24 flex justify-center">
-          <TokenFetcher />
+          <TokenSearch />
         </div>
       </main>
 
