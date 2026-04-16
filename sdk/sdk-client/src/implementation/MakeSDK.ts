@@ -2,7 +2,7 @@ import { createMainRPCClient } from '../rpc/SDKMainClient'
 import { SDKManager } from './SDKManager'
 import { getApiVersion } from '../utils/getApiVersion'
 
-export type MakeSDKParams = { logging?: boolean; version?: 'v1' | 'v2' } & (
+export type MakeSDKParams = { logging?: boolean; version?: 'v1' | 'v2'; apiKey?: string } & (
   | { apiDomainUrl: string }
   | { apiURL: string }
 )
@@ -33,6 +33,7 @@ export function makeSDK(params: MakeSDKParams) {
   const rpcClient = createMainRPCClient({
     apiURL: versionedURL,
     logging: params.logging,
+    apiKey: params.apiKey,
   })
 
   return new SDKManager({ rpcClient })

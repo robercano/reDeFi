@@ -3,7 +3,7 @@ import { isPersistentStage, isProductionStage } from './sst-utils'
 import { sdkDeployedVersionsMap } from './sst-environment'
 import { version as clientPkgVersion } from './sdk-client/bundle/package.json'
 import { createBackend } from './create-backend'
-import { Api, Bucket } from 'sst/constructs'
+import { Api, Bucket, Function } from 'sst/constructs'
 import { RemovalPolicy } from 'aws-cdk-lib'
 import { config } from '@dotenvx/dotenvx'
 
@@ -56,11 +56,30 @@ export default {
         },
       })
 
+      const sdkAuthorizer = new Function(stack, 'SdkAuthorizer', {
+        handler: 'authorizer-function/src/index.handler',
+        runtime: 'nodejs22.x',
+        environment: {
+          SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',
+        },
+      })
+
       const sdkGateway = new Api(stack, 'SdkGateway', {
+        authorizers: {
+          apiKeyAuthorizer: {
+            type: 'lambda',
+            function: sdkAuthorizer,
+            responseTypes: ['simple'],
+            identitySource: ['$request.header.x-api-key'],
+          } as any,
+        },
+        defaults: {
+          authorizer: 'apiKeyAuthorizer',
+        },
         accessLog: {
           retention: production ? 'one_month' : persistent ? 'one_week' : 'one_day',
         },
-      })
+      } as any)
 
       const deployedPaths: string[] = []
       for (const version of deployedVersions) {
