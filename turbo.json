@@ -152,7 +152,6 @@
         ".next/**",
         ".next/server/pages/**",
         "!.next/cache/**",
-        "apps/earn-protocol-landing-page/out/**",
         "dist/**",
         "artifacts/**",
         ".sst/**",
