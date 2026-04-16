@@ -1,29 +1,14 @@
 {
   "$schema": "https://turbo.build/schema.v2.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local"
+  ],
   "globalEnv": [
-    "SUBGRAPH_BASE",
-    "SUBGRAPH_BASE_PROD",
-    "DEBANK_API_KEY",
-    "DEBANK_API_URL",
     "RPC_GATEWAY",
     "NEXT_PUBLIC_SHA",
-    "GET_TRIGGERS_URL",
-    "MIXPANEL_LOG",
-    "MIXPANEL_ENV",
-    "MIXPANEL_KEY",
-    "EARN_MIXPANEL_KEY",
-    "NEXT_PUBLIC_EARN_MIXPANEL_KEY",
-    "NEXT_PUBLIC_MIXPANEL_KEY",
-    "NEXT_PUBLIC_SWAP_WIDGET_ONBOARDING_HIDDEN",
-    "NEXT_PUBLIC_DEV_WALLETS",
-    "ACCOUNT_KIT_API_KEY",
     "NEXT_PUBLIC_TRANSAK_API_KEY",
     "NEXT_PUBLIC_TRANSAK_ENVIRONMENT",
     "TRANSAK_SECRET",
-    "CONFIG_URL",
-    "CONFIG_URL_EARN",
-    "FUNCTIONS_API_URL",
     "SKIP_VALIDATION",
     "AWS_REGION",
     "AWS_PROFILE",
@@ -59,13 +44,8 @@
     "COINGECKO_API_AUTH_HEADER",
     "COINGECKO_SUPPORTED_CHAIN_IDS",
     "SDK_RPC_GATEWAY",
-    "SDK_SUBGRAPH_CONFIG",
-    "SDK_SUBGRAPH_CONFIG_INSTI",
     "SDK_LOGGING_ENABLED",
     "SDK_DEBUG_ENABLED",
-    "SUMMER_HUB_CHAIN_ID",
-    "SUMMER_DEPLOYED_CHAINS_ID",
-    "SUMMER_DEPLOYED_CHAINS_ID_INSTI",
     "SUMMER_DEPLOYMENT_CONFIG",
     "FORECAST_API_URL",
     "REDIS_CACHE_URL",
@@ -94,9 +74,6 @@
     "SDK_API_URL",
     "SDK_USE_FORK",
     "SDK_FORK_CONFIG",
-    "SDK_DISTRIBUTIONS_BASE_URL",
-    "SDK_DISTRIBUTIONS_FILES",
-    "SDK_NAMED_REFERRALS_FILE",
     "EARN_PROTOCOL_DB_CONNECTION_STRING",
     "EARN_PROTOCOL_INSTITUTION_DB_CONNECTION_STRING",
     "EARN_PROTOCOL_JWT_SECRET",
@@ -123,8 +100,6 @@
     "INSTITUTIONS_COGNITO_ADMIN_ACCESS_KEY",
     "INSTITUTIONS_COGNITO_ADMIN_SECRET_ACCESS_KEY",
     "DUNE_LAZYSUMMER_ACCOUNT_API_KEY",
-    "ENSO_API_KEY",
-    "PARTNERS_API_URL",
     "VAULTS_BENCHMARK_API_KEY"
   ],
   "tasks": {
@@ -133,7 +108,10 @@
       "persistent": true
     },
     "prebuild": {
-      "dependsOn": ["^prebuild", "^prebuild:nocache"],
+      "dependsOn": [
+        "^prebuild",
+        "^prebuild:nocache"
+      ],
       "outputs": [
         "src/types/graphql/generated.ts",
         "src/generated",
@@ -144,11 +122,16 @@
       ]
     },
     "prebuild:nocache": {
-      "dependsOn": ["^prebuild:nocache"],
+      "dependsOn": [
+        "^prebuild:nocache"
+      ],
       "cache": false
     },
     "build": {
-      "dependsOn": ["prebuild", "^build"],
+      "dependsOn": [
+        "prebuild",
+        "^build"
+      ],
       "outputs": [
         ".next/**",
         ".next/server/pages/**",
@@ -160,7 +143,11 @@
       ]
     },
     "build:apps": {
-      "dependsOn": ["prebuild", "^build", "^build:apps"],
+      "dependsOn": [
+        "prebuild",
+        "^build",
+        "^build:apps"
+      ],
       "outputs": [
         ".next/**",
         ".next/server/pages/**",
@@ -173,22 +160,44 @@
       ]
     },
     "test": {
-      "dependsOn": ["prebuild", "build", "^test"]
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "^test"
+      ]
     },
     "test:integration": {
-      "dependsOn": ["prebuild", "build", "^test:integration"]
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "^test:integration"
+      ]
     },
     "lint": {
-      "dependsOn": ["prebuild", "build", "^lint"]
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "^lint"
+      ]
     },
     "format": {
-      "dependsOn": ["prebuild", "build", "^format"]
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "^format"
+      ]
     },
     "check-circular": {
-      "dependsOn": ["prebuild", "build", "^check-circular"]
+      "dependsOn": [
+        "prebuild",
+        "build",
+        "^check-circular"
+      ]
     },
     "db:migrate": {
-      "dependsOn": ["prebuild"],
+      "dependsOn": [
+        "prebuild"
+      ],
       "cache": false
     },
     "cicheck": {
@@ -203,7 +212,10 @@
       ]
     },
     "deploy:staging": {
-      "dependsOn": ["cicheck", "^deploy:staging"]
+      "dependsOn": [
+        "cicheck",
+        "^deploy:staging"
+      ]
     }
   }
 }

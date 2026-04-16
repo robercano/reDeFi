@@ -1,4 +1,4 @@
-import { Function, type Api, type Bucket, type Stack } from 'sst/constructs'
+import { Function, type Api, type Stack } from 'sst/constructs'
 import { environmentVariables } from './sst-environment'
 import { LoggingFormat } from 'aws-cdk-lib/aws-lambda'
 
@@ -8,14 +8,12 @@ export const createBackend = ({
   persistent,
   deployedVersion,
   sdkGateway,
-  sdkBucket,
 }: {
   stack: Stack
   production: boolean
   persistent: boolean
   deployedVersion: string
   sdkGateway: Api
-  sdkBucket: Bucket
 }) => {
   // check with regexp if version is in format X.Y.Z
   if (!/^\d+\.\d+\.\d+$/.test(deployedVersion)) {
@@ -42,7 +40,6 @@ export const createBackend = ({
       provisionedConcurrentExecutions: production ? 10 : undefined,
     },
   })
-  sdkBackend.bind([sdkBucket])
 
   // Create a separate Lambda for OPTIONS
   const optionsHandler = new Function(stack, `SdkOptionsHandlerV${nameSuffix}`, {

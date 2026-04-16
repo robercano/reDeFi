@@ -18,12 +18,6 @@ jobs:
       ENVIRONMENT_TAG: production
       SERVICE_NAME: summer-fi-earn-lp-service-prod
       CLUSTER_NAME: summer-fi-earn-lp-production
-      CONFIG_URL: ${{ secrets.CONFIG_URL }}
-      CONFIG_URL_EARN: ${{ secrets.CONFIG_URL_EARN }}
-      EARN_MIXPANEL_KEY: ${{ secrets.EARN_MIXPANEL_KEY }}
-      FUNCTIONS_API_URL: ${{ secrets.FUNCTIONS_API_URL }}
-      NEXT_PUBLIC_EARN_MIXPANEL_KEY: ${{ secrets.NEXT_PUBLIC_EARN_MIXPANEL_KEY }}
-      SUBGRAPH_BASE: ${{ vars.SUBGRAPH_BASE }}
       NEXT_TELEMETRY_DISABLED: ${{ secrets.NEXT_TELEMETRY_DISABLED }}
       FORECAST_API_URL: ${{ secrets.FORECAST_API_URL }}
       SDK_API_URL: ${{ vars.SDK_API_URL }}

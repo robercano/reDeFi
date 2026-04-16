@@ -16,18 +16,13 @@ import { OrderPlannerService } from '@thesolidchain/order-planner-service'
 import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
 import { ProtocolManager } from '@thesolidchain/protocol-manager-service'
 import { IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
-import { SubgraphManagerFactory } from '@thesolidchain/subgraph-manager-service'
 import { ISwapManager } from '@thesolidchain/swap-common'
 import { CowSwapProvider, SwapManagerFactory } from '@thesolidchain/swap-service'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { TokensManagerFactory } from '@thesolidchain/tokens-service'
 
 import {
-  getChainInfoByChainId,
-  isChainId,
   LoggingService,
-  type ChainId,
-  type IChainInfo,
 } from '@thesolidchain/sdk-common'
 import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
 import type { APIGatewayProxyEventV2 } from 'aws-lambda'
@@ -65,42 +60,12 @@ const quickHashCode = (str: string): string => {
 
 // context for each request
 export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppContext> => {
-  // check for Client-Id header in request and fetch integrator config if present
-  const clientId = opts.event.headers['Client-Id'] || opts.event.headers['client-id'] || undefined
   LoggingService.log('Request headers', opts.event.headers)
 
   const configProvider = new ConfigurationProvider()
   const summerDeployment = configProvider.getConfigurationItem({
     name: 'SUMMER_DEPLOYMENT_CONFIG',
   })
-
-  const armadaSubgraphManager = SubgraphManagerFactory.newArmadaSubgraph({
-    configProvider,
-    clientId,
-  })
-
-  let supportedChains: IChainInfo[]
-
-  if (clientId) {
-    const rawInstiChainIds = configProvider.getConfigurationItem({
-      name: 'SUMMER_DEPLOYED_CHAINS_ID_INSTI',
-    })
-    if (!rawInstiChainIds) {
-      throw new Error('SUMMER_DEPLOYED_CHAINS_ID_INSTI is not set in configuration')
-    }
-    const instiChainIds: ChainId[] = rawInstiChainIds.split(',').map(Number).filter(isChainId)
-    supportedChains = instiChainIds.map(getChainInfoByChainId)
-  } else {
-    // if no Client-Id header, use default deployment provider config
-    const publicDeploymentChainIds: ChainId[] = configProvider
-      .getConfigurationItem({
-        name: 'SUMMER_DEPLOYED_CHAINS_ID',
-      })
-      .split(',')
-      .map(Number)
-      .filter(isChainId)
-    supportedChains = publicDeploymentChainIds.map(getChainInfoByChainId)
-  }
 
   const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })

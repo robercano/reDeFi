@@ -49,18 +49,11 @@ jobs:
       ENVIRONMENT_TAG: dev
       SERVICE_NAME: summer-fi-earn-service-dev
       CLUSTER_NAME: summer-fi-earn-dev
-      CONFIG_URL: ${{ secrets.CONFIG_URL }}
-      CONFIG_URL_EARN: ${{ secrets.CONFIG_URL_EARN }}
-      FUNCTIONS_API_URL: ${{ vars.FUNCTIONS_API_URL }}
       EARN_PROTOCOL_DB_CONNECTION_STRING: ${{ secrets.EARN_PROTOCOL_DB_CONNECTION_STRING }}
-      EARN_MIXPANEL_KEY: ${{ secrets.EARN_MIXPANEL_KEY }}
-      NEXT_PUBLIC_EARN_MIXPANEL_KEY: ${{ secrets.NEXT_PUBLIC_EARN_MIXPANEL_KEY }}
-      ACCOUNT_KIT_API_KEY: ${{ secrets.ACCOUNT_KIT_API_KEY }}
       FORECAST_API_URL: ${{ secrets.FORECAST_API_URL }}
       NEXT_PUBLIC_TRANSAK_API_KEY: ${{ secrets.NEXT_PUBLIC_TRANSAK_API_KEY }}
       NEXT_PUBLIC_TRANSAK_ENVIRONMENT: ${{ secrets.NEXT_PUBLIC_TRANSAK_ENVIRONMENT }}
       TRANSAK_SECRET: ${{ secrets.TRANSAK_SECRET }}
-      SUBGRAPH_BASE: ${{ vars.SUBGRAPH_BASE }}
       SDK_API_URL: ${{ vars.SDK_API_URL }}
       EARN_PROTOCOL_JWT_SECRET: ${{ secrets.EARN_PROTOCOL_JWT_SECRET }}
       VAULTS_BENCHMARK_API_KEY: ${{ vars.VAULTS_BENCHMARK_API_KEY }}
@@ -162,13 +155,6 @@ jobs:
           # be deployed to ECS.
           docker build -f apps/earn-protocol/docker/Dockerfile \
                        --build-arg EARN_PROTOCOL_DB_CONNECTION_STRING=${{ secrets.EARN_PROTOCOL_DB_CONNECTION_STRING }} \
-                       --build-arg CONFIG_URL=${{ secrets.CONFIG_URL }} \
-                       --build-arg CONFIG_URL_EARN=${{ secrets.CONFIG_URL_EARN }} \
-                       --build-arg FUNCTIONS_API_URL=${{ env.FUNCTIONS_API_URL }} \
-                       --build-arg EARN_MIXPANEL_KEY=${{ secrets.EARN_MIXPANEL_KEY }} \
-                       --build-arg SUBGRAPH_BASE=${{ secrets.SUBGRAPH_BASE }} \
-                       --build-arg NEXT_PUBLIC_EARN_MIXPANEL_KEY=${{ secrets.NEXT_PUBLIC_EARN_MIXPANEL_KEY }} \
-                       --build-arg ACCOUNT_KIT_API_KEY=${{ secrets.ACCOUNT_KIT_API_KEY }} \
                        --build-arg FORECAST_API_URL=${{ secrets.FORECAST_API_URL }} \
                        --build-arg NEXT_PUBLIC_TRANSAK_API_KEY=${{ secrets.NEXT_PUBLIC_TRANSAK_API_KEY }} \
                        --build-arg TRANSAK_SECRET=${{ secrets.TRANSAK_SECRET }} \
