@@ -586,9 +586,6 @@ importers:
 
   packages/ssr-public-client:
     dependencies:
-      '@thesolidchain/app-utils':
-        specifier: workspace:*
-        version: link:../app-utils
       viem:
         specifier: 2.43.5
         version: 2.43.5(typescript@5.8.2)(zod@3.25.61)
