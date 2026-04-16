@@ -23,12 +23,10 @@ import { TimeframesType } from '../components'
 import { DeviceType } from '../device-type'
 import { IconNamesList, TokenSymbolsList } from '../icons'
 import { NetworkIds } from '../networks'
-import {
-  GetInterestRatesQuery,
-  GetInterestRatesDocument,
-} from '@thesolidchain/summer-earn-rates-subgraph'
-
-export type { GetInterestRatesQuery }
+// Subgraph packages removed, stubbing out types
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type GetInterestRatesQuery = any
+const GetInterestRatesDocument = {}
 export { GetInterestRatesDocument }
 export type { IArmadaPosition as IArmadaPosition }
 export type { IArmadaVaultInfo }
