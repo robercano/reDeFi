@@ -67,52 +67,6 @@ export { Wallet } from './common/implementation/Wallet'
 export type { WalletParameters } from './common/implementation/Wallet'
 export { AddressDataSchema, isAddress } from './common/interfaces/IAddress'
 export type { IAddress, IAddressData } from './common/interfaces/IAddress'
-export { ArmadaDepositDataSchema, isArmadaDeposit } from './common/interfaces/IArmadaDeposit'
-export type { IArmadaDeposit } from './common/interfaces/IArmadaDeposit'
-export {
-  __signature__ as __iarmadaposition__,
-  ArmadaPositionDataSchema,
-  isArmadaPosition,
-} from './common/interfaces/IArmadaPosition'
-export type { IArmadaPosition, IArmadaPositionData } from './common/interfaces/IArmadaPosition'
-export {
-  __signature__ as __iarmadapositionid__,
-  ArmadaPositionIdDataSchema,
-  isArmadaPositionId,
-} from './common/interfaces/IArmadaPositionId'
-export type {
-  IArmadaPositionId,
-  IArmadaPositionIdData,
-} from './common/interfaces/IArmadaPositionId'
-export {
-  __signature__ as __iarmadaprotocol__,
-  ArmadaProtocolDataSchema,
-  isArmadaProtocol,
-} from './common/interfaces/IArmadaProtocol'
-export type { IArmadaProtocol, IArmadaProtocolData } from './common/interfaces/IArmadaProtocol'
-export {
-  __signature__ as __iarmadavault__,
-  ArmadaVaultDataSchema,
-  isArmadaVault,
-} from './common/interfaces/IArmadaVault'
-export type { IArmadaVault, IArmadaVaultData } from './common/interfaces/IArmadaVault'
-export {
-  __signature__ as __iarmadavaultid__,
-  ArmadaVaultIdDataSchema,
-  isArmadaVaultId,
-} from './common/interfaces/IArmadaVaultId'
-export type { IArmadaVaultId, IArmadaVaultIdData } from './common/interfaces/IArmadaVaultId'
-export {
-  __signature__ as __iarmadavaultinfo__,
-  ArmadaVaultInfoDataSchema,
-  isArmadaVaultInfo,
-} from './common/interfaces/IArmadaVaultInfo'
-export type { IArmadaVaultInfo, IArmadaVaultInfoData } from './common/interfaces/IArmadaVaultInfo'
-export {
-  ArmadaWithdrawalDataSchema,
-  isArmadaWithdrawal,
-} from './common/interfaces/IArmadaWithdrawal'
-export type { IArmadaWithdrawal } from './common/interfaces/IArmadaWithdrawal'
 export { ChainInfoDataSchema, isChainInfo } from './common/interfaces/IChainInfo'
 export type { IChainInfo, IChainInfoData } from './common/interfaces/IChainInfo'
 export {
@@ -324,11 +278,9 @@ export type {
   TransactionMetadataDeposit,
   TransactionMetadataErc20Transfer,
   TransactionMetadataMigration,
-  TransactionMetadataVaultSwitch,
   TransactionMetadataWithdraw,
   TransactionPriceImpact,
   UnstakeTransactionInfo,
-  VaultSwitchTransactionInfo,
   WithdrawTransactionInfo,
 } from './orders/common/types/ExtendedTransactionInfo'
 export type { Order } from './orders/common/types/Order'

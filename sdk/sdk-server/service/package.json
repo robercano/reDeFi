@@ -44,7 +44,6 @@
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/sdk-server-common": "workspace:*",
     "@thesolidchain/simulator-service": "workspace:^",
-    "@thesolidchain/subgraph-manager-service": "workspace:*",
     "@thesolidchain/swap-common": "workspace:*",
     "@thesolidchain/swap-service": "workspace:*",
     "@thesolidchain/tokens-common": "workspace:*",

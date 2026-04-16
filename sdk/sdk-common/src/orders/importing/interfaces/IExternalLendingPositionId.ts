@@ -18,7 +18,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface IExternalPositionId
- * @description Identifier for an external position to the Summer system
+ * @description Identifier for an external position to a lending protocol
  */
 export interface IExternalLendingPositionId
   extends IExternalLendingPositionIdData,

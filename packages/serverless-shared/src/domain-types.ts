@@ -107,8 +107,6 @@ export type PortfolioOverviewResponse = {
   suppliedPercentageChange: number
   borrowedUsdValue: number
   borrowedPercentageChange: number
-  summerUsdValue: number
-  summerPercentageChange: number
   allAssetsUsdValue: number
 }
 

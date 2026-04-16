@@ -1,6 +1,13 @@
-import { Price, steps, IChainInfo, IPercentage, IToken, ITokenAmount } from '@thesolidchain/sdk-common'
-import type { ISwapManager } from '@thesolidchain/swap-common'
 import { IOracleManager } from '@thesolidchain/oracle-common'
+import {
+  IChainInfo,
+  IPercentage,
+  IToken,
+  ITokenAmount,
+  Price,
+  steps,
+} from '@thesolidchain/sdk-common'
+import type { ISwapManager } from '@thesolidchain/swap-common'
 
 export async function getSwapStepData(params: {
   chainInfo: IChainInfo
@@ -10,28 +17,9 @@ export async function getSwapStepData(params: {
   swapManager: ISwapManager
   oracleManager: IOracleManager
 }): Promise<steps.SwapStep['inputs']> {
-  const summerFee = await params.swapManager.getSummerFee({
-    from: { token: params.fromAmount.token },
-    to: { token: params.toToken },
-  })
-
-  /*
-  From amount already includes our fee, so we need to calculate the amount before our fee
-    FROM = X + X * FEE
-    FROM = X (1 + FEE)
-    X = FROM / (1 + FEE)
-
-    OURFEE = X * FEE
-    OURFEE = FROM * FEE / (1 + FEE)
-  */
-
-  const feeAsProportion = summerFee.toProportion()
-  const summerFeeAmount = params.fromAmount.multiply(feeAsProportion).divide(feeAsProportion + 1)
-  const amountAfterSummerFee = params.fromAmount.subtract(summerFeeAmount)
-
   const [quote, spotPrice] = await Promise.all([
     params.swapManager.getSwapQuoteExactInput({
-      fromAmount: amountAfterSummerFee,
+      fromAmount: params.fromAmount,
       toToken: params.toToken,
     }),
     params.oracleManager.getSpotPrice({
@@ -55,10 +43,8 @@ export async function getSwapStepData(params: {
     spotPrice: spotPrice.price,
     offerPrice: offerPrice,
     inputAmount: params.fromAmount,
-    inputAmountAfterFee: amountAfterSummerFee,
     estimatedReceivedAmount: quote.toTokenAmount,
     minimumReceivedAmount: minimumReceivedAmount,
     slippage: params.slippage,
-    summerFee: summerFee,
   }
 }

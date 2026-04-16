@@ -1,21 +1,20 @@
+import { IOracleManager } from '@thesolidchain/oracle-common'
 import {
-  TokenAmount,
-  ITokenAmount,
-  IToken,
   IPercentage,
-  Percentage,
+  IToken,
+  ITokenAmount,
   Price,
+  TokenAmount,
   isTokenAmount,
 } from '@thesolidchain/sdk-common'
 import { ISwapManager } from '@thesolidchain/swap-common'
-import { IOracleManager } from '@thesolidchain/oracle-common'
 import assert from 'assert'
 
 /**
  * EstimateTokenAmountAfterSwap
  * @description Estimates how much you will receive after swap.
  *    If target token is the same as source token, we return the same amount.
- *    When we perform a swap, we need to account for the summer fee,
+ *    When we perform a swap, we need to account for the slippage,
  *    and we assume maximum slippage.
  */
 export async function estimateSwapFromAmount(params: {
@@ -75,19 +74,9 @@ export async function estimateSwapFromAmount(params: {
     ? spotPriceSourceToken
     : offerPriceSourceToken
 
-  const summerFee = await params.swapManager.getSummerFee({
-    from: { token: receiveAtLeast.token },
-    to: { token: params.fromToken },
-  })
-
   /**
-   * TargetAmount = SourceAmount * (1 - Slippage) / (1 + SummerFee) / PriceTargetInSource
-   * SourceAmount = TargetAmount * PriceTargetInSource * (1 + SummerFee) / (1 - Slippage)
+   * TargetAmount = SourceAmount * (1 - Slippage) / PriceTargetInSource
+   * SourceAmount = TargetAmount * PriceTargetInSource / (1 - Slippage)
    */
-  const onePlusSummerFee = Percentage.Percent100.add(summerFee)
-
-  return receiveAtLeast
-    .multiply(onePlusSummerFee)
-    .divide(worstPriceSourceToken)
-    .divide(slippage.toComplement())
+  return receiveAtLeast.divide(worstPriceSourceToken).divide(slippage.toComplement())
 }

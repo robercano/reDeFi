@@ -1,7 +1,10 @@
+import {
+  ActionBuilderParams,
+  ActionBuilderUsedAction,
+} from '@thesolidchain/protocol-plugins-common'
 import { steps } from '@thesolidchain/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
-import { SwapAction } from '../actions/SwapAction'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
+import { SwapAction } from '../actions/SwapAction'
 
 export class SwapActionBuilder extends BaseActionBuilder<steps.SwapStep> {
   readonly actions: ActionBuilderUsedAction[] = [{ action: SwapAction }]
@@ -16,7 +19,7 @@ export class SwapActionBuilder extends BaseActionBuilder<steps.SwapStep> {
     })
 
     const swapData = await swapManager.getSwapDataExactInput({
-      fromAmount: step.inputs.inputAmountAfterFee,
+      fromAmount: step.inputs.inputAmount,
       toToken: step.inputs.minimumReceivedAmount.token,
       recipient: swapContractAddress,
       slippage: step.inputs.slippage,
@@ -28,7 +31,6 @@ export class SwapActionBuilder extends BaseActionBuilder<steps.SwapStep> {
       arguments: {
         fromAmount: step.inputs.inputAmount,
         toMinimumAmount: step.inputs.minimumReceivedAmount,
-        fee: step.inputs.summerFee,
         withData: swapData.calldata,
         collectFeeInFromToken: true,
       },

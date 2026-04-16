@@ -10,14 +10,14 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @name IPosition
- * @description Represents a Summer position in a pool/protocol
+ * @description Represents a position in a pool/protocol
  */
 export interface IPosition extends IPositionData {
   /** Signature to differentiate from similar interfaces */
   readonly [__signature__]: symbol
-  /** Type of the position in the Summer.fi system */
+  /** Type of the position */
   readonly type: PositionType
-  /** Unique identifier for the position inside the Summer.fi system */
+  /** Unique identifier for the position */
   readonly id: IPositionId
   /** Pool where the position is opened */
   readonly pool: IPool

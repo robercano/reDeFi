@@ -1,7 +1,6 @@
-import { QuoteData } from './QuoteData'
-import { ITokenAmount } from '../../common/interfaces/ITokenAmount'
 import { IPercentage } from '../../common/interfaces/IPercentage'
 import { IPrice } from '../../common/interfaces/IPrice'
+import { QuoteData } from './QuoteData'
 
 /**
  * Represents the data returned for each Swap in simulation.
@@ -15,5 +14,4 @@ export type SimulatedSwapData = Omit<QuoteData, 'estimatedGas' | 'routes'> & {
   /* Also known as marketPrice or marketPrice with zero price impact */
   spotPrice: IPrice
   priceImpact: IPercentage | null
-  summerFee: ITokenAmount
 }

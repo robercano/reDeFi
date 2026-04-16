@@ -21,9 +21,7 @@ import { CowSwapProvider, SwapManagerFactory } from '@thesolidchain/swap-service
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { TokensManagerFactory } from '@thesolidchain/tokens-service'
 
-import {
-  LoggingService,
-} from '@thesolidchain/sdk-common'
+import { LoggingService } from '@thesolidchain/sdk-common'
 import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
 import type { APIGatewayProxyEventV2 } from 'aws-lambda'
 import { createProtocolsPluginsRegistry } from './CreateProtocolPluginsRegistry'
@@ -63,9 +61,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
   LoggingService.log('Request headers', opts.event.headers)
 
   const configProvider = new ConfigurationProvider()
-  const summerDeployment = configProvider.getConfigurationItem({
-    name: 'SUMMER_DEPLOYMENT_CONFIG',
-  })
 
   const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })

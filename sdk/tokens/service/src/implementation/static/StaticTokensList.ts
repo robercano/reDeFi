@@ -2,7 +2,7 @@ import { ChainFamilyMap, ChainIds } from '@thesolidchain/sdk-common'
 import { TokenListData } from './TokensListData'
 
 export const StaticTokensData: TokenListData = {
-  name: 'Summer.fi Token List',
+  name: 'Token List',
   timestamp: '2022-03-21T09:49:26.225Z',
   version: {
     major: 1,
@@ -10,8 +10,8 @@ export const StaticTokensData: TokenListData = {
     patch: 0,
   },
   tags: {},
-  logoURI: 'https://summer.fi/static/img/logos/logo_dark.svg',
-  keywords: ['Summer.fi', 'MakerDAO'],
+  logoURI: '',
+  keywords: [],
   tokens: [
     // Ethereum Mainnet
     {
@@ -1022,96 +1022,6 @@ export const StaticTokensData: TokenListData = {
       chainId: ChainIds.Sonic,
       logoURI:
         'https://assets.coingecko.com/coins/images/38108/standard/200x200_Sonic_Logo.png?1734679256',
-    },
-    // SUMR
-    {
-      name: 'SummerToken',
-      address: '0x194f360D130F2393a5E9F3117A6a1B78aBEa1624',
-      symbol: 'SUMR',
-      decimals: 18,
-      chainId: ChainIds.ArbitrumOne,
-      logoURI: '',
-    },
-    {
-      name: 'SummerToken',
-      address: '0x194f360D130F2393a5E9F3117A6a1B78aBEa1624',
-      symbol: 'SUMR',
-      decimals: 18,
-      chainId: ChainIds.Base,
-      logoURI: '',
-    },
-    {
-      name: 'SummerToken',
-      address: '0x194f360D130F2393a5E9F3117A6a1B78aBEa1624',
-      symbol: 'SUMR',
-      decimals: 18,
-      chainId: ChainIds.Mainnet,
-      logoURI: '',
-    },
-    {
-      name: 'SummerToken',
-      address: '0x4e0037f487bBb588bf1B7a83BDe6c34FeD6099e3',
-      symbol: 'SUMR',
-      decimals: 18,
-      chainId: ChainIds.Sonic,
-      logoURI: '',
-    },
-    {
-      name: 'BummerToken',
-      address: '0x8c977a41aDCd7537498a3bC3a0cB30Fb210A247A',
-      symbol: 'BUMMER',
-      decimals: 18,
-      chainId: ChainIds.ArbitrumOne,
-      logoURI: '',
-    },
-    {
-      name: 'BummerToken',
-      address: '0x932CCb7D2A6F1821a1Ecee9e1279aC30E0d4db32',
-      symbol: 'BUMMER',
-      decimals: 18,
-      chainId: ChainIds.Base,
-      logoURI: '',
-    },
-    {
-      name: 'BummerToken',
-      address: '0x887482d43792330Bf42C20154d11B0c308aFb4bc',
-      symbol: 'BUMMER',
-      decimals: 18,
-      chainId: ChainIds.Mainnet,
-      logoURI: '',
-    },
-    {
-      name: 'BummerToken',
-      address: '0xe8e6e06F9D33C4030e24b98ca7b000B76DF74845',
-      symbol: 'BUMMER',
-      decimals: 18,
-      chainId: ChainIds.Sonic,
-      logoURI: '',
-    },
-    {
-      name: 'SummerToken',
-      address: '0x72c527d3efDe2169AA950EFc9573C838cf125D21',
-      symbol: 'SUMR',
-      decimals: 18,
-      chainId: ChainIds.Hyperliquid,
-      logoURI: '',
-    },
-    {
-      name: 'BummerToken',
-      address: '0x77e5f42d5cf2d1B9849AE6A5d2D7dC5b774f8290',
-      symbol: 'BUMMER',
-      decimals: 18,
-      chainId: ChainIds.Hyperliquid,
-      logoURI: '',
-    },
-    // xSUMR 0x49fea727a60469f2c25376ad3c7d5f3810adfd8c on base
-    {
-      name: 'xSUMR',
-      address: '0x49fea727a60469f2c25376ad3c7d5f3810adfd8c',
-      symbol: 'xSUMR',
-      decimals: 18,
-      chainId: ChainIds.Base,
-      logoURI: '',
     },
     {
       name: 'Sonic',

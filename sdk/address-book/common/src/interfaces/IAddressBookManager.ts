@@ -1,11 +1,11 @@
-import type { Maybe, IChainInfo, IAddress } from '@thesolidchain/sdk-common'
+import type { IAddress, IChainInfo, Maybe } from '@thesolidchain/sdk-common'
 
 /**
  * @name IAddressBookManager
  * @description Interface for the IAddressBookManager. Allows to retrieve the address of a contract
  *              in a certain Chain by its address. It is used to retrieve the addresses of the
- *              Summer deployments but also to retrieve the addresses of the dependencies of the
- *              Summer system
+ *              deployments but also to retrieve the addresses of the dependencies of the
+ *              system
  *
  * NOTICE: For tokens you should use the ITokensManager instead
  */

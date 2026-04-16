@@ -1,9 +1,9 @@
 import { Signer } from '@ethersproject/abstract-signer'
 
 import { createMainRPCClient } from '../rpc/SDKMainClient'
-import { SDKManagerWithSigner } from './SDKManagerWithSigner'
-import type { MakeSDKParams } from './MakeSDK'
 import { getApiVersion } from '../utils/getApiVersion'
+import type { MakeSDKParams } from './MakeSDK'
+import { SDKManagerWithSigner } from './SDKManagerWithSigner'
 
 export type SDKSigner = Signer
 
@@ -30,7 +30,7 @@ export function makeSDKWithSigner(params: MakeSDKWithSignerParams) {
   }
 
   if (params.logging) {
-    console.log('Summer.fi SDK: versionedURL', versionedURL)
+    console.log('SDK: versionedURL', versionedURL)
   }
   const rpcClient = createMainRPCClient({
     apiURL: versionedURL,

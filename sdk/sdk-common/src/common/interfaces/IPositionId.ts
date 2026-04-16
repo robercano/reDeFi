@@ -8,12 +8,12 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @name IPositionId
- * @description Represents a unique identifier for a position in the Summer system
+ * @description Represents a unique identifier for a position in the system
  */
 export interface IPositionId extends IPositionIdData {
   /** Signature to differentiate from similar interfaces */
   readonly [__signature__]: symbol
-  /* Unique identifier for the position inside the Summer.fi system */
+  /* Unique identifier for the position inside the system */
   readonly id: string
   /** Type of the position */
   readonly type: PositionType

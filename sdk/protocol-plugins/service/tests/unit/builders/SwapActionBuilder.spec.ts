@@ -4,11 +4,12 @@ import {
   ChainInfo,
   Percentage,
   Price,
+  SimulationSteps,
+  SwapProviderType,
   Token,
   TokenAmount,
+  steps,
 } from '@thesolidchain/sdk-common'
-import { SimulationSteps, steps } from '@thesolidchain/sdk-common'
-import { SwapProviderType } from '@thesolidchain/sdk-common'
 
 import { FiatCurrency } from '@thesolidchain/sdk-common'
 import { AddressBookManagerMock } from '@thesolidchain/testing-utils'
@@ -77,10 +78,8 @@ describe('Swap Action Builder', () => {
       spotPrice: spotPrice,
       offerPrice: offerPrice,
       inputAmount: inputAmount,
-      inputAmountAfterFee: inputAmountAfterFee,
       estimatedReceivedAmount: toAmount,
       minimumReceivedAmount: toAmount,
-      summerFee: fee,
       slippage,
     },
     outputs: {

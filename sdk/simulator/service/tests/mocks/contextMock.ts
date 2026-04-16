@@ -1,24 +1,24 @@
 import {
+  Address,
   Denomination,
   FiatCurrency,
-  ILendingPoolInfo,
-  IToken,
-  OracleProviderType,
-  ISpotPriceInfo,
-  Address,
-  Maybe,
-  Percentage,
-  Price,
-  Token,
-  TokenAmount,
+  IExternalLendingPosition,
   ILendingPool,
+  ILendingPoolInfo,
   ILendingPosition,
   ILendingPositionIdData,
-  IExternalLendingPosition,
   IPositionsManager,
-  TransactionInfo,
-  SwapProviderType,
+  ISpotPriceInfo,
+  IToken,
   IUser,
+  Maybe,
+  OracleProviderType,
+  Percentage,
+  Price,
+  SwapProviderType,
+  Token,
+  TokenAmount,
+  TransactionInfo,
 } from '@thesolidchain/sdk-common'
 import {
   testTargetLendingPool,
@@ -100,7 +100,6 @@ async function mockGetImportPositionTransaction(params: {
 }
 
 export const mockRefinanceContext = {
-  getSummerFee: mockGetFee,
   protocolManager: {
     getLendingPool: mockGetLendingPool,
     getLendingPoolInfo: mockGetLendingPoolInfo,
@@ -110,7 +109,6 @@ export const mockRefinanceContext = {
   swapManager: {
     getSwapDataExactInput,
     getSwapQuoteExactInput: jest.fn().mockImplementation(getSwapQuoteExactInput),
-    getSummerFee: jest.fn().mockImplementation(mockGetFee),
   },
   oracleManager: {
     getSpotPrice,

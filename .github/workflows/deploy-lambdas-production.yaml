@@ -1,4 +1,4 @@
-name: "Deploy Lambdas Production"
+name: 'Deploy Lambdas Production'
 concurrency: prod
 on:
   workflow_dispatch:
@@ -32,9 +32,9 @@ jobs:
       EARN_PROTOCOL_DB_CONNECTION_STRING: ${{ secrets.EARN_PROTOCOL_DB_CONNECTION_STRING }}
       EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN: ${{ secrets.EARN_PROTOCOL_UPDATE_TABLES_AUTH_TOKEN }}
       EARN_APP_URL: ${{ secrets.EARN_APP_URL }}
-      SUMMER_PRO_PRODUCT_HUB_KEY: ${{ secrets.SUMMER_PRO_PRODUCT_HUB_KEY }}
       PRO_APP_URL: ${{ secrets.PRO_APP_URL }}
-      BEACH_CLUB_REWARDS_DB_CONNECTION_STRING: ${{ secrets.BEACH_CLUB_REWARDS_DB_CONNECTION_STRING }}
+      BEACH_CLUB_REWARDS_DB_CONNECTION_STRING:
+        ${{ secrets.BEACH_CLUB_REWARDS_DB_CONNECTION_STRING }}
       TALLY_API_KEY: ${{ secrets.TALLY_API_KEY }}
     steps:
       - name: Git clone the repository
@@ -62,7 +62,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: "pnpm"
+          cache: 'pnpm'
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
@@ -75,7 +75,8 @@ jobs:
         run: pnpm install
 
       - name: Prebuild
-        run: pnpm prebuild --filter=./packages/* --filter=./external-api/*  --filter=./summerfi-api/*
+        run:
+          pnpm prebuild --filter=./packages/* --filter=./external-api/*  --filter=./summerfi-api/*
 
       - name: Build
         run: pnpm build --filter=./packages/* --filter=./external-api/*  --filter=./summerfi-api/*

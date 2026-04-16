@@ -1,21 +1,20 @@
 import {
   Address,
   Percentage,
+  QuoteData,
+  SwapData,
+  SwapProviderType,
   Token,
   TokenAmount,
-  SwapData,
-  QuoteData,
-  SwapProviderType,
 } from '@thesolidchain/sdk-common'
-import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
 import { ManagerWithProvidersBase } from '@thesolidchain/sdk-server-common'
+import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
 export class SwapManagerMock
   extends ManagerWithProvidersBase<SwapProviderType, ISwapProvider>
   implements ISwapManager
 {
   private _swapDataReturnValue: SwapData = {} as SwapData
   private _quoteDataReturnValue: QuoteData = {} as QuoteData
-  private _summerFeeValue: Percentage = Percentage.createFrom({ value: 0 })
 
   private _lastGetSwapDataExactInputParams:
     | {
@@ -45,14 +44,6 @@ export class SwapManagerMock
 
   setQuoteData(quoteData: QuoteData): void {
     this._quoteDataReturnValue = quoteData
-  }
-
-  setSummerFee(summerFee: Percentage): void {
-    this._summerFeeValue = summerFee
-  }
-
-  async getSummerFee(): Promise<Percentage> {
-    return this._summerFeeValue
   }
 
   async getSwapDataExactInput(params: {

@@ -35,7 +35,6 @@
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/sdk-server": "workspace:*",
-    "@thesolidchain/subgraph-manager-common": "workspace:*",
     "@trpc/client": "11.8.0"
   },
   "devDependencies": {
