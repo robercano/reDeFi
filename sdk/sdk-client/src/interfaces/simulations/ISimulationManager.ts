@@ -15,7 +15,7 @@ export interface ISimulationManager {
   readonly refinance: IRefinanceSimulationManager
   /** Automation triggers simulation */
   readonly automation: undefined
-  /** Importing simulation: ingressing an external position into the Summer system */
+  /** Importing simulation: ingressing an external position into the system */
   readonly importing: IImportingSimulationManager
   /** Armada Protocol simulations */
   readonly earn: undefined
