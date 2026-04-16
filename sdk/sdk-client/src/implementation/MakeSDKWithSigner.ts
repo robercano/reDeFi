@@ -35,6 +35,7 @@ export function makeSDKWithSigner(params: MakeSDKWithSignerParams) {
   const rpcClient = createMainRPCClient({
     apiURL: versionedURL,
     logging: params.logging,
+    apiKey: params.apiKey,
   })
 
   if (!params.signer) {

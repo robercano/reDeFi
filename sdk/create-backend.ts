@@ -35,7 +35,7 @@ export const createBackend = ({
     handler: 'sdk-router-function/src/index.handler',
     runtime: 'nodejs22.x',
     timeout: '30 seconds',
-    environment: environmentVariables,
+    environment: environmentVariables as Record<string, string>,
     loggingFormat: LoggingFormat.JSON,
     logRetention: production ? 'one_month' : persistent ? 'one_week' : 'one_day',
     currentVersionOptions: {
@@ -58,8 +58,14 @@ export const createBackend = ({
   sdkGateway.addRoutes(stack, {
     [`ANY ${pathOld}/{proxy+}`]: sdkBackend,
     [`ANY ${path}/{proxy+}`]: sdkBackend,
-    [`OPTIONS ${pathOld}/{proxy+}`]: optionsHandler,
-    [`OPTIONS ${path}/{proxy+}`]: optionsHandler,
+    [`OPTIONS ${pathOld}/{proxy+}`]: {
+      function: optionsHandler,
+      authorizer: 'none',
+    },
+    [`OPTIONS ${path}/{proxy+}`]: {
+      function: optionsHandler,
+      authorizer: 'none',
+    },
   })
 
   return {

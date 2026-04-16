@@ -18,13 +18,13 @@ type UseSdk = {
 }
 
 export const useSDK = (params: UseSdk) => {
-  const { apiURL } = useSDKContext()
+  const { apiURL, apiKey } = useSDKContext()
   const sdk = useMemo(() => {
     if (params.clientId) {
-      return makeAdminSDK({ apiURL, clientId: params.clientId })
+      return makeAdminSDK({ apiURL, apiKey, clientId: params.clientId })
     }
-    return makeSDK({ apiURL })
-  }, [apiURL, params.clientId])
+    return makeSDK({ apiURL, apiKey })
+  }, [apiURL, apiKey, params.clientId])
 
   const { chainId, walletAddress: walletAddressString } = params
 

@@ -32,6 +32,7 @@ export function makeAdminSDK(params: MakeAdminSDKParams) {
     apiURL: versionedURL,
     clientId: params.clientId,
     logging: params.logging,
+    apiKey: params.apiKey,
   })
 
   return new SDKAdminManager({ rpcClient })

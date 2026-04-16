@@ -8,6 +8,7 @@ export function createMainRPCClient(params: {
   apiURL: string
   clientId?: string
   logging?: boolean
+  apiKey?: string
 }): RPCMainClientType {
   return createTRPCClient<SDKAppRouter>({
     links: [
@@ -28,6 +29,7 @@ export function createMainRPCClient(params: {
         headers() {
           return {
             ...(params.clientId && { 'Client-Id': params.clientId }),
+            ...(params.apiKey && { 'x-api-key': params.apiKey }),
           }
         },
       }),
