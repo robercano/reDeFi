@@ -4,7 +4,6 @@
     "jsx": "react-jsx",
     "moduleResolution": "bundler",
     "strict": true,
-    "baseUrl": ".",
     "paths": {}
   },
   "include": ["src/**/*", ".storybook/**/*"],

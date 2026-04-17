@@ -2,8 +2,7 @@
   "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts", "src/**/*.json", "scripts/**/*.ts", "hardhat.config.ts"],
   "exclude": [

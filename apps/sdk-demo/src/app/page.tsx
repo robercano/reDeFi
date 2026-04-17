@@ -65,7 +65,7 @@ export default function Home() {
 
         {/* Mock Data / Feature Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-24 text-left w-full max-w-5xl">
-          {[
+          {/* {[
             {
               title: 'Strictly Typed',
               desc: 'End-to-end type safety directly mapped to our deployed smart contracts.',
@@ -101,7 +101,7 @@ export default function Home() {
               <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
               <p className="text-neutral-400 font-light leading-relaxed">{feature.desc}</p>
             </div>
-          ))}
+          ))} */}
         </div>
 
         {/* Demo Application SDK Components */}

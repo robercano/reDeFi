@@ -2,8 +2,7 @@
   "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "dist"
   },
   "include": ["src/**/*.ts", "tests/**/*.ts", "tests/mocks/*.ts"],
   "exclude": ["node_modules", "dist"]

@@ -22,110 +22,106 @@ export interface Step<T extends SimulationSteps, I, O = undefined> {
   skip?: boolean
 }
 
-export interface FlashloanStep
-  extends Step<
-    SimulationSteps.Flashloan,
-    {
-      amount: ITokenAmount
-      provider: FlashloanProvider
-    }
-  > {}
+export type FlashloanStep = Step<
+  SimulationSteps.Flashloan,
+  {
+    amount: ITokenAmount
+    provider: FlashloanProvider
+  }
+>
 
-export interface PullTokenStep
-  extends Step<SimulationSteps.PullToken, { amount: ReferenceableField<ITokenAmount> }> {}
+export type PullTokenStep = Step<
+  SimulationSteps.PullToken,
+  { amount: ReferenceableField<ITokenAmount> }
+>
 
-export interface DepositBorrowStep
-  extends Step<
-    SimulationSteps.DepositBorrow,
-    {
-      depositAmount: ReferenceableField<ITokenAmount>
-      borrowAmount: ReferenceableField<ITokenAmount>
-      position: ILendingPosition
-      additionalDeposit?: ValueReference<ITokenAmount>
-      borrowTargetType: TokenTransferTargetType
-    },
-    {
-      depositAmount: ITokenAmount
-      borrowAmount: ITokenAmount
-    }
-  > {}
+export type DepositBorrowStep = Step<
+  SimulationSteps.DepositBorrow,
+  {
+    depositAmount: ReferenceableField<ITokenAmount>
+    borrowAmount: ReferenceableField<ITokenAmount>
+    position: ILendingPosition
+    additionalDeposit?: ValueReference<ITokenAmount>
+    borrowTargetType: TokenTransferTargetType
+  },
+  {
+    depositAmount: ITokenAmount
+    borrowAmount: ITokenAmount
+  }
+>
 
-export interface PaybackWithdrawStep
-  extends Step<
-    SimulationSteps.PaybackWithdraw,
-    {
-      paybackAmount: ReferenceableField<ITokenAmount>
-      withdrawAmount: ITokenAmount
-      position: ILendingPosition
-      withdrawTargetType: TokenTransferTargetType
-    },
-    {
-      paybackAmount: ITokenAmount
-      withdrawAmount: ITokenAmount
-    }
-  > {}
+export type PaybackWithdrawStep = Step<
+  SimulationSteps.PaybackWithdraw,
+  {
+    paybackAmount: ReferenceableField<ITokenAmount>
+    withdrawAmount: ITokenAmount
+    position: ILendingPosition
+    withdrawTargetType: TokenTransferTargetType
+  },
+  {
+    paybackAmount: ITokenAmount
+    withdrawAmount: ITokenAmount
+  }
+>
 
-export interface SkippedStep
-  extends Step<
-    SimulationSteps.Skipped,
-    {
-      type: SimulationSteps
-      protocol?: ProtocolName
-    }
-  > {}
+export type SkippedStep = Step<
+  SimulationSteps.Skipped,
+  {
+    type: SimulationSteps
+    protocol?: ProtocolName
+  }
+>
 
-export interface SwapStep
-  extends Step<
-    SimulationSteps.Swap,
-    {
-      provider: SwapProviderType
-      routes: SwapRoute[]
-      /** Spot price of the token being traded */
-      spotPrice: IPrice
-      /** Offer price of the token being traded, derived from the swap quote */
-      offerPrice: IPrice
-      /** Full amount sent to the swap contract */
-      inputAmount: ITokenAmount
-      /** Amount estimated by the swap service to be received, equal to `inputAmountAfterFee / offerPrice` */
-      estimatedReceivedAmount: ITokenAmount
-      /** Minimum amount to be received from the swap service, equal to `inputAmountAfterFee / offerPrice * (1 - slippage)` */
-      minimumReceivedAmount: ITokenAmount
-      /** Maximum slippage accepted for the swap */
-      slippage: IPercentage
-    },
-    {
-      /** Effective amount received after the actual swap */
-      received: ITokenAmount
-    }
-  > {}
+export type SwapStep = Step<
+  SimulationSteps.Swap,
+  {
+    provider: SwapProviderType
+    routes: SwapRoute[]
+    /** Spot price of the token being traded */
+    spotPrice: IPrice
+    /** Offer price of the token being traded, derived from the swap quote */
+    offerPrice: IPrice
+    /** Full amount sent to the swap contract */
+    inputAmount: ITokenAmount
+    /** Amount estimated by the swap service to be received, equal to `inputAmountAfterFee / offerPrice` */
+    estimatedReceivedAmount: ITokenAmount
+    /** Minimum amount to be received from the swap service, equal to `inputAmountAfterFee / offerPrice * (1 - slippage)` */
+    minimumReceivedAmount: ITokenAmount
+    /** Maximum slippage accepted for the swap */
+    slippage: IPercentage
+  },
+  {
+    /** Effective amount received after the actual swap */
+    received: ITokenAmount
+  }
+>
 
-export interface ReturnFundsStep extends Step<SimulationSteps.ReturnFunds, { token: IToken }> {}
+export type ReturnFundsStep = Step<SimulationSteps.ReturnFunds, { token: IToken }>
 
-export interface RepayFlashloanStep
-  extends Step<
-    SimulationSteps.RepayFlashloan,
-    {
-      amount: ITokenAmount
-    }
-  > {}
+export type RepayFlashloanStep = Step<
+  SimulationSteps.RepayFlashloan,
+  {
+    amount: ITokenAmount
+  }
+>
 
-export interface NewPositionEventStep
-  extends Step<
-    SimulationSteps.NewPositionEvent,
-    {
-      position: ILendingPosition
-    }
-  > {}
+export type NewPositionEventStep = Step<
+  SimulationSteps.NewPositionEvent,
+  {
+    position: ILendingPosition
+  }
+>
 
-export interface ImportStep
-  extends Step<SimulationSteps.Import, { externalPosition: IExternalLendingPosition }> {}
+export type ImportStep = Step<
+  SimulationSteps.Import,
+  { externalPosition: IExternalLendingPosition }
+>
 
-export interface OpenPosition
-  extends Step<
-    SimulationSteps.OpenPosition,
-    { pool: ILendingPool },
-    { position: ILendingPosition }
-  > {}
+export type OpenPosition = Step<
+  SimulationSteps.OpenPosition,
+  { pool: ILendingPool },
+  { position: ILendingPosition }
+>
 
 export type Steps =
   | FlashloanStep

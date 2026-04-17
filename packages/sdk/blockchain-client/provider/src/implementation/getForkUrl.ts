@@ -7,7 +7,7 @@ export const getForkUrl = (rpcGatewayUrl: string, chainId: number) => {
     }
 
     return forkUrl as string
-  } catch (e) {
+  } catch {
     throw Error('Failed to parse SDK_FORK_CONFIG: ' + rpcGatewayUrl)
   }
 }

@@ -7,7 +7,7 @@ export const serialize = (obj: any) => {
   try {
     const value = JSON.stringify(obj, bigintSerializer)
     return value
-  } catch (error) {
+  } catch {
     console.log('Serialize error')
   }
 }

@@ -2,8 +2,7 @@
   "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "dist"
   },
   "references": [{ "path": "../../tokens/common" }, { "path": "../../oracle/common" }],
   "include": ["src/**/*.ts", "tests/**/*.ts", "scripts/**/*.ts"],

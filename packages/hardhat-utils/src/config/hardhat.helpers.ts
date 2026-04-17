@@ -200,7 +200,7 @@ export function getEtherscanApiKey(): string {
 
   try {
     return JSON.parse(process.env.ETHERSCAN_API_KEY)
-  } catch (e) {
+  } catch {
     return process.env.ETHERSCAN_API_KEY
   }
 }

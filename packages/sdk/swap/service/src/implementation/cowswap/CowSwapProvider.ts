@@ -1,37 +1,37 @@
-import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
-import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
-import type { ITokensManager } from '@thesolidchain/tokens-common'
 import {
-  Address,
-  TokenAmount,
-  ChainId,
-  SwapErrorType,
-  isChainId,
-  IntentSwapProviderType,
-  Price,
-  type ITokenAmount,
-  getChainInfoByChainId,
-  NATIVE_CURRENCY_ADDRESS_LOWERCASE,
-} from '@thesolidchain/sdk-common'
-import { ManagerProviderBase, type IManagerProvider } from '@thesolidchain/api-server-common'
-import { type IIntentSwapProvider } from '@thesolidchain/swap-common'
-import {
+  ALL_SUPPORTED_CHAIN_IDS,
+  COW_PROTOCOL_SETTLEMENT_CONTRACT_ADDRESS,
+  COW_PROTOCOL_VAULT_RELAYER_ADDRESS,
+  ETH_FLOW_ADDRESSES,
   OrderBookApi,
-  SupportedChainId,
   OrderQuoteRequest,
   OrderQuoteSideKindSell,
-  ALL_SUPPORTED_CHAIN_IDS,
-  type UnsignedOrder,
   SigningScheme,
-  COW_PROTOCOL_SETTLEMENT_CONTRACT_ADDRESS,
-  ETH_FLOW_ADDRESSES,
+  SupportedChainId,
   WRAPPED_NATIVE_CURRENCIES,
-  COW_PROTOCOL_VAULT_RELAYER_ADDRESS,
+  type UnsignedOrder,
 } from '@cowprotocol/cow-sdk'
+import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
+import { ManagerProviderBase, type IManagerProvider } from '@thesolidchain/api-server-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import {
+  Address,
+  ChainId,
+  getChainInfoByChainId,
+  IntentSwapProviderType,
+  isChainId,
+  LoggingService,
+  NATIVE_CURRENCY_ADDRESS_LOWERCASE,
+  Price,
+  SwapErrorType,
+  TokenAmount,
+  type ITokenAmount,
+} from '@thesolidchain/sdk-common'
+import { type IIntentSwapProvider } from '@thesolidchain/swap-common'
+import type { ITokensManager } from '@thesolidchain/tokens-common'
+import { BigNumber } from 'bignumber.js'
 import { encodeFunctionData, formatEther } from 'viem'
 import { invalidateOrderAbi } from './invalidateOrderAbi'
-import { BigNumber } from 'bignumber.js'
-import { LoggingService } from '@thesolidchain/sdk-common'
 import { wrappedNativeCurrencyAbi } from './wrappedNativeCurrencyAbi'
 
 export enum CowSwapSendOrderStatus {
@@ -299,7 +299,7 @@ export class CowSwapProvider
       const result = cancellationsResult + ' order(s) ' + orderUids.join(', ')
 
       return { result }
-    } catch (e) {
+    } catch {
       throw new Error(
         `Failed to cancel order(s) ${orderUids.join(', ')}: ${this._parseErrorType()}`,
       )
