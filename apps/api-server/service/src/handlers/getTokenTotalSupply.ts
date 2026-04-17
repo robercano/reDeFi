@@ -16,7 +16,6 @@ export const getTokenTotalSupply = publicProcedure
         'Invalid token object: ' + zodReturn.error.errors.map((e) => e.message).join(', '),
       )
     }
-    console.log('API SERVER: getTokenTotalSupply TRPC boundary HIT. Token Data:', opts.input.token)
     return opts.ctx.tokensManager.getTokenTotalSupply({
       token: opts.input.token as IToken,
     })

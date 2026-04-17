@@ -156,8 +156,6 @@ export class StaticTokensProvider
       throw new Error(`Total supply is not supported for native currency`)
     }
 
-    console.log('Token address:', token.address.value)
-
     let totalSupply: bigint | undefined = 0n
     try {
       totalSupply = await client.readContract({
@@ -169,9 +167,7 @@ export class StaticTokensProvider
       console.log('Error getting token total supply:', error)
     }
 
-    const tokenAmount = TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
-    console.log('Token amount:', tokenAmount)
-    return tokenAmount
+    return TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
   }
 
   private async _getTokenBalance(params: {
