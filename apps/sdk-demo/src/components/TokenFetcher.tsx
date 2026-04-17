@@ -48,6 +48,7 @@ export function TokenFetcher() {
     if (typeof val === 'object' && val !== null) {
       const obj = val as Record<string, unknown>
       if ('value' in obj) return String(obj.value)
+      if ('chainId' in obj && 'name' in obj) return `${obj.name} (ID: ${obj.chainId})`
       if ('chainId' in obj) return String(obj.chainId)
       return JSON.stringify(val)
     }
