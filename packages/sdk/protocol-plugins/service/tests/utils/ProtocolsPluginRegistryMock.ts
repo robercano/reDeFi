@@ -1,6 +1,9 @@
 import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import { IOracleManager } from '@thesolidchain/oracle-common'
-import { IProtocolPluginContext, IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
+import {
+  IProtocolPluginContext,
+  IProtocolPluginsRegistry,
+} from '@thesolidchain/protocol-plugins-common'
 import { ProtocolName } from '@thesolidchain/sdk-common'
 import { ISwapManager } from '@thesolidchain/swap-common'
 import { ITokensManager } from '@thesolidchain/tokens-common'

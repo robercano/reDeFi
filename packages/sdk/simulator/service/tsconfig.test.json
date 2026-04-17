@@ -8,7 +8,9 @@
       "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
       "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
       "@thesolidchain/protocol-plugins/*": ["node_modules/@thesolidchain/protocol-plugins/src/*"],
-      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/protocol-plugins": [
+        "node_modules/@thesolidchain/protocol-plugins/src/index.ts"
+      ],
       "@thesolidchain/protocol-plugins-common": [
         "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],

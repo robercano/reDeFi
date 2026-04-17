@@ -1,4 +1,9 @@
-import { ChainIds, FiatCurrency, getChainInfoByChainId, type ChainId } from '@thesolidchain/sdk-common'
+import {
+  ChainIds,
+  FiatCurrency,
+  getChainInfoByChainId,
+  type ChainId,
+} from '@thesolidchain/sdk-common'
 
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 

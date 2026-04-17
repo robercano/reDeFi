@@ -35,7 +35,10 @@ export class ContractsProvider implements IContractsProvider {
   }
 
   /** @see IContractsProvider.getErc4626Contract */
-  async getErc4626Contract(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IERC4626> {
+  async getErc4626Contract(params: {
+    chainInfo: IChainInfo
+    address: IAddress
+  }): Promise<IERC4626> {
     return ContractsFactory.getERC4626({
       blockchainClient: this._blockchainClientProvider.getBlockchainClient({
         chainInfo: params.chainInfo,

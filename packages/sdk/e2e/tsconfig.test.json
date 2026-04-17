@@ -11,13 +11,17 @@
         "node_modules/@thesolidchain/protocol-manager-service/src/index.ts"
       ],
       "@thesolidchain/protocol-plugins/*": ["node_modules/@thesolidchain/protocol-plugins/src/*"],
-      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/protocol-plugins": [
+        "node_modules/@thesolidchain/protocol-plugins/src/index.ts"
+      ],
       "@thesolidchain/protocol-plugins-common": [
         "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src/index.ts"],
       "@thesolidchain/contracts-core": ["node_modules/@thesolidchain/contracts-core/src/index.ts"],
-      "@thesolidchain/deployment-utils": ["node_modules/@thesolidchain/deployment-utils/src/index.ts"],
+      "@thesolidchain/deployment-utils": [
+        "node_modules/@thesolidchain/deployment-utils/src/index.ts"
+      ],
       "@thesolidchain/abis": ["../../packages/abis/src/index.ts"],
       "@thesolidchain/api-server-common": ["../sdk-server/service/service-common/src/index.ts"],
       "@thesolidchain/tokens-service": ["../tokens/service/src/index.ts"],

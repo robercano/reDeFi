@@ -1,5 +1,8 @@
 import { steps } from '@thesolidchain/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import {
+  ActionBuilderParams,
+  ActionBuilderUsedAction,
+} from '@thesolidchain/protocol-plugins-common'
 import { ReturnFundsAction } from '../actions/ReturnFundsAction'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 

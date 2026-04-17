@@ -7,9 +7,13 @@
       "~sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
       "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
       "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
-      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/protocol-plugins": [
+        "node_modules/@thesolidchain/protocol-plugins/src/index.ts"
+      ],
       "@thesolidchain/protocol-plugins/*": ["node_modules/@thesolidchain/protocol-plugins/src/*"],
-      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/order-planner-common/*": [
+        "node_modules/@thesolidchain/order-planner-common/src/*"
+      ],
       "@thesolidchain/protocol-plugins-common": [
         "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],

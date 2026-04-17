@@ -48,7 +48,11 @@ async function processVerificationEntry(
   return true
 }
 
-export async function verifyAll(ds: Deployments, versions: ContractsVersionsSnapshot, config: Config) {
+export async function verifyAll(
+  ds: Deployments,
+  versions: ContractsVersionsSnapshot,
+  config: Config,
+) {
   console.log('[VERIFICATION]')
   return recurseConfig(ds, versions, 'config', config, processVerificationEntry, ['automation'])
 }

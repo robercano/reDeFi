@@ -1,4 +1,10 @@
-import { ChainInfo, FiatCurrency, OracleProviderType, Token, Address } from '@thesolidchain/sdk-common'
+import {
+  ChainInfo,
+  FiatCurrency,
+  OracleProviderType,
+  Token,
+  Address,
+} from '@thesolidchain/sdk-common'
 
 import { MockOracleProvider } from './mocks/MockOracleProvider'
 import { IOracleManager } from '@thesolidchain/oracle-common'

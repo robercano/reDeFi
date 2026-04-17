@@ -6,7 +6,12 @@ import { createBackend } from './create-backend'
 import { sdkDeployedVersionsMap } from './sst-environment'
 import { isPersistentStage, isProductionStage } from './sst-utils'
 
-config({ path: ['../../.env', '../.env', '.env'], override: true, debug: false, ignore: ['MISSING_ENV_FILE'] })
+config({
+  path: ['../../.env', '../.env', '.env'],
+  override: true,
+  debug: false,
+  ignore: ['MISSING_ENV_FILE'],
+})
 
 export default {
   config(input) {

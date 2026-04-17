@@ -20,7 +20,11 @@ async function processDependencyEntry(
   return true
 }
 
-export async function addAllDependencies(ds: Deployments, versions: ContractsVersionsSnapshot, config: Config) {
+export async function addAllDependencies(
+  ds: Deployments,
+  versions: ContractsVersionsSnapshot,
+  config: Config,
+) {
   console.log('[DEPLOYMENT]')
   return recurseConfig(ds, versions, 'config', config, processDependencyEntry, ['automation'])
 }

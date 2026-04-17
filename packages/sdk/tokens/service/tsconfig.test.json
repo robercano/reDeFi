@@ -13,7 +13,9 @@
       "@thesolidchain/configuration-provider": [
         "node_modules/@thesolidchain/configuration-provider/src/index.ts"
       ],
-      "@thesolidchain/api-server-common": ["node_modules/@thesolidchain/api-server-common/src/index.ts"]
+      "@thesolidchain/api-server-common": [
+        "node_modules/@thesolidchain/api-server-common/src/index.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts"],

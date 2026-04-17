@@ -33,8 +33,5 @@ export interface IContractsProvider {
    *
    * @returns {IERC4626}
    */
-  getErc4626Contract(params: {
-    chainInfo: IChainInfo
-    address: IAddress
-  }): Promise<IERC4626>
+  getErc4626Contract(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IERC4626>
 }
