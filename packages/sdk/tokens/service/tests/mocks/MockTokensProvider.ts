@@ -87,4 +87,11 @@ export class MockTokensProvider
       amount: '1000000000000000000',
     })
   }
+
+  async getTokenTotalSupply(params: { token: IToken }) {
+    return TokenAmount.createFrom({
+      token: params.token,
+      amount: '1000000000000000000000000', // Mock 1 million tokens supply
+    })
+  }
 }

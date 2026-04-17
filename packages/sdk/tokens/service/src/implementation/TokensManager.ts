@@ -56,4 +56,12 @@ export class TokensManager
     const provider = this._getBestProvider({ chainInfo: params.chainInfo })
     return provider.getTokenBalanceByAddress(params)
   }
+
+  /** @see ITokensManager.getTokenTotalSupply */
+  async getTokenTotalSupply(
+    params: Parameters<ITokensManager['getTokenTotalSupply']>[0],
+  ): ReturnType<ITokensManager['getTokenTotalSupply']> {
+    const provider = this._getBestProvider({ chainInfo: params.token.chainInfo })
+    return provider.getTokenTotalSupply(params)
+  }
 }
