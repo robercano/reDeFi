@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useSDK } from "@thesolidchain/sdk-client-react";
+import { useSDK } from "@thesolidchain/sdk-react";
 
 interface TokenData {
   symbol?: string;

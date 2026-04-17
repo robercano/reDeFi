@@ -1,0 +1,38 @@
+{
+  "name": "@thesolidchain/allowance-manager-service",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "e2e": "jest e2e/",
+    "testw": "jest --watch",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@thesolidchain/allowance-manager-common": "workspace:*",
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/contracts-provider-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@thesolidchain/blockchain-client-provider": "workspace:*",
+    "@thesolidchain/contracts-provider-service": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  }
+}

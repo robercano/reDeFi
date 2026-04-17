@@ -1,0 +1,49 @@
+{
+  "name": "@thesolidchain/testing-utils",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    },
+    "./*": {
+      "import": "./src/*/index.ts",
+      "types": "./src/*/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "test": "jest --coverage=true --passWithNoTests",
+    "testw": "jest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "encode:makerGive": "tsx ./scripts/encodeMakerGive.ts"
+  },
+  "dependencies": {
+    "@thesolidchain/address-book-common": "workspace:*",
+    "@thesolidchain/api-server-common": "workspace:*",
+    "@thesolidchain/blockchain-client-common": "workspace:*",
+    "@thesolidchain/blockchain-client-provider": "workspace:*",
+    "@thesolidchain/configuration-provider": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/deployment-types": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/oracle-common": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/swap-common": "workspace:*",
+    "@thesolidchain/tokens-common": "workspace:*",
+    "@thesolidchain/tokens-service": "workspace:^",
+    "viem": "2.43.5"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@types/yargs": "^17.0.32",
+    "tsx": "^4.7.2",
+    "yargs": "^17.7.2"
+  }
+}

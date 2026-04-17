@@ -1,0 +1,44 @@
+{
+  "name": "@thesolidchain/sdk-e2e",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "jest",
+    "testw": "jest --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "e2e": "jest --roots e2e",
+    "e2e:intentSwap": "jest --roots e2e -- ./e2e/intentswaps.test.ts",
+    "e2e:merklRewards": "jest --roots e2e -- ./e2e/merklRewards.merklRewards.test.ts",
+    "e2e:merklClaimTx": "jest --roots e2e -- ./e2e/merklRewards.merklClaimTx.test.ts",
+    "e2e:merklReferralFeesClaimTx": "jest --roots e2e -- ./e2e/merklRewards.merklReferralFeesClaimTx.test.ts",
+    "e2e:merklVaultRewardsClaimTx": "jest --roots e2e -- ./e2e/merklRewards.merklVaultRewardsClaimTx.test.ts",
+    "e2e:merklAuthorization": "jest --roots e2e -- ./e2e/merklRewards.authorization.test.ts",
+    "e2e:admin:rebalance": "jest --roots e2e -- ./e2e/admin.rebalance.test.ts",
+    "e2e:admin:feerevenue": "jest --roots e2e -- ./e2e/admin.getFeeRevenueConfig.test.ts",
+    "e2e:priceOracle": "jest --roots e2e -- ./e2e/priceOracle.test.ts",
+    "e2e:swapQuote": "jest --roots e2e -- ./e2e/swapQuote.test.ts",
+    "e2e:transfer": "jest --roots e2e -- ./e2e/armadaProtocol.erc20Transfer.test.ts",
+    "e2e:vaulthistoricalrates": "jest --roots e2e -- ./e2e/armadaProtocol.vaultsHistoricalRates.test.ts",
+    "e2e:protocoltvl": "jest --roots e2e -- ./e2e/armadaProtocol.getProtocolTvl.test.ts",
+    "e2e:tokens": "jest --roots e2e -- ./e2e/tokens.test.ts"
+  },
+  "devDependencies": {
+    "@thesolidchain/contracts-core": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/protocol-manager-service": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/protocol-plugins-common": "workspace:*",
+    "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/tenderly-utils": "workspace:*",
+    "@thesolidchain/testing-utils": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  },
+  "dependencies": {
+    "bignumber.js": "^9.3.1",
+    "ethers": "^5.7.2",
+    "viem": "2.43.5"
+  }
+}

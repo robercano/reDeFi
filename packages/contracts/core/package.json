@@ -1,0 +1,43 @@
+{
+  "name": "@thesolidchain/contracts-core",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    },
+    "./abis/*": {
+      "import": "./src/abis/*",
+      "types": "./src/abis/*"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "test": "jest --passWithNoTests",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "dev": "tsc -b --preserveWatchOutput tsconfig.build.json -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "gen-versions": "hardhat run scripts/generate-versions.ts",
+    "view-versions": "hardhat run scripts/view-versions.ts",
+    "deploy-contracts": "hardhat run scripts/deploy.ts"
+  },
+  "devDependencies": {
+    "@ethersproject/keccak256": "^5.7.0",
+    "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
+    "@openzeppelin/contracts": "4.9.6",
+    "@prb/math": "2.5.0",
+    "@thesolidchain/common": "workspace:*",
+    "@thesolidchain/contracts-utils": "workspace:*",
+    "@thesolidchain/contracts-deployments": "workspace:*",
+    "@thesolidchain/deployment-types": "workspace:*",
+    "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
+    "hardhat": "^2.22.2"
+  }
+}

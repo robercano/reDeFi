@@ -23,7 +23,7 @@
     "@storybook/theming": "8.6.18",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/vite": "^4.2.2",
-    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
     "@types/react": "^19.2.3",
     "@types/react-dom": "^19.2.3",
     "react": "19.2.4",

@@ -1,7 +1,7 @@
 import { SSTConfig } from 'sst'
 import { isPersistentStage, isProductionStage } from './sst-utils'
 import { sdkDeployedVersionsMap } from './sst-environment'
-import { version as clientPkgVersion } from './sdk-client/bundle/package.json'
+import { version as clientPkgVersion } from '../packages/sdk/client/bundle/package.json'
 import { createBackend } from './create-backend'
 import { Api, Function } from 'sst/constructs'
 import { RemovalPolicy } from 'aws-cdk-lib'
@@ -48,7 +48,7 @@ export default {
       }
 
       const sdkAuthorizer = new Function(stack, 'SdkAuthorizer', {
-        handler: 'authorizer-function/src/index.handler',
+        handler: '../apps/api-authorizer/src/index.handler',
         runtime: 'nodejs22.x',
         environment: {
           SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',

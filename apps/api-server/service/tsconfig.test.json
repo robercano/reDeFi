@@ -1,0 +1,18 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "allowJs": true,
+    "paths": {
+      "@thesolidchain/common": ["node_modules/@thesolidchain/common/src/index.ts"],
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+
+      "@thesolidchain/swap-service": ["node_modules/@thesolidchain/swap-service/src/index.ts"],
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/simulator-service": ["node_modules/@thesolidchain/simulator-service/src"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

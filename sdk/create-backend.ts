@@ -30,7 +30,7 @@ export const createBackend = ({
 
   // create and deploy function
   const sdkBackend = new Function(stack, `SdkBackendV${nameSuffix}`, {
-    handler: 'sdk-router-function/src/index.handler',
+    handler: '../apps/api-router/src/index.handler',
     runtime: 'nodejs22.x',
     timeout: '30 seconds',
     environment: environmentVariables as Record<string, string>,
@@ -43,7 +43,7 @@ export const createBackend = ({
 
   // Create a separate Lambda for OPTIONS
   const optionsHandler = new Function(stack, `SdkOptionsHandlerV${nameSuffix}`, {
-    handler: 'sdk-router-function/src/options.handler',
+    handler: '../apps/api-router/src/options.handler',
     runtime: 'nodejs22.x',
     timeout: '10 seconds',
     loggingFormat: LoggingFormat.JSON,
