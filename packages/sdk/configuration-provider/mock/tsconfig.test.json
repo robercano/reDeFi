@@ -4,12 +4,18 @@
     "rootDir": "src",
     "baseUrl": ".",
     "paths": {
-      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/order-planner-common/*": [
+        "node_modules/@thesolidchain/order-planner-common/src/*"
+      ],
       "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
       "@thesolidchain/contracts-core": ["node_modules/@thesolidchain/contracts-core/src/index.ts"],
       "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
-      "@thesolidchain/deployment-utils": ["node_modules/@thesolidchain/deployment-utils/src/index.ts"],
-      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/deployment-utils": [
+        "node_modules/@thesolidchain/deployment-utils/src/index.ts"
+      ],
+      "@thesolidchain/protocol-plugins": [
+        "node_modules/@thesolidchain/protocol-plugins/src/index.ts"
+      ],
       "@thesolidchain/protocol-plugins-common": [
         "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],

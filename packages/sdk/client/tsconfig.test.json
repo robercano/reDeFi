@@ -9,7 +9,9 @@
       "@thesolidchain/api-server/*": ["node_modules/@thesolidchain/api-server/src/*"],
       "@thesolidchain/protocol-plugins/*": ["../protocol-plugins/service/service/src/*"],
       "@thesolidchain/protocol-plugins": ["../protocol-plugins/service/service/src/index.ts"],
-      "@thesolidchain/protocol-plugins-common": ["../protocol-plugins/service/service-common/src/index.ts"],
+      "@thesolidchain/protocol-plugins-common": [
+        "../protocol-plugins/service/service-common/src/index.ts"
+      ],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src"],
       "@thesolidchain/abis": ["../../packages/abis/src"]
     }

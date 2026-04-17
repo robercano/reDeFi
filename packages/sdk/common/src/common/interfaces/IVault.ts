@@ -13,7 +13,7 @@ export const __signature__: unique symbol = Symbol()
 export interface IVault extends IToken {
   /** Signature to differentiate from similar interfaces */
   readonly [__signature__]: symbol
-  
+
   /** The underlying ERC20 token asset of the vault */
   readonly asset: IToken
 }
@@ -24,7 +24,7 @@ export interface IVault extends IToken {
 export const VaultDataSchema = TokenDataSchema.and(
   z.object({
     asset: z.custom<IToken>((val) => isToken(val)),
-  })
+  }),
 )
 
 /**

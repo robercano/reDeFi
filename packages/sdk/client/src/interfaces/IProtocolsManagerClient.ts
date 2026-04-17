@@ -1,4 +1,9 @@
-import { Maybe, ILendingPool, ILendingPoolIdData, ILendingPoolInfo } from '@thesolidchain/sdk-common'
+import {
+  Maybe,
+  ILendingPool,
+  ILendingPoolIdData,
+  ILendingPoolInfo,
+} from '@thesolidchain/sdk-common'
 
 /**
  * @interface IProtocolsManagerClient

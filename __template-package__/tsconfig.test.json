@@ -4,7 +4,9 @@
     "rootDir": ".",
     "baseUrl": ".",
     "paths": {
-      "@thesolidchain/serverless-shared/*": ["node_modules/@thesolidchain/serverless-shared/src/*.ts"]
+      "@thesolidchain/serverless-shared/*": [
+        "node_modules/@thesolidchain/serverless-shared/src/*.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts"],

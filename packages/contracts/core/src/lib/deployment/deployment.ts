@@ -51,7 +51,11 @@ async function processDeploymentEntry(
   return true
 }
 
-export async function deployAll(ds: Deployments, versions: ContractsVersionsSnapshot, config: Config) {
+export async function deployAll(
+  ds: Deployments,
+  versions: ContractsVersionsSnapshot,
+  config: Config,
+) {
   console.log('[DEPLOYMENT]')
   return recurseConfig(ds, versions, 'config', config, processDeploymentEntry, ['automation'])
 }

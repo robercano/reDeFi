@@ -97,9 +97,7 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
     const approveTransaction = await erc20Contract.approve(spenderAddress.value, 84000000n)
 
     expect(approveTransaction).toBeDefined()
-    expect(approveTransaction.description).toEqual(
-      'approve execution',
-    )
+    expect(approveTransaction.description).toEqual('approve execution')
     expect(approveTransaction.transaction).toBeDefined()
     expect(approveTransaction.transaction.calldata).toBeDefined()
     expect(approveTransaction.transaction.value).toEqual('0')

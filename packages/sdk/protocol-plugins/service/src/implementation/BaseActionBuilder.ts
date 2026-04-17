@@ -5,7 +5,13 @@ import {
   FilterStep,
   IActionBuilder,
 } from '@thesolidchain/protocol-plugins-common'
-import { IAddress, IChainInfo, ProtocolName, SimulationSteps, steps } from '@thesolidchain/sdk-common'
+import {
+  IAddress,
+  IChainInfo,
+  ProtocolName,
+  SimulationSteps,
+  steps,
+} from '@thesolidchain/sdk-common'
 import { getContractAddress } from '../plugins/utils/GetContractAddress'
 
 /**

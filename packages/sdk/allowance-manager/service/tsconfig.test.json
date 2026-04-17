@@ -12,10 +12,16 @@
       ],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src/index.ts"],
       "@thesolidchain/testing-utils/*": ["node_modules/@thesolidchain/testing-utils/src/*"],
-      "@thesolidchain/contracts-provider-service": ["../../contracts-provider/service/src/index.ts"],
-      "@thesolidchain/blockchain-client-provider": ["../../blockchain-client/provider/src/index.ts"],
+      "@thesolidchain/contracts-provider-service": [
+        "../../contracts-provider/service/src/index.ts"
+      ],
+      "@thesolidchain/blockchain-client-provider": [
+        "../../blockchain-client/provider/src/index.ts"
+      ],
       "@thesolidchain/serverless-shared/*": ["../../packages/serverless-shared/src/*"],
-      "@thesolidchain/allowance-common": ["node_modules/@thesolidchain/allowance-common/src/index.ts"]
+      "@thesolidchain/allowance-common": [
+        "node_modules/@thesolidchain/allowance-common/src/index.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts", "e2e/**/*.ts"],

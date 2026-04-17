@@ -58,7 +58,11 @@ async function processConfigurationEntry(
   return await updateRegistry(ds, serviceRegistry, configEntry.name, versions, spacer)
 }
 
-export async function configureAll(ds: Deployments, versions: ContractsVersionsSnapshot, config: Config) {
+export async function configureAll(
+  ds: Deployments,
+  versions: ContractsVersionsSnapshot,
+  config: Config,
+) {
   console.log('[CONFIGURATION]')
   return recurseConfig(ds, versions, 'config', config, processConfigurationEntry, ['automation'])
 }

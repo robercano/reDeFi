@@ -14,7 +14,9 @@
       "@thesolidchain/tenderly-utils": ["node_modules/@thesolidchain/tenderly-utils/src"],
       "@thesolidchain/testing-utils/*": ["node_modules/@thesolidchain/testing-utils/src/*"],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src"],
-      "@thesolidchain/protocol-plugins-common": ["../../protocol-plugins/service/service-common/src"],
+      "@thesolidchain/protocol-plugins-common": [
+        "../../protocol-plugins/service/service-common/src"
+      ],
       "@thesolidchain/api-server-common": ["../../sdk-server/service/service-common/src"],
       "@thesolidchain/tokens-service": ["node_modules/@thesolidchain/tokens-service/src"],
       "@thesolidchain/contracts-provider-common": [

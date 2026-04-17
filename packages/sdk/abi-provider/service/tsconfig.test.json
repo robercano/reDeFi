@@ -12,7 +12,9 @@
       ],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src/index.ts"],
       "@thesolidchain/testing-utils/*": ["node_modules/@thesolidchain/testing-utils/src/*"],
-      "@thesolidchain/allowance-common": ["node_modules/@thesolidchain/allowance-common/src/index.ts"]
+      "@thesolidchain/allowance-common": [
+        "node_modules/@thesolidchain/allowance-common/src/index.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts", "tests/**/*.ts"],

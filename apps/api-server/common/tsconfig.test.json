@@ -18,7 +18,9 @@
       "@thesolidchain/configuration-provider-mock": [
         "node_modules/@thesolidchain/configuration-provider-mock/src/index.ts"
       ],
-      "@thesolidchain/configuration-provider": ["../../configuration-provider/service/service/src/index.ts"]
+      "@thesolidchain/configuration-provider": [
+        "../../configuration-provider/service/service/src/index.ts"
+      ]
     }
   },
   "include": ["src/**/*.ts"],

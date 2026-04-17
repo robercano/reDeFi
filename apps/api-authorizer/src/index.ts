@@ -1,7 +1,10 @@
-import type { APIGatewayRequestAuthorizerEventV2, APIGatewaySimpleAuthorizerResult } from 'aws-lambda'
+import type {
+  APIGatewayRequestAuthorizerEventV2,
+  APIGatewaySimpleAuthorizerResult,
+} from 'aws-lambda'
 
 export const handler = async (
-  event: APIGatewayRequestAuthorizerEventV2
+  event: APIGatewayRequestAuthorizerEventV2,
 ): Promise<APIGatewaySimpleAuthorizerResult> => {
   const authHeader = event.headers?.authorization || event.headers?.['x-api-key']
   const validKey = process.env.SDK_API_KEY

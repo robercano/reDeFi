@@ -39,7 +39,10 @@ export class AllowanceManager implements IAllowanceManager {
 
     const allowance =
       allowanceRaw != null
-        ? TokenAmount.createFromBaseUnit({ token: params.amount.token, amount: allowanceRaw.toString() })
+        ? TokenAmount.createFromBaseUnit({
+            token: params.amount.token,
+            amount: allowanceRaw.toString(),
+          })
         : null
 
     if (allowance != null && allowance.isGreaterOrEqualThan(params.amount)) {

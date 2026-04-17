@@ -135,7 +135,10 @@ function updateDeclarationImports(): void {
       console.log('distRelativeToFile:', distRelativeToFile)
 
       // Replace @thesolidchain imports with absolute paths
-      content = content.replace(/@thesolidchain\/sdk-common/g, `${distRelativeToFile || '.'}/sdk-common`)
+      content = content.replace(
+        /@thesolidchain\/sdk-common/g,
+        `${distRelativeToFile || '.'}/sdk-common`,
+      )
       content = content.replace(
         /@thesolidchain\/protocol-plugins/g,
         `${distRelativeToFile || '.'}/protocol-plugins`,

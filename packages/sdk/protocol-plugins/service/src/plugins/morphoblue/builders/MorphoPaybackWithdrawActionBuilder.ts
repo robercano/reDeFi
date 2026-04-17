@@ -1,4 +1,7 @@
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import {
+  ActionBuilderParams,
+  ActionBuilderUsedAction,
+} from '@thesolidchain/protocol-plugins-common'
 import { getValueFromReference, steps } from '@thesolidchain/sdk-common'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 import { SetApprovalAction } from '../../common/actions/SetApprovalAction'

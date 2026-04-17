@@ -1,5 +1,8 @@
 import { FlashloanProvider, steps } from '@thesolidchain/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import {
+  ActionBuilderParams,
+  ActionBuilderUsedAction,
+} from '@thesolidchain/protocol-plugins-common'
 import { SendTokenAction } from '../actions/SendTokenAction'
 import { FlashloanAction } from '../actions/FlashloanAction'
 import { getContractAddress } from '../../utils/GetContractAddress'

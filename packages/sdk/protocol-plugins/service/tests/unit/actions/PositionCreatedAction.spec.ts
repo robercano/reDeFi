@@ -1,4 +1,10 @@
-import { Address, ChainInfo, Token, TokenAmount, LendingPositionType } from '@thesolidchain/sdk-common'
+import {
+  Address,
+  ChainInfo,
+  Token,
+  TokenAmount,
+  LendingPositionType,
+} from '@thesolidchain/sdk-common'
 import { decodeActionCalldata, getTargetHash } from '@thesolidchain/testing-utils'
 import {
   EmodeType,

@@ -1,5 +1,12 @@
 import { IAddressBookManager } from '@thesolidchain/address-book-common'
-import { AddressValue, ChainId, IChainInfo, Address, IAddress, Maybe } from '@thesolidchain/sdk-common'
+import {
+  AddressValue,
+  ChainId,
+  IChainInfo,
+  Address,
+  IAddress,
+  Maybe,
+} from '@thesolidchain/sdk-common'
 import assert from 'assert'
 
 export class AddressBookManagerMock implements IAddressBookManager {

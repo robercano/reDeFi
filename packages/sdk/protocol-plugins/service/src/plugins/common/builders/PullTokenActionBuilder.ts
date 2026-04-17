@@ -1,5 +1,8 @@
 import { steps, getValueFromReference } from '@thesolidchain/sdk-common'
-import { ActionBuilderParams, ActionBuilderUsedAction } from '@thesolidchain/protocol-plugins-common'
+import {
+  ActionBuilderParams,
+  ActionBuilderUsedAction,
+} from '@thesolidchain/protocol-plugins-common'
 import { PullTokenAction } from '../actions/PullTokenAction'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 
