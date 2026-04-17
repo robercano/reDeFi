@@ -1,6 +1,13 @@
 import { ConfigurationProvider } from '../src/implementation/ConfigurationProvider'
 
 describe('Configuration Provider', () => {
+  beforeAll(() => {
+    process.env['ONE_INCH_API_KEY'] = 'test-key'
+    process.env['ONE_INCH_API_VERSION'] = '1'
+    process.env['ONE_INCH_API_URL'] = 'https://api.1inch.dev'
+    process.env['ONE_INCH_SWAP_CHAIN_IDS'] = '1,137'
+  })
+
   it('should return config values', () => {
     const configProvider = new ConfigurationProvider()
 

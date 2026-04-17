@@ -1,4 +1,4 @@
-import type { Token, Address } from '@thesolidchain/sdk-common'
+import type { Address, IToken, ITokenAmount } from '@thesolidchain/sdk-common'
 
 /**
  * @name ITokensManagerClient
@@ -16,7 +16,7 @@ export interface ITokensManagerClient {
    *
    * @returns The token with the given symbol
    */
-  getTokenBySymbol(params: { symbol: string }): Promise<Token>
+  getTokenBySymbol(params: { symbol: string }): Promise<IToken>
 
   /**
    * @method getTokenByAddress
@@ -26,7 +26,7 @@ export interface ITokensManagerClient {
    *
    * @returns The token with the given address
    */
-  getTokenByAddress(params: { address: Address }): Promise<Token>
+  getTokenByAddress(params: { address: Address }): Promise<IToken>
 
   /**
    * @method getTokenByName
@@ -36,5 +36,15 @@ export interface ITokensManagerClient {
    *
    * @returns The token with the given name
    */
-  getTokenByName(params: { name: string }): Promise<Token>
+  getTokenByName(params: { name: string }): Promise<IToken>
+
+  /**
+   * @method getTokenTotalSupply
+   * @description Retrieves the total supply for a given token
+   *
+   * @param token The token whose supply should be retrieved
+   *
+   * @returns The token supply wrapped inside an ITokenAmount
+   */
+  getTokenTotalSupply(params: { token: IToken }): Promise<ITokenAmount>
 }

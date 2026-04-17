@@ -1,4 +1,4 @@
-import { createPublicClient, defineChain, http, type Chain } from 'viem'
+import { createPublicClient, defineChain, fallback, http, type Chain, type Transport } from 'viem'
 import { arbitrum, base, mainnet, sonic } from 'viem/chains'
 
 import {
@@ -6,45 +6,9 @@ import {
   IBlockchainClientProvider,
 } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
-import { type IChainInfo, chainIdToGraphChain, hyperliquid } from '@thesolidchain/sdk-common'
+import { hyperliquid, type IChainInfo } from '@thesolidchain/sdk-common'
 import { assert } from 'console'
 import { getForkUrl } from './getForkUrl'
-
-interface IRpcConfig {
-  skipCache: boolean
-  skipMulticall: boolean
-  skipGraph: boolean
-  stage: string
-  source: string
-}
-
-/**
- * RPC configuration for the RPC Gateway
- */
-const rpcConfig: IRpcConfig = {
-  skipCache: false,
-  skipMulticall: false,
-  skipGraph: true,
-  stage: process.env.NODE_ENV === 'production' ? 'PROD' : 'DEV',
-  source: 'SDK',
-}
-
-export function getRpcGatewayEndpoint(
-  rpcGatewayUrl: string,
-  chainId: number,
-  rpcConfig: IRpcConfig,
-) {
-  const network = chainIdToGraphChain(chainId)
-
-  return (
-    `${rpcGatewayUrl}?` +
-    `network=${network}&` +
-    `skipCache=${rpcConfig.skipCache}&` +
-    `skipMulticall=${rpcConfig.skipMulticall}&` +
-    `skipGraph=${rpcConfig.skipGraph}&` +
-    `source=${rpcConfig.source}`
-  )
-}
 
 /**
  * Blockchain client provider implements the IBlockchainClientProvider interface
@@ -90,25 +54,27 @@ export class BlockchainClientProvider implements IBlockchainClientProvider {
         client,
         'Chain was found for the given chainInfo but the blockchain client was not, this should never happen',
       )
+
+      console.log('Client found for chain:', params.chainInfo.chainId)
+      console.log('Client:', client)
       return client
     }
   }
 
   /** PRIVATE */
 
-  /**
-   * Pre-loads a list of known blockchain clients
-   *
-   * @param chains List of known chains to be preloaded
-   */
   private _loadClients(chains: Chain[]) {
-    for (const chain of chains) {
-      const rpcGatewayUrl = this._configProvider.getConfigurationItem({ name: 'SDK_RPC_GATEWAY' })
-      if (!rpcGatewayUrl) {
-        throw new Error('SDK_RPC_GATEWAY not found')
-      }
+    let alchemyApiKey: string | undefined
+    try {
+      alchemyApiKey = this._configProvider.getConfigurationItem({
+        name: 'ALCHEMY_ENDPOINT_API_KEY',
+      })
+    } catch {
+      // It's acceptable for ALCHEMY_ENDPOINT_API_KEY to not be set
+    }
 
-      let forkRpc = undefined
+    for (const chain of chains) {
+      let forkRpc: string | undefined = undefined
       try {
         const useForkEnv = this._configProvider.getConfigurationItem({ name: 'SDK_USE_FORK' })
         const forkConfig = this._configProvider.getConfigurationItem({ name: 'SDK_FORK_CONFIG' })
@@ -118,17 +84,55 @@ export class BlockchainClientProvider implements IBlockchainClientProvider {
           forkRpc = getForkUrl(forkConfig, chain.id)
         }
       } catch {
-        // FORK CONFIG not found, will just use RPC GATEWAY
+        // FORK CONFIG not found, will not use local fork
       }
 
-      const rpc = forkRpc ? forkRpc : getRpcGatewayEndpoint(rpcGatewayUrl, chain.id, rpcConfig)
+      const transports: Transport[] = []
 
-      const transport = http(rpc, {
-        batch: true,
-        fetchOptions: {
-          method: 'POST',
-        },
-      })
+      // If a fork is established, we prepend it as the highest priority
+      if (forkRpc) {
+        transports.push(http(forkRpc, { batch: true, fetchOptions: { method: 'POST' } }))
+      }
+
+      // Add Alchemy if API key is provided
+      if (alchemyApiKey) {
+        let alchemyUrl: string | undefined
+        
+        if (chain.id === mainnet.id) {
+          alchemyUrl = `https://eth-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
+        } else if (chain.id === base.id) {
+          alchemyUrl = `https://base-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
+        } else if (chain.id === arbitrum.id) {
+          alchemyUrl = `https://arb-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
+        } else if (chain.id === sonic.id) {
+          alchemyUrl = `https://sonic-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
+        }
+
+        if (alchemyUrl) {
+          transports.push(
+            http(alchemyUrl, {
+              batch: true,
+              fetchOptions: { method: 'POST' },
+            }),
+          )
+        }
+      }
+
+      // Always fallback to the public URL that Viem designates for this chain
+      if (chain.rpcUrls.default?.http?.[0]) {
+        transports.push(
+          http(chain.rpcUrls.default.http[0], {
+            batch: true,
+            fetchOptions: { method: 'POST' },
+          }),
+        )
+      }
+
+      if (transports.length === 0) {
+        throw new Error(`No available RPC transports configured for chain: ${chain.id}`)
+      }
+
+      const transport = fallback(transports)
 
       const client = createPublicClient({
         batch: {

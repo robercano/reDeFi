@@ -1,4 +1,1 @@
-export {
-  getRpcGatewayEndpoint,
-  BlockchainClientProvider,
-} from './implementation/BlockchainClientProvider'
+export { BlockchainClientProvider } from './implementation/BlockchainClientProvider'

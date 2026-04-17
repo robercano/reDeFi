@@ -1,6 +1,6 @@
+import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
 import { TokensProviderType } from '@thesolidchain/sdk-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
 
 /**
  * @name TokensManager

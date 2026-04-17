@@ -13,6 +13,7 @@ import { getSwapQuoteExactInput } from './handlers/getSwapQuote'
 import { getTokenByAddress } from './handlers/getTokenByAddress'
 import { getTokenByName } from './handlers/getTokenByName'
 import { getTokenBySymbol } from './handlers/getTokenBySymbol'
+import { getTokenTotalSupply } from './handlers/getTokenTotalSupply'
 import { intentSwapsCancelOrder } from './handlers/intentSwapsCancelOrder'
 import { intentSwapsCheckOrder } from './handlers/intentSwapsCheckOrder'
 import { intentSwapsGetSellOrderQuote } from './handlers/intentSwapsGetSellOrderQuote'
@@ -35,6 +36,7 @@ export const sdkAppRouter = router({
     getTokenBySymbol: getTokenBySymbol,
     getTokenByName: getTokenByName,
     getTokenByAddress: getTokenByAddress,
+    getTokenTotalSupply: getTokenTotalSupply,
   },
   simulation: {
     refinance: getRefinanceSimulation,
