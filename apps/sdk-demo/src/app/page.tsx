@@ -28,12 +28,16 @@ const SDK_TOOLS = [
   },
 ]
 
+import { ConnectButton } from '@rainbow-me/rainbowkit'
+
+const EmptyComponent = () => null
+
 export default function Home() {
   // State to track which tool is currently selected
   const [activeToolId, setActiveToolId] = useState<string>(SDK_TOOLS[0].id)
 
   const activeTool = SDK_TOOLS.find((t) => t.id === activeToolId)
-  const ActiveComponent = activeTool?.component || (() => null)
+  const ActiveComponent = activeTool?.component || EmptyComponent
 
   return (
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] relative overflow-hidden font-sans">
@@ -41,7 +45,12 @@ export default function Home() {
       <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[var(--neon-orange)]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--neon-cyan)]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
 
-      <main className="container mx-auto px-6 py-20 relative z-10 flex flex-col items-center min-h-screen">
+      {/* Top Navigation */}
+      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12">
+        <ConnectButton />
+      </nav>
+
+      <main className="container mx-auto px-6 py-6 relative z-10 flex flex-col items-center min-h-screen">
         
         {/* Header Section */}
         <header className="text-center mb-16">
@@ -58,7 +67,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
-            Select a tool from the menu below to explore the SDK's capabilities in real-time.
+            Select a tool from the menu below to explore the SDK&apos;s capabilities in real-time.
             Built with React, beautifully typed, and blazing fast.
           </p>
         </header>
