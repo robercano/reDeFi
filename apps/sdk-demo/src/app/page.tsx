@@ -28,11 +28,14 @@ const SDK_TOOLS = [
   },
 ]
 
+import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
 
 const EmptyComponent = () => null
 
 export default function Home() {
+  const { chain } = useAccount()
+  
   // State to track which tool is currently selected
   const [activeToolId, setActiveToolId] = useState<string>(SDK_TOOLS[0].id)
 
@@ -46,7 +49,13 @@ export default function Home() {
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--neon-cyan)]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
 
       {/* Top Navigation */}
-      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12">
+      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-3">
+        {chain && (
+          <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm flex items-center gap-2 backdrop-blur-md">
+            <span className="w-2 h-2 rounded-full bg-[var(--neon-cyan)] animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></span>
+            {chain.name}
+          </div>
+        )}
         <ConnectButton chainStatus="none" />
       </nav>
 
