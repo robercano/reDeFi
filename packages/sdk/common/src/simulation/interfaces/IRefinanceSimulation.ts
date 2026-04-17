@@ -39,8 +39,8 @@ export interface IRefinanceSimulation extends ISimulation {
 export const RefinanceSimulationSchema = z.object({
   ...SimulationSchema.shape,
   type: z.literal(SimulationType.Refinance),
-  sourcePosition: z.custom<ILendingPosition>((val: any) => isLendingPosition(val)),
-  targetPosition: z.custom<ILendingPosition>((val: any) => isLendingPosition(val)),
+  sourcePosition: z.custom<ILendingPosition>((val) => isLendingPosition(val)),
+  targetPosition: z.custom<ILendingPosition>((val) => isLendingPosition(val)),
   swaps: z.array(z.custom<SimulatedSwapData>()),
   steps: z.array(z.custom<Steps>()),
 })

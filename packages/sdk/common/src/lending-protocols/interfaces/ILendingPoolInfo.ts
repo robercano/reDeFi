@@ -42,9 +42,9 @@ export interface ILendingPoolInfo extends IPoolInfo, ILendingPoolInfoData {
 export const LendingPoolInfoDataSchema = z.object({
   ...PoolInfoDataSchema.shape,
   type: z.literal(PoolType.Lending),
-  id: z.custom<ILendingPoolId>((val: any) => isLendingPoolId(val)),
-  collateral: z.custom<ICollateralInfo>((val: any) => isCollateralInfo(val)),
-  debt: z.custom<IDebtInfo>((val: any) => isDebtInfo(val)),
+  id: z.custom<ILendingPoolId>((val) => isLendingPoolId(val)),
+  collateral: z.custom<ICollateralInfo>((val) => isCollateralInfo(val)),
+  debt: z.custom<IDebtInfo>((val) => isDebtInfo(val)),
 })
 
 /**

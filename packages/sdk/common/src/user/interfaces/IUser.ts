@@ -24,8 +24,8 @@ export interface IUser extends IUserData, IPrintable {
  * Zod schema for the data part of IUser
  */
 export const UserDataSchema = z.object({
-  wallet: z.custom<IWallet>((val: any) => isWallet(val)),
-  chainInfo: z.custom<IChainInfo>((val: any) => isChainInfo(val)),
+  wallet: z.custom<IWallet>((val) => isWallet(val)),
+  chainInfo: z.custom<IChainInfo>((val) => isChainInfo(val)),
 })
 
 /**
@@ -42,7 +42,7 @@ export function isUser(maybeUser: unknown, returnedErrors?: string[]): maybeUser
   const zodReturn = UserDataSchema.safeParse(maybeUser)
 
   if (!zodReturn.success && returnedErrors) {
-    returnedErrors.push(...zodReturn.error.errors.map((e: any) => e.message))
+    returnedErrors.push(...zodReturn.error.errors.map((e) => e.message))
   }
 
   return zodReturn.success

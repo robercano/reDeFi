@@ -36,7 +36,7 @@ export interface IProtocol extends IProtocolData {
  */
 export const ProtocolDataSchema = z.object({
   name: z.nativeEnum(ProtocolName),
-  chainInfo: z.custom<IChainInfo>((val: any) => isChainInfo(val)),
+  chainInfo: z.custom<IChainInfo>((val) => isChainInfo(val)),
 })
 
 /**

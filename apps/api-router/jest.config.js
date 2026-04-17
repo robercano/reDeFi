@@ -1,5 +1,5 @@
 const { compilerOptions } = require('./tsconfig.test')
-const sharedConfig = require('@summerfi/jest-config/jest.base')
+const sharedConfig = require('@thesolidchain/config-jest/jest.base')
 
 require('@dotenvx/dotenvx').config({ path: ['../../.env', '../.env'], override: true })
 

@@ -23,7 +23,7 @@ export interface IVault extends IToken {
  */
 export const VaultDataSchema = TokenDataSchema.and(
   z.object({
-    asset: z.custom<IToken>((val: any) => isToken(val)),
+    asset: z.custom<IToken>((val) => isToken(val)),
   })
 )
 

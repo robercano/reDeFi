@@ -39,10 +39,10 @@ export interface ILendingPosition extends IPosition, ILendingPositionData {
 export const LendingPositionDataSchema = z.object({
   ...PositionDataSchema.shape,
   subtype: z.nativeEnum(LendingPositionType),
-  id: z.custom<ILendingPositionId>((val: any) => isLendingPositionId(val)),
-  debtAmount: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  collateralAmount: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  pool: z.custom<ILendingPool>((val: any) => isLendingPool(val)),
+  id: z.custom<ILendingPositionId>((val) => isLendingPositionId(val)),
+  debtAmount: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  collateralAmount: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  pool: z.custom<ILendingPool>((val) => isLendingPool(val)),
   type: z.literal(PositionType.Lending),
 })
 

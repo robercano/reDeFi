@@ -29,9 +29,9 @@ export interface IRefinanceParameters extends IRefinanceParametersData {
  * Zod schema for the refinance parameters
  */
 export const RefinanceParametersDataSchema = z.object({
-  sourcePosition: z.custom<ILendingPosition>((val: any) => isLendingPosition(val)),
-  targetPool: z.custom<ILendingPool>((val: any) => isLendingPool(val)),
-  slippage: z.custom<IPercentage>((val: any) => isPercentage(val)),
+  sourcePosition: z.custom<ILendingPosition>((val) => isLendingPosition(val)),
+  targetPool: z.custom<ILendingPool>((val) => isLendingPool(val)),
+  slippage: z.custom<IPercentage>((val) => isPercentage(val)),
 })
 
 /**

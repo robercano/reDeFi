@@ -29,7 +29,7 @@ export interface IPool extends IPrintable, IPoolData {
  */
 export const PoolDataSchema = z.object({
   type: z.nativeEnum(PoolType),
-  id: z.custom<IPoolId>((val: any) => isPoolId(val)),
+  id: z.custom<IPoolId>((val) => isPoolId(val)),
 })
 
 /**

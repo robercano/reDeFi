@@ -39,8 +39,8 @@ export interface IImportSimulation extends ISimulation {
  */
 export const ImportSimulationSchema = z.object({
   ...SimulationSchema.shape,
-  sourcePosition: z.custom<IExternalLendingPosition>((val: any) => isExternalLendingPosition(val)),
-  targetPosition: z.custom<ILendingPosition>((val: any) => isLendingPosition(val)),
+  sourcePosition: z.custom<IExternalLendingPosition>((val) => isExternalLendingPosition(val)),
+  targetPosition: z.custom<ILendingPosition>((val) => isLendingPosition(val)),
   steps: z.array(z.custom<Steps>()),
   type: z.literal(SimulationType.ImportPosition),
 })

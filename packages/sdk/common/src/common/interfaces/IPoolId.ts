@@ -28,7 +28,7 @@ export interface IPoolId extends IPoolIdData {
  */
 export const PoolIdDataSchema = z.object({
   type: z.nativeEnum(PoolType),
-  protocol: z.custom<IProtocol>((val: any) => isProtocol(val)),
+  protocol: z.custom<IProtocol>((val) => isProtocol(val)),
 })
 
 /**
