@@ -37,13 +37,13 @@ export interface ICollateralInfo extends ICollateralInfoData {
  * @description Zod schema for ICollateralInfo
  */
 export const CollateralInfoDataSchema = z.object({
-  token: z.custom<IToken>((val: any) => isToken(val)),
-  price: z.custom<IPrice>((val: any) => isPrice(val)),
-  priceUSD: z.custom<IPrice>((val: any) => isPrice(val)),
-  liquidationThreshold: z.custom<IRiskRatio>((val: any) => isRiskRatio(val)),
-  maxSupply: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  tokensLocked: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  liquidationPenalty: z.custom<IPercentage>((val: any) => isPercentage(val)),
+  token: z.custom<IToken>((val) => isToken(val)),
+  price: z.custom<IPrice>((val) => isPrice(val)),
+  priceUSD: z.custom<IPrice>((val) => isPrice(val)),
+  liquidationThreshold: z.custom<IRiskRatio>((val) => isRiskRatio(val)),
+  maxSupply: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  tokensLocked: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  liquidationPenalty: z.custom<IPercentage>((val) => isPercentage(val)),
 })
 
 /**

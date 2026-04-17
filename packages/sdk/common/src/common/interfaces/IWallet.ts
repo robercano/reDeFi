@@ -34,7 +34,7 @@ export interface IWallet extends IWalletData {
  * @description Zod schema for IWallet
  */
 export const WalletDataSchema = z.object({
-  address: z.custom<IAddress>((val: any) => isAddress(val)),
+  address: z.custom<IAddress>((val) => isAddress(val)),
 })
 
 /**

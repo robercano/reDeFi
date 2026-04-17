@@ -1,14 +1,13 @@
 import type {
   Address,
+  AddressValue,
+  ChainId,
   ContractSpecificRoleName,
   GlobalRoles,
-  AddressValue,
   GraphRoleName,
-  ChainId,
-  FiatCurrency,
   Percentage,
 } from '@thesolidchain/sdk-common'
-import type { TestConfigs, TestClientIds } from './testConfig'
+import type { TestClientIds, TestConfigs } from './testConfig'
 
 export type ContractRoleScenario = {
   role: ContractSpecificRoleName

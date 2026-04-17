@@ -98,7 +98,7 @@ export function isPercentageData(
   const zodReturn = PercentageDataSchema.safeParse(maybePercentageData)
 
   if (!zodReturn.success && returnedErrors) {
-    returnedErrors.push(...zodReturn.error.errors.map((e: any) => e.message))
+    returnedErrors.push(...zodReturn.error.errors.map((e) => e.message))
   }
 
   return zodReturn.success

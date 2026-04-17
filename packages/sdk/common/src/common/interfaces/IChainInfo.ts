@@ -55,7 +55,7 @@ export function isChainInfo(
   const zodReturn = ChainInfoDataSchema.safeParse(maybeChainInfo)
 
   if (!zodReturn.success && returnedErrors) {
-    returnedErrors.push(...zodReturn.error.errors.map((e: any) => e.message))
+    returnedErrors.push(...zodReturn.error.errors.map((e) => e.message))
   }
 
   return zodReturn.success

@@ -39,7 +39,7 @@ export interface IAddress extends IAddressData, IPrintable, ISolidityValue<Addre
  * @description Zod schema for IAddress
  */
 export const AddressDataSchema = z.object({
-  value: z.custom<AddressValue>((val: any) => isHex(val)),
+  value: z.custom<AddressValue>((val) => isHex(val)),
   type: z.nativeEnum(AddressType),
 })
 
@@ -60,7 +60,7 @@ export function isAddress(
   const zodReturn = AddressDataSchema.safeParse(maybeAddress)
 
   if (!zodReturn.success && returnedErrors) {
-    returnedErrors.push(...zodReturn.error.errors.map((e: any) => e.message))
+    returnedErrors.push(...zodReturn.error.errors.map((e) => e.message))
   }
 
   return zodReturn.success

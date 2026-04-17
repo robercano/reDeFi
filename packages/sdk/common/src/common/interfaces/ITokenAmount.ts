@@ -127,7 +127,7 @@ export interface ITokenAmount extends ITokenAmountData, IValueConverter, IPrinta
  * @description Zod schema for ITokenAmount
  */
 export const TokenAmountDataSchema = z.object({
-  token: z.custom<IToken>((val: any) => isToken(val)),
+  token: z.custom<IToken>((val) => isToken(val)),
   amount: z.string(),
 })
 
@@ -148,7 +148,7 @@ export function isTokenAmount(
   const zodReturn = TokenAmountDataSchema.safeParse(maybeTokenAmount)
 
   if (!zodReturn.success && returnedErrors) {
-    returnedErrors.push(...zodReturn.error.errors.map((e: any) => e.message))
+    returnedErrors.push(...zodReturn.error.errors.map((e) => e.message))
   }
 
   return zodReturn.success

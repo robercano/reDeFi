@@ -39,9 +39,9 @@ export interface ILendingPool extends IPool, ILendingPoolData {
 export const LendingPoolDataSchema = z.object({
   ...PoolDataSchema.shape,
   type: z.literal(PoolType.Lending),
-  id: z.custom<ILendingPoolId>((val: any) => isLendingPoolId(val)),
-  collateralToken: z.custom<IToken>((val: any) => isToken(val)),
-  debtToken: z.custom<IToken>((val: any) => isToken(val)),
+  id: z.custom<ILendingPoolId>((val) => isLendingPoolId(val)),
+  collateralToken: z.custom<IToken>((val) => isToken(val)),
+  debtToken: z.custom<IToken>((val) => isToken(val)),
 })
 
 /**

@@ -28,8 +28,8 @@ export interface IPosition extends IPositionData {
  */
 export const PositionDataSchema = z.object({
   type: z.nativeEnum(PositionType),
-  id: z.custom<IPositionId>((val: any) => isPositionId(val)),
-  pool: z.custom<IPool>((val: any) => isPool(val)),
+  id: z.custom<IPositionId>((val) => isPositionId(val)),
+  pool: z.custom<IPool>((val) => isPool(val)),
 })
 
 /**

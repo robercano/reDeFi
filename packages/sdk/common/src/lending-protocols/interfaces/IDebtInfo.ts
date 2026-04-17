@@ -43,15 +43,15 @@ export interface IDebtInfo extends IDebtInfoData {
  * @description Zod schema for IDebtInfo
  */
 export const DebtInfoDataSchema = z.object({
-  token: z.custom<IToken>((val: any) => isToken(val)),
-  price: z.custom<IPrice>((val: any) => isToken(val)),
-  priceUSD: z.custom<IPrice>((val: any) => isPrice(val)),
-  interestRate: z.custom<IPercentage>((val: any) => isPercentage(val)),
-  totalBorrowed: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  debtCeiling: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  debtAvailable: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  dustLimit: z.custom<ITokenAmount>((val: any) => isTokenAmount(val)),
-  originationFee: z.custom<IPercentage>((val: any) => isPercentage(val)),
+  token: z.custom<IToken>((val) => isToken(val)),
+  price: z.custom<IPrice>((val) => isToken(val)),
+  priceUSD: z.custom<IPrice>((val) => isPrice(val)),
+  interestRate: z.custom<IPercentage>((val) => isPercentage(val)),
+  totalBorrowed: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  debtCeiling: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  debtAvailable: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  dustLimit: z.custom<ITokenAmount>((val) => isTokenAmount(val)),
+  originationFee: z.custom<IPercentage>((val) => isPercentage(val)),
 })
 
 /**

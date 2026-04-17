@@ -34,7 +34,7 @@ export interface ILendingPoolId extends IPoolId, ILendingPoolIdData {
 export const LendingPoolIdDataSchema = z.object({
   ...PoolIdDataSchema.shape,
   type: z.literal(PoolType.Lending),
-  protocol: z.custom<IProtocol>((val: any) => isProtocol(val)),
+  protocol: z.custom<IProtocol>((val) => isProtocol(val)),
 })
 
 /**
