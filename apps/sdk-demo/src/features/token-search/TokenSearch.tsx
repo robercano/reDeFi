@@ -31,10 +31,10 @@ export function TokenSearch() {
   }
 
   return (
-    <div className="w-full max-w-xl mx-auto mt-16 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
-      <h2 className="text-2xl font-black mb-6 text-white flex items-center gap-2">
+    <div className="w-full max-w-xl mx-auto mt-8 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
+      <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
         <span className="w-3 h-3 rounded-full bg-[var(--neon-orange)] animate-pulse"></span>
-        SDK Component Builder
+        Token Query Interface
       </h2>
 
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
