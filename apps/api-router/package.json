@@ -1,5 +1,5 @@
 {
-  "name": "@summerfi/sdk-router",
+  "name": "@thesolidchain/api-router",
   "version": "0.0.1",
   "private": true,
   "type": "commonjs",
@@ -9,10 +9,7 @@
     "test": "jest tests/ --passWithNoTests",
     "testw": "jest --watch",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "deploy": "npx sst deploy --stage staging",
-    "remove": "npx sst remove --stage staging",
-    "dev": "npx sst dev"
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@aws-lambda-powertools/logger": "^2.16.0",

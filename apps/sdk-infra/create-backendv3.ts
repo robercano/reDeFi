@@ -30,7 +30,7 @@ export const createBackend = async ({
 
   // create and deploy function
   const sdkBackend = new sst.aws.Function(`SdkBackendV${nameSuffix}`, {
-    handler: '../apps/api-router/src/index.handler',
+    handler: '../api-router/src/index.handler',
     runtime: 'nodejs22.x',
     timeout: '30 seconds',
     environment: environmentVariables,

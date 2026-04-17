@@ -1,13 +1,12 @@
-import { SSTConfig } from 'sst'
-import { isPersistentStage, isProductionStage } from './sst-utils'
-import { sdkDeployedVersionsMap } from './sst-environment'
-import { version as clientPkgVersion } from '../packages/sdk/client/bundle/package.json'
-import { createBackend } from './create-backend'
-import { Api, Function } from 'sst/constructs'
-import { RemovalPolicy } from 'aws-cdk-lib'
 import { config } from '@dotenvx/dotenvx'
+import { SSTConfig } from 'sst'
+import { Api, Function } from 'sst/constructs'
+import { version as clientPkgVersion } from '../../packages/sdk/client/bundle/package.json'
+import { createBackend } from './create-backend'
+import { sdkDeployedVersionsMap } from './sst-environment'
+import { isPersistentStage, isProductionStage } from './sst-utils'
 
-config({ path: ['../.env', '.env'], override: true, debug: false, ignore: ['MISSING_ENV_FILE'] })
+config({ path: ['../../.env', '../.env', '.env'], override: true, debug: false, ignore: ['MISSING_ENV_FILE'] })
 
 export default {
   config(input) {
@@ -18,8 +17,8 @@ export default {
     }
 
     return {
-      region: `${process.env.AWS_REGION}`,
-      profile: `${process.env.AWS_PROFILE}`,
+      region: process.env.AWS_REGION,
+      profile: process.env.AWS_PROFILE,
       stage: stage, // AWS CF stack name
       name: 'versioned-sdk',
     }
@@ -48,7 +47,7 @@ export default {
       }
 
       const sdkAuthorizer = new Function(stack, 'SdkAuthorizer', {
-        handler: '../apps/api-authorizer/src/index.handler',
+        handler: '../api-authorizer/src/index.handler',
         runtime: 'nodejs22.x',
         environment: {
           SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',

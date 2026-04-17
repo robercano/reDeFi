@@ -24,7 +24,7 @@ export default $config({
 
     const deployedVersions = Object.values(sdkDeployedVersionsMap)
     // get sdk version from sdk-client package.json of current git head
-    const { version: clientVersion } = await import('./sdk-client/bundle/package.json')
+    const { version: clientVersion } = await import('../../packages/sdk/client/bundle/package.json')
     // check if client version is in deployedSdkApiVersions
     if (!deployedVersions.includes(clientVersion)) {
       throw new Error(

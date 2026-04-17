@@ -96,7 +96,7 @@ jobs:
         run: pnpm prebuild:sdk
 
       - name: Deploy SDK
-        working-directory: sdk
+        working-directory: apps/sdk-infra
         run: |
           npx sst deploy --stage=${{ github.event.inputs.environment }}
 
