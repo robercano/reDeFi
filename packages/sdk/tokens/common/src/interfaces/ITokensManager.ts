@@ -73,4 +73,14 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
     address: IAddress
     walletAddress: IAddress
   }): Promise<ITokenAmount>
+
+  /**
+   * @method getTokenTotalSupply
+   * @description Retrieves the total supply for a given token
+   *
+   * @param token The token to retrieve the total supply for
+   *
+   * @returns The total supply of the token as an ITokenAmount
+   */
+  getTokenTotalSupply(params: { token: IToken }): Promise<ITokenAmount>
 }

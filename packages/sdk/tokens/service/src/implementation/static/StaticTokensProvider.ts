@@ -142,6 +142,24 @@ export class StaticTokensProvider
     return TokenAmount.createFromBaseUnit({ token, amount: balance.toString() })
   }
 
+  /** @see ITokensProvider.getTokenTotalSupply */
+  getTokenTotalSupply: ITokensProvider['getTokenTotalSupply'] = async (params) => {
+    const { token } = params
+    const client = this._blockchainClientProvider.getBlockchainClient({ chainInfo: token.chainInfo })
+
+    if (token.address.value.toLowerCase() === NATIVE_CURRENCY_ADDRESS_LOWERCASE) {
+      throw new Error(`Total supply is not supported for native currency`)
+    }
+
+    const totalSupply = await client.readContract({
+      address: token.address.value,
+      abi: erc20Abi,
+      functionName: 'totalSupply',
+    })
+
+    return TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
+  }
+
   private async _getTokenBalance(params: {
     chainInfo: IChainInfo
     token: IToken
