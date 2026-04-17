@@ -2,8 +2,7 @@
   "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
   "compilerOptions": {
     "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": "."
+    "outDir": "dist"
   },
   "references": [{ "path": "../testing-utils" }],
   "include": ["src/**/*.ts", "tests/**/*.ts", "e2e/**/*.ts"],

@@ -2,7 +2,6 @@
   "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
   "compilerOptions": {
     "rootDir": "src",
-    "baseUrl": ".",
     "paths": {
       "@thesolidchain/order-planner-common/*": [
         "node_modules/@thesolidchain/order-planner-common/src/*"

@@ -13,11 +13,11 @@ import { DeploymentIndex } from '@thesolidchain/deployment-utils'
 import { makeSDK, type Chain } from '@thesolidchain/sdk-client'
 import {
   CommonTokenSymbols,
+  IRefinanceSimulation,
+  LendingPositionType,
   Order,
   PositionsManager,
   RefinanceParameters,
-  LendingPositionType,
-  IRefinanceSimulation,
   isRefinanceSimulation,
 } from '@thesolidchain/sdk-common'
 import {
@@ -30,9 +30,6 @@ import {
 import {
   EmodeType,
   FlashloanAction,
-  PositionCreatedAction,
-  SendTokenAction,
-  SetApprovalAction,
   ILKType,
   MakerLendingPoolId,
   MakerLendingPosition,
@@ -40,14 +37,17 @@ import {
   MakerPaybackAction,
   MakerProtocol,
   MakerWithdrawAction,
-  isMakerLendingPool,
-  isMakerLendingPosition,
-  isMakerLendingPositionId,
-  isMakerProtocol,
+  PositionCreatedAction,
+  SendTokenAction,
+  SetApprovalAction,
   SparkBorrowAction,
   SparkDepositAction,
   SparkLendingPoolId,
   SparkProtocol,
+  isMakerLendingPool,
+  isMakerLendingPosition,
+  isMakerLendingPositionId,
+  isMakerProtocol,
   isSparkLendingPool,
   isSparkLendingPoolId,
   isSparkLendingPosition,
@@ -295,7 +295,7 @@ describe.skip('Refinance Maker Spark | SDK', () => {
     }).toSolidityValue()
 
     assert(makerPaybackAction, 'Cannot decode Maker Payback action calldata')
-    assert
+
     expect(makerPaybackAction.args[0].vaultId).toBe(BigInt(sourcePosition.id.vaultId))
     expect(makerPaybackAction.args[0].userAddress).toBe(positionsManager.address.value)
     expect(makerPaybackAction.args[0].amount).toBe(BigInt(paybackAmount))

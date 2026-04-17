@@ -4,8 +4,7 @@
     "preserveWatchOutput": true,
     "noEmit": true,
     "types": ["node", "jest", "jest-extended"],
-    "rootDir": ".",
-    "baseUrl": "."
+    "rootDir": "."
   },
   "ts-node": {
     "compilerOptions": {

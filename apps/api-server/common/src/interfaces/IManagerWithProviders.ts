@@ -8,6 +8,7 @@ import { IManagerProvider } from './IManagerProvider'
  * The manager interface is quite empty because the methods that are useful are in the
  * base implementation ManagerWithProvidersBase
  */
+// eslint-disable @typescript-eslint/no-empty-object-type
 export interface IManagerWithProviders<
   ProviderType extends string,
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */

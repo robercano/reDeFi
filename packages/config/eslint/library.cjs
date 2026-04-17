@@ -39,6 +39,12 @@ module.exports = {
         caughtErrorsIgnorePattern: '^_',
       },
     ],
+    '@typescript-eslint/no-empty-object-type': [
+      'error',
+      {
+        allowInterfaces: 'always',
+      },
+    ],
   },
   ignorePatterns: [
     // Ignore dotfiles

@@ -1,5 +1,4 @@
 import { ContractsHashMap, getContractsHashes } from '@thesolidchain/contracts-utils'
-import { ContractsVersionsMap, ContractsVersionsSnapshot } from './types'
 import fs from 'fs'
 import path from 'path'
 import {
@@ -9,6 +8,7 @@ import {
   SnapshotTagDelimiter,
   SnapshotTrailingTag,
 } from './constants'
+import { ContractsVersionsMap, ContractsVersionsSnapshot } from './types'
 
 const EmptyVersionSnapshot: ContractsVersionsSnapshot = {
   timestamp: 0,
@@ -54,7 +54,7 @@ export function loadVersionsSnapshot(
     const snapshotName = getSnapshotFilename(params.snapshotName ?? ContractsVersionsDefaultName)
     const filePath = path.join(params.snapshotDir ?? SnapshotDirectory, snapshotName)
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'))
-  } catch (error) {
+  } catch {
     return undefined
   }
 }
