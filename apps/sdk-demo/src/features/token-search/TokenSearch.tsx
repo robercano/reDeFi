@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useSDK } from '@thesolidchain/sdk-react'
+import { useAppSDK } from '../../app/AppSDKContext'
 import { Input, Button, TokenCard, TokenMetadata } from '@thesolidchain/redefi-ui'
 
 export function TokenSearch() {
@@ -10,8 +10,8 @@ export function TokenSearch() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // useSDK uses a default chainId if not explicitly passed depending on the configuration. Let's pass chainId: 1 for mainnet.
-  const sdk = useSDK({ chainId: 1 })
+  // Consume the pre-initialized SDK from the app-level context
+  const sdk = useAppSDK()
 
   const fetchToken = async () => {
     if (!symbol) return

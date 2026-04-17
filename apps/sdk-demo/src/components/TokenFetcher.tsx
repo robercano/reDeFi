@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { useSDK } from '@thesolidchain/sdk-react'
+import { useAppSDK } from '../app/AppSDKContext'
 
 // Loose interface to accommodate all dynamic data the SDK might return
 interface TokenData {
@@ -18,8 +18,8 @@ export function TokenFetcher() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // Initialize the SDK pointing to mainnet by default
-  const sdk = useSDK({ chainId: 1 })
+  // Consume the pre-initialized SDK from the app-level context
+  const sdk = useAppSDK()
 
   const fetchToken = async () => {
     if (!symbol) return
