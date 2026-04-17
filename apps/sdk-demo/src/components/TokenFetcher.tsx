@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount } from 'wagmi'
+import { IToken } from '@thesolidchain/sdk-common'
 
 // Loose interface to accommodate all dynamic data the SDK might return
 interface TokenData {
@@ -34,7 +35,14 @@ export function TokenFetcher() {
     try {
       // Pass the chainId dynamically to the fetcher request
       const data = await sdk.getTokenBySymbol({ chainId: chainId ?? 1, symbol: symbol.toUpperCase() })
-      setTokenData(data as unknown as TokenData)
+      
+      let supplyAmount = 'Not Supported'
+      const supply = await sdk.getTokenTotalSupply({ token: data as IToken })
+      // Supply might be returned inside an amount property from ITokenAmount interfaces
+      supplyAmount = supply?.amount || String(supply)
+
+      // Merge the retrieved dynamic on-chain state with the static invariants so the UI grid natively renders it
+      setTokenData({ ...data, totalSupply: supplyAmount } as unknown as TokenData)
     } catch (err) {
       console.error(err)
       setError((err as Error)?.message || 'Failed to fetch token metadata.')

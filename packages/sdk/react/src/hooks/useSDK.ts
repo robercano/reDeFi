@@ -10,6 +10,7 @@ import { getSpotPriceHandler } from '../handlers/getSpotPriceHandler'
 import { getSpotPricesHandler } from '../handlers/getSpotPricesHandler'
 import { getSwapQuoteHandler } from '../handlers/getSwapQuoteHandler'
 import { getTokenBySymbolHandler } from '../handlers/getTokenBySymbolHandler'
+import { getTokenTotalSupplyHandler } from '../handlers/getTokenTotalSupplyHandler'
 
 type UseSdk = {
   walletAddress?: string
@@ -48,6 +49,7 @@ export const useSDK = (params: UseSdk) => {
   // CHAIN HANDLERS
   const getChain = useMemo(() => getChainHandler(sdk), [sdk, chainId])
   const getTokenBySymbol = useMemo(() => getTokenBySymbolHandler(getChain), [getChain])
+  const getTokenTotalSupply = useMemo(() => getTokenTotalSupplyHandler(getChain), [getChain])
 
   // SWAPS
   const getSwapQuote = useMemo(() => getSwapQuoteHandler(sdk), [sdk])
@@ -65,6 +67,7 @@ export const useSDK = (params: UseSdk) => {
       getTargetChainInfo,
       getChain,
       getTokenBySymbol,
+      getTokenTotalSupply,
       getSwapQuote,
       getSpotPrice,
       getSpotPrices,
@@ -76,6 +79,7 @@ export const useSDK = (params: UseSdk) => {
       getTargetChainInfo,
       getChain,
       getTokenBySymbol,
+      getTokenTotalSupply,
       getSwapQuote,
       getSpotPrice,
       getSpotPrices,

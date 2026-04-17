@@ -9,8 +9,8 @@ describe('Blockchain Provider', () => {
   beforeEach(() => {
     const configProvider = {
       getConfigurationItem: (params: { name: string }) => {
-        if (params.name === 'SDK_RPC_GATEWAY') {
-          return 'https://rpc-gateway-url.com'
+        if (params.name === 'ALCHEMY_ENDPOINT_API_KEY') {
+          return 'alchemy_test_key'
         }
 
         return undefined

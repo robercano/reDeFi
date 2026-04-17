@@ -1,22 +1,22 @@
-import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { ManagerProviderBase } from '@thesolidchain/api-server-common'
 import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   Address,
+  AddressType,
   ChainId,
+  IAddress,
   IChainInfo,
   IToken,
-  IAddress,
   Maybe,
+  NATIVE_CURRENCY_ADDRESS_LOWERCASE,
   Token,
   TokenAmount,
   TokensProviderType,
-  AddressType,
-  NATIVE_CURRENCY_ADDRESS_LOWERCASE,
 } from '@thesolidchain/sdk-common'
-import { ManagerProviderBase } from '@thesolidchain/api-server-common'
 import { ITokensProvider } from '@thesolidchain/tokens-common'
-import { erc20Abi } from 'viem'
 import assert from 'assert'
+import { erc20Abi } from 'viem'
 import { StaticTokensData } from './StaticTokensList'
 import { TokenData } from './TokensData'
 import { TokensMap } from './TokensMap'
@@ -103,6 +103,8 @@ export class StaticTokensProvider
   getTokenByName: ITokensProvider['getTokenByName'] = (params) => {
     const { chainInfo } = params
 
+    console.log('Token name:', params.name)
+
     const tokenMap = this._getTokenMap(params.chainInfo)
     if (!tokenMap) {
       throw new Error(`No token map found for chain: ${chainInfo}`)
@@ -145,19 +147,31 @@ export class StaticTokensProvider
   /** @see ITokensProvider.getTokenTotalSupply */
   getTokenTotalSupply: ITokensProvider['getTokenTotalSupply'] = async (params) => {
     const { token } = params
-    const client = this._blockchainClientProvider.getBlockchainClient({ chainInfo: token.chainInfo })
+
+    const client = this._blockchainClientProvider.getBlockchainClient({
+      chainInfo: token.chainInfo,
+    })
 
     if (token.address.value.toLowerCase() === NATIVE_CURRENCY_ADDRESS_LOWERCASE) {
       throw new Error(`Total supply is not supported for native currency`)
     }
 
-    const totalSupply = await client.readContract({
-      address: token.address.value,
-      abi: erc20Abi,
-      functionName: 'totalSupply',
-    })
+    console.log('Token address:', token.address.value)
 
-    return TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
+    let totalSupply: bigint | undefined = 0n
+    try {
+      totalSupply = await client.readContract({
+        address: token.address.value,
+        abi: erc20Abi,
+        functionName: 'totalSupply',
+      })
+    } catch (error) {
+      console.log('Error getting token total supply:', error)
+    }
+
+    const tokenAmount = TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
+    console.log('Token amount:', tokenAmount)
+    return tokenAmount
   }
 
   private async _getTokenBalance(params: {

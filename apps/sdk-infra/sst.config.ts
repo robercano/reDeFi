@@ -7,7 +7,7 @@ import { sdkDeployedVersionsMap } from './sst-environment'
 import { isPersistentStage, isProductionStage } from './sst-utils'
 
 config({
-  path: ['../../.env', '../.env', '.env'],
+  path: ['../../../.env', '../../.env', '../.env', '.env'],
   override: true,
   debug: false,
   ignore: ['MISSING_ENV_FILE'],

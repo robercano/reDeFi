@@ -1,7 +1,7 @@
-import { Address, ChainInfo, IToken, TokenSymbol } from '@thesolidchain/sdk-common'
+import { Address, ChainInfo, IToken, ITokenAmount, TokenSymbol } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../interfaces/IRPCClient'
-import { RPCMainClientType } from '../rpc/SDKMainClient'
 import { ITokensManagerClient } from '../interfaces/ITokensManagerClient'
+import { RPCMainClientType } from '../rpc/SDKMainClient'
 
 /**
  * @name TokensManagerClient
@@ -37,6 +37,13 @@ export class TokensManagerClient extends IRPCClient implements ITokensManagerCli
     return this.rpcClient.tokens.getTokenByName.query({
       chainInfo: this._chainInfo,
       name: _params.name,
+    })
+  }
+
+  /** @see ITokensManagerClient.getTokenTotalSupply */
+  public async getTokenTotalSupply(params: { token: IToken }): Promise<ITokenAmount> {
+    return this.rpcClient.tokens.getTokenTotalSupply.query({
+      token: params.token,
     })
   }
 }
