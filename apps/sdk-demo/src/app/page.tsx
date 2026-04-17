@@ -47,7 +47,7 @@ export default function Home() {
 
       {/* Top Navigation */}
       <nav className="w-full relative z-20 flex justify-end p-6 md:px-12">
-        <ConnectButton />
+        <ConnectButton chainStatus="none" />
       </nav>
 
       <main className="container mx-auto px-6 py-6 relative z-10 flex flex-col items-center min-h-screen">

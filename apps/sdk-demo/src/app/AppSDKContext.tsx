@@ -2,15 +2,15 @@
 
 import React, { createContext, useContext, ReactNode } from 'react'
 import { useSDK, SdkClient } from '@thesolidchain/sdk-react'
-import { useAccount, useChainId } from 'wagmi'
+import { useAccount } from 'wagmi'
 
 // Create a Context that will hold the instantiated SDK
 const AppSDKContext = createContext<SdkClient | null>(null)
 
 export function AppSDKProvider({ children }: { children: ReactNode }) {
   // Capture the dynamically injected state from the user's Web3 Wallet
-  const chainId = useChainId()
-  const { address } = useAccount()
+  // We use useAccount().chainId to guarantee we track the physical wallet's network, not just wagmi's default config.
+  const { address, chainId } = useAccount()
 
   // Initialize the SDK, syncing it perfectly with the connected wallet.
   // The server handles data, but formulating write operations requires awareness of who the user is.

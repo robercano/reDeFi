@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
+import { useAccount } from 'wagmi'
 
 // Loose interface to accommodate all dynamic data the SDK might return
 interface TokenData {
@@ -17,6 +18,9 @@ export function TokenFetcher() {
   const [tokenData, setTokenData] = useState<TokenData | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  
+  // Dynamically pull the chainId from the connected wallet connection
+  const { chainId } = useAccount()
 
   // Consume the pre-initialized SDK from the app-level context
   const sdk = useAppSDK()
@@ -28,8 +32,8 @@ export function TokenFetcher() {
     setTokenData(null)
 
     try {
-      // The SDK seamlessly handles the RPC request and returns fully typed data
-      const data = await sdk.getTokenBySymbol({ chainId: 1, symbol: symbol.toUpperCase() })
+      // Pass the chainId dynamically to the fetcher request
+      const data = await sdk.getTokenBySymbol({ chainId: chainId ?? 1, symbol: symbol.toUpperCase() })
       setTokenData(data as unknown as TokenData)
     } catch (err) {
       console.error(err)
