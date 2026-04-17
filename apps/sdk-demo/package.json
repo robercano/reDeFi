@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@thesolidchain/sdk-client": "workspace:*",
-    "@thesolidchain/sdk-client-react": "workspace:*",
+    "@thesolidchain/sdk-react": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

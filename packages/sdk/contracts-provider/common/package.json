@@ -1,0 +1,29 @@
+{
+  "name": "@thesolidchain/contracts-provider-common",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/blockchain-client-common": "workspace:*",
+    "@thesolidchain/abi-provider-common": "workspace:*"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  }
+}

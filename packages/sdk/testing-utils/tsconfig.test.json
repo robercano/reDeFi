@@ -1,0 +1,24 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@thesolidchain/order-planner-common/*": ["node_modules/@thesolidchain/order-planner-common/src/*"],
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/contracts-core": ["node_modules/@thesolidchain/contracts-core/src/index.ts"],
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/deployment-utils": ["node_modules/@thesolidchain/deployment-utils/src/index.ts"],
+      "@thesolidchain/protocol-plugins": ["node_modules/@thesolidchain/protocol-plugins/src/index.ts"],
+      "@thesolidchain/protocol-plugins-common": [
+        "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
+      ],
+      "@thesolidchain/tokens-service": ["node_modules/@thesolidchain/tokens-service/src/index.ts"],
+      "@thesolidchain/blockchain-client-provider": [
+        "node_modules/@thesolidchain/blockchain-client-provider/src/index.ts"
+      ]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

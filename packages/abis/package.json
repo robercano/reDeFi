@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
     "eslint": "^8.57.0"
   },
   "exports": {

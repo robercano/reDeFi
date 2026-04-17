@@ -1,0 +1,88 @@
+import { ChainId, type ITokenAmount } from '@thesolidchain/sdk-common'
+import { IAddress, IChainInfo, IToken } from '@thesolidchain/sdk-common'
+import { TokensProviderType } from '@thesolidchain/sdk-common'
+import { IManagerProvider } from '@thesolidchain/api-server-common'
+
+/**
+ * @name ITokensProvider
+ * @description Interface for providers of token information
+ */
+export interface ITokensProvider extends IManagerProvider<TokensProviderType> {
+  /**
+   * @name type
+   * @description The type of the tokens provider, used to identify the provider
+   */
+  type: TokensProviderType
+
+  /**
+   * @method getSupportedChainIds
+   * @description Retrieves the list of supported chain IDs
+   * @returns The list of supported chain IDs
+   */
+  getSupportedChainIds(): ChainId[]
+
+  /**
+   * @method getTokenBySymbol
+   * @description Retrieves a token by its symbol
+   *
+   * @param chainInfo The chain information of the token to retrieve
+   * @param symbol The symbol of the token to retrieve
+   *
+   * @returns The token with the given symbol
+   */
+  getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): IToken
+
+  /**
+   * @method getTokenByAddress
+   * @description Retrieves a token by its address
+   *
+   * @param chainInfo The chain information of the token to retrieve
+   * @param address The address of the token to retrieve
+   *
+   * @returns The token with the given address
+   */
+  getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): IToken
+
+  /**
+   * @method getTokenByName
+   * @description Retrieves a token by its name
+   *
+   * @param chainInfo The chain information of the token to retrieve
+   * @param name The name of the token to retrieve
+   *
+   * @returns The token with the given name
+   */
+  getTokenByName(params: { chainInfo: IChainInfo; name: string }): IToken
+
+  /**
+   * @method getTokenBalanceBySymbol
+   * @description Retrieves the token balance for a given wallet address and token symbol
+   *
+   * @param chainInfo The chain information of the token to retrieve
+   * @param symbol The symbol of the token to retrieve the balance for
+   * @param walletAddress The wallet address to retrieve the token balance for
+   *
+   * @returns The token balance as a string
+   */
+  getTokenBalanceBySymbol(params: {
+    chainInfo: IChainInfo
+    symbol: string
+    walletAddress: IAddress
+  }): Promise<ITokenAmount>
+
+  /**
+   * @method getTokenBalanceByAddress
+   * @description Retrieves the token balance for a given wallet address and token address
+   *
+   * @param chainInfo The chain information of the token to retrieve
+   * @param address The address of the token to retrieve the balance for
+   * @param walletAddress The wallet address to retrieve the token balance for
+   *
+   * @returns The token balance as a string
+   */
+  getTokenBalanceByAddress(params: {
+    chainInfo: IChainInfo
+    address: IAddress
+    walletAddress: IAddress
+  }): Promise<ITokenAmount>
+}

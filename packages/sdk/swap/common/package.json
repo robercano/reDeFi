@@ -1,0 +1,33 @@
+{
+  "name": "@thesolidchain/swap-common",
+  "version": "0.0.1",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "types": "./src/index.d.ts"
+    },
+    "./*": {
+      "import": "./src/*/index.ts",
+      "types": "./src/*/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@cowprotocol/cow-sdk": "^6.3.2",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/api-server-common": "workspace:*",
+    "@types/node-fetch": "^2.6.11",
+    "node-fetch": "^2.7.0"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  }
+}

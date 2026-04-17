@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/common": "workspace:*"
   }
 }

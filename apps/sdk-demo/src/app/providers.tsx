@@ -1,6 +1,6 @@
 'use client'
 
-import { SDKProvider } from '@thesolidchain/sdk-client-react'
+import { SDKProvider } from '@thesolidchain/sdk-react'
 import React from 'react'
 
 export function Providers({ children }: { children: React.ReactNode }) {

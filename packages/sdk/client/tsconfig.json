@@ -1,0 +1,12 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts", "bundle/package.json"],
+  "exclude": ["node_modules", "dist"]
+}

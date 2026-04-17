@@ -1,0 +1,19 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/api-server/*": ["node_modules/@thesolidchain/api-server/src/*"],
+      "@thesolidchain/protocol-plugins/*": ["../protocol-plugins/service/service/src/*"],
+      "@thesolidchain/protocol-plugins": ["../protocol-plugins/service/service/src/index.ts"],
+      "@thesolidchain/protocol-plugins-common": ["../protocol-plugins/service/service-common/src/index.ts"],
+      "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src"],
+      "@thesolidchain/abis": ["../../packages/abis/src"]
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,21 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/sdk-client": ["../sdk-client/src"],
+
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
+      "@thesolidchain/common": ["node_modules/@thesolidchain/common/src/index.ts"],
+      "@thesolidchain/configuration-provider": [
+        "node_modules/@thesolidchain/configuration-provider/src/index.ts"
+      ],
+      "@thesolidchain/api-server-common": ["node_modules/@thesolidchain/api-server-common/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "e2e/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

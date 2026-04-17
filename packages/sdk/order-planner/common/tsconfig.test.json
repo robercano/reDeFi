@@ -1,0 +1,24 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "paths": {
+      "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
+      "@thesolidchain/sdk-common": ["node_modules/@thesolidchain/sdk-common/src/index.ts"],
+      "@thesolidchain/common": ["../../packages/common/src/index.ts"],
+      "@thesolidchain/sdk-client": ["./node_modules/@thesolidchain/sdk-client/src/index.ts"],
+      "@thesolidchain/deployment-types": ["../../packages/deployment-types/src/index.ts"],
+      "@thesolidchain/protocol-plugins-common": [
+        "../../protocol-plugins/service/service-common/src/index.ts"
+      ],
+      "@thesolidchain/testing-utils": ["./node_modules/@thesolidchain/testing-utils/src/index.ts"],
+      "@thesolidchain/api-server-common": ["../../sdk-server/service/service-common/src/index.ts"],
+      "@thesolidchain/tokens-service": ["../../tokens/service/src/index.ts"],
+      "@thesolidchain/serverless-shared": ["../../packages/serverless-shared/src/index.ts"],
+      "@thesolidchain/blockchain-client-provider": ["../../blockchain-client/provider/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

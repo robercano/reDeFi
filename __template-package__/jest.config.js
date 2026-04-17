@@ -1,5 +1,5 @@
 const { compilerOptions } = require('./tsconfig.test')
-const sharedConfig = require('@thesolidchain/jest-config/jest.base')
+const sharedConfig = require('@thesolidchain/config-jest/jest.base')
 require('dotenv').config({ path: '../.env' })
 
 /** @type {import('ts-jest').JestConfigWithTsJest} */

@@ -21,7 +21,7 @@
     "@thesolidchain/contracts-utils": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/hardhat-utils": "workspace:*",
-    "@thesolidchain/typescript-config": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
     "hardhat": "^2.22.2"
   }
 }

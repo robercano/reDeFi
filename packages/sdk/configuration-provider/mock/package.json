@@ -1,0 +1,32 @@
+{
+  "name": "@thesolidchain/configuration-provider-mock",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "encode:makerGive": "tsx ./scripts/encodeMakerGive.ts"
+  },
+  "dependencies": {
+    "@thesolidchain/configuration-provider": "workspace:*",
+    "@thesolidchain/configuration-provider-common": "workspace:*"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@types/yargs": "^17.0.32",
+    "tsx": "^4.7.2",
+    "yargs": "^17.7.2"
+  }
+}
