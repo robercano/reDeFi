@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { TokenSearch } from '../features/token-search/TokenSearch'
+import { TokenFetcher } from '../components/TokenFetcher'
 
 // Tool registry representing the available SDK demonstrations
 const SDK_TOOLS = [
@@ -9,7 +9,7 @@ const SDK_TOOLS = [
     id: 'token-fetcher',
     name: 'Token Fetcher',
     description: 'Fetch token metadata by symbol directly from the blockchain.',
-    component: TokenSearch,
+    component: TokenFetcher,
   },
   // Placeholder to demonstrate how other tools can be added seamlessly
   {

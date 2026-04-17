@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useSDK } from '@thesolidchain/sdk-react'
 
+// Loose interface to accommodate all dynamic data the SDK might return
 interface TokenData {
   symbol?: string
   address?: { value: string }
@@ -17,7 +18,7 @@ export function TokenFetcher() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  // useSDK uses a default chainId if not explicitly passed depending on the configuration. Let's pass chainId: 1 for mainnet.
+  // Initialize the SDK pointing to mainnet by default
   const sdk = useSDK({ chainId: 1 })
 
   const fetchToken = async () => {
@@ -27,23 +28,36 @@ export function TokenFetcher() {
     setTokenData(null)
 
     try {
+      // The SDK seamlessly handles the RPC request and returns fully typed data
       const data = await sdk.getTokenBySymbol({ chainId: 1, symbol: symbol.toUpperCase() })
       setTokenData(data as unknown as TokenData)
     } catch (err) {
       console.error(err)
-      setError((err as Error)?.message || 'Failed to fetch token.')
+      setError((err as Error)?.message || 'Failed to fetch token metadata.')
     } finally {
       setLoading(false)
     }
   }
 
+  // Helper to neatly format any deeply nested SDK responses into readable strings
+  const formatValue = (val: unknown): string => {
+    if (typeof val === 'object' && val !== null) {
+      const obj = val as Record<string, unknown>
+      if ('value' in obj) return String(obj.value)
+      if ('chainId' in obj) return String(obj.chainId)
+      return JSON.stringify(val)
+    }
+    return String(val)
+  }
+
   return (
-    <div className="w-full max-w-xl mx-auto mt-16 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
-      <h2 className="text-2xl font-black mb-6 text-white flex items-center gap-2">
+    <div className="w-full max-w-2xl mx-auto mt-8 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
+      <h2 className="text-xl font-bold mb-6 text-white flex items-center gap-2">
         <span className="w-3 h-3 rounded-full bg-[var(--neon-orange)] animate-pulse"></span>
-        SDK Token Fetcher
+        Query Token Interface
       </h2>
 
+      {/* Interactive Inputs */}
       <div className="flex flex-col sm:flex-row gap-4 mb-6">
         <input
           type="text"
@@ -51,6 +65,7 @@ export function TokenFetcher() {
           value={symbol}
           onChange={(e) => setSymbol(e.target.value)}
           className="flex-1 bg-black/50 border border-neutral-700 text-white rounded-xl px-4 py-3 focus:outline-none focus:border-[var(--neon-cyan)] transition-colors placeholder:text-neutral-600"
+          onKeyDown={(e) => e.key === 'Enter' && fetchToken()}
         />
         <button
           onClick={fetchToken}
@@ -61,52 +76,51 @@ export function TokenFetcher() {
         </button>
       </div>
 
+      {/* Error State */}
       {error && (
         <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 mb-6 font-mono text-sm break-words">
           Error: {error}
         </div>
       )}
 
+      {/* Token Data Display */}
       {tokenData && (
-        <div className="p-6 rounded-xl bg-black/60 border border-[var(--neon-orange)]/30 backdrop-blur-md shadow-[0_0_15px_rgba(255,85,0,0.1)] relative overflow-hidden group">
-          <div className="absolute right-0 top-0 w-32 h-32 bg-[var(--neon-orange)]/10 blur-[50px] -mt-10 -mr-10 transition-all duration-700 group-hover:bg-[var(--neon-orange)]/20"></div>
+        <div className="p-6 rounded-xl bg-black/60 border border-[var(--neon-orange)]/30 backdrop-blur-md shadow-[0_0_15px_rgba(255,85,0,0.1)] relative overflow-hidden group transition-all duration-500">
+          <div className="absolute right-0 top-0 w-40 h-40 bg-[var(--neon-orange)]/10 blur-[60px] -mt-10 -mr-10 transition-all duration-700 group-hover:bg-[var(--neon-orange)]/20"></div>
 
-          <div className="flex items-center gap-4 mb-4">
-            <div className="w-12 h-12 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-xl border border-neutral-700 text-[var(--neon-orange)]">
+          {/* Primary Header Card (Symbol and Address) */}
+          <div className="flex items-center gap-4 mb-8">
+            <div className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-2xl border border-neutral-700 text-[var(--neon-orange)] shadow-inner">
               {tokenData.symbol?.slice(0, 1) || '?'}
             </div>
-            <div>
-              <h3 className="text-xl font-bold text-white tracking-wide">{tokenData.symbol}</h3>
-              <p className="text-neutral-400 font-mono text-xs mt-1 truncate max-w-[200px] sm:max-w-xs">
-                {tokenData.address?.value}
-              </p>
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-white tracking-wide">{tokenData.symbol}</h3>
+              <div className="text-neutral-400 font-mono text-sm mt-1 truncate">
+                {tokenData.address?.value || 'N/A'}
+              </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 mt-6">
-            <div className="bg-neutral-900/80 p-3 rounded-lg border border-neutral-800">
-              <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold block mb-1">
-                Decimals
-              </span>
-              <span className="font-mono text-white text-lg">{tokenData.decimals}</span>
-            </div>
-            {tokenData.chainInfo && (
-              <div className="bg-neutral-900/80 p-3 rounded-lg border border-neutral-800">
-                <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold block mb-1">
-                  Chain ID
-                </span>
-                <span className="font-mono text-white text-lg">{tokenData.chainInfo.chainId}</span>
-              </div>
-            )}
+          {/* Dynamic Render of All Available SDK Fields */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {Object.entries(tokenData).map(([key, value]) => {
+              // Skip the fields already heavily featured in the header
+              if (key === 'symbol' || key === 'address') return null
 
-            <div className="bg-neutral-900/80 p-3 rounded-lg border border-neutral-800 col-span-2 overflow-x-auto">
-              <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold block mb-2">
-                Raw JSON
-              </span>
-              <pre className="text-xs text-neutral-400 font-mono text-left leading-relaxed">
-                {JSON.stringify(tokenData, null, 2)}
-              </pre>
-            </div>
+              // Prettify camel case keys (e.g., chainInfo -> Chain Info)
+              const formattedKey = key.replace(/([A-Z])/g, ' $1').trim()
+
+              return (
+                <div key={key} className="bg-neutral-900/80 p-4 rounded-lg border border-neutral-800 flex flex-col justify-center transition-colors hover:border-neutral-600">
+                  <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold block mb-2">
+                    {formattedKey}
+                  </span>
+                  <span className="font-mono text-white text-sm break-words whitespace-pre-wrap">
+                    {formatValue(value)}
+                  </span>
+                </div>
+              )
+            })}
           </div>
         </div>
       )}
