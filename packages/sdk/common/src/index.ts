@@ -181,6 +181,7 @@ export {
   multiplyPriceByPrice,
   multiplyTokenAmountByPrice,
 } from './common/utils/PriceUtils'
+export { formatTokenAmountHumanReadable } from './common/utils/TokenAmountUtils'
 export { CollateralInfo } from './lending-protocols/implementation/CollateralInfo'
 export type { CollateralInfoParameters } from './lending-protocols/implementation/CollateralInfo'
 export { DebtInfo } from './lending-protocols/implementation/DebtInfo'

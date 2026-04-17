@@ -55,8 +55,6 @@ export class BlockchainClientProvider implements IBlockchainClientProvider {
         'Chain was found for the given chainInfo but the blockchain client was not, this should never happen',
       )
 
-      console.log('Client found for chain:', params.chainInfo.chainId)
-      console.log('Client:', client)
       return client
     }
   }
@@ -97,7 +95,7 @@ export class BlockchainClientProvider implements IBlockchainClientProvider {
       // Add Alchemy if API key is provided
       if (alchemyApiKey) {
         let alchemyUrl: string | undefined
-        
+
         if (chain.id === mainnet.id) {
           alchemyUrl = `https://eth-mainnet.g.alchemy.com/v2/${alchemyApiKey}`
         } else if (chain.id === base.id) {
