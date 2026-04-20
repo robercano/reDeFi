@@ -14,3 +14,15 @@
   - Change BlockchainProvider to BlockchainManagerWithProviders
   - Providers: Alchemy, Infura, some others?
   - All of them through view
+- Simulator
+  - Remove Refinance simulator but keep interesting tech
+  - Add TX simulator with providers: Tenderly, some others?
+- Intents
+  - TX Bundler
+  - Simulated result
+- Cache
+  - Cache user portfolio
+Portfolio
+  - Cache user state including approvals
+  - Use nonce to invalidate Cache?
+- Permit and Permit 2 support
