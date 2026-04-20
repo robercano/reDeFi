@@ -3,8 +3,7 @@
   - IPortfolio
   - List of Positions
   - Each position specifies whether it is a Wallet Balance, Yield Position, Staking Position, etc...
-  - Each Position can generate APY data, asset price, Trend, gain/loss
-  
+  - Each Position can generate APY data, asset price, Trend, gain/loss 
   - UI component for Position
     - Integrate Oracle price for the asset
   - UI component for Portfolio
@@ -25,4 +24,6 @@
 Portfolio
   - Cache user state including approvals
   - Use nonce to invalidate Cache?
+  - Layered Cache: DB, subgraph, direct blockchain access
 - Permit and Permit 2 support
+- Smart Accounts (4337)
