@@ -1,11 +1,9 @@
 import { router } from './SDKTRPC'
 
 import { buildOrder } from './handlers/buildOrder'
-import { getImportSimulation } from './handlers/getImportSimulation'
 import { getLendingPool } from './handlers/getLendingPool'
 import { getLendingPoolInfo } from './handlers/getLendingPoolInfo'
 import { getPosition } from './handlers/getPosition'
-import { getRefinanceSimulation } from './handlers/getRefinanceSimulation'
 import { getSpotPrice } from './handlers/getSpotPrice'
 import { getSpotPrices } from './handlers/getSpotPrices'
 import { getSwapDataExactInput } from './handlers/getSwapData'
@@ -37,10 +35,6 @@ export const sdkAppRouter = router({
     getTokenByName: getTokenByName,
     getTokenByAddress: getTokenByAddress,
     getTokenTotalSupply: getTokenTotalSupply,
-  },
-  simulation: {
-    refinance: getRefinanceSimulation,
-    import: getImportSimulation,
   },
   orders: {
     buildOrder: buildOrder,

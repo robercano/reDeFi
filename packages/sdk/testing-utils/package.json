@@ -28,6 +28,7 @@
     "@thesolidchain/blockchain-client-provider": "workspace:*",
     "@thesolidchain/configuration-provider": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/contracts-provider-common": "workspace:*",
     "@thesolidchain/deployment-types": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
     "@thesolidchain/oracle-common": "workspace:*",

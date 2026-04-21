@@ -251,9 +251,6 @@ importers:
       '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../../packages/sdk/common
-      '@thesolidchain/simulator-service':
-        specifier: workspace:^
-        version: link:../../../packages/sdk/simulator/service
       '@thesolidchain/swap-common':
         specifier: workspace:*
         version: link:../../../packages/sdk/swap/common
@@ -1472,43 +1469,6 @@ importers:
         specifier: 19.2.3
         version: 19.2.3
 
-  packages/sdk/simulator/service:
-    dependencies:
-      '@thesolidchain/oracle-common':
-        specifier: workspace:*
-        version: link:../../oracle/common
-      '@thesolidchain/protocol-manager-common':
-        specifier: workspace:*
-        version: link:../../protocol-manager/common
-      '@thesolidchain/protocol-plugins':
-        specifier: workspace:*
-        version: link:../../protocol-plugins/service
-      '@thesolidchain/protocol-plugins-common':
-        specifier: workspace:*
-        version: link:../../protocol-plugins/common
-      '@thesolidchain/sdk-common':
-        specifier: workspace:*
-        version: link:../../common
-      '@thesolidchain/swap-common':
-        specifier: workspace:*
-        version: link:../../swap/common
-      '@types/node-fetch':
-        specifier: ^2.6.11
-        version: 2.6.11
-      node-fetch:
-        specifier: ^2.7.0
-        version: 2.7.0
-    devDependencies:
-      '@thesolidchain/config-jest':
-        specifier: workspace:*
-        version: link:../../../config/jest
-      '@thesolidchain/config-typescript':
-        specifier: workspace:*
-        version: link:../../../config/typescript
-      '@thesolidchain/eslint-config':
-        specifier: workspace:*
-        version: link:../../../config/eslint
-
   packages/sdk/swap/common:
     dependencies:
       '@cowprotocol/cow-sdk':
@@ -1652,6 +1612,9 @@ importers:
       '@thesolidchain/configuration-provider-common':
         specifier: workspace:*
         version: link:../configuration-provider/common
+      '@thesolidchain/contracts-provider-common':
+        specifier: workspace:*
+        version: link:../contracts-provider/common
       '@thesolidchain/deployment-types':
         specifier: workspace:*
         version: link:../../deployment-types

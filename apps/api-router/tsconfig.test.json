@@ -10,8 +10,7 @@
       "@thesolidchain/sdk-client": ["node_modules/@thesolidchain/sdk-client/src"],
 
       "@thesolidchain/swap-service": ["node_modules/@thesolidchain/swap-service/src/index.ts"],
-      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
-      "@thesolidchain/simulator-service": ["node_modules/@thesolidchain/simulator-service/src"]
+      "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"]
     }
   },
   "include": ["src/**/*.ts"],
