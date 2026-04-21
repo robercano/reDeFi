@@ -4,6 +4,7 @@ import { ITokensProvider } from '@thesolidchain/tokens-common'
 import assert from 'assert'
 import { StaticTokensProvider } from '../src/implementation/static/StaticTokensProvider'
 import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 
 describe('StaticTokensProvider', () => {
   let staticTokensProvider: ITokensProvider
@@ -17,6 +18,7 @@ describe('StaticTokensProvider', () => {
     staticTokensProvider = new StaticTokensProvider({
       configProvider: {} as IConfigurationProvider,
       blockchainClientProvider: {} as IBlockchainClientProvider,
+      contractsProvider: {} as IContractsProvider,
     })
   })
   it('should return supported chain IDs', async () => {

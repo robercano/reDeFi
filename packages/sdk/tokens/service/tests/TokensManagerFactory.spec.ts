@@ -5,6 +5,7 @@ import assert from 'assert'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { TokensManagerFactory } from '../src'
 import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 
 describe('TokensManagerFactory', () => {
   let tokensManager: ITokensManager
@@ -18,6 +19,7 @@ describe('TokensManagerFactory', () => {
     tokensManager = TokensManagerFactory.newTokensManager({
       configProvider: {} as IConfigurationProvider,
       blockchainClientProvider: {} as IBlockchainClientProvider,
+      contractsProvider: {} as IContractsProvider,
     })
   })
 
