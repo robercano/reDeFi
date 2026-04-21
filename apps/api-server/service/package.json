@@ -43,7 +43,6 @@
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/protocol-plugins-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
-    "@thesolidchain/simulator-service": "workspace:^",
     "@thesolidchain/swap-common": "workspace:*",
     "@thesolidchain/swap-service": "workspace:*",
     "@thesolidchain/tokens-common": "workspace:*",

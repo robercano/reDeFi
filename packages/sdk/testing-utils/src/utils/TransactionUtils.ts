@@ -1,4 +1,4 @@
-import { getRpcGatewayEndpoint } from '@thesolidchain/blockchain-client-provider'
+
 import { IChainInfo, Maybe, Transaction } from '@thesolidchain/sdk-common'
 import {
   Account,
@@ -39,15 +39,7 @@ export class TransactionUtils {
       this.account = privateKeyToAccount(params.walletPrivateKey)
     }
 
-    const gatewayUrl =
-      params.chainInfo &&
-      getRpcGatewayEndpoint(params.rpcUrl, params.chainInfo.chainId, {
-        skipCache: false,
-        skipMulticall: false,
-        skipGraph: true,
-        stage: 'stg',
-        source: 'e2e',
-      })
+    const gatewayUrl = params.rpcUrl
     this.transport = params.useFork
       ? http(params.rpcUrl)
       : http(gatewayUrl, {
