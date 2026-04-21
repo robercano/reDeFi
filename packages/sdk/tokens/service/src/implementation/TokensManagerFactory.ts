@@ -1,5 +1,6 @@
 import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 import { TokensManager } from './TokensManager'
 import { StaticTokensProvider } from './static/StaticTokensProvider'
@@ -24,6 +25,7 @@ export class TokensManagerFactory {
   public static newTokensManager(params: {
     configProvider: IConfigurationProvider
     blockchainClientProvider: IBlockchainClientProvider
+    contractsProvider: IContractsProvider
   }): ITokensManager {
     this.initialize(params)
 
@@ -41,17 +43,19 @@ export class TokensManagerFactory {
   private static initialize(params: {
     configProvider: IConfigurationProvider
     blockchainClientProvider: IBlockchainClientProvider
+    contractsProvider: IContractsProvider
   }): void {
     if (this.providers.length != 0) {
       return
     }
 
-    const { configProvider, blockchainClientProvider } = params
+    const { configProvider, blockchainClientProvider, contractsProvider } = params
 
     // Static provider
     const staticProvider = new StaticTokensProvider({
       configProvider: configProvider,
       blockchainClientProvider: blockchainClientProvider,
+      contractsProvider: contractsProvider,
     })
 
     this.providers = [staticProvider]

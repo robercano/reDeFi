@@ -24,6 +24,7 @@
     "@thesolidchain/blockchain-client-common": "workspace:*",
     "@thesolidchain/common": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
+    "@thesolidchain/contracts-provider-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/tokens-common": "workspace:*",
     "viem": "2.43.5"

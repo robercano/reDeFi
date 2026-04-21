@@ -1,5 +1,6 @@
 import { ManagerProviderBase } from '@thesolidchain/api-server-common'
 import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   Address,
@@ -16,7 +17,6 @@ import {
 } from '@thesolidchain/sdk-common'
 import { ITokensProvider } from '@thesolidchain/tokens-common'
 import assert from 'assert'
-import { erc20Abi } from 'viem'
 import { StaticTokensData } from './StaticTokensList'
 import { TokenData } from './TokensData'
 import { TokensMap } from './TokensMap'
@@ -33,6 +33,7 @@ export class StaticTokensProvider
 {
   private _tokenByChainID: Map<ChainId, TokensMap>
   private readonly _blockchainClientProvider: IBlockchainClientProvider
+  private readonly _contractsProvider: IContractsProvider
 
   /** CONSTRUCTOR */
 
@@ -40,6 +41,7 @@ export class StaticTokensProvider
   constructor(params: {
     configProvider: IConfigurationProvider
     blockchainClientProvider: IBlockchainClientProvider
+    contractsProvider: IContractsProvider
   }) {
     super({
       type: TokensProviderType.Static,
@@ -47,6 +49,7 @@ export class StaticTokensProvider
     })
 
     this._blockchainClientProvider = params.blockchainClientProvider
+    this._contractsProvider = params.contractsProvider
     this._tokenByChainID = new Map()
 
     for (const tokenData of StaticTokensData.tokens) {
@@ -158,16 +161,16 @@ export class StaticTokensProvider
 
     let totalSupply: bigint | undefined = 0n
     try {
-      totalSupply = await client.readContract({
-        address: token.address.value,
-        abi: erc20Abi,
-        functionName: 'totalSupply',
+      const erc20 = await this._contractsProvider.getErc20Contract({
+        chainInfo: token.chainInfo,
+        address: token.address,
       })
+      totalSupply = await erc20.totalSupply()
     } catch (error) {
       console.log('Error getting token total supply:', error)
     }
 
-    return TokenAmount.createFromBaseUnit({ token, amount: totalSupply.toString() })
+    return TokenAmount.createFromBaseUnit({ token, amount: (totalSupply ?? 0n).toString() })
   }
 
   private async _getTokenBalance(params: {
@@ -185,13 +188,12 @@ export class StaticTokensProvider
       return await client.getBalance({ address: walletAddress.value })
     }
 
-    // check erc20 token balance using viem
-    return await client.readContract({
-      address: token.address.value,
-      abi: erc20Abi,
-      functionName: 'balanceOf',
-      args: [walletAddress.value],
+    // check erc20 token balance using contracts provider
+    const erc20 = await this._contractsProvider.getErc20Contract({
+      chainInfo,
+      address: token.address,
     })
+    return await erc20.balanceOf(walletAddress.value)
   }
 
   /** PRIVATE METHODS */

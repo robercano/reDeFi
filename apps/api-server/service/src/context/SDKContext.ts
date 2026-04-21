@@ -64,13 +64,14 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
 
   const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })
-  const tokensManager = TokensManagerFactory.newTokensManager({
-    configProvider,
-    blockchainClientProvider,
-  })
   const contractsProvider = ContractsProviderFactory.newContractsProvider({
     configProvider,
     blockchainClientProvider,
+  })
+  const tokensManager = TokensManagerFactory.newTokensManager({
+    configProvider,
+    blockchainClientProvider,
+    contractsProvider,
   })
   const addressBookManager = AddressBookManagerFactory.newAddressBookManager({ configProvider })
   const orderPlannerService = new OrderPlannerService()
