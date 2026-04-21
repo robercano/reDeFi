@@ -13,4 +13,3 @@ packages:
   - 'external-api/**'
   - '!**/test/**'
   - '!**/.sst/**'
-  - '!packages/sdk/simulator/service'
