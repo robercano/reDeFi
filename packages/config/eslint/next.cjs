@@ -33,6 +33,7 @@ module.exports = {
     'out/',
     'types/generated/*',
     'scripts/get-config-types.js',
+    'sst-env.d.ts',
   ],
   overrides: [{ files: ['*.js?(x)', '*.ts?(x)'] }],
   plugins: [

@@ -1,16 +1,89 @@
+/// <reference path="./.sst/platform/config.d.ts" />
+
 export default $config({
-  app(input) {
+  async app(input) {
+    const { isPersistentStage } = await import('./apps/sdk-infra/sst-utils')
+    
     return {
-      name: 'my-sst-app',
+      name: 'sdk-sst',
+      removal: isPersistentStage(input?.stage || '') ? 'retain' : 'remove',
+      protect: isPersistentStage(input?.stage || ''),
       home: 'aws',
-      providers: {
-        aws: {
-          profile: input.stage === 'production' ? 'thesolidchain-production' : 'thesolidchain-dev',
-        },
-      },
+      providers: { aws: '6.81.0' },
     }
   },
   async run() {
-    // Your resources
+    const { isProductionStage } = await import('./apps/sdk-infra/sst-utils')
+    const { sdkDeployedVersionsMap } = await import('./apps/sdk-infra/sst-environment')
+    const { createBackend } = await import('./apps/sdk-infra/create-backend')
+
+    const production = isProductionStage($app.stage)
+    const deployedVersions = Object.values(sdkDeployedVersionsMap)
+
+    // Load bundle package details
+    const { version: clientVersion } = await import('./packages/sdk/client/bundle/package.json')
+    
+    if (!deployedVersions.includes(clientVersion)) {
+      throw new Error(
+        `Client version ${clientVersion} is not in the list of deployed versions: ${deployedVersions.join(', ')}. Please update SDK_DEPLOYED_VERSIONS_MAP var in GitHub environment with a newly deployed version to allow deployment.`,
+      )
+    }
+
+    // Keep the bucket but remove JSON file mapping based on user reqs
+    const sdkBucket = new sst.aws.Bucket('SdkBucket', {
+      access: 'public',
+      enforceHttps: true,
+    })
+
+    // Create the generic Authorizer Lambda 
+    const sdkAuthorizer = new sst.aws.Function("SdkAuthorizer", {
+      handler: "apps/api-authorizer/src/index.handler",
+      runtime: "nodejs22.x",
+      environment: {
+        SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',
+      },
+      logging: {
+        format: 'json',
+        retention: production ? '1 month' : '1 day',
+      }
+    })
+
+    // ApiGateway with custom lambda authorizer attached globally
+    const sdkGateway = new sst.aws.ApiGatewayV2('SdkGateway', {
+      accessLog: {
+        retention: production ? '1 month' : '1 day',
+      },
+    })
+
+    const apiKeyAuthorizer = sdkGateway.addAuthorizer({
+      name: "apiKeyAuthorizer",
+      lambda: {
+        function: sdkAuthorizer.arn,
+        identitySources: ["$request.header.x-api-key"],
+        response: "simple"
+      }
+    })
+
+    const backendUrls: $util.Output<string>[] = []
+    
+    for (const version of deployedVersions) {
+      try {
+        const result = await createBackend({
+          deployedVersion: version,
+          production,
+          sdkGateway,
+          authorizerId: apiKeyAuthorizer.id,
+        })
+        backendUrls.push(result.url)
+      } catch (error) {
+        console.error(`Failed to create backend for version ${version}:`, error)
+        throw error
+      }
+    }
+
+    return {
+      Stage: $app.stage,
+      SdkBackendUrls: backendUrls, // Maps Pulumi outputs cleanly
+    }
   },
 })

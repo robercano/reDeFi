@@ -41,6 +41,7 @@ module.exports = {
     'node_modules/',
     'dist/',
     'declarations/',
+    'sst-env.d.ts',
   ],
   overrides: [
     {
