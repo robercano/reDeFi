@@ -3,7 +3,7 @@ import { ChainInfo, Address, AddressType } from '@thesolidchain/sdk-common'
 import { ITokensProvider } from '@thesolidchain/tokens-common'
 import assert from 'assert'
 import { StaticTokensProvider } from '../src/implementation/static/StaticTokensProvider'
-import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 
 describe('StaticTokensProvider', () => {
@@ -17,7 +17,7 @@ describe('StaticTokensProvider', () => {
   beforeEach(() => {
     staticTokensProvider = new StaticTokensProvider({
       configProvider: {} as IConfigurationProvider,
-      blockchainClientProvider: {} as IBlockchainClientProvider,
+      blockchainClientProvider: {} as IBlockchainManager,
       contractsProvider: {} as IContractsProvider,
     })
   })

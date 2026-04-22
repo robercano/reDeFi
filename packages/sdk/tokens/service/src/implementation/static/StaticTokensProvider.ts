@@ -1,5 +1,5 @@
 import { ManagerProviderBase } from '@thesolidchain/api-server-common'
-import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
@@ -32,7 +32,7 @@ export class StaticTokensProvider
   implements ITokensProvider
 {
   private _tokenByChainID: Map<ChainId, TokensMap>
-  private readonly _blockchainClientProvider: IBlockchainClientProvider
+  private readonly _blockchainClientProvider: IBlockchainManager
   private readonly _contractsProvider: IContractsProvider
 
   /** CONSTRUCTOR */
@@ -40,7 +40,7 @@ export class StaticTokensProvider
   /* eslint-disable @typescript-eslint/no-unused-vars */
   constructor(params: {
     configProvider: IConfigurationProvider
-    blockchainClientProvider: IBlockchainClientProvider
+    blockchainClientProvider: IBlockchainManager
     contractsProvider: IContractsProvider
   }) {
     super({

@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@thesolidchain/api-server-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "viem": "2.43.5"
   },

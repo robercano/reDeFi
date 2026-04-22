@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@thesolidchain/api-server-common": "workspace:*",
     "@thesolidchain/blockchain-client-common": "workspace:^",
     "@thesolidchain/configuration-provider-common": "workspace:^",
     "@thesolidchain/sdk-common": "workspace:*",

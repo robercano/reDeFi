@@ -1,4 +1,4 @@
-import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { IContractsProvider, IERC20, IERC4626 } from '@thesolidchain/contracts-provider-common'
 import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
@@ -10,12 +10,12 @@ import { ContractsFactory } from '../factory/ContractsFactory'
  */
 export class ContractsProvider implements IContractsProvider {
   private _configProvider: IConfigurationProvider
-  private _blockchainClientProvider: IBlockchainClientProvider
+  private _blockchainClientProvider: IBlockchainManager
 
   /** CONSTRUCTOR */
   constructor(params: {
     configProvider: IConfigurationProvider
-    blockchainClientProvider: IBlockchainClientProvider
+    blockchainClientProvider: IBlockchainManager
   }) {
     this._configProvider = params.configProvider
     this._blockchainClientProvider = params.blockchainClientProvider

@@ -1,11 +1,13 @@
 import type { IChainInfo } from '@thesolidchain/sdk-common'
 import { type IBlockchainClient } from './IBlockchainClient'
+import { IManagerProvider } from '@thesolidchain/api-server-common'
+import { BlockchainProviderType } from '@thesolidchain/sdk-common'
 
 /**
  * @name IBlockchainClientProvider
  * @description Interface for the BlockchainClient provider, which is used to retrieve a BlockchainClient for a particular chain
  */
-export interface IBlockchainClientProvider {
+export interface IBlockchainClientProvider extends IManagerProvider<BlockchainProviderType> {
   /**
    * @name getBlockchainClient
    * @description Retrieves a BlockchainClient for a particular chain
