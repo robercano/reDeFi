@@ -1,5 +1,5 @@
 import { IAddressBookManager } from '@thesolidchain/address-book-common'
-import type { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import type { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 import { IOracleManager } from '@thesolidchain/oracle-common'
 import { ProtocolPluginsRecord, ProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins'
@@ -19,7 +19,7 @@ import { ITokensManager } from '@thesolidchain/tokens-common'
  */
 export function createProtocolsPluginsRegistry(params: {
   configProvider: ConfigurationProvider
-  blockchainClientProvider: IBlockchainClientProvider
+  blockchainClientProvider: IBlockchainManager
   tokensManager: ITokensManager
   oracleManager: IOracleManager
   swapManager: ISwapManager

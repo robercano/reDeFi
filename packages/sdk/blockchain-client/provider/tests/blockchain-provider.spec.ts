@@ -1,7 +1,7 @@
 import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { ChainFamilyMap } from '@thesolidchain/sdk-common'
-import { BlockchainClientProvider } from '../src/implementation/BlockchainClientProvider'
+import { BlockchainManagerFactory } from '../src/implementation/BlockchainManagerFactory'
 
 describe('Blockchain Provider', () => {
   let blockchainClientProvider: IBlockchainClientProvider
@@ -17,7 +17,7 @@ describe('Blockchain Provider', () => {
       },
     } as unknown as IConfigurationProvider
 
-    blockchainClientProvider = new BlockchainClientProvider({ configProvider })
+    blockchainClientProvider = BlockchainManagerFactory.newBlockchainManager({ configProvider })
   })
 
   it('should return a provider for supported chains', async () => {

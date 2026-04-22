@@ -4,7 +4,6 @@
     "rootDir": ".",
     "outDir": "dist"
   },
-  "references": [{ "path": "../testing-utils" }],
   "include": ["src/**/*.ts", "tests/**/*.ts", "e2e/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }

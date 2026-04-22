@@ -4,12 +4,13 @@ import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import { AddressBookManagerFactory } from '@thesolidchain/address-book-service'
 import type { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
 import { AllowanceManagerFactory } from '@thesolidchain/allowance-manager-service'
-import { BlockchainClientProvider } from '@thesolidchain/blockchain-client-provider'
-import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 import { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { ContractsProviderFactory } from '@thesolidchain/contracts-provider-service'
 import { IOracleManager } from '@thesolidchain/oracle-common'
+import { BlockchainManagerFactory } from '@thesolidchain/blockchain-client-provider'
+import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { OracleManagerFactory } from '@thesolidchain/oracle-service'
 import { IOrderPlannerService } from '@thesolidchain/order-planner-common'
 import { OrderPlannerService } from '@thesolidchain/order-planner-service'
@@ -33,7 +34,7 @@ export type SDKAppContext = {
   callKey: string
   addressBookManager: IAddressBookManager
   configProvider: IConfigurationProvider
-  blockchainClientProvider: BlockchainClientProvider
+  blockchainClientProvider: IBlockchainManager
   abiProvider: IAbiProvider
   contractsProvider: IContractsProvider
   tokensManager: ITokensManager
@@ -62,7 +63,7 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
 
   const configProvider = new ConfigurationProvider()
 
-  const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
+  const blockchainClientProvider = BlockchainManagerFactory.newBlockchainManager({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })
   const contractsProvider = ContractsProviderFactory.newContractsProvider({
     configProvider,

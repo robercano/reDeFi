@@ -1,4 +1,4 @@
-import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IContractsProvider, IERC20 } from '@thesolidchain/contracts-provider-common'
 import { Address, ChainFamilyMap, ChainInfo, TokenAmount, Token } from '@thesolidchain/sdk-common'
 import { Tenderly, type Vnet } from '@thesolidchain/tenderly-utils'
@@ -35,7 +35,7 @@ describe.skip('Contracts Provider Service - ERC20 Contract', () => {
   let tenderlyFork: Vnet
   let contractsProvider: IContractsProvider
   let erc20Contract: IERC20
-  let blockchainClientProvider: IBlockchainClientProvider
+  let blockchainClientProvider: IBlockchainManager
 
   const atBlock = 'latest'
 

@@ -1,4 +1,4 @@
-import { IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { ContractsProvider } from './ContractsProvider'
 
@@ -9,7 +9,7 @@ import { ContractsProvider } from './ContractsProvider'
 export class ContractsProviderFactory {
   public static newContractsProvider(params: {
     configProvider: IConfigurationProvider
-    blockchainClientProvider: IBlockchainClientProvider
+    blockchainClientProvider: IBlockchainManager
   }): ContractsProvider {
     return new ContractsProvider(params)
   }

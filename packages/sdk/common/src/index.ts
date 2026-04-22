@@ -1,4 +1,5 @@
 export { AddressType } from './common/enums/AddressType'
+export { BlockchainProviderType } from './blockchain/BlockchainProviderType'
 export {
   ArmadaMigrationType,
   ArmadaMigrationTypeSchema,

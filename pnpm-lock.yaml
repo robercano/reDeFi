@@ -765,6 +765,9 @@ importers:
 
   packages/sdk/blockchain-client/common:
     dependencies:
+      '@thesolidchain/api-server-common':
+        specifier: workspace:*
+        version: link:../../../../apps/api-server/common
       '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../common
@@ -784,6 +787,9 @@ importers:
 
   packages/sdk/blockchain-client/provider:
     dependencies:
+      '@thesolidchain/api-server-common':
+        specifier: workspace:*
+        version: link:../../../../apps/api-server/common
       '@thesolidchain/blockchain-client-common':
         specifier: workspace:^
         version: link:../common
