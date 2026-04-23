@@ -1,7 +1,7 @@
-import type { ISDKManager, ISDKAdminManager } from '@thesolidchain/sdk-client'
+import type { ISDKManager } from '@thesolidchain/sdk-client'
 
 export const getChainHandler =
-  (sdk: ISDKManager | ISDKAdminManager) =>
+  (sdk: ISDKManager) =>
   ({ chainId }: { chainId: number }) =>
     sdk.chains
       .getChainById({

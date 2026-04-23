@@ -1,8 +1,8 @@
-import type { ISDKAdminManager, ISDKManager } from '@thesolidchain/sdk-client'
+import type { ISDKManager } from '@thesolidchain/sdk-client'
 import { type IToken, Percentage, TokenAmount } from '@thesolidchain/sdk-common'
 
 export const getSwapQuoteHandler =
-  (sdk: ISDKManager | ISDKAdminManager) =>
+  (sdk: ISDKManager) =>
   async ({
     fromAmount,
     fromToken,

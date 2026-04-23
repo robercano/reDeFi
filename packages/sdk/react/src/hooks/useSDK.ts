@@ -1,4 +1,4 @@
-import { makeAdminSDK, makeSDK } from '@thesolidchain/sdk-client'
+import { makeSDK } from '@thesolidchain/sdk-client'
 import { useCallback, useMemo } from 'react'
 
 import { useSDKContext } from '../components/SDKContext'
@@ -11,21 +11,18 @@ import { getSpotPricesHandler } from '../handlers/getSpotPricesHandler'
 import { getSwapQuoteHandler } from '../handlers/getSwapQuoteHandler'
 import { getTokenBySymbolHandler } from '../handlers/getTokenBySymbolHandler'
 import { getTokenTotalSupplyHandler } from '../handlers/getTokenTotalSupplyHandler'
+import { getUserPortfolioHandler } from '../handlers/getUserPortfolioHandler'
 
 type UseSdk = {
   walletAddress?: string
   chainId?: number
-  clientId?: string
 }
 
 export const useSDK = (params: UseSdk) => {
   const { apiURL, apiKey } = useSDKContext()
   const sdk = useMemo(() => {
-    if (params.clientId) {
-      return makeAdminSDK({ apiURL, apiKey, clientId: params.clientId })
-    }
     return makeSDK({ apiURL, apiKey })
-  }, [apiURL, apiKey, params.clientId])
+  }, [apiURL, apiKey])
 
   const { chainId, walletAddress: walletAddressString } = params
 
@@ -59,6 +56,10 @@ export const useSDK = (params: UseSdk) => {
   const getSpotPrice = useMemo(() => getSpotPriceHandler(sdk), [sdk])
   const getSpotPrices = useMemo(() => getSpotPricesHandler(sdk), [sdk])
 
+  // PORTFOLIO
+
+  const getUserPortfolio = useMemo(() => getUserPortfolioHandler(sdk), [sdk])
+
   const memo = useMemo(
     () => ({
       getCurrentUser,
@@ -71,6 +72,7 @@ export const useSDK = (params: UseSdk) => {
       getSwapQuote,
       getSpotPrice,
       getSpotPrices,
+      getUserPortfolio,
     }),
     [
       getCurrentUser,
@@ -83,6 +85,7 @@ export const useSDK = (params: UseSdk) => {
       getSwapQuote,
       getSpotPrice,
       getSpotPrices,
+      getUserPortfolio,
     ],
   )
 

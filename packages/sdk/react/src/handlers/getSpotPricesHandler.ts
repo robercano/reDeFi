@@ -1,8 +1,8 @@
-import type { ISDKAdminManager, ISDKManager } from '@thesolidchain/sdk-client'
-import { type FiatCurrency, type IToken, type IChainInfo } from '@thesolidchain/sdk-common'
+import type { ISDKManager } from '@thesolidchain/sdk-client'
+import { type FiatCurrency, type IChainInfo, type IToken } from '@thesolidchain/sdk-common'
 
 export const getSpotPricesHandler =
-  (sdk: ISDKManager | ISDKAdminManager) =>
+  (sdk: ISDKManager) =>
   async ({
     chainInfo,
     baseTokens,
