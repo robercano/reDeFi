@@ -10,6 +10,7 @@ import {
   Order,
   ISimulation,
   SerializationService,
+  IUserPortfolio,
 } from '@thesolidchain/sdk-common'
 import { IUserClient } from '../interfaces/IUserClient'
 import { RPCMainClientType } from '../rpc/SDKMainClient'
@@ -31,6 +32,10 @@ export class UserClient extends IRPCClient implements IUserClient {
     super({ rpcClient: params.rpcClient })
 
     this.user = User.createFrom({ wallet: params.wallet, chainInfo: params.chainInfo })
+  }
+
+  public async getPortfolio(): Promise<IUserPortfolio> {
+    return await this.rpcClient.portfolio.getUserPortfolio.query({ user: this.user })
   }
 
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */

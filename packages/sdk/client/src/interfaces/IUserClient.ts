@@ -6,6 +6,7 @@ import {
   Order,
   ISimulation,
   IUser,
+  IUserPortfolio,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -17,6 +18,14 @@ import {
  */
 export interface IUserClient {
   user: IUser
+
+  /**
+   * @method getPortfolio
+   * @description Retrieves the full user portfolio (wallet holdings and positions)
+   *
+   * @returns The user portfolio
+   */
+  getPortfolio(): Promise<IUserPortfolio>
 
   /**
    * @method getPositionsByProtocol

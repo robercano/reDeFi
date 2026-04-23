@@ -1,21 +1,11 @@
-import { makeAdminSDK, makeSDK } from '@thesolidchain/sdk-client'
+import { makeSDK } from '@thesolidchain/sdk-client'
 import { SDKApiUrl } from './testConfig'
 
 /**
  * Creates a configured SDK instance for e2e tests
  * @returns Configured SDKManager instance
  */
-export function createTestSdkInstance(
-  clientId?: string,
-): ReturnType<typeof makeSDK> | ReturnType<typeof makeAdminSDK> {
-  if (clientId) {
-    return makeAdminSDK({
-      apiDomainUrl: SDKApiUrl,
-      clientId,
-      // version: 'v1',
-    })
-  }
-
+export function createTestSdkInstance(): ReturnType<typeof makeSDK> {
   return makeSDK({
     apiDomainUrl: SDKApiUrl,
   })

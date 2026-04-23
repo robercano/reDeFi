@@ -1,4 +1,4 @@
-import type { ChainInfo, Wallet, Position } from '@thesolidchain/sdk-common'
+import type { ChainInfo, Wallet, Position, IUser, IUserPortfolio, IHolding } from '@thesolidchain/sdk-common'
 
 /**
  * @interface IPortfolioManager
@@ -17,4 +17,20 @@ export interface IPortfolioManager {
    * @returns The list of positions for the given wallet and networks
    */
   getPositions(params: { networks: ChainInfo[]; wallet: Wallet }): Promise<Position[]>
+
+  /**
+   * @method getUserPortfolio
+   * @description Retrieves all holdings and positions for the user resolving their Fiat balances
+   *
+   * @param user The user to retrieve the portfolio for
+   */
+  getUserPortfolio(params: { user: IUser }): Promise<IUserPortfolio>
+
+  /**
+   * @method getWalletHoldings
+   * @description Fetches standard ERC20 wallet holdings
+   *
+   * @param user The user to retrieve the holdings for
+   */
+  getWalletHoldings(params: { user: IUser }): Promise<IHolding[]>
 }

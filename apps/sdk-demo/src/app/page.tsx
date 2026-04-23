@@ -2,9 +2,16 @@
 
 import React, { useState } from 'react'
 import { TokenFetcher } from '../components/TokenFetcher'
+import { PortfolioViewer } from '../components/PortfolioViewer'
 
 // Tool registry representing the available SDK demonstrations
 const SDK_TOOLS = [
+  {
+    id: 'portfolio-viewer',
+    name: 'User Portfolio',
+    description: 'Fetch the aggregated portfolio balances and estimated fiat valuations for the actively connected user.',
+    component: PortfolioViewer,
+  },
   {
     id: 'token-fetcher',
     name: 'Token Fetcher',

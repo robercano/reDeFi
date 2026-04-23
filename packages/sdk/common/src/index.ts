@@ -382,11 +382,16 @@ export { SwapError } from './swap/implementation/SwapError'
 export type { SwapErrorParams } from './swap/implementation/SwapError'
 export { isSwapError, SwapErrorDataSchema } from './swap/interfaces/ISwapError'
 export type { ISwapError, ISwapErrorData } from './swap/interfaces/ISwapError'
-export {
-  isTokensProviderType,
-  TokensProviderType,
-  TokensProviderTypeSchema,
-} from './tokens/TokensProviderType'
+export { Holding } from './portfolio/implementation/Holding'
+export type { HoldingParameters } from './portfolio/implementation/Holding'
+export { isHolding, HoldingDataSchema } from './portfolio/interfaces/IHolding'
+export type { IHolding, IHoldingData } from './portfolio/interfaces/IHolding'
+export { UserPortfolio } from './portfolio/implementation/UserPortfolio'
+export type { UserPortfolioParameters } from './portfolio/implementation/UserPortfolio'
+export { isUserPortfolio, UserPortfolioDataSchema } from './portfolio/interfaces/IUserPortfolio'
+export type { IUserPortfolio, IUserPortfolioData } from './portfolio/interfaces/IUserPortfolio'
+
+export { isTokensProviderType, TokensProviderType, TokensProviderTypeSchema } from './tokens/TokensProviderType'
 export { User } from './user/implementation/User'
 export type { UserParameters } from './user/implementation/User'
 export { isUser, UserDataSchema } from './user/interfaces/IUser'

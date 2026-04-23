@@ -1,6 +1,7 @@
 import { router } from './SDKTRPC'
-
 import { buildOrder } from './handlers/buildOrder'
+import { getWalletHoldings } from './handlers/getWalletHoldings'
+import { getUserPortfolio } from './handlers/getUserPortfolio'
 import { getLendingPool } from './handlers/getLendingPool'
 import { getLendingPoolInfo } from './handlers/getLendingPoolInfo'
 import { getPosition } from './handlers/getPosition'
@@ -52,6 +53,10 @@ export const sdkAppRouter = router({
   oracle: {
     getSpotPrice: getSpotPrice,
     getSpotPrices: getSpotPrices,
+  },
+  portfolio: {
+    getWalletHoldings: getWalletHoldings,
+    getUserPortfolio: getUserPortfolio,
   },
 })
 
