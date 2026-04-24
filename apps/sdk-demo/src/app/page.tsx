@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { TokenFetcher } from '../components/TokenFetcher'
 import { PortfolioViewer } from '../components/PortfolioViewer'
+import { SwapViewer } from '../components/SwapViewer'
 
 // Tool registry representing the available SDK demonstrations
 const SDK_TOOLS = [
@@ -17,6 +18,12 @@ const SDK_TOOLS = [
     name: 'Token Fetcher',
     description: 'Fetch token metadata by symbol directly from the blockchain.',
     component: TokenFetcher,
+  },
+  {
+    id: 'swap-viewer',
+    name: 'Swap Simulator',
+    description: 'Simulate decentralized exchanges to find optimal swap routes and quotes between two tokens.',
+    component: SwapViewer,
   },
   // Placeholder to demonstrate how other tools can be added seamlessly
   {

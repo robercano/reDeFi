@@ -236,6 +236,12 @@ importers:
       '@thesolidchain/order-planner-service':
         specifier: workspace:*
         version: link:../../../packages/sdk/order-planner/service
+      '@thesolidchain/portfolio-common':
+        specifier: workspace:*
+        version: link:../../../packages/sdk/portfolio/common
+      '@thesolidchain/portfolio-service':
+        specifier: workspace:*
+        version: link:../../../packages/sdk/portfolio/service
       '@thesolidchain/protocol-manager-common':
         specifier: workspace:*
         version: link:../../../packages/sdk/protocol-manager/common
@@ -1299,6 +1305,50 @@ importers:
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
+
+  packages/sdk/portfolio/common:
+    dependencies:
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../common
+    devDependencies:
+      '@thesolidchain/config-jest':
+        specifier: workspace:*
+        version: link:../../../config/jest
+      '@thesolidchain/config-typescript':
+        specifier: workspace:*
+        version: link:../../../config/typescript
+      '@thesolidchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../../config/eslint
+
+  packages/sdk/portfolio/service:
+    dependencies:
+      '@thesolidchain/api-server-common':
+        specifier: workspace:*
+        version: link:../../../../apps/api-server/common
+      '@thesolidchain/oracle-common':
+        specifier: workspace:*
+        version: link:../../oracle/common
+      '@thesolidchain/portfolio-common':
+        specifier: workspace:*
+        version: link:../common
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../common
+      '@thesolidchain/tokens-common':
+        specifier: workspace:*
+        version: link:../../tokens/common
+    devDependencies:
+      '@thesolidchain/config-jest':
+        specifier: workspace:*
+        version: link:../../../config/jest
+      '@thesolidchain/config-typescript':
+        specifier: workspace:*
+        version: link:../../../config/typescript
+      '@thesolidchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../../config/eslint
 
   packages/sdk/protocol-manager/common:
     dependencies:

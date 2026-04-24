@@ -1,7 +1,6 @@
 import { z } from 'zod'
 import { isUser, IUser } from '@thesolidchain/sdk-common'
 import { publicProcedure } from '../SDKTRPC'
-import { fetchWalletHoldings } from './portfolioUtils'
 
 export const getWalletHoldings = publicProcedure
   .input(
@@ -10,5 +9,5 @@ export const getWalletHoldings = publicProcedure
     }),
   )
   .query(async (opts) => {
-    return fetchWalletHoldings(opts.ctx, opts.input.user)
+    return await opts.ctx.portfolioManager.getWalletHoldings({ user: opts.input.user })
   })

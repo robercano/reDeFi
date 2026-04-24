@@ -21,6 +21,9 @@ import { ISwapManager } from '@thesolidchain/swap-common'
 import { CowSwapProvider, SwapManagerFactory } from '@thesolidchain/swap-service'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { TokensManagerFactory } from '@thesolidchain/tokens-service'
+import { IPortfolioManager } from '@thesolidchain/portfolio-common'
+import { PortfolioManagerFactory } from '@thesolidchain/portfolio-service'
+import { DynamoDBCacheService, ICacheService } from '@thesolidchain/api-server-common'
 
 import { LoggingService } from '@thesolidchain/sdk-common'
 import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
@@ -32,6 +35,7 @@ export type SDKContextOptions = CreateAWSLambdaContextOptions<APIGatewayProxyEve
 export type SDKAppContext = {
   callUrl: string
   callKey: string
+  cacheService: ICacheService
   addressBookManager: IAddressBookManager
   configProvider: IConfigurationProvider
   blockchainClientProvider: IBlockchainManager
@@ -40,6 +44,7 @@ export type SDKAppContext = {
   tokensManager: ITokensManager
   swapManager: ISwapManager
   oracleManager: IOracleManager
+  portfolioManager: IPortfolioManager
   protocolsRegistry: IProtocolPluginsRegistry
   protocolManager: IProtocolManager
   orderPlannerService: IOrderPlannerService
@@ -63,6 +68,8 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
 
   const configProvider = new ConfigurationProvider()
 
+  const cacheService = new DynamoDBCacheService({ configProvider })
+
   const blockchainClientProvider = BlockchainManagerFactory.newBlockchainManager({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })
   const contractsProvider = ContractsProviderFactory.newContractsProvider({
@@ -73,11 +80,17 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     configProvider,
     blockchainClientProvider,
     contractsProvider,
+    cacheService,
   })
   const addressBookManager = AddressBookManagerFactory.newAddressBookManager({ configProvider })
   const orderPlannerService = new OrderPlannerService()
   const swapManager = SwapManagerFactory.newSwapManager({ configProvider })
-  const oracleManager = OracleManagerFactory.newOracleManager({ configProvider })
+  const oracleManager = OracleManagerFactory.newOracleManager({ configProvider, cacheService })
+  const portfolioManager = PortfolioManagerFactory.newPortfolioManager({
+    tokensManager,
+    oracleManager,
+    cacheService,
+  })
   const protocolsRegistry = createProtocolsPluginsRegistry({
     configProvider,
     blockchainClientProvider: blockchainClientProvider,
@@ -101,6 +114,7 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,
     callKey: quickHashCode(`${opts.event.rawPath}${opts.event.rawQueryString}`),
+    cacheService,
     configProvider,
     blockchainClientProvider,
     abiProvider,
@@ -109,6 +123,7 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     tokensManager,
     swapManager,
     oracleManager,
+    portfolioManager,
     protocolsRegistry,
     protocolManager,
     orderPlannerService,
