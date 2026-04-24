@@ -3,11 +3,11 @@ import { IManagerProvider } from '../interfaces/IManagerProvider'
 import { IManagerWithProviders } from '../interfaces/IManagerWithProviders'
 
 /**
- * @name ManagerWithProvidersBase
+ * @name ManagerWithFallbackProvidersBase
  * @description Base class for a manager with providers. It takes care of registering the different providers
- *              and provides a basic implementation to get the best provider
+ *              and provides a basic implementation to execute actions with a sequential fallback mechanism.
  */
-export class ManagerWithProvidersBase<
+export class ManagerWithFallbackProvidersBase<
   ProviderType extends string,
   ManagerProvider extends IManagerProvider<ProviderType>,
 > implements IManagerWithProviders<ProviderType, ManagerProvider> {
@@ -16,7 +16,15 @@ export class ManagerWithProvidersBase<
 
   /** CONSTRUCTOR */
 
-  protected constructor(params: { providers: ManagerProvider[] }) {
+  protected constructor(params: { 
+    /**
+     * IMPORTANT: The order of the providers in this array is critical!
+     * It defines the fallback sequence. The manager will always attempt to use the
+     * first provider in the list for a given chain. If it fails, it will sequentially
+     * fallback to the next available provider in the order they are provided here.
+     */
+    providers: ManagerProvider[] 
+  }) {
     const { providers } = params
 
     this._providersByChainId = new Map()
@@ -61,6 +69,47 @@ export class ManagerWithProvidersBase<
     // For now, we just return the first provider. In the future, we can implement a logic to
     // choose the best provider based on the input parameters or on the swap provider's capabilities.
     return providers[0]
+  }
+
+  /**
+   * @method _executeWithFallback
+   * @description Tries to execute an action sequentially through the available providers.
+   *              If a provider throws an error, it catches it and falls back to the next provider.
+   */
+  protected async _executeWithFallback<T>(params: {
+    chainInfo: IChainInfo
+    action: (provider: ManagerProvider) => Promise<T>
+    forceUseProvider?: ProviderType
+  }): Promise<T> {
+    if (params.forceUseProvider !== undefined) {
+      const provider = this._providersByType.get(params.forceUseProvider)
+      if (!provider) {
+        throw new Error(`Forced provider not found: ${params.forceUseProvider}`)
+      }
+      return params.action(provider)
+    }
+
+    const providers = this._providersByChainId.get(params.chainInfo.chainId) || []
+    if (providers.length === 0) {
+      throw new Error(
+        `No provider found for chainId: ${params.chainInfo.chainId} ${Array.from(
+          this._providersByChainId.entries(),
+        )
+          .map(([key, value]) => `${key}: ${value.length}`)
+          .join(', ')}`,
+      )
+    }
+
+    let lastError: unknown
+    for (const provider of providers) {
+      try {
+        return await params.action(provider)
+      } catch (error) {
+        lastError = error
+      }
+    }
+
+    throw lastError || new Error(`All providers failed for chainId: ${params.chainInfo.chainId}`)
   }
 
   /** PRIVATE */

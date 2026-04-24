@@ -2,7 +2,7 @@ import { IConfigurationProvider } from '@thesolidchain/configuration-provider-co
 import { ChainFamilyMap, ChainIds } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { TestManagerProvider, TestProviderType } from './mocks/TestManagerProvider'
-import { TestManager } from './mocks/TestManagerWithProviders'
+import { TestManager } from './mocks/TestManagerWithFallbackProviders'
 
 describe('SDK Server Common | Unit | ManagerProviderBase', () => {
   let testManager: TestManager

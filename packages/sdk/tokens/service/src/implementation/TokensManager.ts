@@ -1,4 +1,4 @@
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 import { TokensProviderType } from '@thesolidchain/sdk-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 
@@ -7,7 +7,7 @@ import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
  * @description Implementation of the ITokensManager interface. It allows to retrieve information for a Token
  */
 export class TokensManager
-  extends ManagerWithProvidersBase<TokensProviderType, ITokensProvider>
+  extends ManagerWithFallbackProvidersBase<TokensProviderType, ITokensProvider>
   implements ITokensManager
 {
   /** CONSTRUCTOR */
@@ -21,108 +21,57 @@ export class TokensManager
   async getTokenBySymbol(
     params: Parameters<ITokensManager['getTokenBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBySymbol']> {
-    const providers = this._getProvidersForChain(params.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenBySymbol(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token by symbol: ${params.symbol}`)
+    return this._executeWithFallback({
+      chainInfo: params.chainInfo,
+      action: async (provider) => provider.getTokenBySymbol(params),
+    })
   }
 
   /** @see ITokensManager.getTokenByAddress */
   async getTokenByAddress(
     params: Parameters<ITokensManager['getTokenByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenByAddress']> {
-    const providers = this._getProvidersForChain(params.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenByAddress(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token by address: ${params.address.value}`)
+    return this._executeWithFallback({
+      chainInfo: params.chainInfo,
+      action: async (provider) => provider.getTokenByAddress(params),
+    })
   }
 
   /** @see ITokensManager.getTokenByName */
   async getTokenByName(
     params: Parameters<ITokensManager['getTokenByName']>[0],
   ): ReturnType<ITokensManager['getTokenByName']> {
-    const providers = this._getProvidersForChain(params.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenByName(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token by name: ${params.name}`)
+    return this._executeWithFallback({
+      chainInfo: params.chainInfo,
+      action: async (provider) => provider.getTokenByName(params),
+    })
   }
 
   async getTokenBalanceBySymbol(
     params: Parameters<ITokensManager['getTokenBalanceBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceBySymbol']> {
-    const providers = this._getProvidersForChain(params.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenBalanceBySymbol(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token balance by symbol: ${params.symbol}`)
+    return this._executeWithFallback({
+      chainInfo: params.chainInfo,
+      action: async (provider) => provider.getTokenBalanceBySymbol(params),
+    })
   }
 
   async getTokenBalanceByAddress(
     params: Parameters<ITokensManager['getTokenBalanceByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceByAddress']> {
-    const providers = this._getProvidersForChain(params.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenBalanceByAddress(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token balance by address: ${params.address.value}`)
+    return this._executeWithFallback({
+      chainInfo: params.chainInfo,
+      action: async (provider) => provider.getTokenBalanceByAddress(params),
+    })
   }
 
   /** @see ITokensManager.getTokenTotalSupply */
   async getTokenTotalSupply(
     params: Parameters<ITokensManager['getTokenTotalSupply']>[0],
   ): ReturnType<ITokensManager['getTokenTotalSupply']> {
-    const providers = this._getProvidersForChain(params.token.chainInfo)
-    let lastError: unknown
-
-    for (const provider of providers) {
-      try {
-        return await provider.getTokenTotalSupply(params)
-      } catch (error) {
-        lastError = error
-      }
-    }
-    throw lastError || new Error(`Failed to get token total supply for: ${params.token.symbol}`)
-  }
-
-  private _getProvidersForChain(chainInfo: Parameters<ITokensManager['getTokenBySymbol']>[0]['chainInfo']) {
-    // @ts-ignore: Accessing protected property from base class
-    const providers = this._providersByChainId.get(chainInfo.chainId) || []
-    if (providers.length === 0) {
-      throw new Error(`No provider found for chainId: ${chainInfo.chainId}`)
-    }
-    return providers
+    return this._executeWithFallback({
+      chainInfo: params.token.chainInfo,
+      action: async (provider) => provider.getTokenTotalSupply(params),
+    })
   }
 }
