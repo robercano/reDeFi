@@ -1,6 +1,7 @@
 import { ChainId, IChainInfo } from '@thesolidchain/sdk-common'
 import { IManagerProvider } from '../interfaces/IManagerProvider'
 import { IManagerWithProviders } from '../interfaces/IManagerWithProviders'
+import type { ICacheService } from '../interfaces/ICacheService'
 
 /**
  * @name ManagerWithFallbackProvidersBase
@@ -13,6 +14,8 @@ export class ManagerWithFallbackProvidersBase<
 > implements IManagerWithProviders<ProviderType, ManagerProvider> {
   private _providersByChainId: Map<ChainId, ManagerProvider[]>
   private _providersByType: Map<ProviderType, ManagerProvider>
+  protected readonly _cacheService?: ICacheService
+  protected readonly _cacheTTLSeconds?: number
 
   /** CONSTRUCTOR */
 
@@ -24,8 +27,13 @@ export class ManagerWithFallbackProvidersBase<
      * fallback to the next available provider in the order they are provided here.
      */
     providers: ManagerProvider[] 
+    cacheService?: ICacheService
+    cacheTTLSeconds?: number
   }) {
-    const { providers } = params
+    const { providers, cacheService, cacheTTLSeconds } = params
+
+    this._cacheService = cacheService
+    this._cacheTTLSeconds = cacheTTLSeconds
 
     this._providersByChainId = new Map()
     this._providersByType = new Map()
@@ -110,6 +118,50 @@ export class ManagerWithFallbackProvidersBase<
     }
 
     throw lastError || new Error(`All providers failed for chainId: ${params.chainInfo.chainId}`)
+  }
+
+  /**
+   * @method _buildCacheKey
+   * @description Constructs a standardized namespace key to prevent collisions.
+   * Format: `[ClassName]:[MethodName]:[Arg1]:[Arg2]...`
+   */
+  protected _buildCacheKey(method: string, args: (string | number)[]): string {
+    return `${this.constructor.name}:${method}:${args.join(':')}`
+  }
+
+  /**
+   * @method _executeWithCacheAndFallback
+   * @description Wraps the fallback execution with a caching layer.
+   * It attempts to fetch from the cache first. If it misses, it calls the fallback chain
+   * and caches the successful result. If `forceUseProvider` is set, the cache is bypassed entirely.
+   */
+  protected async _executeWithCacheAndFallback<T>(params: {
+    cacheKey: string
+    ttlSeconds?: number
+    chainInfo: IChainInfo
+    action: (provider: ManagerProvider) => Promise<T>
+    forceUseProvider?: ProviderType
+  }): Promise<T> {
+    const bypassCache = params.forceUseProvider !== undefined
+    const cacheTTL = params.ttlSeconds ?? this._cacheTTLSeconds
+
+    // Check Cache
+    if (this._cacheService && !bypassCache) {
+      const cached = await this._cacheService.get<T>(params.cacheKey)
+      if (cached !== undefined) {
+        return cached
+      }
+    }
+
+    // Execute through standard fallback mechanism
+    const result = await this._executeWithFallback(params)
+
+    // Save to Cache
+    if (this._cacheService && !bypassCache && cacheTTL !== undefined) {
+      await this._cacheService.set(params.cacheKey, result, cacheTTL)
+    }
+
+    return result
   }
 
   /** PRIVATE */

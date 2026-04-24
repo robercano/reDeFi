@@ -1,7 +1,7 @@
 
 import { isToken, OracleProviderType } from '@thesolidchain/sdk-common'
 import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
-import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
 
 export type OracleManagerProviderConfig = {
   provider: IOracleProvider
@@ -17,7 +17,11 @@ export class OracleManager
 {
   /** CONSTRUCTOR */
 
-  constructor(params: { providers: IOracleProvider[] }) {
+  constructor(params: {
+    providers: IOracleProvider[]
+    cacheService?: ICacheService
+    cacheTTLSeconds?: number
+  }) {
     super(params)
   }
 
@@ -33,7 +37,19 @@ export class OracleManager
       throw new Error('Base token and quote token must be on the same chain')
     }
 
-    return this._executeWithFallback({
+    const quoteAddress =
+      params.denomination && isToken(params.denomination)
+        ? params.denomination.address.value
+        : 'native'
+
+    const cacheKey = this._buildCacheKey('getSpotPrice', [
+      params.baseToken.chainInfo.chainId,
+      params.baseToken.address.value,
+      quoteAddress,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.baseToken.chainInfo,
       forceUseProvider: params.forceUseProvider,
       action: async (provider) => provider.getSpotPrice(params),
@@ -52,7 +68,22 @@ export class OracleManager
       }
     }
 
-    return this._executeWithFallback({
+    const baseAddresses = params.baseTokens
+      ? params.baseTokens.map((t) => t.address.value).join(',')
+      : 'all'
+    const quoteAddress =
+      params.quoteCurrency && isToken(params.quoteCurrency)
+        ? params.quoteCurrency.address.value
+        : 'native'
+
+    const cacheKey = this._buildCacheKey('getSpotPrices', [
+      params.chainInfo.chainId,
+      baseAddresses,
+      quoteAddress,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getSpotPrices(params),
     })

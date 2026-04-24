@@ -2,3 +2,5 @@ export { ManagerWithFallbackProvidersBase } from './implementation/ManagerWithFa
 export type { IManagerProvider } from './interfaces/IManagerProvider'
 export { ManagerProviderBase } from './implementation/ManagerProviderBase'
 export type { IManagerWithProviders } from './interfaces/IManagerWithProviders'
+export type { ICacheService } from './interfaces/ICacheService'
+export { DynamoDBCacheService } from './implementation/DynamoDBCacheService'
