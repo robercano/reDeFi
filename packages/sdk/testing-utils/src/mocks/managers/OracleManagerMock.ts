@@ -1,10 +1,10 @@
 import { IToken, OracleProviderType } from '@thesolidchain/sdk-common'
 import { ISpotPriceInfo, type SpotPricesInfo } from '@thesolidchain/sdk-common'
 import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 
 export class OracleManagerMock
-  extends ManagerWithProvidersBase<OracleProviderType, IOracleProvider>
+  extends ManagerWithFallbackProvidersBase<OracleProviderType, IOracleProvider>
   implements IOracleManager
 {
   private _spotDataReturnValue: ISpotPriceInfo = {} as ISpotPriceInfo

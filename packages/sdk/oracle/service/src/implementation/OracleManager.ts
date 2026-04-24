@@ -1,7 +1,7 @@
-import type { Maybe } from '@thesolidchain/sdk-common'
+
 import { isToken, OracleProviderType } from '@thesolidchain/sdk-common'
 import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 
 export type OracleManagerProviderConfig = {
   provider: IOracleProvider
@@ -12,7 +12,7 @@ export type OracleManagerProviderConfig = {
  * @description This class is the implementation of the IOracleManager interface. Takes care of choosing the best provider for a price consultation
  */
 export class OracleManager
-  extends ManagerWithProvidersBase<OracleProviderType, IOracleProvider>
+  extends ManagerWithFallbackProvidersBase<OracleProviderType, IOracleProvider>
   implements IOracleManager
 {
   /** CONSTRUCTOR */
@@ -33,15 +33,11 @@ export class OracleManager
       throw new Error('Base token and quote token must be on the same chain')
     }
 
-    const provider: Maybe<IOracleProvider> = this._getBestProvider({
+    return this._executeWithFallback({
       chainInfo: params.baseToken.chainInfo,
       forceUseProvider: params.forceUseProvider,
+      action: async (provider) => provider.getSpotPrice(params),
     })
-    if (!provider) {
-      throw new Error('No swap provider available')
-    }
-
-    return provider.getSpotPrice(params)
   }
 
   /** @see IOracleManager.getSpotPrices */
@@ -56,13 +52,9 @@ export class OracleManager
       }
     }
 
-    const provider: Maybe<IOracleProvider> = this._getBestProvider({
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
+      action: async (provider) => provider.getSpotPrices(params),
     })
-    if (!provider) {
-      throw new Error('No swap provider available')
-    }
-
-    return provider.getSpotPrices(params)
   }
 }

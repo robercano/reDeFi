@@ -3,13 +3,12 @@ import type {
   IPercentage,
   IToken,
   ITokenAmount,
-  Maybe,
   QuoteData,
   SwapData,
   SwapProviderType,
 } from '@thesolidchain/sdk-common'
 import { ChainId } from '@thesolidchain/sdk-common'
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
 
 /**
@@ -27,7 +26,7 @@ export type SwapManagerProviderConfig = {
  * @see ISwapManager
  */
 export class SwapManager
-  extends ManagerWithProvidersBase<SwapProviderType, ISwapProvider>
+  extends ManagerWithFallbackProvidersBase<SwapProviderType, ISwapProvider>
   implements ISwapManager
 {
   /** CONSTRUCTOR */
@@ -45,15 +44,11 @@ export class SwapManager
     slippage: IPercentage
     forceUseProvider?: SwapProviderType
   }): Promise<SwapData> {
-    const provider: Maybe<ISwapProvider> = this._getBestProvider({
+    return this._executeWithFallback({
       chainInfo: params.fromAmount.token.chainInfo,
       forceUseProvider: params.forceUseProvider,
+      action: async (provider) => provider.getSwapDataExactInput(params),
     })
-    if (!provider) {
-      throw new Error('No swap provider available')
-    }
-
-    return provider.getSwapDataExactInput(params)
   }
 
   /** @see ISwapManager.getSwapQuoteExactInput */
@@ -62,14 +57,10 @@ export class SwapManager
     toToken: IToken
     forceUseProvider?: SwapProviderType
   }): Promise<QuoteData> {
-    const provider: Maybe<ISwapProvider> = this._getBestProvider({
+    return this._executeWithFallback({
       chainInfo: params.fromAmount.token.chainInfo,
       forceUseProvider: params.forceUseProvider,
+      action: async (provider) => provider.getSwapQuoteExactInput(params),
     })
-    if (!provider) {
-      throw new Error('No swap provider available')
-    }
-
-    return provider.getSwapQuoteExactInput(params)
   }
 }

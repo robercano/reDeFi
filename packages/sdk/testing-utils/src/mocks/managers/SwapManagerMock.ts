@@ -7,10 +7,10 @@ import {
   Token,
   TokenAmount,
 } from '@thesolidchain/sdk-common'
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 import { ISwapManager, ISwapProvider } from '@thesolidchain/swap-common'
 export class SwapManagerMock
-  extends ManagerWithProvidersBase<SwapProviderType, ISwapProvider>
+  extends ManagerWithFallbackProvidersBase<SwapProviderType, ISwapProvider>
   implements ISwapManager
 {
   private _swapDataReturnValue: SwapData = {} as SwapData

@@ -1,8 +1,8 @@
 import { TestManagerProvider, TestProviderType } from './TestManagerProvider'
-import { ManagerWithProvidersBase } from '../../src'
-import { IChainInfo, Maybe } from '@thesolidchain/sdk-common'
+import { ManagerWithFallbackProvidersBase } from '../../src'
+import { IChainInfo } from '@thesolidchain/sdk-common'
 
-export class TestManager extends ManagerWithProvidersBase<TestProviderType, TestManagerProvider> {
+export class TestManager extends ManagerWithFallbackProvidersBase<TestProviderType, TestManagerProvider> {
   constructor(params: { providers: TestManagerProvider[] }) {
     super(params)
   }
@@ -10,7 +10,7 @@ export class TestManager extends ManagerWithProvidersBase<TestProviderType, Test
   getBestProvider(params: {
     chainInfo: IChainInfo
     forceUseProvider?: TestProviderType
-  }): Maybe<TestManagerProvider> {
+  }): TestManagerProvider {
     return this._getBestProvider(params)
   }
 }

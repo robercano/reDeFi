@@ -1,4 +1,4 @@
-import { ManagerWithProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
 import { IBlockchainClientProvider, IBlockchainManager, IBlockchainClient } from '@thesolidchain/blockchain-client-common'
 import { BlockchainProviderType, IChainInfo } from '@thesolidchain/sdk-common'
 
@@ -7,7 +7,7 @@ import { BlockchainProviderType, IChainInfo } from '@thesolidchain/sdk-common'
  * @description The implementation of IBlockchainManager
  */
 export class BlockchainManager
-  extends ManagerWithProvidersBase<BlockchainProviderType, IBlockchainClientProvider>
+  extends ManagerWithFallbackProvidersBase<BlockchainProviderType, IBlockchainClientProvider>
   implements IBlockchainManager
 {
   /** CONSTRUCTOR */

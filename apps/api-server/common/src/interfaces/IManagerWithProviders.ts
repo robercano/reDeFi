@@ -6,7 +6,7 @@ import { IManagerProvider } from './IManagerProvider'
  * appropriate provider for a swap
  *
  * The manager interface is quite empty because the methods that are useful are in the
- * base implementation ManagerWithProvidersBase
+ * base implementation ManagerWithFallbackProvidersBase
  */
 // eslint-disable @typescript-eslint/no-empty-object-type
 export interface IManagerWithProviders<
