@@ -77,9 +77,7 @@ export class DatabaseTokensProvider
   getTokenByAddress: ITokensProvider['getTokenByAddress'] = async (params) => {
     const { chainInfo, address } = params
 
-    const tableName = this._configProvider.getConfigurationItem<string>({
-      name: 'TOKENS_TABLE_NAME',
-    })
+    const tableName = this._configProvider.getConfigurationItem({ name: 'TOKENS_TABLE_NAME' })
 
     const response = await docClient.send(
       new GetCommand({

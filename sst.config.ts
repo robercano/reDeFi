@@ -81,7 +81,7 @@ export default $config({
         handler: 'apps/jobs/src/fetchTokens.handler',
         runtime: 'nodejs22.x',
         timeout: '5 minutes',
-        link: [tokensTable],
+        link: [tokensTable, sdkBucket],
       },
     })
 

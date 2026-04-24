@@ -11,10 +11,11 @@
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.556.0",
+    "@aws-sdk/client-s3": "^3.732.0",
     "@aws-sdk/lib-dynamodb": "^3.556.0"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*"
   }
 }

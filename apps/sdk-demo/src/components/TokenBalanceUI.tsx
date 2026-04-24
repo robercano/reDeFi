@@ -25,7 +25,6 @@ export function TokenBalanceUI({ token, balance, fiatValue }: TokenBalanceUIProp
               alt={token.symbol}
               width={40}
               height={40}
-              unoptimized
               className="w-full h-full object-cover" 
             />
           ) : (

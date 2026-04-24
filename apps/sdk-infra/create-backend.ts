@@ -43,6 +43,19 @@ export const createBackend = async ({
       ...environmentVariables,
       TOKENS_TABLE_NAME: tokensTable.name,
     },
+    permissions: [
+      {
+        actions: ['xray:PutTraceSegments', 'xray:PutTelemetryRecords'],
+        resources: ['*'],
+      },
+    ],
+    transform: {
+      function: {
+        tracingConfig: {
+          mode: production ? 'PassThrough' : 'Active',
+        },
+      },
+    },
     logging: {
       format: 'json',
       retention: production ? '1 month' : '1 day',

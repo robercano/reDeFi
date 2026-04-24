@@ -1,3 +1,3 @@
 export { TokensManager } from './implementation/TokensManager'
-export { StaticTokensProvider } from './implementation/static/StaticTokensProvider'
+export { DatabaseTokensProvider } from './implementation/database/DatabaseTokensProvider'
 export { TokensManagerFactory } from './implementation/TokensManagerFactory'
