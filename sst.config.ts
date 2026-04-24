@@ -64,6 +64,27 @@ export default $config({
       }
     })
 
+    const tokensTable = new sst.aws.Dynamo('TokensTable', {
+      fields: {
+        id: 'string', // format: chainId#address
+        symbol: 'string',
+      },
+      primaryIndex: { hashKey: 'id' },
+      globalIndexes: {
+        symbolIndex: { hashKey: 'symbol' },
+      },
+    })
+
+    new sst.aws.Cron('FetchTokensCron', {
+      schedule: 'rate(1 day)',
+      job: {
+        handler: 'apps/jobs/src/fetchTokens.handler',
+        runtime: 'nodejs22.x',
+        timeout: '5 minutes',
+        link: [tokensTable],
+      },
+    })
+
     const backendUrls: $util.Output<string>[] = []
     
     for (const version of deployedVersions) {
@@ -73,6 +94,7 @@ export default $config({
           production,
           sdkGateway,
           authorizerId: apiKeyAuthorizer.id,
+          tokensTable,
         })
         backendUrls.push(result.url)
       } catch (error) {

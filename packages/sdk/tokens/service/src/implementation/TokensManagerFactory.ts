@@ -4,6 +4,7 @@ import type { IContractsProvider } from '@thesolidchain/contracts-provider-commo
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 import { TokensManager } from './TokensManager'
 import { StaticTokensProvider } from './static/StaticTokensProvider'
+import { DatabaseTokensProvider } from './database/DatabaseTokensProvider'
 
 /**
  * @name TokensManagerFactory
@@ -58,6 +59,13 @@ export class TokensManagerFactory {
       contractsProvider: contractsProvider,
     })
 
-    this.providers = [staticProvider]
+    // Database provider
+    const databaseProvider = new DatabaseTokensProvider({
+      configProvider: configProvider,
+      blockchainClientProvider: blockchainClientProvider,
+      contractsProvider: contractsProvider,
+    })
+
+    this.providers = [databaseProvider, staticProvider]
   }
 }

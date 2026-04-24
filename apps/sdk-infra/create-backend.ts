@@ -1,13 +1,17 @@
+/// <reference path="../../.sst/platform/config.d.ts" />
+
 export const createBackend = async ({
   production,
   deployedVersion,
   sdkGateway,
   authorizerId,
+  tokensTable,
 }: {
   production: boolean
   deployedVersion: string
   sdkGateway: sst.aws.ApiGatewayV2
   authorizerId: any
+  tokensTable: sst.aws.Dynamo
 }) => {
   // check with regexp if version is in format X.Y.Z
   if (!/^\d+\.\d+\.\d+$/.test(deployedVersion)) {
@@ -35,14 +39,15 @@ export const createBackend = async ({
     handler: 'apps/api-router/src/index.handler',
     runtime: 'nodejs22.x',
     timeout: '30 seconds',
-    environment: environmentVariables,
+    environment: {
+      ...environmentVariables,
+      TOKENS_TABLE_NAME: tokensTable.name,
+    },
     logging: {
       format: 'json',
       retention: production ? '1 month' : '1 day',
     },
-    concurrency: {
-      provisioned: production ? 10 : undefined,
-    },
+    link: [tokensTable],
   })
 
   // Create a separate Lambda for OPTIONS

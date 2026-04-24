@@ -30,7 +30,7 @@ export class MockTokensProvider
     return [1]
   }
 
-  getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): IToken {
+  async getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): Promise<IToken> {
     return Token.createFrom({
       name: 'MockToken',
       symbol: params.symbol,
@@ -43,7 +43,7 @@ export class MockTokensProvider
     })
   }
 
-  getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): IToken {
+  async getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IToken> {
     return Token.createFrom({
       name: 'MockToken',
       symbol: 'MOCK',
@@ -53,7 +53,7 @@ export class MockTokensProvider
     })
   }
 
-  getTokenByName(params: { chainInfo: IChainInfo; name: string }): IToken {
+  async getTokenByName(params: { chainInfo: IChainInfo; name: string }): Promise<IToken> {
     return Token.createFrom({
       name: params.name,
       symbol: 'MOCK',
@@ -72,7 +72,7 @@ export class MockTokensProvider
     walletAddress: IAddress
   }) {
     return TokenAmount.createFrom({
-      token: this.getTokenBySymbol({ chainInfo: params.chainInfo, symbol: params.symbol }),
+      token: await this.getTokenBySymbol({ chainInfo: params.chainInfo, symbol: params.symbol }),
       amount: '1000000000000000000',
     })
   }
@@ -83,7 +83,7 @@ export class MockTokensProvider
     walletAddress: IAddress
   }) {
     return TokenAmount.createFrom({
-      token: this.getTokenByAddress({ chainInfo: params.chainInfo, address: params.address }),
+      token: await this.getTokenByAddress({ chainInfo: params.chainInfo, address: params.address }),
       amount: '1000000000000000000',
     })
   }

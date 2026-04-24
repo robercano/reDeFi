@@ -20,6 +20,8 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.556.0",
+    "@aws-sdk/lib-dynamodb": "^3.556.0",
     "@thesolidchain/api-server-common": "workspace:*",
     "@thesolidchain/blockchain-client-common": "workspace:*",
     "@thesolidchain/common": "workspace:*",
@@ -30,8 +32,8 @@
     "viem": "2.43.5"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-jest": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*"
   }
 }

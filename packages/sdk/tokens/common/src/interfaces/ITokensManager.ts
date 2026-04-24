@@ -18,7 +18,7 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
    *
    * @returns The token with the given symbol
    */
-  getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): IToken
+  getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): Promise<IToken>
 
   /**
    * @method getTokenByAddress
@@ -29,7 +29,7 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
    *
    * @returns The token with the given address
    */
-  getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): IToken
+  getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IToken>
 
   /**
    * @method getTokenByName
@@ -40,7 +40,7 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
    *
    * @returns The token with the given name
    */
-  getTokenByName(params: { chainInfo: IChainInfo; name: string }): IToken
+  getTokenByName(params: { chainInfo: IChainInfo; name: string }): Promise<IToken>
 
   /**
    * @method getTokenBalanceBySymbol

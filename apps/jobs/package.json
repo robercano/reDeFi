@@ -1,0 +1,20 @@
+{
+  "name": "@thesolidchain/jobs",
+  "version": "0.0.1",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.556.0",
+    "@aws-sdk/lib-dynamodb": "^3.556.0"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  }
+}

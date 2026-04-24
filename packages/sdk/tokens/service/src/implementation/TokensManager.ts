@@ -18,50 +18,111 @@ export class TokensManager
   /** PUBLIC METHODS */
 
   /** @see ITokensManager.getTokenBySymbol */
-  getTokenBySymbol(
+  async getTokenBySymbol(
     params: Parameters<ITokensManager['getTokenBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBySymbol']> {
-    const provider = this._getBestProvider({ chainInfo: params.chainInfo })
-    return provider.getTokenBySymbol(params)
+    const providers = this._getProvidersForChain(params.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenBySymbol(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token by symbol: ${params.symbol}`)
   }
 
   /** @see ITokensManager.getTokenByAddress */
-  getTokenByAddress(
+  async getTokenByAddress(
     params: Parameters<ITokensManager['getTokenByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenByAddress']> {
-    const provider = this._getBestProvider({ chainInfo: params.chainInfo })
-    return provider.getTokenByAddress(params)
+    const providers = this._getProvidersForChain(params.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenByAddress(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token by address: ${params.address.value}`)
   }
 
   /** @see ITokensManager.getTokenByName */
-  getTokenByName(
+  async getTokenByName(
     params: Parameters<ITokensManager['getTokenByName']>[0],
   ): ReturnType<ITokensManager['getTokenByName']> {
-    const provider = this._getBestProvider({ chainInfo: params.chainInfo })
-    return provider.getTokenByName(params)
+    const providers = this._getProvidersForChain(params.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenByName(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token by name: ${params.name}`)
   }
 
-  /** @see ITokensManager.getTokenBalanceBySymbol */
   async getTokenBalanceBySymbol(
     params: Parameters<ITokensManager['getTokenBalanceBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceBySymbol']> {
-    const provider = this._getBestProvider({ chainInfo: params.chainInfo })
-    return provider.getTokenBalanceBySymbol(params)
+    const providers = this._getProvidersForChain(params.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenBalanceBySymbol(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token balance by symbol: ${params.symbol}`)
   }
 
-  /** @see ITokensManager.getTokenBalanceByAddress */
   async getTokenBalanceByAddress(
     params: Parameters<ITokensManager['getTokenBalanceByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceByAddress']> {
-    const provider = this._getBestProvider({ chainInfo: params.chainInfo })
-    return provider.getTokenBalanceByAddress(params)
+    const providers = this._getProvidersForChain(params.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenBalanceByAddress(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token balance by address: ${params.address.value}`)
   }
 
   /** @see ITokensManager.getTokenTotalSupply */
   async getTokenTotalSupply(
     params: Parameters<ITokensManager['getTokenTotalSupply']>[0],
   ): ReturnType<ITokensManager['getTokenTotalSupply']> {
-    const provider = this._getBestProvider({ chainInfo: params.token.chainInfo })
-    return provider.getTokenTotalSupply(params)
+    const providers = this._getProvidersForChain(params.token.chainInfo)
+    let lastError: unknown
+
+    for (const provider of providers) {
+      try {
+        return await provider.getTokenTotalSupply(params)
+      } catch (error) {
+        lastError = error
+      }
+    }
+    throw lastError || new Error(`Failed to get token total supply for: ${params.token.symbol}`)
+  }
+
+  private _getProvidersForChain(chainInfo: Parameters<ITokensManager['getTokenBySymbol']>[0]['chainInfo']) {
+    // @ts-ignore: Accessing protected property from base class
+    const providers = this._providersByChainId.get(chainInfo.chainId) || []
+    if (providers.length === 0) {
+      throw new Error(`No provider found for chainId: ${chainInfo.chainId}`)
+    }
+    return providers
   }
 }

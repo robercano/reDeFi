@@ -24,6 +24,7 @@ export class Token implements IToken {
   readonly chainInfo: IChainInfo
   readonly address: IAddress
   readonly decimals: number
+  readonly logoURI?: string | null
 
   /** FACTORY */
   static createFrom(params: TokenParameters): Token {
@@ -37,6 +38,7 @@ export class Token implements IToken {
     this.symbol = params.symbol
     this.name = params.name
     this.decimals = params.decimals
+    this.logoURI = params.logoURI
   }
 
   /** METHODS */

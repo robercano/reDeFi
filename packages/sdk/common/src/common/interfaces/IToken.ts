@@ -25,6 +25,8 @@ export interface IToken extends ITokenData, IPrintable {
   readonly name: string
   /** Number of decimals for the token */
   readonly decimals: number
+  /** URI of the token logo */
+  readonly logoURI?: string | null
 
   /**
    * @name equals
@@ -46,6 +48,7 @@ export const TokenDataSchema = z.object({
   symbol: z.string(),
   name: z.string(),
   decimals: z.number(),
+  logoURI: z.string().nullable().optional(),
 })
 
 /**
