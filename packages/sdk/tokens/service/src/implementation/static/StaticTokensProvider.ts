@@ -67,7 +67,7 @@ export class StaticTokensProvider
   }
 
   /** @see ITokensProvider.getTokenBySymbol */
-  getTokenBySymbol: ITokensProvider['getTokenBySymbol'] = (params) => {
+  getTokenBySymbol: ITokensProvider['getTokenBySymbol'] = async (params) => {
     const { chainInfo } = params
 
     const tokenMap = this._getTokenMap(params.chainInfo)
@@ -84,7 +84,7 @@ export class StaticTokensProvider
   }
 
   /** @see ITokensProvider.getTokenByAddress */
-  getTokenByAddress: ITokensProvider['getTokenByAddress'] = (params) => {
+  getTokenByAddress: ITokensProvider['getTokenByAddress'] = async (params) => {
     const { chainInfo } = params
 
     const tokenMap = this._getTokenMap(params.chainInfo)
@@ -103,7 +103,7 @@ export class StaticTokensProvider
   }
 
   /** @see ITokensProvider.getTokenByName */
-  getTokenByName: ITokensProvider['getTokenByName'] = (params) => {
+  getTokenByName: ITokensProvider['getTokenByName'] = async (params) => {
     const { chainInfo } = params
 
     console.log('Token name:', params.name)
@@ -123,7 +123,7 @@ export class StaticTokensProvider
 
   /** @see ITokensProvider.getTokenBalanceBySymbol */
   getTokenBalanceBySymbol: ITokensProvider['getTokenBalanceBySymbol'] = async (params) => {
-    const token = this.getTokenBySymbol({ chainInfo: params.chainInfo, symbol: params.symbol })
+    const token = await this.getTokenBySymbol({ chainInfo: params.chainInfo, symbol: params.symbol })
 
     const balance = await this._getTokenBalance({
       chainInfo: params.chainInfo,
@@ -136,7 +136,7 @@ export class StaticTokensProvider
 
   /** @see ITokensProvider.getTokenBalanceByAddress */
   getTokenBalanceByAddress: ITokensProvider['getTokenBalanceByAddress'] = async (params) => {
-    const token = this.getTokenByAddress({ chainInfo: params.chainInfo, address: params.address })
+    const token = await this.getTokenByAddress({ chainInfo: params.chainInfo, address: params.address })
 
     const balance = await this._getTokenBalance({
       chainInfo: params.chainInfo,
@@ -242,6 +242,7 @@ export class StaticTokensProvider
       decimals: tokenData.decimals,
       name: tokenData.name,
       symbol: tokenData.symbol,
+      logoURI: tokenData.logoURI,
     })
   }
 }

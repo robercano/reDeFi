@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount } from 'wagmi'
 import { IUserPortfolio, formatTokenAmountHumanReadable } from '@thesolidchain/sdk-common'
+import { TokenBalanceUI } from './TokenBalanceUI'
 
 export function PortfolioViewer() {
   const [portfolio, setPortfolio] = useState<IUserPortfolio | null>(null)
@@ -26,6 +27,7 @@ export function PortfolioViewer() {
       }
       
       const userPortfolio = await sdk.getUserPortfolio({ user })
+      console.log('[PortfolioViewer] Fetched user portfolio:', userPortfolio)
       setPortfolio(userPortfolio)
     } catch (err) {
       console.error(err)
@@ -95,32 +97,12 @@ export function PortfolioViewer() {
               {portfolio.walletHoldings.map((holding, idx) => {
                 const supplyStr = formatTokenAmountHumanReadable(holding.amount)
                 return (
-                  <div key={idx} className="bg-neutral-900/80 p-5 rounded-xl border border-neutral-800 transition-colors hover:border-[var(--neon-cyan)]/50 relative overflow-hidden">
-                    <div className="flex justify-between items-start mb-4">
-                      <div>
-                        <h4 className="font-bold text-xl text-white">{holding.amount.token.symbol}</h4>
-                        <p className="text-xs text-neutral-500 font-mono mt-1 break-all pr-4">
-                           {holding.amount.token.address?.value}
-                        </p>
-                      </div>
-                      <div className="w-10 h-10 rounded-full flex-shrink-0 bg-neutral-800 border border-neutral-700 flex items-center justify-center text-xs font-bold text-[var(--neon-cyan)]">
-                        {holding.amount.token.symbol?.slice(0, 3)}
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-1">
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-neutral-500">Balance:</span>
-                        <span className="text-white font-mono">{supplyStr}</span>
-                      </div>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-neutral-500">Fiat Value:</span>
-                        <span className="text-[var(--neon-cyan)] font-mono font-bold">
-                           {formatFiat(holding.fiatValue?.amount)}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                  <TokenBalanceUI
+                    key={idx}
+                    token={holding.amount.token}
+                    balance={supplyStr}
+                    fiatValue={formatFiat(holding.fiatValue?.amount)}
+                  />
                 )
               })}
             </div>

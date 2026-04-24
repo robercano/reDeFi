@@ -236,7 +236,7 @@ export class CowSwapProvider
 
     // Create token amount from sell amount
     const sellTokenAddress = Address.createFromEthereum({ value: order.sellToken })
-    const sellToken = this._tokensManager.getTokenByAddress({
+    const sellToken = await this._tokensManager.getTokenByAddress({
       chainInfo,
       address: sellTokenAddress,
     })

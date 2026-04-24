@@ -6,6 +6,8 @@ import { z } from 'zod'
 export enum TokensProviderType {
   /** Pre-built list of tokens */
   Static = 'Static',
+  /** Database backed list of tokens */
+  Database = 'Database',
 }
 
 /**
@@ -15,6 +17,7 @@ export const TokensProviderTypeSchema = z.nativeEnum(TokensProviderType)
 
 /**
  * Type guard for TokensProviderType
+ *
  * @param maybeTokensProviderType Object to be checked
  * @returns true if the object is a TokensProviderType
  */
