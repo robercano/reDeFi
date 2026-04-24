@@ -20,14 +20,16 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.556.0",
+    "@aws-sdk/lib-dynamodb": "^3.556.0",
     "@thesolidchain/common": "workspace:*",
-    "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
-    "@thesolidchain/configuration-provider-mock": "workspace:*"
+    "@thesolidchain/configuration-provider-mock": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-jest": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*"
   }
 }
