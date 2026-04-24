@@ -1,4 +1,4 @@
-import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
+import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
 import { TokensProviderType } from '@thesolidchain/sdk-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 
@@ -10,8 +10,11 @@ export class TokensManager
   extends ManagerWithFallbackProvidersBase<TokensProviderType, ITokensProvider>
   implements ITokensManager
 {
-  /** CONSTRUCTOR */
-  constructor(params: { providers: ITokensProvider[] }) {
+  constructor(params: {
+    providers: ITokensProvider[]
+    cacheService?: ICacheService
+    cacheTTLSeconds?: number
+  }) {
     super(params)
   }
 
@@ -21,7 +24,13 @@ export class TokensManager
   async getTokenBySymbol(
     params: Parameters<ITokensManager['getTokenBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBySymbol']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenBySymbol', [
+      params.chainInfo.chainId,
+      params.symbol,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBySymbol(params),
     })
@@ -31,7 +40,13 @@ export class TokensManager
   async getTokenByAddress(
     params: Parameters<ITokensManager['getTokenByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenByAddress']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenByAddress', [
+      params.chainInfo.chainId,
+      params.address.value,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenByAddress(params),
     })
@@ -41,7 +56,13 @@ export class TokensManager
   async getTokenByName(
     params: Parameters<ITokensManager['getTokenByName']>[0],
   ): ReturnType<ITokensManager['getTokenByName']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenByName', [
+      params.chainInfo.chainId,
+      params.name,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenByName(params),
     })
@@ -50,7 +71,14 @@ export class TokensManager
   async getTokenBalanceBySymbol(
     params: Parameters<ITokensManager['getTokenBalanceBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceBySymbol']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenBalanceBySymbol', [
+      params.chainInfo.chainId,
+      params.walletAddress.value,
+      params.symbol,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBalanceBySymbol(params),
     })
@@ -59,7 +87,14 @@ export class TokensManager
   async getTokenBalanceByAddress(
     params: Parameters<ITokensManager['getTokenBalanceByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceByAddress']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenBalanceByAddress', [
+      params.chainInfo.chainId,
+      params.walletAddress.value,
+      params.address.value,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBalanceByAddress(params),
     })
@@ -69,7 +104,13 @@ export class TokensManager
   async getTokenTotalSupply(
     params: Parameters<ITokensManager['getTokenTotalSupply']>[0],
   ): ReturnType<ITokensManager['getTokenTotalSupply']> {
-    return this._executeWithFallback({
+    const cacheKey = this._buildCacheKey('getTokenTotalSupply', [
+      params.token.chainInfo.chainId,
+      params.token.address.value,
+    ])
+
+    return this._executeWithCacheAndFallback({
+      cacheKey,
       chainInfo: params.token.chainInfo,
       action: async (provider) => provider.getTokenTotalSupply(params),
     })

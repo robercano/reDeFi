@@ -1,6 +1,7 @@
 import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import type { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import type { IContractsProvider } from '@thesolidchain/contracts-provider-common'
+import { ICacheService } from '@thesolidchain/api-server-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 import { TokensManager } from './TokensManager'
 import { DatabaseTokensProvider } from './database/DatabaseTokensProvider'
@@ -26,10 +27,16 @@ export class TokensManagerFactory {
     configProvider: IConfigurationProvider
     blockchainClientProvider: IBlockchainManager
     contractsProvider: IContractsProvider
+    cacheService?: ICacheService
+    cacheTTLSeconds?: number
   }): ITokensManager {
     this.initialize(params)
 
-    return new TokensManager({ providers: this.providers })
+    return new TokensManager({
+      providers: this.providers,
+      cacheService: params.cacheService,
+      cacheTTLSeconds: params.cacheTTLSeconds,
+    })
   }
 
   /** PRIVATE */
