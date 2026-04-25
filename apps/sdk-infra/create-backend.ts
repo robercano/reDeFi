@@ -6,12 +6,13 @@ export const createBackend = async ({
   sdkGateway,
   authorizerId,
   tokensTable,
+  cacheTable,
 }: {
   production: boolean
   deployedVersion: string
-  sdkGateway: sst.aws.ApiGatewayV2
   authorizerId: any
   tokensTable: sst.aws.Dynamo
+  cacheTable: sst.aws.Dynamo
 }) => {
   // check with regexp if version is in format X.Y.Z
   if (!/^\d+\.\d+\.\d+$/.test(deployedVersion)) {
@@ -42,6 +43,7 @@ export const createBackend = async ({
     environment: {
       ...environmentVariables,
       TOKENS_TABLE_NAME: tokensTable.name,
+      CACHE_TABLE_NAME: cacheTable.name,
     },
     permissions: [
       {
@@ -60,7 +62,7 @@ export const createBackend = async ({
       format: 'json',
       retention: production ? '1 month' : '1 day',
     },
-    link: [tokensTable],
+    link: [tokensTable, cacheTable],
   })
 
   // Create a separate Lambda for OPTIONS

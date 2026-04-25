@@ -1,4 +1,5 @@
-import { LendingPositionId, SerializationService } from '@thesolidchain/sdk-common'
+import { LendingPositionId, SerializationService, IAddress } from '@thesolidchain/sdk-common'
+import { IAaveV3LendingPoolId } from '../interfaces/IAaveV3LendingPoolId'
 import {
   IAaveV3LendingPositionId,
   IAaveV3LendingPositionIdData,
@@ -18,6 +19,10 @@ export class AaveV3LendingPositionId extends LendingPositionId implements IAaveV
   /** SIGNATURE */
   readonly [__signature__] = __signature__
 
+  /** ATTRIBUTES */
+  readonly poolId: IAaveV3LendingPoolId
+  readonly walletAddress: IAddress
+
   /** FACTORY */
   static createFrom(params: AaveV3LendingPositionIdParameters): AaveV3LendingPositionId {
     return new AaveV3LendingPositionId(params)
@@ -26,6 +31,8 @@ export class AaveV3LendingPositionId extends LendingPositionId implements IAaveV
   /** SEALED CONSTRUCTOR */
   private constructor(params: AaveV3LendingPositionIdParameters) {
     super(params)
+    this.poolId = params.poolId
+    this.walletAddress = params.walletAddress
   }
 }
 

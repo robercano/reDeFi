@@ -75,6 +75,15 @@ export default $config({
       },
     })
 
+    const cacheTable = new sst.aws.Dynamo('CacheTable', {
+      fields: {
+        id: 'string',
+        ttl: 'number',
+      },
+      primaryIndex: { hashKey: 'id' },
+      ttl: 'ttl',
+    })
+
     new sst.aws.Cron('FetchTokensCron', {
       schedule: 'rate(1 day)',
       job: {
@@ -95,6 +104,7 @@ export default $config({
           sdkGateway,
           authorizerId: apiKeyAuthorizer.id,
           tokensTable,
+          cacheTable,
         })
         backendUrls.push(result.url)
       } catch (error) {

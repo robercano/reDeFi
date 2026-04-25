@@ -1,5 +1,6 @@
-import { ILendingPositionId, LendingPositionIdDataSchema } from '@thesolidchain/sdk-common'
+import { ILendingPositionId, LendingPositionIdDataSchema, IAddress, isAddress } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
+import { IAaveV3LendingPoolId, isAaveV3LendingPoolId } from './IAaveV3LendingPoolId'
 
 /**
  * Unique signature to provide branded types to the interface
@@ -16,6 +17,10 @@ export const __signature__: unique symbol = Symbol()
 export interface IAaveV3LendingPositionId extends ILendingPositionId, IAaveV3LendingPositionIdData {
   /** Signature used to differentiate it from similar interfaces */
   readonly [__signature__]: symbol
+  /** The pool ID associated with this position */
+  readonly poolId: IAaveV3LendingPoolId
+  /** The wallet address of the position owner */
+  readonly walletAddress: IAddress
 }
 
 /**
@@ -23,6 +28,8 @@ export interface IAaveV3LendingPositionId extends ILendingPositionId, IAaveV3Len
  */
 export const AaveV3PositionIdDataSchema = z.object({
   ...LendingPositionIdDataSchema.shape,
+  poolId: z.custom<IAaveV3LendingPoolId>((val) => isAaveV3LendingPoolId(val)),
+  walletAddress: z.custom<IAddress>((val) => isAddress(val)),
 })
 
 /**
