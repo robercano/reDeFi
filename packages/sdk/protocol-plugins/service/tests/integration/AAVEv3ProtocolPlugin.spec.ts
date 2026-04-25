@@ -4,6 +4,8 @@ import { AaveV3ProtocolPlugin } from '../../src/plugins/aave-v3/implementation/A
 import { getAaveV3PoolIdMock } from '../mocks/AAVEv3PoolIdMock'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
 import { IAaveV3LendingPoolId } from '../../src/plugins/aave-v3/interfaces/IAaveV3LendingPoolId'
+import { AaveV3LendingPositionId } from '../../src/plugins/aave-v3/implementation/AaveV3LendingPositionId'
+import { LendingPositionType } from '@thesolidchain/sdk-common'
 import { ChainFamilyMap } from '@thesolidchain/sdk-common'
 
 describe('AAVEv3 Protocol Plugin (Integration)', () => {
@@ -110,5 +112,29 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
 
     const originationFee = aaveV3PoolDebtInfo!.originationFee
     expect(originationFee).toBeInstanceOf(Percentage)
+  })
+
+  it('correctly retrieves user lending position data from blockchain data', async () => {
+    // using a known pool (aaveV3PoolIdMock) and a mock address that probably has 0 balance
+    const positionId = AaveV3LendingPositionId.createFrom({
+      id: 'mockPositionId',
+      poolId: validAaveV3PoolId,
+      walletAddress: { value: '0x1234567890123456789012345678901234567890' } as any, // Mocks address
+    })
+
+    const position = await aaveV3ProtocolPlugin.getLendingPosition(positionId)
+
+    expect(position).toBeDefined()
+    expect(position.id).toBe(positionId)
+    expect(position.subtype).toBe(LendingPositionType.Borrow)
+    
+    expect(position.collateralAmount).toBeInstanceOf(TokenAmount)
+    expect(position.collateralAmount.token.address.value).toBe(validAaveV3PoolId.collateralToken.address.value)
+    // Balance might be zero for this random address
+    expect(Number(position.collateralAmount.amount)).toBeGreaterThanOrEqual(0)
+
+    expect(position.debtAmount).toBeInstanceOf(TokenAmount)
+    expect(position.debtAmount.token.address.value).toBe(validAaveV3PoolId.debtToken.address.value)
+    expect(Number(position.debtAmount.amount)).toBeGreaterThanOrEqual(0)
   })
 })

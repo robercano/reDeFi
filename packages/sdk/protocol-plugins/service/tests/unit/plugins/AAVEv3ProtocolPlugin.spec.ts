@@ -1,5 +1,5 @@
 import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
-import { ChainFamilyMap, ChainInfo, ProtocolName } from '@thesolidchain/sdk-common'
+import { ChainFamilyMap, ChainInfo, ProtocolName, Address } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { AaveV3LendingPositionId } from '../../../src'
 import { AaveV3ProtocolPlugin } from '../../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
@@ -116,6 +116,8 @@ describe('AAVEv3 Protocol Plugin', () => {
   it('should throw a "Not implemented" error when calling getPosition', async () => {
     const positionId = AaveV3LendingPositionId.createFrom({
       id: 'mockPositionId',
+      poolId: aaveV3PoolIdMock,
+      walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
     })
     await expect(aaveV3ProtocolPlugin.getLendingPosition(positionId)).rejects.toThrow(
       'Not implemented',

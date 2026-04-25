@@ -15,6 +15,8 @@ import {
   IPositionsManager,
   TransactionInfo,
   IUser,
+  TokenAmount,
+  LendingPositionType,
 } from '@thesolidchain/sdk-common'
 import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AAVEv3LikeBaseProtocolPlugin'
 import { ContractInfo } from '../../common/types/ContractInfo'
@@ -28,11 +30,13 @@ import {
 } from '../interfaces/IAaveV3LendingPoolId'
 import {
   IAaveV3LendingPositionIdData,
+  IAaveV3LendingPositionId,
   isAaveV3LendingPositionId,
 } from '../interfaces/IAaveV3LendingPositionId'
 import { AaveV3LendingPool } from './AaveV3LendingPool'
 import { AaveV3LendingPoolInfo } from './AaveV3LendingPoolInfo'
 import { aaveV3EmodeCategoryMap } from './EmodeCategoryMap'
+import { AaveV3LendingPosition } from './AaveV3LendingPosition'
 
 /**
  * @class AaveV3ProtocolPlugin
@@ -135,20 +139,79 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
 
   /** POSITIONS */
 
-  /** @see BaseProtocolPlugin.getPosition */
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
-    throw new Error(`Not implemented ${positionId}`)
+    this._validateLendingPositionId(positionId)
+
+    const { poolId, walletAddress } = positionId
+    const chainInfo = poolId.protocol.chainInfo
+
+    const [dataProviderContract, aavePoolContract] = await Promise.all([
+      this._getContractDef({ chainInfo, contractName: 'PoolDataProvider' }),
+      this._getContractDef({ chainInfo, contractName: 'AavePool' }),
+    ])
+
+    const [collateralReserveData, debtReserveData, userEMode] = await this.context.provider.multicall({
+      contracts: [
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getUserReserveData',
+          args: [poolId.collateralToken.address.value, walletAddress.value],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getUserReserveData',
+          args: [poolId.debtToken.address.value, walletAddress.value],
+        },
+        {
+          abi: aavePoolContract.abi,
+          address: aavePoolContract.address,
+          functionName: 'getUserEMode',
+          args: [walletAddress.value],
+        },
+      ],
+      allowFailure: false,
+    })
+
+    // viem returns an array for multiple return values
+    // currentATokenBalance is index 0
+    const currentATokenBalance = (collateralReserveData as unknown[])[0] as bigint
+    // currentVariableDebt is index 2
+    const currentVariableDebt = (debtReserveData as unknown[])[2] as bigint
+
+    const expectedEmode = aaveV3EmodeCategoryMap[poolId.emodeType]
+    if (expectedEmode !== Number(userEMode)) {
+      throw new Error(`User eMode ${userEMode} does not match pool eMode ${expectedEmode}`)
+    }
+
+    const pool = await this._getLendingPoolImpl(poolId)
+
+    return AaveV3LendingPosition.createFrom({
+      id: positionId as IAaveV3LendingPositionId,
+      pool,
+      subtype: LendingPositionType.Borrow,
+      collateralAmount: TokenAmount.createFromBaseUnit({
+        token: poolId.collateralToken,
+        amount: currentATokenBalance.toString(),
+      }),
+      debtAmount: TokenAmount.createFromBaseUnit({
+        token: poolId.debtToken,
+        amount: currentVariableDebt.toString(),
+      }),
+    })
   }
 
   /** IMPORT TRANSACTIONS */
 
   /** @see BaseProtocolPlugin.getImportPositionTransaction */
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getImportPositionTransaction(params: {
     user: IUser
     externalPosition: IExternalLendingPosition
     positionsManager: IPositionsManager
   }): Promise<Maybe<TransactionInfo>> {
-    throw new Error(`Not implemented ${params}`)
+    return undefined
   }
 
   /** PRIVATE */
