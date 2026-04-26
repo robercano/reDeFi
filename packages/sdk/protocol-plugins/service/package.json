@@ -15,10 +15,10 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "jest tests/unit --coverage=true --silent=false",
-    "testw": "jest tests/unit --watch",
-    "test:integration": "jest tests/integration --coverage=true --silent=false",
-    "testw:integration": "jest tests/integration --watch",
+    "test": "vitest run tests/unit",
+    "testw": "vitest tests/unit",
+    "test:integration": "vitest run tests/integration",
+    "testw:integration": "vitest tests/integration",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "tsc -b --preserveWatchOutput -v tsconfig.build.json",
@@ -40,8 +40,8 @@
     "zod": "3.25.61"
   },
   "devDependencies": {
+    "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-jest": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "vitest": "3"
   }
 }
