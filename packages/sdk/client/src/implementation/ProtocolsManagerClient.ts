@@ -9,12 +9,8 @@ import { RPCMainClientType } from '../rpc/SDKMainClient'
  * @see IProtocolsManagerClient
  */
 export class ProtocolsManagerClient extends IRPCClient implements IProtocolsManagerClient {
-  private readonly _chainInfo: ChainInfo
-
-  public constructor(params: { rpcClient: RPCMainClientType; chainInfo: ChainInfo }) {
+  public constructor(params: { rpcClient: RPCMainClientType }) {
     super(params)
-
-    this._chainInfo = params.chainInfo
   }
 
   getLendingPool(params: { poolId: ILendingPoolIdData }): Promise<Maybe<ILendingPool>> {

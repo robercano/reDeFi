@@ -12,6 +12,7 @@
     "@rainbow-me/rainbowkit": "^2.2.10",
     "@tanstack/react-query": "^5.99.0",
     "@thesolidchain/redefi-ui": "workspace:*",
+    "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-client": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/sdk-react": "workspace:*",

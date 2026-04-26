@@ -6,6 +6,10 @@
 
 declare module "sst" {
   export interface Resource {
+    "CacheTable": {
+      "name": string
+      "type": "sst.aws.Dynamo"
+    }
     "SdkAuthorizer": {
       "name": string
       "type": "sst.aws.Function"

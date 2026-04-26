@@ -33,6 +33,7 @@
     "@cowprotocol/cow-sdk": "^6.3.2",
     "@ethersproject/abstract-signer": "^5.8.0",
     "@thesolidchain/api-server": "workspace:*",
+    "@thesolidchain/order-planner-common": "workspace:*",
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@trpc/client": "11.8.0",

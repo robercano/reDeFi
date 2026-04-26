@@ -313,6 +313,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^5.99.0
         version: 5.99.0(react@19.2.4)
+      '@thesolidchain/protocol-plugins':
+        specifier: workspace:*
+        version: link:../../packages/sdk/protocol-plugins/service
       '@thesolidchain/redefi-ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -861,6 +864,9 @@ importers:
       '@thesolidchain/api-server':
         specifier: workspace:*
         version: link:../../../apps/api-server/service
+      '@thesolidchain/order-planner-common':
+        specifier: workspace:*
+        version: link:../order-planner/common
       '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins/service
@@ -1512,6 +1518,9 @@ importers:
 
   packages/sdk/react:
     dependencies:
+      '@thesolidchain/order-planner-common':
+        specifier: workspace:*
+        version: link:../order-planner/common
       '@thesolidchain/protocol-plugins':
         specifier: workspace:*
         version: link:../protocol-plugins/service

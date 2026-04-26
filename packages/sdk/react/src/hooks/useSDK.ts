@@ -12,6 +12,9 @@ import { getSwapQuoteHandler } from '../handlers/getSwapQuoteHandler'
 import { getTokenBySymbolHandler } from '../handlers/getTokenBySymbolHandler'
 import { getTokenTotalSupplyHandler } from '../handlers/getTokenTotalSupplyHandler'
 import { getUserPortfolioHandler } from '../handlers/getUserPortfolioHandler'
+import { getLendingPoolHandler } from '../handlers/getLendingPoolHandler'
+import { getLendingPoolInfoHandler } from '../handlers/getLendingPoolInfoHandler'
+import { buildOrderHandler } from '../handlers/buildOrderHandler'
 
 type UseSdk = {
   walletAddress?: string
@@ -60,6 +63,11 @@ export const useSDK = (params: UseSdk) => {
 
   const getUserPortfolio = useMemo(() => getUserPortfolioHandler(sdk), [sdk])
 
+  // PROTOCOLS & ORDERS
+  const getLendingPool = useMemo(() => getLendingPoolHandler(sdk), [sdk])
+  const getLendingPoolInfo = useMemo(() => getLendingPoolInfoHandler(sdk), [sdk])
+  const buildOrder = useMemo(() => buildOrderHandler(sdk), [sdk])
+
   const memo = useMemo(
     () => ({
       getCurrentUser,
@@ -73,6 +81,9 @@ export const useSDK = (params: UseSdk) => {
       getSpotPrice,
       getSpotPrices,
       getUserPortfolio,
+      getLendingPool,
+      getLendingPoolInfo,
+      buildOrder,
     }),
     [
       getCurrentUser,
@@ -86,6 +97,9 @@ export const useSDK = (params: UseSdk) => {
       getSpotPrice,
       getSpotPrices,
       getUserPortfolio,
+      getLendingPool,
+      getLendingPoolInfo,
+      buildOrder,
     ],
   )
 

@@ -78,7 +78,6 @@ export default $config({
     const cacheTable = new sst.aws.Dynamo('CacheTable', {
       fields: {
         id: 'string',
-        ttl: 'number',
       },
       primaryIndex: { hashKey: 'id' },
       ttl: 'ttl',
