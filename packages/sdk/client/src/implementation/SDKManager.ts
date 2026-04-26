@@ -3,6 +3,8 @@ import { RPCMainClientType } from '../rpc/SDKMainClient'
 import { ChainsManagerClient } from './ChainsManager'
 import { OracleManagerClient } from './OracleManagerClient'
 import { PortfolioManager } from './PortfolioManager'
+import { ProtocolsManagerClient } from './ProtocolsManagerClient'
+import { OrdersManagerClient } from './OrdersManagerClient'
 import { SimulationManager } from './simulations/SimulationManager'
 import { SwapManagerClient } from './SwapManagerClient'
 import { TokensManagerClient2 } from './TokensManagerClient2'
@@ -17,6 +19,8 @@ export class SDKManager implements ISDKManager {
   public readonly portfolio: PortfolioManager
   public readonly swaps: SwapManagerClient
   public readonly oracle: OracleManagerClient
+  public readonly protocols: ProtocolsManagerClient
+  public readonly orders: OrdersManagerClient
 
   public constructor(params: { rpcClient: RPCMainClientType }) {
     this.simulator = new SimulationManager(params)
@@ -26,5 +30,7 @@ export class SDKManager implements ISDKManager {
     this.portfolio = new PortfolioManager(params)
     this.swaps = new SwapManagerClient(params)
     this.oracle = new OracleManagerClient(params)
+    this.protocols = new ProtocolsManagerClient(params)
+    this.orders = new OrdersManagerClient(params)
   }
 }

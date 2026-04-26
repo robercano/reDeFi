@@ -8,6 +8,8 @@ import { PortfolioManager } from './PortfolioManager'
 import { SwapManagerClient } from './SwapManagerClient'
 import { TokensManagerClient2 } from './TokensManagerClient2'
 import { UsersManager } from './UsersManager'
+import { ProtocolsManagerClient } from './ProtocolsManagerClient'
+import { OrdersManagerClient } from './OrdersManagerClient'
 import { SimulationManager } from './simulations/SimulationManager'
 
 /** @see ISDKManager */
@@ -19,6 +21,8 @@ export class SDKManagerWithSigner implements ISDKManager {
   public readonly portfolio: PortfolioManager
   public readonly swaps: SwapManagerClient
   public readonly oracle: OracleManagerClient
+  public readonly protocols: ProtocolsManagerClient
+  public readonly orders: OrdersManagerClient
   public readonly intentSwaps: IntentSwapClient
 
   public constructor(params: { rpcClient: RPCMainClientType; signer: SDKSigner }) {
@@ -29,6 +33,8 @@ export class SDKManagerWithSigner implements ISDKManager {
     this.portfolio = new PortfolioManager(params)
     this.swaps = new SwapManagerClient(params)
     this.oracle = new OracleManagerClient(params)
+    this.protocols = new ProtocolsManagerClient(params)
+    this.orders = new OrdersManagerClient(params)
     this.intentSwaps = new IntentSwapClient({
       rpcClient: params.rpcClient,
       signer: params.signer,

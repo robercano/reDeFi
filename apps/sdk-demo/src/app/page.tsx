@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { TokenFetcher } from '../components/TokenFetcher'
 import { PortfolioViewer } from '../components/PortfolioViewer'
+import { YieldViewer } from '../components/YieldViewer'
 import { SwapViewer } from '../components/SwapViewer'
 
 // Tool registry representing the available SDK demonstrations
@@ -12,6 +13,12 @@ const SDK_TOOLS = [
     name: 'User Portfolio',
     description: 'Fetch the aggregated portfolio balances and estimated fiat valuations for the actively connected user.',
     component: PortfolioViewer,
+  },
+  {
+    id: 'yield-viewer',
+    name: 'Yield Positions',
+    description: 'Track and monitor your active yield-bearing positions across various protocols.',
+    component: YieldViewer,
   },
   {
     id: 'token-fetcher',

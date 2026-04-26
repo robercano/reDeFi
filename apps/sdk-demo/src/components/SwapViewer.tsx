@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken } from '@thesolidchain/sdk-common'
-import type { QuoteData } from '@thesolidchain/sdk-common/dist/swap/implementation/QuoteData'
+import { formatTokenAmountHumanReadable, IToken, QuoteData } from '@thesolidchain/sdk-common'
 
 export function SwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')

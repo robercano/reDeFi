@@ -5,6 +5,8 @@ import type { ISwapManagerClient } from './ISwapManagerClient'
 import type { ITokensManagerClient2 } from './ITokensManagerClient2'
 import type { IUsersManager } from './IUsersManager'
 import type { ISimulationManager } from './simulations/ISimulationManager'
+import type { IOrdersManagerClient } from './IOrdersManagerClient'
+import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
 
 /**
  * SDKManager is the main entry point for interacting with the SDK in the client side
@@ -26,4 +28,8 @@ export interface ISDKManager {
   readonly swaps: ISwapManagerClient
   /** Swap Manager for interacting with the swaps */
   readonly oracle: IOracleManagerClient
+  /** Protocols Manager for interacting with protocols */
+  readonly protocols: IProtocolsManagerClient
+  /** Orders Manager for building and handling execution orders */
+  readonly orders: IOrdersManagerClient
 }

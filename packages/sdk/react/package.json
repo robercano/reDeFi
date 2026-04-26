@@ -19,6 +19,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@thesolidchain/order-planner-common": "workspace:*",
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-client": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*"

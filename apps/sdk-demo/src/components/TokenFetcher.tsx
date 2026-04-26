@@ -108,8 +108,12 @@ export function TokenFetcher() {
 
           {/* Primary Header Card (Symbol and Address) */}
           <div className="flex items-center gap-4 mb-8">
-            <div className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-2xl border border-neutral-700 text-[var(--neon-orange)] shadow-inner">
-              {tokenData.symbol?.slice(0, 1) || '?'}
+            <div className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-2xl border border-neutral-700 text-[var(--neon-orange)] shadow-inner overflow-hidden">
+              {tokenData.logoURI ? (
+                <img src={tokenData.logoURI as string} alt={`${tokenData.symbol} logo`} className="w-full h-full object-cover" />
+              ) : (
+                tokenData.symbol?.slice(0, 1) || '?'
+              )}
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white tracking-wide">{tokenData.symbol}</h3>
@@ -123,7 +127,7 @@ export function TokenFetcher() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {Object.entries(tokenData).map(([key, value]) => {
               // Skip the fields already heavily featured in the header
-              if (key === 'symbol' || key === 'address') return null
+              if (key === 'symbol' || key === 'address' || key === 'logoURI') return null
 
               // Prettify camel case keys (e.g., chainInfo -> Chain Info)
               const formattedKey = key.replace(/([A-Z])/g, ' $1').trim()
