@@ -86,5 +86,9 @@ cdk.context.json
 /apps/earn-protocol/types/generated
 /apps/earn-protocol-landing-page/types/generated
 
+# playwright
+playwright-report/
+test-results/
+
 cmd.in
 cmd.out

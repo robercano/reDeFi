@@ -45,6 +45,7 @@ while true; do
             --dev /dev \
             --proc /proc \
             --bind "$(pwd)" "$(pwd)" \
+            --bind-try "$HOME/.local/share/pnpm" "$HOME/.local/share/pnpm" \
             --tmpfs /tmp \
             --unshare-pid \
             bash >> "$OUT_FILE" 2>&1
