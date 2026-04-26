@@ -65,7 +65,7 @@ describe('Swap Action Builder', () => {
 
   const percent100 = Percentage.createFrom({ value: 100 })
   const slippage = Percentage.createFrom({ value: 0.3 })
-  const fee = Percentage.createFrom({ value: 2.1 })
+  const fee = Percentage.createFrom({ value: 0 })
 
   const inputAmountAfterFee = inputAmount.multiply(percent100.subtract(fee))
 

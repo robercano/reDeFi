@@ -20,7 +20,7 @@ import {
 import { SparkPaybackWithdrawActionBuilder } from '../../../../src/'
 import { SetupBuilderReturnType, setupBuilderParams } from '../../../utils/SetupBuilderParams'
 
-describe.only('Spark Payback Withdraw Action Builder', () => {
+describe('Spark Payback Withdraw Action Builder', () => {
   let builderParams: SetupBuilderReturnType
 
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet
@@ -43,12 +43,12 @@ describe.only('Spark Payback Withdraw Action Builder', () => {
   })
 
   const paybackAmount = TokenAmount.createFrom({
-    token: WETH,
+    token: DAI,
     amount: '134.5',
   })
 
   const withdrawAmount = TokenAmount.createFrom({
-    token: DAI,
+    token: WETH,
     amount: '1000',
   })
 
@@ -74,8 +74,8 @@ describe.only('Spark Payback Withdraw Action Builder', () => {
     id: SparkLendingPositionId.createFrom({
       id: 'someposition',
     }),
-    debtAmount: withdrawAmount,
-    collateralAmount: paybackAmount,
+    debtAmount: paybackAmount,
+    collateralAmount: withdrawAmount,
     pool: pool,
   })
 
@@ -85,8 +85,8 @@ describe.only('Spark Payback Withdraw Action Builder', () => {
       id: 'someposition',
       vaultId: '123',
     }),
-    debtAmount: withdrawAmount,
-    collateralAmount: paybackAmount,
+    debtAmount: paybackAmount,
+    collateralAmount: withdrawAmount,
     pool: MakerLendingPool.createFrom({
       collateralToken: WETH,
       debtToken: DAI,
@@ -120,7 +120,7 @@ describe.only('Spark Payback Withdraw Action Builder', () => {
     builderParams = setupBuilderParams({ chainInfo: ChainFamilyMap.Ethereum.Mainnet })
   })
 
-  it.only('should fail the position is not a Spark one', async () => {
+  it('should fail the position is not a Spark one', async () => {
     try {
       await new SparkPaybackWithdrawActionBuilder().build({
         ...builderParams,

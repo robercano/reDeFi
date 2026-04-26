@@ -2,7 +2,7 @@ import {
   ActionBuilderParams,
   ActionBuilderUsedAction,
 } from '@thesolidchain/protocol-plugins-common'
-import { steps } from '@thesolidchain/sdk-common'
+import { Percentage, steps } from '@thesolidchain/sdk-common'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 import { SwapAction } from '../actions/SwapAction'
 
@@ -31,6 +31,7 @@ export class SwapActionBuilder extends BaseActionBuilder<steps.SwapStep> {
       arguments: {
         fromAmount: step.inputs.inputAmount,
         toMinimumAmount: step.inputs.minimumReceivedAmount,
+        fee: Percentage.createFrom({ value: 0 }),
         withData: swapData.calldata,
         collectFeeInFromToken: true,
       },

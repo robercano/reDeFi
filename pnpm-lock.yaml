@@ -1509,15 +1509,15 @@ importers:
         specifier: 3.25.61
         version: 3.25.61
     devDependencies:
-      '@thesolidchain/config-jest':
-        specifier: workspace:*
-        version: link:../../../config/jest
       '@thesolidchain/config-typescript':
         specifier: workspace:*
         version: link:../../../config/typescript
       '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../config/eslint
+      vitest:
+        specifier: '3'
+        version: 3.2.4(@types/node@20.14.2)
 
   packages/sdk/react:
     dependencies:

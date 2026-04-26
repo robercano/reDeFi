@@ -2,6 +2,7 @@ import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { ChainFamilyMap, ChainInfo, ProtocolName } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { MorphoLendingPositionId } from '../../../src'
+import { vi } from 'vitest'
 import { MorphoProtocolPlugin } from '../../../src/plugins/morphoblue/implementation/MorphoProtocolPlugin'
 import {
   IMorphoLendingPoolIdData,
@@ -44,6 +45,15 @@ describe('Protocol Plugin | Unit | Morpho', () => {
   })
 
   it('should correctly return a MorphoLendingPool object for a valid MorphoPoolId', async () => {
+    vi.spyOn(ctx.provider, 'multicall').mockResolvedValue([
+      [
+        '0x0000000000000000000000000000000000000001', // debtToken
+        '0x0000000000000000000000000000000000000002', // collateralToken
+        '0x0000000000000000000000000000000000000003', // oracle
+        '0x0000000000000000000000000000000000000004', // irm
+        860000000000000000n, // lltv (86% scaled by 10^18)
+      ],
+    ] as any)
     expect(await morphoProtocolPlugin.getLendingPool(morphoPoolIdMock)).toBeDefined()
   })
 

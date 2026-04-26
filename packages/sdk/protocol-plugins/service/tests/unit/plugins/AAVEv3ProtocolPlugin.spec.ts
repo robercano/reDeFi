@@ -2,6 +2,7 @@ import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { ChainFamilyMap, ChainInfo, ProtocolName, Address } from '@thesolidchain/sdk-common'
 import assert from 'assert'
 import { AaveV3LendingPositionId } from '../../../src'
+import { vi } from 'vitest'
 import { AaveV3ProtocolPlugin } from '../../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
 import {
   IAaveV3LendingPoolId,
@@ -113,14 +114,22 @@ describe('AAVEv3 Protocol Plugin', () => {
     }
   })
 
-  it('should throw a "Not implemented" error when calling getPosition', async () => {
+  it('should correctly return a lending position when calling getPosition', async () => {
     const positionId = AaveV3LendingPositionId.createFrom({
       id: 'mockPositionId',
       poolId: aaveV3PoolIdMock,
       walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
     })
-    await expect(aaveV3ProtocolPlugin.getLendingPosition(positionId)).rejects.toThrow(
-      'Not implemented',
-    )
+
+    vi.spyOn(ctx.provider, 'multicall').mockResolvedValue([
+      [100000000000000000000n], // collateralReserveData (100 WETH)
+      [0n, 0n, 50000000000000000000n], // debtReserveData (50 DAI)
+      0n, // userEMode
+    ] as any)
+
+    const position = await aaveV3ProtocolPlugin.getLendingPosition(positionId)
+    expect(position).toBeDefined()
+    expect(position.collateralAmount.amount.toString()).toBe('100')
+    expect(position.debtAmount.amount.toString()).toBe('50')
   })
 })

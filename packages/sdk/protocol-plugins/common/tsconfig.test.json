@@ -9,7 +9,7 @@
         "node_modules/@thesolidchain/order-planner-common/src/*"
       ],
       "@thesolidchain/protocol-plugins-common": ["./src/index.ts"],
-      "@thesolidchain/testing-utils/*": ["../testing-utils/src/*"]
+      "@thesolidchain/testing-utils/*": ["node_modules/@thesolidchain/testing-utils/src/*"]
     }
   },
   "include": ["src/**/*.ts"],
