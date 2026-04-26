@@ -1,23 +1,24 @@
 import { DatabaseTokensProvider } from '../src/implementation/database/DatabaseTokensProvider'
 import { Address, AddressType } from '@thesolidchain/sdk-common'
+import { describe, it, expect, vi, beforeEach } from 'vitest'
 
-const mockSend = jest.fn()
+const mockSend = vi.fn()
 
-jest.mock('@aws-sdk/lib-dynamodb', () => {
+vi.mock('@aws-sdk/lib-dynamodb', () => {
   return {
     DynamoDBDocumentClient: {
-      from: jest.fn(() => ({
+      from: vi.fn(() => ({
         send: (...args: any[]) => mockSend(...args)
       }))
     },
-    GetCommand: jest.fn().mockImplementation((input) => ({ input, type: 'GetCommand' })),
-    QueryCommand: jest.fn().mockImplementation((input) => ({ input, type: 'QueryCommand' }))
+    GetCommand: vi.fn().mockImplementation((input) => ({ input, type: 'GetCommand' })),
+    QueryCommand: vi.fn().mockImplementation((input) => ({ input, type: 'QueryCommand' }))
   }
 })
 
-jest.mock('@aws-sdk/client-dynamodb', () => {
+vi.mock('@aws-sdk/client-dynamodb', () => {
   return {
-    DynamoDBClient: jest.fn()
+    DynamoDBClient: vi.fn()
   }
 })
 
@@ -28,10 +29,10 @@ describe('DatabaseTokensProvider', () => {
   let contractsProvider: any
 
   beforeEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
 
     configProvider = {
-      getConfigurationItem: jest.fn().mockReturnValue({ value: 'TokensTable' })
+      getConfigurationItem: vi.fn().mockReturnValue('TokensTable')
     }
     blockchainClientProvider = {}
     contractsProvider = {}
