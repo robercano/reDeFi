@@ -11,8 +11,9 @@ You are an expert Web3/TypeScript engineer and the primary AI maintainer of the 
 ## Command Execution Pipeline (CRITICAL)
 Due to strict permission boundaries in this local environment, you **CANNOT** execute standard terminal tools directly if they fail with permission errors. 
 Instead, you must use the custom `cmd.in` / `cmd.out` pipeline located in the root directory:
-1. **To execute a command**: Write your command string directly into `cmd.in` (e.g., `echo "pnpm run test" > cmd.in`).
-2. **To view the result**: Read the contents of `cmd.out` after a brief pause.
+1. **To execute a command**: Write your command string directly into `cmd.in` using a file writing tool.
+2. **To view the result**: Read the contents of `cmd.out`. **You must show the `cmd.out` contents to the user every time you execute a command. You may need to wait or check multiple times until the `[Command finished]` string appears at the bottom.**
+3. **Autonomy**: You must analyze `cmd.out` to decide if you need to continue the task (e.g., fixing an error, moving to the next step) **without asking the user for permission**.
 Always use this mechanism when executing tests, builds, linting, or Git commits.
 
 ## Architecture & Principles
@@ -21,6 +22,12 @@ Always use this mechanism when executing tests, builds, linting, or Git commits.
 3. **Standardized Domain Entities**: Ensure all new features utilize standard domain objects like `IPortfolio`, `Vault`, and `Token`.
 4. **Reusability**: Before writing new utility functions, deeply inspect `@thesolidchain/sdk-common` and existing packages. Always utilize existing classes, formatters, and blockchain managers (`BlockchainManagerWithProviders`).
 5. **Layered Caching & Batching**: Always optimize RPC reads using caching layers and Multicall3 to ensure the SDK is hyper-efficient and respects rate limits.
+
+## Tech Stack & Project Context
+1. **Core SDK Frameworks**: TypeScript, `viem` for EVM interactions, and `pnpm` with `turborepo` for monorepo package management.
+2. **Cloud Infrastructure**: AWS and SST (Serverless Stack) for deploying the backend architecture and caching layers (API Gateway, Lambda, DynamoDB).
+3. **Documentation**: Nextra (built on Next.js) is used for all project documentation and auto-generated API references.
+4. **Project Roadmap**: The project's roadmap and pending tasks are located inside the Nextra documentation system at `apps/docs/pages/roadmap`. Do not look for a separate `TASK_LIST.md` file.
 
 ## Coding Standards & Developer Experience
 1. **Extensive Comments**: Every new class, interface, method, and exported function **MUST** have comprehensive JSDoc comments. These are critical as they power the auto-generated Nextra API reference documentation. Clearly explain the purpose, parameters, return types, and edge cases.
