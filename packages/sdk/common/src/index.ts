@@ -406,3 +406,4 @@ export { MAX_UINT256_STRING } from './common/utils/constants'
 export { NATIVE_CURRENCY_ADDRESS_LOWERCASE } from './common/utils/nativeCurrencyAddress'
 export { toBytes32InHex } from './common/utils/toBytes32InHex'
 export type { ExtendedTransactionInfo } from './orders/common/types/DEPRECATED'
+export * from './cache';
