@@ -1,0 +1,25 @@
+[**redefi**](../../../README.md)
+
+***
+
+[redefi](../../../README.md) / [client/src](../README.md) / isDebtInfo
+
+# Function: isDebtInfo()
+
+> **isDebtInfo**(`maybeDebtInfo`): `maybeDebtInfo is Readonly<{ debtAvailable: ITokenAmount; debtCeiling: ITokenAmount; dustLimit: ITokenAmount; interestRate: IPercentage; originationFee: IPercentage; price: IPrice; priceUSD: IPrice; token: IToken; totalBorrowed: ITokenAmount }>`
+
+## Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `maybeDebtInfo` | `unknown` | - |
+
+## Returns
+
+`maybeDebtInfo is Readonly<{ debtAvailable: ITokenAmount; debtCeiling: ITokenAmount; dustLimit: ITokenAmount; interestRate: IPercentage; originationFee: IPercentage; price: IPrice; priceUSD: IPrice; token: IToken; totalBorrowed: ITokenAmount }>`
+
+true if the object is an IDebtInfo
+
+## Description
+
+Type guard for IDebtInfo

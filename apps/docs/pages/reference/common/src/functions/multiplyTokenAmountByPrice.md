@@ -1,0 +1,24 @@
+[**redefi**](../../../README.md)
+
+***
+
+[redefi](../../../README.md) / [common/src](../README.md) / multiplyTokenAmountByPrice
+
+# Function: multiplyTokenAmountByPrice()
+
+> **multiplyTokenAmountByPrice**(`tokenAmount`, `price`): `Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../../../client/src/enumerations/FiatCurrency.md); \}\> \| `Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}\>
+
+Multiply a token amount by a price
+
+## Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `tokenAmount` | [`ITokenAmount`](../interfaces/ITokenAmount.md) | The token amount to multiply |
+| `price` | [`IPrice`](../interfaces/IPrice.md) | The price to multiply by |
+
+## Returns
+
+`Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../../../client/src/enumerations/FiatCurrency.md); \}\> \| `Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}\>
+
+The resulting token amount or currency amount depending on the price quote

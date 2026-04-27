@@ -1,0 +1,92 @@
+[**redefi**](../../../../README.md)
+
+***
+
+[redefi](../../../../README.md) / [protocol-plugins/service/src](../README.md) / MakerWithdrawAction
+
+# Class: MakerWithdrawAction
+
+## Extends
+
+- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\<*typeof* [`Config`](#config)\>
+
+## Constructors
+
+### Constructor
+
+> **new MakerWithdrawAction**(): `MakerWithdrawAction`
+
+#### Returns
+
+`MakerWithdrawAction`
+
+#### Inherited from
+
+`BaseAction<typeof MakerWithdrawAction.Config>.constructor`
+
+## Properties
+
+### Config
+
+> `readonly` `static` **Config**: `object`
+
+#### name
+
+> `readonly` **name**: `"MakerWithdraw"` = `'MakerWithdraw'`
+
+#### parametersAbi
+
+> `readonly` **parametersAbi**: readonly \[`"(uint256 vaultId, address userAddress, address joinAddr, uint256 amount)"`\]
+
+#### storageInputs
+
+> `readonly` **storageInputs**: readonly \[`"vaultId"`\]
+
+#### storageOutputs
+
+> `readonly` **storageOutputs**: readonly \[`"amountWithdrawn"`\]
+
+#### version
+
+> `readonly` **version**: `2` = `2`
+
+## Accessors
+
+### config
+
+#### Get Signature
+
+> **get** **config**(): `object`
+
+##### Returns
+
+`object`
+
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| `name` | `"MakerWithdraw"` | `'MakerWithdraw'` |
+| `parametersAbi` | readonly \[`"(uint256 vaultId, address userAddress, address joinAddr, uint256 amount)"`\] | - |
+| `storageInputs` | readonly \[`"vaultId"`\] | - |
+| `storageOutputs` | readonly \[`"amountWithdrawn"`\] | - |
+| `version` | `2` | `2` |
+
+## Methods
+
+### encodeCall()
+
+> **encodeCall**(`params`, `paramsMapping?`): `ActionCall`
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `amount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `joinAddress`: [`IAddress`](../../../../client/src/interfaces/IAddress.md); `position`: [`IPosition`](../../../../client/src/interfaces/IPosition.md); `positionsManager`: [`IPositionsManager`](../../../../client/src/interfaces/IPositionsManager.md); \} |
+| `params.amount` | [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md) |
+| `params.joinAddress?` | [`IAddress`](../../../../client/src/interfaces/IAddress.md) |
+| `params.position?` | [`IPosition`](../../../../client/src/interfaces/IPosition.md) |
+| `params.positionsManager?` | [`IPositionsManager`](../../../../client/src/interfaces/IPositionsManager.md) |
+| `paramsMapping?` | `any` |
+
+#### Returns
+
+`ActionCall`

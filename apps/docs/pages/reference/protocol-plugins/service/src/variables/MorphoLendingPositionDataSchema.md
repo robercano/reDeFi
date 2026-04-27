@@ -1,0 +1,13 @@
+[**redefi**](../../../../README.md)
+
+***
+
+[redefi](../../../../README.md) / [protocol-plugins/service/src](../README.md) / MorphoLendingPositionDataSchema
+
+# Variable: MorphoLendingPositionDataSchema
+
+> `const` **MorphoLendingPositionDataSchema**: `ZodObject`\<\{ `collateralAmount`: `ZodType`\<[`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md)\>; `debtAmount`: `ZodType`\<[`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md)\>; `id`: `ZodType`\<[`IMorphoLendingPositionId`](../interfaces/IMorphoLendingPositionId.md), `ZodTypeDef`, [`IMorphoLendingPositionId`](../interfaces/IMorphoLendingPositionId.md)\>; `pool`: `ZodType`\<[`IMorphoLendingPool`](../interfaces/IMorphoLendingPool.md), `ZodTypeDef`, [`IMorphoLendingPool`](../interfaces/IMorphoLendingPool.md)\>; `subtype`: `ZodNativeEnum`\<*typeof* [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md)\>; `type`: `ZodLiteral`\<[`Lending`](../../../../client/src/enumerations/PositionType.md#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `collateralAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `debtAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `id`: [`IMorphoLendingPositionId`](../interfaces/IMorphoLendingPositionId.md); `pool`: [`IMorphoLendingPool`](../interfaces/IMorphoLendingPool.md); `subtype`: [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md); `type`: [`Lending`](../../../../client/src/enumerations/PositionType.md#lending); \}, \{ `collateralAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `debtAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `id`: [`IMorphoLendingPositionId`](../interfaces/IMorphoLendingPositionId.md); `pool`: [`IMorphoLendingPool`](../interfaces/IMorphoLendingPool.md); `subtype`: [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md); `type`: [`Lending`](../../../../client/src/enumerations/PositionType.md#lending); \}\>
+
+## Description
+
+Zod schema for IMorphoPositionId

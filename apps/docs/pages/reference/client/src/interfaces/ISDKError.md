@@ -1,0 +1,93 @@
+[**redefi**](../../../README.md)
+
+***
+
+[redefi](../../../README.md) / [client/src](../README.md) / ISDKError
+
+# Interface: ISDKError
+
+## Name
+
+ISDKError
+
+## Description
+
+Represents a custom error of the SDK
+
+## Extends
+
+- [`ISDKErrorData`](../type-aliases/ISDKErrorData.md).[`IPrintable`](IPrintable.md)
+
+## Extended by
+
+- [`ISwapError`](ISwapError.md)
+
+## Properties
+
+### \[\_\_\_signature\_\_\]
+
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+
+Signature to differentiate from similar interfaces
+
+***
+
+### message
+
+> `readonly` **message**: `string`
+
+Free form debug message, used to debug the issue through the console
+
+#### Overrides
+
+`ISDKErrorData.message`
+
+***
+
+### reason
+
+> `readonly` **reason**: `string`
+
+Free form reason message, used to provide a short description of the problem
+
+#### Overrides
+
+`ISDKErrorData.reason`
+
+***
+
+### type
+
+> `readonly` **type**: [`SDKErrorType`](../enumerations/SDKErrorType.md)
+
+Error type main category
+
+#### Overrides
+
+`ISDKErrorData.type`
+
+## Methods
+
+### toString()
+
+> **toString**(): `string`
+
+#### Returns
+
+`string`
+
+string
+
+The string representation should have enough info to debug the object
+
+#### Name
+
+toString
+
+#### Description
+
+Returns a string representation of the object
+
+#### Inherited from
+
+[`IPrintable`](IPrintable.md).[`toString`](IPrintable.md#tostring)
