@@ -1,0 +1,7 @@
+/** @type {import("eslint").Linter.Config} */
+module.exports = {
+  root: true,
+  ignorePatterns: ['vitest.config.ts'],
+  extends: ['@thesolidchain/eslint-config/library.cjs'],
+  parser: '@typescript-eslint/parser',
+}
