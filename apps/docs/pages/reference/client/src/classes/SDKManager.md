@@ -45,6 +45,18 @@ Chains Manager for interacting with the different chains supported in the SDK
 
 ***
 
+### eventBus
+
+> `readonly` **eventBus**: `IEventBus`
+
+The global event bus for SDK events
+
+#### Implementation of
+
+[`ISDKManager`](../interfaces/ISDKManager.md).[`eventBus`](../interfaces/ISDKManager.md#eventbus)
+
+***
+
 ### oracle
 
 > `readonly` **oracle**: `OracleManagerClient`

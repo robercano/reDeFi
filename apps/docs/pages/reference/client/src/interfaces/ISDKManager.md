@@ -20,6 +20,14 @@ Chains Manager for interacting with the different chains supported in the SDK
 
 ***
 
+### eventBus
+
+> `readonly` **eventBus**: `IEventBus`
+
+The global event bus for SDK events
+
+***
+
 ### oracle
 
 > `readonly` **oracle**: `IOracleManagerClient`
