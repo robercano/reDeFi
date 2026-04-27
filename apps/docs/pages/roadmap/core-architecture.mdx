@@ -1,0 +1,28 @@
+# 1. Core Architecture & Data Management
+
+## Layered Caching Strategy
+**Goal:** Optimize read speeds and reduce RPC load.  
+**Approach:** 
+1. Define a generic `ICacheProvider` interface.
+2. Implement specific providers: `InMemoryCache`, `IndexedDBCache` (for browser persistence), and `SubgraphCache`.
+3. Wrap RPC calls in a cache layer. Use block numbers and transaction nonces to automatically invalidate stale entries.
+
+## BlockchainManager Refactor
+**Goal:** Prevent RPC bottlenecks and downtime.  
+**Approach:**
+1. Deprecate the single `BlockchainProvider`.
+2. Create `BlockchainManagerWithProviders` that accepts an array of RPC URLs/Providers.
+3. Implement a round-robin or latency-based fallback strategy. If a call to Alchemy fails or times out, immediately retry with Infura.
+
+## Real-Time Data Subscriptions
+**Goal:** Deliver live updates to frontend applications.  
+**Approach:**
+1. Use `viem`'s `watchBlockNumber` and `watchContractEvent` methods.
+2. Expose a unified event bus from the SDK (`sdk.events.subscribe('PositionUpdated', callback)`).
+3. Whenever a new block is mined, trigger cache invalidations and emit updates to connected React hooks.
+
+## Unified Data Provider (Subgraphs/RPC)
+**Goal:** Handle complex queries efficiently while keeping real-time data accurate.  
+**Approach:**
+1. Define entities in a GraphQL subgraph for historical data (e.g. past trades, yield earned over time).
+2. The SDK queries the Subgraph for lists/histories, but falls back to `Multicall3` RPC queries to fetch the *absolute latest* state (balances, allowances) required for transaction building.

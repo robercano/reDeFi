@@ -2,5 +2,6 @@
   "index": "Introduction",
   "getting-started": "Getting Started",
   "architecture": "Architecture",
-  "reference": "API Reference"
+  "reference": "API Reference",
+  "roadmap": "SDK Roadmap"
 }
