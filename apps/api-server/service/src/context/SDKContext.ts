@@ -23,6 +23,8 @@ import { ITokensManager } from '@thesolidchain/tokens-common'
 import { TokensManagerFactory } from '@thesolidchain/tokens-service'
 import { IPortfolioManager } from '@thesolidchain/portfolio-common'
 import { PortfolioManagerFactory } from '@thesolidchain/portfolio-service'
+import { ISubscriptionManager } from '@thesolidchain/subscriptions-common'
+import { SubscriptionManagerFactory } from '@thesolidchain/subscriptions-service'
 import { DynamoDBCacheService, ICacheService } from '@thesolidchain/api-server-common'
 
 import { LoggingService } from '@thesolidchain/sdk-common'
@@ -50,6 +52,7 @@ export type SDKAppContext = {
   orderPlannerService: IOrderPlannerService
   allowanceManager: IAllowanceManager
   intentSwapsManager: CowSwapProvider
+  subscriptionManager: ISubscriptionManager
 }
 
 const quickHashCode = (str: string): string => {
@@ -111,6 +114,11 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     tokensManager,
   })
 
+  const subscriptionManager = SubscriptionManagerFactory.newSubscriptionManager({
+    configProvider,
+    blockchainClientProvider,
+  })
+
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,
     callKey: quickHashCode(`${opts.event.rawPath}${opts.event.rawQueryString}`),
@@ -129,5 +137,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     orderPlannerService,
     allowanceManager,
     intentSwapsManager,
+    subscriptionManager,
   }
 }

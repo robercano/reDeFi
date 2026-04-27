@@ -1,0 +1,29 @@
+{
+  "name": "@thesolidchain/subscriptions-common",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.d.ts"
+    }
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "watch": "tsc -w",
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "dependencies": {
+    "@thesolidchain/api-server-common": "workspace:*",
+    "@thesolidchain/sdk-common": "workspace:*",
+    "zod": "3.25.61"
+  },
+  "devDependencies": {
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@thesolidchain/config-jest": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*"
+  }
+}
