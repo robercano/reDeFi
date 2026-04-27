@@ -7,6 +7,7 @@ import type { IUsersManager } from './IUsersManager'
 import type { ISimulationManager } from './simulations/ISimulationManager'
 import type { IOrdersManagerClient } from './IOrdersManagerClient'
 import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
+import type { IEventBus } from '@thesolidchain/events-common'
 
 /**
  * SDKManager is the main entry point for interacting with the SDK in the client side
@@ -14,6 +15,8 @@ import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
  * It contains all the available services that can be used to interact with the SDK
  */
 export interface ISDKManager {
+  /** The global event bus for SDK events */
+  readonly eventBus: IEventBus
   /** Simulator for all the different operations supported in the SDK */
   readonly simulator: ISimulationManager
   /** Chains Manager for interacting with the different chains supported in the SDK */

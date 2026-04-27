@@ -70,6 +70,7 @@ export const useSDK = (params: UseSdk) => {
 
   const memo = useMemo(
     () => ({
+      eventBus: sdk.eventBus,
       getCurrentUser,
       getWalletAddress,
       getChainInfo,
@@ -86,6 +87,7 @@ export const useSDK = (params: UseSdk) => {
       buildOrder,
     }),
     [
+      sdk.eventBus,
       getCurrentUser,
       getWalletAddress,
       getChainInfo,

@@ -22,6 +22,7 @@
     "@thesolidchain/order-planner-common": "workspace:*",
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-client": "workspace:*",
+    "@thesolidchain/events-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
