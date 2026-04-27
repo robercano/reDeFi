@@ -1,0 +1,19 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "../../packages/sdk/client/src/index.ts",
+    "../../packages/sdk/react/src/index.ts",
+    "../../packages/sdk/common/src/index.ts",
+    "../../packages/sdk/protocol-plugins/service/src/index.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "out": "pages/reference",
+  "plugin": ["typedoc-plugin-markdown"],
+  "hideGenerator": true,
+  "readme": "none",
+  "githubPages": false,
+  "disableSources": true,
+  "parametersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "skipErrorChecking": true
+}

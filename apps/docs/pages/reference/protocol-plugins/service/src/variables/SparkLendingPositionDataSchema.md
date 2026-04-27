@@ -1,0 +1,13 @@
+[**redefi**](../../../../README.md)
+
+***
+
+[redefi](../../../../README.md) / [protocol-plugins/service/src](../README.md) / SparkLendingPositionDataSchema
+
+# Variable: SparkLendingPositionDataSchema
+
+> `const` **SparkLendingPositionDataSchema**: `ZodObject`\<\{ `collateralAmount`: `ZodType`\<[`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md)\>; `debtAmount`: `ZodType`\<[`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md)\>; `id`: `ZodType`\<[`ISparkLendingPositionId`](../interfaces/ISparkLendingPositionId.md), `ZodTypeDef`, [`ISparkLendingPositionId`](../interfaces/ISparkLendingPositionId.md)\>; `pool`: `ZodType`\<[`ISparkLendingPool`](../interfaces/ISparkLendingPool.md), `ZodTypeDef`, [`ISparkLendingPool`](../interfaces/ISparkLendingPool.md)\>; `subtype`: `ZodNativeEnum`\<*typeof* [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md)\>; `type`: `ZodLiteral`\<[`Lending`](../../../../client/src/enumerations/PositionType.md#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `collateralAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `debtAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `id`: [`ISparkLendingPositionId`](../interfaces/ISparkLendingPositionId.md); `pool`: [`ISparkLendingPool`](../interfaces/ISparkLendingPool.md); `subtype`: [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md); `type`: [`Lending`](../../../../client/src/enumerations/PositionType.md#lending); \}, \{ `collateralAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `debtAmount`: [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md); `id`: [`ISparkLendingPositionId`](../interfaces/ISparkLendingPositionId.md); `pool`: [`ISparkLendingPool`](../interfaces/ISparkLendingPool.md); `subtype`: [`LendingPositionType`](../../../../client/src/enumerations/LendingPositionType.md); `type`: [`Lending`](../../../../client/src/enumerations/PositionType.md#lending); \}\>
+
+## Description
+
+Zod schema for ISparkPositionId
