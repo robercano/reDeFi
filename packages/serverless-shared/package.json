@@ -5,7 +5,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "jest --passWithNoTests",
+    "test": "vitest run",
     "build": "tsc -b --preserveWatchOutput",
     "prebuild": "tsc -b --preserveWatchOutput",
     "dev": "tsc -b --preserveWatchOutput -w",
@@ -20,7 +20,10 @@
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "@types/node": "^20.12.7",
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   },
   "exports": {
     ".": {

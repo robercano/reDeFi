@@ -276,4 +276,27 @@ describe('SDK Common | FiatCurrencyAmount', () => {
       expect(fiatAmount.toString()).toEqual('10 USD')
     })
   })
+
+  describe('#toSolidityValue()', () => {
+    it('should return the amount as a Solidity value', () => {
+      const fiatAmount = FiatCurrencyAmount.createFrom({
+        fiat: FiatCurrency.USD,
+        amount: '108.54',
+      })
+
+      expect(fiatAmount.toSolidityValue({ decimals: 6 })).toEqual(108540000n)
+      expect(fiatAmount.toSolidityValue()).toEqual(108540000000000000000n)
+    })
+  })
+
+  describe('#toBigNumber()', () => {
+    it('should return the amount as a BigNumber', () => {
+      const fiatAmount = FiatCurrencyAmount.createFrom({
+        fiat: FiatCurrency.USD,
+        amount: '108.54',
+      })
+
+      expect(fiatAmount.toBigNumber().toString()).toEqual('108.54')
+    })
+  })
 })

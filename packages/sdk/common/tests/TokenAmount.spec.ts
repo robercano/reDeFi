@@ -325,4 +325,41 @@ describe('SDK Common | TokenAmount', () => {
       expect(tokenAmount.toSolidityValue()).toEqual(108540000n)
     })
   })
+
+  describe('Comparison Methods', () => {
+    it('should correctly compare amounts', () => {
+      const amount1 = TokenAmount.createFrom({ token: USDC, amount: '100' })
+      const amount2 = TokenAmount.createFrom({ token: USDC, amount: '50' })
+      const amount3 = TokenAmount.createFrom({ token: USDC, amount: '100' })
+      const amount4 = TokenAmount.createFrom({ token: USDC, amount: '0' })
+
+      expect(amount1.isGreaterThan(amount2)).toBeTruthy()
+      expect(amount2.isGreaterThan(amount1)).toBeFalsy()
+
+      expect(amount2.isLessThan(amount1)).toBeTruthy()
+      expect(amount1.isLessThan(amount2)).toBeFalsy()
+
+      expect(amount1.isGreaterOrEqualThan(amount3)).toBeTruthy()
+      expect(amount1.isGreaterOrEqualThan(amount2)).toBeTruthy()
+      expect(amount2.isGreaterOrEqualThan(amount1)).toBeFalsy()
+
+      expect(amount1.isLessOrEqualThan(amount3)).toBeTruthy()
+      expect(amount2.isLessOrEqualThan(amount1)).toBeTruthy()
+      expect(amount1.isLessOrEqualThan(amount2)).toBeFalsy()
+
+      expect(amount1.isEqualTo(amount3)).toBeTruthy()
+      expect(amount1.isEqualTo(amount2)).toBeFalsy()
+
+      expect(amount4.isZero()).toBeTruthy()
+      expect(amount1.isZero()).toBeFalsy()
+    })
+
+    it('should throw when comparing different tokens', () => {
+      const amount1 = TokenAmount.createFrom({ token: USDC, amount: '100' })
+      const amount2 = TokenAmount.createFrom({ token: DAI, amount: '100' })
+
+      expect(() => amount1.isGreaterThan(amount2)).toThrow()
+      expect(() => amount1.isLessThan(amount2)).toThrow()
+    })
+  })
 })

@@ -23,10 +23,12 @@
   },
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-jest": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "@types/yargs": "^17.0.32",
     "tsx": "^4.7.2",
-    "yargs": "^17.7.2"
+    "yargs": "^17.7.2",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

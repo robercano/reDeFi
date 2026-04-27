@@ -35,9 +35,19 @@ function getAllPathsForPackagesSummaries() {
   const sdkNames = fs.existsSync(sdkPath) ? getDirectories(sdkPath) : []
 
   const sdkSummaries = sdkNames.reduce((summary, packageName) => {
+    const pkgPath = path.join(sdkPath, packageName);
+    const subDirs = getDirectories(pkgPath);
+    let extraSummaries = {};
+    if (subDirs.includes('service')) {
+      extraSummaries[`sdk-${packageName}-service`] = path.join(pkgPath, 'service', 'coverage', 'coverage-summary.json');
+    }
+    if (subDirs.includes('common')) {
+      extraSummaries[`sdk-${packageName}-common`] = path.join(pkgPath, 'common', 'coverage', 'coverage-summary.json');
+    }
     return {
       ...summary,
-      [`sdk-${packageName}`]: path.join(sdkPath, packageName, 'coverage', 'coverage-summary.json'),
+      [`sdk-${packageName}`]: path.join(pkgPath, 'coverage', 'coverage-summary.json'),
+      ...extraSummaries,
     }
   }, {})
 
@@ -58,7 +68,7 @@ function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSumm
             total[key].total += report.total[key].total
             total[key].covered += report.total[key].covered
             total[key].skipped += report.total[key].skipped
-            total[key].pct = Number(((total[key].covered / total[key].total) * 100).toFixed(2))
+            total[key].pct = total[key].total === 0 ? 'Unknown' : Number(((total[key].covered / total[key].total) * 100).toFixed(2))
           } else {
             total[key] = { ...report.total[key] }
           }

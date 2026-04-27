@@ -8,6 +8,7 @@ import {
   Price,
   Token,
   TokenAmount,
+  Percentage,
   isFiatCurrency,
   isFiatCurrencyAmount,
   isToken,
@@ -607,6 +608,21 @@ describe('SDK Common | Price', () => {
       expect(() => price.multiply(price2)).toThrow()
       expect(() => price2.multiply(price)).toThrow()
     })
+
+    it('should multiply the price by a percentage', () => {
+      const price = Price.createFrom({
+        value: '100',
+        base: USDC,
+        quote: DAI,
+      })
+
+      const percentage = Percentage.createFrom({
+        value: 20,
+      })
+
+      const result = price.multiply(percentage)
+      expect(result.value).toEqual('20')
+    })
   })
 
   describe('#divide()', () => {
@@ -716,6 +732,21 @@ describe('SDK Common | Price', () => {
       })
 
       expect(() => price.divide(price2)).toThrow()
+    })
+
+    it('should divide the price by a percentage', () => {
+      const price = Price.createFrom({
+        value: '20',
+        base: USDC,
+        quote: DAI,
+      })
+
+      const percentage = Percentage.createFrom({
+        value: 20,
+      })
+
+      const result = price.divide(percentage)
+      expect(result.value).toEqual('100')
     })
   })
 
@@ -1045,6 +1076,39 @@ describe('SDK Common | Price', () => {
       expect(price.base.equals(DAI)).toBeTruthy()
       assert(isToken(price.quote), 'Price quote is not a token')
       expect(price.quote.equals(USDC)).toBeTruthy()
+    })
+
+    it('should handle zero denominator by returning 0', () => {
+      const daiAmount = TokenAmount.createFrom({
+        token: DAI,
+        amount: '0',
+      })
+
+      const usdcAmount = TokenAmount.createFrom({
+        token: USDC,
+        amount: '10854',
+      })
+
+      const price = Price.createFromAmountsRatio({
+        numerator: usdcAmount,
+        denominator: daiAmount,
+      })
+
+      expect(price.value).toEqual('0')
+    })
+  })
+
+  describe('#toSolidityValue()', () => {
+    it('should return the correct solidity value', () => {
+      const price = Price.createFrom({
+        value: '108.54',
+        base: USDC,
+        quote: DAI,
+      })
+
+      const result = price.toSolidityValue()
+      // 108.54 * 10^18
+      expect(result).toEqual(108540000000000000000n)
     })
   })
 })

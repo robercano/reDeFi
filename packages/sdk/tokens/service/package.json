@@ -32,9 +32,10 @@
     "viem": "2.43.5"
   },
   "devDependencies": {
-    "@thesolidchain/config-jest": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
-    "vitest": "^3.2.4"
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

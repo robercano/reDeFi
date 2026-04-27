@@ -16,7 +16,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "jest --passWithNoTests",
+    "test": "vitest run",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
     "dev": "tsc -b --preserveWatchOutput tsconfig.build.json -w",
     "lint": "eslint .",
@@ -36,8 +36,10 @@
     "@thesolidchain/deployment-types": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-jest": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
-    "hardhat": "^2.22.2"
+    "hardhat": "^2.22.2",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

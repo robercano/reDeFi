@@ -3,7 +3,7 @@ import { ChainIds, TokenAmount, Percentage, Token } from '@thesolidchain/sdk-com
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 import type { SwapScenario } from './utils/types'
 
-jest.setTimeout(300000)
+vi.setConfig({ testTimeout: (300000)
 
 /**
  * @group e2e
