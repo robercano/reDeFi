@@ -24,3 +24,4 @@
 - [SDKProvider](functions/SDKProvider.md)
 - [useSDK](functions/useSDK.md)
 - [useSDKContext](functions/useSDKContext.md)
+- [useSDKEvent](functions/useSDKEvent.md)
