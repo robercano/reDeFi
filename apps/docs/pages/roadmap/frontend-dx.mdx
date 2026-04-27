@@ -1,0 +1,28 @@
+# 4. Frontend & Developer Experience (DX)
+
+## React / UI Integration Ecosystem
+**Goal:** Make it trivial for frontend teams to build UIs.  
+**Approach:**
+1. Create a `@redefi/sdk-react` package.
+2. Expose hooks like `usePortfolio(address)`, `useSimulateIntent(intent)`, `useTokenBalance(token)`.
+3. Provide headless UI components or pre-styled components (using Tailwind) for rendering standard Position cards.
+
+## EIP-6963 Multi Injected Provider Discovery
+**Goal:** Better wallet connection UX without conflicts.  
+**Approach:**
+1. Deprecate legacy `window.ethereum` listeners.
+2. Implement EIP-6963 `eip6963:requestProvider` event listeners to dynamically discover all installed browser wallets (MetaMask, Rabby, Phantom).
+
+## Wagmi / Viem V2 Deep Integration
+**Goal:** Compatibility with the modern React Web3 stack.  
+**Approach:**
+1. Ensure the SDK can accept a generic `viem` PublicClient and WalletClient.
+2. Avoid bundling legacy web3.js or ethers.js v5 unless absolutely necessary.
+3. Provide an adapter layer: `createReDefiWagmiAdapter(config)`.
+
+## Advanced Error Parsing & Localization
+**Goal:** Human-readable error messages for users.  
+**Approach:**
+1. Maintain a registry of common custom ABI errors (e.g. `InsufficientAllowance()`, `SlippageTooHigh()`).
+2. When a simulation or transaction fails, decode the revert data.
+3. Map the decoded error to a human-readable, localized string.
