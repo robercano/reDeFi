@@ -12,6 +12,8 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
+    "test": "vitest run tests/",
+    "testw": "vitest watch tests/",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -26,6 +28,7 @@
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-jest": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "vitest": "^3.2.4"
   }
 }
