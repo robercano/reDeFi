@@ -6,7 +6,7 @@
 
 # Variable: ArmadaMigrationTypeSchema
 
-> `const` **ArmadaMigrationTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`ArmadaMigrationType`](../enumerations/ArmadaMigrationType.md)\>
+> `const` **ArmadaMigrationTypeSchema**: `ZodNativeEnum`\<*typeof* [`ArmadaMigrationType`](../enumerations/ArmadaMigrationType.md)\>
 
 ## Description
 

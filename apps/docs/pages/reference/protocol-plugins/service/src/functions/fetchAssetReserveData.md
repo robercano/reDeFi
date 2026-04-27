@@ -6,7 +6,7 @@
 
 # Function: fetchAssetReserveData()
 
-> **fetchAssetReserveData**(`ctx`, `tokensList`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<`any`\>
+> **fetchAssetReserveData**(`ctx`, `tokensList`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<`unknown`[]\>
 
 ## Parameters
 
@@ -19,4 +19,4 @@
 
 ## Returns
 
-`Promise`\<`any`\>
+`Promise`\<`unknown`[]\>

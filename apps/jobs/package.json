@@ -6,8 +6,8 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.556.0",

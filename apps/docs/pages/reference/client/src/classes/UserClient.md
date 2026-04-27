@@ -32,9 +32,9 @@ Constructor
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `rpcClient`: `any`; `wallet`: [`IWallet`](../interfaces/IWallet.md); \} |
+| `params` | \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `rpcClient`: `TRPCClient`; `wallet`: [`IWallet`](../interfaces/IWallet.md); \} |
 | `params.chainInfo` | [`IChainInfo`](../interfaces/IChainInfo.md) |
-| `params.rpcClient` | `any` |
+| `params.rpcClient` | `TRPCClient` |
 | `params.wallet` | [`IWallet`](../interfaces/IWallet.md) |
 
 #### Returns
@@ -61,11 +61,11 @@ Constructor
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

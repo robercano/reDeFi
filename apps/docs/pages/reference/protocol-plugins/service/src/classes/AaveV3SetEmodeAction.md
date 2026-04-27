@@ -8,7 +8,7 @@
 
 ## Extends
 
-- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\<*typeof* [`Config`](#config)\>
+- `BaseAction`\<*typeof* [`Config`](#config)\>
 
 ## Constructors
 
@@ -70,7 +70,39 @@
 | `storageOutputs` | readonly \[`"emodeCategory"`\] | - |
 | `version` | `0` | `0` |
 
+#### Overrides
+
+`BaseAction.config`
+
 ## Methods
+
+### \_encodeCall()
+
+> `protected` **\_encodeCall**(`params`): `ActionCall`
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `categoryId`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
+| `params.arguments` | readonly \[\{ `categoryId`: `number`; \}\] | - |
+| `params.mapping?` | `InputSlotsMapping` | - |
+
+#### Returns
+
+`ActionCall`
+
+The encoded call to the action
+
+#### Description
+
+Encodes the call to the action
+
+#### Inherited from
+
+`BaseAction._encodeCall`
+
+***
 
 ### encodeCall()
 
@@ -80,10 +112,54 @@
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `emode`: [`EmodeType`](../enumerations/EmodeType.md); \} |
-| `params.emode` | [`EmodeType`](../enumerations/EmodeType.md) |
-| `paramsMapping?` | `any` |
+| `params` | \{ `emode`: [`EmodeType`](../../../../client/src/enumerations/EmodeType.md); \} |
+| `params.emode` | [`EmodeType`](../../../../client/src/enumerations/EmodeType.md) |
+| `paramsMapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
+
+#### See
+
+IAction.encodeCall
+
+#### Overrides
+
+`BaseAction.encodeCall`
+
+***
+
+### getActionHash()
+
+> **getActionHash**(): `` `0x${string}` ``
+
+#### Returns
+
+`` `0x${string}` ``
+
+#### See
+
+IAction.getActionHash
+
+#### Inherited from
+
+`BaseAction.getActionHash`
+
+***
+
+### getVersionedName()
+
+> **getVersionedName**(): `string`
+
+#### Returns
+
+`string`
+
+#### See
+
+IAction.getVersionedName
+
+#### Inherited from
+
+`BaseAction.getVersionedName`

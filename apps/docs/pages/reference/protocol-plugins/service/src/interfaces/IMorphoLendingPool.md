@@ -65,7 +65,7 @@ Collateral token used to collateralized the pool
 
 #### Inherited from
 
-[`ILendingPool`](../../../../client/src/interfaces/ILendingPool.md).[`collateralToken`](../../../../client/src/interfaces/ILendingPool.md#collateraltoken)
+`IMorphoLendingPoolData.collateralToken`
 
 ***
 
@@ -77,13 +77,13 @@ Debt token, which can be borrowed from the pool
 
 #### Inherited from
 
-[`ILendingPool`](../../../../client/src/interfaces/ILendingPool.md).[`debtToken`](../../../../client/src/interfaces/ILendingPool.md#debttoken)
+`IMorphoLendingPoolData.debtToken`
 
 ***
 
 ### id
 
-> `readonly` **id**: [`IMorphoLendingPoolId`](IMorphoLendingPoolId.md)
+> `readonly` **id**: [`IMorphoLendingPoolId`](../../../../client/src/interfaces/IMorphoLendingPoolId.md)
 
 The id of the lending pool
 

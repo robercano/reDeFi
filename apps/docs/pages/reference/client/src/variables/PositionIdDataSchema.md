@@ -6,7 +6,7 @@
 
 # Variable: PositionIdDataSchema
 
-> `const` **PositionIdDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodString`; `type`: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}\>
+> `const` **PositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}\>
 
 ## Description
 

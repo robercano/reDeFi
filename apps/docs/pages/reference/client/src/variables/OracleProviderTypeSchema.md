@@ -6,7 +6,7 @@
 
 # Variable: OracleProviderTypeSchema
 
-> `const` **OracleProviderTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`OracleProviderType`](../enumerations/OracleProviderType.md)\>
+> `const` **OracleProviderTypeSchema**: `ZodNativeEnum`\<*typeof* [`OracleProviderType`](../enumerations/OracleProviderType.md)\>
 
 ## Description
 

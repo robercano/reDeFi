@@ -83,7 +83,7 @@ The debt information of the pool
 
 ### id
 
-> `readonly` **id**: [`IAaveV3LendingPoolId`](IAaveV3LendingPoolId.md)
+> `readonly` **id**: [`IAaveV3LendingPoolId`](../../../../client/src/interfaces/IAaveV3LendingPoolId.md)
 
 The lending pool's ID
 

@@ -24,8 +24,8 @@ ISDKManager
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; \} |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 

@@ -6,4 +6,4 @@
 
 # Variable: LegacyChainIdSchema
 
-> `const` **LegacyChainIdSchema**: `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 10\>\[\]\]\>
+> `const` **LegacyChainIdSchema**: `ZodUnion`\<\[`ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 10 \| 146 \| 8453 \| 42161\>\[\]\]\>

@@ -10,14 +10,14 @@
 
 ## Type Declaration
 
-| Name | Type |
-| ------ | ------ |
-| <a id="property-arbitrum"></a> `Arbitrum` | `Record`\<`"ArbitrumOne"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
-| <a id="property-base"></a> `Base` | `Record`\<`"Base"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
-| <a id="property-ethereum"></a> `Ethereum` | `Record`\<`"Mainnet"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
-| <a id="property-hyperliquid"></a> `Hyperliquid` | `Record`\<`"Hyperliquid"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
-| <a id="property-optimism"></a> `Optimism` | `Record`\<`"Optimism"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
-| <a id="property-sonic"></a> `Sonic` | `Record`\<`"Sonic"`, [`ChainInfo`](../classes/ChainInfo.md)\> |
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| <a id="property-arbitrum"></a> `Arbitrum` | `Record`\<`"ArbitrumOne"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `ArbitrumFamily` |
+| <a id="property-base"></a> `Base` | `Record`\<`"Base"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `BaseFamily` |
+| <a id="property-ethereum"></a> `Ethereum` | `Record`\<`"Mainnet"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `EthereumFamily` |
+| <a id="property-hyperliquid"></a> `Hyperliquid` | `Record`\<`"Hyperliquid"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `HyperliquidFamily` |
+| <a id="property-optimism"></a> `Optimism` | `Record`\<`"Optimism"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `OptimismFamily` |
+| <a id="property-sonic"></a> `Sonic` | `Record`\<`"Sonic"`, [`ChainInfo`](../classes/ChainInfo.md)\> | `SonicFamily` |
 
 ## Description
 

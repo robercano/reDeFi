@@ -6,4 +6,4 @@
 
 # Variable: MakerIlkToJoinMap
 
-> `const` **MakerIlkToJoinMap**: `Record`\<[`ILKType`](../enumerations/ILKType.md), `string`\>
+> `const` **MakerIlkToJoinMap**: `Record`\<[`ILKType`](../../../../client/src/enumerations/ILKType.md), `string`\>

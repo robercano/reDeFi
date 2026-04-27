@@ -6,7 +6,7 @@
 
 # Variable: ExternalLendingPositionTypeSchema
 
-> `const` **ExternalLendingPositionTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`ExternalLendingPositionType`](../enumerations/ExternalLendingPositionType.md)\>
+> `const` **ExternalLendingPositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`ExternalLendingPositionType`](../enumerations/ExternalLendingPositionType.md)\>
 
 ## Description
 

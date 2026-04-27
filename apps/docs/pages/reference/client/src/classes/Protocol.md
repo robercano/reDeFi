@@ -14,10 +14,10 @@ IProtocol
 
 ## Extended by
 
-- [`AaveV3Protocol`](../../../protocol-plugins/service/src/classes/AaveV3Protocol.md)
-- [`SparkProtocol`](../../../protocol-plugins/service/src/classes/SparkProtocol.md)
-- [`MakerProtocol`](../../../protocol-plugins/service/src/classes/MakerProtocol.md)
-- [`MorphoProtocol`](../../../protocol-plugins/service/src/classes/MorphoProtocol.md)
+- [`AaveV3Protocol`](AaveV3Protocol.md)
+- [`MakerProtocol`](MakerProtocol.md)
+- [`MorphoProtocol`](MorphoProtocol.md)
+- [`SparkProtocol`](SparkProtocol.md)
 
 ## Implements
 
@@ -46,7 +46,7 @@ SEALED CONSTRUCTOR
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 

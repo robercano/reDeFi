@@ -6,4 +6,4 @@
 
 # Variable: ChainIdSchema
 
-> `const` **ChainIdSchema**: `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 999\>\[\]\]\>
+> `const` **ChainIdSchema**: `ZodUnion`\<\[`ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 146 \| 999 \| 8453 \| 42161\>\[\]\]\>

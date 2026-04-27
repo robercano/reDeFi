@@ -6,11 +6,11 @@
 
 # Type Alias: ProtocolPluginConstructor
 
-> **ProtocolPluginConstructor** = () => [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)
+> **ProtocolPluginConstructor** = () => `IProtocolPlugin`
 
 ## Returns
 
-[`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)
+`IProtocolPlugin`
 
 ## Description
 

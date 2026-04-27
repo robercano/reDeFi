@@ -6,7 +6,7 @@
 
 # Variable: EmodeTypeSchema
 
-> `const` **EmodeTypeSchema**: `ZodNativeEnum`\<*typeof* [`EmodeType`](../enumerations/EmodeType.md)\>
+> `const` **EmodeTypeSchema**: `ZodNativeEnum`\<*typeof* [`EmodeType`](../../../../client/src/enumerations/EmodeType.md)\>
 
 ## Description
 

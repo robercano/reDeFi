@@ -33,21 +33,6 @@ This enables more readable debug objects
 - [`IHolding`](IHolding.md)
 - [`IUserPortfolio`](IUserPortfolio.md)
 - [`IUser`](IUser.md)
-- [`IAddress`](../../../common/src/interfaces/IAddress.md)
-- [`IChainInfo`](../../../common/src/interfaces/IChainInfo.md)
-- [`IFiatCurrencyAmount`](../../../common/src/interfaces/IFiatCurrencyAmount.md)
-- [`IPercentage`](../../../common/src/interfaces/IPercentage.md)
-- [`IPool`](../../../common/src/interfaces/IPool.md)
-- [`IPrice`](../../../common/src/interfaces/IPrice.md)
-- [`IRiskRatio`](../../../common/src/interfaces/IRiskRatio.md)
-- [`ISDKError`](../../../common/src/interfaces/ISDKError.md)
-- [`IToken`](../../../common/src/interfaces/IToken.md)
-- [`ITokenAmount`](../../../common/src/interfaces/ITokenAmount.md)
-- [`IExternalLendingPosition`](../../../common/src/interfaces/IExternalLendingPosition.md)
-- [`IExternalLendingPositionId`](../../../common/src/interfaces/IExternalLendingPositionId.md)
-- [`IHolding`](../../../common/src/interfaces/IHolding.md)
-- [`IUserPortfolio`](../../../common/src/interfaces/IUserPortfolio.md)
-- [`IUser`](../../../common/src/interfaces/IUser.md)
 
 ## Methods
 

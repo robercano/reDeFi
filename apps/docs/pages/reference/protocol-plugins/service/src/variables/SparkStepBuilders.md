@@ -6,4 +6,4 @@
 
 # Variable: SparkStepBuilders
 
-> `const` **SparkStepBuilders**: `Partial`\<[`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\>
+> `const` **SparkStepBuilders**: `Partial`\<`ActionBuildersMap`\>

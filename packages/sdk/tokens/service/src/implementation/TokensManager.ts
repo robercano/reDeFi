@@ -1,5 +1,5 @@
 import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
-import { TokensProviderType } from '@thesolidchain/sdk-common'
+import { TokensProviderType, Cache, VolatilityProfile, DataOrchestrator } from '@thesolidchain/sdk-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 
 /**
@@ -14,103 +14,104 @@ export class TokensManager
     providers: ITokensProvider[]
     cacheService?: ICacheService
     cacheTTLSeconds?: number
+    cacheOrchestrator?: DataOrchestrator
   }) {
     super(params)
   }
 
   /** PUBLIC METHODS */
 
-  /** @see ITokensManager.getTokenBySymbol */
+  /**
+   * @method getTokenBySymbol
+   * @description Retrieves a token by its symbol.
+   * @param params Parameters including the token symbol and chain information.
+   * @returns The token information.
+   */
+  @Cache(VolatilityProfile.STATIC)
   async getTokenBySymbol(
     params: Parameters<ITokensManager['getTokenBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBySymbol']> {
-    const cacheKey = this._buildCacheKey('getTokenBySymbol', [
-      params.chainInfo.chainId,
-      params.symbol,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBySymbol(params),
     })
   }
 
-  /** @see ITokensManager.getTokenByAddress */
+  /**
+   * @method getTokenByAddress
+   * @description Retrieves a token by its contract address.
+   * @param params Parameters including the token address and chain information.
+   * @returns The token information.
+   */
+  @Cache(VolatilityProfile.STATIC)
   async getTokenByAddress(
     params: Parameters<ITokensManager['getTokenByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenByAddress']> {
-    const cacheKey = this._buildCacheKey('getTokenByAddress', [
-      params.chainInfo.chainId,
-      params.address.value,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenByAddress(params),
     })
   }
 
-  /** @see ITokensManager.getTokenByName */
+  /**
+   * @method getTokenByName
+   * @description Retrieves a token by its full name.
+   * @param params Parameters including the token name and chain information.
+   * @returns The token information.
+   */
+  @Cache(VolatilityProfile.STATIC)
   async getTokenByName(
     params: Parameters<ITokensManager['getTokenByName']>[0],
   ): ReturnType<ITokensManager['getTokenByName']> {
-    const cacheKey = this._buildCacheKey('getTokenByName', [
-      params.chainInfo.chainId,
-      params.name,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenByName(params),
     })
   }
 
+  /**
+   * @method getTokenBalanceBySymbol
+   * @description Retrieves the balance of a token for a specific address using the token's symbol.
+   * @param params Parameters including the wallet address, token symbol, and chain information.
+   * @returns The token balance.
+   */
+  @Cache(VolatilityProfile.BLOCK_BOUND)
   async getTokenBalanceBySymbol(
     params: Parameters<ITokensManager['getTokenBalanceBySymbol']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceBySymbol']> {
-    const cacheKey = this._buildCacheKey('getTokenBalanceBySymbol', [
-      params.chainInfo.chainId,
-      params.walletAddress.value,
-      params.symbol,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBalanceBySymbol(params),
     })
   }
 
+  /**
+   * @method getTokenBalanceByAddress
+   * @description Retrieves the balance of a token for a specific address using the token's contract address.
+   * @param params Parameters including the wallet address, token address, and chain information.
+   * @returns The token balance.
+   */
+  @Cache(VolatilityProfile.BLOCK_BOUND)
   async getTokenBalanceByAddress(
     params: Parameters<ITokensManager['getTokenBalanceByAddress']>[0],
   ): ReturnType<ITokensManager['getTokenBalanceByAddress']> {
-    const cacheKey = this._buildCacheKey('getTokenBalanceByAddress', [
-      params.chainInfo.chainId,
-      params.walletAddress.value,
-      params.address.value,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getTokenBalanceByAddress(params),
     })
   }
 
-  /** @see ITokensManager.getTokenTotalSupply */
+  /**
+   * @method getTokenTotalSupply
+   * @description Retrieves the total supply of a specific token.
+   * @param params Parameters including the token information.
+   * @returns The total supply of the token.
+   */
+  @Cache(VolatilityProfile.BLOCK_BOUND)
   async getTokenTotalSupply(
     params: Parameters<ITokensManager['getTokenTotalSupply']>[0],
   ): ReturnType<ITokensManager['getTokenTotalSupply']> {
-    const cacheKey = this._buildCacheKey('getTokenTotalSupply', [
-      params.token.chainInfo.chainId,
-      params.token.address.value,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.token.chainInfo,
       action: async (provider) => provider.getTokenTotalSupply(params),
     })

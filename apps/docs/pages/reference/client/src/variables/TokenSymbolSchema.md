@@ -6,7 +6,7 @@
 
 # Variable: TokenSymbolSchema
 
-> `const` **TokenSymbolSchema**: `z.ZodString`
+> `const` **TokenSymbolSchema**: `ZodString`
 
 ## Description
 

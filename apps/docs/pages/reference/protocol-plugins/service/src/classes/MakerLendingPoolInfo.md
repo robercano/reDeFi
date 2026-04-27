@@ -36,7 +36,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -48,7 +48,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -92,7 +92,7 @@ The debt information of the pool
 
 ### id
 
-> `readonly` **id**: [`IMakerLendingPoolId`](../interfaces/IMakerLendingPoolId.md)
+> `readonly` **id**: [`IMakerLendingPoolId`](../../../../client/src/interfaces/IMakerLendingPoolId.md)
 
 ATTRIBUTES
 

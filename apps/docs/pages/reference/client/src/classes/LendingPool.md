@@ -57,7 +57,7 @@ SEALED CONSTRUCTOR
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -69,7 +69,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -79,7 +79,7 @@ SIGNATURE
 
 #### Inherited from
 
-`Pool.[___signature__]`
+[`AaveV3LendingPool`](../../../protocol-plugins/service/src/classes/AaveV3LendingPool.md).[`[___signature__]`](../../../protocol-plugins/service/src/classes/AaveV3LendingPool.md#___signature__-2)
 
 ***
 

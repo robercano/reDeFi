@@ -10,10 +10,10 @@
 
 ## Type Declaration
 
-| Name | Type |
-| ------ | ------ |
-| <a id="property-arbitrumone"></a> `ArbitrumOne` | `42161` |
-| <a id="property-base"></a> `Base` | `8453` |
-| <a id="property-hyperliquid"></a> `Hyperliquid` | `999` |
-| <a id="property-mainnet"></a> `Mainnet` | `1` |
-| <a id="property-sonic"></a> `Sonic` | `146` |
+| Name | Type | Default value |
+| ------ | ------ | ------ |
+| <a id="property-arbitrumone"></a> `ArbitrumOne` | `42161` | `42161` |
+| <a id="property-base"></a> `Base` | `8453` | `8453` |
+| <a id="property-hyperliquid"></a> `Hyperliquid` | `999` | `999` |
+| <a id="property-mainnet"></a> `Mainnet` | `1` | `1` |
+| <a id="property-sonic"></a> `Sonic` | `146` | `146` |

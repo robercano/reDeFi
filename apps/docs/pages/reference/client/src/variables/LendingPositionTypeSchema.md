@@ -6,6 +6,6 @@
 
 # Variable: LendingPositionTypeSchema
 
-> `const` **LendingPositionTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`LendingPositionType`](../enumerations/LendingPositionType.md)\>
+> `const` **LendingPositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`LendingPositionType`](../enumerations/LendingPositionType.md)\>
 
 Zod schema for LendingPositionType

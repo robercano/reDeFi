@@ -6,7 +6,7 @@
 
 # Variable: FiatCurrencyAmountDataSchema
 
-> `const` **FiatCurrencyAmountDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodString`; `fiat`: `z.ZodNativeEnum`\<*typeof* [`FiatCurrency`](../enumerations/FiatCurrency.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}\>
+> `const` **FiatCurrencyAmountDataSchema**: `ZodObject`\<\{ `amount`: `ZodString`; `fiat`: `ZodNativeEnum`\<*typeof* [`FiatCurrency`](../enumerations/FiatCurrency.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}\>
 
 ## Description
 

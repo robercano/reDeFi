@@ -6,25 +6,16 @@
 
 # protocol-plugins/service/src
 
-## Enumerations
-
-- [EmodeType](enumerations/EmodeType.md)
-- [ILKType](enumerations/ILKType.md)
-
 ## Classes
 
 - [AaveV3BorrowAction](classes/AaveV3BorrowAction.md)
 - [AaveV3DepositAction](classes/AaveV3DepositAction.md)
 - [AaveV3DepositBorrowActionBuilder](classes/AaveV3DepositBorrowActionBuilder.md)
 - [AaveV3LendingPool](classes/AaveV3LendingPool.md)
-- [AaveV3LendingPoolId](classes/AaveV3LendingPoolId.md)
-- [AaveV3LendingPosition](classes/AaveV3LendingPosition.md)
-- [AaveV3LendingPositionId](classes/AaveV3LendingPositionId.md)
 - [AaveV3LikeProtocolDataBuilder](classes/AaveV3LikeProtocolDataBuilder.md)
 - [AaveV3OpenPositionActionBuilder](classes/AaveV3OpenPositionActionBuilder.md)
 - [AaveV3PaybackAction](classes/AaveV3PaybackAction.md)
 - [AaveV3PaybackWithdrawActionBuilder](classes/AaveV3PaybackWithdrawActionBuilder.md)
-- [AaveV3Protocol](classes/AaveV3Protocol.md)
 - [AaveV3ProtocolPlugin](classes/AaveV3ProtocolPlugin.md)
 - [AaveV3SetEmodeAction](classes/AaveV3SetEmodeAction.md)
 - [AaveV3WithdrawAction](classes/AaveV3WithdrawAction.md)
@@ -34,28 +25,20 @@
 - [ImportPositionActionBuilder](classes/ImportPositionActionBuilder.md)
 - [MakerImportPositionActionBuilder](classes/MakerImportPositionActionBuilder.md)
 - [MakerLendingPool](classes/MakerLendingPool.md)
-- [MakerLendingPoolId](classes/MakerLendingPoolId.md)
 - [MakerLendingPoolInfo](classes/MakerLendingPoolInfo.md)
-- [MakerLendingPosition](classes/MakerLendingPosition.md)
-- [MakerLendingPositionId](classes/MakerLendingPositionId.md)
 - [MakerOpenPositionActionBuilder](classes/MakerOpenPositionActionBuilder.md)
 - [MakerPaybackAction](classes/MakerPaybackAction.md)
 - [MakerPaybackWithdrawActionBuilder](classes/MakerPaybackWithdrawActionBuilder.md)
-- [MakerProtocol](classes/MakerProtocol.md)
 - [MakerProtocolPlugin](classes/MakerProtocolPlugin.md)
 - [MakerWithdrawAction](classes/MakerWithdrawAction.md)
 - [MorphoBorrowAction](classes/MorphoBorrowAction.md)
 - [MorphoDepositAction](classes/MorphoDepositAction.md)
 - [MorphoDepositBorrowActionBuilder](classes/MorphoDepositBorrowActionBuilder.md)
 - [MorphoLendingPool](classes/MorphoLendingPool.md)
-- [MorphoLendingPoolId](classes/MorphoLendingPoolId.md)
 - [MorphoLendingPoolInfo](classes/MorphoLendingPoolInfo.md)
-- [MorphoLendingPosition](classes/MorphoLendingPosition.md)
-- [MorphoLendingPositionId](classes/MorphoLendingPositionId.md)
 - [MorphoOpenPositionActionBuilder](classes/MorphoOpenPositionActionBuilder.md)
 - [MorphoPaybackAction](classes/MorphoPaybackAction.md)
 - [MorphoPaybackWithdrawActionBuilder](classes/MorphoPaybackWithdrawActionBuilder.md)
-- [MorphoProtocol](classes/MorphoProtocol.md)
 - [MorphoProtocolPlugin](classes/MorphoProtocolPlugin.md)
 - [MorphoWithdrawAction](classes/MorphoWithdrawAction.md)
 - [OpenPositionActionBuilder](classes/OpenPositionActionBuilder.md)
@@ -75,14 +58,10 @@
 - [SparkDepositAction](classes/SparkDepositAction.md)
 - [SparkDepositBorrowActionBuilder](classes/SparkDepositBorrowActionBuilder.md)
 - [SparkLendingPool](classes/SparkLendingPool.md)
-- [SparkLendingPoolId](classes/SparkLendingPoolId.md)
 - [SparkLendingPoolInfo](classes/SparkLendingPoolInfo.md)
-- [SparkLendingPosition](classes/SparkLendingPosition.md)
-- [SparkLendingPositionId](classes/SparkLendingPositionId.md)
 - [SparkOpenPositionActionBuilder](classes/SparkOpenPositionActionBuilder.md)
 - [SparkPaybackAction](classes/SparkPaybackAction.md)
 - [SparkPaybackWithdrawActionBuilder](classes/SparkPaybackWithdrawActionBuilder.md)
-- [SparkProtocol](classes/SparkProtocol.md)
 - [SparkProtocolPlugin](classes/SparkProtocolPlugin.md)
 - [SparkSetEmodeAction](classes/SparkSetEmodeAction.md)
 - [SparkWithdrawAction](classes/SparkWithdrawAction.md)
@@ -92,29 +71,21 @@
 ## Interfaces
 
 - [IAaveV3LendingPool](interfaces/IAaveV3LendingPool.md)
-- [IAaveV3LendingPoolId](interfaces/IAaveV3LendingPoolId.md)
 - [IAaveV3LendingPoolInfo](interfaces/IAaveV3LendingPoolInfo.md)
 - [IAaveV3LendingPosition](interfaces/IAaveV3LendingPosition.md)
 - [IAaveV3LendingPositionId](interfaces/IAaveV3LendingPositionId.md)
-- [IAaveV3Protocol](interfaces/IAaveV3Protocol.md)
 - [IMakerLendingPool](interfaces/IMakerLendingPool.md)
-- [IMakerLendingPoolId](interfaces/IMakerLendingPoolId.md)
 - [IMakerLendingPoolInfo](interfaces/IMakerLendingPoolInfo.md)
 - [IMakerLendingPosition](interfaces/IMakerLendingPosition.md)
 - [IMakerLendingPositionId](interfaces/IMakerLendingPositionId.md)
-- [IMakerProtocol](interfaces/IMakerProtocol.md)
 - [IMorphoLendingPool](interfaces/IMorphoLendingPool.md)
-- [IMorphoLendingPoolId](interfaces/IMorphoLendingPoolId.md)
 - [IMorphoLendingPoolInfo](interfaces/IMorphoLendingPoolInfo.md)
 - [IMorphoLendingPosition](interfaces/IMorphoLendingPosition.md)
 - [IMorphoLendingPositionId](interfaces/IMorphoLendingPositionId.md)
-- [IMorphoProtocol](interfaces/IMorphoProtocol.md)
 - [ISparkLendingPool](interfaces/ISparkLendingPool.md)
-- [ISparkLendingPoolId](interfaces/ISparkLendingPoolId.md)
 - [ISparkLendingPoolInfo](interfaces/ISparkLendingPoolInfo.md)
 - [ISparkLendingPosition](interfaces/ISparkLendingPosition.md)
 - [ISparkLendingPositionId](interfaces/ISparkLendingPositionId.md)
-- [ISparkProtocol](interfaces/ISparkProtocol.md)
 
 ## Type Aliases
 
@@ -152,8 +123,6 @@
 - [MakerLendingPoolIdParameters](type-aliases/MakerLendingPoolIdParameters.md)
 - [MakerLendingPoolInfoParameters](type-aliases/MakerLendingPoolInfoParameters.md)
 - [MakerLendingPoolParameters](type-aliases/MakerLendingPoolParameters.md)
-- [MakerLendingPositionIdParameters](type-aliases/MakerLendingPositionIdParameters.md)
-- [MakerLendingPositionParameters](type-aliases/MakerLendingPositionParameters.md)
 - [MakerProtocolParameters](type-aliases/MakerProtocolParameters.md)
 - [MorphoAddressAbiMap](type-aliases/MorphoAddressAbiMap.md)
 - [MorphoLendingPoolIdParameters](type-aliases/MorphoLendingPoolIdParameters.md)
@@ -234,7 +203,6 @@
 - [fetchReservesTokens](functions/fetchReservesTokens.md)
 - [filterAssetsListByEMode](functions/filterAssetsListByEMode.md)
 - [isAaveV3LendingPool](functions/isAaveV3LendingPool.md)
-- [isAaveV3LendingPoolId](functions/isAaveV3LendingPoolId.md)
 - [isAaveV3LendingPoolInfo](functions/isAaveV3LendingPoolInfo.md)
 - [isAaveV3LendingPosition](functions/isAaveV3LendingPosition.md)
 - [isAaveV3LendingPositionId](functions/isAaveV3LendingPositionId.md)
@@ -242,20 +210,209 @@
 - [isEmodeType](functions/isEmodeType.md)
 - [isILKType](functions/isILKType.md)
 - [isMakerLendingPool](functions/isMakerLendingPool.md)
-- [isMakerLendingPoolId](functions/isMakerLendingPoolId.md)
 - [isMakerLendingPoolInfo](functions/isMakerLendingPoolInfo.md)
 - [isMakerLendingPosition](functions/isMakerLendingPosition.md)
 - [isMakerLendingPositionId](functions/isMakerLendingPositionId.md)
 - [isMakerProtocol](functions/isMakerProtocol.md)
 - [isMorphoLendingPool](functions/isMorphoLendingPool.md)
-- [isMorphoLendingPoolId](functions/isMorphoLendingPoolId.md)
 - [isMorphoLendingPoolInfo](functions/isMorphoLendingPoolInfo.md)
 - [isMorphoLendingPosition](functions/isMorphoLendingPosition.md)
 - [isMorphoLendingPositionId](functions/isMorphoLendingPositionId.md)
 - [isMorphoProtocol](functions/isMorphoProtocol.md)
 - [isSparkLendingPool](functions/isSparkLendingPool.md)
-- [isSparkLendingPoolId](functions/isSparkLendingPoolId.md)
 - [isSparkLendingPoolInfo](functions/isSparkLendingPoolInfo.md)
 - [isSparkLendingPosition](functions/isSparkLendingPosition.md)
 - [isSparkLendingPositionId](functions/isSparkLendingPositionId.md)
 - [isSparkProtocol](functions/isSparkProtocol.md)
+
+## References
+
+### AaveV3LendingPoolId
+
+Re-exports [AaveV3LendingPoolId](../../../client/src/classes/AaveV3LendingPoolId.md)
+
+***
+
+### AaveV3LendingPosition
+
+Re-exports [AaveV3LendingPosition](../../../client/src/classes/AaveV3LendingPosition.md)
+
+***
+
+### AaveV3LendingPositionId
+
+Re-exports [AaveV3LendingPositionId](../../../client/src/classes/AaveV3LendingPositionId.md)
+
+***
+
+### AaveV3Protocol
+
+Re-exports [AaveV3Protocol](../../../client/src/classes/AaveV3Protocol.md)
+
+***
+
+### EmodeType
+
+Re-exports [EmodeType](../../../client/src/enumerations/EmodeType.md)
+
+***
+
+### IAaveV3LendingPoolId
+
+Re-exports [IAaveV3LendingPoolId](../../../client/src/interfaces/IAaveV3LendingPoolId.md)
+
+***
+
+### IAaveV3Protocol
+
+Re-exports [IAaveV3Protocol](../../../client/src/interfaces/IAaveV3Protocol.md)
+
+***
+
+### ILKType
+
+Re-exports [ILKType](../../../client/src/enumerations/ILKType.md)
+
+***
+
+### IMakerLendingPoolId
+
+Re-exports [IMakerLendingPoolId](../../../client/src/interfaces/IMakerLendingPoolId.md)
+
+***
+
+### IMakerProtocol
+
+Re-exports [IMakerProtocol](../../../client/src/interfaces/IMakerProtocol.md)
+
+***
+
+### IMorphoLendingPoolId
+
+Re-exports [IMorphoLendingPoolId](../../../client/src/interfaces/IMorphoLendingPoolId.md)
+
+***
+
+### IMorphoProtocol
+
+Re-exports [IMorphoProtocol](../../../client/src/interfaces/IMorphoProtocol.md)
+
+***
+
+### isAaveV3LendingPoolId
+
+Re-exports [isAaveV3LendingPoolId](../../../client/src/functions/isAaveV3LendingPoolId.md)
+
+***
+
+### isMakerLendingPoolId
+
+Re-exports [isMakerLendingPoolId](../../../client/src/functions/isMakerLendingPoolId.md)
+
+***
+
+### isMorphoLendingPoolId
+
+Re-exports [isMorphoLendingPoolId](../../../client/src/functions/isMorphoLendingPoolId.md)
+
+***
+
+### ISparkLendingPoolId
+
+Re-exports [ISparkLendingPoolId](../../../client/src/interfaces/ISparkLendingPoolId.md)
+
+***
+
+### ISparkProtocol
+
+Re-exports [ISparkProtocol](../../../client/src/interfaces/ISparkProtocol.md)
+
+***
+
+### isSparkLendingPoolId
+
+Re-exports [isSparkLendingPoolId](../../../client/src/functions/isSparkLendingPoolId.md)
+
+***
+
+### MakerLendingPoolId
+
+Re-exports [MakerLendingPoolId](../../../client/src/classes/MakerLendingPoolId.md)
+
+***
+
+### MakerLendingPosition
+
+Re-exports [MakerLendingPosition](../../../client/src/classes/MakerLendingPosition.md)
+
+***
+
+### MakerLendingPositionId
+
+Re-exports [MakerLendingPositionId](../../../client/src/classes/MakerLendingPositionId.md)
+
+***
+
+### MakerLendingPositionIdParameters
+
+Re-exports [MakerLendingPositionIdParameters](../../../client/src/type-aliases/MakerLendingPositionIdParameters.md)
+
+***
+
+### MakerLendingPositionParameters
+
+Re-exports [MakerLendingPositionParameters](../../../client/src/type-aliases/MakerLendingPositionParameters.md)
+
+***
+
+### MakerProtocol
+
+Re-exports [MakerProtocol](../../../client/src/classes/MakerProtocol.md)
+
+***
+
+### MorphoLendingPoolId
+
+Re-exports [MorphoLendingPoolId](../../../client/src/classes/MorphoLendingPoolId.md)
+
+***
+
+### MorphoLendingPosition
+
+Re-exports [MorphoLendingPosition](../../../client/src/classes/MorphoLendingPosition.md)
+
+***
+
+### MorphoLendingPositionId
+
+Re-exports [MorphoLendingPositionId](../../../client/src/classes/MorphoLendingPositionId.md)
+
+***
+
+### MorphoProtocol
+
+Re-exports [MorphoProtocol](../../../client/src/classes/MorphoProtocol.md)
+
+***
+
+### SparkLendingPoolId
+
+Re-exports [SparkLendingPoolId](../../../client/src/classes/SparkLendingPoolId.md)
+
+***
+
+### SparkLendingPosition
+
+Re-exports [SparkLendingPosition](../../../client/src/classes/SparkLendingPosition.md)
+
+***
+
+### SparkLendingPositionId
+
+Re-exports [SparkLendingPositionId](../../../client/src/classes/SparkLendingPositionId.md)
+
+***
+
+### SparkProtocol
+
+Re-exports [SparkProtocol](../../../client/src/classes/SparkProtocol.md)

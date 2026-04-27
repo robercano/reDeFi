@@ -6,7 +6,7 @@
 
 # Variable: PercentageDataSchema
 
-> `const` **PercentageDataSchema**: `z.ZodObject`\<\{ `value`: `z.ZodNumber`; \}, `"strip"`, `z.ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>
+> `const` **PercentageDataSchema**: `ZodObject`\<\{ `value`: `ZodNumber`; \}, `"strip"`, `ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>
 
 ## Description
 

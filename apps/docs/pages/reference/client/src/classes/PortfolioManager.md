@@ -31,8 +31,8 @@ Allows to retrieve a wallet's positions by their wallet and network. This is mea
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; \} |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 
@@ -48,11 +48,11 @@ Allows to retrieve a wallet's positions by their wallet and network. This is mea
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

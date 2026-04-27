@@ -6,4 +6,4 @@
 
 # Variable: MorphoStepBuilders
 
-> `const` **MorphoStepBuilders**: `Partial`\<[`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\>
+> `const` **MorphoStepBuilders**: `Partial`\<`ActionBuildersMap`\>

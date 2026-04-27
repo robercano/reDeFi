@@ -26,10 +26,10 @@ This may be fixed eventually, there is a discussion on the topic here: https://g
 
 ## Extended by
 
-- [`IAaveV3LendingPoolId`](../../../protocol-plugins/service/src/interfaces/IAaveV3LendingPoolId.md)
-- [`ISparkLendingPoolId`](../../../protocol-plugins/service/src/interfaces/ISparkLendingPoolId.md)
-- [`IMakerLendingPoolId`](../../../protocol-plugins/service/src/interfaces/IMakerLendingPoolId.md)
-- [`IMorphoLendingPoolId`](../../../protocol-plugins/service/src/interfaces/IMorphoLendingPoolId.md)
+- [`IAaveV3LendingPoolId`](IAaveV3LendingPoolId.md)
+- [`IMakerLendingPoolId`](IMakerLendingPoolId.md)
+- [`IMorphoLendingPoolId`](IMorphoLendingPoolId.md)
+- [`ISparkLendingPoolId`](ISparkLendingPoolId.md)
 
 ## Properties
 

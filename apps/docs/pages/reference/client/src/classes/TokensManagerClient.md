@@ -32,9 +32,9 @@ Implementation of the ITokensManager interface for the SDK Client
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `chainInfo`: [`ChainInfo`](ChainInfo.md); `rpcClient`: `any`; \} |
+| `params` | \{ `chainInfo`: [`ChainInfo`](ChainInfo.md); `rpcClient`: `TRPCClient`; \} |
 | `params.chainInfo` | [`ChainInfo`](ChainInfo.md) |
-| `params.rpcClient` | `any` |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 
@@ -50,11 +50,11 @@ Implementation of the ITokensManager interface for the SDK Client
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

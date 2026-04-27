@@ -18,6 +18,7 @@ import {
   ILendingPool,
   ILendingPosition,
   LendingPositionType,
+  Address,
 } from '@thesolidchain/sdk-common'
 
 export function getTargetPosition(params: {
@@ -50,7 +51,11 @@ export function getTargetPosition(params: {
 
       return AaveV3LendingPosition.createFrom({
         subtype: LendingPositionType.Multiply,
-        id: AaveV3LendingPositionId.createFrom({ id: '0987654321' }),
+        id: AaveV3LendingPositionId.createFrom({ 
+          id: '0987654321',
+          poolId: params.targetPool.id,
+          walletAddress: Address.ZeroAddressEthereum
+        }),
         pool: params.targetPool,
         debtAmount: TokenAmount.createFrom({
           amount: params.sourcePosition.debtAmount.amount,

@@ -68,7 +68,7 @@ Signature to differentiate from similar interfaces
 
 ### poolId
 
-> `readonly` **poolId**: [`IAaveV3LendingPoolId`](IAaveV3LendingPoolId.md)
+> `readonly` **poolId**: [`IAaveV3LendingPoolId`](../../../../client/src/interfaces/IAaveV3LendingPoolId.md)
 
 The pool ID associated with this position
 

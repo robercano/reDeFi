@@ -18,10 +18,10 @@ ILendingPoolId
 
 ## Extended by
 
-- [`AaveV3LendingPoolId`](../../../protocol-plugins/service/src/classes/AaveV3LendingPoolId.md)
-- [`SparkLendingPoolId`](../../../protocol-plugins/service/src/classes/SparkLendingPoolId.md)
-- [`MakerLendingPoolId`](../../../protocol-plugins/service/src/classes/MakerLendingPoolId.md)
-- [`MorphoLendingPoolId`](../../../protocol-plugins/service/src/classes/MorphoLendingPoolId.md)
+- [`AaveV3LendingPoolId`](AaveV3LendingPoolId.md)
+- [`MakerLendingPoolId`](MakerLendingPoolId.md)
+- [`MorphoLendingPoolId`](MorphoLendingPoolId.md)
+- [`SparkLendingPoolId`](SparkLendingPoolId.md)
 
 ## Implements
 
@@ -54,7 +54,7 @@ SEALED CONSTRUCTOR
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -66,7 +66,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -76,7 +76,7 @@ SIGNATURE
 
 #### Inherited from
 
-`PoolId.[___signature__]`
+[`MakerLendingPoolId`](MakerLendingPoolId.md).[`[___signature__]`](MakerLendingPoolId.md#___signature__-2)
 
 ***
 

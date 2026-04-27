@@ -17,13 +17,10 @@ export function decodeStrategy(calldata: HexData): {
     data: calldata,
   })
 
-  const nonSkippableActions = (args.args[0] as SkippableActionCall[]).map((action) => {
-    const { skipped, ...rest } = action
-    return rest
-  })
+  const actions = (args.args[0] as ActionCall[]).map((action) => action)
 
   return {
     strategyName: args.args[1] as string,
-    actions: nonSkippableActions,
+    actions: actions,
   }
 }

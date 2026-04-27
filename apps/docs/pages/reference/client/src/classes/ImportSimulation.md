@@ -26,7 +26,7 @@ IImportSimulation
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -42,7 +42,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -52,7 +52,7 @@ SIGNATURE
 
 #### Inherited from
 
-`Simulation.[___signature__]`
+[`RefinanceSimulation`](RefinanceSimulation.md).[`[___signature__]`](RefinanceSimulation.md#___signature__-1)
 
 ***
 

@@ -18,11 +18,11 @@ ILendingPositionId
 
 ## Extended by
 
+- [`AaveV3LendingPositionId`](AaveV3LendingPositionId.md)
+- [`MakerLendingPositionId`](MakerLendingPositionId.md)
+- [`MorphoLendingPositionId`](MorphoLendingPositionId.md)
+- [`SparkLendingPositionId`](SparkLendingPositionId.md)
 - [`ExternalLendingPositionId`](ExternalLendingPositionId.md)
-- [`AaveV3LendingPositionId`](../../../protocol-plugins/service/src/classes/AaveV3LendingPositionId.md)
-- [`SparkLendingPositionId`](../../../protocol-plugins/service/src/classes/SparkLendingPositionId.md)
-- [`MakerLendingPositionId`](../../../protocol-plugins/service/src/classes/MakerLendingPositionId.md)
-- [`MorphoLendingPositionId`](../../../protocol-plugins/service/src/classes/MorphoLendingPositionId.md)
 
 ## Implements
 
@@ -54,7 +54,7 @@ SEALED CONSTRUCTOR
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -66,13 +66,13 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
 #### Inherited from
 
-`PositionId.[___signature__]`
+`LendingPositionId`.[`[___signature__]`](#___signature__-1)
 
 ***
 

@@ -6,7 +6,7 @@
 
 # Variable: PositionDataSchema
 
-> `const` **PositionDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodType`\<[`IPositionId`](../interfaces/IPositionId.md), `z.ZodTypeDef`, [`IPositionId`](../interfaces/IPositionId.md)\>; `pool`: `z.ZodType`\<[`IPool`](../interfaces/IPool.md), `z.ZodTypeDef`, [`IPool`](../interfaces/IPool.md)\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: [`IPositionId`](../interfaces/IPositionId.md); `pool`: [`IPool`](../interfaces/IPool.md); `type`: [`PositionType`](../enumerations/PositionType.md); \}, \{ `id`: [`IPositionId`](../interfaces/IPositionId.md); `pool`: [`IPool`](../interfaces/IPool.md); `type`: [`PositionType`](../enumerations/PositionType.md); \}\>
+> `const` **PositionDataSchema**: `ZodObject`\<\{ `id`: `ZodType`\<[`IPositionId`](../interfaces/IPositionId.md), `ZodTypeDef`, [`IPositionId`](../interfaces/IPositionId.md)\>; `pool`: `ZodType`\<[`IPool`](../interfaces/IPool.md), `ZodTypeDef`, [`IPool`](../interfaces/IPool.md)\>; `type`: `ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id`: [`IPositionId`](../interfaces/IPositionId.md); `pool`: [`IPool`](../interfaces/IPool.md); `type`: [`PositionType`](../enumerations/PositionType.md); \}, \{ `id`: [`IPositionId`](../interfaces/IPositionId.md); `pool`: [`IPool`](../interfaces/IPool.md); `type`: [`PositionType`](../enumerations/PositionType.md); \}\>
 
 ## Description
 

@@ -6,6 +6,6 @@
 
 # Variable: PoolTypeSchema
 
-> `const` **PoolTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../enumerations/PoolType.md)\>
+> `const` **PoolTypeSchema**: `ZodNativeEnum`\<*typeof* [`PoolType`](../enumerations/PoolType.md)\>
 
 Zod schema for PoolType

@@ -6,4 +6,4 @@
 
 # Variable: sparkEmodeCategoryMap
 
-> `const` **sparkEmodeCategoryMap**: `Record`\<[`EmodeType`](../enumerations/EmodeType.md), `number`\>
+> `const` **sparkEmodeCategoryMap**: `Record`\<[`EmodeType`](../../../../client/src/enumerations/EmodeType.md), `number`\>

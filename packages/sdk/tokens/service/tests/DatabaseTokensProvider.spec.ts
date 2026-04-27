@@ -1,5 +1,5 @@
 import { DatabaseTokensProvider } from '../src/implementation/database/DatabaseTokensProvider'
-import { Address, AddressType } from '@thesolidchain/sdk-common'
+import { Address, ChainInfo } from '@thesolidchain/sdk-common'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 
 const mockSend = vi.fn()
@@ -8,6 +8,7 @@ vi.mock('@aws-sdk/lib-dynamodb', () => {
   return {
     DynamoDBDocumentClient: {
       from: vi.fn(() => ({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         send: (...args: any[]) => mockSend(...args)
       }))
     },
@@ -24,8 +25,11 @@ vi.mock('@aws-sdk/client-dynamodb', () => {
 
 describe('DatabaseTokensProvider', () => {
   let provider: DatabaseTokensProvider
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let configProvider: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let blockchainClientProvider: any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let contractsProvider: any
 
   beforeEach(() => {
@@ -50,7 +54,7 @@ describe('DatabaseTokensProvider', () => {
 
   describe('getTokenBySymbol', () => {
     it('should query the database by symbol using GSI', async () => {
-      const mockChainInfo = { chainId: 1 } as any
+      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
       mockSend.mockResolvedValue({
         Items: [
           { address: '0x1234567890123456789012345678901234567890', decimals: 18, name: 'Token', symbol: 'TKN' }
@@ -70,7 +74,7 @@ describe('DatabaseTokensProvider', () => {
     })
 
     it('should throw an error if token not found', async () => {
-      const mockChainInfo = { chainId: 1 } as any
+      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
       mockSend.mockResolvedValue({ Items: [] })
 
       await expect(
@@ -81,7 +85,7 @@ describe('DatabaseTokensProvider', () => {
 
   describe('getTokenByAddress', () => {
     it('should get the token from the database by address and chainId', async () => {
-      const mockChainInfo = { chainId: 1 } as any
+      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
       mockSend.mockResolvedValue({
         Item: { address: '0x1234567890123456789012345678901234567890', decimals: 18, name: 'Token', symbol: 'TKN' }
       })
@@ -101,7 +105,7 @@ describe('DatabaseTokensProvider', () => {
     })
 
     it('should throw an error if token not found', async () => {
-      const mockChainInfo = { chainId: 1 } as any
+      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
       mockSend.mockResolvedValue({})
 
       await expect(

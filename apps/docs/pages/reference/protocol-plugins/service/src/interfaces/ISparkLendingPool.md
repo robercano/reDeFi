@@ -67,7 +67,7 @@ Collateral token used to collateralized the pool
 
 #### Inherited from
 
-[`ILendingPool`](../../../../client/src/interfaces/ILendingPool.md).[`collateralToken`](../../../../client/src/interfaces/ILendingPool.md#collateraltoken)
+`ISparkLendingPoolData.collateralToken`
 
 ***
 
@@ -79,13 +79,13 @@ Debt token, which can be borrowed from the pool
 
 #### Inherited from
 
-[`ILendingPool`](../../../../client/src/interfaces/ILendingPool.md).[`debtToken`](../../../../client/src/interfaces/ILendingPool.md#debttoken)
+`ISparkLendingPoolData.debtToken`
 
 ***
 
 ### id
 
-> `readonly` **id**: [`ISparkLendingPoolId`](ISparkLendingPoolId.md)
+> `readonly` **id**: [`ISparkLendingPoolId`](../../../../client/src/interfaces/ISparkLendingPoolId.md)
 
 The id of the lending pool
 

@@ -6,7 +6,7 @@
 
 # Function: fetchAssetPrices()
 
-> **fetchAssetPrices**(`ctx`, `tokensList`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<`any`\>
+> **fetchAssetPrices**(`ctx`, `tokensList`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<\[`unknown`\]\>
 
 ## Parameters
 
@@ -19,4 +19,4 @@
 
 ## Returns
 
-`Promise`\<`any`\>
+`Promise`\<\[`unknown`\]\>
