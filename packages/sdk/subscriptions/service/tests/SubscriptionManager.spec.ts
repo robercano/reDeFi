@@ -65,7 +65,7 @@ describe('SubscriptionManager', () => {
       const result = manager.subscribeToNewBlocks(mockChainInfo, callback)
 
       expect(result).toBe('sub-1')
-      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, callback)
+      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
       expect(mockProvider2.subscribeToNewBlocks).not.toHaveBeenCalled()
     })
 
@@ -79,8 +79,8 @@ describe('SubscriptionManager', () => {
       const result = manager.subscribeToNewBlocks(mockChainInfo, callback)
 
       expect(result).toBe('sub-2')
-      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, callback)
-      expect(mockProvider2.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, callback)
+      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
+      expect(mockProvider2.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
     })
 
     it('should throw an error if all providers fail', () => {

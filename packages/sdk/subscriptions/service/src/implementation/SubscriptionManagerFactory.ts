@@ -1,6 +1,7 @@
 import { SubscriptionProviderType, ISubscriptionManager, ISubscriptionProvider } from '@thesolidchain/subscriptions-common'
 import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IEventBus } from '@thesolidchain/events-common'
 import { SubscriptionManager } from './SubscriptionManager'
 import { DefaultRpcSubscriptionProvider } from './providers/DefaultRpcSubscriptionProvider'
 
@@ -11,7 +12,8 @@ export class SubscriptionManagerFactory {
    */
   public static newSubscriptionManager(params: {
     configProvider: IConfigurationProvider,
-    blockchainClientProvider: IBlockchainManager
+    blockchainClientProvider: IBlockchainManager,
+    eventBus?: IEventBus
   }): ISubscriptionManager {
     const providers = new Map<SubscriptionProviderType, ISubscriptionProvider>()
 
@@ -25,6 +27,6 @@ export class SubscriptionManagerFactory {
 
     // Future providers (Alchemy Websockets, etc) can be added here
 
-    return new SubscriptionManager({ providers })
+    return new SubscriptionManager({ providers, eventBus: params.eventBus })
   }
 }

@@ -1,5 +1,6 @@
 import { SubscriptionProviderType, ISubscriptionManager, ISubscriptionProvider } from '@thesolidchain/subscriptions-common'
 import type { IChainInfo } from '@thesolidchain/sdk-common'
+import { IEventBus } from '@thesolidchain/events-common'
 
 /**
  * @name SubscriptionManager
@@ -7,9 +8,11 @@ import type { IChainInfo } from '@thesolidchain/sdk-common'
  */
 export class SubscriptionManager implements ISubscriptionManager {
   private _providers: Map<SubscriptionProviderType, ISubscriptionProvider>
+  private _eventBus?: IEventBus
 
-  constructor(params: { providers: Map<SubscriptionProviderType, ISubscriptionProvider> }) {
+  constructor(params: { providers: Map<SubscriptionProviderType, ISubscriptionProvider>, eventBus?: IEventBus }) {
     this._providers = params.providers
+    this._eventBus = params.eventBus
   }
 
   public getProvider(type: SubscriptionProviderType): ISubscriptionProvider | undefined {
@@ -29,8 +32,13 @@ export class SubscriptionManager implements ISubscriptionManager {
     // In the future, this should support fallback mechanisms if the primary provider drops
     for (const [_, provider] of this._providers) {
       try {
-        return provider.subscribeToNewBlocks(chainInfo, callback)
-      } catch (error) {
+        return provider.subscribeToNewBlocks(chainInfo, (blockNumber) => {
+          if (this._eventBus) {
+            this._eventBus.emit('NewBlockMined', { chainInfo, blockNumber })
+          }
+          callback(blockNumber)
+        })
+      } catch (_error) {
         console.warn(`Provider failed to subscribe, trying next...`)
       }
     }
@@ -43,7 +51,7 @@ export class SubscriptionManager implements ISubscriptionManager {
         // Broadly attempt to unsubscribe across all providers 
         // since we don't store which provider owns which ID yet
         provider.unsubscribe(subscriptionId)
-      } catch (e) {
+      } catch (_e) {
         // Ignore unsubscribe errors
       }
     }
