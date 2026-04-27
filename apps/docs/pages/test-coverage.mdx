@@ -1,8 +1,64 @@
-# Test Coverage Report
+import coverageData from '../data/coverage.json'
 
-This is the automatically generated test coverage report for the monorepo.
+# SDK Test Coverage
 
-| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) |
-|---|---|---|---|---|
-| sdk-common | 77.73% | 79.08% | 28.72% | 72.84% |
-| **TOTAL** | **77.73%** | **79.08%** | **28.72%** | **72.84%** |
+The following table tracks the unit test code coverage across the `@thesolidchain` SDK workspace. We are aiming for **80% line coverage** on all business logic packages. 
+
+*(Coverage is automatically generated from the `json-summary` vitest reporter)*
+
+export const CoverageTable = () => {
+  const packages = Object.keys(coverageData).filter(key => key !== 'Total').sort();
+  const total = coverageData['Total'];
+
+  const getEmoji = (pct) => {
+    if (pct >= 80) return '✅';
+    if (pct >= 50) return '⚠️';
+    return '❌';
+  };
+
+  const getRowStyle = (key) => {
+    if (key === 'Total') return { fontWeight: 'bold', backgroundColor: 'rgba(0,0,0,0.05)' };
+    return {};
+  };
+
+  return (
+    <div style={{ marginTop: '2rem', overflowX: 'auto' }}>
+      <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left' }}>
+        <thead>
+          <tr style={{ borderBottom: '2px solid #eaeaea' }}>
+            <th style={{ padding: '12px' }}>Package</th>
+            <th style={{ padding: '12px' }}>Statements</th>
+            <th style={{ padding: '12px' }}>Branches</th>
+            <th style={{ padding: '12px' }}>Functions</th>
+            <th style={{ padding: '12px' }}>Lines</th>
+            <th style={{ padding: '12px' }}>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {packages.map(pkg => (
+            <tr key={pkg} style={{ borderBottom: '1px solid #eaeaea' }}>
+              <td style={{ padding: '12px', fontWeight: '500' }}><code>{pkg}</code></td>
+              <td style={{ padding: '12px' }}>{coverageData[pkg].statements.pct}%</td>
+              <td style={{ padding: '12px' }}>{coverageData[pkg].branches.pct}%</td>
+              <td style={{ padding: '12px' }}>{coverageData[pkg].functions.pct}%</td>
+              <td style={{ padding: '12px', fontWeight: 'bold' }}>{coverageData[pkg].lines.pct}%</td>
+              <td style={{ padding: '12px' }}>{getEmoji(parseFloat(coverageData[pkg].lines.pct))}</td>
+            </tr>
+          ))}
+          {total && (
+            <tr style={getRowStyle('Total')}>
+              <td style={{ padding: '12px' }}>Total (Aggregated)</td>
+              <td style={{ padding: '12px' }}>{total.statements.pct}%</td>
+              <td style={{ padding: '12px' }}>{total.branches.pct}%</td>
+              <td style={{ padding: '12px' }}>{total.functions.pct}%</td>
+              <td style={{ padding: '12px', fontWeight: 'bold' }}>{total.lines.pct}%</td>
+              <td style={{ padding: '12px' }}>{getEmoji(parseFloat(total.lines.pct))}</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+<CoverageTable />
