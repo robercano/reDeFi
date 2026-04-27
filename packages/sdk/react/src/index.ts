@@ -1,4 +1,5 @@
 export { useSDK } from './hooks/useSDK'
+export { useSDKEvent } from './hooks/useSDKEvent'
 export type { SdkClient } from './hooks/useSDK'
 export { SDKContextProvider, useSDKContext } from './components/SDKContext'
 export type { SDKContextType } from './components/SDKContext'

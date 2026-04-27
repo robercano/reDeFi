@@ -9,9 +9,12 @@ import { SimulationManager } from './simulations/SimulationManager'
 import { SwapManagerClient } from './SwapManagerClient'
 import { TokensManagerClient2 } from './TokensManagerClient2'
 import { UsersManager } from './UsersManager'
+import { EventBus } from '@thesolidchain/events-service'
+import type { IEventBus } from '@thesolidchain/events-common'
 
 /** @see ISDKManager */
 export class SDKManager implements ISDKManager {
+  public readonly eventBus: IEventBus
   public readonly simulator: SimulationManager
   public readonly chains: ChainsManagerClient
   public readonly tokens: TokensManagerClient2
@@ -23,6 +26,7 @@ export class SDKManager implements ISDKManager {
   public readonly orders: OrdersManagerClient
 
   public constructor(params: { rpcClient: RPCMainClientType }) {
+    this.eventBus = new EventBus()
     this.simulator = new SimulationManager(params)
     this.chains = new ChainsManagerClient(params)
     this.tokens = new TokensManagerClient2(params)

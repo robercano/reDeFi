@@ -35,6 +35,8 @@
     "@thesolidchain/api-server": "workspace:*",
     "@thesolidchain/order-planner-common": "workspace:*",
     "@thesolidchain/protocol-plugins": "workspace:*",
+    "@thesolidchain/events-common": "workspace:*",
+    "@thesolidchain/events-service": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
     "@trpc/client": "11.8.0",
     "bignumber.js": "^9.3.1"
