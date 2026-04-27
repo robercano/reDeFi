@@ -6,6 +6,6 @@
 
 # Variable: UserDataSchema
 
-> `const` **UserDataSchema**: `z.ZodObject`\<\{ `chainInfo`: `z.ZodType`\<[`IChainInfo`](../interfaces/IChainInfo.md), `z.ZodTypeDef`, [`IChainInfo`](../interfaces/IChainInfo.md)\>; `wallet`: `z.ZodType`\<[`IWallet`](../interfaces/IWallet.md), `z.ZodTypeDef`, [`IWallet`](../interfaces/IWallet.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `wallet`: [`IWallet`](../interfaces/IWallet.md); \}, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `wallet`: [`IWallet`](../interfaces/IWallet.md); \}\>
+> `const` **UserDataSchema**: `ZodObject`\<\{ `chainInfo`: `ZodType`\<[`IChainInfo`](../interfaces/IChainInfo.md), `ZodTypeDef`, [`IChainInfo`](../interfaces/IChainInfo.md)\>; `wallet`: `ZodType`\<[`IWallet`](../interfaces/IWallet.md), `ZodTypeDef`, [`IWallet`](../interfaces/IWallet.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `wallet`: [`IWallet`](../interfaces/IWallet.md); \}, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `wallet`: [`IWallet`](../interfaces/IWallet.md); \}\>
 
 Zod schema for the data part of IUser

@@ -83,7 +83,7 @@ The debt information of the pool
 
 ### id
 
-> `readonly` **id**: [`IMakerLendingPoolId`](IMakerLendingPoolId.md)
+> `readonly` **id**: [`IMakerLendingPoolId`](../../../../client/src/interfaces/IMakerLendingPoolId.md)
 
 The pool's ID
 

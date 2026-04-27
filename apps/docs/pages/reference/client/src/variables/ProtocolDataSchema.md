@@ -6,7 +6,7 @@
 
 # Variable: ProtocolDataSchema
 
-> `const` **ProtocolDataSchema**: `z.ZodObject`\<\{ `chainInfo`: `z.ZodType`\<[`IChainInfo`](../interfaces/IChainInfo.md), `z.ZodTypeDef`, [`IChainInfo`](../interfaces/IChainInfo.md)\>; `name`: `z.ZodNativeEnum`\<*typeof* [`ProtocolName`](../enumerations/ProtocolName.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `name`: [`ProtocolName`](../enumerations/ProtocolName.md); \}, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `name`: [`ProtocolName`](../enumerations/ProtocolName.md); \}\>
+> `const` **ProtocolDataSchema**: `ZodObject`\<\{ `chainInfo`: `ZodType`\<[`IChainInfo`](../interfaces/IChainInfo.md), `ZodTypeDef`, [`IChainInfo`](../interfaces/IChainInfo.md)\>; `name`: `ZodNativeEnum`\<*typeof* [`ProtocolName`](../enumerations/ProtocolName.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `name`: [`ProtocolName`](../enumerations/ProtocolName.md); \}, \{ `chainInfo`: [`IChainInfo`](../interfaces/IChainInfo.md); `name`: [`ProtocolName`](../enumerations/ProtocolName.md); \}\>
 
 ## Description
 

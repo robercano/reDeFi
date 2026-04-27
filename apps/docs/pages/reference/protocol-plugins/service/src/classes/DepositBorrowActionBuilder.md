@@ -50,8 +50,8 @@ Delegates the building of the action to the specific builder in the correspondin
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `actionBuilderParams`: `ActionBuilderParams`\<`FilterStep`\<[`SimulationSteps`](../../../../client/src/enumerations/SimulationSteps.md), `StepType`\>\>; `protocolName`: [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md); \} |
-| `params.actionBuilderParams` | `ActionBuilderParams`\<`FilterStep`\<[`SimulationSteps`](../../../../client/src/enumerations/SimulationSteps.md), `StepType`\>\> |
+| `params` | \{ `actionBuilderParams`: `ActionBuilderParams`\<[`DepositBorrowStep`](../../../../client/src/namespaces/steps/type-aliases/DepositBorrowStep.md)\>; `protocolName`: [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md); \} |
+| `params.actionBuilderParams` | `ActionBuilderParams`\<[`DepositBorrowStep`](../../../../client/src/namespaces/steps/type-aliases/DepositBorrowStep.md)\> |
 | `params.protocolName` | [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md) |
 
 #### Returns

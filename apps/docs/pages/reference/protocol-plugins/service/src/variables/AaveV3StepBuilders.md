@@ -6,4 +6,4 @@
 
 # Variable: AaveV3StepBuilders
 
-> `const` **AaveV3StepBuilders**: `Partial`\<[`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\>
+> `const` **AaveV3StepBuilders**: `Partial`\<`ActionBuildersMap`\>

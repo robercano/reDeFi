@@ -6,7 +6,7 @@
 
 # Variable: StakingBucketSchema
 
-> `const` **StakingBucketSchema**: `z.ZodNativeEnum`\<*typeof* [`StakingBucket`](../enumerations/StakingBucket.md)\>
+> `const` **StakingBucketSchema**: `ZodNativeEnum`\<*typeof* [`StakingBucket`](../enumerations/StakingBucket.md)\>
 
 ## Description
 

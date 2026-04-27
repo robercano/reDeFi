@@ -1,7 +1,7 @@
 import { Resource } from 'sst'
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient, BatchWriteCommand } from '@aws-sdk/lib-dynamodb'
-import { S3Client, PutObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3'
+import { S3Client, PutObjectCommand, ListObjectsV2Command, ListObjectsV2CommandOutput } from '@aws-sdk/client-s3'
 
 const client = new DynamoDBClient({})
 const docClient = DynamoDBDocumentClient.from(client)
@@ -19,29 +19,29 @@ interface TokenInfo {
 interface FetchSource {
   name: string
   url: string
-  parser: (data: any) => TokenInfo[]
+  parser: (data: unknown) => TokenInfo[]
 }
 
 const FETCH_SOURCES: FetchSource[] = [
   {
     name: 'Uniswap',
     url: 'https://tokens.uniswap.org',
-    parser: (data: any) => data.tokens as TokenInfo[],
+    parser: (data: unknown) => (data as { tokens: TokenInfo[] }).tokens,
   },
   {
     name: '1inch_mainnet',
     url: 'https://tokens.1inch.io/v1.1/1',
-    parser: (data: any) => Object.values(data) as TokenInfo[],
+    parser: (data: unknown) => Object.values(data as Record<string, TokenInfo>),
   },
   {
     name: '1inch_arbitrum',
     url: 'https://tokens.1inch.io/v1.1/42161',
-    parser: (data: any) => Object.values(data) as TokenInfo[],
+    parser: (data: unknown) => Object.values(data as Record<string, TokenInfo>),
   },
   {
     name: '1inch_base',
     url: 'https://tokens.1inch.io/v1.1/8453',
-    parser: (data: any) => Object.values(data) as TokenInfo[],
+    parser: (data: unknown) => Object.values(data as Record<string, TokenInfo>),
   },
 ]
 
@@ -89,7 +89,7 @@ export const handler = async () => {
     const existingLogos = new Set<string>()
     let continuationToken: string | undefined = undefined
     do {
-      const listRes = await s3Client.send(
+      const listRes: ListObjectsV2CommandOutput = await s3Client.send(
         new ListObjectsV2Command({
           Bucket: bucketName,
           Prefix: 'logos/',
@@ -97,7 +97,7 @@ export const handler = async () => {
         }),
       )
       if (listRes.Contents) {
-        listRes.Contents.forEach((item) => {
+        listRes.Contents.forEach((item: { Key?: string }) => {
           if (item.Key) existingLogos.add(item.Key)
         })
       }

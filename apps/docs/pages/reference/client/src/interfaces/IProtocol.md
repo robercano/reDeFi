@@ -20,10 +20,10 @@ This interface is used to add all the methods that the interface supports
 
 ## Extended by
 
-- [`IAaveV3Protocol`](../../../protocol-plugins/service/src/interfaces/IAaveV3Protocol.md)
-- [`ISparkProtocol`](../../../protocol-plugins/service/src/interfaces/ISparkProtocol.md)
-- [`IMakerProtocol`](../../../protocol-plugins/service/src/interfaces/IMakerProtocol.md)
-- [`IMorphoProtocol`](../../../protocol-plugins/service/src/interfaces/IMorphoProtocol.md)
+- [`IAaveV3Protocol`](IAaveV3Protocol.md)
+- [`IMakerProtocol`](IMakerProtocol.md)
+- [`IMorphoProtocol`](IMorphoProtocol.md)
+- [`ISparkProtocol`](ISparkProtocol.md)
 
 ## Properties
 

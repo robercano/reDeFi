@@ -21,7 +21,7 @@
 | Name | Type |
 | ------ | ------ |
 | `buildOrder()` | (`params`) => `Promise`\<[`Maybe`](../../../client/src/type-aliases/Maybe.md)\<[`Order`](../../../client/src/interfaces/Order.md)\>\> |
-| `getChain()` | (`__namedParameters`) => `Promise`\<`Chain`\> |
+| `getChain()` | (`__namedParameters`) => `Promise`\<[`Chain`](../../../client/src/classes/Chain.md)\> |
 | `getChainInfo()` | () => [`ChainInfo`](../../../client/src/classes/ChainInfo.md) |
 | `getCurrentUser()` | () => [`User`](../../../client/src/classes/User.md) |
 | `getLendingPool()` | (`params`) => `Promise`\<[`Maybe`](../../../client/src/type-aliases/Maybe.md)\<[`ILendingPool`](../../../client/src/interfaces/ILendingPool.md)\>\> |

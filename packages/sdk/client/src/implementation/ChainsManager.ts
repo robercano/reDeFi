@@ -35,7 +35,6 @@ export class ChainsManagerClient extends IRPCClient implements IChainsManagerCli
       tokensManager: new TokensManagerClient({ rpcClient: this.rpcClient, chainInfo: chainInfo }),
       protocolsManager: new ProtocolsManagerClient({
         rpcClient: this.rpcClient,
-        chainInfo: chainInfo,
       }),
     })
   }

@@ -40,7 +40,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -56,7 +56,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -104,7 +104,7 @@ Debt token, which can be borrowed from the pool
 
 ### id
 
-> `readonly` **id**: [`MakerLendingPoolId`](MakerLendingPoolId.md)
+> `readonly` **id**: [`MakerLendingPoolId`](../../../../client/src/classes/MakerLendingPoolId.md)
 
 ATTRIBUTES
 

@@ -6,7 +6,7 @@
 
 # Variable: ProtocolNameSchema
 
-> `const` **ProtocolNameSchema**: `z.ZodNativeEnum`\<*typeof* [`ProtocolName`](../enumerations/ProtocolName.md)\>
+> `const` **ProtocolNameSchema**: `ZodNativeEnum`\<*typeof* [`ProtocolName`](../enumerations/ProtocolName.md)\>
 
 ## Description
 

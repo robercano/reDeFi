@@ -6,7 +6,7 @@
 
 # Variable: TokenAmountDataSchema
 
-> `const` **TokenAmountDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodString`; `token`: `z.ZodType`\<[`IToken`](../interfaces/IToken.md), `z.ZodTypeDef`, [`IToken`](../interfaces/IToken.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}, \{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}\>
+> `const` **TokenAmountDataSchema**: `ZodObject`\<\{ `amount`: `ZodString`; `token`: `ZodType`\<[`IToken`](../interfaces/IToken.md), `ZodTypeDef`, [`IToken`](../interfaces/IToken.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}, \{ `amount`: `string`; `token`: [`IToken`](../interfaces/IToken.md); \}\>
 
 ## Description
 

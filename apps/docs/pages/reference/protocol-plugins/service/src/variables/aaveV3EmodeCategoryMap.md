@@ -6,4 +6,4 @@
 
 # Variable: aaveV3EmodeCategoryMap
 
-> `const` **aaveV3EmodeCategoryMap**: `Record`\<[`EmodeType`](../enumerations/EmodeType.md), `number`\>
+> `const` **aaveV3EmodeCategoryMap**: `Record`\<[`EmodeType`](../../../../client/src/enumerations/EmodeType.md), `number`\>

@@ -40,7 +40,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -56,7 +56,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -104,7 +104,7 @@ Debt token, which can be borrowed from the pool
 
 ### id
 
-> `readonly` **id**: [`SparkLendingPoolId`](SparkLendingPoolId.md)
+> `readonly` **id**: [`SparkLendingPoolId`](../../../../client/src/classes/SparkLendingPoolId.md)
 
 ATTRIBUTES
 

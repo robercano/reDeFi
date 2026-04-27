@@ -6,6 +6,6 @@
 
 # Variable: PositionTypeSchema
 
-> `const` **PositionTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>
+> `const` **PositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>
 
 Zod schema for PositionType

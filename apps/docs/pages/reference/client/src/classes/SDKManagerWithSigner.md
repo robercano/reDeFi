@@ -24,8 +24,8 @@ ISDKManager
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; `signer`: `Signer`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; `signer`: `Signer`; \} |
+| `params.rpcClient` | `TRPCClient` |
 | `params.signer` | `Signer` |
 
 #### Returns

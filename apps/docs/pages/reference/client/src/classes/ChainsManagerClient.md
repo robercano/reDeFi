@@ -32,8 +32,8 @@ Implementation of the IChainsManager interface for the SDK Client
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; \} |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 
@@ -49,11 +49,11 @@ Implementation of the IChainsManager interface for the SDK Client
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

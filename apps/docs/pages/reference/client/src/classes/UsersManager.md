@@ -30,8 +30,8 @@ Allows to retrieve a user by their wallet and network
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; \} |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 
@@ -47,11 +47,11 @@ Allows to retrieve a user by their wallet and network
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

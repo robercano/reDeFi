@@ -8,7 +8,7 @@
 
 ## Extends
 
-- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\<*typeof* [`Config`](#config)\>
+- `BaseAction`\<*typeof* [`Config`](#config)\>
 
 ## Constructors
 
@@ -70,7 +70,39 @@
 | `storageOutputs` | readonly \[\] | `[]` |
 | `version` | `0` | `0` |
 
+#### Overrides
+
+`BaseAction.config`
+
 ## Methods
+
+### \_encodeCall()
+
+> `protected` **\_encodeCall**(`params`): `ActionCall`
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
+| `params.arguments` | readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\] | - |
+| `params.mapping?` | `InputSlotsMapping` | - |
+
+#### Returns
+
+`ActionCall`
+
+The encoded call to the action
+
+#### Description
+
+Encodes the call to the action
+
+#### Inherited from
+
+`BaseAction._encodeCall`
+
+***
 
 ### encodeCall()
 
@@ -82,8 +114,52 @@
 | ------ | ------ |
 | `params` | \{ `position`: [`ILendingPosition`](../../../../client/src/interfaces/ILendingPosition.md); \} |
 | `params.position` | [`ILendingPosition`](../../../../client/src/interfaces/ILendingPosition.md) |
-| `paramsMapping?` | `any` |
+| `paramsMapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
+
+#### See
+
+IAction.encodeCall
+
+#### Overrides
+
+`BaseAction.encodeCall`
+
+***
+
+### getActionHash()
+
+> **getActionHash**(): `` `0x${string}` ``
+
+#### Returns
+
+`` `0x${string}` ``
+
+#### See
+
+IAction.getActionHash
+
+#### Inherited from
+
+`BaseAction.getActionHash`
+
+***
+
+### getVersionedName()
+
+> **getVersionedName**(): `string`
+
+#### Returns
+
+`string`
+
+#### See
+
+IAction.getVersionedName
+
+#### Inherited from
+
+`BaseAction.getVersionedName`

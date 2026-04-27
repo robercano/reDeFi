@@ -6,7 +6,7 @@
 
 # Variable: LendingPositionIdDataSchema
 
-> `const` **LendingPositionIdDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodString`; `type`: `z.ZodLiteral`\<[`Lending`](../enumerations/PositionType.md#lending)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: `string`; `type`: [`Lending`](../enumerations/PositionType.md#lending); \}, \{ `id`: `string`; `type`: [`Lending`](../enumerations/PositionType.md#lending); \}\>
+> `const` **LendingPositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodLiteral`\<[`Lending`](../enumerations/PositionType.md#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id`: `string`; `type`: [`Lending`](../enumerations/PositionType.md#lending); \}, \{ `id`: `string`; `type`: [`Lending`](../enumerations/PositionType.md#lending); \}\>
 
 ## Description
 

@@ -83,7 +83,7 @@ The debt information of the pool
 
 ### id
 
-> `readonly` **id**: [`IMorphoLendingPoolId`](IMorphoLendingPoolId.md)
+> `readonly` **id**: [`IMorphoLendingPoolId`](../../../../client/src/interfaces/IMorphoLendingPoolId.md)
 
 The id of the lending pool
 

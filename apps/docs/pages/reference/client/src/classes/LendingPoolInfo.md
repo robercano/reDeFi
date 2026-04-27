@@ -56,7 +56,7 @@ SEALED CONSTRUCTOR
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -68,7 +68,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -78,7 +78,7 @@ SIGNATURE
 
 #### Inherited from
 
-`PoolInfo.[___signature__]`
+[`SparkLendingPoolInfo`](../../../protocol-plugins/service/src/classes/SparkLendingPoolInfo.md).[`[___signature__]`](../../../protocol-plugins/service/src/classes/SparkLendingPoolInfo.md#___signature__-2)
 
 ***
 

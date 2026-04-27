@@ -83,7 +83,7 @@ The debt information of the pool
 
 ### id
 
-> `readonly` **id**: [`ISparkLendingPoolId`](ISparkLendingPoolId.md)
+> `readonly` **id**: [`ISparkLendingPoolId`](../../../../client/src/interfaces/ISparkLendingPoolId.md)
 
 The id of the lending pool
 

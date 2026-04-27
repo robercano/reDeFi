@@ -14,7 +14,7 @@ Registry of protocol plugins that can be used to interact with the protocols
 
 ## Implements
 
-- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)
+- `IProtocolPluginsRegistry`
 
 ## Constructors
 
@@ -50,7 +50,7 @@ Registry of protocol plugins that can be used to interact with the protocols
 
 ### getPlugin()
 
-> **getPlugin**(`params`): `any`
+> **getPlugin**(`params`): [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IProtocolPlugin`\>
 
 #### Parameters
 
@@ -61,7 +61,7 @@ Registry of protocol plugins that can be used to interact with the protocols
 
 #### Returns
 
-`any`
+[`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IProtocolPlugin`\>
 
 The plugin instance for the specified protocol
 
@@ -72,3 +72,7 @@ getPlugin
 #### Description
 
 Returns a plugin instance for the specified protocol
+
+#### Implementation of
+
+`IProtocolPluginsRegistry.getPlugin`

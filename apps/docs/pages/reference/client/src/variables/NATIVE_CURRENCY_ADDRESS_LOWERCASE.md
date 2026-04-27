@@ -6,4 +6,4 @@
 
 # Variable: NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE
 
-> `const` **NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE**: [`AddressValue`](../type-aliases/AddressValue.md)
+> `const` **NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE**: `` `0x${string}` ``

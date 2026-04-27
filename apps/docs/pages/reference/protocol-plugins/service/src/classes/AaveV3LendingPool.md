@@ -40,7 +40,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -56,7 +56,7 @@ SIGNATURE
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -104,7 +104,7 @@ Debt token, which can be borrowed from the pool
 
 ### id
 
-> `readonly` **id**: [`AaveV3LendingPoolId`](AaveV3LendingPoolId.md)
+> `readonly` **id**: [`AaveV3LendingPoolId`](../../../../client/src/classes/AaveV3LendingPoolId.md)
 
 ATTRIBUTES
 

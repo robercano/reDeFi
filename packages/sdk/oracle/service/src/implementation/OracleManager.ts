@@ -1,5 +1,5 @@
 
-import { isToken, OracleProviderType } from '@thesolidchain/sdk-common'
+import { isToken, OracleProviderType, Cache, VolatilityProfile, DataOrchestrator } from '@thesolidchain/sdk-common'
 import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
 import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
 
@@ -21,11 +21,18 @@ export class OracleManager
     providers: IOracleProvider[]
     cacheService?: ICacheService
     cacheTTLSeconds?: number
+    cacheOrchestrator?: DataOrchestrator
   }) {
     super(params)
   }
 
-  /** @see IOracleManager.getSpotPrice */
+  /**
+   * @method getSpotPrice
+   * @description Retrieves the spot price for a specific base token, optionally denominated in another token.
+   * @param params Parameters including the base token and optional denomination token.
+   * @returns The spot price of the base token.
+   */
+  @Cache(VolatilityProfile.TIME_FAST)
   async getSpotPrice(
     params: Parameters<IOracleManager['getSpotPrice']>[0],
   ): ReturnType<IOracleManager['getSpotPrice']> {
@@ -37,26 +44,20 @@ export class OracleManager
       throw new Error('Base token and quote token must be on the same chain')
     }
 
-    const quoteAddress =
-      params.denomination && isToken(params.denomination)
-        ? params.denomination.address.value
-        : 'native'
-
-    const cacheKey = this._buildCacheKey('getSpotPrice', [
-      params.baseToken.chainInfo.chainId,
-      params.baseToken.address.value,
-      quoteAddress,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.baseToken.chainInfo,
       forceUseProvider: params.forceUseProvider,
       action: async (provider) => provider.getSpotPrice(params),
     })
   }
 
-  /** @see IOracleManager.getSpotPrices */
+  /**
+   * @method getSpotPrices
+   * @description Retrieves the spot prices for an array of base tokens.
+   * @param params Parameters including the array of base tokens.
+   * @returns A map of spot prices for the provided base tokens.
+   */
+  @Cache(VolatilityProfile.TIME_FAST)
   async getSpotPrices(
     params: Parameters<IOracleManager['getSpotPrices']>[0],
   ): ReturnType<IOracleManager['getSpotPrices']> {
@@ -68,22 +69,7 @@ export class OracleManager
       }
     }
 
-    const baseAddresses = params.baseTokens
-      ? params.baseTokens.map((t) => t.address.value).join(',')
-      : 'all'
-    const quoteAddress =
-      params.quoteCurrency && isToken(params.quoteCurrency)
-        ? params.quoteCurrency.address.value
-        : 'native'
-
-    const cacheKey = this._buildCacheKey('getSpotPrices', [
-      params.chainInfo.chainId,
-      baseAddresses,
-      quoteAddress,
-    ])
-
-    return this._executeWithCacheAndFallback({
-      cacheKey,
+    return this._executeWithFallback({
       chainInfo: params.chainInfo,
       action: async (provider) => provider.getSpotPrices(params),
     })

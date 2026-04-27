@@ -6,7 +6,7 @@
 
 # Variable: WalletDataSchema
 
-> `const` **WalletDataSchema**: `z.ZodObject`\<\{ `address`: `z.ZodType`\<[`IAddress`](../interfaces/IAddress.md), `z.ZodTypeDef`, [`IAddress`](../interfaces/IAddress.md)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: [`IAddress`](../interfaces/IAddress.md); \}, \{ `address`: [`IAddress`](../interfaces/IAddress.md); \}\>
+> `const` **WalletDataSchema**: `ZodObject`\<\{ `address`: `ZodType`\<[`IAddress`](../interfaces/IAddress.md), `ZodTypeDef`, [`IAddress`](../interfaces/IAddress.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `address`: [`IAddress`](../interfaces/IAddress.md); \}, \{ `address`: [`IAddress`](../interfaces/IAddress.md); \}\>
 
 ## Description
 

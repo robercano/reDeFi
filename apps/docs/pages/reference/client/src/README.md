@@ -16,14 +16,17 @@
 - [ArmadaMigrationType](enumerations/ArmadaMigrationType.md)
 - [ArmadaOperationType](enumerations/ArmadaOperationType.md)
 - [BlockchainProviderType](enumerations/BlockchainProviderType.md)
+- [CacheLayer](enumerations/CacheLayer.md)
 - [ChainFamilyName](enumerations/ChainFamilyName.md)
 - [CommonTokenSymbols](enumerations/CommonTokenSymbols.md)
 - [ContractSpecificRoleName](enumerations/ContractSpecificRoleName.md)
+- [EmodeType](enumerations/EmodeType.md)
 - [ExternalLendingPositionType](enumerations/ExternalLendingPositionType.md)
 - [FiatCurrency](enumerations/FiatCurrency.md)
 - [FlashloanProvider](enumerations/FlashloanProvider.md)
 - [GlobalRoles](enumerations/GlobalRoles.md)
 - [GraphRoleName](enumerations/GraphRoleName.md)
+- [ILKType](enumerations/ILKType.md)
 - [IntentSwapProviderType](enumerations/IntentSwapProviderType.md)
 - [LendingPositionType](enumerations/LendingPositionType.md)
 - [OracleProviderType](enumerations/OracleProviderType.md)
@@ -40,14 +43,20 @@
 - [TokensProviderType](enumerations/TokensProviderType.md)
 - [TokenTransferTargetType](enumerations/TokenTransferTargetType.md)
 - [TransactionType](enumerations/TransactionType.md)
+- [VolatilityProfile](enumerations/VolatilityProfile.md)
 
 ## Classes
 
+- [AaveV3LendingPoolId](classes/AaveV3LendingPoolId.md)
+- [AaveV3LendingPosition](classes/AaveV3LendingPosition.md)
+- [AaveV3LendingPositionId](classes/AaveV3LendingPositionId.md)
+- [AaveV3Protocol](classes/AaveV3Protocol.md)
 - [Address](classes/Address.md)
 - [Chain](classes/Chain.md)
 - [ChainInfo](classes/ChainInfo.md)
 - [ChainsManagerClient](classes/ChainsManagerClient.md)
 - [CollateralInfo](classes/CollateralInfo.md)
+- [DataOrchestrator](classes/DataOrchestrator.md)
 - [DebtInfo](classes/DebtInfo.md)
 - [ExternalLendingPosition](classes/ExternalLendingPosition.md)
 - [ExternalLendingPositionId](classes/ExternalLendingPositionId.md)
@@ -61,6 +70,15 @@
 - [LendingPosition](classes/LendingPosition.md)
 - [LendingPositionId](classes/LendingPositionId.md)
 - [LoggingService](classes/LoggingService.md)
+- [MakerLendingPoolId](classes/MakerLendingPoolId.md)
+- [MakerLendingPosition](classes/MakerLendingPosition.md)
+- [MakerLendingPositionId](classes/MakerLendingPositionId.md)
+- [MakerProtocol](classes/MakerProtocol.md)
+- [MemoryCacheLayer](classes/MemoryCacheLayer.md)
+- [MorphoLendingPoolId](classes/MorphoLendingPoolId.md)
+- [MorphoLendingPosition](classes/MorphoLendingPosition.md)
+- [MorphoLendingPositionId](classes/MorphoLendingPositionId.md)
+- [MorphoProtocol](classes/MorphoProtocol.md)
 - [OrdersManagerClient](classes/OrdersManagerClient.md)
 - [Percentage](classes/Percentage.md)
 - [PortfolioManager](classes/PortfolioManager.md)
@@ -79,6 +97,10 @@
 - [SDKManagerWithSigner](classes/SDKManagerWithSigner.md)
 - [SerializationService](classes/SerializationService.md)
 - [Simulation](classes/Simulation.md)
+- [SparkLendingPoolId](classes/SparkLendingPoolId.md)
+- [SparkLendingPosition](classes/SparkLendingPosition.md)
+- [SparkLendingPositionId](classes/SparkLendingPositionId.md)
+- [SparkProtocol](classes/SparkProtocol.md)
 - [SwapError](classes/SwapError.md)
 - [Token](classes/Token.md)
 - [TokenAmount](classes/TokenAmount.md)
@@ -93,12 +115,17 @@
 ## Interfaces
 
 - [AggregatedFleetRate](interfaces/AggregatedFleetRate.md)
+- [CachePolicy](interfaces/CachePolicy.md)
 - [~~ExtendedTransactionInfo~~](interfaces/ExtendedTransactionInfo.md)
 - [FleetRate](interfaces/FleetRate.md)
 - [HistoricalFleetRateResult](interfaces/HistoricalFleetRateResult.md)
 - [HistoricalFleetRates](interfaces/HistoricalFleetRates.md)
+- [IAaveV3LendingPoolId](interfaces/IAaveV3LendingPoolId.md)
+- [IAaveV3Protocol](interfaces/IAaveV3Protocol.md)
 - [IAddress](interfaces/IAddress.md)
 - [IArkConfig](interfaces/IArkConfig.md)
+- [ICacheAware](interfaces/ICacheAware.md)
+- [ICacheLayer](interfaces/ICacheLayer.md)
 - [IChain](interfaces/IChain.md)
 - [IChainInfo](interfaces/IChainInfo.md)
 - [IChainsManagerClient](interfaces/IChainsManagerClient.md)
@@ -117,6 +144,10 @@
 - [ILendingPoolInfo](interfaces/ILendingPoolInfo.md)
 - [ILendingPosition](interfaces/ILendingPosition.md)
 - [ILendingPositionId](interfaces/ILendingPositionId.md)
+- [IMakerLendingPoolId](interfaces/IMakerLendingPoolId.md)
+- [IMakerProtocol](interfaces/IMakerProtocol.md)
+- [IMorphoLendingPoolId](interfaces/IMorphoLendingPoolId.md)
+- [IMorphoProtocol](interfaces/IMorphoProtocol.md)
 - [IOrdersManagerClient](interfaces/IOrdersManagerClient.md)
 - [IPercentage](interfaces/IPercentage.md)
 - [IPool](interfaces/IPool.md)
@@ -137,6 +168,8 @@
 - [ISDKError](interfaces/ISDKError.md)
 - [ISDKManager](interfaces/ISDKManager.md)
 - [ISimulation](interfaces/ISimulation.md)
+- [ISparkLendingPoolId](interfaces/ISparkLendingPoolId.md)
+- [ISparkProtocol](interfaces/ISparkProtocol.md)
 - [ISwapError](interfaces/ISwapError.md)
 - [IToken](interfaces/IToken.md)
 - [ITokenAmount](interfaces/ITokenAmount.md)
@@ -181,6 +214,7 @@
 - [FiatCurrencyAmountMulDivParamType](type-aliases/FiatCurrencyAmountMulDivParamType.md)
 - [FiatCurrencyAmountMulDivReturnType](type-aliases/FiatCurrencyAmountMulDivReturnType.md)
 - [FiatCurrencyAmountParameters](type-aliases/FiatCurrencyAmountParameters.md)
+- [GlobalCacheConfig](type-aliases/GlobalCacheConfig.md)
 - [GraphChain](type-aliases/GraphChain.md)
 - [HexData](type-aliases/HexData.md)
 - [HoldingParameters](type-aliases/HoldingParameters.md)
@@ -203,6 +237,7 @@
 - [ImportPositionParametersParameters](type-aliases/ImportPositionParametersParameters.md)
 - [ImportSimulationParameters](type-aliases/ImportSimulationParameters.md)
 - [IntentQuoteData](type-aliases/IntentQuoteData.md)
+- [InvalidationStrategy](type-aliases/InvalidationStrategy.md)
 - [IPercentageData](type-aliases/IPercentageData.md)
 - [IPoolData](type-aliases/IPoolData.md)
 - [IPoolIdData](type-aliases/IPoolIdData.md)
@@ -233,6 +268,8 @@
 - [LendingPoolParameters](type-aliases/LendingPoolParameters.md)
 - [LendingPositionIdParameters](type-aliases/LendingPositionIdParameters.md)
 - [LendingPositionParameters](type-aliases/LendingPositionParameters.md)
+- [MakerLendingPositionIdParameters](type-aliases/MakerLendingPositionIdParameters.md)
+- [MakerLendingPositionParameters](type-aliases/MakerLendingPositionParameters.md)
 - [Maybe](type-aliases/Maybe.md)
 - [MerklClaimTransactionInfo](type-aliases/MerklClaimTransactionInfo.md)
 - [MigrationTransactionInfo](type-aliases/MigrationTransactionInfo.md)
@@ -286,13 +323,11 @@
 ## Variables
 
 - [\_\_schemaChecker](variables/schemaChecker.md)
-- [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
 - [AddressDataSchema](variables/AddressDataSchema.md)
 - [ArmadaMigrationTypeSchema](variables/ArmadaMigrationTypeSchema.md)
 - [ChainFamilyMap](variables/ChainFamilyMap.md)
 - [ChainIds](variables/ChainIds.md)
 - [ChainIdSchema](variables/ChainIdSchema.md)
-- [chainIdToGraphChain](variables/chainIdToGraphChain.md)
 - [ChainInfoDataSchema](variables/ChainInfoDataSchema.md)
 - [CollateralInfoDataSchema](variables/CollateralInfoDataSchema.md)
 - [DebtInfoDataSchema](variables/DebtInfoDataSchema.md)
@@ -303,14 +338,11 @@
 - [FETCH\_CONFIG](variables/FETCH_CONFIG.md)
 - [FiatCurrencyAmountDataSchema](variables/FiatCurrencyAmountDataSchema.md)
 - [FiatCurrencySchema](variables/FiatCurrencySchema.md)
-- [getViemChain](variables/getViemChain.md)
 - [GLOBAL\_ROLE\_HASHES](variables/GLOBAL_ROLE_HASHES.md)
 - [HoldingDataSchema](variables/HoldingDataSchema.md)
 - [hyperliquid](variables/hyperliquid.md)
 - [ImportPositionParametersDataSchema](variables/ImportPositionParametersDataSchema.md)
 - [ImportSimulationSchema](variables/ImportSimulationSchema.md)
-- [isChainId](variables/isChainId.md)
-- [isLegacyChainId](variables/isLegacyChainId.md)
 - [LegacyChainIds](variables/LegacyChainIds.md)
 - [LegacyChainIdSchema](variables/LegacyChainIdSchema.md)
 - [LendingPoolDataSchema](variables/LendingPoolDataSchema.md)
@@ -357,7 +389,9 @@
 ## Functions
 
 - [borrowFromPosition](functions/borrowFromPosition.md)
+- [Cache](functions/Cache.md)
 - [calculatePriceImpact](functions/calculatePriceImpact.md)
+- [chainIdToGraphChain](functions/chainIdToGraphChain.md)
 - [createTimeoutSignal](functions/createTimeoutSignal.md)
 - [depositToPosition](functions/depositToPosition.md)
 - [divideFiatCurrencyAmountByPercentage](functions/divideFiatCurrencyAmountByPercentage.md)
@@ -369,10 +403,13 @@
 - [getChainFamilyInfoByChainId](functions/getChainFamilyInfoByChainId.md)
 - [getChainInfoByChainId](functions/getChainInfoByChainId.md)
 - [getValueFromReference](functions/getValueFromReference.md)
+- [getViemChain](functions/getViemChain.md)
+- [isAaveV3LendingPoolId](functions/isAaveV3LendingPoolId.md)
 - [isAddress](functions/isAddress.md)
 - [isAddressValue](functions/isAddressValue.md)
 - [isAmountValue](functions/isAmountValue.md)
 - [isArmadaMigrationType](functions/isArmadaMigrationType.md)
+- [isChainId](functions/isChainId.md)
 - [isChainInfo](functions/isChainInfo.md)
 - [isCollateralInfo](functions/isCollateralInfo.md)
 - [isDebtInfo](functions/isDebtInfo.md)
@@ -386,12 +423,15 @@
 - [isHolding](functions/isHolding.md)
 - [isImportPositionParameters](functions/isImportPositionParameters.md)
 - [isImportSimulation](functions/isImportSimulation.md)
+- [isLegacyChainId](functions/isLegacyChainId.md)
 - [isLendingPool](functions/isLendingPool.md)
 - [isLendingPoolId](functions/isLendingPoolId.md)
 - [isLendingPoolInfo](functions/isLendingPoolInfo.md)
 - [isLendingPosition](functions/isLendingPosition.md)
 - [isLendingPositionId](functions/isLendingPositionId.md)
 - [isLendingPositionType](functions/isLendingPositionType.md)
+- [isMakerLendingPoolId](functions/isMakerLendingPoolId.md)
+- [isMorphoLendingPoolId](functions/isMorphoLendingPoolId.md)
 - [isOracleProviderType](functions/isOracleProviderType.md)
 - [isPercentage](functions/isPercentage.md)
 - [isPercentageData](functions/isPercentageData.md)
@@ -412,6 +452,7 @@
 - [isRiskRatio](functions/isRiskRatio.md)
 - [isSDKError](functions/isSDKError.md)
 - [isSimulation](functions/isSimulation.md)
+- [isSparkLendingPoolId](functions/isSparkLendingPoolId.md)
 - [isStakingBucket](functions/isStakingBucket.md)
 - [isSwapError](functions/isSwapError.md)
 - [isToken](functions/isToken.md)
@@ -442,198 +483,12 @@
 
 ## References
 
-### AaveV3LendingPosition
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### AaveV3LendingPositionId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### AaveV3Protocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### EmodeType
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IAaveV3LendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IAaveV3Protocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### ILKType
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IMakerLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IMakerProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IMorphoLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### IMorphoProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### isAaveV3LendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### isMakerLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### isMorphoLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### ISparkLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### ISparkProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### isSparkLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
 ### ITokenStanalone
 
 Renames and re-exports [IToken](interfaces/IToken.md)
 
 ***
 
-### MakerLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MakerLendingPosition
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MakerLendingPositionId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MakerLendingPositionIdParameters
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MakerLendingPositionParameters
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MakerProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MorphoLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MorphoLendingPosition
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MorphoLendingPositionId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### MorphoProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
 ### QuoteDataStanalone
 
 Renames and re-exports [QuoteData](type-aliases/QuoteData.md)
-
-***
-
-### SparkLendingPoolId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### SparkLendingPosition
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### SparkLendingPositionId
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)
-
-***
-
-### SparkProtocol
-
-Renames and re-exports [AaveV3LendingPoolId](variables/AaveV3LendingPoolId.md)

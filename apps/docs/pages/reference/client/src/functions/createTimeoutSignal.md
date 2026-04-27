@@ -12,9 +12,9 @@ Creates an AbortSignal with the standard timeout
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `timeout?` | `number` | Timeout in milliseconds (defaults to standard timeout) |
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `timeout` | `number` | `FETCH_CONFIG.TIMEOUT` | Timeout in milliseconds (defaults to standard timeout) |
 
 ## Returns
 

@@ -84,7 +84,7 @@ Type of the position
 
 #### Inherited from
 
-`IExternalLendingPositionIdData.id`
+[`ILendingPositionId`](ILendingPositionId.md).[`id`](ILendingPositionId.md#id)
 
 ***
 
@@ -108,7 +108,7 @@ Type of the position
 
 #### Inherited from
 
-`IExternalLendingPositionIdData.type`
+[`ILendingPositionId`](ILendingPositionId.md).[`type`](ILendingPositionId.md#type)
 
 ## Methods
 

@@ -6,7 +6,7 @@
 
 # Variable: FiatCurrencySchema
 
-> `const` **FiatCurrencySchema**: `z.ZodNativeEnum`\<*typeof* [`FiatCurrency`](../enumerations/FiatCurrency.md)\>
+> `const` **FiatCurrencySchema**: `ZodNativeEnum`\<*typeof* [`FiatCurrency`](../enumerations/FiatCurrency.md)\>
 
 ## Name
 

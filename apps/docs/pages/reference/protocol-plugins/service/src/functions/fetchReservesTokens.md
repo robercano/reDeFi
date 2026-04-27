@@ -6,7 +6,7 @@
 
 # Function: fetchReservesTokens()
 
-> **fetchReservesTokens**(`ctx`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<`any`\>
+> **fetchReservesTokens**(`ctx`, `dataProviderContractAbi`, `dataProviderContractAddress`): `Promise`\<`unknown`\>
 
 ## Parameters
 
@@ -18,4 +18,4 @@
 
 ## Returns
 
-`Promise`\<`any`\>
+`Promise`\<`unknown`\>

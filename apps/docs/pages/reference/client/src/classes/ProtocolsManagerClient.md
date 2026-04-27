@@ -30,8 +30,8 @@ IProtocolsManagerClient
 
 | Parameter | Type |
 | ------ | ------ |
-| `params` | \{ `rpcClient`: `any`; \} |
-| `params.rpcClient` | `any` |
+| `params` | \{ `rpcClient`: `TRPCClient`; \} |
+| `params.rpcClient` | `TRPCClient` |
 
 #### Returns
 
@@ -47,11 +47,11 @@ IProtocolsManagerClient
 
 #### Get Signature
 
-> **get** `protected` **rpcClient**(): `any`
+> **get** `protected` **rpcClient**(): `TRPCClient`
 
 ##### Returns
 
-`any`
+`TRPCClient`
 
 #### Inherited from
 

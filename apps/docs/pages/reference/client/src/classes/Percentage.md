@@ -20,7 +20,7 @@ IPercentage
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -52,7 +52,7 @@ The percentage of 100% with the given `PERCENTAGE_DECIMALS`
 
 ### PERCENTAGE\_DECIMALS
 
-> `static` **PERCENTAGE\_DECIMALS**: `number`
+> `static` **PERCENTAGE\_DECIMALS**: `number` = `6`
 
 The number of decimals used to represent the percentage in Solidity
 
@@ -224,8 +224,8 @@ IPercentage.toProportion
 
 | Parameter | Type |
 | ------ | ------ |
-| `params?` | \{ `decimals`: `number`; \} |
-| `params.decimals?` | `number` |
+| `params` | \{ `decimals`: `number`; \} |
+| `params.decimals` | `number` |
 
 #### Returns
 

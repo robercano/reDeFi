@@ -8,7 +8,7 @@
 
 ## Extends
 
-- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\<*typeof* [`Config`](#config)\>
+- `BaseAction`\<*typeof* [`Config`](#config)\>
 
 ## Constructors
 
@@ -70,7 +70,39 @@
 | `storageOutputs` | readonly \[`"amountWithdrawn"`\] | - |
 | `version` | `2` | `2` |
 
+#### Overrides
+
+`BaseAction.config`
+
 ## Methods
+
+### \_encodeCall()
+
+> `protected` **\_encodeCall**(`params`): `ActionCall`
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\] | - |
+| `params.mapping?` | `InputSlotsMapping` | - |
+
+#### Returns
+
+`ActionCall`
+
+The encoded call to the action
+
+#### Description
+
+Encodes the call to the action
+
+#### Inherited from
+
+`BaseAction._encodeCall`
+
+***
 
 ### encodeCall()
 
@@ -85,8 +117,52 @@
 | `params.joinAddress?` | [`IAddress`](../../../../client/src/interfaces/IAddress.md) |
 | `params.position?` | [`IPosition`](../../../../client/src/interfaces/IPosition.md) |
 | `params.positionsManager?` | [`IPositionsManager`](../../../../client/src/interfaces/IPositionsManager.md) |
-| `paramsMapping?` | `any` |
+| `paramsMapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
+
+#### See
+
+IAction.encodeCall
+
+#### Overrides
+
+`BaseAction.encodeCall`
+
+***
+
+### getActionHash()
+
+> **getActionHash**(): `` `0x${string}` ``
+
+#### Returns
+
+`` `0x${string}` ``
+
+#### See
+
+IAction.getActionHash
+
+#### Inherited from
+
+`BaseAction.getActionHash`
+
+***
+
+### getVersionedName()
+
+> **getVersionedName**(): `string`
+
+#### Returns
+
+`string`
+
+#### See
+
+IAction.getVersionedName
+
+#### Inherited from
+
+`BaseAction.getVersionedName`

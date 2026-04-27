@@ -8,7 +8,7 @@
 
 ## Extends
 
-- [`AaveV3LendingPoolId`](../../../../client/src/variables/AaveV3LendingPoolId.md)\<*typeof* [`Config`](#config)\>
+- `BaseAction`\<*typeof* [`Config`](#config)\>
 
 ## Constructors
 
@@ -70,7 +70,39 @@
 | `storageOutputs` | readonly \[\] | `[]` |
 | `version` | `3` | `3` |
 
+#### Overrides
+
+`BaseAction.config`
+
 ## Methods
+
+### \_encodeCall()
+
+> `protected` **\_encodeCall**(`params`): `ActionCall`
+
+#### Parameters
+
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\] | - |
+| `params.mapping?` | `InputSlotsMapping` | - |
+
+#### Returns
+
+`ActionCall`
+
+The encoded call to the action
+
+#### Description
+
+Encodes the call to the action
+
+#### Inherited from
+
+`BaseAction._encodeCall`
+
+***
 
 ### encodeCall()
 
@@ -84,8 +116,52 @@
 | `params.amount` | [`ITokenAmount`](../../../../client/src/interfaces/ITokenAmount.md) |
 | `params.calls?` | `ActionCall`[] |
 | `params.provider?` | [`FlashloanProvider`](../../../../client/src/enumerations/FlashloanProvider.md) |
-| `paramsMapping?` | `any` |
+| `paramsMapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
+
+#### See
+
+IAction.encodeCall
+
+#### Overrides
+
+`BaseAction.encodeCall`
+
+***
+
+### getActionHash()
+
+> **getActionHash**(): `` `0x${string}` ``
+
+#### Returns
+
+`` `0x${string}` ``
+
+#### See
+
+IAction.getActionHash
+
+#### Inherited from
+
+`BaseAction.getActionHash`
+
+***
+
+### getVersionedName()
+
+> **getVersionedName**(): `string`
+
+#### Returns
+
+`string`
+
+#### See
+
+IAction.getVersionedName
+
+#### Inherited from
+
+`BaseAction.getVersionedName`

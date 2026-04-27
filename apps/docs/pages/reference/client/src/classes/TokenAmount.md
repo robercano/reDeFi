@@ -26,7 +26,7 @@ ITokenAmount
 
 ### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
 
 SIGNATURE
 
@@ -334,8 +334,8 @@ IValueConverter.toBigNumber
 
 | Parameter | Type |
 | ------ | ------ |
-| `params?` | \{ `decimals`: `number`; \} |
-| `params.decimals?` | `number` |
+| `params` | \{ `decimals`: `number`; \} |
+| `params.decimals` | `number` |
 
 #### Returns
 

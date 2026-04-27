@@ -6,7 +6,7 @@
 
 # Variable: RiskRatioDataSchema
 
-> `const` **RiskRatioDataSchema**: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<*typeof* [`RiskRatioType`](../enumerations/RiskRatioType.md)\>; `value`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `value`: `z.ZodNumber`; \}, `"strip"`, `z.ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>, `z.ZodNumber`\]\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`RiskRatioType`](../enumerations/RiskRatioType.md); `value`: `number` \| \{ `value`: `number`; \}; \}, \{ `type`: [`RiskRatioType`](../enumerations/RiskRatioType.md); `value`: `number` \| \{ `value`: `number`; \}; \}\>
+> `const` **RiskRatioDataSchema**: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`RiskRatioType`](../enumerations/RiskRatioType.md)\>; `value`: `ZodUnion`\<\[`ZodObject`\<\{ `value`: `ZodNumber`; \}, `"strip"`, `ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>, `ZodNumber`\]\>; \}, `"strip"`, `ZodTypeAny`, \{ `type`: [`RiskRatioType`](../enumerations/RiskRatioType.md); `value`: `number` \| \{ `value`: `number`; \}; \}, \{ `type`: [`RiskRatioType`](../enumerations/RiskRatioType.md); `value`: `number` \| \{ `value`: `number`; \}; \}\>
 
 ## Description
 

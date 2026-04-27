@@ -52,7 +52,7 @@ Name of the protocol that the plugin is implementing
 
 ### stepBuilders
 
-> `readonly` **stepBuilders**: `ActionBuildersMap` = `MakerStepBuilders`
+> `readonly` **stepBuilders**: `Partial`\<`ActionBuildersMap`\> = `MakerStepBuilders`
 
 Map of action builders for the protocol
 
@@ -124,7 +124,7 @@ The address of the contract or throws if not found
 
 | Parameter | Type |
 | ------ | ------ |
-| `makerLendingPoolId` | [`IMakerLendingPoolId`](../interfaces/IMakerLendingPoolId.md) |
+| `makerLendingPoolId` | [`IMakerLendingPoolId`](../../../../client/src/interfaces/IMakerLendingPoolId.md) |
 
 #### Returns
 
@@ -148,7 +148,7 @@ BaseProtocolPlugin._getLendingPoolImpl
 
 | Parameter | Type |
 | ------ | ------ |
-| `makerLendingPoolId` | [`IMakerLendingPoolId`](../interfaces/IMakerLendingPoolId.md) |
+| `makerLendingPoolId` | [`IMakerLendingPoolId`](../../../../client/src/interfaces/IMakerLendingPoolId.md) |
 
 #### Returns
 
@@ -214,14 +214,14 @@ BaseProtocolPlugin._validateLendingPositionId
 
 ### getActionBuilder()
 
-> **getActionBuilder**\<`StepType`, `Step`\>(`stepType`): `any`
+> **getActionBuilder**\<`StepType`, `Step`\>(`stepType`): [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
 
 #### Type Parameters
 
 | Type Parameter |
 | ------ |
 | `StepType` *extends* [`SimulationSteps`](../../../../client/src/enumerations/SimulationSteps.md) |
-| `Step` *extends* `FilterStep`\<`StepType`, [`Steps`](../../../../client/src/namespaces/steps/type-aliases/Steps.md)\> |
+| `Step` *extends* `object` & [`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md) \| `object` & [`PullTokenStep`](../../../../client/src/namespaces/steps/type-aliases/PullTokenStep.md) \| `object` & [`DepositBorrowStep`](../../../../client/src/namespaces/steps/type-aliases/DepositBorrowStep.md) \| `object` & [`PaybackWithdrawStep`](../../../../client/src/namespaces/steps/type-aliases/PaybackWithdrawStep.md) \| `object` & [`SwapStep`](../../../../client/src/namespaces/steps/type-aliases/SwapStep.md) \| `object` & [`ReturnFundsStep`](../../../../client/src/namespaces/steps/type-aliases/ReturnFundsStep.md) \| `object` & [`RepayFlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/RepayFlashloanStep.md) \| `object` & [`NewPositionEventStep`](../../../../client/src/namespaces/steps/type-aliases/NewPositionEventStep.md) \| `object` & [`ImportStep`](../../../../client/src/namespaces/steps/type-aliases/ImportStep.md) \| `object` & [`OpenPosition`](../../../../client/src/namespaces/steps/type-aliases/OpenPosition.md) \| `object` & [`SkippedStep`](../../../../client/src/namespaces/steps/type-aliases/SkippedStep.md) |
 
 #### Parameters
 
@@ -231,7 +231,7 @@ BaseProtocolPlugin._validateLendingPositionId
 
 #### Returns
 
-`any`
+[`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
 
 #### See
 

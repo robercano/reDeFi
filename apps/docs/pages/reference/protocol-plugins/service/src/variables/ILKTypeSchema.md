@@ -6,7 +6,7 @@
 
 # Variable: ILKTypeSchema
 
-> `const` **ILKTypeSchema**: `ZodNativeEnum`\<*typeof* [`ILKType`](../enumerations/ILKType.md)\>
+> `const` **ILKTypeSchema**: `ZodNativeEnum`\<*typeof* [`ILKType`](../../../../client/src/enumerations/ILKType.md)\>
 
 ## Description
 
