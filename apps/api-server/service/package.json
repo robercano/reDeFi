@@ -34,6 +34,8 @@
     "@thesolidchain/contracts-provider-common": "workspace:*",
     "@thesolidchain/contracts-provider-service": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/events-common": "workspace:*",
+    "@thesolidchain/events-service": "workspace:*",
     "@thesolidchain/oracle-common": "workspace:*",
     "@thesolidchain/oracle-service": "workspace:*",
     "@thesolidchain/order-planner-common": "workspace:*",

@@ -25,6 +25,8 @@ import { IPortfolioManager } from '@thesolidchain/portfolio-common'
 import { PortfolioManagerFactory } from '@thesolidchain/portfolio-service'
 import { ISubscriptionManager } from '@thesolidchain/subscriptions-common'
 import { SubscriptionManagerFactory } from '@thesolidchain/subscriptions-service'
+import { IEventBus } from '@thesolidchain/events-common'
+import { EventBus } from '@thesolidchain/events-service'
 import { DynamoDBCacheService, ICacheService } from '@thesolidchain/api-server-common'
 
 import { LoggingService } from '@thesolidchain/sdk-common'
@@ -53,6 +55,7 @@ export type SDKAppContext = {
   allowanceManager: IAllowanceManager
   intentSwapsManager: CowSwapProvider
   subscriptionManager: ISubscriptionManager
+  eventBus: IEventBus
 }
 
 const quickHashCode = (str: string): string => {
@@ -119,6 +122,8 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     blockchainClientProvider,
   })
 
+  const eventBus = new EventBus()
+
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,
     callKey: quickHashCode(`${opts.event.rawPath}${opts.event.rawQueryString}`),
@@ -138,5 +143,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     allowanceManager,
     intentSwapsManager,
     subscriptionManager,
+    eventBus,
   }
 }
