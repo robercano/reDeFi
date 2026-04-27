@@ -78,9 +78,10 @@ export default $config({
     const cacheTable = new sst.aws.Dynamo('CacheTable', {
       fields: {
         id: 'string',
+        expiresAt: 'number',
       },
       primaryIndex: { hashKey: 'id' },
-      ttl: 'ttl',
+      ttl: 'expiresAt',
     })
 
     new sst.aws.Cron('FetchTokensCron', {

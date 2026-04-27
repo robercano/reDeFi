@@ -1,4 +1,4 @@
-import { encodeMakerGiveThroughProxyActions } from '../../../protocol-plugins/service/src/plugins/maker/utils/MakerGive'
+import { encodeMakerAllowThroughProxyActions } from '../../../protocol-plugins/service/src/plugins/maker/utils/MakerGive'
 
 import yargs from 'yargs/yargs'
 import { Hex } from 'viem'
@@ -38,11 +38,11 @@ async function main() {
   console.log(`CDP ID: ${cdpId}`)
   console.log(`To: ${to}\n`)
 
-  const result = encodeMakerGiveThroughProxyActions({
+  const result = encodeMakerAllowThroughProxyActions({
     makerProxyActionsAddress: makerProxyActions,
     cdpManagerAddress: cdpManager,
     cdpId,
-    giveToAddress: to,
+    allowAddress: to,
   })
 
   console.log(`[Full transaction Calldata]`)

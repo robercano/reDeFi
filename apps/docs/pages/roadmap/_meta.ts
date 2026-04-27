@@ -1,4 +1,4 @@
-{
+export default {
   "index": "Roadmap Overview",
   "core-architecture": "1. Core Architecture",
   "defi-domain": "2. DeFi Domain",
