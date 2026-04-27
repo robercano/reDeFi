@@ -10,8 +10,8 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "jest --coverage=true --silent=false",
-    "testw": "jest --watch",
+    "test": "vitest run=true --silent=false",
+    "testw": "vitest watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json"
@@ -25,7 +25,9 @@
   },
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-jest": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

@@ -103,4 +103,16 @@ describe('SDK Common | Address', () => {
       expect(address.toString()).toEqual('0x0b2c639c533813f4aa9d7837caf62653d097ff85 (Ethereum)')
     })
   })
+
+  describe('#toBigNumber()', () => {
+    it('should return BigNumber representation of the address', () => {
+      const address = Address.createFrom({
+        value: '0x0b2c639c533813f4aa9d7837caf62653d097ff85',
+        type: AddressType.Ethereum,
+      })
+
+      const bn = address.toBigNumber()
+      expect(bn.toString(16)).toEqual('b2c639c533813f4aa9d7837caf62653d097ff85')
+    })
+  })
 })

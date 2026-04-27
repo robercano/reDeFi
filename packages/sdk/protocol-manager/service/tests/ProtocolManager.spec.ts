@@ -44,7 +44,7 @@ describe('Protocol Manager', () => {
 
   it('should throw an error when getPool is called for a chain that is not supported by the plugin', async () => {
     const unsupportedChainId = 'unsupportedChain'
-    ctx.provider.getChainId = jest.fn().mockResolvedValue(unsupportedChainId)
+    ctx.provider.getChainId = vi.fn().mockResolvedValue(unsupportedChainId)
     await expect(
       protocolManager.getLendingPool({ protocol: { name: ProtocolName.Spark } } as any),
     ).rejects.toThrow(`Invalid lending pool ID: {"protocol":{"name":"Spark"}}`)
@@ -60,7 +60,7 @@ describe('Protocol Manager', () => {
           protocolName: ProtocolName.Spark,
         })
 
-        this.getLendingPool = jest.fn().mockResolvedValue('mockPoolData')
+        this.getLendingPool = vi.fn().mockResolvedValue('mockPoolData')
       }
     }
 
@@ -101,7 +101,7 @@ describe('Protocol Manager', () => {
       emodeType: EmodeType.None,
     })
 
-    ctx.provider.getChainId = jest.fn().mockResolvedValue(chainId)
+    ctx.provider.getChainId = vi.fn().mockResolvedValue(chainId)
 
     const pool = await protocolManager.getLendingPool(poolId as any)
     expect(pool).toBe('mockPoolData')
@@ -129,14 +129,14 @@ class MockPlugin implements IProtocolPlugin {
     this.context = params.context
   }
 
-  getLendingPool = jest.fn()
-  getLendingPoolInfo = jest.fn()
-  getLendingPosition = jest.fn()
-  getImportPositionTransaction = jest.fn()
+  getLendingPool = vi.fn()
+  getLendingPoolInfo = vi.fn()
+  getLendingPosition = vi.fn()
+  getImportPositionTransaction = vi.fn()
   // @ts-ignore
-  isPoolId = jest.fn()
-  validatePoolId = jest.fn()
-  getActionBuilder = jest.fn()
+  isPoolId = vi.fn()
+  validatePoolId = vi.fn()
+  getActionBuilder = vi.fn()
   ctx = () => this.context
 }
 

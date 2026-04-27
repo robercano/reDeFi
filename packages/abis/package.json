@@ -2,7 +2,7 @@
   "name": "@thesolidchain/abis",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest --passWithNoTests",
+    "test": "vitest run",
     "build": "tsc -b --preserveWatchOutput -v",
     "dev": "tsc -b --preserveWatchOutput -w",
     "lint": "eslint .",
@@ -11,7 +11,10 @@
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
-    "eslint": "^8.57.0"
+    "eslint": "^8.57.0",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   },
   "exports": {
     ".": {

@@ -2,7 +2,7 @@ import { ChainIds, type AddressValue, type ChainId } from '@thesolidchain/sdk-co
 
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 
-jest.setTimeout(300000)
+vi.setConfig({ testTimeout: (300000)
 
 type TokenBySymbolScenario = {
   description: string

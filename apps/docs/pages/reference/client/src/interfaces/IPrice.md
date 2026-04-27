@@ -120,7 +120,7 @@ If the prices have different base tokens or quote tokens
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `divider` | `string` \| `number` \| `IPrice` | The numeric string, number or price to divide by |
+| `divider` | `string` \| `number` \| `IPrice` \| [`IPercentage`](IPercentage.md) | The numeric string, number or price to divide by |
 
 #### Returns
 

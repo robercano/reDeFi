@@ -127,7 +127,7 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
    * @throws If the second price base is not the same as this price base
    *         or if the second price quote is not the same as this price quote
    */
-  divide(divider: string | number | IPrice): IPrice
+  divide(divider: string | number | IPrice | IPercentage): IPrice
 
   /**
    * @name invert

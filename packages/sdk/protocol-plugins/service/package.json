@@ -42,6 +42,7 @@
   "devDependencies": {
     "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
-    "vitest": "3"
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

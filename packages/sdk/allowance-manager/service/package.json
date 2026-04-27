@@ -12,8 +12,8 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "e2e": "jest e2e/",
-    "testw": "jest --watch",
+    "e2e": "vitest run e2e/",
+    "testw": "vitest watch",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -31,8 +31,10 @@
     "@thesolidchain/blockchain-client-provider": "workspace:*",
     "@thesolidchain/contracts-provider-service": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
-    "@thesolidchain/config-jest": "workspace:*",
     "@thesolidchain/testing-utils": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*"
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/config-vitest": "workspace:*",
+    "vitest": "^1.6.0",
+    "@vitest/coverage-v8": "^1.6.0"
   }
 }

@@ -95,4 +95,76 @@ describe('Layered Cache Architecture', () => {
     await mgr.getStaticData(1);
     expect(mgr.fetchCount).toBe(2);
   });
+
+  it('should bypass cache and warn if orchestrator is missing', async () => {
+    const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const mgr = new MockManager(undefined as unknown as DataOrchestrator);
+    
+    const res1 = await mgr.getStaticData(1);
+    expect(res1).toBe('static_data_1');
+    expect(mgr.fetchCount).toBe(1);
+
+    const res2 = await mgr.getStaticData(1);
+    expect(res2).toBe('static_data_1');
+    expect(mgr.fetchCount).toBe(2); // No cache hit
+    
+    expect(consoleSpy).toHaveBeenCalledWith(
+      expect.stringContaining("lacks a 'cacheOrchestrator' property. Bypassing cache.")
+    );
+    consoleSpy.mockRestore();
+  });
+
+  it('should handle unserializable object arguments safely', async () => {
+    const circularObj: Record<string, unknown> = {};
+    circularObj.self = circularObj; // Unserializable
+
+    class ObjManager extends MockManager {
+      @Cache(VolatilityProfile.STATIC)
+      public async getObj(_obj: unknown) {
+        this.fetchCount++;
+        return `obj_data`;
+      }
+    }
+    const mgr = new ObjManager(orchestrator);
+
+    await mgr.getObj(circularObj);
+    expect(mgr.fetchCount).toBe(1);
+
+    await mgr.getObj(circularObj);
+    expect(mgr.fetchCount).toBe(1); // Hits cache successfully
+  });
+
+  it('should invalidate by time based on config', async () => {
+    const timeMgr = new MockManager(orchestrator);
+    
+    timeMgr.getStaticData = async function(id: number) { return `data_${id}`; };
+
+    class TimeManager implements ICacheAware {
+      public cacheOrchestrator: DataOrchestrator;
+      public fetchCount = 0;
+      constructor(o: DataOrchestrator) { this.cacheOrchestrator = o; }
+      
+      @Cache(VolatilityProfile.TIME_FAST)
+      public async getTimeData(id: number) {
+        this.fetchCount++;
+        return `time_data_${id}`;
+      }
+    }
+    
+    const mgr = new TimeManager(orchestrator);
+
+    await mgr.getTimeData(1);
+    expect(mgr.fetchCount).toBe(1);
+
+    await mgr.getTimeData(1);
+    expect(mgr.fetchCount).toBe(1); // cache hit
+    
+    // Fast forward time to expire (60 seconds)
+    vi.spyOn(Date, 'now').mockImplementation(() => new Date().getTime() + 61000);
+    
+    await mgr.getTimeData(1);
+    expect(mgr.fetchCount).toBe(2); // Cache expired
+    
+    vi.restoreAllMocks();
+  });
 });

@@ -11,6 +11,17 @@ describe('SDK Common | Percentage', () => {
     })
   })
 
+  describe('#createFromSolidityValue()', () => {
+    it('should instantiate from solidity value correctly', () => {
+      // Assuming PERCENTAGE_DECIMALS is 6, 2000000n is 2%
+      const percentage = Percentage.createFromSolidityValue({
+        value: 2000000n,
+      })
+
+      expect(percentage.value).toBeCloseTo(2)
+    })
+  })
+
   describe('#add()', () => {
     it('should add the percentages', () => {
       const percentage = Percentage.createFrom({
@@ -136,6 +147,18 @@ describe('SDK Common | Percentage', () => {
       const result = percentage.toSolidityValue({ decimals: 4 })
 
       expect(result).toEqual(2000n)
+    })
+  })
+
+  describe('#toBigNumber()', () => {
+    it('should return a BigNumber representing the proportion', () => {
+      const percentage = Percentage.createFrom({
+        value: 20,
+      })
+
+      const result = percentage.toBigNumber()
+
+      expect(result.toNumber()).toEqual(0.2)
     })
   })
 
