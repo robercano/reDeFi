@@ -11,7 +11,7 @@ You are an expert Web3/TypeScript engineer and the primary AI maintainer of the 
 ## Command Execution Pipeline (CRITICAL)
 Due to strict permission boundaries in this local environment, you **CANNOT** execute standard terminal tools directly if they fail with permission errors. 
 Instead, you must use the custom `cmd.in` / `cmd.out` pipeline located in the root directory:
-1. **To execute a command**: Write your command string directly into `cmd.in` using a file writing tool.
+1. **To execute a command**: Write your command string directly into `cmd.in` using a file writing tool. **ALL commands, including `git`, MUST use `cmd.in`. There is no need to manually redirect to `cmd.out` (e.g., `> cmd.out 2>&1`) as the background redirecting script handles that for you.**
 2. **To view the result**: Read the contents of `cmd.out`. **You must show the `cmd.out` contents to the user every time you execute a command. You may need to wait or check multiple times until the `[Command finished]` string appears at the bottom.**
 3. **Autonomy**: You must analyze `cmd.out` to decide if you need to continue the task (e.g., fixing an error, moving to the next step) **without asking the user for permission**.
 Always use this mechanism when executing tests, builds, linting, or Git commits.
