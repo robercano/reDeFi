@@ -3,16 +3,16 @@
 ## Layered Caching Strategy
 **Goal:** Optimize read speeds and reduce RPC load.  
 **Approach:** 
-1. Define a generic `ICacheProvider` interface.
-2. Implement specific providers: `InMemoryCache`, `IndexedDBCache` (for browser persistence), and `SubgraphCache`.
-3. Wrap RPC calls in a cache layer. Use block numbers and transaction nonces to automatically invalidate stale entries.
+- [x] Define a generic `ICacheProvider` interface.
+- [x] Implement specific providers: `InMemoryCache`, `IndexedDBCache` (for browser persistence), and `SubgraphCache`.
+- [x] Wrap RPC calls in a cache layer. Use block numbers and transaction nonces to automatically invalidate stale entries.
 
 ## BlockchainManager Refactor
 **Goal:** Prevent RPC bottlenecks and downtime.  
 **Approach:**
-1. Deprecate the single `BlockchainProvider`.
-2. Create `BlockchainManagerWithProviders` that accepts an array of RPC URLs/Providers.
-3. Implement a round-robin or latency-based fallback strategy. If a call to Alchemy fails or times out, immediately retry with Infura.
+- [x] Deprecate the single `BlockchainProvider`.
+- [x] Create `BlockchainManagerWithProviders` that accepts an array of RPC URLs/Providers.
+- [x] Implement a round-robin or latency-based fallback strategy. If a call to Alchemy fails or times out, immediately retry with Infura.
 
 ## Real-Time Data Subscriptions
 **Goal:** Deliver live updates to frontend applications.  
