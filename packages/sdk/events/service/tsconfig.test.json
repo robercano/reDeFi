@@ -1,0 +1,12 @@
+{
+  "extends": "@thesolidchain/config-typescript/tsconfig.test.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "paths": {
+      "@thesolidchain/events-common/*": ["../common/src/*"],
+      "@thesolidchain/events-common": ["../common/src/index.ts"]
+    }
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
