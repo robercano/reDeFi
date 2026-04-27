@@ -5,7 +5,10 @@ const {
   getAllPathsForPackagesSummaries,
   readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal,
   createCoverageReportForVisualRepresentation,
+  createMarkdownReport,
 } = require('./Utils')
+const fs = require('fs')
+const path = require('path')
 
 // Execution Stages
 // 1. Read all coverage-total.json files
@@ -18,3 +21,9 @@ const coverageReportForVisualRepresentation =
   createCoverageReportForVisualRepresentation(currCoverageReport)
 // 4. Print the report
 console.table(coverageReportForVisualRepresentation)
+
+// 5. Generate and write the Markdown report to the docs
+const mdxContent = createMarkdownReport(coverageReportForVisualRepresentation)
+const docsPath = path.join(__dirname, '..', '..', 'apps', 'docs', 'pages', 'test-coverage.mdx')
+fs.writeFileSync(docsPath, mdxContent, 'utf8')
+console.log(`Markdown coverage report successfully written to ${docsPath}`)

@@ -3,5 +3,6 @@ export default {
   "getting-started": "Getting Started",
   "architecture": "Architecture",
   "reference": "API Reference",
-  "roadmap": "SDK Roadmap"
+  "roadmap": "SDK Roadmap",
+  "test-coverage": "Test Coverage"
 }

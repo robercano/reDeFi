@@ -11,8 +11,8 @@ function getAllPathsForPackagesSummaries() {
       .filter((dirent) => dirent.isDirectory())
       .map((dirent) => dirent.name)
 
-  const appsPath = 'sdk'
-  const appsNames = getDirectories(appsPath)
+  const appsPath = 'apps'
+  const appsNames = fs.existsSync(appsPath) ? getDirectories(appsPath) : []
 
   const appsSummaries = appsNames.reduce((summary, appName) => {
     return {
@@ -22,7 +22,7 @@ function getAllPathsForPackagesSummaries() {
   }, {})
 
   const packagesPath = 'packages'
-  const packageNames = getDirectories(packagesPath)
+  const packageNames = fs.existsSync(packagesPath) ? getDirectories(packagesPath) : []
 
   const packagesSummaries = packageNames.reduce((summary, packageName) => {
     return {
@@ -30,8 +30,18 @@ function getAllPathsForPackagesSummaries() {
       [packageName]: path.join(packagesPath, packageName, 'coverage', 'coverage-summary.json'),
     }
   }, {})
+  
+  const sdkPath = path.join('packages', 'sdk')
+  const sdkNames = fs.existsSync(sdkPath) ? getDirectories(sdkPath) : []
 
-  return { ...appsSummaries, ...packagesSummaries }
+  const sdkSummaries = sdkNames.reduce((summary, packageName) => {
+    return {
+      ...summary,
+      [`sdk-${packageName}`]: path.join(sdkPath, packageName, 'coverage', 'coverage-summary.json'),
+    }
+  }, {})
+
+  return { ...appsSummaries, ...packagesSummaries, ...sdkSummaries }
 }
 
 function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSummaryPaths) {
@@ -108,8 +118,31 @@ function createCoverageReportForVisualRepresentation(coverageReport) {
   }, {})
 }
 
+function createMarkdownReport(coverageReportForVisualRepresentation) {
+  let md = '# Test Coverage Report\n\n'
+  md += 'This is the automatically generated test coverage report for the monorepo.\n\n'
+  md += '| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) |\n'
+  md += '|---|---|---|---|---|\n'
+
+  Object.keys(coverageReportForVisualRepresentation).forEach((packageName) => {
+    if (packageName === '-------------') return
+    const row = coverageReportForVisualRepresentation[packageName]
+    const formatPct = (val) => (val !== undefined ? `${val}%` : 'N/A')
+    const packNameFormatted = packageName === 'TOTAL' ? '**TOTAL**' : packageName
+    const l = packageName === 'TOTAL' ? `**${formatPct(row['lines (%)'])}**` : formatPct(row['lines (%)'])
+    const s = packageName === 'TOTAL' ? `**${formatPct(row['statements (%)'])}**` : formatPct(row['statements (%)'])
+    const f = packageName === 'TOTAL' ? `**${formatPct(row['functions (%)'])}**` : formatPct(row['functions (%)'])
+    const b = packageName === 'TOTAL' ? `**${formatPct(row['branches (%)'])}**` : formatPct(row['branches (%)'])
+
+    md += `| ${packNameFormatted} | ${l} | ${s} | ${f} | ${b} |\n`
+  })
+
+  return md
+}
+
 module.exports = {
   getAllPathsForPackagesSummaries,
   readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal,
   createCoverageReportForVisualRepresentation,
+  createMarkdownReport,
 }
