@@ -17,9 +17,10 @@
 ## Real-Time Data Subscriptions
 **Goal:** Deliver live updates to frontend applications.  
 **Approach:**
-1. Use `viem`'s `watchBlockNumber` and `watchContractEvent` methods.
-2. Expose a unified event bus from the SDK (`sdk.events.subscribe('PositionUpdated', callback)`).
-3. Whenever a new block is mined, trigger cache invalidations and emit updates to connected React hooks.
+- [x] Use `viem`'s `watchBlockNumber` and `watchContractEvent` methods.
+- [x] Expose a unified event bus from the SDK (`sdk.eventBus.on('NewBlockMined', callback)`).
+- [ ] Implement selective cache invalidation logic inside `DynamoDBCacheService` when `NewBlockMined` is triggered.
+- [ ] Build a mock frontend component in `apps/sdk-demo` to verify real-time dashboard updates via the new `useSDKEvent` hook.
 
 ## Unified Data Provider (Subgraphs/RPC)
 **Goal:** Handle complex queries efficiently while keeping real-time data accurate.  
