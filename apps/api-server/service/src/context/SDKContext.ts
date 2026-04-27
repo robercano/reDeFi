@@ -74,7 +74,9 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
 
   const configProvider = new ConfigurationProvider()
 
-  const cacheService = new DynamoDBCacheService({ configProvider })
+  const eventBus = new EventBus()
+
+  const cacheService = new DynamoDBCacheService({ configProvider, eventBus })
 
   const blockchainClientProvider = BlockchainManagerFactory.newBlockchainManager({ configProvider })
   const abiProvider = AbiProviderFactory.newAbiProvider({ configProvider })
@@ -120,9 +122,8 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
   const subscriptionManager = SubscriptionManagerFactory.newSubscriptionManager({
     configProvider,
     blockchainClientProvider,
+    eventBus,
   })
-
-  const eventBus = new EventBus()
 
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,

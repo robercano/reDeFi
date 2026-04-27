@@ -1,6 +1,7 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient, GetCommand, PutCommand } from '@aws-sdk/lib-dynamodb'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
+import { IEventBus, ISDKEventMap } from '@thesolidchain/events-common'
 import type { ICacheService } from '../interfaces/ICacheService'
 
 const client = new DynamoDBClient({})
@@ -9,8 +10,15 @@ const docClient = DynamoDBDocumentClient.from(client)
 export class DynamoDBCacheService implements ICacheService {
   private readonly _tableName: string
 
-  constructor(params: { configProvider: IConfigurationProvider }) {
+  constructor(params: { configProvider: IConfigurationProvider, eventBus?: IEventBus }) {
     this._tableName = params.configProvider.getConfigurationItem({ name: 'CACHE_TABLE_NAME' })
+
+    if (params.eventBus) {
+      params.eventBus.on('NewBlockMined', (payload: ISDKEventMap['NewBlockMined']) => {
+        console.log(`[DynamoDBCacheService] Invalidation triggered for chain ${payload.chainInfo.chainId} at block ${payload.blockNumber}`)
+        // TODO: Implement actual cache invalidation logic based on prefixes or cache versions
+      })
+    }
   }
 
   async get<T>(key: string): Promise<T | undefined> {

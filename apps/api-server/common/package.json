@@ -25,6 +25,7 @@
     "@thesolidchain/common": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
     "@thesolidchain/configuration-provider-mock": "workspace:*",
+    "@thesolidchain/events-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
