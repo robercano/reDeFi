@@ -4,5 +4,6 @@ export default {
   "architecture": "Architecture",
   "reference": "API Reference",
   "roadmap": "SDK Roadmap",
-  "test-coverage": "Test Coverage"
+  "test-coverage": "Test Coverage",
+  "comments-coverage": "JSDoc Coverage"
 }
