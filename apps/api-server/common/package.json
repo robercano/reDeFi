@@ -13,7 +13,7 @@
     "tsc": "tsc",
     "watch": "tsc -w",
     "build": "tsc -b --preserveWatchOutput -v tsconfig.build.json",
-    "test": "vitest run=true",
+    "test": "vitest run",
     "testw": "vitest watch",
     "e2e": "vitest run e2e/",
     "lint": "eslint .",

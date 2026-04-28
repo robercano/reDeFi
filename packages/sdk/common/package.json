@@ -17,7 +17,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run=true",
+    "test": "vitest run",
     "testw": "vitest watch",
     "build": "tsc -b --preserveWatchOutput -v tsconfig.build.json",
     "lint": "eslint .",

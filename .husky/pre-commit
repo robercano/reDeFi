@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" = "main" ]; then
+  echo "You are committing to the 'main' branch."
+  echo "Enforcing 80% coverage (code and comments), linting passing, and building passing..."
+  
+  # Run cicheck which includes build, test, lint, and coverage reports.
+  # If any of these fail, the commit will be aborted.
+  pnpm run cicheck
+fi
