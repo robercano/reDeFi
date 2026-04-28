@@ -14,6 +14,7 @@ jobs:
       id-token: write
       contents: read
     env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       AWS_PROFILE: ${{ secrets.AWS_PROFILE }}
       AWS_REGION: ${{ secrets.AWS_REGION }}
       POWERTOOLS_LOG_LEVEL: ${{ secrets.POWERTOOLS_LOG_LEVEL }}
