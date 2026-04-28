@@ -8,6 +8,8 @@
 
 > **isFiatCurrency**(`value`): `value is FiatCurrency`
 
+isFiatCurrency
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `value is FiatCurrency`
 
 true if the value is a FiatCurrency
-
-## Name
-
-isFiatCurrency

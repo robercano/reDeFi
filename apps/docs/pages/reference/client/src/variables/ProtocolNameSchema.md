@@ -8,6 +8,4 @@
 
 > `const` **ProtocolNameSchema**: `ZodNativeEnum`\<*typeof* [`ProtocolName`](../enumerations/ProtocolName.md)\>
 
-## Description
-
 Zod schema for ProtocolName

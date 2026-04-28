@@ -8,6 +8,8 @@
 
 > **isStakingBucket**(`maybeStakingBucket`): `maybeStakingBucket is StakingBucket`
 
+Type guard for StakingBucket
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeStakingBucket is StakingBucket`
 
 true if the object is a StakingBucket
-
-## Description
-
-Type guard for StakingBucket

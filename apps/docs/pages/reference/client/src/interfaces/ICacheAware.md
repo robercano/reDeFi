@@ -18,11 +18,6 @@ decorator.
 
 > `optional` **cacheOrchestrator?**: [`DataOrchestrator`](../classes/DataOrchestrator.md)
 
-#### Description
-
-The DataOrchestrator instance responsible for executing layered caching logic.
-             Must be provided for the
-
 #### Cache
 
 decorator to function properly.

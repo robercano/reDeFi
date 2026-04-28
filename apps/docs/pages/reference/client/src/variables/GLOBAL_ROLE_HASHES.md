@@ -8,11 +8,6 @@
 
 > `const` **GLOBAL\_ROLE\_HASHES**: `Record`\<[`GlobalRoles`](../enumerations/GlobalRoles.md), [`HexData`](../type-aliases/HexData.md) \| `null`\>
 
-## Name
-
 GLOBAL_ROLE_HASHES
-
-## Description
-
 Mapping of global role names to their contract hashes
 Note: These will be populated at runtime from contract calls

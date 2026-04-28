@@ -1,8 +1,8 @@
 import type { IChainInfo } from '@thesolidchain/sdk-common'
 
 /**
- * @name ISDKEventMap
- * @description Strongly typed mapping of event names to their payload structures
+ * ISDKEventMap
+ * Strongly typed mapping of event names to their payload structures
  */
 export interface ISDKEventMap {
   /**

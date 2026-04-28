@@ -4,8 +4,8 @@ import type { IContractsProvider } from '@thesolidchain/contracts-provider-commo
 import { TransactionType, TokenAmount } from '@thesolidchain/sdk-common'
 
 /**
- * @name AllowanceManager
- * @description This class is the implementation of the IAllowanceManager interface. Takes care of generating transactions for setting an allowance
+ * AllowanceManager
+ * This class is the implementation of the IAllowanceManager interface. Takes care of generating transactions for setting an allowance
  */
 export class AllowanceManager implements IAllowanceManager {
   private _configProvider: IConfigurationProvider

@@ -9,7 +9,7 @@ import { IConfigurationProvider } from '@thesolidchain/configuration-provider-co
 import { erc20Abi, erc4626Abi } from 'viem'
 
 /**
- * @name AbiProvider
+ * AbiProvider
  * @implements IAbiProvider
  */
 export class AbiProvider implements IAbiProvider {
@@ -31,8 +31,8 @@ export class AbiProvider implements IAbiProvider {
   /** PRIVATE */
 
   /**
-   * @name _getAbisConfiguration
-   * @description List of all the supported ABIs
+   * _getAbisConfiguration
+   * List of all the supported ABIs
    */
   private _getAbisConfiguration(): ContractAbiRecord {
     return {

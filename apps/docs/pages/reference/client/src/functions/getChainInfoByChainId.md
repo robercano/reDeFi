@@ -8,6 +8,9 @@
 
 > **getChainInfoByChainId**(`chainId`): [`ChainInfo`](../classes/ChainInfo.md)
 
+getChainInfoByChainId
+Retrieves the ChainInfo for a given chainId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,14 +22,6 @@
 [`ChainInfo`](../classes/ChainInfo.md)
 
 The ChainInfo for the given chainId
-
-## Method
-
-getChainInfoByChainId
-
-## Description
-
-Retrieves the ChainInfo for a given chainId
 
 ## Throws
 

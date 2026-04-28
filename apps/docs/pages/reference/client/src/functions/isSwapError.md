@@ -8,6 +8,8 @@
 
 > **isSwapError**(`maybeSwapErrorData`): `maybeSwapErrorData is Readonly<{ apiQuery: string; message: string; reason: string; statusCode: number; subtype: SwapErrorType; type: SwapError }>`
 
+Type guard for ISwapError
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeSwapErrorData is Readonly<{ apiQuery: string; message: string; reason: string; statusCode: number; subtype: SwapErrorType; type: SwapError }>`
 
 true if the object is an ISwapError
-
-## Description
-
-Type guard for ISwapError

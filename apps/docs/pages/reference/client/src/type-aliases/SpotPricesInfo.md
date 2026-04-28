@@ -8,12 +8,7 @@
 
 > **SpotPricesInfo** = `object`
 
-## Name
-
 SpotPricesInfo
-
-## Description
-
 Gives the current market price for a specific list of assets
 
 ## Properties

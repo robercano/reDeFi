@@ -7,9 +7,6 @@
 # Interface: IImportPositionParameters
 
 IImportPositionParameters
-
-## Description
-
 Parameters used to import a position from another service
 
 ## Properties

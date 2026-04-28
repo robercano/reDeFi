@@ -8,6 +8,8 @@
 
 > **isRiskRatio**(`maybeRiskRatio`): `maybeRiskRatio is IRiskRatio`
 
+Type guard for IRiskRatio
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeRiskRatio is IRiskRatio`
 
 true if the object is an IRiskRatio
-
-## Description
-
-Type guard for IRiskRatio

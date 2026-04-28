@@ -8,12 +8,7 @@
 
 > **IntentQuoteData** = `object`
 
-## Name
-
 IntentQuoteData
-
-## Description
-
 Represents the requested quote data for a swap between two tokens
 
 ## Properties

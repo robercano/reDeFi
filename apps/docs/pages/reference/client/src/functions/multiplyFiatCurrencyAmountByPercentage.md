@@ -8,6 +8,8 @@
 
 > **multiplyFiatCurrencyAmountByPercentage**(`fiatCurrencyAmount`, `percentage`): [`IFiatCurrencyAmountData`](../type-aliases/IFiatCurrencyAmountData.md)
 
+multiplyFiatCurrencyAmountByPercentage
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 [`IFiatCurrencyAmountData`](../type-aliases/IFiatCurrencyAmountData.md)
 
 The resulting fiat currency amount
-
-## Name
-
-multiplyFiatCurrencyAmountByPercentage

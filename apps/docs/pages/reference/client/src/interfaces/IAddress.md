@@ -6,12 +6,7 @@
 
 # Interface: IAddress
 
-## Name
-
 IAddress
-
-## Description
-
 Represents an address with a certain format, specified by the type
 
 Currently only Ethereum type is supported
@@ -58,6 +53,9 @@ The address value in the format specified by type
 
 > **equals**(`address`): `boolean`
 
+equals
+Checks if two addresses are equal
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -71,14 +69,6 @@ The address value in the format specified by type
 true if the addresses are equal
 
 Equality is determined by the address value and type
-
-#### Name
-
-equals
-
-#### Description
-
-Checks if two addresses are equal
 
 ***
 
@@ -102,6 +92,9 @@ Converts the instance into a Solidity value
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -109,14 +102,6 @@ Converts the instance into a Solidity value
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

@@ -8,6 +8,8 @@
 
 > **isImportSimulation**(`maybeImportSimulationData`): `maybeImportSimulationData is IImportSimulation`
 
+Type guard for IRefinanceSimulation
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeImportSimulationData is IImportSimulation`
 
 true if the object is an IImportSimulation
-
-## Description
-
-Type guard for IRefinanceSimulation

@@ -8,6 +8,8 @@
 
 > **isToken**(`maybeTokenData`): `maybeTokenData is IToken`
 
+Type guard for IToken
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeTokenData is IToken`
 
 true if the object is an IToken
-
-## Description
-
-Type guard for IToken

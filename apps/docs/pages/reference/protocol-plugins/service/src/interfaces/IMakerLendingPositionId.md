@@ -7,9 +7,6 @@
 # Interface: IMakerLendingPositionId
 
 IMakerLendingPositionId
-
-## Description
-
 Identifier of a Maker lending position
 
 ## Extends

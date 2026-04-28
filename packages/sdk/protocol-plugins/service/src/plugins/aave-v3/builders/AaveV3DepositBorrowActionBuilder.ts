@@ -86,7 +86,7 @@ export class AaveV3DepositBorrowActionBuilder extends BaseActionBuilder<steps.De
 
   /**
    * Resolves the target address for the borrow action based on the borrow target type
-   * @param params The parameters for the action builder
+   * @param params.params The parameters for the action builder
    * @returns The address of the target contract
    */
   private async _getBorrowTargetAddress(

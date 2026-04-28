@@ -12,8 +12,8 @@ import {
 } from 'viem'
 
 /**
- * @name ContractWrapper
- * @description Base class for all contract wrappers
+ * ContractWrapper
+ * Base class for all contract wrappers
  */
 export abstract class ContractWrapper<
   const TAbi extends ContractAbi,
@@ -93,8 +93,8 @@ export abstract class ContractWrapper<
   /** VIRTUAL FUNCTIONS */
 
   /**
-   * @name getAbi
-   * @description Returns the abi of the contract
+   * getAbi
+   * Returns the abi of the contract
    * @returns {ContractAbi}
    *
    * @dev This function should be implemented by the child class

@@ -5,8 +5,8 @@ import { OneInchOracleProvider } from './oneinch/OneInchOracleProvider'
 import { CoingeckoOracleProvider } from './coingecko/CoingeckoOracleProvider'
 
 /**
- * @name OracleManagerFactory
- * @description This class is responsible for creating instances of the OracleManager
+ * OracleManagerFactory
+ * This class is responsible for creating instances of the OracleManager
  */
 export class OracleManagerFactory {
   public static newOracleManager(params: {

@@ -9,8 +9,8 @@ import { IPrintable } from './IPrintable'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name IPool
- * @description Represents a generic protocol pool. Contains information about the pool's ID,
+ * IPool
+ * Represents a generic protocol pool. Contains information about the pool's ID,
  *              which is specific to each protocol, and the pool's type
  *
  * It is meant to be specialized for each type of pool
@@ -25,7 +25,7 @@ export interface IPool extends IPrintable, IPoolData {
 }
 
 /**
- * @description Zod schema for IPool
+ * Zod schema for IPool
  */
 export const PoolDataSchema = z.object({
   type: z.nativeEnum(PoolType),
@@ -38,7 +38,7 @@ export const PoolDataSchema = z.object({
 export type IPoolData = Readonly<z.infer<typeof PoolDataSchema>>
 
 /**
- * @description Type guard for IPool
+ * Type guard for IPool
  * @param maybePool
  * @returns true if the object is an IPool
  */

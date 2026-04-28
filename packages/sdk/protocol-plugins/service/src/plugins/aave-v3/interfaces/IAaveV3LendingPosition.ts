@@ -14,7 +14,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface IAaveV3LendingPosition
- * @description Represents a lending position in the Aave V3 protocol
+ * Represents a lending position in the Aave V3 protocol
  *
  * Typescript forces the interface to re-declare any properties that have different BUT compatible types.
  * This may be fixed eventually, there is a discussion on the topic here: https://github.com/microsoft/TypeScript/issues/16936
@@ -33,7 +33,7 @@ export interface IAaveV3LendingPosition extends ILendingPosition, IAaveV3Lending
 }
 
 /**
- * @description Zod schema for IAaveV3PositionId
+ * Zod schema for IAaveV3PositionId
  */
 export const AaveV3LendingPositionDataSchema = z.object({
   ...LendingPositionDataSchema.shape,
@@ -47,7 +47,7 @@ export const AaveV3LendingPositionDataSchema = z.object({
 export type IAaveV3LendingPositionData = Readonly<z.infer<typeof AaveV3LendingPositionDataSchema>>
 
 /**
- * @description Type guard for IAaveV3Position
+ * Type guard for IAaveV3Position
  * @param maybePosition
  * @returns true if the object is an IAaveV3Position
  */

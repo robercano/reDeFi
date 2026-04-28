@@ -6,12 +6,7 @@
 
 # Interface: IWallet
 
-## Name
-
 IWallet
-
-## Description
-
 Interface for the implementors of the wallet
 
 This is present in the system in case it is needed to add extra information to the
@@ -47,6 +42,9 @@ Address of the wallet, valid for the different chains
 
 > **equals**(`token`): `boolean`
 
+equals
+Checks if two wallets are equal
+
 #### Parameters
 
 | Parameter | Type |
@@ -60,11 +58,3 @@ Address of the wallet, valid for the different chains
 true if the wallets are equal
 
 Equality is determined by the address
-
-#### Name
-
-equals
-
-#### Description
-
-Checks if two wallets are equal

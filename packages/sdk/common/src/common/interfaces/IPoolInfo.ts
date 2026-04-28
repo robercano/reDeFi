@@ -8,8 +8,8 @@ import { IPoolId, PoolIdDataSchema } from './IPoolId'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name IPool
- * @description Represents the extended information of a pool. It should contain extra info that is common for any type of pool
+ * IPool
+ * Represents the extended information of a pool. It should contain extra info that is common for any type of pool
  *
  * It is meant to be specialized for each type of pool, like a lending pool, a staking pool, etc...
  */
@@ -23,7 +23,7 @@ export interface IPoolInfo extends IPoolInfoData {
 }
 
 /**
- * @description Zod schema for IPoolInfo
+ * Zod schema for IPoolInfo
  */
 export const PoolInfoDataSchema = z.object({
   type: z.nativeEnum(PoolType),
@@ -36,7 +36,7 @@ export const PoolInfoDataSchema = z.object({
 export type IPoolInfoData = Readonly<z.infer<typeof PoolInfoDataSchema>>
 
 /**
- * @description Type guard for IPoolInfo
+ * Type guard for IPoolInfo
  * @param maybePoolInfo
  * @returns true if the object is an IPoolInfo
  */

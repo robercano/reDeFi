@@ -7,9 +7,6 @@
 # Interface: ISparkLendingPool
 
 ISparkLendingPool
-
-## Description
-
 Represents a lending pool in the Spark protocol
 
 Currently empty as there are no specifics for this protocol
@@ -111,6 +108,9 @@ Type of the pool
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -118,14 +118,6 @@ Type of the pool
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

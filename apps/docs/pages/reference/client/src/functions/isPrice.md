@@ -8,6 +8,8 @@
 
 > **isPrice**(`maybePrice`): `maybePrice is IPrice`
 
+Type guard for isPrice
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePrice is IPrice`
 
 true if the object is an isPrice
-
-## Description
-
-Type guard for isPrice

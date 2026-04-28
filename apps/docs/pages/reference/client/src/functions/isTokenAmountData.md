@@ -8,6 +8,8 @@
 
 > **isTokenAmountData**(`maybeTokenAmount`): `maybeTokenAmount is Readonly<{ amount: string; token: IToken }>`
 
+Type guard for ITokenAmountData
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeTokenAmount is Readonly<{ amount: string; token: IToken }>`
 
 true if the object is an ITokenAmountData
-
-## Description
-
-Type guard for ITokenAmountData

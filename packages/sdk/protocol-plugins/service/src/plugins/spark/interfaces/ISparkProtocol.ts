@@ -8,7 +8,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface ISparkProtocol
- * @description Identifier of the Spark protocol
+ * Identifier of the Spark protocol
  *
  * This interface is used to add all the methods that the interface supports
  *
@@ -24,7 +24,7 @@ export interface ISparkProtocol extends ISparkProtocolData, IProtocol {
 }
 
 /**
- * @description Zod schema for ISparkProtocol
+ * Zod schema for ISparkProtocol
  */
 export const SparkProtocolDataSchema = z.object({
   ...ProtocolDataSchema.shape,
@@ -37,7 +37,7 @@ export const SparkProtocolDataSchema = z.object({
 export type ISparkProtocolData = Readonly<z.infer<typeof SparkProtocolDataSchema>>
 
 /**
- * @description Type guard for ISparkProtocol
+ * Type guard for ISparkProtocol
  * @param maybeProtocol
  * @returns true if the object is an ISparkProtocol
  */

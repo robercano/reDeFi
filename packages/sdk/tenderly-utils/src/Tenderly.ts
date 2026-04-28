@@ -45,8 +45,8 @@ export class Tenderly {
   }
 
   /**
-   * @name createVnet
-   * @description Creates a new Tenderly vnet
+   * createVnet
+   * Creates a new Tenderly vnet
    */
   async createVnet(params: { chainInfo: IChainInfo; atBlock?: number | 'latest' }): Promise<Vnet> {
     console.log('Creating vnet...')

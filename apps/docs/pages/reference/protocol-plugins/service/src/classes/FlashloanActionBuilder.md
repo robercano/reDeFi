@@ -49,11 +49,11 @@ Delegates the building of the action to the specific builder in the correspondin
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `actionBuilderParams`: `ActionBuilderParams`\<[`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md)\>; `protocolName`: [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md); \} |
-| `params.actionBuilderParams` | `ActionBuilderParams`\<[`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md)\> |
-| `params.protocolName` | [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `actionBuilderParams`: `ActionBuilderParams`\<[`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md)\>; `protocolName`: [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md); \} | - |
+| `params.actionBuilderParams` | `ActionBuilderParams`\<[`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md)\> | The parameters for the action builder |
+| `params.protocolName` | [`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md) | The name of the protocol to delegate the action to |
 
 #### Returns
 
@@ -73,12 +73,12 @@ Resolves the address of a contract by its name using the address book manager
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `addressBookManager`: `IAddressBookManager`; `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} |
-| `params.addressBookManager` | `IAddressBookManager` |
-| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) |
-| `params.contractName` | `string` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `addressBookManager`: `IAddressBookManager`; `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} | - |
+| `params.addressBookManager` | `IAddressBookManager` | The address book manager to use |
+| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) | The chain where the contract is |
+| `params.contractName` | `string` | The name of the contract |
 
 #### Returns
 

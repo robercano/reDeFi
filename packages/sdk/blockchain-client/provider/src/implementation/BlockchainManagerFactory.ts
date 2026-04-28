@@ -8,8 +8,8 @@ import { BlockchainManager } from './BlockchainManager'
 
 export class BlockchainManagerFactory {
   /**
-   * @name newBlockchainManager
-   * @description Creates a new instance of BlockchainManager
+   * newBlockchainManager
+   * Creates a new instance of BlockchainManager
    */
   public static newBlockchainManager(params: {
     configProvider: IConfigurationProvider

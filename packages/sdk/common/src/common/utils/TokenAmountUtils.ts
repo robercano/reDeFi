@@ -1,7 +1,7 @@
 import { ITokenAmount } from '../interfaces/ITokenAmount'
 
 /**
- * @name formatTokenAmountHumanReadable
+ * formatTokenAmountHumanReadable
  * @param tokenAmount The token amount to format
  * @param options Optional formatting options for Intl.NumberFormat
  * @returns A human readable string representation of the token amount

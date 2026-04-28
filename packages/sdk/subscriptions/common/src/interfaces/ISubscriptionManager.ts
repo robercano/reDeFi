@@ -4,13 +4,13 @@ import { SubscriptionProviderType } from '../enums/SubscriptionProviderType'
 import { ISubscriptionProvider } from './ISubscriptionProvider'
 
 /**
- * @name ISubscriptionManager
- * @description Interface for the SubscriptionManager
+ * ISubscriptionManager
+ * Interface for the SubscriptionManager
  */
 export interface ISubscriptionManager extends IManagerWithProviders<SubscriptionProviderType, ISubscriptionProvider> {
   /**
-   * @name subscribeToNewBlocks
-   * @description Subscribes to new blocks on the blockchain, utilizing the available providers
+   * subscribeToNewBlocks
+   * Subscribes to new blocks on the blockchain, utilizing the available providers
    *
    * @param chainInfo The chain to listen to
    * @param callback Function to call when a new block is mined
@@ -19,8 +19,8 @@ export interface ISubscriptionManager extends IManagerWithProviders<Subscription
   subscribeToNewBlocks(chainInfo: IChainInfo, callback: (blockNumber: bigint) => void): string
 
   /**
-   * @name unsubscribe
-   * @description Cancels an active subscription
+   * unsubscribe
+   * Cancels an active subscription
    * 
    * @param subscriptionId The ID of the subscription to cancel
    */

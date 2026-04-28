@@ -7,9 +7,6 @@
 # Interface: ISparkProtocol
 
 ISparkProtocol
-
-## Description
-
 Identifier of the Spark protocol
 
 This interface is used to add all the methods that the interface supports

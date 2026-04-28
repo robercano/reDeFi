@@ -6,12 +6,7 @@
 
 # Interface: IPrice
 
-## Name
-
 IPrice
-
-## Description
-
 Represents a price for a token with certain denomation. The denomination can be a fiat currency
              or another token
 
@@ -86,6 +81,9 @@ The price value in floating point format without taking into account decimals
 
 > **add**(`otherPrice`): `IPrice`
 
+add
+Adds the price to another price
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -98,14 +96,6 @@ The price value in floating point format without taking into account decimals
 
 The resulting price
 
-#### Name
-
-add
-
-#### Description
-
-Adds the price to another price
-
 #### Throws
 
 If the prices have different base tokens or quote tokens
@@ -115,6 +105,9 @@ If the prices have different base tokens or quote tokens
 ### divide()
 
 > **divide**(`divider`): `IPrice`
+
+divide
+Divides the price by another price or a constant
 
 #### Parameters
 
@@ -128,14 +121,6 @@ If the prices have different base tokens or quote tokens
 
 The resulting price
 
-#### Name
-
-divide
-
-#### Description
-
-Divides the price by another price or a constant
-
 #### Throws
 
 If the second price base is not the same as this price base
@@ -146,6 +131,9 @@ If the second price base is not the same as this price base
 ### hasSameBase()
 
 > **hasSameBase**(`otherPrice`): `boolean`
+
+hasSameBase
+Checks if the price has the same base as another price
 
 #### Parameters
 
@@ -159,19 +147,14 @@ If the second price base is not the same as this price base
 
 true if the prices have the same base token
 
-#### Name
-
-hasSameBase
-
-#### Description
-
-Checks if the price has the same base as another price
-
 ***
 
 ### hasSameDenominations()
 
 > **hasSameDenominations**(`otherPrice`): `boolean`
+
+hasSameDenominations
+Checks if the price has the same base and quote as another price
 
 #### Parameters
 
@@ -185,19 +168,14 @@ Checks if the price has the same base as another price
 
 true if the prices have the same base and quote
 
-#### Name
-
-hasSameDenominations
-
-#### Description
-
-Checks if the price has the same base and quote as another price
-
 ***
 
 ### hasSameQuote()
 
 > **hasSameQuote**(`otherPrice`): `boolean`
+
+hasSameQuote
+Checks if the price has the same quote as another price
 
 #### Parameters
 
@@ -211,19 +189,14 @@ Checks if the price has the same base and quote as another price
 
 true if the prices have the same quote
 
-#### Name
-
-hasSameQuote
-
-#### Description
-
-Checks if the price has the same quote as another price
-
 ***
 
 ### invert()
 
 > **invert**(): `IPrice`
+
+invert
+Inverts the price
 
 #### Returns
 
@@ -231,19 +204,14 @@ Checks if the price has the same quote as another price
 
 The inverted price
 
-#### Name
-
-invert
-
-#### Description
-
-Inverts the price
-
 ***
 
 ### isEqual()
 
 > **isEqual**(`otherPrice`): `boolean`
+
+isEqual
+Checks if the price is equal to another price
 
 #### Parameters
 
@@ -254,14 +222,6 @@ Inverts the price
 #### Returns
 
 `boolean`
-
-#### Name
-
-isEqual
-
-#### Description
-
-Checks if the price is equal to another price
 
 ***
 
@@ -269,6 +229,9 @@ Checks if the price is equal to another price
 
 > **isGreaterThan**(`otherPrice`): `boolean`
 
+isGreaterThan
+Checks if the price is greater than another price
+
 #### Parameters
 
 | Parameter | Type |
@@ -278,14 +241,6 @@ Checks if the price is equal to another price
 #### Returns
 
 `boolean`
-
-#### Name
-
-isGreaterThan
-
-#### Description
-
-Checks if the price is greater than another price
 
 ***
 
@@ -293,6 +248,9 @@ Checks if the price is greater than another price
 
 > **isGreaterThanOrEqual**(`otherPrice`): `boolean`
 
+isGreaterThanOrEqual
+Checks if the price is greater than or equal to another price
+
 #### Parameters
 
 | Parameter | Type |
@@ -302,14 +260,6 @@ Checks if the price is greater than another price
 #### Returns
 
 `boolean`
-
-#### Name
-
-isGreaterThanOrEqual
-
-#### Description
-
-Checks if the price is greater than or equal to another price
 
 ***
 
@@ -317,6 +267,9 @@ Checks if the price is greater than or equal to another price
 
 > **isLessThan**(`otherPrice`): `boolean`
 
+isLessThan
+Checks if the price is less than another price
+
 #### Parameters
 
 | Parameter | Type |
@@ -326,14 +279,6 @@ Checks if the price is greater than or equal to another price
 #### Returns
 
 `boolean`
-
-#### Name
-
-isLessThan
-
-#### Description
-
-Checks if the price is less than another price
 
 ***
 
@@ -341,6 +286,9 @@ Checks if the price is less than another price
 
 > **isLessThanOrEqual**(`otherPrice`): `boolean`
 
+isLessThanOrEqual
+Checks if the price is less than or equal to another price
+
 #### Parameters
 
 | Parameter | Type |
@@ -351,37 +299,27 @@ Checks if the price is less than another price
 
 `boolean`
 
-#### Name
-
-isLessThanOrEqual
-
-#### Description
-
-Checks if the price is less than or equal to another price
-
 ***
 
 ### isZero()
 
 > **isZero**(): `boolean`
 
+isZero
+Checks if the price is zero
+
 #### Returns
 
 `boolean`
-
-#### Name
-
-isZero
-
-#### Description
-
-Checks if the price is zero
 
 ***
 
 ### multiply()
 
 > **multiply**\<`InputParams`, `ReturnType`\>(`multiplier`): `ReturnType`
+
+multiply
+Multiplies the price by another price or a constant
 
 #### Type Parameters
 
@@ -402,14 +340,6 @@ Checks if the price is zero
 
 The resulting price, token amount or fiat currency amount
 
-#### Name
-
-multiply
-
-#### Description
-
-Multiplies the price by another price or a constant
-
 #### Throws
 
 When it is a price, if the second price quote is not the same as this price base or
@@ -420,6 +350,9 @@ When it is a price, if the second price quote is not the same as this price base
 ### subtract()
 
 > **subtract**(`otherPrice`): `IPrice`
+
+subtract
+Subtracts the price from another price
 
 #### Parameters
 
@@ -432,14 +365,6 @@ When it is a price, if the second price quote is not the same as this price base
 `IPrice`
 
 The resulting price
-
-#### Name
-
-subtract
-
-#### Description
-
-Subtracts the price from another price
 
 #### Throws
 
@@ -506,17 +431,12 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 
 > **toString**(): `string`
 
+toString
+Converts the price to a string
+
 #### Returns
 
 `string`
-
-#### Name
-
-toString
-
-#### Description
-
-Converts the price to a string
 
 #### Overrides
 

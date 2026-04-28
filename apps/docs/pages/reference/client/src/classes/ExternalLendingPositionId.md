@@ -6,8 +6,6 @@
 
 # Class: ExternalLendingPositionId
 
-## Name
-
 ExternalLendingPositionId
 
 ## See

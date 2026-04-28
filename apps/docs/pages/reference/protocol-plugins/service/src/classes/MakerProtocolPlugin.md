@@ -98,11 +98,11 @@ Retrieves the contract address for a given chain
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} |
-| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) |
-| `params.contractName` | `string` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} | - |
+| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) | The chain where the contract is deployed |
+| `params.contractName` | `string` | THe name of the contract |
 
 #### Returns
 

@@ -8,6 +8,8 @@
 
 > **isCollateralInfo**(`maybeCollateralInfo`): `maybeCollateralInfo is Readonly<{ liquidationPenalty: IPercentage; liquidationThreshold: IRiskRatio; maxSupply: ITokenAmount; price: IPrice; priceUSD: IPrice; token: IToken; tokensLocked: ITokenAmount }>`
 
+Type guard for ICollateralInfo
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeCollateralInfo is Readonly<{ liquidationPenalty: IPercentage; liquidationThreshold: IRiskRatio; maxSupply: ITokenAmount; price: IPrice; priceUSD: IPrice; token: IToken; tokensLocked: ITokenAmount }>`
 
 true if the object is an ICollateralInfo
-
-## Description
-
-Type guard for ICollateralInfo

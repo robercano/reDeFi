@@ -9,8 +9,8 @@ import {
 import { z } from 'zod'
 
 /**
- * @name IBuildOrderInputs
- * @description Inputs to build an order
+ * IBuildOrderInputs
+ * Inputs to build an order
  */
 export interface IBuildOrderInputs extends IBuildOrderInputsData {
   /** User that is requesting the order */
@@ -22,7 +22,7 @@ export interface IBuildOrderInputs extends IBuildOrderInputsData {
 }
 
 /**
- * @description Zod schema for IBuildOrderInputs
+ * Zod schema for IBuildOrderInputs
  */
 export const BuildOrderInputsDataSchema = z.object({
   user: UserDataSchema,
@@ -36,7 +36,7 @@ export const BuildOrderInputsDataSchema = z.object({
 export type IBuildOrderInputsData = Readonly<z.infer<typeof BuildOrderInputsDataSchema>>
 
 /**
- * @description Type guard for IBuildOrderInputs
+ * Type guard for IBuildOrderInputs
  * @param maybeBuildOrderInputsData
  * @returns true if the object is an IBuildOrderInputs
  */

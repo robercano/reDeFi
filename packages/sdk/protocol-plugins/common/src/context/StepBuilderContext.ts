@@ -8,7 +8,7 @@ import { ExecutionStorageMapper } from './ExecutionStorageMapper'
 import { SkippedAction } from '../actions/SkippedAction'
 
 /**
- * @name StepBuilderContext
+ * StepBuilderContext
  * @see IStepBuilderContext
  */
 export class StepBuilderContext implements IStepBuilderContext {

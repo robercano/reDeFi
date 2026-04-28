@@ -55,8 +55,8 @@ export class TenderlyFork {
   /** FACTORY */
 
   /**
-   * @name create
-   * @description Creates a new Tenderly fork with the given parameters
+   * create
+   * Creates a new Tenderly fork with the given parameters
    */
   static async create(params: {
     tenderlyApiUrl: string
@@ -100,8 +100,8 @@ export class TenderlyFork {
   /** PUBLIC METHODS */
 
   /**
-   * @name dispose
-   * @description Deletes the fork
+   * dispose
+   * Deletes the fork
    */
   public async dispose() {
     return this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
@@ -119,8 +119,8 @@ export class TenderlyFork {
   }
 
   /**
-   * @name getTransactionCount
-   * @description Returns the number of transactions in the fork
+   * getTransactionCount
+   * Returns the number of transactions in the fork
    */
   public async getTransactionCount(): Promise<number> {
     const response = await this.getSimulations()
@@ -128,12 +128,12 @@ export class TenderlyFork {
   }
 
   /**
-   * @name sendTransaction
-   * @description Sends a transaction to the fork
+   * sendTransaction
+   * Sends a transaction to the fork
    *
-   * @param walletPrivateKey The private key of the wallet that will send the transaction
-   * @param transaction The transaction to be sent
-   * @param waitForConfirmation Whether to wait for the transaction to be confirmed
+   * @param params.walletPrivateKey The private key of the wallet that will send the transaction
+   * @param params.transaction The transaction to be sent
+   * @param params.waitForConfirmation Whether to wait for the transaction to be confirmed
    */
   public async sendTransaction(params: {
     walletPrivateKey: HexData
@@ -151,12 +151,12 @@ export class TenderlyFork {
   }
 
   /**
-   * @name setErc20Balance
-   * @description Sets the ERC20 balance of a wallet in the fork
+   * setErc20Balance
+   * Sets the ERC20 balance of a wallet in the fork
    *
-   * @param forkId The fork ID
-   * @param balance The balance to set
-   * @param walletAddress The address of the wallet
+   * @param params.forkId The fork ID
+   * @param params.balance The balance to set
+   * @param params.walletAddress The address of the wallet
    */
   async setErc20Balance(params: { amount: ITokenAmount; walletAddress: IAddress }) {
     return this.rpcProvider.send('tenderly_setErc20Balance', [
@@ -167,11 +167,11 @@ export class TenderlyFork {
   }
 
   /**
-   * @name setETHBalance
-   * @description Sets the ETH balance of a wallet in the fork
+   * setETHBalance
+   * Sets the ETH balance of a wallet in the fork
    *
-   * @param amount The amount to set as a bigint
-   * @param walletAddress The address of the wallet
+   * @param params.amount The amount to set as a bigint
+   * @param params.walletAddress The address of the wallet
    */
   async setETHBalance(params: { amount: bigint; walletAddress: IAddress }) {
     return this.rpcProvider.send('tenderly_setBalance', [
@@ -181,10 +181,10 @@ export class TenderlyFork {
   }
 
   /**
-   * @name getETHBalance
-   * @description Retrieves the ETH balance of a wallet in the fork
+   * getETHBalance
+   * Retrieves the ETH balance of a wallet in the fork
    *
-   * @param walletAddress The address of the wallet
+   * @param params.walletAddress The address of the wallet
    *
    * @returns The ETH balance of the wallet as a big integer
    */
@@ -198,8 +198,8 @@ export class TenderlyFork {
   /** PRIVATE */
 
   /**
-   * @name _initialize
-   * @description Creates a new Tenderly fork and initializes the instance
+   * _initialize
+   * Creates a new Tenderly fork and initializes the instance
    */
   private static async _createFork(params: {
     apiRequestClient: AxiosInstance

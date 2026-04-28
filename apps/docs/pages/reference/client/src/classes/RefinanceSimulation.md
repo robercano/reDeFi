@@ -6,8 +6,6 @@
 
 # Class: RefinanceSimulation
 
-## Name
-
 RefinanceSimulation
 
 ## See

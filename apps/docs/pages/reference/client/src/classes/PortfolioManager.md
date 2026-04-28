@@ -7,9 +7,6 @@
 # Class: PortfolioManager
 
 IPortfolioManager
-
-## Description
-
 Allows to retrieve a wallet's positions by their wallet and network. This is meant to be used in isolation
              without having to retrieve a User or a Network
 
@@ -64,6 +61,10 @@ Allows to retrieve a wallet's positions by their wallet and network. This is mea
 
 > **getPositions**(`_params`): `Promise`\<[`Position`](Position.md)[]\>
 
+getPositions
+Retrieves all positions of the given wallet for the given networks. The positions can be filtered by
+             their IDs
+
 #### Parameters
 
 | Parameter | Type |
@@ -78,15 +79,6 @@ Allows to retrieve a wallet's positions by their wallet and network. This is mea
 
 The list of positions for the given wallet and networks
 
-#### Method
-
-getPositions
-
-#### Description
-
-Retrieves all positions of the given wallet for the given networks. The positions can be filtered by
-             their IDs
-
 #### Implementation of
 
 [`IPortfolioManager`](../interfaces/IPortfolioManager.md).[`getPositions`](../interfaces/IPortfolioManager.md#getpositions)
@@ -97,24 +89,19 @@ Retrieves all positions of the given wallet for the given networks. The position
 
 > **getUserPortfolio**(`params`): `Promise`\<[`IUserPortfolio`](../interfaces/IUserPortfolio.md)\>
 
+getUserPortfolio
+Retrieves all holdings and positions for the user resolving their Fiat balances
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `user`: [`IUser`](../interfaces/IUser.md); \} |
-| `params.user` | [`IUser`](../interfaces/IUser.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `user`: [`IUser`](../interfaces/IUser.md); \} | - |
+| `params.user` | [`IUser`](../interfaces/IUser.md) | The user to retrieve the portfolio for |
 
 #### Returns
 
 `Promise`\<[`IUserPortfolio`](../interfaces/IUserPortfolio.md)\>
-
-#### Method
-
-getUserPortfolio
-
-#### Description
-
-Retrieves all holdings and positions for the user resolving their Fiat balances
 
 #### Implementation of
 
@@ -126,24 +113,19 @@ Retrieves all holdings and positions for the user resolving their Fiat balances
 
 > **getWalletHoldings**(`params`): `Promise`\<[`IHolding`](../interfaces/IHolding.md)[]\>
 
+getWalletHoldings
+Fetches standard ERC20 wallet holdings
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `user`: [`IUser`](../interfaces/IUser.md); \} |
-| `params.user` | [`IUser`](../interfaces/IUser.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `user`: [`IUser`](../interfaces/IUser.md); \} | - |
+| `params.user` | [`IUser`](../interfaces/IUser.md) | The user to retrieve the holdings for |
 
 #### Returns
 
 `Promise`\<[`IHolding`](../interfaces/IHolding.md)[]\>
-
-#### Method
-
-getWalletHoldings
-
-#### Description
-
-Fetches standard ERC20 wallet holdings
 
 #### Implementation of
 

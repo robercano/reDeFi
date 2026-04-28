@@ -8,6 +8,4 @@
 
 > `const` **OracleProviderTypeSchema**: `ZodNativeEnum`\<*typeof* [`OracleProviderType`](../enumerations/OracleProviderType.md)\>
 
-## Description
-
 Zod schema for OracleProviderType

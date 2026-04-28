@@ -7,9 +7,6 @@
 # Enumeration: AddressType
 
 AddressType
-
-## Description
-
 Represents the type of a blockchain address
 
 ## Enumeration Members

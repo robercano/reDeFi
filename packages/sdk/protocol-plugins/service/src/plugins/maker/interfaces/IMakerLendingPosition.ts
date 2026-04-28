@@ -14,7 +14,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface IMakerLendingPosition
- * @description Interface for the implementors of the position
+ * Interface for the implementors of the position
  *
  * This interface is used to add all the methods that the interface supports
  */
@@ -31,7 +31,7 @@ export interface IMakerLendingPosition extends ILendingPosition, IMakerLendingPo
 }
 
 /**
- * @description Zod schema for IMakerLendingPosition
+ * Zod schema for IMakerLendingPosition
  */
 export const MakerLendingPositionDataSchema = z.object({
   ...LendingPositionDataSchema.shape,
@@ -45,7 +45,7 @@ export const MakerLendingPositionDataSchema = z.object({
 export type IMakerLendingPositionData = Readonly<z.infer<typeof MakerLendingPositionDataSchema>>
 
 /**
- * @description Type guard for IMakerLendingPosition
+ * Type guard for IMakerLendingPosition
  * @param maybeMakerLendingPosition Object to be checked
  * @returns true if the object is a IMakerLendingPosition
  */

@@ -121,8 +121,8 @@ export class FiatCurrencyAmount implements IFiatCurrencyAmount {
   /** PRIVATE */
 
   /**
-   * @name _validateSameFiatCurrency
-   * @param fiatCurrencyAmount FiatCurrencyAmount to validate against the instance
+   * _validateSameFiatCurrency
+   * @param params.fiatCurrencyAmount FiatCurrencyAmount to validate against the instance
    * @throws Error if the fiat currency does not match
    *
    * Checks that the fiat currency of the provided FiatCurrencyAmount matches the instance

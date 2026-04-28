@@ -6,12 +6,7 @@
 
 # Interface: IPositionsManager
 
-## Name
-
 IPositionsManager
-
-## Description
-
 Interface for the positions manager (DPM)
 
 The Positions Manager is the proxy used to interact with the protocol system. It is used as Smart Account for the user.

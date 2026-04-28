@@ -18,7 +18,7 @@ import {
 
 /**
  * @class ProtocolManager
- * @description Component that offers access to the different protocol plugins for the endpoint service
+ * Component that offers access to the different protocol plugins for the endpoint service
  * @see IProtocolManager
  *
  * It validates the input data coming from the SDK client and forwards the requests to the corresponding protocol plugin
@@ -29,7 +29,7 @@ export class ProtocolManager implements IProtocolManager {
   private _pluginsRegistry: IProtocolPluginsRegistry
 
   /**
-   * @name createWith
+   * createWith
    * @param params.pluginsRegistry The registry of protocol plugins
    * @returns A new instance of ProtocolManager
    */
@@ -84,9 +84,9 @@ export class ProtocolManager implements IProtocolManager {
   /** PRIVATE */
 
   /**
-   * @name _validateLendingPoolId
-   * @description Validates that the candidate is a valid lending pool ID for the specific protocol
-   * @param candidate The candidate to validate
+   * _validateLendingPoolId
+   * Validates that the candidate is a valid lending pool ID for the specific protocol
+   * @param params.candidate The candidate to validate
    * @returns asserts that the candidate is a valid lending pool ID for the specific protocol
    */
   private _validateLendingPoolId(candidate: unknown): asserts candidate is ILendingPoolId {
@@ -96,9 +96,9 @@ export class ProtocolManager implements IProtocolManager {
   }
 
   /**
-   * @name _validateLendingPoolId
-   * @description Validates that the candidate is a valid lending pool ID for the specific protocol
-   * @param candidate The candidate to validate
+   * _validateLendingPoolId
+   * Validates that the candidate is a valid lending pool ID for the specific protocol
+   * @param params.candidate The candidate to validate
    * @returns asserts that the candidate is a valid lending pool ID for the specific protocol
    */
   private _validatePositionId(candidate: unknown): asserts candidate is IPositionId {

@@ -7,9 +7,6 @@
 # Interface: IMakerLendingPosition
 
 IMakerLendingPosition
-
-## Description
-
 Interface for the implementors of the position
 
 This interface is used to add all the methods that the interface supports

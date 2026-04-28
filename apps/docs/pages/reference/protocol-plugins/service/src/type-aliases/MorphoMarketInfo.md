@@ -8,8 +8,6 @@
 
 > **MorphoMarketInfo** = `object`
 
-## Description
-
 Morpho market info retrieved from the protocol
 
 ## Properties

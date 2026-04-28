@@ -8,6 +8,4 @@
 
 > `const` **StakingBucketSchema**: `ZodNativeEnum`\<*typeof* [`StakingBucket`](../enumerations/StakingBucket.md)\>
 
-## Description
-
 Zod schema for StakingBucket

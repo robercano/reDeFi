@@ -6,8 +6,6 @@
 
 # Class: RefinanceParameters
 
-## Name
-
 RefinanceParameters
 
 ## See

@@ -6,8 +6,6 @@
 
 # Class: Vault
 
-## Name
-
 Vault
 
 ## See

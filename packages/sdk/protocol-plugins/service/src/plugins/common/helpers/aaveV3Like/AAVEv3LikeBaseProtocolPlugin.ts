@@ -36,7 +36,7 @@ type Asset<ContractNames extends string, ContractsAbiMap extends GenericAbiMap<C
 
 /**
  * @class AAVEv3BaseProtocolPlugin
- * @description Base class for AAVEv3 protocol plugins, it contains common functionality to
+ * Base class for AAVEv3 protocol plugins, it contains common functionality to
  * fetch data from forks of AAVEv3 protocol.
  */
 export abstract class AAVEv3LikeBaseProtocolPlugin<
@@ -114,8 +114,8 @@ export abstract class AAVEv3LikeBaseProtocolPlugin<
 
   /**
    * Fetches the asset from the assets list for the given token and emode.
-   * @param token  The token to fetch the asset for.
-   * @param emode  The emode to fetch the asset for.
+   * @param params.token  The token to fetch the asset for.
+   * @param params.emode  The emode to fetch the asset for.
    * @returns  The asset for the given token and emode.
    */
   protected async _getAssetFromToken(
@@ -150,9 +150,9 @@ export abstract class AAVEv3LikeBaseProtocolPlugin<
 
   /**
    * Fetches the collateral info for the given token.
-   * @param token The token to fetch the collateral info for.
-   * @param emode The emode to fetch the collateral info for.
-   * @param poolBaseCurrencyToken The base currency token for the pool.
+   * @param params.token The token to fetch the collateral info for.
+   * @param params.emode The emode to fetch the collateral info for.
+   * @param params.poolBaseCurrencyToken The base currency token for the pool.
    * @returns The collateral info for the given token.
    */
   protected async _getCollateralInfo(params: {
@@ -215,9 +215,9 @@ export abstract class AAVEv3LikeBaseProtocolPlugin<
 
   /**
    * Fetches the debt info for the given token.
-   * @param token The token to fetch the debt info for.
-   * @param emode The emode to fetch the debt info for.
-   * @param poolBaseCurrencyToken The base currency token for the pool.
+   * @param params.token The token to fetch the debt info for.
+   * @param params.emode The emode to fetch the debt info for.
+   * @param params.poolBaseCurrencyToken The base currency token for the pool.
    * @returns The debt info for the given token.
    */
   protected async _getDebtInfo(

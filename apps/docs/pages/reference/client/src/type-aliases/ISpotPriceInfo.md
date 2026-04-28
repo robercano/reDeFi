@@ -8,12 +8,7 @@
 
 > **ISpotPriceInfo** = `object`
 
-## Name
-
 ISpotPriceInfo
-
-## Description
-
 Gives the current market price for a specific asset
 
 ## Properties

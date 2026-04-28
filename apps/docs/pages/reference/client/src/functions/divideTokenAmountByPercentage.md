@@ -8,6 +8,8 @@
 
 > **divideTokenAmountByPercentage**(`tokenAmount`, `percentage`): [`ITokenAmountData`](../type-aliases/ITokenAmountData.md)
 
+divideTokenAmountByPercentage
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 [`ITokenAmountData`](../type-aliases/ITokenAmountData.md)
 
 The resulting token amount
-
-## Name
-
-divideTokenAmountByPercentage

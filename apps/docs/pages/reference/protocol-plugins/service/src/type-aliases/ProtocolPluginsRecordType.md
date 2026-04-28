@@ -7,7 +7,3 @@
 # Type Alias: ProtocolPluginsRecordType
 
 > **ProtocolPluginsRecordType** = `Partial`\<`Record`\<[`ProtocolName`](../../../../client/src/enumerations/ProtocolName.md), [`ProtocolPluginConstructor`](ProtocolPluginConstructor.md)\>\>
-
-## Description
-
-Record of protocol plugins

@@ -6,12 +6,7 @@
 
 # Interface: IRebalanceData
 
-## Name
-
 IRebalanceData
-
-## Description
-
 Data structure for rebalancing assets, used by Keepers of a fleet
 
 ## Properties

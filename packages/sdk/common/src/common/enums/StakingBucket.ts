@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
 /**
- * @name StakingBucket
- * @description Enumerates the staking bucket types based on lockup periods
+ * StakingBucket
+ * Enumerates the staking bucket types based on lockup periods
  */
 export enum StakingBucket {
   NoLockup = 0,
@@ -19,12 +19,12 @@ export const StakingBucketValues = Object.values(StakingBucket).filter(
 )
 
 /**
- * @description Zod schema for StakingBucket
+ * Zod schema for StakingBucket
  */
 export const StakingBucketSchema = z.nativeEnum(StakingBucket)
 
 /**
- * @description Type guard for StakingBucket
+ * Type guard for StakingBucket
  * @param maybeStakingBucket Object to be checked
  * @returns true if the object is a StakingBucket
  */

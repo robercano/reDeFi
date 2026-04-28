@@ -5,9 +5,9 @@ import { useSDK } from './useSDK'
 /**
  * React hook to subscribe to SDK events via the EventBus
  * 
- * @param params parameters required for the SDK connection
- * @param eventName the name of the event to listen to
- * @param callback the function to call when the event is emitted
+ * @param params.params parameters required for the SDK connection
+ * @param params.eventName the name of the event to listen to
+ * @param params.callback the function to call when the event is emitted
  */
 export function useSDKEvent<K extends keyof ISDKEventMap>(
   params: Parameters<typeof useSDK>[0],

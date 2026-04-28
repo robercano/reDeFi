@@ -40,7 +40,7 @@ import { AaveV3LendingPosition } from './AaveV3LendingPosition'
 
 /**
  * @class AaveV3ProtocolPlugin
- * @description Aave V3 protocol plugin
+ * Aave V3 protocol plugin
  * @see BaseProtocolPlugin
  */
 export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<

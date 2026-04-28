@@ -8,6 +8,8 @@
 
 > **isProtocol**(`maybeProtocol`): `maybeProtocol is IProtocol`
 
+Type guard for IProtocol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocol is IProtocol`
 
 true if the object is an IProtocol
-
-## Description
-
-Type guard for IProtocol

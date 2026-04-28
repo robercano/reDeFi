@@ -8,10 +8,5 @@
 
 > **Denomination** = [`IToken`](../interfaces/IToken.md) \| [`FiatCurrency`](../enumerations/FiatCurrency.md)
 
-## Name
-
 Denomination
-
-## Description
-
 Type for the instances of denomination

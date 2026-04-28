@@ -6,12 +6,7 @@
 
 # Interface: IPoolInfo
 
-## Name
-
 IPool
-
-## Description
-
 Represents the extended information of a pool. It should contain extra info that is common for any type of pool
 
 It is meant to be specialized for each type of pool, like a lending pool, a staking pool, etc...

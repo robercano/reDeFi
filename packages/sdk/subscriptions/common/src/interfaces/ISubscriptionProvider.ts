@@ -3,13 +3,13 @@ import { IManagerProvider } from '@thesolidchain/api-server-common'
 import { SubscriptionProviderType } from '../enums/SubscriptionProviderType'
 
 /**
- * @name ISubscriptionProvider
- * @description Interface for a subscription provider which listens to blockchain events
+ * ISubscriptionProvider
+ * Interface for a subscription provider which listens to blockchain events
  */
 export interface ISubscriptionProvider extends IManagerProvider<SubscriptionProviderType> {
   /**
-   * @name subscribeToNewBlocks
-   * @description Subscribes to new blocks on the blockchain
+   * subscribeToNewBlocks
+   * Subscribes to new blocks on the blockchain
    *
    * @param chainInfo The chain to listen to
    * @param callback Function to call when a new block is mined
@@ -18,8 +18,8 @@ export interface ISubscriptionProvider extends IManagerProvider<SubscriptionProv
   subscribeToNewBlocks(chainInfo: IChainInfo, callback: (blockNumber: bigint) => void): string
   
   /**
-   * @name unsubscribe
-   * @description Cancels a subscription
+   * unsubscribe
+   * Cancels a subscription
    * 
    * @param subscriptionId The ID of the subscription to cancel
    */

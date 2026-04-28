@@ -8,6 +8,8 @@
 
 > **isMakerLendingPositionId**(`maybeMakerLendingPositionId`): `maybeMakerLendingPositionId is IMakerLendingPositionId`
 
+Type guard for IMakerLendingPositionId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeMakerLendingPositionId is IMakerLendingPositionId`
 
 true if the object is a IMakerLendingPositionId
-
-## Description
-
-Type guard for IMakerLendingPositionId

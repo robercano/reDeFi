@@ -6,8 +6,6 @@
 
 # Class: ChainInfo
 
-## Name
-
 ChainInfo
 
 ## See
@@ -60,6 +58,9 @@ The name of the network
 
 > **equals**(`chainInfo`): `boolean`
 
+equals
+Checks if two chain infos are equal
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -74,14 +75,6 @@ true if the chain infos are equal
 
 Equality is determined by the chain ID
 
-#### Name
-
-equals
-
-#### Description
-
-Checks if two chain infos are equal
-
 #### Implementation of
 
 [`IChainInfo`](../interfaces/IChainInfo.md).[`equals`](../interfaces/IChainInfo.md#equals)
@@ -92,6 +85,9 @@ Checks if two chain infos are equal
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -99,14 +95,6 @@ Checks if two chain infos are equal
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Implementation of
 

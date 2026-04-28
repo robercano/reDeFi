@@ -84,7 +84,7 @@ export interface IActionBuilder<StepType extends steps.Steps> {
   /**
    * Main function to build the action
    *
-   * @param params Specific parameters for the action builder. @see ActionBuilderParams
+   * @param params.params Specific parameters for the action builder. @see ActionBuilderParams
    */
   build(params: ActionBuilderParams<FilterStep<SimulationSteps, StepType>>): Promise<void>
 }

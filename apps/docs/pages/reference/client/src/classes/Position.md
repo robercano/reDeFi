@@ -6,8 +6,6 @@
 
 # Abstract Class: Position
 
-## Name
-
 Position
 
 ## See

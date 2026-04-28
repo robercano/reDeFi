@@ -6,12 +6,7 @@
 
 # Interface: IFeeRevenueConfig
 
-## Name
-
 IFeeRevenueConfig
-
-## Description
-
 Configuration for fee revenue settings
 
 ## Properties
@@ -20,12 +15,7 @@ Configuration for fee revenue settings
 
 > **vaultFeeAmount**: [`IPercentage`](IPercentage.md)
 
-#### Name
-
 vaultFeeAmount
-
-#### Description
-
 The percentage amount of vault fees
 
 ***
@@ -34,10 +24,5 @@ The percentage amount of vault fees
 
 > **vaultFeeReceiverAddress**: `` `0x${string}` ``
 
-#### Name
-
 vaultFeeReceiverAddress
-
-#### Description
-
 The address that receives vault fees

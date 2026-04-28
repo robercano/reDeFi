@@ -7,9 +7,6 @@
 # Interface: Transaction
 
 Transaction
-
-## Description
-
 Low level transaction that can be sent to the blockchain
 
 ## Properties

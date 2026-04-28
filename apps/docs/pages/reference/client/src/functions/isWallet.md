@@ -8,6 +8,8 @@
 
 > **isWallet**(`maybeWallet`): `maybeWallet is IWallet`
 
+Type guard for IWallet
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeWallet is IWallet`
 
 true if the object is an IWallet
-
-## Description
-
-Type guard for IWallet

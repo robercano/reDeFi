@@ -7,9 +7,6 @@
 # Interface: IUserClient
 
 IUserClient
-
-## Description
-
 Represents a user and allows to access their positions and to create new orders
 
 ## Dev
@@ -33,25 +30,23 @@ PortfolioManager
 
 > **getPortfolio**(): `Promise`\<[`IUserPortfolio`](IUserPortfolio.md)\>
 
+getPortfolio
+Retrieves the full user portfolio (wallet holdings and positions)
+
 #### Returns
 
 `Promise`\<[`IUserPortfolio`](IUserPortfolio.md)\>
 
 The user portfolio
 
-#### Method
-
-getPortfolio
-
-#### Description
-
-Retrieves the full user portfolio (wallet holdings and positions)
-
 ***
 
 ### getPosition()
 
 > **getPosition**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Position`](../classes/Position.md)\>\>
+
+getPosition
+Retrieves a position of the user by its ID
 
 #### Parameters
 
@@ -64,19 +59,14 @@ Retrieves the full user portfolio (wallet holdings and positions)
 
 `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Position`](../classes/Position.md)\>\>
 
-#### Method
-
-getPosition
-
-#### Description
-
-Retrieves a position of the user by its ID
-
 ***
 
 ### getPositionsByIds()
 
 > **getPositionsByIds**(`params`): `Promise`\<[`Position`](../classes/Position.md)[]\>
+
+getPositionsByIds
+Retrieves the list of positions of the user for the given IDs
 
 #### Parameters
 
@@ -89,19 +79,14 @@ Retrieves a position of the user by its ID
 
 `Promise`\<[`Position`](../classes/Position.md)[]\>
 
-#### Method
-
-getPositionsByIds
-
-#### Description
-
-Retrieves the list of positions of the user for the given IDs
-
 ***
 
 ### getPositionsByProtocol()
 
 > **getPositionsByProtocol**(`params`): `Promise`\<[`Position`](../classes/Position.md)[]\>
+
+getPositionsByProtocol
+Retrieves the list of positions of the user for a given protocol
 
 #### Parameters
 
@@ -114,37 +99,24 @@ Retrieves the list of positions of the user for the given IDs
 
 `Promise`\<[`Position`](../classes/Position.md)[]\>
 
-#### Method
-
-getPositionsByProtocol
-
-#### Description
-
-Retrieves the list of positions of the user for a given protocol
-
 ***
 
 ### newOrder()
 
 > **newOrder**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Order`](Order.md)\>\>
 
+newOrder
+Creates a new order for the user based on the given simulation
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `simulation`: [`ISimulation`](ISimulation.md); \} |
-| `params.simulation` | [`ISimulation`](ISimulation.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `simulation`: [`ISimulation`](ISimulation.md); \} | - |
+| `params.simulation` | [`ISimulation`](ISimulation.md) | The simulation to create the order for |
 
 #### Returns
 
 `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Order`](Order.md)\>\>
 
 The new order created for the user
-
-#### Method
-
-newOrder
-
-#### Description
-
-Creates a new order for the user based on the given simulation

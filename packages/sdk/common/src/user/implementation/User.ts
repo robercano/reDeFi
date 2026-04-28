@@ -13,7 +13,7 @@ import { IUser, IUserData, __signature__ } from '../interfaces/IUser'
 export type UserParameters = Omit<IUserData, ''>
 
 /**
- * @name User
+ * User
  * @see IUser
  */
 export class User implements IUser {

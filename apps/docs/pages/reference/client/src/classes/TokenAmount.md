@@ -391,11 +391,13 @@ FACTORY
 
 > `static` **createFromBaseUnit**(`params`): [`ITokenAmount`](../interfaces/ITokenAmount.md)
 
+createFromBaseUnit
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | [`TokenAmountParameters`](../type-aliases/TokenAmountParameters.md) | Token amount data to create the instance |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | [`TokenAmountParameters`](../type-aliases/TokenAmountParameters.md) |
 
 #### Returns
 
@@ -406,7 +408,3 @@ The resulting TokenAmount
 `amount` is the integer amount including all the decimals of the token
 
 i.e.: amount in base unit (1eth = 1000000000000000000, 1btc = 100000000, etc...)
-
-#### Name
-
-createFromBaseUnit

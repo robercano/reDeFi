@@ -6,8 +6,6 @@
 
 # Enumeration: SwapErrorType
 
-## Description
-
 Swap error types
 
 Error types for the swap service

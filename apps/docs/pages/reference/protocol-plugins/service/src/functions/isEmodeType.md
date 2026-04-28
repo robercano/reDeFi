@@ -8,6 +8,8 @@
 
 > **isEmodeType**(`maybeEmodeType`): `maybeEmodeType is EmodeType`
 
+Type guard for EmodeType
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeEmodeType is EmodeType`
 
 true if the object is an EmodeType
-
-## Description
-
-Type guard for EmodeType

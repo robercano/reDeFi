@@ -8,6 +8,8 @@
 
 > **isOracleProviderType**(`maybeOracleProviderType`): `maybeOracleProviderType is OracleProviderType`
 
+Type guard for OracleProviderType
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeOracleProviderType is OracleProviderType`
 
 true if the object is an OracleProviderType
-
-## Description
-
-Type guard for OracleProviderType

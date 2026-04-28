@@ -3,15 +3,15 @@ import type { IUserClient } from './IUserClient'
 
 /**
  * @interface IUsersManager
- * @description Allows to retrieve a user by their wallet and network
+ * Allows to retrieve a user by their wallet and network
  */
 export interface IUsersManager {
   /**
-   * @method getUserClient
-   * @description Retrieves a user by their wallet and network
+   * getUserClient
+   * Retrieves a user by their wallet and network
    *
-   * @param chainInfo The chain to retrieve the user for
-   * @param walletAddress The wallet to retrieve the user for
+   * @param params.chainInfo The chain to retrieve the user for
+   * @param params.walletAddress The wallet to retrieve the user for
    *
    * @returns The user for the given wallet and network
    */

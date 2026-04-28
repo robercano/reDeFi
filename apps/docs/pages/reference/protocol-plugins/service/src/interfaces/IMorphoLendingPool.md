@@ -7,9 +7,6 @@
 # Interface: IMorphoLendingPool
 
 IMorphoLendingPool
-
-## Description
-
 Represents a lending pool in the Morpho protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.
@@ -145,6 +142,9 @@ Type of the pool
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -152,14 +152,6 @@ Type of the pool
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

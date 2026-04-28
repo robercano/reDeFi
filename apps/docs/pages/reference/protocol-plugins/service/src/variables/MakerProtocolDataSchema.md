@@ -8,6 +8,4 @@
 
 > `const` **MakerProtocolDataSchema**: `ZodObject`\<\{ `chainInfo`: `ZodType`\<[`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md), `ZodTypeDef`, [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md)\>; `name`: `ZodLiteral`\<[`Maker`](../../../../client/src/enumerations/ProtocolName.md#maker)\>; \}, `"strip"`, `ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `name`: [`Maker`](../../../../client/src/enumerations/ProtocolName.md#maker); \}, \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `name`: [`Maker`](../../../../client/src/enumerations/ProtocolName.md#maker); \}\>
 
-## Description
-
 Zod schema for IMakerProtocol

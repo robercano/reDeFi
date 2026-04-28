@@ -4,8 +4,8 @@ import { IContractsProvider } from '@thesolidchain/contracts-provider-common'
 import { AllowanceManager } from './AllowanceManager'
 
 /**
- * @name AllowanceManagerFactory
- * @description This class is responsible for creating instances of the AllowanceManager
+ * AllowanceManagerFactory
+ * This class is responsible for creating instances of the AllowanceManager
  */
 export class AllowanceManagerFactory {
   public static newAllowanceManager(params: {

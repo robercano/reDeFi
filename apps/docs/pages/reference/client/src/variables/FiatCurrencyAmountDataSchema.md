@@ -8,6 +8,4 @@
 
 > `const` **FiatCurrencyAmountDataSchema**: `ZodObject`\<\{ `amount`: `ZodString`; `fiat`: `ZodNativeEnum`\<*typeof* [`FiatCurrency`](../enumerations/FiatCurrency.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../enumerations/FiatCurrency.md); \}\>
 
-## Description
-
 Zod schema for IFiatCurrencyAmount

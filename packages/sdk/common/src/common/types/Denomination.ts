@@ -3,26 +3,26 @@ import { IToken, ITokenData, TokenDataSchema } from '../interfaces/IToken'
 import { z } from 'zod'
 
 /**
- * @name DenominationData
- * @description Type for the denomination
+ * DenominationData
+ * Type for the denomination
  *
  * A denomination can be a token or a fiat currency
  */
 export type DenominationData = ITokenData | FiatCurrency
 
 /**
- * @name Denomination
- * @description Type for the instances of denomination
+ * Denomination
+ * Type for the instances of denomination
  */
 export type Denomination = IToken | FiatCurrency
 
 /**
- * @description Zod schema for Denomination
+ * Zod schema for Denomination
  */
 export const DenominationDataSchema = TokenDataSchema.or(FiatCurrencySchema)
 
 /**
- * @description Type guard for Denomination
+ * Type guard for Denomination
  * @param maybeDenomination
  * @returns true if the value is a Denomination
  */

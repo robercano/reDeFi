@@ -6,12 +6,7 @@
 
 # Interface: ITokenAmount
 
-## Name
-
 ITokenAmount
-
-## Description
-
 Interface for the implementors of the token amount
 
 This interface is used to add all the methods that the interface supports
@@ -58,6 +53,8 @@ Token this amount refers to
 
 > **add**(`tokenToAdd`): `ITokenAmount`
 
+add
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -70,15 +67,13 @@ Token this amount refers to
 
 The resulting TokenAmount
 
-#### Name
-
-add
-
 ***
 
 ### divide()
 
 > **divide**\<`InputParams`, `ReturnType`\>(`divisor`): `ReturnType`
+
+divide
 
 #### Type Parameters
 
@@ -99,15 +94,14 @@ add
 
 The resulting TokenAmount
 
-#### Name
-
-divide
-
 ***
 
 ### isEqualTo()
 
 > **isEqualTo**(`tokenAmount`): `boolean`
+
+isEqualTo
+Checks if the amount is equal to the provided TokenAmount
 
 #### Parameters
 
@@ -121,19 +115,14 @@ divide
 
 true if the amount is equal to the provided TokenAmount
 
-#### Name
-
-isEqualTo
-
-#### Description
-
-Checks if the amount is equal to the provided TokenAmount
-
 ***
 
 ### isGreaterOrEqualThan()
 
 > **isGreaterOrEqualThan**(`tokenAmount`): `boolean`
+
+isGreaterOrEqualThan
+Checks if the amount is greater or equal than the provided TokenAmount
 
 #### Parameters
 
@@ -147,19 +136,14 @@ Checks if the amount is equal to the provided TokenAmount
 
 true if the amount is greater or equal than the provided TokenAmount
 
-#### Name
-
-isGreaterOrEqualThan
-
-#### Description
-
-Checks if the amount is greater or equal than the provided TokenAmount
-
 ***
 
 ### isGreaterThan()
 
 > **isGreaterThan**(`tokenAmount`): `boolean`
+
+isGreaterThan
+Checks if the amount is greater than the provided TokenAmount
 
 #### Parameters
 
@@ -173,19 +157,14 @@ Checks if the amount is greater or equal than the provided TokenAmount
 
 true if the amount is greater than the provided TokenAmount
 
-#### Name
-
-isGreaterThan
-
-#### Description
-
-Checks if the amount is greater than the provided TokenAmount
-
 ***
 
 ### isLessOrEqualThan()
 
 > **isLessOrEqualThan**(`tokenAmount`): `boolean`
+
+isLessOrEqualThan
+Checks if the amount is less or equal than the provided TokenAmount
 
 #### Parameters
 
@@ -199,19 +178,14 @@ Checks if the amount is greater than the provided TokenAmount
 
 true if the amount is less or equal than the provided TokenAmount
 
-#### Name
-
-isLessOrEqualThan
-
-#### Description
-
-Checks if the amount is less or equal than the provided TokenAmount
-
 ***
 
 ### isLessThan()
 
 > **isLessThan**(`tokenAmount`): `boolean`
+
+isLessThan
+Checks if the amount is less than the provided TokenAmount
 
 #### Parameters
 
@@ -225,19 +199,14 @@ Checks if the amount is less or equal than the provided TokenAmount
 
 true if the amount is less than the provided TokenAmount
 
-#### Name
-
-isLessThan
-
-#### Description
-
-Checks if the amount is less than the provided TokenAmount
-
 ***
 
 ### isZero()
 
 > **isZero**(): `boolean`
+
+isZero
+Checks if the amount is zero
 
 #### Returns
 
@@ -245,19 +214,13 @@ Checks if the amount is less than the provided TokenAmount
 
 true if the amount is zero or false otherwise
 
-#### Name
-
-isZero
-
-#### Description
-
-Checks if the amount is zero
-
 ***
 
 ### multiply()
 
 > **multiply**\<`InputParams`, `ReturnType`\>(`multiplier`): `ReturnType`
+
+multiply
 
 #### Type Parameters
 
@@ -278,15 +241,13 @@ Checks if the amount is zero
 
 The resulting TokenAmount
 
-#### Name
-
-multiply
-
 ***
 
 ### subtract()
 
 > **subtract**(`tokenToSubstract`): `ITokenAmount`
+
+subtract
 
 #### Parameters
 
@@ -299,10 +260,6 @@ multiply
 `ITokenAmount`
 
 The resulting TokenAmount
-
-#### Name
-
-subtract
 
 ***
 
@@ -365,6 +322,9 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -372,14 +332,6 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

@@ -6,12 +6,7 @@
 
 # Enumeration: ProtocolName
 
-## Name
-
 ProtocolName
-
-## Description
-
 Enumerates the names of the protocols that are supported by the SDK
 
 ## Enumeration Members

@@ -8,6 +8,8 @@
 
 > **isImportPositionParameters**(`maybeImportPositionParameters`): `maybeImportPositionParameters is Readonly<{ externalPosition: IExternalLendingPosition }>`
 
+Type guard for IImportPositionParameters
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeImportPositionParameters is Readonly<{ externalPosition: IExternalLendingPosition }>`
 
 true if the object is an IImportPositionParameters
-
-## Description
-
-Type guard for IImportPositionParameters

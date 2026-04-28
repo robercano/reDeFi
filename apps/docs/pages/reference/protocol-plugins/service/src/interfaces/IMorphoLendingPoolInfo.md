@@ -7,9 +7,6 @@
 # Interface: IMorphoLendingPoolInfo
 
 IMorphoLendingPoolInfo
-
-## Description
-
 Represents a lending pool info in the Morpho protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

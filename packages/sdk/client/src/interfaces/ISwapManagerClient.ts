@@ -1,18 +1,18 @@
 import type { QuoteData, IToken, ITokenAmount, IPercentage } from '@thesolidchain/sdk-common'
 
 /**
- * @name ISwapManagerClient
- * @description Interface for the SwapManager client implementation.
+ * ISwapManagerClient
+ * Interface for the SwapManager client implementation.
  * @see ISwapManager
  */
 export interface ISwapManagerClient {
   /**
-   * @method getSwapQuoteExactInput
-   * @description Retrieves a swap quote for a given input amount and token
+   * getSwapQuoteExactInput
+   * Retrieves a swap quote for a given input amount and token
    *
-   * @param fromAmount The amount to swap
-   * @param toToken The token to swap to
-   * @param slippage The slippage for the swap
+   * @param params.fromAmount The amount to swap
+   * @param params.toToken The token to swap to
+   * @param params.slippage The slippage for the swap
    *
    * @returns The swap quote for the given input amount and token
    */

@@ -9,7 +9,4 @@
 > **TokenSymbol** = `string`
 
 TokenSymbol
-
-## Description
-
 Represents the symbol of a token

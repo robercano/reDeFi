@@ -3,8 +3,8 @@ import { IBlockchainClientProvider, IBlockchainManager, IBlockchainClient } from
 import { BlockchainProviderType, IChainInfo } from '@thesolidchain/sdk-common'
 
 /**
- * @name BlockchainManager
- * @description The implementation of IBlockchainManager
+ * BlockchainManager
+ * The implementation of IBlockchainManager
  */
 export class BlockchainManager
   extends ManagerWithFallbackProvidersBase<BlockchainProviderType, IBlockchainClientProvider>

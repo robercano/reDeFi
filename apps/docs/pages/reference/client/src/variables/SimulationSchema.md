@@ -8,6 +8,4 @@
 
 > `const` **SimulationSchema**: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`SimulationType`](../enumerations/SimulationType.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `type`: [`SimulationType`](../enumerations/SimulationType.md); \}, \{ `type`: [`SimulationType`](../enumerations/SimulationType.md); \}\>
 
-## Description
-
 Zod schema for ISimulation

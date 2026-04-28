@@ -8,12 +8,7 @@
 
 > **DenominationData** = [`ITokenData`](ITokenData.md) \| [`FiatCurrency`](../enumerations/FiatCurrency.md)
 
-## Name
-
 DenominationData
-
-## Description
-
 Type for the denomination
 
 A denomination can be a token or a fiat currency

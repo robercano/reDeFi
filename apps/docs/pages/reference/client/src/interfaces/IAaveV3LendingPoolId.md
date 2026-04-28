@@ -7,9 +7,6 @@
 # Interface: IAaveV3LendingPoolId
 
 IAaveV3LendingPoolId
-
-## Description
-
 Identifier of a lending pool on the Aave v3 protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

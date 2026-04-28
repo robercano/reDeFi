@@ -7,9 +7,6 @@
 # Class: UsersManager
 
 IUsersManager
-
-## Description
-
 Allows to retrieve a user by their wallet and network
 
 ## Extends
@@ -63,27 +60,22 @@ Allows to retrieve a user by their wallet and network
 
 > **getUserClient**(`params`): `Promise`\<[`UserClient`](UserClient.md)\>
 
+getUserClient
+Retrieves a user by their wallet and network
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `chainInfo`: [`ChainInfo`](ChainInfo.md); `walletAddress`: [`Address`](Address.md); \} |
-| `params.chainInfo` | [`ChainInfo`](ChainInfo.md) |
-| `params.walletAddress` | [`Address`](Address.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `chainInfo`: [`ChainInfo`](ChainInfo.md); `walletAddress`: [`Address`](Address.md); \} | - |
+| `params.chainInfo` | [`ChainInfo`](ChainInfo.md) | The chain to retrieve the user for |
+| `params.walletAddress` | [`Address`](Address.md) | The wallet to retrieve the user for |
 
 #### Returns
 
 `Promise`\<[`UserClient`](UserClient.md)\>
 
 The user for the given wallet and network
-
-#### Method
-
-getUserClient
-
-#### Description
-
-Retrieves a user by their wallet and network
 
 #### Implementation of
 

@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
 /**
- * @name SubscriptionProviderType
- * @description Represents the different subscription providers
+ * SubscriptionProviderType
+ * Represents the different subscription providers
  */
 export enum SubscriptionProviderType {
   ALCHEMY = 'ALCHEMY',
@@ -11,12 +11,12 @@ export enum SubscriptionProviderType {
 }
 
 /**
- * @description Zod schema for SubscriptionProviderType
+ * Zod schema for SubscriptionProviderType
  */
 export const SubscriptionProviderTypeSchema = z.nativeEnum(SubscriptionProviderType)
 
 /**
- * @description Type guard for SubscriptionProviderType
+ * Type guard for SubscriptionProviderType
  * @param value 
  * @returns boolean true if the value is a SubscriptionProviderType
  */

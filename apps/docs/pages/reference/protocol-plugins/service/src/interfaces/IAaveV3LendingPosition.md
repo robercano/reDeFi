@@ -7,9 +7,6 @@
 # Interface: IAaveV3LendingPosition
 
 IAaveV3LendingPosition
-
-## Description
-
 Represents a lending position in the Aave V3 protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

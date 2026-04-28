@@ -8,6 +8,8 @@
 
 > **isPercentageData**(`maybePercentageData`, `returnedErrors?`): `maybePercentageData is Readonly<{ value: number }>`
 
+Type guard for IPercentageData
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 `maybePercentageData is Readonly<{ value: number }>`
 
 true if the object is an IPercentageData
-
-## Description
-
-Type guard for IPercentageData

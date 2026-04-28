@@ -8,6 +8,8 @@
 
 > **isProtocolName**(`maybeProtocolName`): `maybeProtocolName is ProtocolName`
 
+Type guard for ProtocolName
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocolName is ProtocolName`
 
 true if the object is a ProtocolName
-
-## Description
-
-Type guard for ProtocolName

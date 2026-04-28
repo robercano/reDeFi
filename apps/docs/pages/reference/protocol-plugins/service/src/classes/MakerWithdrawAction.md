@@ -80,23 +80,21 @@
 
 > `protected` **\_encodeCall**(`params`): `ActionCall`
 
+Encodes the call to the action
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\] | - |
-| `params.mapping?` | `InputSlotsMapping` | - |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `joinAddr`: `` `0x${string}` ``; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\] |
+| `params.mapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
 
 The encoded call to the action
-
-#### Description
-
-Encodes the call to the action
 
 #### Inherited from
 

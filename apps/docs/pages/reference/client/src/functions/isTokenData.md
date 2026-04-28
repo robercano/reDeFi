@@ -8,6 +8,8 @@
 
 > **isTokenData**(`maybeTokenData`): maybeTokenData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string \| null; name: string; symbol: string \}\>
 
+Type guard for ITokenData
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 maybeTokenData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string \| null; name: string; symbol: string \}\>
 
 true if the object is an ITokenData
-
-## Description
-
-Type guard for ITokenData

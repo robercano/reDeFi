@@ -285,10 +285,10 @@ Creates a Percentage instance from a Solidity value with PERCENTAGE_DECIMALS dec
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `value`: `bigint`; \} |
-| `params.value` | `bigint` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `value`: `bigint`; \} | - |
+| `params.value` | `bigint` | The Solidity value |
 
 #### Returns
 

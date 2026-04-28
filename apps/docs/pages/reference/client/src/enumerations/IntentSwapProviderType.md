@@ -6,12 +6,7 @@
 
 # Enumeration: IntentSwapProviderType
 
-## Name
-
 IntentSwapProviderType
-
-## Description
-
 Represents the different intent swap providers
 
 ## Enumeration Members

@@ -8,6 +8,8 @@
 
 > **isSDKError**(`maybeErrorData`): `maybeErrorData is Readonly<{ message: string; reason: string; type: SDKErrorType }>`
 
+Type guard for ISDKError
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeErrorData is Readonly<{ message: string; reason: string; type: SDKErrorType }>`
 
 true if the object is an ISDKError
-
-## Description
-
-Type guard for ISDKError

@@ -63,6 +63,9 @@ IProtocolsManagerClient
 
 > **getLendingPool**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPool`](../interfaces/ILendingPool.md)\>\>
 
+getLendingPool
+Get the lending pool from the protocol
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -76,14 +79,6 @@ IProtocolsManagerClient
 
 The lending pool
 
-#### Method
-
-getLendingPool
-
-#### Description
-
-Get the lending pool from the protocol
-
 #### Implementation of
 
 [`IProtocolsManagerClient`](../interfaces/IProtocolsManagerClient.md).[`getLendingPool`](../interfaces/IProtocolsManagerClient.md#getlendingpool)
@@ -93,6 +88,9 @@ Get the lending pool from the protocol
 ### getLendingPoolInfo()
 
 > **getLendingPoolInfo**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPoolInfo`](../interfaces/ILendingPoolInfo.md)\>\>
+
+getLendingPoolInfo
+Get the lending pool info from the protocol
 
 #### Parameters
 
@@ -106,14 +104,6 @@ Get the lending pool from the protocol
 `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPoolInfo`](../interfaces/ILendingPoolInfo.md)\>\>
 
 The lending pool info
-
-#### Method
-
-getLendingPoolInfo
-
-#### Description
-
-Get the lending pool info from the protocol
 
 #### Implementation of
 

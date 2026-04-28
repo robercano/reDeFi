@@ -45,7 +45,7 @@ export class OrderPlannerService implements IOrderPlannerService {
   /**
    * Registers an order planner class as the handler for a specific simulation types
    *
-   * @param orderPlannerClass Order planner class to register
+   * @param params.orderPlannerClass Order planner class to register
    */
   private _registerOrderPlanner(orderPlannerClass: OrderPlannerClass): void {
     const orderPlanner = new orderPlannerClass()

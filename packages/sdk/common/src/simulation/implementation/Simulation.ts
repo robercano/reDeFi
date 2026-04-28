@@ -8,7 +8,7 @@ import { ISimulation, ISimulationData, __signature__ } from '../interfaces/ISimu
 export type SimulationParams = Omit<ISimulationData, 'type'>
 
 /**
- * @name Simulation
+ * Simulation
  * @see ISimulation
  */
 export abstract class Simulation implements ISimulation {

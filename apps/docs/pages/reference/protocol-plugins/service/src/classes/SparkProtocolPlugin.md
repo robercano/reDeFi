@@ -7,9 +7,6 @@
 # Class: SparkProtocolPlugin
 
 SparkProtocolPlugin
-
-## Description
-
 Protocol plugin for the Spark protocol
 
 ## See
@@ -110,10 +107,10 @@ Fetches the asset from the assets list for the given token and emode.
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) | The token to fetch the asset for. |
-| `emode` | `number` | The emode to fetch the asset for. |
+| Parameter | Type |
+| ------ | ------ |
+| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) |
+| `emode` | `number` |
 
 #### Returns
 
@@ -163,12 +160,12 @@ Fetches the collateral info for the given token.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `emode`: `number`; `poolBaseCurrencyToken`: [`Denomination`](../../../../client/src/type-aliases/Denomination.md); `token`: [`IToken`](../../../../client/src/interfaces/IToken.md); \} |
-| `params.emode` | `number` |
-| `params.poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) |
-| `params.token` | [`IToken`](../../../../client/src/interfaces/IToken.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `emode`: `number`; `poolBaseCurrencyToken`: [`Denomination`](../../../../client/src/type-aliases/Denomination.md); `token`: [`IToken`](../../../../client/src/interfaces/IToken.md); \} | - |
+| `params.emode` | `number` | The emode to fetch the collateral info for. |
+| `params.poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) | The base currency token for the pool. |
+| `params.token` | [`IToken`](../../../../client/src/interfaces/IToken.md) | The token to fetch the collateral info for. |
 
 #### Returns
 
@@ -190,11 +187,11 @@ Retrieves the contract address for a given chain
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} |
-| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) |
-| `params.contractName` | `string` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `chainInfo`: [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md); `contractName`: `string`; \} | - |
+| `params.chainInfo` | [`IChainInfo`](../../../../client/src/interfaces/IChainInfo.md) | The chain where the contract is deployed |
+| `params.contractName` | `string` | THe name of the contract |
 
 #### Returns
 
@@ -236,11 +233,11 @@ Fetches the debt info for the given token.
 
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) | The token to fetch the debt info for. |
-| `emode` | `number` | The emode to fetch the debt info for. |
-| `poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) | The base currency token for the pool. |
+| Parameter | Type |
+| ------ | ------ |
+| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) |
+| `emode` | `number` |
+| `poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) |
 
 #### Returns
 

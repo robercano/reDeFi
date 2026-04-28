@@ -7,9 +7,6 @@
 # Interface: IExternalLendingPosition
 
 IExternalLendingPosition
-
-## Description
-
 Lending position existing in another service
 
 ## Extends
@@ -130,6 +127,9 @@ Type of the position
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -137,14 +137,6 @@ Type of the position
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

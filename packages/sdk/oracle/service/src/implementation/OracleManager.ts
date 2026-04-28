@@ -8,8 +8,8 @@ export type OracleManagerProviderConfig = {
 }
 
 /**
- * @name OracleManager
- * @description This class is the implementation of the IOracleManager interface. Takes care of choosing the best provider for a price consultation
+ * OracleManager
+ * This class is the implementation of the IOracleManager interface. Takes care of choosing the best provider for a price consultation
  */
 export class OracleManager
   extends ManagerWithFallbackProvidersBase<OracleProviderType, IOracleProvider>
@@ -27,9 +27,9 @@ export class OracleManager
   }
 
   /**
-   * @method getSpotPrice
-   * @description Retrieves the spot price for a specific base token, optionally denominated in another token.
-   * @param params Parameters including the base token and optional denomination token.
+   * getSpotPrice
+   * Retrieves the spot price for a specific base token, optionally denominated in another token.
+   * @param params.params Parameters including the base token and optional denomination token.
    * @returns The spot price of the base token.
    */
   @Cache(VolatilityProfile.TIME_FAST)
@@ -52,9 +52,9 @@ export class OracleManager
   }
 
   /**
-   * @method getSpotPrices
-   * @description Retrieves the spot prices for an array of base tokens.
-   * @param params Parameters including the array of base tokens.
+   * getSpotPrices
+   * Retrieves the spot prices for an array of base tokens.
+   * @param params.params Parameters including the array of base tokens.
    * @returns A map of spot prices for the provided base tokens.
    */
   @Cache(VolatilityProfile.TIME_FAST)

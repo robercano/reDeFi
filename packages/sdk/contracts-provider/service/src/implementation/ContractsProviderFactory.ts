@@ -3,8 +3,8 @@ import { IConfigurationProvider } from '@thesolidchain/configuration-provider-co
 import { ContractsProvider } from './ContractsProvider'
 
 /**
- * @name ContractsProviderFactory
- * @description This class is responsible for creating instances of the ContractsProvider
+ * ContractsProviderFactory
+ * This class is responsible for creating instances of the ContractsProvider
  */
 export class ContractsProviderFactory {
   public static newContractsProvider(params: {

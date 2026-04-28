@@ -6,12 +6,7 @@
 
 # Interface: ILendingPool
 
-## Name
-
 ILendingPool
-
-## Description
-
 Represents a lending pool for a single pair collateral/debt
 
 A lending pool is a pool where users can deposit collateral and borrow debt against that collateral.
@@ -109,6 +104,9 @@ Type of the pool
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -116,14 +114,6 @@ Type of the pool
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

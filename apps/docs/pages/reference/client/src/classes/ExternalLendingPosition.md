@@ -6,8 +6,6 @@
 
 # Class: ExternalLendingPosition
 
-## Name
-
 ExternalLendingPosition
 
 ## See

@@ -6,12 +6,7 @@
 
 # Interface: IPercentage
 
-## Name
-
 IPercentage
-
-## Description
-
 Percentage type that can be used for calculations with other types like TokenAmount or Price
 
 ## Extends
@@ -44,6 +39,8 @@ The percentage in floating point format
 
 > **add**(`percentage`): `IPercentage`
 
+add
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -56,15 +53,13 @@ The percentage in floating point format
 
 the result of the addition
 
-#### Name
-
-add
-
 ***
 
 ### divide()
 
 > **divide**(`divisor`): `IPercentage`
+
+divide
 
 #### Parameters
 
@@ -78,15 +73,13 @@ add
 
 The resulting percentage
 
-#### Name
-
-divide
-
 ***
 
 ### multiply()
 
 > **multiply**(`multiplier`): `IPercentage`
+
+multiply
 
 #### Parameters
 
@@ -100,15 +93,13 @@ divide
 
 The resulting percentage
 
-#### Name
-
-multiply
-
 ***
 
 ### subtract()
 
 > **subtract**(`percentage`): `IPercentage`
+
+subtract
 
 #### Parameters
 
@@ -121,10 +112,6 @@ multiply
 `IPercentage`
 
 the result of the subtraction
-
-#### Name
-
-subtract
 
 ***
 
@@ -157,6 +144,8 @@ It returns a BigNumber without explicit decimals. This function is intended for 
 
 > **toComplement**(): `IPercentage`
 
+toComplement
+
 #### Returns
 
 `IPercentage`
@@ -165,15 +154,13 @@ The complement of the percentage
 
 The complement is the difference between 100% and the percentage
 
-#### Name
-
-toComplement
-
 ***
 
 ### toProportion()
 
 > **toProportion**(): `number`
+
+toProportion
 
 #### Returns
 
@@ -182,10 +169,6 @@ toComplement
 Returns the equivalent proportion of the percentage
 
 The proportion is the percentage divided by 100, this is, a floating value between 0 and 1
-
-#### Name
-
-toProportion
 
 ***
 
@@ -223,6 +206,9 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -230,14 +216,6 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

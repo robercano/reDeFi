@@ -10,7 +10,7 @@ import type { SDKSigner } from './MakeSDKWithSigner'
 import { Price } from '@thesolidchain/sdk-common'
 
 /**
- * @name IntentSwapClient
+ * IntentSwapClient
  * @implements IIntentSwapClient
  */
 export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {

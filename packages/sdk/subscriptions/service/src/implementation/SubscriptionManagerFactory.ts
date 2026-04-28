@@ -7,8 +7,8 @@ import { DefaultRpcSubscriptionProvider } from './providers/DefaultRpcSubscripti
 
 export class SubscriptionManagerFactory {
   /**
-   * @name newSubscriptionManager
-   * @description Creates a new instance of SubscriptionManager
+   * newSubscriptionManager
+   * Creates a new instance of SubscriptionManager
    */
   public static newSubscriptionManager(params: {
     configProvider: IConfigurationProvider,

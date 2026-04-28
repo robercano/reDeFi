@@ -11,7 +11,7 @@ import { formatTokenAmountHumanReadable } from '../../common/utils/TokenAmountUt
 export type HoldingParameters = IHoldingData
 
 /**
- * @name Holding
+ * Holding
  * @see IHolding
  */
 export class Holding implements IHolding {

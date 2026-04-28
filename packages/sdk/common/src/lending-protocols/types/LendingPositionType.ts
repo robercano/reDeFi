@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 /**
  * @enum LendingPositionType
- * @description Indicates the type of lending position in a lending protocol
+ * Indicates the type of lending position in a lending protocol
  */
 export enum LendingPositionType {
   /** Simple borrow with added collateral */

@@ -177,8 +177,8 @@ function _validateTokenDenomination(
 }
 
 /**
- * @name _validateFiatDenomination
- * @description Validate that the given fiat currency has the given denomination
+ * _validateFiatDenomination
+ * Validate that the given fiat currency has the given denomination
  * @param fiat The fiat currency to validate
  * @param denomination The denomination to validate
  *
@@ -200,7 +200,7 @@ function _validateFiatDenomination(
 }
 
 /**
- * @name _hasBaseSameToThisQuote
+ * _hasBaseSameToThisQuote
  * @param price Price to compare against
  * @returns true if the price base is the same as this price quote
  */
@@ -219,7 +219,7 @@ function _hasBaseSameToOtherQuote(price: IPrice, other: IPrice): boolean {
 }
 
 /**
- * @name _hasQuoteSameToThisBase
+ * _hasQuoteSameToThisBase
  * @param price Price to compare against
  * @returns true if the price quote is the same as this price base
  */

@@ -7,9 +7,6 @@
 # Interface: IAaveV3Protocol
 
 IAaveV3Protocol
-
-## Description
-
 Identifier of the Aave V3 protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

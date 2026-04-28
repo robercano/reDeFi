@@ -8,6 +8,8 @@
 
 > **isMorphoProtocol**(`maybeProtocol`): `maybeProtocol is IMorphoProtocol`
 
+Type guard for IMorphoProtocol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocol is IMorphoProtocol`
 
 true if the object is an IMorphoProtocol
-
-## Description
-
-Type guard for IMorphoProtocol

@@ -37,8 +37,8 @@ export abstract class BaseActionBuilder<
 
   /**
    * Delegates the building of the action to the specific builder in the corresponding protocol plugin
-   * @param protocolName The name of the protocol to delegate the action to
-   * @param actionBuilderParams The parameters for the action builder
+   * @param params.protocolName The name of the protocol to delegate the action to
+   * @param params.actionBuilderParams The parameters for the action builder
    */
   protected async _delegateToProtocol(params: {
     protocolName: ProtocolName
@@ -62,9 +62,9 @@ export abstract class BaseActionBuilder<
 
   /**
    * Resolves the address of a contract by its name using the address book manager
-   * @param addressBookManager The address book manager to use
-   * @param chainInfo The chain where the contract is
-   * @param contractName The name of the contract
+   * @param params.addressBookManager The address book manager to use
+   * @param params.chainInfo The chain where the contract is
+   * @param params.contractName The name of the contract
    * @returns The address of the contract
    */
   protected async _getContractAddress(params: {

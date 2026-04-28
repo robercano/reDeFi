@@ -6,8 +6,6 @@
 
 # Interface: StakingStake
 
-## Description
-
 Staking stake position details
 
 ## Properties

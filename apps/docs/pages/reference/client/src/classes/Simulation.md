@@ -6,8 +6,6 @@
 
 # Abstract Class: Simulation
 
-## Name
-
 Simulation
 
 ## See

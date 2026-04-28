@@ -4,51 +4,51 @@ import { IManagerWithProviders } from '@thesolidchain/api-server-common'
 import { ITokensProvider } from './ITokensProvider'
 
 /**
- * @name ITokensManager
- * @description Interface for the TokensManager. Allows to retrieve information for a Token given its Chain, and
+ * ITokensManager
+ * Interface for the TokensManager. Allows to retrieve information for a Token given its Chain, and
  *              its Address or symbol
  */
 export interface ITokensManager extends IManagerWithProviders<TokensProviderType, ITokensProvider> {
   /**
-   * @method getTokenBySymbol
-   * @description Retrieves a token by its symbol
+   * getTokenBySymbol
+   * Retrieves a token by its symbol
    *
-   * @param chainInfo The chain information of the token to retrieve
-   * @param symbol The symbol of the token to retrieve
+   * @param params.chainInfo The chain information of the token to retrieve
+   * @param params.symbol The symbol of the token to retrieve
    *
    * @returns The token with the given symbol
    */
   getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): Promise<IToken>
 
   /**
-   * @method getTokenByAddress
-   * @description Retrieves a token by its address
+   * getTokenByAddress
+   * Retrieves a token by its address
    *
-   * @param chainInfo The chain information of the token to retrieve
-   * @param address The address of the token to retrieve
+   * @param params.chainInfo The chain information of the token to retrieve
+   * @param params.address The address of the token to retrieve
    *
    * @returns The token with the given address
    */
   getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IToken>
 
   /**
-   * @method getTokenByName
-   * @description Retrieves a token by its name
+   * getTokenByName
+   * Retrieves a token by its name
    *
-   * @param chainInfo The chain information of the token to retrieve
-   * @param name The name of the token to retrieve
+   * @param params.chainInfo The chain information of the token to retrieve
+   * @param params.name The name of the token to retrieve
    *
    * @returns The token with the given name
    */
   getTokenByName(params: { chainInfo: IChainInfo; name: string }): Promise<IToken>
 
   /**
-   * @method getTokenBalanceBySymbol
-   * @description Retrieves the token balance for a given wallet address and token symbol
+   * getTokenBalanceBySymbol
+   * Retrieves the token balance for a given wallet address and token symbol
    *
-   * @param chainInfo The chain information of the token to retrieve
-   * @param symbol The symbol of the token to retrieve the balance for
-   * @param walletAddress The wallet address to retrieve the token balance for
+   * @param params.chainInfo The chain information of the token to retrieve
+   * @param params.symbol The symbol of the token to retrieve the balance for
+   * @param params.walletAddress The wallet address to retrieve the token balance for
    *
    * @returns The token balance as an ITokenAmount
    */
@@ -59,12 +59,12 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
   }): Promise<ITokenAmount>
 
   /**
-   * @method getTokenBalanceByAddress
-   * @description Retrieves the token balance for a given wallet address and token address
+   * getTokenBalanceByAddress
+   * Retrieves the token balance for a given wallet address and token address
    *
-   * @param chainInfo The chain information of the token to retrieve
-   * @param address The address of the token to retrieve the balance for
-   * @param walletAddress The wallet address to retrieve the token balance for
+   * @param params.chainInfo The chain information of the token to retrieve
+   * @param params.address The address of the token to retrieve the balance for
+   * @param params.walletAddress The wallet address to retrieve the token balance for
    *
    * @returns The token balance as an ITokenAmount
    */
@@ -75,10 +75,10 @@ export interface ITokensManager extends IManagerWithProviders<TokensProviderType
   }): Promise<ITokenAmount>
 
   /**
-   * @method getTokenTotalSupply
-   * @description Retrieves the total supply for a given token
+   * getTokenTotalSupply
+   * Retrieves the total supply for a given token
    *
-   * @param token The token to retrieve the total supply for
+   * @param params.token The token to retrieve the total supply for
    *
    * @returns The total supply of the token as an ITokenAmount
    */

@@ -6,12 +6,7 @@
 
 # Interface: IPoolId
 
-## Name
-
 IPoolId
-
-## Description
-
 Represents a pool's ID. This will be specialized for each protocol
 
 It is a way to retrieve a pool from the protocol and it should include all the necessary information

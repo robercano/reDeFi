@@ -6,12 +6,7 @@
 
 # Class: TokensManagerClient
 
-## Name
-
 TokensManagerClient
-
-## Description
-
 Implementation of the ITokensManager interface for the SDK Client
 
 ## Extends

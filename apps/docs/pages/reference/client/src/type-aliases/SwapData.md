@@ -8,12 +8,7 @@
 
 > **SwapData** = `object`
 
-## Name
-
 SwapData
-
-## Description
-
 Represents the data needed to perform a swap between two tokens
 
 ## Properties

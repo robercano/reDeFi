@@ -8,12 +8,7 @@
 
 > **QuoteData** = `object`
 
-## Name
-
 QuoteData
-
-## Description
-
 Gives information about a swap operation without providing
              the data needed to perform the swap
 

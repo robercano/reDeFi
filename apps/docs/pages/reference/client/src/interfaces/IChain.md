@@ -7,9 +7,6 @@
 # Interface: IChain
 
 IChain
-
-## Description
-
 Represents a blockchain network and allows to access the tokens and protocols of the chain
 
 ## Properties

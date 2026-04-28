@@ -31,8 +31,8 @@ import {
 import type { IPositionsManager } from '@thesolidchain/sdk-common'
 
 /**
- * @name DMAOrderPlanner
- * @description Order planner that generates transactions for the DMA system based on an input simulation
+ * DMAOrderPlanner
+ * Order planner that generates transactions for the DMA system based on an input simulation
  *
  * @see IOrderPlanner
  */

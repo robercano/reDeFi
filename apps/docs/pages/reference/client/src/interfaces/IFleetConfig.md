@@ -6,12 +6,7 @@
 
 # Interface: IFleetConfig
 
-## Name
-
 IFleetConfig
-
-## Description
-
 Data structure for rebalancing assets, used by Keepers of a fleet
 
 ## Properties

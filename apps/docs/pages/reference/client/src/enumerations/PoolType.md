@@ -7,9 +7,6 @@
 # Enumeration: PoolType
 
 PoolType
-
-## Description
-
 Indicates the type of pool (supply or lending)
 
 ## Enumeration Members

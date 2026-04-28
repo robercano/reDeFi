@@ -7,9 +7,6 @@
 # Interface: ISimulation
 
 ISimulation
-
-## Description
-
 Generic simulation interface, defines the simulation type for all simulations
 
 ## Extended by

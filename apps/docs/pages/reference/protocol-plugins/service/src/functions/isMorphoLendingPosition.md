@@ -8,6 +8,8 @@
 
 > **isMorphoLendingPosition**(`maybePosition`): `maybePosition is IMorphoLendingPosition`
 
+Type guard for IMorphoPosition
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePosition is IMorphoLendingPosition`
 
 true if the object is an IMorphoPosition
-
-## Description
-
-Type guard for IMorphoPosition

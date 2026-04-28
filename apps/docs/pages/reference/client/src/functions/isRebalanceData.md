@@ -8,6 +8,8 @@
 
 > **isRebalanceData**(`maybeRebalanceData`): `maybeRebalanceData is IRebalanceData`
 
+Type guard for IRebalanceData
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeRebalanceData is IRebalanceData`
 
 true if the object is an IRebalanceData
-
-## Description
-
-Type guard for IRebalanceData

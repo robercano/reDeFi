@@ -8,6 +8,8 @@
 
 > **isSparkLendingPosition**(`maybePosition`): `maybePosition is ISparkLendingPosition`
 
+Type guard for ISparkPosition
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePosition is ISparkLendingPosition`
 
 true if the object is an ISparkPosition
-
-## Description
-
-Type guard for ISparkPosition

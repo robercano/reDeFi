@@ -6,8 +6,6 @@
 
 # Class: Holding
 
-## Name
-
 Holding
 
 ## See

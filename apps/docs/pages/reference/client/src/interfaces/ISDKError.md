@@ -6,12 +6,7 @@
 
 # Interface: ISDKError
 
-## Name
-
 ISDKError
-
-## Description
-
 Represents a custom error of the SDK
 
 ## Extends
@@ -72,6 +67,9 @@ Error type main category
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -79,14 +77,6 @@ Error type main category
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

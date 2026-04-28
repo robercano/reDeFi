@@ -6,12 +6,7 @@
 
 # Class: ChainsManagerClient
 
-## Name
-
 ChainsManagerClient
-
-## Description
-
 Implementation of the IChainsManager interface for the SDK Client
 
 ## Extends
@@ -65,26 +60,21 @@ Implementation of the IChainsManager interface for the SDK Client
 
 > **getChain**(`params`): `Promise`\<[`Chain`](Chain.md)\>
 
+getChain
+Retrieves a chain by its chain info
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `chainInfo`: [`IChainInfoData`](../type-aliases/IChainInfoData.md); \} |
-| `params.chainInfo` | [`IChainInfoData`](../type-aliases/IChainInfoData.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `chainInfo`: [`IChainInfoData`](../type-aliases/IChainInfoData.md); \} | - |
+| `params.chainInfo` | [`IChainInfoData`](../type-aliases/IChainInfoData.md) | The info associated with the chain to retrieve |
 
 #### Returns
 
 `Promise`\<[`Chain`](Chain.md)\>
 
 The chain for the given chain info
-
-#### Method
-
-getChain
-
-#### Description
-
-Retrieves a chain by its chain info
 
 #### Implementation of
 
@@ -96,26 +86,21 @@ Retrieves a chain by its chain info
 
 > **getChainById**(`params`): `Promise`\<[`Chain`](Chain.md)\>
 
+getChainById
+Retrieves a network by its chain ID
+
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `chainId`: `number`; \} |
-| `params.chainId` | `number` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `chainId`: `number`; \} | - |
+| `params.chainId` | `number` | The chain ID of the network to retrieve |
 
 #### Returns
 
 `Promise`\<[`Chain`](Chain.md)\>
 
 The network with the given chain ID
-
-#### Method
-
-getChainById
-
-#### Description
-
-Retrieves a network by its chain ID
 
 #### Implementation of
 
@@ -127,19 +112,14 @@ Retrieves a network by its chain ID
 
 > **getSupportedChains**(): `Promise`\<[`ChainInfo`](ChainInfo.md)[]\>
 
+getSupportedChains
+Retrieves the list of supported chains
+
 #### Returns
 
 `Promise`\<[`ChainInfo`](ChainInfo.md)[]\>
 
 The list of supported chains
-
-#### Method
-
-getSupportedChains
-
-#### Description
-
-Retrieves the list of supported chains
 
 #### Implementation of
 

@@ -6,12 +6,7 @@
 
 # Interface: ILendingPosition
 
-## Name
-
 ILendingPosition
-
-## Description
-
 Represents a position in a Lending protocol
 
 ## Extends
