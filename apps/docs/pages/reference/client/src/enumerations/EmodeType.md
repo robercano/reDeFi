@@ -7,9 +7,6 @@
 # Enumeration: EmodeType
 
 EmodeType
-
-## Description
-
 Enumerates the efficiency modes of a lending pool
 
 ## Enumeration Members

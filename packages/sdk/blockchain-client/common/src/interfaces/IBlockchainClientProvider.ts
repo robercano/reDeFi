@@ -4,16 +4,16 @@ import { IManagerProvider } from '@thesolidchain/api-server-common'
 import { BlockchainProviderType } from '@thesolidchain/sdk-common'
 
 /**
- * @name IBlockchainClientProvider
- * @description Interface for the BlockchainClient provider, which is used to retrieve a BlockchainClient for a particular chain
+ * IBlockchainClientProvider
+ * Interface for the BlockchainClient provider, which is used to retrieve a BlockchainClient for a particular chain
  */
 export interface IBlockchainClientProvider extends IManagerProvider<BlockchainProviderType> {
   /**
-   * @name getBlockchainClient
-   * @description Retrieves a BlockchainClient for a particular chain
+   * getBlockchainClient
+   * Retrieves a BlockchainClient for a particular chain
    *
-   * @param chainInfo The chain information for the chain
-   * @param rpcUrl Custom RPC URL for the chain (optional)
+   * @param params.chainInfo The chain information for the chain
+   * @param params.rpcUrl Custom RPC URL for the chain (optional)
    *
    * @returns IBlockchainClient The client for a particular chain
    *

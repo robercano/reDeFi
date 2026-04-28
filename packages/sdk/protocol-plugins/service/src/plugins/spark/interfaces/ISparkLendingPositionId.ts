@@ -8,7 +8,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface ISparkPositionId
- * @description Represents the ID of a position in the Spark protocol
+ * Represents the ID of a position in the Spark protocol
  *
  * Currently empty as there are no specifics for this protocol
  */
@@ -18,7 +18,7 @@ export interface ISparkLendingPositionId extends ILendingPositionId, ISparkLendi
 }
 
 /**
- * @description Zod schema for ISparkPositionId
+ * Zod schema for ISparkPositionId
  */
 export const SparkLendingPositionIdDataSchema = z.object({
   ...LendingPositionIdDataSchema.shape,
@@ -30,7 +30,7 @@ export const SparkLendingPositionIdDataSchema = z.object({
 export type ISparkLendingPositionIdData = Readonly<z.infer<typeof SparkLendingPositionIdDataSchema>>
 
 /**
- * @description Type guard for ISparkPositionId
+ * Type guard for ISparkPositionId
  * @param maybeSparkLendingPositionId
  * @returns true if the object is an ISparkPositionId
  */

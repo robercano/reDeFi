@@ -2,18 +2,18 @@ import { IAddress, IPercentage, IToken, ITokenAmount } from '@thesolidchain/sdk-
 import type { QuoteData, SwapData, SwapProviderType } from '@thesolidchain/sdk-common'
 import { IManagerProvider } from '@thesolidchain/api-server-common'
 /**
- * @name ISwapProvider
- * @description this is for implementing different swap provider plugins
+ * ISwapProvider
+ * this is for implementing different swap provider plugins
  */
 export interface ISwapProvider extends IManagerProvider<SwapProviderType> {
   /**
-   * @name getSwapData
-   * @description Returns the data needed to perform a swap between two tokens, by providing the
+   * getSwapData
+   * Returns the data needed to perform a swap between two tokens, by providing the
    *              exact amount of input tokens to swap
-   * @param fromAmount The amount of tokens to swap
-   * @param toToken The token to swap to
-   * @param recipient The address that will receive the tokens
-   * @param slippage The maximum slippage allowed
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
+   * @param params.recipient The address that will receive the tokens
+   * @param params.slippage The maximum slippage allowed
    */
   getSwapDataExactInput(params: {
     fromAmount: ITokenAmount
@@ -23,11 +23,11 @@ export interface ISwapProvider extends IManagerProvider<SwapProviderType> {
   }): Promise<SwapData>
 
   /**
-   * @name getSwapQuote
-   * @description Returns a quote for the swap between two tokens, by providing the exact amount
+   * getSwapQuote
+   * Returns a quote for the swap between two tokens, by providing the exact amount
    *              of input tokens to swap. It does not return the data needed to perform the swap, only the quote
-   * @param fromAmount The amount of tokens to swap
-   * @param toToken The token to swap to
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
    */
   getSwapQuoteExactInput(params: { fromAmount: ITokenAmount; toToken: IToken }): Promise<QuoteData>
 }

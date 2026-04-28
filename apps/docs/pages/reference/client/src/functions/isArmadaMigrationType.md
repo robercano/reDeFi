@@ -8,6 +8,8 @@
 
 > **isArmadaMigrationType**(`maybeArmadaMigrationType`): `maybeArmadaMigrationType is ArmadaMigrationType`
 
+Type guard for ProtocolName
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeArmadaMigrationType is ArmadaMigrationType`
 
 true if the object is a ProtocolName
-
-## Description
-
-Type guard for ProtocolName

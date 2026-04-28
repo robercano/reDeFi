@@ -7,9 +7,6 @@
 # Interface: IProtocol
 
 IProtocol
-
-## Description
-
 Information relative to a protocol
 
 This interface is used to add all the methods that the interface supports

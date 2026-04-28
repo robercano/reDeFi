@@ -7,9 +7,6 @@
 # Interface: IMakerLendingPoolInfo
 
 IMakerLendingPoolInfo
-
-## Description
-
 Represents a lending pool info in the Maker protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

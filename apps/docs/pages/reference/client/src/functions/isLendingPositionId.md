@@ -8,6 +8,8 @@
 
 > **isLendingPositionId**(`maybeLendingPositionId`): `maybeLendingPositionId is ILendingPositionId`
 
+Type guard for ILendingPositionId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -21,7 +23,3 @@
 true if the object is an ILendingPositionId
 
 It also asserts the type so that TypeScript knows that the object is an ILendingPool
-
-## Description
-
-Type guard for ILendingPositionId

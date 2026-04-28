@@ -8,6 +8,8 @@
 
 > **isSimulation**(`maybeSimulationData`): `maybeSimulationData is ISimulation`
 
+Type guard for ISimulation
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeSimulationData is ISimulation`
 
 true if the object is an IToken
-
-## Description
-
-Type guard for ISimulation

@@ -6,12 +6,7 @@
 
 # Interface: ILendingPoolInfo
 
-## Name
-
 ILendingPoolInfo
-
-## Description
-
 Represents the extended information for a lending pool of a single pair collateral/debt
 
 This extended information includes extra info for the collateral and debt like the liquidation threshold, liquidation penalty, total amount

@@ -4,7 +4,7 @@ import { DeploymentIndex } from '@thesolidchain/deployment-utils'
 import { Address, AddressValue } from '@thesolidchain/sdk-common'
 
 /**
- * @name AddressBookManager
+ * AddressBookManager
  * @see IAddressBookManager
  */
 export class AddressBookManager implements IAddressBookManager {
@@ -42,7 +42,7 @@ export class AddressBookManager implements IAddressBookManager {
 
   /**
    * Generates the deployment key for the given chain
-   * @param chainInfo Chain used to generate the tag
+   * @param params.chainInfo Chain used to generate the tag
    * @returns The deployment key
    */
   private _getDeploymentKey(chainInfo: IChainInfo): string {

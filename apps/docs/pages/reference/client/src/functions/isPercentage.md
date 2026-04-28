@@ -8,6 +8,8 @@
 
 > **isPercentage**(`maybePercentage`, `returnedErrors?`): `maybePercentage is IPercentage`
 
+Type guard for IPercentage
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 `maybePercentage is IPercentage`
 
 true if the object is an IPercentage
-
-## Description
-
-Type guard for IPercentage

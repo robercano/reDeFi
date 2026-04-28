@@ -23,8 +23,8 @@ export const HoldingDataSchema = z.object({
 export type IHoldingData = Readonly<z.infer<typeof HoldingDataSchema>>
 
 /**
- * @name IHolding
- * @description Represents a generic holding like a token balance in a wallet.
+ * IHolding
+ * Represents a generic holding like a token balance in a wallet.
  */
 export interface IHolding extends IHoldingData, IPrintable {
   readonly [__signature__]: symbol

@@ -5,8 +5,8 @@ import { ISwapManager } from '@thesolidchain/swap-common'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 
 /**
- * @name IProtocolPluginContext
- * @description This is the context that will be passed to the protocol plugins to inject the different
+ * IProtocolPluginContext
+ * This is the context that will be passed to the protocol plugins to inject the different
  *              services that they might need
  */
 export interface IProtocolPluginContext {

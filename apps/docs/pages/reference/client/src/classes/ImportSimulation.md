@@ -6,8 +6,6 @@
 
 # Class: ImportSimulation
 
-## Name
-
 ImportSimulation
 
 ## See

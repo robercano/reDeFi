@@ -44,8 +44,8 @@ export class TokenAmount implements ITokenAmount {
   }
 
   /**
-   * @name createFromBaseUnit
-   * @param params Token amount data to create the instance
+   * createFromBaseUnit
+   * @param params.params Token amount data to create the instance
    * @returns The resulting TokenAmount
    *
    * `amount` is the integer amount including all the decimals of the token
@@ -188,10 +188,10 @@ export class TokenAmount implements ITokenAmount {
   /** PRIVATE */
 
   /**
-   * @name _validateSameToken
-   * @description Validates that the token of the provided TokenAmount is the same as the current token
+   * _validateSameToken
+   * Validates that the token of the provided TokenAmount is the same as the current token
    *
-   * @param tokenAmount TokenAmount to validate against the instance
+   * @param params.tokenAmount TokenAmount to validate against the instance
    *
    * @remarks Throws an error if the token symbols do not match
    */

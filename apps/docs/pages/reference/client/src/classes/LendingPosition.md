@@ -6,8 +6,6 @@
 
 # Abstract Class: LendingPosition
 
-## Name
-
 LendingPosition
 
 ## See

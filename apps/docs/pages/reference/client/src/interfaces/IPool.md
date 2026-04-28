@@ -6,12 +6,7 @@
 
 # Interface: IPool
 
-## Name
-
 IPool
-
-## Description
-
 Represents a generic protocol pool. Contains information about the pool's ID,
              which is specific to each protocol, and the pool's type
 
@@ -63,6 +58,9 @@ Type of the pool
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -70,14 +68,6 @@ Type of the pool
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

@@ -8,6 +8,4 @@
 
 > `const` **ExternalLendingPositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`ExternalLendingPositionType`](../enumerations/ExternalLendingPositionType.md)\>
 
-## Description
-
 Zod schema for ExternalPositionType

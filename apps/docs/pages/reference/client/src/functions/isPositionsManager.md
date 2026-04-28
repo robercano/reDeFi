@@ -8,6 +8,8 @@
 
 > **isPositionsManager**(`maybePositionsManager`): `maybePositionsManager is IPositionsManager`
 
+Type guard for IPositionsManager
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePositionsManager is IPositionsManager`
 
 true if the object is an IPositionsManager
-
-## Description
-
-Type guard for IPositionsManager

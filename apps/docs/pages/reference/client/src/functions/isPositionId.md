@@ -8,6 +8,8 @@
 
 > **isPositionId**(`maybePositionId`): `maybePositionId is IPositionId`
 
+Type guard for IPositionId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePositionId is IPositionId`
 
 true if the object is an IPositionId
-
-## Description
-
-Type guard for IPositionId

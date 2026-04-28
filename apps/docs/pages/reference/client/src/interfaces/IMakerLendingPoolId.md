@@ -6,12 +6,7 @@
 
 # Interface: IMakerLendingPoolId
 
-## Name
-
 IMakerLendingPoolId
-
-## Description
-
 Represents a lending pool's ID for the Maker protocol
 
 It includes the ILK type which will determine which pool will be used

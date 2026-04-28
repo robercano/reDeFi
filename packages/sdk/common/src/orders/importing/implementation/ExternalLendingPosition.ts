@@ -14,7 +14,7 @@ import { IExternalLendingPositionId } from '../interfaces/IExternalLendingPositi
 export type ExternalLendingPositionParameters = Omit<IExternalLendingPositionData, ''>
 
 /**
- * @name ExternalLendingPosition
+ * ExternalLendingPosition
  * @see IExternalLendingPosition
  */
 export class ExternalLendingPosition extends LendingPosition implements IExternalLendingPosition {

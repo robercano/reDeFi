@@ -7,9 +7,6 @@
 # Interface: ICollateralInfo
 
 ICollateralInfo
-
-## Description
-
 Contains extended information about a collateral token of a lending pool
 
 ## Extends

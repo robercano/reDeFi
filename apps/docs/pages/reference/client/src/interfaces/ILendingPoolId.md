@@ -6,12 +6,7 @@
 
 # Interface: ILendingPoolId
 
-## Name
-
 ILendingPoolId
-
-## Description
-
 Identifies a generic lending pool. This will be specialized for each protocol
 
 This is meant to be used for single pair collateral/debt lending pools. For multi-collateral pools,

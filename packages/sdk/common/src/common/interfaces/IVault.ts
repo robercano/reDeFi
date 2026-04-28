@@ -7,8 +7,8 @@ import { IToken, TokenDataSchema, isToken } from './IToken'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name IVault
- * @description Represents an ERC4626 Vault, which is an ERC20 token itself and wrapped around an underlying asset token
+ * IVault
+ * Represents an ERC4626 Vault, which is an ERC20 token itself and wrapped around an underlying asset token
  */
 export interface IVault extends IToken {
   /** Signature to differentiate from similar interfaces */
@@ -19,7 +19,7 @@ export interface IVault extends IToken {
 }
 
 /**
- * @description Zod schema for IVault
+ * Zod schema for IVault
  */
 export const VaultDataSchema = TokenDataSchema.and(
   z.object({
@@ -33,7 +33,7 @@ export const VaultDataSchema = TokenDataSchema.and(
 export type IVaultData = Readonly<z.infer<typeof VaultDataSchema>>
 
 /**
- * @description Type guard for IVault
+ * Type guard for IVault
  * @param maybeVaultData
  * @returns true if the object is an IVault
  */
@@ -42,7 +42,7 @@ export function isVault(maybeVaultData: unknown): maybeVaultData is IVault {
 }
 
 /**
- * @description Type guard for IVaultData
+ * Type guard for IVaultData
  * @param maybeVaultData
  * @returns true if the object is an IVaultData
  */

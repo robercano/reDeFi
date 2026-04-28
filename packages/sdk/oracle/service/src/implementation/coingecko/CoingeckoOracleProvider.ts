@@ -29,8 +29,8 @@ export type CoingeckoResponse = {
 }
 
 /**
- * @name CoingeckoOracleProvider
- * @description This class is responsible for fetching spot prices from the Coingecko API
+ * CoingeckoOracleProvider
+ * This class is responsible for fetching spot prices from the Coingecko API
  */
 export class CoingeckoOracleProvider
   extends ManagerProviderBase<OracleProviderType>
@@ -252,10 +252,10 @@ export class CoingeckoOracleProvider
 
   /**
    * Fetches price data from Coingecko API with error handling
-   * @param chainInfo The chain information
-   * @param tokenAddresses The token addresses to get the spot price for
-   * @param quoteCurrency The quote currency in which the spot prices will be denominated
-   * @param debugContext Context information for logging
+   * @param params.chainInfo The chain information
+   * @param params.tokenAddresses The token addresses to get the spot price for
+   * @param params.quoteCurrency The quote currency in which the spot prices will be denominated
+   * @param params.debugContext Context information for logging
    * @returns The parsed JSON response
    */
   private async _fetchCoingeckoPrice(params: {
@@ -364,9 +364,9 @@ export class CoingeckoOracleProvider
 
   /**
    * Formats the spot price URL
-   * @param chainInfo The chain information
-   * @param tokenAddresses The token addresses to get the spot price for
-   * @param quoteCurrency The quote currency in which the spot prices will be denominated
+   * @param params.chainInfo The chain information
+   * @param params.tokenAddresses The token addresses to get the spot price for
+   * @param params.quoteCurrency The quote currency in which the spot prices will be denominated
    *
    * @returns The formatted spot price URL
    */
@@ -394,8 +394,8 @@ export class CoingeckoOracleProvider
 
   /**
    * Formats the coin price URL for native tokens
-   * @param chainId The chain ID
-   * @param quoteCurrency The quote currency in which the spot prices will be denominated
+   * @param params.chainId The chain ID
+   * @param params.quoteCurrency The quote currency in which the spot prices will be denominated
    *
    * @returns The formatted coin price URL
    */
@@ -409,7 +409,7 @@ export class CoingeckoOracleProvider
 
   /**
    * Formats the currency query parameter
-   * @param quoteCurrency The quote currency
+   * @param params.quoteCurrency The quote currency
    * @returns The formatted currency parameter
    */
   private _formatCurrencyParam(quoteCurrency?: FiatCurrency): string {
@@ -427,7 +427,7 @@ export class CoingeckoOracleProvider
 
   /**
    * Maps chain ID to Coingecko coin ID
-   * @param chainId The chain ID
+   * @param params.chainId The chain ID
    * @returns The Coingecko coin ID
    */
   private _getCoingeckoId(chainId: ChainId): string {
@@ -516,8 +516,8 @@ export class CoingeckoOracleProvider
   }
 
   /**
-   * @description Tries to parse the error message from 1inch to provide a higher level error type
-   * @param errorDescription The error description from 1inch
+   * Tries to parse the error message from 1inch to provide a higher level error type
+   * @param params.errorDescription The error description from 1inch
    * @returns The parsed error type
    */
   private _parseErrorType(errorDescription: unknown): SwapErrorType {

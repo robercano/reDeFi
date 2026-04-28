@@ -8,6 +8,9 @@
 
 > **getChainFamilyInfoByChainId**(`chainId`): [`ChainFamilyInfo`](../type-aliases/ChainFamilyInfo.md)
 
+getChainFamilyInfoByChainId
+Retrieves the ChainFamilyInfo for a given chainId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,14 +22,6 @@
 [`ChainFamilyInfo`](../type-aliases/ChainFamilyInfo.md)
 
 The ChainFamilyInfo for the given chainId
-
-## Method
-
-getChainFamilyInfoByChainId
-
-## Description
-
-Retrieves the ChainFamilyInfo for a given chainId
 
 ## Throws
 

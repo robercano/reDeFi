@@ -8,6 +8,8 @@
 
 > **formatTokenAmountHumanReadable**(`tokenAmount`, `options?`): `string`
 
+formatTokenAmountHumanReadable
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 `string`
 
 A human readable string representation of the token amount
-
-## Name
-
-formatTokenAmountHumanReadable

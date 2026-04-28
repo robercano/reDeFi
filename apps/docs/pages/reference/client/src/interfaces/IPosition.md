@@ -6,12 +6,7 @@
 
 # Interface: IPosition
 
-## Name
-
 IPosition
-
-## Description
-
 Represents a position in a pool/protocol
 
 ## Extends

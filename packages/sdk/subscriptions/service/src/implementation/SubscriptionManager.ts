@@ -3,8 +3,8 @@ import type { IChainInfo } from '@thesolidchain/sdk-common'
 import { IEventBus } from '@thesolidchain/events-common'
 
 /**
- * @name SubscriptionManager
- * @description Implementation of ISubscriptionManager
+ * SubscriptionManager
+ * Implementation of ISubscriptionManager
  */
 export class SubscriptionManager implements ISubscriptionManager {
   private _providers: Map<SubscriptionProviderType, ISubscriptionProvider>

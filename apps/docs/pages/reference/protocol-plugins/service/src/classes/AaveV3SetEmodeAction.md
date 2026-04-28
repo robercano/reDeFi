@@ -80,23 +80,21 @@
 
 > `protected` **\_encodeCall**(`params`): `ActionCall`
 
+Encodes the call to the action
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `categoryId`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
-| `params.arguments` | readonly \[\{ `categoryId`: `number`; \}\] | - |
-| `params.mapping?` | `InputSlotsMapping` | - |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `categoryId`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
+| `params.arguments` | readonly \[\{ `categoryId`: `number`; \}\] |
+| `params.mapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
 
 The encoded call to the action
-
-#### Description
-
-Encodes the call to the action
 
 #### Inherited from
 

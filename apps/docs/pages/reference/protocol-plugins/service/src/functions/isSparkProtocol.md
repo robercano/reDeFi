@@ -8,6 +8,8 @@
 
 > **isSparkProtocol**(`maybeProtocol`): `maybeProtocol is ISparkProtocol`
 
+Type guard for ISparkProtocol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocol is ISparkProtocol`
 
 true if the object is an ISparkProtocol
-
-## Description
-
-Type guard for ISparkProtocol

@@ -11,18 +11,18 @@ import { IManagerWithProviders } from '@thesolidchain/api-server-common'
 import { ISwapProvider } from './ISwapProvider'
 
 /**
- * @name ISwapManager
- * @description This is the highest level interface that will choose and call
+ * ISwapManager
+ * This is the highest level interface that will choose and call
  * appropriate provider for a swap
  */
 export interface ISwapManager extends IManagerWithProviders<SwapProviderType, ISwapProvider> {
   /**
-   * @name getSwapDataExactInput
-   * @description Returns the data needed to perform a swap between two tokens, by providing the
+   * getSwapDataExactInput
+   * Returns the data needed to perform a swap between two tokens, by providing the
    *              exact amount of input tokens to swap
-   * @param fromAmount The amount of tokens to swap
-   * @param recipient The address that will receive the tokens
-   * @param slippage The maximum slippage allowed
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.recipient The address that will receive the tokens
+   * @param params.slippage The maximum slippage allowed
    */
   getSwapDataExactInput(params: {
     fromAmount: ITokenAmount
@@ -32,11 +32,11 @@ export interface ISwapManager extends IManagerWithProviders<SwapProviderType, IS
   }): Promise<SwapData>
 
   /**
-   * @name getSwapQuoteExactInput
-   * @description Returns a quote for the swap between two tokens, by providing the exact amount
+   * getSwapQuoteExactInput
+   * Returns a quote for the swap between two tokens, by providing the exact amount
    *              of input tokens to swap. It does not return the data needed to perform the swap, only the quote
-   * @param fromAmount The amount of tokens to swap
-   * @param toToken The token to swap to
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
    */
   getSwapQuoteExactInput(params: { fromAmount: ITokenAmount; toToken: IToken }): Promise<QuoteData>
 }

@@ -6,12 +6,7 @@
 
 # Interface: IVault
 
-## Name
-
 IVault
-
-## Description
-
 Represents an ERC4626 Vault, which is an ERC20 token itself and wrapped around an underlying asset token
 
 ## Extends
@@ -128,6 +123,9 @@ Token symbol, usually a short representation of name and used in tickers
 
 > **equals**(`token`): `boolean`
 
+equals
+Checks if two tokens are equal
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -142,14 +140,6 @@ true if the tokens are equal
 
 Equality is determined by the address and chain information
 
-#### Name
-
-equals
-
-#### Description
-
-Checks if two tokens are equal
-
 #### Inherited from
 
 [`IToken`](IToken.md).[`equals`](IToken.md#equals)
@@ -160,6 +150,9 @@ Checks if two tokens are equal
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -167,14 +160,6 @@ Checks if two tokens are equal
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

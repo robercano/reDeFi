@@ -8,8 +8,6 @@
 
 > **MorphoMarketParameters** = `object`
 
-## Description
-
 Morpho market parameters for a given market
 
 ## Properties

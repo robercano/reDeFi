@@ -6,12 +6,7 @@
 
 # Interface: IArkConfig
 
-## Name
-
 IArkConfig
-
-## Description
-
 Data structure for ark configuration
 
 ## Properties

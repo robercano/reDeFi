@@ -8,6 +8,8 @@
 
 > **isLendingPoolInfo**(`maybePool`): `maybePool is ILendingPoolInfo`
 
+Type guard for ILendingPoolInfo
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -21,7 +23,3 @@
 true if the object is an ILendingPool
 
 It also asserts the type so that TypeScript knows that the object is an ILendingPool
-
-## Description
-
-Type guard for ILendingPoolInfo

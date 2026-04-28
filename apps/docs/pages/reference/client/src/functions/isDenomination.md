@@ -8,6 +8,8 @@
 
 > **isDenomination**(`maybeDenomination`): `maybeDenomination is Denomination`
 
+Type guard for Denomination
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeDenomination is Denomination`
 
 true if the value is a Denomination
-
-## Description
-
-Type guard for Denomination

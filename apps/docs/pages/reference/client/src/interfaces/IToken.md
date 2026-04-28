@@ -6,12 +6,7 @@
 
 # Interface: IToken
 
-## Name
-
 IToken
-
-## Description
-
 Represents an token in a Chain, typically used to represent ERC-20 tokens
 
 ## Extends
@@ -108,6 +103,9 @@ Token symbol, usually a short representation of name and used in tickers
 
 > **equals**(`token`): `boolean`
 
+equals
+Checks if two tokens are equal
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -122,19 +120,14 @@ true if the tokens are equal
 
 Equality is determined by the address and chain information
 
-#### Name
-
-equals
-
-#### Description
-
-Checks if two tokens are equal
-
 ***
 
 ### toString()
 
 > **toString**(): `string`
+
+toString
+Returns a string representation of the object
 
 #### Returns
 
@@ -143,14 +136,6 @@ Checks if two tokens are equal
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

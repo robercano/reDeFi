@@ -7,9 +7,6 @@
 # Interface: IRefinanceSimulation
 
 IRefinanceSimulation
-
-## Description
-
 Simulation result of a refinance operation
 
 ## Extends

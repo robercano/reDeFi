@@ -6,8 +6,6 @@
 
 # Class: UserPortfolio
 
-## Name
-
 UserPortfolio
 
 ## See

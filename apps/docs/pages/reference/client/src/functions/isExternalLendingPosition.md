@@ -8,6 +8,8 @@
 
 > **isExternalLendingPosition**(`maybeExternalLendingPosition`): `maybeExternalLendingPosition is IExternalLendingPosition`
 
+Type guard for IExternalLendingPosition
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeExternalLendingPosition is IExternalLendingPosition`
 
 true if the object is an IExternalLendingPosition
-
-## Description
-
-Type guard for IExternalLendingPosition

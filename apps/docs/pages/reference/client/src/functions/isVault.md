@@ -8,6 +8,8 @@
 
 > **isVault**(`maybeVaultData`): `maybeVaultData is IVault`
 
+Type guard for IVault
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeVaultData is IVault`
 
 true if the object is an IVault
-
-## Description
-
-Type guard for IVault

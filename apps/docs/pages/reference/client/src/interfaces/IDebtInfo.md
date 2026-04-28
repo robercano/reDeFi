@@ -7,9 +7,6 @@
 # Interface: IDebtInfo
 
 IDebtInfo
-
-## Description
-
 Contains information about a debt token of a lending pool
 
 Initially this is used for single pair lending pools, but it can be re-used in multi-token

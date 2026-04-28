@@ -8,6 +8,8 @@
 
 > **isSparkLendingPool**(`maybeLendingPool`): `maybeLendingPool is ISparkLendingPool`
 
+Type guard for ISparkLendingPool
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeLendingPool is ISparkLendingPool`
 
 true if the object is an ISparkLendingPool
-
-## Description
-
-Type guard for ISparkLendingPool

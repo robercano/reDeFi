@@ -8,6 +8,8 @@
 
 > **isFiatCurrencyAmount**(`maybeTokenAmount`): `maybeTokenAmount is IFiatCurrencyAmount`
 
+Type guard for IFiatCurrencyAmount
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeTokenAmount is IFiatCurrencyAmount`
 
 true if the object is an ITokenAmount
-
-## Description
-
-Type guard for IFiatCurrencyAmount

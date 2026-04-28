@@ -3,8 +3,8 @@ import type { RPCMainClientType } from '../rpc/SDKMainClient'
 import type { IOracleManagerClient } from '../interfaces/IOracleManagerClient'
 
 /**
- * @name OracleManagerClient
- * @description Implementation of the IOracleManagerClient interface for the SDK Client
+ * OracleManagerClient
+ * Implementation of the IOracleManagerClient interface for the SDK Client
  */
 export class OracleManagerClient extends IRPCClient implements IOracleManagerClient {
   public constructor(params: { rpcClient: RPCMainClientType }) {

@@ -7,9 +7,6 @@
 # Interface: ISparkLendingPosition
 
 ISparkPosition
-
-## Description
-
 Represents a position in the Spark protocol
 
 Currently empty as there are no specifics for this protocol

@@ -8,6 +8,8 @@
 
 > **isAaveV3Protocol**(`maybeProtocol`): `maybeProtocol is Readonly<{ chainInfo: IChainInfo; name: AaveV3 }>`
 
+Type guard for IAaveV3Protocol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocol is Readonly<{ chainInfo: IChainInfo; name: AaveV3 }>`
 
 true if the object is an IAaveV3Protocol
-
-## Description
-
-Type guard for IAaveV3Protocol

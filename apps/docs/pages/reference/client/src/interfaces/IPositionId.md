@@ -6,12 +6,7 @@
 
 # Interface: IPositionId
 
-## Name
-
 IPositionId
-
-## Description
-
 Represents a unique identifier for a position in the system
 
 ## Extends

@@ -8,6 +8,8 @@
 
 > **isChainInfo**(`maybeChainInfo`, `returnedErrors?`): `maybeChainInfo is IChainInfo`
 
+Type guard for IChainInfo
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 `maybeChainInfo is IChainInfo`
 
 true if the object is an IChainInfo
-
-## Description
-
-Type guard for IChainInfo

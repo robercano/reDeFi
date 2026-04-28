@@ -4,8 +4,8 @@ import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 
 /**
- * @name DefaultRpcSubscriptionProvider
- * @description Implementation of ISubscriptionProvider using standard viem client
+ * DefaultRpcSubscriptionProvider
+ * Implementation of ISubscriptionProvider using standard viem client
  */
 export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
   public type: SubscriptionProviderType
@@ -33,11 +33,11 @@ export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
   }
 
   /**
-   * @name subscribeToNewBlocks
-   * @description Subscribes to new blocks on the blockchain
+   * subscribeToNewBlocks
+   * Subscribes to new blocks on the blockchain
    *
-   * @param chainInfo The chain to listen to
-   * @param callback Function to call when a new block is mined
+   * @param params.chainInfo The chain to listen to
+   * @param params.callback Function to call when a new block is mined
    * @returns string A unique subscription ID to be used for unsubscribing
    */
   public subscribeToNewBlocks(chainInfo: IChainInfo, callback: (blockNumber: bigint) => void): string {
@@ -60,10 +60,10 @@ export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
   }
   
   /**
-   * @name unsubscribe
-   * @description Cancels a subscription
+   * unsubscribe
+   * Cancels a subscription
    * 
-   * @param subscriptionId The ID of the subscription to cancel
+   * @param params.subscriptionId The ID of the subscription to cancel
    */
   public unsubscribe(subscriptionId: string): void {
     const unwatch = this._subscriptions.get(subscriptionId)

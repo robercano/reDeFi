@@ -6,12 +6,7 @@
 
 # Enumeration: StakingBucket
 
-## Name
-
 StakingBucket
-
-## Description
-
 Enumerates the staking bucket types based on lockup periods
 
 ## Enumeration Members

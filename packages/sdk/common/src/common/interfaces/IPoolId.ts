@@ -8,8 +8,8 @@ import { IProtocol, isProtocol } from './IProtocol'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name IPoolId
- * @description Represents a pool's ID. This will be specialized for each protocol
+ * IPoolId
+ * Represents a pool's ID. This will be specialized for each protocol
  *
  * It is a way to retrieve a pool from the protocol and it should include all the necessary information
  * to uniquely identify a pool
@@ -24,7 +24,7 @@ export interface IPoolId extends IPoolIdData {
 }
 
 /**
- * @description Zod schema for IPoolId
+ * Zod schema for IPoolId
  */
 export const PoolIdDataSchema = z.object({
   type: z.nativeEnum(PoolType),
@@ -37,7 +37,7 @@ export const PoolIdDataSchema = z.object({
 export type IPoolIdData = Readonly<z.infer<typeof PoolIdDataSchema>>
 
 /**
- * @description Type guard for IPoolId
+ * Type guard for IPoolId
  * @param maybePoolId
  * @returns true if the object is an IPoolId
  */

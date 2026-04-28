@@ -8,6 +8,8 @@
 
 > **isExternalLendingPositionId**(`maybeExternalPositionId`): `maybeExternalPositionId is IExternalLendingPositionId`
 
+Type guard for IExternalPositionId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeExternalPositionId is IExternalLendingPositionId`
 
 true if the object is an IExternalPositionId
-
-## Description
-
-Type guard for IExternalPositionId

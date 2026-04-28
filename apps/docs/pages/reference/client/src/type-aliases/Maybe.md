@@ -8,16 +8,11 @@
 
 > **Maybe**\<`T`\> = `T` \| `undefined`
 
+Maybe
+Represents a type that can be undefined
+
 ## Type Parameters
 
 | Type Parameter |
 | ------ |
 | `T` |
-
-## Name
-
-Maybe
-
-## Description
-
-Represents a type that can be undefined

@@ -6,12 +6,7 @@
 
 # Enumeration: ArmadaMigrationType
 
-## Name
-
 ArmadaMigrationType
-
-## Description
-
 Enumerates the names of the protocols that are migratable by the Armada
 
 ## Enumeration Members

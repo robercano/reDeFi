@@ -8,6 +8,8 @@
 
 > **isMakerProtocol**(`maybeProtocol`): `maybeProtocol is Readonly<{ chainInfo: IChainInfo; name: Maker }>`
 
+Type guard for IMakerProtocol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeProtocol is Readonly<{ chainInfo: IChainInfo; name: Maker }>`
 
 true if the object is an IMakerProtocol
-
-## Description
-
-Type guard for IMakerProtocol

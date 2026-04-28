@@ -2,7 +2,7 @@ import { ActionCall, ActionCallBatch } from '../actions/Types'
 import { Maybe } from '@thesolidchain/sdk-common'
 
 /**
- * @name ActionCallsStack
+ * ActionCallsStack
  * Keeps track of the different calls batches in a subcontext and returns that batch when a subcontext is finished
  */
 export class ActionCallsStack {
@@ -16,7 +16,7 @@ export class ActionCallsStack {
 
   /**
    * Adds a call to the current subcontext
-   * @param call The call to be added
+   * @param params.call The call to be added
    */
   public addCall(params: { call: ActionCall }): void {
     // Check that at least one subcontext is open
@@ -30,7 +30,7 @@ export class ActionCallsStack {
 
   /**
    * Starts a new subcontext
-   * @param customData Optional custom data to be saved as part of the subcontext
+   * @param params.customData Optional custom data to be saved as part of the subcontext
    */
   public startSubContext(params: { customData?: unknown } = {}): void {
     this.callsStack.push([])

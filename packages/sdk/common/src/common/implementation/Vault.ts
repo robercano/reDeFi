@@ -9,7 +9,7 @@ import { Token } from './Token'
 export type VaultParameters = Omit<IVaultData, ''>
 
 /**
- * @name Vault
+ * Vault
  * @see IVault
  */
 export class Vault extends Token implements IVault {

@@ -80,23 +80,21 @@
 
 > `protected` **\_encodeCall**(`params`): `ActionCall`
 
+Encodes the call to the action
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\] | - |
-| `params.mapping?` | `InputSlotsMapping` | - |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `calls`: readonly `object`[]; `isDPMProxy`: `boolean`; `isProxyFlashloan`: `boolean`; `provider`: `number`; \}\] |
+| `params.mapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
 
 The encoded call to the action
-
-#### Description
-
-Encodes the call to the action
 
 #### Inherited from
 

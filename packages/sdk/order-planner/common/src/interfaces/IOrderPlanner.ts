@@ -2,8 +2,8 @@ import { Maybe, Order, SimulationType } from '@thesolidchain/sdk-common'
 import { BuildOrderParams } from '../types/BuildOrderParams'
 
 /**
- * @name IOrderPlanner
- * @description Component that transforms a simulation into an Order, including the necessary transactions to
+ * IOrderPlanner
+ * Component that transforms a simulation into an Order, including the necessary transactions to
  *              execute them
  */
 export interface IOrderPlanner {

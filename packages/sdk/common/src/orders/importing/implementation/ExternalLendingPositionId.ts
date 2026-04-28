@@ -15,7 +15,7 @@ import {
 export type ExternalLendingPositionIdParameters = Omit<IExternalLendingPositionIdData, 'type'>
 
 /**
- * @name ExternalLendingPositionId
+ * ExternalLendingPositionId
  * @see IExternalLendingPositionId
  */
 export class ExternalLendingPositionId

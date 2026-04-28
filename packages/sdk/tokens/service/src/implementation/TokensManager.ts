@@ -3,8 +3,8 @@ import { TokensProviderType, Cache, VolatilityProfile, DataOrchestrator } from '
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 
 /**
- * @name TokensManager
- * @description Implementation of the ITokensManager interface. It allows to retrieve information for a Token
+ * TokensManager
+ * Implementation of the ITokensManager interface. It allows to retrieve information for a Token
  */
 export class TokensManager
   extends ManagerWithFallbackProvidersBase<TokensProviderType, ITokensProvider>
@@ -22,9 +22,9 @@ export class TokensManager
   /** PUBLIC METHODS */
 
   /**
-   * @method getTokenBySymbol
-   * @description Retrieves a token by its symbol.
-   * @param params Parameters including the token symbol and chain information.
+   * getTokenBySymbol
+   * Retrieves a token by its symbol.
+   * @param params.params Parameters including the token symbol and chain information.
    * @returns The token information.
    */
   @Cache(VolatilityProfile.STATIC)
@@ -38,9 +38,9 @@ export class TokensManager
   }
 
   /**
-   * @method getTokenByAddress
-   * @description Retrieves a token by its contract address.
-   * @param params Parameters including the token address and chain information.
+   * getTokenByAddress
+   * Retrieves a token by its contract address.
+   * @param params.params Parameters including the token address and chain information.
    * @returns The token information.
    */
   @Cache(VolatilityProfile.STATIC)
@@ -54,9 +54,9 @@ export class TokensManager
   }
 
   /**
-   * @method getTokenByName
-   * @description Retrieves a token by its full name.
-   * @param params Parameters including the token name and chain information.
+   * getTokenByName
+   * Retrieves a token by its full name.
+   * @param params.params Parameters including the token name and chain information.
    * @returns The token information.
    */
   @Cache(VolatilityProfile.STATIC)
@@ -70,9 +70,9 @@ export class TokensManager
   }
 
   /**
-   * @method getTokenBalanceBySymbol
-   * @description Retrieves the balance of a token for a specific address using the token's symbol.
-   * @param params Parameters including the wallet address, token symbol, and chain information.
+   * getTokenBalanceBySymbol
+   * Retrieves the balance of a token for a specific address using the token's symbol.
+   * @param params.params Parameters including the wallet address, token symbol, and chain information.
    * @returns The token balance.
    */
   @Cache(VolatilityProfile.BLOCK_BOUND)
@@ -86,9 +86,9 @@ export class TokensManager
   }
 
   /**
-   * @method getTokenBalanceByAddress
-   * @description Retrieves the balance of a token for a specific address using the token's contract address.
-   * @param params Parameters including the wallet address, token address, and chain information.
+   * getTokenBalanceByAddress
+   * Retrieves the balance of a token for a specific address using the token's contract address.
+   * @param params.params Parameters including the wallet address, token address, and chain information.
    * @returns The token balance.
    */
   @Cache(VolatilityProfile.BLOCK_BOUND)
@@ -102,9 +102,9 @@ export class TokensManager
   }
 
   /**
-   * @method getTokenTotalSupply
-   * @description Retrieves the total supply of a specific token.
-   * @param params Parameters including the token information.
+   * getTokenTotalSupply
+   * Retrieves the total supply of a specific token.
+   * @param params.params Parameters including the token information.
    * @returns The total supply of the token.
    */
   @Cache(VolatilityProfile.BLOCK_BOUND)

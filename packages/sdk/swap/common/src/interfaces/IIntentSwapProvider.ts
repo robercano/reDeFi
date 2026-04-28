@@ -10,19 +10,19 @@ import { IManagerProvider } from '@thesolidchain/api-server-common'
 import type { EnrichedOrder, SigningResult, UnsignedOrder } from '@cowprotocol/cow-sdk'
 
 /**
- * @name IIntentSwapProvider
- * @description this is for implementing different swap provider plugins
+ * IIntentSwapProvider
+ * this is for implementing different swap provider plugins
  */
 export interface IIntentSwapProvider extends IManagerProvider<IntentSwapProviderType> {
   /**
-   * @name getSellOrderQuote
-   * @description Returns a quote data for the swap between two tokens, by providing the exact amount of input tokens to swap
-   * @param fromAmount The amount of tokens to swap
-   * @param toToken The token to swap to
-   * @param sender The address that will send the tokens
-   * @param receiver The address that will receive the tokens
-   * @param partiallyFillable Whether the order can be partially filled (default: false)
-   * @param limitPrice The maximum price the user is willing to accept (optional)
+   * getSellOrderQuote
+   * Returns a quote data for the swap between two tokens, by providing the exact amount of input tokens to swap
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
+   * @param params.sender The address that will send the tokens
+   * @param params.receiver The address that will receive the tokens
+   * @param params.partiallyFillable Whether the order can be partially filled (default: false)
+   * @param params.limitPrice The maximum price the user is willing to accept (optional)
    * @returns The quote data for the swap, including the order data which can be signed and sent to the provider
    *
    * Note: The quote does not guarantee the execution of the swap at the quoted amounts, as the market conditions may change.
@@ -38,13 +38,13 @@ export interface IIntentSwapProvider extends IManagerProvider<IntentSwapProvider
   }): Promise<IntentQuoteData>
 
   /**
-   * @name sendOrder
-   * @description Sends the order to the swap provider
-   * @param order The order data for the swap
-   * @param fromAmount The amount of tokens to swap
-   * @param sender The address that will send the tokens
-   * @param chainId The chain ID where the order will be sent
-   * @param signingResult The result of signing the order
+   * sendOrder
+   * Sends the order to the swap provider
+   * @param params.order The order data for the swap
+   * @param params.fromAmount The amount of tokens to swap
+   * @param params.sender The address that will send the tokens
+   * @param params.chainId The chain ID where the order will be sent
+   * @param params.signingResult The result of signing the order
    * @returns The result of sending the order, which can be one of:
    * - 'wrap_to_native': if the input token is a wrapped native token and needs to be unwrapped before sending the order
    * - 'allowance_needed': if the input token is an ERC20 token and needs to be approved for spending before sending the order
@@ -66,11 +66,11 @@ export interface IIntentSwapProvider extends IManagerProvider<IntentSwapProvider
   >
 
   /**
-   * @name cancelOrder
-   * @description Cancels an existing order by its ID
-   * @param chainId The chain ID where the order exists
-   * @param orderId The ID of the order to cancel
-   * @param signingResult The result of signing the cancellation
+   * cancelOrder
+   * Cancels an existing order by its ID
+   * @param params.chainId The chain ID where the order exists
+   * @param params.orderId The ID of the order to cancel
+   * @param params.signingResult The result of signing the cancellation
    * @returns The result of the cancellation request
    */
   cancelOrder(params: {
@@ -80,19 +80,19 @@ export interface IIntentSwapProvider extends IManagerProvider<IntentSwapProvider
   }): Promise<{ result: string }>
 
   /**
-   * @name cancelOrderOnchain
-   * @description Cancels an existing order by its ID
-   * @param chainId The chain ID where the order exists
-   * @param orderId The ID of the order to cancel
+   * cancelOrderOnchain
+   * Cancels an existing order by its ID
+   * @param params.chainId The chain ID where the order exists
+   * @param params.orderId The ID of the order to cancel
    * @return TransactionInfo The transaction info to send the cancellation transaction on-chain
    */
   cancelOrderOnchain(params: { chainId: ChainId; orderId: string }): Promise<TransactionInfo>
 
   /**
-   * @name checkOrderById
-   * @description Checks the status of the order by its ID
-   * @param chainId The chain ID where the order exists
-   * @param orderId The ID of the order to check
+   * checkOrderById
+   * Checks the status of the order by its ID
+   * @param params.chainId The chain ID where the order exists
+   * @param params.orderId The ID of the order to check
    * @returns The order info if found, otherwise null
    */
   checkOrder(params: {

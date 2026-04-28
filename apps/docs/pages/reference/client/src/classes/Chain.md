@@ -6,12 +6,7 @@
 
 # Class: Chain
 
-## Name
-
 Chain
-
-## Description
-
 Implementation of the IChain interface for the SDK Client
 
 ## Implements

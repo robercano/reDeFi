@@ -7,7 +7,7 @@ import { DataOrchestrator } from './DataOrchestrator';
 export interface ICacheAware {
   /**
    * @property cacheOrchestrator
-   * @description The DataOrchestrator instance responsible for executing layered caching logic.
+   * The DataOrchestrator instance responsible for executing layered caching logic.
    *              Must be provided for the @Cache decorator to function properly.
    */
   cacheOrchestrator?: DataOrchestrator;

@@ -20,8 +20,8 @@ import type { OracleProviderConfig } from '../Types'
 import { BigNumber } from 'bignumber.js'
 
 /**
- * @name OneInchOracleProvider
- * @description This class is responsible for fetching spot prices from the 1inch API
+ * OneInchOracleProvider
+ * This class is responsible for fetching spot prices from the 1inch API
  */
 export class OneInchOracleProvider
   extends ManagerProviderBase<OracleProviderType>
@@ -267,9 +267,9 @@ export class OneInchOracleProvider
 
   /**
    * Formats the 1inch spot price URL
-   * @param chainInfo The chain information
-   * @param tokenAddresses The token addresses to get the spot price for
-   * @param quoteCurrency The quote currency in which the spot prices will be denominated
+   * @param params.chainInfo The chain information
+   * @param params.tokenAddresses The token addresses to get the spot price for
+   * @param params.quoteCurrency The quote currency in which the spot prices will be denominated
    *
    * @returns The formatted spot price URL
    */
@@ -344,8 +344,8 @@ export class OneInchOracleProvider
   }
 
   /**
-   * @description Tries to parse the error message from 1inch to provide a higher level error type
-   * @param errorDescription The error description from 1inch
+   * Tries to parse the error message from 1inch to provide a higher level error type
+   * @param params.errorDescription The error description from 1inch
    * @returns The parsed error type
    */
   private _parseErrorType(errorDescription: unknown): SwapErrorType {

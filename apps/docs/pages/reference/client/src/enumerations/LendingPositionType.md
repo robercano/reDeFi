@@ -7,9 +7,6 @@
 # Enumeration: LendingPositionType
 
 LendingPositionType
-
-## Description
-
 Indicates the type of lending position in a lending protocol
 
 ## Enumeration Members

@@ -8,6 +8,8 @@
 
 > **isMakerLendingPool**(`maybeLendingPool`): `maybeLendingPool is IMakerLendingPool`
 
+Type guard for IMakerLendingPool
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeLendingPool is IMakerLendingPool`
 
 true if the object is an IMakerLendingPool
-
-## Description
-
-Type guard for IMakerLendingPool

@@ -7,9 +7,6 @@
 # Interface: IMakerProtocol
 
 IMakerProtocol
-
-## Description
-
 Identifier of the Maker protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

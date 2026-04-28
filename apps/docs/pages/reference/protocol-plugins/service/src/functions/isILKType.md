@@ -8,6 +8,8 @@
 
 > **isILKType**(`maybeILKType`): `maybeILKType is ILKType`
 
+Type guard for ILKType
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeILKType is ILKType`
 
 true if the object is an ILKType
-
-## Description
-
-Type guard for ILKType

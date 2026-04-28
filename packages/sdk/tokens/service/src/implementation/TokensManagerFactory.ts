@@ -7,20 +7,20 @@ import { TokensManager } from './TokensManager'
 import { DatabaseTokensProvider } from './database/DatabaseTokensProvider'
 
 /**
- * @name TokensManagerFactory
- * @description Factory class for the TokensManager. Takes care of generating the manager config and creates an instance
+ * TokensManagerFactory
+ * Factory class for the TokensManager. Takes care of generating the manager config and creates an instance
  */
 export class TokensManagerFactory {
   /**
-   * @name providersConfig
-   * @description Configuration for the TokensManager. It includes the list of available providers
+   * providersConfig
+   * Configuration for the TokensManager. It includes the list of available providers
    */
   static providers: ITokensProvider[] = []
 
   /**
-   * @method newTokensManager
-   * @param configProvider The configuration provider used to get environment variables
-   * @param blockchainClientProvider The blockchain client provider for blockchain interactions
+   * newTokensManager
+   * @param params.configProvider The configuration provider used to get environment variables
+   * @param params.blockchainClientProvider The blockchain client provider for blockchain interactions
    * @returns A new instance of the TokensManager
    */
   public static newTokensManager(params: {
@@ -42,10 +42,10 @@ export class TokensManagerFactory {
   /** PRIVATE */
 
   /**
-   * @method initialize
-   * @description Initializes the different providers
-   * @param configProvider The configuration provider used to get environment variables
-   * @param blockchainClientProvider The blockchain client provider for blockchain interactions
+   * initialize
+   * Initializes the different providers
+   * @param params.configProvider The configuration provider used to get environment variables
+   * @param params.blockchainClientProvider The blockchain client provider for blockchain interactions
    */
   private static initialize(params: {
     configProvider: IConfigurationProvider

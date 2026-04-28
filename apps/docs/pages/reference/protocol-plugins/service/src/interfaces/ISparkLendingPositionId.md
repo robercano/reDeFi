@@ -7,9 +7,6 @@
 # Interface: ISparkLendingPositionId
 
 ISparkPositionId
-
-## Description
-
 Represents the ID of a position in the Spark protocol
 
 Currently empty as there are no specifics for this protocol

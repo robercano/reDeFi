@@ -7,9 +7,6 @@
 # Interface: IMorphoProtocol
 
 IMorphoProtocol
-
-## Description
-
 Identifier of the Morpho protocol
 
 This interface is used to add all the methods that the interface supports

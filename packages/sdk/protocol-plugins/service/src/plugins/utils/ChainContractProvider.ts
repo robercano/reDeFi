@@ -2,7 +2,7 @@ import { Maybe } from '@thesolidchain/sdk-common'
 
 /**
  * @type GenericAbiMap
- * @description Generic type for a map of contract ABIs, to be extended by each
+ * Generic type for a map of contract ABIs, to be extended by each
  *              protocol plugin
  */
 export type GenericAbiMap<ContractNames extends string> = {
@@ -12,7 +12,7 @@ export type GenericAbiMap<ContractNames extends string> = {
 
 /**
  * @class ChainContractsProvider
- * @description Provides type safe contract ABIs
+ * Provides type safe contract ABIs
  *
  * Used in the protocol plugins to obtain the ABI of the different contracts and
  * to call them

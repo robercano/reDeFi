@@ -10,7 +10,7 @@ import { IUserPortfolio, IUserPortfolioData, __signature__ } from '../interfaces
 export type UserPortfolioParameters = IUserPortfolioData
 
 /**
- * @name UserPortfolio
+ * UserPortfolio
  * @see IUserPortfolio
  */
 export class UserPortfolio implements IUserPortfolio {

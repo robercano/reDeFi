@@ -8,6 +8,8 @@
 
 > **isPosition**(`maybePosition`): `maybePosition is IPosition`
 
+Type guard for IPosition
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePosition is IPosition`
 
 true if the object is an IPosition
-
-## Description
-
-Type guard for IPosition

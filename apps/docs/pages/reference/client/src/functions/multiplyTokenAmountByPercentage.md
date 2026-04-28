@@ -8,6 +8,8 @@
 
 > **multiplyTokenAmountByPercentage**(`tokenAmount`, `percentage`): [`ITokenAmountData`](../type-aliases/ITokenAmountData.md)
 
+multiplyTokenAmountByPercentage
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 [`ITokenAmountData`](../type-aliases/ITokenAmountData.md)
 
 The resulting token amount
-
-## Name
-
-multiplyTokenAmountByPercentage

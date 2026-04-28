@@ -7,19 +7,19 @@ import { Maybe, ProtocolName } from '@thesolidchain/sdk-common'
 
 /**
  * @typedef ProtocolPluginConstructor
- * @description Constructor for a protocol plugin
+ * Constructor for a protocol plugin
  */
 export type ProtocolPluginConstructor = new () => IProtocolPlugin
 
 /**
  * @typedef ProtocolPluginsRecordType
- * @description Record of protocol plugins
+ * Record of protocol plugins
  */
 export type ProtocolPluginsRecordType = Partial<Record<ProtocolName, ProtocolPluginConstructor>>
 
 /**
  * @class ProtocolPluginsRegistry
- * @description Registry of protocol plugins that can be used to interact with the protocols
+ * Registry of protocol plugins that can be used to interact with the protocols
  */
 export class ProtocolPluginsRegistry implements IProtocolPluginsRegistry {
   readonly plugins: ProtocolPluginsRecordType
@@ -31,8 +31,8 @@ export class ProtocolPluginsRegistry implements IProtocolPluginsRegistry {
   }
 
   /**
-   * @name getPlugin
-   * @description Returns a plugin instance for the specified protocol
+   * getPlugin
+   * Returns a plugin instance for the specified protocol
    * @param params.protocolName The name of the protocol to get the plugin for
    * @returns The plugin instance for the specified protocol
    */

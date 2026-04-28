@@ -6,12 +6,7 @@
 
 # Interface: IHolding
 
-## Name
-
 IHolding
-
-## Description
-
 Represents a generic holding like a token balance in a wallet.
 
 ## Extends
@@ -50,6 +45,9 @@ Represents a generic holding like a token balance in a wallet.
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -57,14 +55,6 @@ Represents a generic holding like a token balance in a wallet.
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

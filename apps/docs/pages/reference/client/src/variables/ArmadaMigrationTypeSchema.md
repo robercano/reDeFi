@@ -8,6 +8,4 @@
 
 > `const` **ArmadaMigrationTypeSchema**: `ZodNativeEnum`\<*typeof* [`ArmadaMigrationType`](../enumerations/ArmadaMigrationType.md)\>
 
-## Description
-
 Zod schema for ProtocolName

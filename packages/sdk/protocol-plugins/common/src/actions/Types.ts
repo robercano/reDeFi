@@ -10,8 +10,8 @@ export type ActionOutputStorageNames = ReadonlyArray<ActionStorageName>
 export type ActionVersion = number
 
 /**
- * @name ActionConfig
- * @description Represents the configuration of an action contract
+ * ActionConfig
+ * Represents the configuration of an action contract
  */
 export type ActionConfig = {
   /** The name of the action */
@@ -27,8 +27,8 @@ export type ActionConfig = {
 }
 
 /**
- * @name ActionCall
- * @description Represents a call to a smart contract method
+ * ActionCall
+ * Represents a call to a smart contract method
  */
 export type ActionCall = {
   /** Name of the action for logging */
@@ -42,7 +42,7 @@ export type ActionCall = {
 }
 
 /**
- * @name ActionCallBatch
- * @description Represents a batch of action calls
+ * ActionCallBatch
+ * Represents a batch of action calls
  */
 export type ActionCallBatch = ActionCall[]

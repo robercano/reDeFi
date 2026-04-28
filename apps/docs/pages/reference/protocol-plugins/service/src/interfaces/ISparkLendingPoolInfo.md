@@ -7,9 +7,6 @@
 # Interface: ISparkLendingPoolInfo
 
 ISparkLendingPoolInfo
-
-## Description
-
 Represents a lending pool info in the Spark protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

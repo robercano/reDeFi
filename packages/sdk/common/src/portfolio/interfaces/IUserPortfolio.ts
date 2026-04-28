@@ -24,8 +24,8 @@ export const UserPortfolioDataSchema = z.object({
 export type IUserPortfolioData = Readonly<z.infer<typeof UserPortfolioDataSchema>>
 
 /**
- * @name IUserPortfolio
- * @description Represents the portfolio holdings of a specific user.
+ * IUserPortfolio
+ * Represents the portfolio holdings of a specific user.
  */
 export interface IUserPortfolio extends IUserPortfolioData, IPrintable {
   readonly [__signature__]: symbol

@@ -355,8 +355,8 @@ export class CowSwapProvider
   /** PRIVATE */
 
   /**
-   * @description Tries to parse the error message from CowSwap to provide a higher level error type
-   * @param errorDescription The error description from CowSwap
+   * Tries to parse the error message from CowSwap to provide a higher level error type
+   * @param params.errorDescription The error description from CowSwap
    * @returns The parsed error type
    */
   private _parseErrorType(): SwapErrorType {
@@ -365,7 +365,7 @@ export class CowSwapProvider
 
   /**
    * Maps a ChainId to a SupportedChainId
-   * @param chainId The ChainId to map
+   * @param params.chainId The ChainId to map
    * @returns The SupportedChainId
    */
   private _assertSupportedChainId(chainId: ChainId): SupportedChainId {

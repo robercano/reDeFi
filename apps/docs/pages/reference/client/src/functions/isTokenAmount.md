@@ -8,6 +8,8 @@
 
 > **isTokenAmount**(`maybeTokenAmount`, `returnedErrors?`): `maybeTokenAmount is ITokenAmount`
 
+Type guard for ITokenAmount
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -20,7 +22,3 @@
 `maybeTokenAmount is ITokenAmount`
 
 true if the object is an ITokenAmount
-
-## Description
-
-Type guard for ITokenAmount

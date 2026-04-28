@@ -8,6 +8,4 @@
 
 > `const` **MorphoLendingPoolIdDataSchema**: `ZodObject`\<\{ `marketId`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; `protocol`: `ZodType`\<[`IMorphoProtocol`](../../../../client/src/interfaces/IMorphoProtocol.md), `ZodTypeDef`, [`IMorphoProtocol`](../../../../client/src/interfaces/IMorphoProtocol.md)\>; `type`: `ZodLiteral`\<[`Lending`](../../../../client/src/enumerations/PoolType.md#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `marketId`: `` `0x${string}` ``; `protocol`: [`IMorphoProtocol`](../../../../client/src/interfaces/IMorphoProtocol.md); `type`: [`Lending`](../../../../client/src/enumerations/PoolType.md#lending); \}, \{ `marketId`: `` `0x${string}` ``; `protocol`: [`IMorphoProtocol`](../../../../client/src/interfaces/IMorphoProtocol.md); `type`: [`Lending`](../../../../client/src/enumerations/PoolType.md#lending); \}\>
 
-## Description
-
 Zod schema for IMorphoLendingPoolId

@@ -7,9 +7,6 @@
 # Interface: IProtocolsManagerClient
 
 IProtocolsManagerClient
-
-## Description
-
 Interface of the ProtocolsManager for the SDK Client. Allows to retrieve information for a Protocol
 
 ## See
@@ -21,6 +18,9 @@ IProtocolsManager
 ### getLendingPool()
 
 > **getLendingPool**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPool`](ILendingPool.md)\>\>
+
+getLendingPool
+Get the lending pool from the protocol
 
 #### Parameters
 
@@ -35,19 +35,14 @@ IProtocolsManager
 
 The lending pool
 
-#### Method
-
-getLendingPool
-
-#### Description
-
-Get the lending pool from the protocol
-
 ***
 
 ### getLendingPoolInfo()
 
 > **getLendingPoolInfo**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPoolInfo`](ILendingPoolInfo.md)\>\>
+
+getLendingPoolInfo
+Get the lending pool info from the protocol
 
 #### Parameters
 
@@ -61,11 +56,3 @@ Get the lending pool from the protocol
 `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`ILendingPoolInfo`](ILendingPoolInfo.md)\>\>
 
 The lending pool info
-
-#### Method
-
-getLendingPoolInfo
-
-#### Description
-
-Get the lending pool info from the protocol

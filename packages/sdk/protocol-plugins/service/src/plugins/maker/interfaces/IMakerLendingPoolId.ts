@@ -9,8 +9,8 @@ import { IMakerProtocol, isMakerProtocol } from './IMakerProtocol'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name IMakerLendingPoolId
- * @description Represents a lending pool's ID for the Maker protocol
+ * IMakerLendingPoolId
+ * Represents a lending pool's ID for the Maker protocol
  *
  * It includes the ILK type which will determine which pool will be used
  */
@@ -28,7 +28,7 @@ export interface IMakerLendingPoolId extends ILendingPoolId, IMakerLendingPoolId
 }
 
 /**
- * @description Zod schema for IMakerLendingPoolId
+ * Zod schema for IMakerLendingPoolId
  */
 export const MakerLendingPoolIdDataSchema = z.object({
   ...LendingPoolIdDataSchema.shape,
@@ -44,7 +44,7 @@ export const MakerLendingPoolIdDataSchema = z.object({
 export type IMakerLendingPoolIdData = Readonly<z.infer<typeof MakerLendingPoolIdDataSchema>>
 
 /**
- * @description Type guard for IMakerLendingPoolId
+ * Type guard for IMakerLendingPoolId
  * @param maybePoolId
  * @returns true if the object is an IMakerLendingPoolId
  */

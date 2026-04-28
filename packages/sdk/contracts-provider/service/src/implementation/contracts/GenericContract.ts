@@ -7,8 +7,8 @@ import { ContractsFactory } from '../../factory/ContractsFactory'
 import type { ContractAbi } from '@thesolidchain/abi-provider-common'
 
 /**
- * @name GenericContractWrapper
- * @description Implementation for the generic contract
+ * GenericContractWrapper
+ * Implementation for the generic contract
  */
 export class GenericContractWrapper<
   const TClient extends IBlockchainClient,

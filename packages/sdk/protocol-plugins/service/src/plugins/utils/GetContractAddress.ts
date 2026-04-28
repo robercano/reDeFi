@@ -4,9 +4,9 @@ import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 /**
  * Utility function to retrieve contract addresses
  *
- * @param addressBookManager Address book manager to look the address up
- * @param chainInfo The chain where the contract is deployed
- * @param contractName The name of the contract
+ * @param params.addressBookManager Address book manager to look the address up
+ * @param params.chainInfo The chain where the contract is deployed
+ * @param params.contractName The name of the contract
  *
  * @returns The address of the contract or throws if not found
  */

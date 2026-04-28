@@ -8,6 +8,4 @@
 
 > `const` **TokenSymbolSchema**: `ZodString`
 
-## Description
-
 Zod schema for TokenSymbol

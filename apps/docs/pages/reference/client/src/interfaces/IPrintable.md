@@ -6,12 +6,7 @@
 
 # Interface: IPrintable
 
-## Name
-
 IPrintable
-
-## Description
-
 Interface for printable objects.
 
 This enables more readable debug objects
@@ -40,6 +35,9 @@ This enables more readable debug objects
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -47,11 +45,3 @@ This enables more readable debug objects
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object

@@ -18,11 +18,11 @@ React hook to subscribe to SDK events via the EventBus
 
 ## Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | `UseSdk` | parameters required for the SDK connection |
-| `eventName` | `K` | the name of the event to listen to |
-| `callback` | (`payload`) => `void` | the function to call when the event is emitted |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | `UseSdk` |
+| `eventName` | `K` |
+| `callback` | (`payload`) => `void` |
 
 ## Returns
 

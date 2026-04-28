@@ -5,7 +5,7 @@ import { IAddress, IChainInfo } from '@thesolidchain/sdk-common'
 import { ContractsFactory } from '../factory/ContractsFactory'
 
 /**
- * @name ContractsProvider
+ * ContractsProvider
  * @implements IContractsProvider
  */
 export class ContractsProvider implements IContractsProvider {

@@ -186,7 +186,7 @@ export class OneInchSwapProvider
   /** PRIVATE */
 
   /**
-   * @description Returns the OneInch auth header with the API key
+   * Returns the OneInch auth header with the API key
    * @returns The OneInch auth header
    */
   private _getOneInchAuthHeader(): OneInchAuthHeader {
@@ -194,14 +194,14 @@ export class OneInchSwapProvider
   }
 
   /**
-   * @description Formats the 1inch swap URL
-   * @param chainInfo The chain information
-   * @param fromTokenAmount The amount of tokens to swap
-   * @param toToken The token to swap to
-   * @param recipient The address that will receive the tokens
-   * @param slippage The maximum slippage allowed
-   * @param disableEstimate Whether to disable the estimate
-   * @param allowPartialFill Whether to allow partial fill of the order
+   * Formats the 1inch swap URL
+   * @param params.chainInfo The chain information
+   * @param params.fromTokenAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
+   * @param params.recipient The address that will receive the tokens
+   * @param params.slippage The maximum slippage allowed
+   * @param params.disableEstimate Whether to disable the estimate
+   * @param params.allowPartialFill Whether to allow partial fill of the order
    *
    * @returns The formatted 1inch swap URL
    */
@@ -239,9 +239,9 @@ export class OneInchSwapProvider
 
   /**
    * Formats the 1inch quote URL
-   * @param chainInfo The chain information
-   * @param fromTokenAmount The amount of tokens to swap
-   * @param toToken The token to swap to
+   * @param params.chainInfo The chain information
+   * @param params.fromTokenAmount The amount of tokens to swap
+   * @param params.toToken The token to swap to
    *
    * @returns The formatted 1inch quote URL
    */
@@ -268,7 +268,7 @@ export class OneInchSwapProvider
 
   /**
    * Extracts the swap routes from the 1inch response
-   * @param protocols The 1inch swap routes
+   * @param params.protocols The 1inch swap routes
    *
    * @returns The extracted swap routes
    */
@@ -352,8 +352,8 @@ export class OneInchSwapProvider
   }
 
   /**
-   * @description Tries to parse the error message from 1inch to provide a higher level error type
-   * @param errorDescription The error description from 1inch
+   * Tries to parse the error message from 1inch to provide a higher level error type
+   * @param params.errorDescription The error description from 1inch
    * @returns The parsed error type
    */
   private _parseErrorType(errorDescription: unknown): SwapErrorType {

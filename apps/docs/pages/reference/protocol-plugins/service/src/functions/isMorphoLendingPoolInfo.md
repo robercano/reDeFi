@@ -8,6 +8,8 @@
 
 > **isMorphoLendingPoolInfo**(`maybeLendingPoolInfo`): `maybeLendingPoolInfo is IMorphoLendingPoolInfo`
 
+Type guard for IMorphoLendingPoolInfo
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeLendingPoolInfo is IMorphoLendingPoolInfo`
 
 true if the object is an IMorphoLendingPoolInfo
-
-## Description
-
-Type guard for IMorphoLendingPoolInfo

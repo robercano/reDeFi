@@ -6,8 +6,6 @@
 
 # Class: ImportPositionParameters
 
-## Name
-
 ImportPositionParameters
 
 ## See

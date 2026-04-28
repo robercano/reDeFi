@@ -8,6 +8,8 @@
 
 > **isAaveV3LendingPositionId**(`maybePositionId`): `maybePositionId is IAaveV3LendingPositionId`
 
+Type guard for IAaveV3LendingPositionId
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePositionId is IAaveV3LendingPositionId`
 
 true if the object is an IAaveV3LendingPositionId
-
-## Description
-
-Type guard for IAaveV3LendingPositionId

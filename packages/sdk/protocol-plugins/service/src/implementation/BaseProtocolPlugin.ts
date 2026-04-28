@@ -29,7 +29,7 @@ import { getContractAddress } from '../plugins/utils/GetContractAddress'
 
 /**
  * @class BaseProtocolPlugin
- * @description Base class for all protocol plugins
+ * Base class for all protocol plugins
  *
  * It provides some extra functionality to validate input data coming from the SDK client
  */
@@ -75,9 +75,9 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
   /** VALIDATORS */
 
   /**
-   * @name _validateLendingPoolId
-   * @description Validates that the candidate is a valid lending pool ID for the specific protocol
-   * @param candidate The candidate to validate
+   * _validateLendingPoolId
+   * Validates that the candidate is a valid lending pool ID for the specific protocol
+   * @param params.candidate The candidate to validate
    * @returns asserts that the candidate is a valid lending pool ID for the specific protocol
    */
   protected abstract _validateLendingPoolId(
@@ -85,9 +85,9 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
   ): asserts candidate is ILendingPoolIdData
 
   /**
-   * @name _validatePositionId
-   * @description Validates that the candidate is a valid position ID for the specific protocol
-   * @param candidate The candidate to validate
+   * _validatePositionId
+   * Validates that the candidate is a valid position ID for the specific protocol
+   * @param params.candidate The candidate to validate
    * @returns asserts that the candidate is a valid position ID for the specific protocol
    */
   protected abstract _validateLendingPositionId(
@@ -97,9 +97,9 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
   /** LENDING POOLS */
 
   /**
-   * @name getLendingPoolImpl
-   * @description Gets the lending pool for the given pool ID
-   * @param poolId The pool ID
+   * getLendingPoolImpl
+   * Gets the lending pool for the given pool ID
+   * @param params.poolId The pool ID
    * @returns The lending pool for the specific protocol
    *
    * @remarks This method should be implemented by the protocol plugin as the external one is just a wrapper to
@@ -108,9 +108,9 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
   protected abstract _getLendingPoolImpl(poolId: ILendingPoolIdData): Promise<ILendingPool>
 
   /**
-   * @name getLendingPoolInfoImpl
-   * @description Gets the lending pool info for the given pool ID
-   * @param poolId The pool ID
+   * getLendingPoolInfoImpl
+   * Gets the lending pool info for the given pool ID
+   * @param params.poolId The pool ID
    * @returns The lending pool info for the specific protocol
    *
    * @remarks This method should be implemented by the protocol plugin as the external one is just a wrapper to
@@ -168,8 +168,8 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
 
   /**
    * Retrieves the contract address for a given chain
-   * @param chainInfo The chain where the contract is deployed
-   * @param contractName THe name of the contract
+   * @param params.chainInfo The chain where the contract is deployed
+   * @param params.contractName THe name of the contract
    * @returns The address of the contract or throws if not found
    */
   protected async _getContractAddress(params: {
@@ -186,8 +186,8 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
   /** PRIVATE */
 
   /**
-   * @name _validateChainId
-   * @param chainId  The chain ID to validate
+   * _validateChainId
+   * @param params.chainId  The chain ID to validate
    * @returns asserts that the chain ID is supported
    */
   private _checkChainIdSupported(chainId: number) {

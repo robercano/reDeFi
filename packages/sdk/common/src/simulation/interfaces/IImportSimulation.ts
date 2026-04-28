@@ -18,7 +18,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface IImportSimulation
- * @description Simulation result of an import operation
+ * Simulation result of an import operation
  */
 export interface IImportSimulation extends ISimulation {
   /** Signature used to differentiate it from similar interfaces */
@@ -35,7 +35,7 @@ export interface IImportSimulation extends ISimulation {
 }
 
 /**
- * @description Zod schema for IImportSimulation
+ * Zod schema for IImportSimulation
  */
 export const ImportSimulationSchema = z.object({
   ...SimulationSchema.shape,
@@ -51,7 +51,7 @@ export const ImportSimulationSchema = z.object({
 export type IImportSimulationData = Readonly<z.infer<typeof ImportSimulationSchema>>
 
 /**
- * @description Type guard for IRefinanceSimulation
+ * Type guard for IRefinanceSimulation
  * @param maybeImportSimulationData
  * @returns true if the object is an IImportSimulation
  */

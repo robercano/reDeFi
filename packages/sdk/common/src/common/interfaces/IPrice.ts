@@ -30,8 +30,8 @@ export type PriceMulReturnType<T> = T extends ITokenAmount
     : IPrice
 
 /**
- * @name IPrice
- * @description Represents a price for a token with certain denomation. The denomination can be a fiat currency
+ * IPrice
+ * Represents a price for a token with certain denomation. The denomination can be a fiat currency
  *              or another token
  *
  * The price is represented as a string in floating point format without taking into consideration
@@ -62,32 +62,32 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
   readonly quote: Denomination
 
   /**
-   * @name hasSameQuote
-   * @description Checks if the price has the same quote as another price
+   * hasSameQuote
+   * Checks if the price has the same quote as another price
    * @param otherPrice The price to compare against
    * @returns true if the prices have the same quote
    */
   hasSameQuote(otherPrice: IPrice): boolean
 
   /**
-   * @name hasSameBase
-   * @description Checks if the price has the same base as another price
+   * hasSameBase
+   * Checks if the price has the same base as another price
    * @param otherPrice The price to compare against
    * @returns true if the prices have the same base token
    */
   hasSameBase(otherPrice: IPrice): boolean
 
   /**
-   * @name hasSameDenominations
-   * @description Checks if the price has the same base and quote as another price
+   * hasSameDenominations
+   * Checks if the price has the same base and quote as another price
    * @param otherPrice The price to compare against
    * @returns true if the prices have the same base and quote
    */
   hasSameDenominations(otherPrice: IPrice): boolean
 
   /**
-   * @name add
-   * @description Adds the price to another price
+   * add
+   * Adds the price to another price
    * @param otherPrice The price to add
    * @returns The resulting price
    *
@@ -96,8 +96,8 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
   add(otherPrice: IPrice): IPrice
 
   /**
-   * @name subtract
-   * @description Subtracts the price from another price
+   * subtract
+   * Subtracts the price from another price
    * @param otherPrice The price to subtract
    * @returns The resulting price
    *
@@ -106,8 +106,8 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
   subtract(otherPrice: IPrice): IPrice
 
   /**
-   * @name multiply
-   * @description Multiplies the price by another price or a constant
+   * multiply
+   * Multiplies the price by another price or a constant
    * @param multiplier The numeric string, number, price, token amount or fiat currency amount to multiply by
    * @returns The resulting price, token amount or fiat currency amount
    *
@@ -119,8 +119,8 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
   ): ReturnType
 
   /**
-   * @name divide
-   * @description Divides the price by another price or a constant
+   * divide
+   * Divides the price by another price or a constant
    * @param divider The numeric string, number or price to divide by
    * @returns The resulting price
    *
@@ -130,57 +130,57 @@ export interface IPrice extends IPriceData, IValueConverter, IPrintable {
   divide(divider: string | number | IPrice | IPercentage): IPrice
 
   /**
-   * @name invert
-   * @description Inverts the price
+   * invert
+   * Inverts the price
    * @returns The inverted price
    */
   invert(): IPrice
 
   /**
-   * @name toString
-   * @description Converts the price to a string
+   * toString
+   * Converts the price to a string
    */
   toString(): string
 
   /**
-   * @name isLessThan
-   * @description Checks if the price is less than another price
+   * isLessThan
+   * Checks if the price is less than another price
    */
   isLessThan(otherPrice: IPrice): boolean
 
   /**
-   * @name isLessThanOrEqual
-   * @description Checks if the price is less than or equal to another price
+   * isLessThanOrEqual
+   * Checks if the price is less than or equal to another price
    */
   isLessThanOrEqual(otherPrice: IPrice): boolean
 
   /**
-   * @name isGreaterThan
-   * @description Checks if the price is greater than another price
+   * isGreaterThan
+   * Checks if the price is greater than another price
    */
   isGreaterThan(otherPrice: IPrice): boolean
 
   /**
-   * @name isGreaterThanOrEqual
-   * @description Checks if the price is greater than or equal to another price
+   * isGreaterThanOrEqual
+   * Checks if the price is greater than or equal to another price
    */
   isGreaterThanOrEqual(otherPrice: IPrice): boolean
 
   /**
-   * @name isZero
-   * @description Checks if the price is zero
+   * isZero
+   * Checks if the price is zero
    */
   isZero(): boolean
 
   /**
-   * @name isEqual
-   * @description Checks if the price is equal to another price
+   * isEqual
+   * Checks if the price is equal to another price
    */
   isEqual(otherPrice: IPrice): boolean
 }
 
 /**
- * @description Zod schema for IPrice
+ * Zod schema for IPrice
  */
 export const PriceDataSchema = z.object({
   value: z.string(),
@@ -194,7 +194,7 @@ export const PriceDataSchema = z.object({
 export type IPriceData = Readonly<z.infer<typeof PriceDataSchema>>
 
 /**
- * @description Type guard for isPrice
+ * Type guard for isPrice
  * @param maybePrice
  * @returns true if the object is an isPrice
  */

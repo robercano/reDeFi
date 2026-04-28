@@ -6,12 +6,7 @@
 
 # Enumeration: RiskRatioType
 
-## Name
-
 RiskRatioType
-
-## Description
-
 Enum for the different types of risk ratios supported
 
 ## Enumeration Members

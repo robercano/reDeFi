@@ -4,8 +4,8 @@ import { IBlockchainClientProvider } from './IBlockchainClientProvider'
 import { IBlockchainClient } from './IBlockchainClient'
 
 /**
- * @name IBlockchainManager
- * @description Interface for the BlockchainManager.
+ * IBlockchainManager
+ * Interface for the BlockchainManager.
  */
 export interface IBlockchainManager extends IManagerWithProviders<BlockchainProviderType, IBlockchainClientProvider> {
   getBlockchainClient(params: { chainInfo: IChainInfo; rpcUrl?: string }): IBlockchainClient

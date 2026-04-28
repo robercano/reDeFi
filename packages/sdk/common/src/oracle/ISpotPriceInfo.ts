@@ -4,8 +4,8 @@ import { OracleProviderType, OracleProviderTypeSchema } from './OracleProviderTy
 import { z } from 'zod'
 
 /**
- * @name ISpotPriceInfo
- * @description Gives the current market price for a specific asset
+ * ISpotPriceInfo
+ * Gives the current market price for a specific asset
  */
 export type ISpotPriceInfo = {
   /** The oracle provider type */
@@ -17,7 +17,7 @@ export type ISpotPriceInfo = {
 }
 
 /**
- * @description Zod schema for ISpotPriceInfo
+ * Zod schema for ISpotPriceInfo
  */
 export const SpotPriceInfoDataSchema = z.object({
   provider: OracleProviderTypeSchema,
@@ -26,8 +26,8 @@ export const SpotPriceInfoDataSchema = z.object({
 })
 
 /**
- * @name SpotPricesInfo
- * @description Gives the current market price for a specific list of assets
+ * SpotPricesInfo
+ * Gives the current market price for a specific list of assets
  */
 export type SpotPricesInfo = {
   /** The oracle provider type */
@@ -37,7 +37,7 @@ export type SpotPricesInfo = {
 }
 
 /**
- * @description Zod schema for ISpotPriceInfo
+ * Zod schema for ISpotPriceInfo
  */
 export const SpotPricesInfoDataSchema = z.object({
   provider: OracleProviderTypeSchema,

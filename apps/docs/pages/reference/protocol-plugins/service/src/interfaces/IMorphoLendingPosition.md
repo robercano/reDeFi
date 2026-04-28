@@ -7,9 +7,6 @@
 # Interface: IMorphoLendingPosition
 
 IMorphoLendingPosition
-
-## Description
-
 Represents a lending position in the Morpho protocol
 
 Currently empty as there are no specifics for this protocol

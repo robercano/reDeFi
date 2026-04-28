@@ -6,12 +6,7 @@
 
 # Interface: ILendingPositionId
 
-## Name
-
 ILendingPositionId
-
-## Description
-
 Represents a position ID for a lending position
 
 ## Extends

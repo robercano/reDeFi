@@ -8,6 +8,4 @@
 
 > `const` **EmodeTypeSchema**: `ZodNativeEnum`\<*typeof* [`EmodeType`](../../../../client/src/enumerations/EmodeType.md)\>
 
-## Description
-
 Zod schema for EmodeType

@@ -7,9 +7,6 @@
 # Interface: ISparkLendingPoolId
 
 ISparkLendingPoolId
-
-## Description
-
 Identifier of a lending pool in the Spark protocol
 
 Typescript forces the interface to re-declare any properties that have different BUT compatible types.

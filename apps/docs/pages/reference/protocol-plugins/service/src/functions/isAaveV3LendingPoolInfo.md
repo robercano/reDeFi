@@ -8,6 +8,8 @@
 
 > **isAaveV3LendingPoolInfo**(`maybeLendingPoolInfo`): `maybeLendingPoolInfo is IAaveV3LendingPoolInfo`
 
+Type guard for IAaveV3LendingPoolInfo
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeLendingPoolInfo is IAaveV3LendingPoolInfo`
 
 true if the object is an IAaveV3LendingPoolInfo
-
-## Description
-
-Type guard for IAaveV3LendingPoolInfo

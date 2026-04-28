@@ -7,9 +7,6 @@
 # Enumeration: ILKType
 
 ILKType
-
-## Description
-
 Enum for the different ILK types in the Maker protocol
 
 ## Enumeration Members

@@ -80,23 +80,21 @@
 
 > `protected` **\_encodeCall**(`params`): `ActionCall`
 
+Encodes the call to the action
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `marketParams`: \{ `collateralToken`: `` `0x${string}` ``; `irm`: `` `0x${string}` ``; `lltv`: `bigint`; `loanToken`: `` `0x${string}` ``; `oracle`: `` `0x${string}` ``; \}; `sumAmounts`: `boolean`; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `marketParams`: \{ `collateralToken`: `` `0x${string}` ``; `irm`: `` `0x${string}` ``; `lltv`: `bigint`; `loanToken`: `` `0x${string}` ``; `oracle`: `` `0x${string}` ``; \}; `sumAmounts`: `boolean`; \}\] | - |
-| `params.mapping?` | `InputSlotsMapping` | - |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `marketParams`: \{ `collateralToken`: `` `0x${string}` ``; `irm`: `` `0x${string}` ``; `lltv`: `bigint`; `loanToken`: `` `0x${string}` ``; `oracle`: `` `0x${string}` ``; \}; `sumAmounts`: `boolean`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `marketParams`: \{ `collateralToken`: `` `0x${string}` ``; `irm`: `` `0x${string}` ``; `lltv`: `bigint`; `loanToken`: `` `0x${string}` ``; `oracle`: `` `0x${string}` ``; \}; `sumAmounts`: `boolean`; \}\] |
+| `params.mapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
 
 The encoded call to the action
-
-#### Description
-
-Encodes the call to the action
 
 #### Inherited from
 

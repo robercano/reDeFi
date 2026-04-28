@@ -80,23 +80,21 @@
 
 > `protected` **\_encodeCall**(`params`): `ActionCall`
 
+Encodes the call to the action
+
 #### Parameters
 
-| Parameter | Type | Description |
-| ------ | ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `asset`: `` `0x${string}` ``; \}\]; `mapping?`: `InputSlotsMapping`; \} | The parameters to encode |
-| `params.arguments` | readonly \[\{ `asset`: `` `0x${string}` ``; \}\] | - |
-| `params.mapping?` | `InputSlotsMapping` | - |
+| Parameter | Type |
+| ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `asset`: `` `0x${string}` ``; \}\]; `mapping?`: `InputSlotsMapping`; \} |
+| `params.arguments` | readonly \[\{ `asset`: `` `0x${string}` ``; \}\] |
+| `params.mapping?` | `InputSlotsMapping` |
 
 #### Returns
 
 `ActionCall`
 
 The encoded call to the action
-
-#### Description
-
-Encodes the call to the action
 
 #### Inherited from
 

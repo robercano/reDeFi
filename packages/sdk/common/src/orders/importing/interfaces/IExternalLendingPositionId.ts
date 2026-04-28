@@ -18,7 +18,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface IExternalPositionId
- * @description Identifier for an external position to a lending protocol
+ * Identifier for an external position to a lending protocol
  */
 export interface IExternalLendingPositionId
   extends IExternalLendingPositionIdData, ILendingPositionId, IPrintable {
@@ -33,7 +33,7 @@ export interface IExternalLendingPositionId
 }
 
 /**
- * @description Zod schema for IExternalPositionId
+ * Zod schema for IExternalPositionId
  */
 export const ExternalLendingPositionIdDataSchema = z.object({
   ...LendingPositionIdDataSchema.shape,
@@ -50,7 +50,7 @@ export type IExternalLendingPositionIdData = Readonly<
 >
 
 /**
- * @description Type guard for IExternalPositionId
+ * Type guard for IExternalPositionId
  * @param maybeExternalPositionId
  * @returns true if the object is an IExternalPositionId
  */

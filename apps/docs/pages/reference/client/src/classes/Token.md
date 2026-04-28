@@ -6,8 +6,6 @@
 
 # Class: Token
 
-## Name
-
 Token
 
 ## See

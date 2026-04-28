@@ -7,9 +7,6 @@
 # Enumeration: TransactionType
 
 TransactionType
-
-## Description
-
 Enum of all the transaction types that can be performed.
 
 ## Enumeration Members

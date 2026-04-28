@@ -5,13 +5,13 @@ import { IPortfolioManager } from '@thesolidchain/portfolio-common'
 import { PortfolioManager } from './PortfolioManager'
 
 /**
- * @name PortfolioManagerFactory
- * @description Factory class for safely instantiating a new `IPortfolioManager`.
+ * PortfolioManagerFactory
+ * Factory class for safely instantiating a new `IPortfolioManager`.
  */
 export class PortfolioManagerFactory {
   /**
-   * @method newPortfolioManager
-   * @description Constructs and returns a new instance of PortfolioManager.
+   * newPortfolioManager
+   * Constructs and returns a new instance of PortfolioManager.
    * 
    * @param params.tokensManager - Required tokens manager instance
    * @param params.oracleManager - Required oracle manager instance

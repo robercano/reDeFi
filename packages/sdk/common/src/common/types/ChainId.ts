@@ -2,13 +2,13 @@ import { z } from 'zod'
 import { ChainIds, LegacyChainIds } from '../implementation/ChainIds'
 
 /**
- * @name chainId
- * @description Represents the chain ID of a blockchain network
+ * chainId
+ * Represents the chain ID of a blockchain network
  */
 export type ChainId = (typeof ChainIds)[keyof typeof ChainIds]
 
 /**
- * @description Zod schema for ChainId
+ * Zod schema for ChainId
  */
 // Create literals for each chain ID first
 const chainIdLiterals = Object.values(ChainIds).map((chainId) => z.literal(chainId))

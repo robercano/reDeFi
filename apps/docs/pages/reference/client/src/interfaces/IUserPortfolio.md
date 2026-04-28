@@ -6,12 +6,7 @@
 
 # Interface: IUserPortfolio
 
-## Name
-
 IUserPortfolio
-
-## Description
-
 Represents the portfolio holdings of a specific user.
 
 ## Extends
@@ -60,6 +55,9 @@ Represents the portfolio holdings of a specific user.
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -67,14 +65,6 @@ Represents the portfolio holdings of a specific user.
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

@@ -6,12 +6,7 @@
 
 # Interface: IFiatCurrencyAmount
 
-## Name
-
 IFiatCurrencyAmount
-
-## Description
-
 Represents an amount of a fiat currency
 
 The amount is represented as a string in floating point format without taking into consideration
@@ -60,6 +55,8 @@ Fiat currency for the amount
 
 > **add**(`fiatToAdd`): `IFiatCurrencyAmount`
 
+add
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -72,15 +69,13 @@ Fiat currency for the amount
 
 The resulting FiatCurrencyAmount
 
-#### Name
-
-add
-
 ***
 
 ### divide()
 
 > **divide**\<`InputParams`, `ReturnType`\>(`divisor`): `ReturnType`
+
+divide
 
 #### Type Parameters
 
@@ -101,15 +96,13 @@ add
 
 The resulting FiatCurrencyAmount
 
-#### Name
-
-divide
-
 ***
 
 ### multiply()
 
 > **multiply**\<`InputParams`, `ReturnType`\>(`multiplier`): `ReturnType`
+
+multiply
 
 #### Type Parameters
 
@@ -130,15 +123,13 @@ divide
 
 The resulting FiatCurrencyAmount
 
-#### Name
-
-multiply
-
 ***
 
 ### subtract()
 
 > **subtract**(`fiatToSubtract`): `IFiatCurrencyAmount`
+
+subtract
 
 #### Parameters
 
@@ -151,10 +142,6 @@ multiply
 `IFiatCurrencyAmount`
 
 The resulting FiatCurrencyAmount
-
-#### Name
-
-subtract
 
 ***
 
@@ -217,6 +204,9 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -224,14 +214,6 @@ The value is expected to be scaled by 10^decimals, thus yielding a Solidity uint
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

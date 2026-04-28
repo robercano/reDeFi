@@ -7,9 +7,6 @@
 # Interface: IAaveV3LendingPositionId
 
 IAaveV3LendingPositionId
-
-## Description
-
 ID for a position on Aave V3 protocols
 
 This interface is used to add all the methods that the interface supports

@@ -8,7 +8,7 @@ export const __signature__: unique symbol = Symbol()
 
 /**
  * @interface ISimulation
- * @description Generic simulation interface, defines the simulation type for all simulations
+ * Generic simulation interface, defines the simulation type for all simulations
  */
 export interface ISimulation {
   /** Signature used to differentiate it from similar interfaces */
@@ -18,7 +18,7 @@ export interface ISimulation {
 }
 
 /**
- * @description Zod schema for ISimulation
+ * Zod schema for ISimulation
  */
 export const SimulationSchema = z.object({
   type: z.nativeEnum(SimulationType),
@@ -30,7 +30,7 @@ export const SimulationSchema = z.object({
 export type ISimulationData = Readonly<z.infer<typeof SimulationSchema>>
 
 /**
- * @description Type guard for ISimulation
+ * Type guard for ISimulation
  * @param maybeSimulationData
  * @returns true if the object is an IToken
  */

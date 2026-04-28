@@ -6,12 +6,7 @@
 
 # Interface: IRiskRatio
 
-## Name
-
 IRiskRatio
-
-## Description
-
 Interface for the implementors of the risk ratio
 
 ## Extends
@@ -92,6 +87,9 @@ Gets the LTV value as a multiply factor
 
 > **toString**(): `string`
 
+toString
+Returns a string representation of the object
+
 #### Returns
 
 `string`
@@ -99,14 +97,6 @@ Gets the LTV value as a multiply factor
 string
 
 The string representation should have enough info to debug the object
-
-#### Name
-
-toString
-
-#### Description
-
-Returns a string representation of the object
 
 #### Inherited from
 

@@ -1,8 +1,8 @@
 import { IEventBus, ISDKEventMap } from '@thesolidchain/events-common'
 
 /**
- * @name EventBus
- * @description A lightweight, strongly-typed event bus implementation
+ * EventBus
+ * A lightweight, strongly-typed event bus implementation
  */
 export class EventBus implements IEventBus {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

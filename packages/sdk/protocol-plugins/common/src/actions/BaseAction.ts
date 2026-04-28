@@ -46,9 +46,9 @@ export abstract class BaseAction<
   public abstract encodeCall(params: unknown, paramsMapping?: InputSlotsMapping): ActionCall
 
   /**
-   * @description Encodes the call to the action
-   * @param params The parameters to encode
-   * @param paramsMapping The mapping of the parameters to the execution storage
+   * Encodes the call to the action
+   * @param params.params The parameters to encode
+   * @param params.paramsMapping The mapping of the parameters to the execution storage
    * @returns The encoded call to the action
    */
   protected _encodeCall(params: {

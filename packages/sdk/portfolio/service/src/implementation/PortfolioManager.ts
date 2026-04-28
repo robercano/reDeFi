@@ -5,8 +5,8 @@ import { ICacheService } from '@thesolidchain/api-server-common'
 import { IUser, Holding, UserPortfolio, CommonTokenSymbols, FiatCurrency, FiatCurrencyAmount } from '@thesolidchain/sdk-common'
 
 /**
- * @name PortfolioManager
- * @description Concrete implementation of IPortfolioManager. Handles the aggregation of a user's 
+ * PortfolioManager
+ * Concrete implementation of IPortfolioManager. Handles the aggregation of a user's 
  * portfolio by communicating with the tokens manager for balances and the oracle manager for spot prices.
  * Native caching via ICacheService is automatically applied to `getUserPortfolio` calls.
  */
@@ -36,8 +36,8 @@ export class PortfolioManager implements IPortfolioManager {
   }
 
   /**
-   * @method getWalletHoldings
-   * @description Fetches the native and ERC20 token balances for a user and calculates their
+   * getWalletHoldings
+   * Fetches the native and ERC20 token balances for a user and calculates their
    * respective USD fiat values. Failed queries or absent spot prices are silently skipped
    * so the remaining valid holdings can still be returned.
    * 
@@ -90,8 +90,8 @@ export class PortfolioManager implements IPortfolioManager {
   }
 
   /**
-   * @method getUserPortfolio
-   * @description Calculates a completely hydrated UserPortfolio. It utilizes the injected 
+   * getUserPortfolio
+   * Calculates a completely hydrated UserPortfolio. It utilizes the injected 
    * `cacheService` (if available) to avoid expensive, repeating queries. The portfolio is 
    * keyed deterministically by the user's wallet address.
    * 

@@ -8,8 +8,8 @@ import { IPrintable } from './IPrintable'
 export const __signature__: unique symbol = Symbol()
 
 /**
- * @name ISDKError
- * @description Represents a custom error of the SDK
+ * ISDKError
+ * Represents a custom error of the SDK
  */
 export interface ISDKError extends ISDKErrorData, IPrintable {
   /** Signature to differentiate from similar interfaces */
@@ -23,7 +23,7 @@ export interface ISDKError extends ISDKErrorData, IPrintable {
 }
 
 /**
- * @description Zod schema for ISDKError
+ * Zod schema for ISDKError
  */
 export const SDKErrorDataSchema = z.object({
   type: z.nativeEnum(SDKErrorType),
@@ -37,7 +37,7 @@ export const SDKErrorDataSchema = z.object({
 export type ISDKErrorData = Readonly<z.infer<typeof SDKErrorDataSchema>>
 
 /**
- * @description Type guard for ISDKError
+ * Type guard for ISDKError
  * @param maybeErrorData
  * @returns true if the object is an ISDKError
  */

@@ -8,6 +8,8 @@
 
 > **isPool**(`maybePool`): `maybePool is IPool`
 
+Type guard for IPool
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybePool is IPool`
 
 true if the object is an IPool
-
-## Description
-
-Type guard for IPool

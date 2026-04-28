@@ -8,6 +8,4 @@
 
 > `const` **ILKTypeSchema**: `ZodNativeEnum`\<*typeof* [`ILKType`](../../../../client/src/enumerations/ILKType.md)\>
 
-## Description
-
 Zod schema for ILKType

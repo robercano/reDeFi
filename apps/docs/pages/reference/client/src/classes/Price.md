@@ -492,11 +492,11 @@ Creates a price from the ratio of two token amounts
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `denominator`: [`ITokenAmount`](../interfaces/ITokenAmount.md); `numerator`: [`ITokenAmount`](../interfaces/ITokenAmount.md); \} |
-| `params.denominator` | [`ITokenAmount`](../interfaces/ITokenAmount.md) |
-| `params.numerator` | [`ITokenAmount`](../interfaces/ITokenAmount.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `denominator`: [`ITokenAmount`](../interfaces/ITokenAmount.md); `numerator`: [`ITokenAmount`](../interfaces/ITokenAmount.md); \} | - |
+| `params.denominator` | [`ITokenAmount`](../interfaces/ITokenAmount.md) | the token amount in the denominator |
+| `params.numerator` | [`ITokenAmount`](../interfaces/ITokenAmount.md) | the token amount in the numerator |
 
 #### Returns
 

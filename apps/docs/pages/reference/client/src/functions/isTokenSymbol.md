@@ -8,6 +8,8 @@
 
 > **isTokenSymbol**(`maybeTokenSymbol`): `maybeTokenSymbol is string`
 
+Type guard for TokenSymbol
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeTokenSymbol is string`
 
 true if the object is an TokenSymbol
-
-## Description
-
-Type guard for TokenSymbol

@@ -7,9 +7,6 @@
 # Enumeration: PositionType
 
 PositionType
-
-## Description
-
 Indicates the type of position
 
 ## Enumeration Members

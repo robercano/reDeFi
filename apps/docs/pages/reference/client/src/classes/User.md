@@ -6,8 +6,6 @@
 
 # Class: User
 
-## Name
-
 User
 
 ## See

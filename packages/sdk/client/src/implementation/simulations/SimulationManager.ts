@@ -1,7 +1,7 @@
 import { ISimulationManager } from '../../interfaces/simulations/ISimulationManager'
 import { RPCMainClientType } from '../../rpc/SDKMainClient'
 /**
- * @name SimulationManager
+ * SimulationManager
  * @see ISimulationManager
  */
 export class SimulationManager implements ISimulationManager {

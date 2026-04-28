@@ -11,7 +11,3 @@
 ## Returns
 
 `IProtocolPlugin`
-
-## Description
-
-Constructor for a protocol plugin

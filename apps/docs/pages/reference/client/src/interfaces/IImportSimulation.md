@@ -7,9 +7,6 @@
 # Interface: IImportSimulation
 
 IImportSimulation
-
-## Description
-
 Simulation result of an import operation
 
 ## Extends

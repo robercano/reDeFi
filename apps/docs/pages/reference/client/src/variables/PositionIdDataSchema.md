@@ -8,6 +8,4 @@
 
 > `const` **PositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodNativeEnum`\<*typeof* [`PositionType`](../enumerations/PositionType.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}, \{ `id`: `string`; `type`: [`PositionType`](../enumerations/PositionType.md); \}\>
 
-## Description
-
 Zod schema for IPositionId

@@ -8,6 +8,8 @@
 
 > **isRefinanceSimulation**(`maybeRefinanceSimulationData`): `maybeRefinanceSimulationData is IRefinanceSimulation`
 
+Type guard for IRefinanceSimulation
+
 ## Parameters
 
 | Parameter | Type | Description |
@@ -19,7 +21,3 @@
 `maybeRefinanceSimulationData is IRefinanceSimulation`
 
 true if the object is an IRefinanceSimulation
-
-## Description
-
-Type guard for IRefinanceSimulation

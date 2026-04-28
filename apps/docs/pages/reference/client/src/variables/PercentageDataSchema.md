@@ -8,6 +8,4 @@
 
 > `const` **PercentageDataSchema**: `ZodObject`\<\{ `value`: `ZodNumber`; \}, `"strip"`, `ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>
 
-## Description
-
 Zod schema for IPercentage

@@ -45,7 +45,7 @@ import { MorphoLendingPoolInfo } from './MorphoLendingPoolInfo'
 
 /**
  * @class MorphoProtocolPlugin
- * @description Protocol plugin for the Morpho protocol
+ * Protocol plugin for the Morpho protocol
  * @see BaseProtocolPlugin
  */
 export class MorphoProtocolPlugin extends BaseProtocolPlugin {
@@ -162,9 +162,9 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
   /** PRIVATE */
 
   /**
-   * @name _getCollateralInfo
-   * @description Get the collateral info for the given morpho lending pool ID
-   * @param params The parameters
+   * _getCollateralInfo
+   * Get the collateral info for the given morpho lending pool ID
+   * @param params.params The parameters
    * @returns The collateral info
    */
   private async _getCollateralInfo(params: {
@@ -196,11 +196,11 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
   }
 
   /**
-   * @name _getDebtInfo
-   * @description Get the debt info for the given morpho lending pool ID
-   * @param morphoLendingPoolId The lending pool ID
-   * @param marketInfo The market info
-   * @param marketCollateralPriceInDebt The market collateral price in debt
+   * _getDebtInfo
+   * Get the debt info for the given morpho lending pool ID
+   * @param params.morphoLendingPoolId The lending pool ID
+   * @param params.marketInfo The market info
+   * @param params.marketCollateralPriceInDebt The market collateral price in debt
    * @returns The debt info
    */
   private async _getDebtInfo(params: {
@@ -238,9 +238,9 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
   }
 
   /**
-   * @name _getMarketOraclePrice
-   * @description Get the market oracle price for the given morpho lending pool ID
-   * @param morphoLendingPoolId The lending pool ID
+   * _getMarketOraclePrice
+   * Get the market oracle price for the given morpho lending pool ID
+   * @param params.morphoLendingPoolId The lending pool ID
    * @returns The market oracle price
    */
   private async _getMarketOraclePrice(morphoLendingPool: IMorphoLendingPool): Promise<IPrice> {
@@ -268,9 +268,9 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
   }
 
   /**
-   * @name _getMarketInfo
-   * @description Get the market info for the given morpho lending pool ID
-   * @param morphoLendingPoolId The lending pool ID
+   * _getMarketInfo
+   * Get the market info for the given morpho lending pool ID
+   * @param params.morphoLendingPoolId The lending pool ID
    * @returns The market info
    */
   private async _getMarketInfo(morphoLendingPool: IMorphoLendingPool): Promise<MorphoMarketInfo> {
@@ -311,9 +311,9 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
   }
 
   /**
-   * @name _getMarketParams
-   * @description Get the market parameters from the market ID
-   * @param morphoLendingPoolId The lending pool ID
+   * _getMarketParams
+   * Get the market parameters from the market ID
+   * @param params.morphoLendingPoolId The lending pool ID
    * @returns The market parameters
    */
   private async _getMarketParams(
@@ -376,9 +376,9 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
     }
   }
   /**
-   * @name _getLiquidationPenalty
-   * @description Get the liquidation incentive factor for the given morpho lending pool ID
-   * @param morphoLendingPoolId
+   * _getLiquidationPenalty
+   * Get the liquidation incentive factor for the given morpho lending pool ID
+   * @param params.morphoLendingPoolId
    * @returns The liquidation incentive factor
    */
   private _getLiquidationPenalty(morphoLendingPool: IMorphoLendingPool): IPercentage {

@@ -7,9 +7,6 @@
 # Interface: Order
 
 Order
-
-## Description
-
 Simulation of a position. Specialized into the different types of simulations needed
 
 ## Properties
@@ -18,8 +15,6 @@ Simulation of a position. Specialized into the different types of simulations ne
 
 > **simulation**: [`ISimulation`](ISimulation.md)
 
-#### Description
-
 Simulation
 
 ***
@@ -27,7 +22,5 @@ Simulation
 ### transactions
 
 > **transactions**: [`TransactionInfo`](TransactionInfo.md)[]
-
-#### Description
 
 Transaction info

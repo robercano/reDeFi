@@ -7,9 +7,6 @@
 # Class: ProtocolPluginsRegistry
 
 ProtocolPluginsRegistry
-
-## Description
-
 Registry of protocol plugins that can be used to interact with the protocols
 
 ## Implements
@@ -52,6 +49,9 @@ Registry of protocol plugins that can be used to interact with the protocols
 
 > **getPlugin**(`params`): [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IProtocolPlugin`\>
 
+getPlugin
+Returns a plugin instance for the specified protocol
+
 #### Parameters
 
 | Parameter | Type | Description |
@@ -64,14 +64,6 @@ Registry of protocol plugins that can be used to interact with the protocols
 [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IProtocolPlugin`\>
 
 The plugin instance for the specified protocol
-
-#### Name
-
-getPlugin
-
-#### Description
-
-Returns a plugin instance for the specified protocol
 
 #### Implementation of
 

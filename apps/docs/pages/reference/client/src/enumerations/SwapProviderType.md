@@ -6,12 +6,7 @@
 
 # Enumeration: SwapProviderType
 
-## Name
-
 SwapProviderType
-
-## Description
-
 Represents the different swap providers
 
 ## Enumeration Members

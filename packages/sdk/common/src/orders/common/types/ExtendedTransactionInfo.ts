@@ -6,7 +6,7 @@ import type { Transaction } from './Transaction'
 
 /**
  * @enum TransactionType
- * @description Enum of all the transaction types that can be performed.
+ * Enum of all the transaction types that can be performed.
  */
 export enum TransactionType {
   Approve = 'Approve',

@@ -6,12 +6,7 @@
 
 # Enumeration: GlobalRoles
 
-## Name
-
 GlobalRoles
-
-## Description
-
 Enum for all global protocol roles
 
 ## Enumeration Members

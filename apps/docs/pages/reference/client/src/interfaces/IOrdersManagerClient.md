@@ -7,9 +7,6 @@
 # Interface: IOrdersManagerClient
 
 IOrdersManagerClient
-
-## Description
-
 Interface of the OrdersManager for the SDK Client. Allows to build orders to execute transactions.
 
 ## Methods
@@ -17,6 +14,9 @@ Interface of the OrdersManager for the SDK Client. Allows to build orders to exe
 ### buildOrder()
 
 > **buildOrder**(`params`): `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Order`](Order.md)\>\>
+
+buildOrder
+Build an order to be executed by the user
 
 #### Parameters
 
@@ -29,11 +29,3 @@ Interface of the OrdersManager for the SDK Client. Allows to build orders to exe
 `Promise`\<[`Maybe`](../type-aliases/Maybe.md)\<[`Order`](Order.md)\>\>
 
 The built order
-
-#### Method
-
-buildOrder
-
-#### Description
-
-Build an order to be executed by the user

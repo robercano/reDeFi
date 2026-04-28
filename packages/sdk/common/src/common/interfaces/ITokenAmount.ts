@@ -24,8 +24,8 @@ export type TokenAmountMulDivReturnType<T> = T extends IPrice
     : never
 
 /**
- * @name ITokenAmount
- * @description Interface for the implementors of the token amount
+ * ITokenAmount
+ * Interface for the implementors of the token amount
  *
  * This interface is used to add all the methods that the interface supports
  */
@@ -38,21 +38,21 @@ export interface ITokenAmount extends ITokenAmountData, IValueConverter, IPrinta
   readonly amount: string
 
   /**
-   * @name add
+   * add
    * @param tokenToAdd TokenAmount to add
    * @returns The resulting TokenAmount
    */
   add(tokenToAdd: ITokenAmount): ITokenAmount
 
   /**
-   * @name subtract
+   * subtract
    * @param tokenToSubstract TokenAmount to subtract
    * @returns The resulting TokenAmount
    */
   subtract(tokenToSubstract: ITokenAmount): ITokenAmount
 
   /**
-   * @name multiply
+   * multiply
    * @param multiplier A percentage, price, string amount or number to multiply
    * @returns The resulting TokenAmount
    */
@@ -64,7 +64,7 @@ export interface ITokenAmount extends ITokenAmountData, IValueConverter, IPrinta
   ): ReturnType
 
   /**
-   * @name divide
+   * divide
    * @param divisor A percentage, price, string amount or number to divide
    * @returns The resulting TokenAmount
    */
@@ -76,47 +76,47 @@ export interface ITokenAmount extends ITokenAmountData, IValueConverter, IPrinta
   ): ReturnType
 
   /**
-   * @name isZero
-   * @description Checks if the amount is zero
+   * isZero
+   * Checks if the amount is zero
    * @returns true if the amount is zero or false otherwise
    */
   isZero(): boolean
 
   /**
-   * @name isGreaterThan
-   * @description Checks if the amount is greater than the provided TokenAmount
+   * isGreaterThan
+   * Checks if the amount is greater than the provided TokenAmount
    * @param tokenAmount TokenAmount to compare
    * @returns true if the amount is greater than the provided TokenAmount
    */
   isGreaterThan(tokenAmount: ITokenAmount): boolean
 
   /**
-   * @name isLessThan
-   * @description Checks if the amount is less than the provided TokenAmount
+   * isLessThan
+   * Checks if the amount is less than the provided TokenAmount
    * @param tokenAmount TokenAmount to compare
    * @returns true if the amount is less than the provided TokenAmount
    */
   isLessThan(tokenAmount: ITokenAmount): boolean
 
   /**
-   * @name isGreaterOrEqualThan
-   * @description Checks if the amount is greater or equal than the provided TokenAmount
+   * isGreaterOrEqualThan
+   * Checks if the amount is greater or equal than the provided TokenAmount
    * @param tokenAmount TokenAmount to compare
    * @returns true if the amount is greater or equal than the provided TokenAmount
    */
   isGreaterOrEqualThan(tokenAmount: ITokenAmount): boolean
 
   /**
-   * @name isLessOrEqualThan
-   * @description Checks if the amount is less or equal than the provided TokenAmount
+   * isLessOrEqualThan
+   * Checks if the amount is less or equal than the provided TokenAmount
    * @param tokenAmount TokenAmount to compare
    * @returns true if the amount is less or equal than the provided TokenAmount
    */
   isLessOrEqualThan(tokenAmount: ITokenAmount): boolean
 
   /**
-   * @name isEqualTo
-   * @description Checks if the amount is equal to the provided TokenAmount
+   * isEqualTo
+   * Checks if the amount is equal to the provided TokenAmount
    * @param tokenAmount TokenAmount to compare
    * @returns true if the amount is equal to the provided TokenAmount
    */
@@ -124,7 +124,7 @@ export interface ITokenAmount extends ITokenAmountData, IValueConverter, IPrinta
 }
 
 /**
- * @description Zod schema for ITokenAmount
+ * Zod schema for ITokenAmount
  */
 export const TokenAmountDataSchema = z.object({
   token: z.custom<IToken>((val) => isToken(val)),
@@ -137,7 +137,7 @@ export const TokenAmountDataSchema = z.object({
 export type ITokenAmountData = Readonly<z.infer<typeof TokenAmountDataSchema>>
 
 /**
- * @description Type guard for ITokenAmount
+ * Type guard for ITokenAmount
  * @param maybeTokenAmount
  * @returns true if the object is an ITokenAmount
  */
@@ -155,7 +155,7 @@ export function isTokenAmount(
 }
 
 /**
- * @description Type guard for ITokenAmountData
+ * Type guard for ITokenAmountData
  * @param maybeTokenAmount
  * @returns true if the object is an ITokenAmountData
  */
