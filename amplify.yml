@@ -1,18 +1,48 @@
 version: 1
 applications:
-  - appRoot: apps/earn-protocol
+  - appRoot: apps/sdk-demo
     frontend:
-      buildPath: /
       phases:
         preBuild:
           commands:
-            - npm install -g pnpm
-            - pnpm install
-            - pnpm prebuild
+            # Install Node 24 to respect package.json engines constraint
+            - nvm install 24
+            - nvm use 24
+            # Install pnpm and dependencies at the root level
+            - corepack enable pnpm
+            - cd ../.. && pnpm install
         build:
           commands:
-            - pnpm build-earn-frontend
+            # Run Turborepo build from the workspace root
+            - cd ../.. && pnpm turbo run build --filter=sdk-demo
       artifacts:
-        baseDirectory: apps/earn-protocol/.next
+        baseDirectory: .next
         files:
           - '**/*'
+      cache:
+        paths:
+          - .next/cache/**/*
+          - ../../.npm/**/*
+          - ../../node_modules/**/*
+          
+  - appRoot: apps/docs
+    frontend:
+      phases:
+        preBuild:
+          commands:
+            - nvm install 24
+            - nvm use 24
+            - corepack enable pnpm
+            - cd ../.. && pnpm install
+        build:
+          commands:
+            - cd ../.. && pnpm turbo run build --filter=docs
+      artifacts:
+        baseDirectory: .next
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - .next/cache/**/*
+          - ../../.npm/**/*
+          - ../../node_modules/**/*
