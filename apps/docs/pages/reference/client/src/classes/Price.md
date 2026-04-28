@@ -504,6 +504,4 @@ Creates a price from the ratio of two token amounts
 
 the price calculated from the amounts ratio of numerator divided by denominator
 
-#### Dev
-
-The denominator becomes the base of the price and the numerator becomes the quote
+dev: The denominator becomes the base of the price and the numerator becomes the quote

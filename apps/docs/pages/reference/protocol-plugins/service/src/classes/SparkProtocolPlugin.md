@@ -107,10 +107,10 @@ Fetches the asset from the assets list for the given token and emode.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) |
-| `emode` | `number` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) | The token to fetch the asset for. |
+| `emode` | `number` | The emode to fetch the asset for. |
 
 #### Returns
 
@@ -233,11 +233,11 @@ Fetches the debt info for the given token.
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) |
-| `emode` | `number` |
-| `poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `token` | [`IToken`](../../../../client/src/interfaces/IToken.md) | The token to fetch the debt info for. |
+| `emode` | `number` | The emode to fetch the debt info for. |
+| `poolBaseCurrencyToken` | [`Denomination`](../../../../client/src/type-aliases/Denomination.md) | The base currency token for the pool. |
 
 #### Returns
 

@@ -6,18 +6,10 @@
 
 # Interface: ICacheAware
 
-Interface that classes must implement to use the
-
-## Cache
-
-decorator.
+Interface that classes must implement to use the Cache decorator.
 
 ## Properties
 
 ### cacheOrchestrator?
 
 > `optional` **cacheOrchestrator?**: [`DataOrchestrator`](../classes/DataOrchestrator.md)
-
-#### Cache
-
-decorator to function properly.

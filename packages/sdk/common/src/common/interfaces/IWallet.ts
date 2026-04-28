@@ -27,7 +27,7 @@ export interface IWallet extends IWalletData {
    *
    * Equality is determined by the address
    */
-  equals(token: IWallet): boolean
+  equals(wallet: IWallet): boolean
 }
 
 /**

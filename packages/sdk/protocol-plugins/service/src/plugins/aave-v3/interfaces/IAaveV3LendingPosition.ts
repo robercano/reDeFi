@@ -52,7 +52,7 @@ export type IAaveV3LendingPositionData = Readonly<z.infer<typeof AaveV3LendingPo
  * @returns true if the object is an IAaveV3Position
  */
 export function isAaveV3LendingPosition(
-  maybePositionId: unknown,
-): maybePositionId is IAaveV3LendingPosition {
-  return AaveV3LendingPositionDataSchema.safeParse(maybePositionId).success
+  maybePosition: unknown,
+): maybePosition is IAaveV3LendingPosition {
+  return AaveV3LendingPositionDataSchema.safeParse(maybePosition).success
 }

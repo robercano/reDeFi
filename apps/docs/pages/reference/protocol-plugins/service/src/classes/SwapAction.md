@@ -84,11 +84,11 @@ Encodes the call to the action
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `collectFeeFromToken`: `boolean`; `fee`: `bigint`; `fromAsset`: `` `0x${string}` ``; `receiveAtLeast`: `bigint`; `toAsset`: `` `0x${string}` ``; `withData`: `` `0x${string}` ``; \}\]; `mapping?`: `InputSlotsMapping`; \} |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `collectFeeFromToken`: `boolean`; `fee`: `bigint`; `fromAsset`: `` `0x${string}` ``; `receiveAtLeast`: `bigint`; `toAsset`: `` `0x${string}` ``; `withData`: `` `0x${string}` ``; \}\] |
-| `params.mapping?` | `InputSlotsMapping` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `collectFeeFromToken`: `boolean`; `fee`: `bigint`; `fromAsset`: `` `0x${string}` ``; `receiveAtLeast`: `bigint`; `toAsset`: `` `0x${string}` ``; `withData`: `` `0x${string}` ``; \}\]; `mapping?`: `InputSlotsMapping`; \} | - |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `collectFeeFromToken`: `boolean`; `fee`: `bigint`; `fromAsset`: `` `0x${string}` ``; `receiveAtLeast`: `bigint`; `toAsset`: `` `0x${string}` ``; `withData`: `` `0x${string}` ``; \}\] | The parameters to encode |
+| `params.mapping?` | `InputSlotsMapping` | The mapping of the parameters to the execution storage |
 
 #### Returns
 

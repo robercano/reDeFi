@@ -1,0 +1,102 @@
+
+> docs@0.1.0 generate:api /home/rcano/Development/thesolidchain/reDeFi/apps/docs
+> typedoc --json docs.json
+
+[96m[info][0m Loaded plugin typedoc-plugin-markdown
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/cache/CacheDecorator.ts[0m:[93m5[0m:[93m52[0m - [93m[warning][0m Encountered an unknown block tag @Cache
+
+[47m[30m5[0m     * Interface that classes must implement to use the @Cache decorator.
+
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/cache/CacheDecorator.ts[0m:[93m11[0m:[93m43[0m - [93m[warning][0m Encountered an unknown block tag @Cache
+
+[47m[30m11[0m       *              Must be provided for the @Cache decorator to function properly.
+
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/client/src/implementation/IntentSwapClient.ts[0m:[93m14[0m:[93m3[0m - [93m[warning][0m Encountered an unknown block tag @implements
+
+[47m[30m14[0m     * @implements IIntentSwapClient
+
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/client/src/interfaces/IUserClient.ts[0m:[93m16[0m:[93m3[0m - [93m[warning][0m Encountered an unknown block tag @dev
+
+[47m[30m16[0m     * @dev This interface must be used to get positions for a user that will be used to create orders. To retrieve
+
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/common/implementation/Price.ts[0m:[93m67[0m:[93m5[0m - [93m[warning][0m Encountered an unknown block tag @dev
+
+[47m[30m67[0m       * @dev The denominator becomes the base of the price and the numerator becomes the quote
+
+[93m[warning][0m At most one @remarks tag is expected in a comment, ignoring all but the first in comment at /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/common/interfaces/IValueConverter.ts:11
+[93m[warning][0m At most one @returns tag is expected in a comment, ignoring all but the first in comment at /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/common/interfaces/IValueConverter.ts:11
+[93m[warning][0m At most one @remarks tag is expected in a comment, ignoring all but the first in comment at /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/common/interfaces/IValueConverter.ts:26
+[93m[warning][0m At most one @returns tag is expected in a comment, ignoring all but the first in comment at /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/common/interfaces/IValueConverter.ts:26
+[96m/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/orders/common/types/DEPRECATED.ts[0m:[93m11[0m:[93m0[0m - [93m[warning][0m Using @interface on a union type will discard properties not present on all branches of the union. TypeDoc's output may not accurately describe your source code
+
+[47m[30m11[0m    export type ExtendedTransactionInfo =
+
+[93m[warning][0m The signature client/src.isMorphoLendingPoolId has an @param with name "poolId", which was not used
+[93m[warning][0m The signature client/src.isSparkLendingPoolId has an @param with name "poolId", which was not used
+[93m[warning][0m The signature client/src.TokenAmount.createFromBaseUnit has an @param with name "params.params", which was not used
+[93m[warning][0m The signature client/src.IFiatCurrencyAmount.subtract has an @param with name "tokenToSubstract", which was not used
+[93m[warning][0m The signature client/src.IFiatCurrencyAmount.toSolidityValue has an @param with name "decimals", which was not used
+[93m[warning][0m The signature client/src.IPercentage.toSolidityValue has an @param with name "decimals", which was not used
+[93m[warning][0m The signature client/src.IPrice.toSolidityValue has an @param with name "decimals", which was not used
+[93m[warning][0m The signature client/src.ITokenAmount.toSolidityValue has an @param with name "decimals", which was not used
+[93m[warning][0m The signature client/src.IWallet.equals has an @param with name "wallet", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.isAaveV3LendingPosition has an @param with name "maybePosition", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3ProtocolPlugin._getAssetFromToken has an @param with name "params.token", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3ProtocolPlugin._getAssetFromToken has an @param with name "params.emode", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3ProtocolPlugin._getDebtInfo has an @param with name "params.token", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3ProtocolPlugin._getDebtInfo has an @param with name "params.emode", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3ProtocolPlugin._getDebtInfo has an @param with name "params.poolBaseCurrencyToken", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3BorrowAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3BorrowAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3DepositAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3DepositAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3PaybackAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3PaybackAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3WithdrawAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3WithdrawAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3SetEmodeAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.AaveV3SetEmodeAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkProtocolPlugin._getAssetFromToken has an @param with name "params.token", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkProtocolPlugin._getAssetFromToken has an @param with name "params.emode", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkProtocolPlugin._getDebtInfo has an @param with name "params.token", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkProtocolPlugin._getDebtInfo has an @param with name "params.emode", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkProtocolPlugin._getDebtInfo has an @param with name "params.poolBaseCurrencyToken", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkBorrowAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkBorrowAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkDepositAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkDepositAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkPaybackAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkPaybackAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkWithdrawAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkWithdrawAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkSetEmodeAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SparkSetEmodeAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MakerPaybackAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MakerPaybackAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MakerWithdrawAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MakerWithdrawAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoBorrowAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoBorrowAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoDepositAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoDepositAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoPaybackAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoPaybackAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoWithdrawAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.MorphoWithdrawAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.FlashloanAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.FlashloanAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.PullTokenAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.PullTokenAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.ReturnFundsAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.ReturnFundsAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SendTokenAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SendTokenAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SetApprovalAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SetApprovalAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SwapAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.SwapAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.PositionCreatedAction._encodeCall has an @param with name "params.params", which was not used
+[93m[warning][0m The signature protocol-plugins/service/src.PositionCreatedAction._encodeCall has an @param with name "params.paramsMapping", which was not used
+[96m[info][0m markdown generated at ./pages/reference
+[96m[info][0m json generated at ./docs.json
+[93m[warning][0m Found 0 errors and 76 warnings

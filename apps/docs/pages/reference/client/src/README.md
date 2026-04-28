@@ -116,7 +116,6 @@
 
 - [AggregatedFleetRate](interfaces/AggregatedFleetRate.md)
 - [CachePolicy](interfaces/CachePolicy.md)
-- [~~ExtendedTransactionInfo~~](interfaces/ExtendedTransactionInfo.md)
 - [FleetRate](interfaces/FleetRate.md)
 - [HistoricalFleetRateResult](interfaces/HistoricalFleetRateResult.md)
 - [HistoricalFleetRates](interfaces/HistoricalFleetRates.md)
@@ -209,6 +208,7 @@
 - [DenominationData](type-aliases/DenominationData.md)
 - [DepositTransactionInfo](type-aliases/DepositTransactionInfo.md)
 - [Erc20TransferTransactionInfo](type-aliases/Erc20TransferTransactionInfo.md)
+- [~~ExtendedTransactionInfo~~](type-aliases/ExtendedTransactionInfo.md)
 - [ExternalLendingPositionIdParameters](type-aliases/ExternalLendingPositionIdParameters.md)
 - [ExternalLendingPositionParameters](type-aliases/ExternalLendingPositionParameters.md)
 - [FiatCurrencyAmountMulDivParamType](type-aliases/FiatCurrencyAmountMulDivParamType.md)

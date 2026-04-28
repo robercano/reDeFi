@@ -64,7 +64,7 @@ export class Price implements IPrice {
    * @param params.denominator the token amount in the denominator
    * @returns the price calculated from the amounts ratio of numerator divided by denominator
    *
-   * @dev The denominator becomes the base of the price and the numerator becomes the quote
+   * dev: The denominator becomes the base of the price and the numerator becomes the quote
    */
   static createFromAmountsRatio(params: {
     numerator: ITokenAmount
@@ -275,7 +275,7 @@ export class Price implements IPrice {
 
   /**
    * _validateSameBaseToken
-   * @param params.price Price to validate against the instance
+   * @param price Price to validate against the instance
    * @throws If the price base tokens do not match
    */
   private _validateSameBaseToken(price: IPrice): void {
@@ -286,7 +286,7 @@ export class Price implements IPrice {
 
   /**
    * _validateSameQuoteToken
-   * @param params.price Price to validate against the instance
+   * @param price Price to validate against the instance
    * @throws If the price quote tokens do not match
    */
   private _validateSameQuoteToken(price: IPrice): void {
@@ -297,7 +297,7 @@ export class Price implements IPrice {
 
   /**
    * _validateSameDenominations
-   * @param params.price Price to validate against the instance
+   * @param price Price to validate against the instance
    * @throws If the price base or quote tokens do not match
    */
   private _validateSameDenominations(price: IPrice): void {

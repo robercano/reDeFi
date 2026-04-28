@@ -395,9 +395,9 @@ createFromBaseUnit
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | [`TokenAmountParameters`](../type-aliases/TokenAmountParameters.md) |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | [`TokenAmountParameters`](../type-aliases/TokenAmountParameters.md) | Token amount data to create the instance |
 
 #### Returns
 
