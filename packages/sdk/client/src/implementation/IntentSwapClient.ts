@@ -11,7 +11,7 @@ import { Price } from '@thesolidchain/sdk-common'
 
 /**
  * IntentSwapClient
- * @implements IIntentSwapClient
+ * implements IIntentSwapClient
  */
 export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {
   private readonly _signer: SDKSigner

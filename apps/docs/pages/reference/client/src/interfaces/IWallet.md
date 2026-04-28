@@ -40,16 +40,16 @@ Address of the wallet, valid for the different chains
 
 ### equals()
 
-> **equals**(`token`): `boolean`
+> **equals**(`wallet`): `boolean`
 
 equals
 Checks if two wallets are equal
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `token` | `IWallet` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `wallet` | `IWallet` | The wallet to compare |
 
 #### Returns
 

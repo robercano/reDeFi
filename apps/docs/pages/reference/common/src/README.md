@@ -340,7 +340,7 @@ Re-exports [Erc20TransferTransactionInfo](../../client/src/type-aliases/Erc20Tra
 
 ### ExtendedTransactionInfo
 
-Re-exports [ExtendedTransactionInfo](../../client/src/interfaces/ExtendedTransactionInfo.md)
+Re-exports [ExtendedTransactionInfo](../../client/src/type-aliases/ExtendedTransactionInfo.md)
 
 ***
 

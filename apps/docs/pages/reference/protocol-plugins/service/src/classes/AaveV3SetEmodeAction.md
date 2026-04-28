@@ -84,11 +84,11 @@ Encodes the call to the action
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `categoryId`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
-| `params.arguments` | readonly \[\{ `categoryId`: `number`; \}\] |
-| `params.mapping?` | `InputSlotsMapping` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `categoryId`: `number`; \}\]; `mapping?`: `InputSlotsMapping`; \} | - |
+| `params.arguments` | readonly \[\{ `categoryId`: `number`; \}\] | The parameters to encode |
+| `params.mapping?` | `InputSlotsMapping` | The mapping of the parameters to the execution storage |
 
 #### Returns
 

@@ -47,8 +47,8 @@ export abstract class BaseAction<
 
   /**
    * Encodes the call to the action
-   * @param params.params The parameters to encode
-   * @param params.paramsMapping The mapping of the parameters to the execution storage
+   * @param params.arguments The parameters to encode
+   * @param params.mapping The mapping of the parameters to the execution storage
    * @returns The encoded call to the action
    */
   protected _encodeCall(params: {

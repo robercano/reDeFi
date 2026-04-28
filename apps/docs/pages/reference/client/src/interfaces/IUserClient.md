@@ -9,9 +9,7 @@
 IUserClient
 Represents a user and allows to access their positions and to create new orders
 
-## Dev
-
-This interface must be used to get positions for a user that will be used to create orders. To retrieve
+dev: This interface must be used to get positions for a user that will be used to create orders. To retrieve
      positions for portfolio please
 
 ## See

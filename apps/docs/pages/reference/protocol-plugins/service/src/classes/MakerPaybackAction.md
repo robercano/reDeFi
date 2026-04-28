@@ -84,11 +84,11 @@ Encodes the call to the action
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `paybackAll`: `boolean`; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `paybackAll`: `boolean`; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\] |
-| `params.mapping?` | `InputSlotsMapping` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `paybackAll`: `boolean`; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\]; `mapping?`: `InputSlotsMapping`; \} | - |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `paybackAll`: `boolean`; `userAddress`: `` `0x${string}` ``; `vaultId`: `bigint`; \}\] | The parameters to encode |
+| `params.mapping?` | `InputSlotsMapping` | The mapping of the parameters to the execution storage |
 
 #### Returns
 

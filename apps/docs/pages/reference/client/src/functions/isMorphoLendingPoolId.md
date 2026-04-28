@@ -12,9 +12,9 @@ Type guard for IMorphoLendingPoolId
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `maybeLendingPoolId` | `unknown` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `maybeLendingPoolId` | `unknown` | Object to be checked |
 
 ## Returns
 

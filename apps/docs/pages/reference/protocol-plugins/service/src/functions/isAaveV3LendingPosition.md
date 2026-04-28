@@ -6,18 +6,18 @@
 
 # Function: isAaveV3LendingPosition()
 
-> **isAaveV3LendingPosition**(`maybePositionId`): `maybePositionId is IAaveV3LendingPosition`
+> **isAaveV3LendingPosition**(`maybePosition`): `maybePosition is IAaveV3LendingPosition`
 
 Type guard for IAaveV3Position
 
 ## Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `maybePositionId` | `unknown` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `maybePosition` | `unknown` | - |
 
 ## Returns
 
-`maybePositionId is IAaveV3LendingPosition`
+`maybePosition is IAaveV3LendingPosition`
 
 true if the object is an IAaveV3Position

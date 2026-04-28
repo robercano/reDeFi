@@ -114,8 +114,8 @@ export abstract class AAVEv3LikeBaseProtocolPlugin<
 
   /**
    * Fetches the asset from the assets list for the given token and emode.
-   * @param params.token  The token to fetch the asset for.
-   * @param params.emode  The emode to fetch the asset for.
+   * @param token  The token to fetch the asset for.
+   * @param emode  The emode to fetch the asset for.
    * @returns  The asset for the given token and emode.
    */
   protected async _getAssetFromToken(
@@ -215,9 +215,9 @@ export abstract class AAVEv3LikeBaseProtocolPlugin<
 
   /**
    * Fetches the debt info for the given token.
-   * @param params.token The token to fetch the debt info for.
-   * @param params.emode The emode to fetch the debt info for.
-   * @param params.poolBaseCurrencyToken The base currency token for the pool.
+   * @param token The token to fetch the debt info for.
+   * @param emode The emode to fetch the debt info for.
+   * @param poolBaseCurrencyToken The base currency token for the pool.
    * @returns The debt info for the given token.
    */
   protected async _getDebtInfo(

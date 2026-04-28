@@ -84,11 +84,11 @@ Encodes the call to the action
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `delegate`: `` `0x${string}` ``; `sumAmounts`: `boolean`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
-| `params.arguments` | readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `delegate`: `` `0x${string}` ``; `sumAmounts`: `boolean`; \}\] |
-| `params.mapping?` | `InputSlotsMapping` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `delegate`: `` `0x${string}` ``; `sumAmounts`: `boolean`; \}\]; `mapping?`: `InputSlotsMapping`; \} | - |
+| `params.arguments` | readonly \[\{ `amount`: `bigint`; `asset`: `` `0x${string}` ``; `delegate`: `` `0x${string}` ``; `sumAmounts`: `boolean`; \}\] | The parameters to encode |
+| `params.mapping?` | `InputSlotsMapping` | The mapping of the parameters to the execution storage |
 
 #### Returns
 

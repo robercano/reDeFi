@@ -2,13 +2,13 @@ import { VolatilityProfile } from './types';
 import { DataOrchestrator } from './DataOrchestrator';
 
 /**
- * Interface that classes must implement to use the @Cache decorator.
+ * Interface that classes must implement to use the Cache decorator.
  */
 export interface ICacheAware {
   /**
    * @property cacheOrchestrator
    * The DataOrchestrator instance responsible for executing layered caching logic.
-   *              Must be provided for the @Cache decorator to function properly.
+   *              Must be provided for the Cache decorator to function properly.
    */
   cacheOrchestrator?: DataOrchestrator;
 }

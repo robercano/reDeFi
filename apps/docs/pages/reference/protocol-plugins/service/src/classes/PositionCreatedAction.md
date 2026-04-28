@@ -84,11 +84,11 @@ Encodes the call to the action
 
 #### Parameters
 
-| Parameter | Type |
-| ------ | ------ |
-| `params` | \{ `arguments`: readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\]; `mapping?`: `InputSlotsMapping`; \} |
-| `params.arguments` | readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\] |
-| `params.mapping?` | `InputSlotsMapping` |
+| Parameter | Type | Description |
+| ------ | ------ | ------ |
+| `params` | \{ `arguments`: readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\]; `mapping?`: `InputSlotsMapping`; \} | - |
+| `params.arguments` | readonly \[\{ `collateralToken`: `` `0x${string}` ``; `debtToken`: `` `0x${string}` ``; `positionType`: `string`; `protocol`: `string`; \}\] | The parameters to encode |
+| `params.mapping?` | `InputSlotsMapping` | The mapping of the parameters to the execution storage |
 
 #### Returns
 
