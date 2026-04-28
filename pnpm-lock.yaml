@@ -23,7 +23,7 @@ importers:
         version: 5.0.2(graphql@16.11.0)
       '@graphql-codegen/cli':
         specifier: ^5.0.2
-        version: 5.0.2(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.9.3)
+        version: 5.0.2(@types/node@24.12.2)(graphql@16.11.0)(typescript@5.9.3)
       '@graphql-codegen/typed-document-node':
         specifier: ^5.0.6
         version: 5.0.6(graphql@16.11.0)
@@ -47,16 +47,16 @@ importers:
         version: link:packages/config/eslint
       '@tsconfig/node20':
         specifier: ^20.1.4
-        version: 20.1.4
+        version: 20.1.9
       '@turbo/gen':
         specifier: ^2.0.6
-        version: 2.0.11(@types/node@20.14.2)(typescript@5.9.3)
+        version: 2.0.11(@types/node@24.12.2)(typescript@5.9.3)
       '@types/aws-lambda':
         specifier: ^8.10.137
         version: 8.10.149
       '@types/node':
-        specifier: ^20.12.7
-        version: 20.14.2
+        specifier: ^24.0.0
+        version: 24.12.2
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.1(vitest@1.6.1)
@@ -104,7 +104,7 @@ importers:
         version: 5.9.3
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
       zx:
         specifier: ^8.3.0
         version: 8.5.4
@@ -141,7 +141,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   apps/api-server/common:
     dependencies:
@@ -181,7 +181,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   apps/api-server/service:
     dependencies:
@@ -314,7 +314,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   apps/docs:
     dependencies:
@@ -483,7 +483,7 @@ importers:
         version: 8.57.0
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/common:
     devDependencies:
@@ -501,7 +501,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/config/eslint:
     devDependencies:
@@ -564,7 +564,7 @@ importers:
         version: 29.5.12
       jest:
         specifier: ^29.7.0
-        version: 29.7.0(@types/node@20.14.2)
+        version: 29.7.0(@types/node@24.12.2)
       ts-jest:
         specifier: ^29.1.2
         version: 29.3.4(@babel/core@7.29.0)(esbuild@0.25.2)(jest@29.7.0)(typescript@5.9.3)
@@ -573,7 +573,7 @@ importers:
     devDependencies:
       '@tsconfig/node20':
         specifier: ^20.1.4
-        version: 20.1.4
+        version: 20.1.9
 
   packages/config/vitest:
     dependencies:
@@ -585,7 +585,7 @@ importers:
         version: 4.3.2(typescript@5.9.3)
       vitest:
         specifier: ^1.5.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/contracts/core:
     devDependencies:
@@ -752,7 +752,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/abi-provider/service:
     dependencies:
@@ -795,7 +795,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/address-book/common:
     dependencies:
@@ -817,7 +817,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/address-book/service:
     dependencies:
@@ -854,7 +854,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/allowance-manager/common:
     dependencies:
@@ -876,7 +876,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/allowance-manager/service:
     dependencies:
@@ -925,7 +925,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/blockchain-client/common:
     dependencies:
@@ -953,7 +953,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/blockchain-client/provider:
     dependencies:
@@ -993,7 +993,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/client:
     dependencies:
@@ -1030,7 +1030,7 @@ importers:
     devDependencies:
       '@microsoft/api-extractor':
         specifier: ^7.52.13
-        version: 7.52.13(@types/node@20.14.2)
+        version: 7.52.13(@types/node@24.12.2)
       '@thesolidchain/config-typescript':
         specifier: workspace:*
         version: link:../../config/typescript
@@ -1051,7 +1051,7 @@ importers:
         version: 4.19.4
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/common:
     dependencies:
@@ -1088,7 +1088,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/configuration-provider/common:
     dependencies:
@@ -1116,7 +1116,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/configuration-provider/mock:
     dependencies:
@@ -1147,7 +1147,7 @@ importers:
         version: 4.19.4
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -1181,7 +1181,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/contracts-provider/common:
     dependencies:
@@ -1209,7 +1209,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/contracts-provider/service:
     dependencies:
@@ -1279,7 +1279,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/e2e:
     dependencies:
@@ -1334,7 +1334,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/events/common:
     dependencies:
@@ -1366,7 +1366,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/oracle/common:
     dependencies:
@@ -1397,7 +1397,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/oracle/service:
     dependencies:
@@ -1443,7 +1443,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/order-planner/common:
     dependencies:
@@ -1489,7 +1489,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/order-planner/service:
     dependencies:
@@ -1559,7 +1559,7 @@ importers:
         version: 4.19.4
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -1584,7 +1584,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/portfolio/service:
     dependencies:
@@ -1618,7 +1618,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/protocol-manager/common:
     dependencies:
@@ -1652,7 +1652,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/protocol-manager/service:
     dependencies:
@@ -1695,7 +1695,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/protocol-plugins/common:
     dependencies:
@@ -1744,7 +1744,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/protocol-plugins/service:
     dependencies:
@@ -1799,7 +1799,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/react:
     dependencies:
@@ -1842,7 +1842,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/subscriptions/common:
     dependencies:
@@ -1870,7 +1870,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/subscriptions/service:
     dependencies:
@@ -1907,7 +1907,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/swap/common:
     dependencies:
@@ -1941,7 +1941,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/swap/service:
     dependencies:
@@ -1999,7 +1999,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/tenderly-utils:
     dependencies:
@@ -2048,7 +2048,7 @@ importers:
         version: 6.13.2
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/testing-utils:
     dependencies:
@@ -2121,7 +2121,7 @@ importers:
         version: 4.19.4
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
       yargs:
         specifier: ^17.7.2
         version: 17.7.2
@@ -2149,7 +2149,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/sdk/tokens/service:
     dependencies:
@@ -2198,7 +2198,7 @@ importers:
         version: 1.6.1(vitest@1.6.1)
       vitest:
         specifier: ^1.6.0
-        version: 1.6.1(@types/node@20.14.2)
+        version: 1.6.1(@types/node@24.12.2)
 
   packages/serverless-shared:
     dependencies:
@@ -2290,7 +2290,7 @@ importers:
         version: 5.9.3
       vite:
         specifier: ^5.0.0
-        version: 5.4.21(@types/node@20.14.2)
+        version: 5.4.21(@types/node@24.12.2)
 
   turbo/generators:
     devDependencies:
@@ -5209,7 +5209,7 @@ packages:
       tslib: 2.6.3
     dev: true
 
-  /@graphql-codegen/cli@5.0.2(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.9.3):
+  /@graphql-codegen/cli@5.0.2(@types/node@24.12.2)(graphql@16.11.0)(typescript@5.9.3):
     resolution: {integrity: sha512-MBIaFqDiLKuO4ojN6xxG9/xL9wmfD3ZjZ7RsPjwQnSHBCUXnEkdKvX+JVpx87Pq29Ycn8wTJUguXnTZ7Di0Mlw==}
     hasBin: true
     peerDependencies:
@@ -5228,12 +5228,12 @@ packages:
       '@graphql-tools/apollo-engine-loader': 8.0.1(graphql@16.11.0)
       '@graphql-tools/code-file-loader': 8.1.1(graphql@16.11.0)
       '@graphql-tools/git-loader': 8.0.5(graphql@16.11.0)
-      '@graphql-tools/github-loader': 8.0.1(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/github-loader': 8.0.1(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/graphql-file-loader': 8.0.1(graphql@16.11.0)
       '@graphql-tools/json-file-loader': 8.0.1(graphql@16.11.0)
       '@graphql-tools/load': 8.0.2(graphql@16.11.0)
-      '@graphql-tools/prisma-loader': 8.0.3(@types/node@20.14.2)(graphql@16.11.0)
-      '@graphql-tools/url-loader': 8.0.2(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/prisma-loader': 8.0.3(@types/node@24.12.2)(graphql@16.11.0)
+      '@graphql-tools/url-loader': 8.0.2(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       '@whatwg-node/fetch': 0.8.8
       chalk: 4.1.2
@@ -5241,7 +5241,7 @@ packages:
       debounce: 1.2.1
       detect-indent: 6.1.0
       graphql: 16.11.0
-      graphql-config: 5.0.3(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.9.3)
+      graphql-config: 5.0.3(@types/node@24.12.2)(graphql@16.11.0)(typescript@5.9.3)
       inquirer: 8.2.6
       is-glob: 4.0.3
       jiti: 1.21.0
@@ -5531,7 +5531,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /@graphql-tools/executor-http@1.0.9(@types/node@20.14.2)(graphql@16.11.0):
+  /@graphql-tools/executor-http@1.0.9(@types/node@24.12.2)(graphql@16.11.0):
     resolution: {integrity: sha512-+NXaZd2MWbbrWHqU4EhXcrDbogeiCDmEbrAN+rMn4Nu2okDjn2MTFDbTIab87oEubQCH4Te1wDkWPKrzXup7+Q==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -5542,7 +5542,7 @@ packages:
       '@whatwg-node/fetch': 0.9.17
       extract-files: 11.0.0
       graphql: 16.11.0
-      meros: 1.3.0(@types/node@20.14.2)
+      meros: 1.3.0(@types/node@24.12.2)
       tslib: 2.8.1
       value-or-promise: 1.0.12
     transitivePeerDependencies:
@@ -5597,14 +5597,14 @@ packages:
       - supports-color
     dev: true
 
-  /@graphql-tools/github-loader@8.0.1(@types/node@20.14.2)(graphql@16.11.0):
+  /@graphql-tools/github-loader@8.0.1(@types/node@24.12.2)(graphql@16.11.0):
     resolution: {integrity: sha512-W4dFLQJ5GtKGltvh/u1apWRFKBQOsDzFxO9cJkOYZj1VzHCpRF43uLST4VbCfWve+AwBqOuKr7YgkHoxpRMkcg==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
       graphql: 16.11.0
     dependencies:
       '@ardatan/sync-fetch': 0.0.1
-      '@graphql-tools/executor-http': 1.0.9(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/executor-http': 1.0.9(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/graphql-tag-pluck': 8.3.0(graphql@16.11.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       '@whatwg-node/fetch': 0.9.17
@@ -5708,14 +5708,14 @@ packages:
       tslib: 2.8.1
     dev: true
 
-  /@graphql-tools/prisma-loader@8.0.3(@types/node@20.14.2)(graphql@16.11.0):
+  /@graphql-tools/prisma-loader@8.0.3(@types/node@24.12.2)(graphql@16.11.0):
     resolution: {integrity: sha512-oZhxnMr3Jw2WAW1h9FIhF27xWzIB7bXWM8olz4W12oII4NiZl7VRkFw9IT50zME2Bqi9LGh9pkmMWkjvbOpl+Q==}
     engines: {node: '>=16.0.0'}
     deprecated: 'This package was intended to be used with an older versions of Prisma.\nThe newer versions of Prisma has a different approach to GraphQL integration.\nTherefore, this package is no longer needed and has been deprecated and removed.\nLearn more: https://www.prisma.io/graphql'
     peerDependencies:
       graphql: 16.11.0
     dependencies:
-      '@graphql-tools/url-loader': 8.0.2(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/url-loader': 8.0.2(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       '@types/js-yaml': 4.0.9
       '@types/json-stable-stringify': 1.0.36
@@ -5770,7 +5770,7 @@ packages:
       value-or-promise: 1.0.12
     dev: true
 
-  /@graphql-tools/url-loader@8.0.2(@types/node@20.14.2)(graphql@16.11.0):
+  /@graphql-tools/url-loader@8.0.2(@types/node@24.12.2)(graphql@16.11.0):
     resolution: {integrity: sha512-1dKp2K8UuFn7DFo1qX5c1cyazQv2h2ICwA9esHblEqCYrgf69Nk8N7SODmsfWg94OEaI74IqMoM12t7eIGwFzQ==}
     engines: {node: '>=16.0.0'}
     peerDependencies:
@@ -5779,7 +5779,7 @@ packages:
       '@ardatan/sync-fetch': 0.0.1
       '@graphql-tools/delegate': 10.0.11(graphql@16.11.0)
       '@graphql-tools/executor-graphql-ws': 1.1.2(graphql@16.11.0)
-      '@graphql-tools/executor-http': 1.0.9(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/executor-http': 1.0.9(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/executor-legacy-ws': 1.0.6(graphql@16.11.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       '@graphql-tools/wrap': 10.0.5(graphql@16.11.0)
@@ -6554,7 +6554,7 @@ packages:
       magic-string: 0.27.0
       react-docgen-typescript: 2.4.0(typescript@5.9.3)
       typescript: 5.9.3
-      vite: 5.4.21(@types/node@20.14.2)
+      vite: 5.4.21(@types/node@24.12.2)
     dev: true
 
   /@jridgewell/gen-mapping@0.3.13:
@@ -6929,27 +6929,27 @@ packages:
       - supports-color
     dev: false
 
-  /@microsoft/api-extractor-model@7.30.7(@types/node@20.14.2):
+  /@microsoft/api-extractor-model@7.30.7(@types/node@24.12.2):
     resolution: {integrity: sha512-TBbmSI2/BHpfR9YhQA7nH0nqVmGgJ0xH0Ex4D99/qBDAUpnhA2oikGmdXanbw9AWWY/ExBYIpkmY8dBHdla3YQ==}
     dependencies:
       '@microsoft/tsdoc': 0.15.1
       '@microsoft/tsdoc-config': 0.17.1
-      '@rushstack/node-core-library': 5.14.0(@types/node@20.14.2)
+      '@rushstack/node-core-library': 5.14.0(@types/node@24.12.2)
     transitivePeerDependencies:
       - '@types/node'
     dev: true
 
-  /@microsoft/api-extractor@7.52.13(@types/node@20.14.2):
+  /@microsoft/api-extractor@7.52.13(@types/node@24.12.2):
     resolution: {integrity: sha512-K6/bBt8zZfn9yc06gNvA+/NlBGJC/iJlObpdufXHEJtqcD4Dln4ITCLZpwP3DNZ5NyBFeTkKdv596go3V72qlA==}
     hasBin: true
     dependencies:
-      '@microsoft/api-extractor-model': 7.30.7(@types/node@20.14.2)
+      '@microsoft/api-extractor-model': 7.30.7(@types/node@24.12.2)
       '@microsoft/tsdoc': 0.15.1
       '@microsoft/tsdoc-config': 0.17.1
-      '@rushstack/node-core-library': 5.14.0(@types/node@20.14.2)
+      '@rushstack/node-core-library': 5.14.0(@types/node@24.12.2)
       '@rushstack/rig-package': 0.5.3
-      '@rushstack/terminal': 0.16.0(@types/node@20.14.2)
-      '@rushstack/ts-command-line': 5.0.3(@types/node@20.14.2)
+      '@rushstack/terminal': 0.16.0(@types/node@24.12.2)
+      '@rushstack/ts-command-line': 5.0.3(@types/node@24.12.2)
       lodash: 4.17.21
       minimatch: 10.0.3
       resolve: 1.22.12
@@ -8445,7 +8445,7 @@ packages:
     resolution: {integrity: sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==}
     dev: true
 
-  /@rushstack/node-core-library@5.14.0(@types/node@20.14.2):
+  /@rushstack/node-core-library@5.14.0(@types/node@24.12.2):
     resolution: {integrity: sha512-eRong84/rwQUlATGFW3TMTYVyqL1vfW9Lf10PH+mVGfIb9HzU3h5AASNIw+axnBLjnD0n3rT5uQBwu9fvzATrg==}
     peerDependencies:
       '@types/node': '*'
@@ -8453,7 +8453,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 24.12.2
       ajv: 8.13.0
       ajv-draft-04: 1.0.0(ajv@8.13.0)
       ajv-formats: 3.0.1(ajv@8.13.0)
@@ -8471,7 +8471,7 @@ packages:
       strip-json-comments: 3.1.1
     dev: true
 
-  /@rushstack/terminal@0.16.0(@types/node@20.14.2):
+  /@rushstack/terminal@0.16.0(@types/node@24.12.2):
     resolution: {integrity: sha512-WEvNuKkoR1PXorr9SxO0dqFdSp1BA+xzDrIm/Bwlc5YHg2FFg6oS+uCTYjerOhFuqCW+A3vKBm6EmKWSHfgx/A==}
     peerDependencies:
       '@types/node': '*'
@@ -8479,15 +8479,15 @@ packages:
       '@types/node':
         optional: true
     dependencies:
-      '@rushstack/node-core-library': 5.14.0(@types/node@20.14.2)
-      '@types/node': 20.14.2
+      '@rushstack/node-core-library': 5.14.0(@types/node@24.12.2)
+      '@types/node': 24.12.2
       supports-color: 8.1.1
     dev: true
 
-  /@rushstack/ts-command-line@5.0.3(@types/node@20.14.2):
+  /@rushstack/ts-command-line@5.0.3(@types/node@24.12.2):
     resolution: {integrity: sha512-bgPhQEqLVv/2hwKLYv/XvsTWNZ9B/+X1zJ7WgQE9rO5oiLzrOZvkIW4pk13yOQBhHyjcND5qMOa6p83t+Z66iQ==}
     dependencies:
-      '@rushstack/terminal': 0.16.0(@types/node@20.14.2)
+      '@rushstack/terminal': 0.16.0(@types/node@24.12.2)
       '@types/argparse': 1.0.38
       argparse: 1.0.10
       string-argv: 0.3.2
@@ -10445,7 +10445,7 @@ packages:
       browser-assert: 1.2.1
       storybook: 8.6.18(prettier@3.8.3)
       ts-dedent: 2.2.0
-      vite: 5.4.21(@types/node@20.14.2)
+      vite: 5.4.21(@types/node@24.12.2)
     dev: true
 
   /@storybook/components@8.6.18(storybook@8.6.18):
@@ -10560,7 +10560,7 @@ packages:
       resolve: 1.22.12
       storybook: 8.6.18(prettier@3.8.3)
       tsconfig-paths: 4.2.0
-      vite: 5.4.21(@types/node@20.14.2)
+      vite: 5.4.21(@types/node@24.12.2)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -10781,7 +10781,7 @@ packages:
       '@tailwindcss/node': 4.2.2
       '@tailwindcss/oxide': 4.2.2
       tailwindcss: 4.2.2
-      vite: 5.4.21(@types/node@20.14.2)
+      vite: 5.4.21(@types/node@24.12.2)
     dev: true
 
   /@tanstack/query-core@5.99.0:
@@ -10870,8 +10870,8 @@ packages:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
 
-  /@tsconfig/node20@20.1.4:
-    resolution: {integrity: sha512-sqgsT69YFeLWf5NtJ4Xq/xAF8p4ZQHlmGW74Nu2tD4+g5fAsposc4ZfaaPixVu4y01BEiDCWLRDCvDM5JOsRxg==}
+  /@tsconfig/node20@20.1.9:
+    resolution: {integrity: sha512-IjlTv1RsvnPtUcjTqtVsZExKVq+KQx4g5pCP5tI7rAs6Xesl2qFwSz/tPDBC4JajkL/MlezBu3gPUwqRHl+RIg==}
     dev: true
 
   /@turbo/darwin-64@2.9.6:
@@ -10890,7 +10890,7 @@ packages:
     dev: true
     optional: true
 
-  /@turbo/gen@2.0.11(@types/node@20.14.2)(typescript@5.9.3):
+  /@turbo/gen@2.0.11(@types/node@24.12.2)(typescript@5.9.3):
     resolution: {integrity: sha512-9F2JvM2hwpPtTZii5CESVQZFquVlpEKM1F2JOQgyBnmuhyCylI7s/oz/v/G/reu8zO9NQy22MashkgUCpyV9Zg==}
     hasBin: true
     dependencies:
@@ -10902,7 +10902,7 @@ packages:
       node-plop: 0.26.3
       picocolors: 1.0.1
       proxy-agent: 6.4.0
-      ts-node: 10.9.2(@types/node@20.14.2)(typescript@5.9.3)
+      ts-node: 10.9.2(@types/node@24.12.2)(typescript@5.9.3)
       update-check: 1.5.4
       validate-npm-package-name: 5.0.1
     transitivePeerDependencies:
@@ -11385,6 +11385,11 @@ packages:
     resolution: {integrity: sha512-xyu6WAMVwv6AKFLB+e/7ySZVr/0zLCzOa7rSpq6jNwpqOrUbcACDWC+53d4n2QHOnDou0fbIsg8wZu/sxrnI4Q==}
     dependencies:
       undici-types: 5.26.5
+
+  /@types/node@24.12.2:
+    resolution: {integrity: sha512-A1sre26ke7HDIuY/M23nd9gfB+nrmhtYyMINbjI1zHJxYteKR6qSMX56FsmjMcDb3SMcjJg5BiRRgOCC/yBD0g==}
+    dependencies:
+      undici-types: 7.16.0
 
   /@types/node@8.10.66:
     resolution: {integrity: sha512-tktOkFUA4kXx2hhhrB8bIFb5TbwzS4uOhKEmwiD+NoiL0qtP2OQ9mFldbgD4dV1djrlBYP6eBuQZiWjuHUpqFw==}
@@ -12209,7 +12214,7 @@ packages:
       std-env: 3.10.0
       strip-literal: 2.1.1
       test-exclude: 6.0.0
-      vitest: 1.6.1(@types/node@20.14.2)
+      vitest: 1.6.1(@types/node@24.12.2)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -14744,7 +14749,7 @@ packages:
       sha.js: 2.4.11
     dev: true
 
-  /create-jest@29.7.0(@types/node@20.14.2):
+  /create-jest@29.7.0(@types/node@24.12.2):
     resolution: {integrity: sha512-Adz2bdH0Vq3F53KEMJOoftQFutWCukm6J24wbPWRO4k1kMY7gS7ds/uoJkNuV8wDCtWWnuwGcJwpWcih+zEW1Q==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -14753,7 +14758,7 @@ packages:
       chalk: 4.1.2
       exit: 0.1.2
       graceful-fs: 4.2.11
-      jest-config: 29.7.0(@types/node@20.14.2)
+      jest-config: 29.7.0(@types/node@24.12.2)
       jest-util: 29.7.0
       prompts: 2.4.2
     transitivePeerDependencies:
@@ -16785,7 +16790,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 7.18.0(@typescript-eslint/parser@7.18.0)(eslint@8.57.0)(typescript@5.9.3)
       '@typescript-eslint/utils': 7.18.0(eslint@8.57.0)(typescript@5.9.3)
       eslint: 8.57.0
-      vitest: 1.6.1(@types/node@20.14.2)
+      vitest: 1.6.1(@types/node@24.12.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -18162,7 +18167,7 @@ packages:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
 
-  /graphql-config@5.0.3(@types/node@20.14.2)(graphql@16.11.0)(typescript@5.9.3):
+  /graphql-config@5.0.3(@types/node@24.12.2)(graphql@16.11.0)(typescript@5.9.3):
     resolution: {integrity: sha512-BNGZaoxIBkv9yy6Y7omvsaBUHOzfFcII3UN++tpH8MGOKFPFkCPZuwx09ggANMt8FgyWP1Od8SWPmrUEZca4NQ==}
     engines: {node: '>= 16.0.0'}
     peerDependencies:
@@ -18176,7 +18181,7 @@ packages:
       '@graphql-tools/json-file-loader': 8.0.1(graphql@16.11.0)
       '@graphql-tools/load': 8.0.2(graphql@16.11.0)
       '@graphql-tools/merge': 9.0.3(graphql@16.11.0)
-      '@graphql-tools/url-loader': 8.0.2(@types/node@20.14.2)(graphql@16.11.0)
+      '@graphql-tools/url-loader': 8.0.2(@types/node@24.12.2)(graphql@16.11.0)
       '@graphql-tools/utils': 10.8.6(graphql@16.11.0)
       cosmiconfig: 8.3.6(typescript@5.9.3)
       graphql: 16.11.0
@@ -19634,7 +19639,7 @@ packages:
       - supports-color
     dev: false
 
-  /jest-cli@29.7.0(@types/node@20.14.2):
+  /jest-cli@29.7.0(@types/node@24.12.2):
     resolution: {integrity: sha512-OVVobw2IubN/GSYsxETi+gOe7Ka59EFMR/twOU3Jb2GnKKeMGJB5SGUUrEz3SFVmJASUdZUzy83sLNNQ2gZslg==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -19648,10 +19653,10 @@ packages:
       '@jest/test-result': 29.7.0
       '@jest/types': 29.6.3
       chalk: 4.1.2
-      create-jest: 29.7.0(@types/node@20.14.2)
+      create-jest: 29.7.0(@types/node@24.12.2)
       exit: 0.1.2
       import-local: 3.1.0
-      jest-config: 29.7.0(@types/node@20.14.2)
+      jest-config: 29.7.0(@types/node@24.12.2)
       jest-util: 29.7.0
       jest-validate: 29.7.0
       yargs: 17.7.2
@@ -19678,6 +19683,46 @@ packages:
       '@jest/test-sequencer': 29.7.0
       '@jest/types': 29.6.3
       '@types/node': 20.14.2
+      babel-jest: 29.7.0(@babel/core@7.29.0)
+      chalk: 4.1.2
+      ci-info: 3.9.0
+      deepmerge: 4.3.1
+      glob: 7.2.3
+      graceful-fs: 4.2.11
+      jest-circus: 29.7.0
+      jest-environment-node: 29.7.0
+      jest-get-type: 29.6.3
+      jest-regex-util: 29.6.3
+      jest-resolve: 29.7.0
+      jest-runner: 29.7.0
+      jest-util: 29.7.0
+      jest-validate: 29.7.0
+      micromatch: 4.0.8
+      parse-json: 5.2.0
+      pretty-format: 29.7.0
+      slash: 3.0.0
+      strip-json-comments: 3.1.1
+    transitivePeerDependencies:
+      - babel-plugin-macros
+      - supports-color
+    dev: false
+
+  /jest-config@29.7.0(@types/node@24.12.2):
+    resolution: {integrity: sha512-uXbpfeQ7R6TZBqI3/TxCU4q4ttk3u0PJeC+E0zbfSoSjq6bJ7buBPxzQPL0ifrkY4DNu4JUdk0ImlBUYi840eQ==}
+    engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
+    peerDependencies:
+      '@types/node': '*'
+      ts-node: '>=9.0.0'
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      ts-node:
+        optional: true
+    dependencies:
+      '@babel/core': 7.29.0
+      '@jest/test-sequencer': 29.7.0
+      '@jest/types': 29.6.3
+      '@types/node': 24.12.2
       babel-jest: 29.7.0(@babel/core@7.29.0)
       chalk: 4.1.2
       ci-info: 3.9.0
@@ -19985,7 +20030,7 @@ packages:
       supports-color: 8.1.1
     dev: false
 
-  /jest@29.7.0(@types/node@20.14.2):
+  /jest@29.7.0(@types/node@24.12.2):
     resolution: {integrity: sha512-NIy3oAFp9shda19hy4HK0HRTWKtPJmGdnvywu01nOqNC2vZg+Z+fvJDxpMQA88eb2I9EcafcdjYgsDthnYTvGw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     hasBin: true
@@ -19998,7 +20043,7 @@ packages:
       '@jest/core': 29.7.0
       '@jest/types': 29.6.3
       import-local: 3.1.0
-      jest-cli: 29.7.0(@types/node@20.14.2)
+      jest-cli: 29.7.0(@types/node@24.12.2)
     transitivePeerDependencies:
       - '@types/node'
       - babel-plugin-macros
@@ -21101,7 +21146,7 @@ packages:
       uuid: 11.1.0
     dev: false
 
-  /meros@1.3.0(@types/node@20.14.2):
+  /meros@1.3.0(@types/node@24.12.2):
     resolution: {integrity: sha512-2BNGOimxEz5hmjUG2FwoxCt5HN7BXdaWyFqEwxPTrJzVdABtrL4TiHTcsWSFAxPQ/tOnEaQEJh3qWq71QRMY+w==}
     engines: {node: '>=13'}
     peerDependencies:
@@ -21110,7 +21155,7 @@ packages:
       '@types/node':
         optional: true
     dependencies:
-      '@types/node': 20.14.2
+      '@types/node': 24.12.2
     dev: true
 
   /mhchemparser@4.2.1:
@@ -25583,7 +25628,7 @@ packages:
       ejs: 3.1.10
       esbuild: 0.25.2
       fast-json-stable-stringify: 2.1.0
-      jest: 29.7.0(@types/node@20.14.2)
+      jest: 29.7.0(@types/node@24.12.2)
       jest-util: 29.7.0
       json5: 2.2.3
       lodash.memoize: 4.1.2
@@ -25629,7 +25674,7 @@ packages:
       yn: 3.1.1
     dev: true
 
-  /ts-node@10.9.2(@types/node@20.14.2)(typescript@5.9.3):
+  /ts-node@10.9.2(@types/node@24.12.2)(typescript@5.9.3):
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
     hasBin: true
     peerDependencies:
@@ -25648,7 +25693,7 @@ packages:
       '@tsconfig/node12': 1.0.11
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
-      '@types/node': 20.14.2
+      '@types/node': 24.12.2
       acorn: 8.16.0
       acorn-walk: 8.3.2
       arg: 4.1.3
@@ -26030,6 +26075,9 @@ packages:
 
   /undici-types@5.26.5:
     resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+
+  /undici-types@7.16.0:
+    resolution: {integrity: sha512-Zz+aZWSj8LE6zoxD+xrjh4VfkIG8Ya6LvYkZqtUQGJPZjYl53ypCaUwWqo7eI0x66KBGeRo+mlBEkMSeSZ38Nw==}
 
   /undici-types@7.25.0:
     resolution: {integrity: sha512-AXNgS1Byr27fTI+2bsPEkV9CxkT8H6xNyRI68b3TatlZo3RkzlqQBLL+w7SmGPVpokjHbcuNVQUWE7FRTg+LRA==}
@@ -26646,6 +26694,28 @@ packages:
       - sugarss
       - supports-color
       - terser
+    dev: true
+
+  /vite-node@1.6.1(@types/node@24.12.2):
+    resolution: {integrity: sha512-YAXkfvGtuTzwWbDSACdJSg4A4DZiAqckWe90Zapc/sEX3XvHcw1NdurM/6od8J207tSDqNbSsgdCacBgvJKFuA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    dependencies:
+      cac: 6.7.14
+      debug: 4.4.3(supports-color@8.1.1)
+      pathe: 1.1.2
+      picocolors: 1.1.1
+      vite: 5.4.21(@types/node@24.12.2)
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
 
   /vite-tsconfig-paths@4.3.2(typescript@5.9.3):
     resolution: {integrity: sha512-0Vd/a6po6Q+86rPlntHye7F31zA2URZMbH8M3saAZ/xR9QoGN/L21bxEGfXdWmFdNkqPpRdxFT7nmNe12e9/uA==}
@@ -26700,6 +26770,45 @@ packages:
       rollup: 4.44.2
     optionalDependencies:
       fsevents: 2.3.3
+    dev: true
+
+  /vite@5.4.21(@types/node@24.12.2):
+    resolution: {integrity: sha512-o5a9xKjbtuhY6Bi5S3+HvbRERmouabWbyUcpXXUA1u+GNUKoROi9byOJ8M0nHbHYHkYICiMlqxkg1KkYmm25Sw==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      sass-embedded: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      sass-embedded:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      '@types/node': 24.12.2
+      esbuild: 0.21.5
+      postcss: 8.5.6
+      rollup: 4.44.2
+    optionalDependencies:
+      fsevents: 2.3.3
 
   /vitest@1.6.1(@types/node@20.14.2):
     resolution: {integrity: sha512-Ljb1cnSJSivGN0LqXd/zmDbWEM0RNNg2t1QW/XUhYl/qPqyu7CsqeWtqQXHVaJsecLPuDoak2oJcZN2QoRIOag==}
@@ -26746,6 +26855,63 @@ packages:
       tinypool: 0.8.4
       vite: 5.4.21(@types/node@20.14.2)
       vite-node: 1.6.1(@types/node@20.14.2)
+      why-is-node-running: 2.3.0
+    transitivePeerDependencies:
+      - less
+      - lightningcss
+      - sass
+      - sass-embedded
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
+  /vitest@1.6.1(@types/node@24.12.2):
+    resolution: {integrity: sha512-Ljb1cnSJSivGN0LqXd/zmDbWEM0RNNg2t1QW/XUhYl/qPqyu7CsqeWtqQXHVaJsecLPuDoak2oJcZN2QoRIOag==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@edge-runtime/vm': '*'
+      '@types/node': ^18.0.0 || >=20.0.0
+      '@vitest/browser': 1.6.1
+      '@vitest/ui': 1.6.1
+      happy-dom: '*'
+      jsdom: '*'
+    peerDependenciesMeta:
+      '@edge-runtime/vm':
+        optional: true
+      '@types/node':
+        optional: true
+      '@vitest/browser':
+        optional: true
+      '@vitest/ui':
+        optional: true
+      happy-dom:
+        optional: true
+      jsdom:
+        optional: true
+    dependencies:
+      '@types/node': 24.12.2
+      '@vitest/expect': 1.6.1
+      '@vitest/runner': 1.6.1
+      '@vitest/snapshot': 1.6.1
+      '@vitest/spy': 1.6.1
+      '@vitest/utils': 1.6.1
+      acorn-walk: 8.3.2
+      chai: 4.5.0
+      debug: 4.4.3(supports-color@8.1.1)
+      execa: 8.0.1
+      local-pkg: 0.5.1
+      magic-string: 0.30.21
+      pathe: 1.1.2
+      picocolors: 1.1.1
+      std-env: 3.10.0
+      strip-literal: 2.1.1
+      tinybench: 2.9.0
+      tinypool: 0.8.4
+      vite: 5.4.21(@types/node@24.12.2)
+      vite-node: 1.6.1(@types/node@24.12.2)
       why-is-node-running: 2.3.0
     transitivePeerDependencies:
       - less
