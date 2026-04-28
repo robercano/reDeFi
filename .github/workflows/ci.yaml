@@ -77,7 +77,7 @@ jobs:
           max-size: 10gb
           cache-prefix: turbogha_
           provider: s3
-          s3-bucket: staging-turbo-monorepo
+          s3-bucket: staging-redefi-monorepo
           s3-region: eu-north-1
           s3-prefix: monorepo-cache/
           s3-endpoint: https://s3.amazonaws.com
@@ -98,20 +98,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Format
-        run: pnpm format
-
-      - name: Lint
-        run: pnpm lint
-
-      - name: Build
-        run: pnpm build
-
-      - name: Test (Unit)
-        run: pnpm test
-
-      - name: Coverage
-        run: pnpm coverage:total
+      - name: CI Check
+        run: pnpm run cicheck
 
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v4
