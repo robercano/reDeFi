@@ -1,3 +1,4 @@
+import { expect } from 'vitest'
 import { makeSDK } from '../../src/implementation/MakeSDK'
 
 export default async function makeSDKTest() {

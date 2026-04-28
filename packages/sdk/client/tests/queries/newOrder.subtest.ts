@@ -26,6 +26,7 @@ import {
   IPositionsManager,
   Order,
 } from '@thesolidchain/sdk-common'
+import { vi, expect } from 'vitest'
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { UserClient } from '../../src/implementation/UserClient'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
@@ -147,7 +148,7 @@ export default async function simulateNewOrder() {
   let userClient: UserClient | undefined = undefined
 
   type BuildOrderType = RPCMainClientType['orders']['buildOrder']['mutate']
-  const buildOrder: BuildOrderType = jest.fn(async (params) => {
+  const buildOrder: BuildOrderType = vi.fn(async (params) => {
     expect(params).toBeDefined()
     expect(params.positionsManager).toBeDefined()
     expect(params.user).toBeDefined()
@@ -182,6 +183,6 @@ export default async function simulateNewOrder() {
   const order: Maybe<Order> = await userClient.newOrder({ simulation, positionsManager })
 
   if (!order) {
-    fail('Order not generated')
+    expect.fail('Order not generated')
   }
 }

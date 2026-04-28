@@ -1,12 +1,13 @@
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
 import { Address, AddressType, Token } from '@thesolidchain/sdk-common'
+import { vi, expect } from 'vitest'
 import assert from 'assert'
 
 export default async function getTokenBySymbol() {
   type GetTokenBySymbolType = RPCMainClientType['tokens']['getTokenBySymbol']['query']
 
-  const getTokenBySymbolQuery: GetTokenBySymbolType = jest.fn(async (params) => {
+  const getTokenBySymbolQuery: GetTokenBySymbolType = vi.fn(async (params) => {
     expect(params).toBeDefined()
     expect(params.chainInfo).toBeDefined()
     expect(params.symbol).toBeDefined()
@@ -40,7 +41,7 @@ export default async function getTokenBySymbol() {
   })
 
   if (!chain) {
-    fail('Chain not found')
+    expect.fail('Chain not found')
   }
 
   const token = await chain.tokens.getTokenBySymbol({ symbol: 'USDC' })

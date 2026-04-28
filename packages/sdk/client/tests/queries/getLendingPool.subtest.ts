@@ -8,15 +8,16 @@ import {
 import { Address, ChainFamilyMap, PoolType, ProtocolName, Token } from '@thesolidchain/sdk-common'
 import { SDKManager } from '../../src/implementation/SDKManager'
 import { RPCMainClientType } from '../../src/rpc/SDKMainClient'
+import { vi, expect } from 'vitest'
 
 export default async function getLendingPoolTest() {
   type GetLendingPoolType = RPCMainClientType['protocols']['getLendingPool']['query']
 
-  const getLendingPoolQuery: GetLendingPoolType = jest.fn(async (poolId) => {
+  const getLendingPoolQuery: GetLendingPoolType = vi.fn(async (poolId) => {
     expect(poolId).toBeDefined()
 
     if (!isMakerLendingPoolId(poolId)) {
-      fail('PoolId is not MakerPoolId')
+      expect.fail('PoolId is not MakerPoolId')
     }
 
     expect(poolId.protocol).toBeDefined()
@@ -46,7 +47,7 @@ export default async function getLendingPoolTest() {
   })
 
   if (!chain) {
-    fail('Chain not found')
+    expect.fail('Chain not found')
   }
 
   const protocol = MakerProtocol.createFrom({
@@ -81,7 +82,7 @@ export default async function getLendingPoolTest() {
   const pool = await chain.protocols.getLendingPool({ poolId: makerPoolId })
 
   if (!pool) {
-    fail('Pool not found')
+    expect.fail('Pool not found')
   }
 
   expect(pool.type).toBe(PoolType.Lending)

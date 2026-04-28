@@ -3,7 +3,7 @@
 export default $config({
   async app(input) {
     const { isPersistentStage } = await import('./apps/sdk-infra/sst-utils')
-    
+
     return {
       name: 'sdk-sst',
       removal: isPersistentStage(input?.stage || '') ? 'retain' : 'remove',
@@ -22,7 +22,7 @@ export default $config({
 
     // Load bundle package details
     const { version: clientVersion } = await import('./packages/sdk/client/bundle/package.json')
-    
+
     if (!deployedVersions.includes(clientVersion)) {
       throw new Error(
         `Client version ${clientVersion} is not in the list of deployed versions: ${deployedVersions.join(', ')}. Please update SDK_DEPLOYED_VERSIONS_MAP var in GitHub environment with a newly deployed version to allow deployment.`,
@@ -35,17 +35,17 @@ export default $config({
       enforceHttps: true,
     })
 
-    // Create the generic Authorizer Lambda 
-    const sdkAuthorizer = new sst.aws.Function("SdkAuthorizer", {
-      handler: "apps/api-authorizer/src/index.handler",
-      runtime: "nodejs22.x",
+    // Create the generic Authorizer Lambda
+    const sdkAuthorizer = new sst.aws.Function('SdkAuthorizer', {
+      handler: 'apps/api-authorizer/src/index.handler',
+      runtime: 'nodejs22.x',
       environment: {
         SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',
       },
       logging: {
         format: 'json',
         retention: production ? '1 month' : '1 day',
-      }
+      },
     })
 
     // ApiGateway with custom lambda authorizer attached globally
@@ -56,12 +56,12 @@ export default $config({
     })
 
     const apiKeyAuthorizer = sdkGateway.addAuthorizer({
-      name: "apiKeyAuthorizer",
+      name: 'apiKeyAuthorizer',
       lambda: {
         function: sdkAuthorizer.arn,
-        identitySources: ["$request.header.x-api-key"],
-        response: "simple"
-      }
+        identitySources: ['$request.header.x-api-key'],
+        response: 'simple',
+      },
     })
 
     const tokensTable = new sst.aws.Dynamo('TokensTable', {
@@ -78,7 +78,6 @@ export default $config({
     const cacheTable = new sst.aws.Dynamo('CacheTable', {
       fields: {
         id: 'string',
-        expiresAt: 'number',
       },
       primaryIndex: { hashKey: 'id' },
       ttl: 'expiresAt',
@@ -95,7 +94,7 @@ export default $config({
     })
 
     const backendUrls: $util.Output<string>[] = []
-    
+
     for (const version of deployedVersions) {
       try {
         const result = await createBackend({
