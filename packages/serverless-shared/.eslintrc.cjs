@@ -6,4 +6,5 @@ module.exports = {
   parserOptions: {
     project: true,
   },
+  ignorePatterns: ["vitest.config.ts", "vitest.config.js", "vitest.config.d.ts", "dist/", ".eslintrc.cjs"],
 }

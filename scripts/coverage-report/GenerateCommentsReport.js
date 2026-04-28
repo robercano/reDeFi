@@ -102,7 +102,15 @@ Object.keys(coverage).forEach(mod => {
 if (totalCount > 0) {
   const totalPct = ((totalDoc / totalCount) * 100).toFixed(2)
   md += `| **TOTAL** | **${totalCount}** | **${totalDoc}** | **${totalPct}%** |\n`
-}
+  
+  fs.writeFileSync(outputPath, md, 'utf8')
+  console.log(`Markdown comments coverage report successfully written to ${outputPath}`)
 
-fs.writeFileSync(outputPath, md, 'utf8')
-console.log(`Markdown comments coverage report successfully written to ${outputPath}`)
+  if (Number(totalPct) < 30) {
+    console.error(`\n[!] ERROR: Total comment coverage is ${totalPct}%, which is below the required 30%.`)
+    process.exit(1)
+  }
+} else {
+  fs.writeFileSync(outputPath, md, 'utf8')
+  console.log(`Markdown comments coverage report successfully written to ${outputPath}`)
+}

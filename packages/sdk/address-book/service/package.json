@@ -12,7 +12,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run=true",
+    "test": "vitest run",
     "testw": "vitest watch",
     "e2e": "vitest run e2e/",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
