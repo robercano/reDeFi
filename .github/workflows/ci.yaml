@@ -1,0 +1,118 @@
+name: CI
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Build, Lint, and Test
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    env:
+      AWS_PROFILE: ${{ secrets.AWS_PROFILE }}
+      AWS_REGION: ${{ secrets.AWS_REGION }}
+      POWERTOOLS_LOG_LEVEL: ${{ secrets.POWERTOOLS_LOG_LEVEL }}
+      SST_USER: ${{ secrets.SST_USER }}
+      ENVIRONMENT_TAG: ${{ secrets.ENVIRONMENT_TAG }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+      NEXT_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_API_KEY }}
+      SDK_DEPLOYED_VERSIONS_MAP: ${{ secrets.SDK_DEPLOYED_VERSIONS_MAP }}
+      SDK_RPC_GATEWAY: ${{ secrets.SDK_RPC_GATEWAY }}
+      SDK_API_KEY: ${{ secrets.SDK_API_KEY }}
+      SDK_DEBUG_ENABLED: ${{ secrets.SDK_DEBUG_ENABLED }}
+      COINGECKO_API_URL: ${{ secrets.COINGECKO_API_URL }}
+      COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+      COINGECKO_API_VERSION: ${{ secrets.COINGECKO_API_VERSION }}
+      COINGECKO_API_AUTH_HEADER: ${{ secrets.COINGECKO_API_AUTH_HEADER }}
+      COINGECKO_SUPPORTED_CHAIN_IDS: ${{ secrets.COINGECKO_SUPPORTED_CHAIN_IDS }}
+      ONE_INCH_API_SPOT_URL: ${{ secrets.ONE_INCH_API_SPOT_URL }}
+      ONE_INCH_API_SPOT_KEY: ${{ secrets.ONE_INCH_API_SPOT_KEY }}
+      ONE_INCH_API_SPOT_VERSION: ${{ secrets.ONE_INCH_API_SPOT_VERSION }}
+      ONE_INCH_API_SPOT_AUTH_HEADER: ${{ secrets.ONE_INCH_API_SPOT_AUTH_HEADER }}
+      ONE_INCH_API_SPOT_CHAIN_IDS: ${{ vars.ONE_INCH_API_SPOT_CHAIN_IDS }}
+      ONE_INCH_API_URL: ${{ secrets.ONE_INCH_API_URL }}
+      ONE_INCH_API_KEY: ${{ secrets.ONE_INCH_API_KEY }}
+      ONE_INCH_API_VERSION: ${{ secrets.ONE_INCH_API_VERSION }}
+      ONE_INCH_API_AUTH_HEADER: ${{ secrets.ONE_INCH_API_AUTH_HEADER }}
+      ONE_INCH_SWAP_CHAIN_IDS: ${{ secrets.ONE_INCH_SWAP_CHAIN_IDS }}
+      ONE_INCH_ALLOWED_SWAP_PROTOCOLS: ${{ secrets.ONE_INCH_ALLOWED_SWAP_PROTOCOLS }}
+      ONE_INCH_EXCLUDED_SWAP_PROTOCOLS: ${{ secrets.ONE_INCH_EXCLUDED_SWAP_PROTOCOLS }}
+      COW_SWAP_API_URL: ${{ secrets.COW_SWAP_API_URL }}
+      COW_SWAP_API_KEY: ${{ secrets.COW_SWAP_API_KEY }}
+      COW_SWAP_API_VERSION: ${{ secrets.COW_SWAP_API_VERSION }}
+      COW_SWAP_API_AUTH_HEADER: ${{ secrets.COW_SWAP_API_AUTH_HEADER }}
+      COW_SWAP_SUPPORTED_CHAIN_IDS: ${{ secrets.COW_SWAP_SUPPORTED_CHAIN_IDS }}
+      TENDERLY_PROJECT: ${{ secrets.TENDERLY_PROJECT }}
+      TENDERLY_USER: ${{ secrets.TENDERLY_USER }}
+      TENDERLY_ACCESS_KEY: ${{ secrets.TENDERLY_ACCESS_KEY }}
+      E2E_USER_ADDRESS: ${{ secrets.E2E_USER_ADDRESS }}
+      E2E_USER_PRIVATE_KEY: ${{ secrets.E2E_USER_PRIVATE_KEY }}
+      TEST_USER_ADDRESS: ${{ secrets.TEST_USER_ADDRESS }}
+      TEST_USER_PRIVATE_KEY: ${{ secrets.TEST_USER_PRIVATE_KEY }}
+      DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
+      E2E_SDK_API_URL: ${{ secrets.E2E_SDK_API_URL }}
+      E2E_SDK_FORK_URL: ${{ secrets.E2E_SDK_FORK_URL }}
+      E2E_SDK_FORK_URL_MAINNET: ${{ secrets.MAINNET_RPC_URL }}
+      E2E_SDK_FORK_URL_BASE: ${{ secrets.E2E_SDK_FORK_URL_BASE }}
+      E2E_SDK_FORK_URL_ARBITRUM: ${{ secrets.E2E_SDK_FORK_URL_ARBITRUM }}
+      E2E_SDK_FORK_URL_SONIC: ${{ secrets.E2E_SDK_FORK_URL_SONIC }}
+      E2E_SDK_FORK_URL_HYPERLIQUID: ${{ secrets.E2E_SDK_FORK_URL_HYPERLIQUID }}
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Set up turbo cache
+        uses: rharkor/caching-for-turbo@v2.2.0
+        with:
+          max-age: 1mo
+          max-size: 10gb
+          cache-prefix: turbogha_
+          provider: s3
+          s3-bucket: staging-turbo-monorepo
+          s3-region: eu-north-1
+          s3-prefix: monorepo-cache/
+          s3-endpoint: https://s3.amazonaws.com
+          s3-access-key-id: ${{ secrets.TURBOREPO_S3_BUCKET_ACCESS_KEY_ID }}
+          s3-secret-access-key: ${{ secrets.TURBOREPO_S3_BUCKET_SECRET_ACCESS_KEY }}
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.9
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Format
+        run: pnpm format
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test (Unit)
+        run: pnpm test
+
+      - name: Coverage
+        run: pnpm coverage:total
+
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
