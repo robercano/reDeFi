@@ -80,7 +80,7 @@ jobs:
           s3-bucket: staging-redefi-monorepo
           s3-region: eu-north-1
           s3-prefix: monorepo-cache/
-          s3-endpoint: https://s3.amazonaws.com
+          s3-endpoint: https://s3.eu-north-1.amazonaws.com
           s3-access-key-id: ${{ secrets.TURBOREPO_S3_BUCKET_ACCESS_KEY_ID }}
           s3-secret-access-key: ${{ secrets.TURBOREPO_S3_BUCKET_SECRET_ACCESS_KEY }}
 
