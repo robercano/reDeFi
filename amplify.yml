@@ -10,11 +10,11 @@ applications:
             - nvm use 24
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
-            - cd ../.. && pnpm install
+            - pnpm install
         build:
           commands:
             # Run Turborepo build from the workspace root
-            - cd ../.. && pnpm turbo run build --filter=sdk-demo
+            - pnpm turbo run build --filter=sdk-demo
       artifacts:
         baseDirectory: .next
         files:
@@ -33,10 +33,10 @@ applications:
             - nvm install 24
             - nvm use 24
             - corepack enable pnpm
-            - cd ../.. && pnpm install
+            - pnpm install
         build:
           commands:
-            - cd ../.. && pnpm turbo run build --filter=docs
+            - pnpm turbo run build --filter=docs
       artifacts:
         baseDirectory: .next
         files:
