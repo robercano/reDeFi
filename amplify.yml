@@ -24,7 +24,7 @@ applications:
           - .next/cache/**/*
           - ../../.npm/**/*
           - ../../node_modules/**/*
-          
+
   - appRoot: apps/docs
     frontend:
       phases:
