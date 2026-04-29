@@ -40,7 +40,7 @@ for (const file of allCoverageFiles) {
   try {
     const data = JSON.parse(fs.readFileSync(file, 'utf8'));
     const total = data.total;
-    if (!total) continue;
+    if (!total || !total.lines || total.lines.pct === 'Unknown' || total.lines.pct === 0) continue;
 
     const packageNameMatch = file.match(/packages\/sdk\/([^\/]+(\/[^\/]+)?)/);
     const packageName = packageNameMatch ? packageNameMatch[1] : path.basename(path.dirname(path.dirname(file)));

@@ -61,6 +61,10 @@ function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSumm
       if (fs.existsSync(reportPath)) {
         const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
 
+        if (!report.total || !report.total.lines || report.total.lines.pct === 'Unknown' || report.total.lines.pct === 0) {
+          return summary
+        }
+
         const { total } = summary
 
         Object.keys(report.total).forEach((key) => {
@@ -102,6 +106,10 @@ function createCoverageReportForVisualRepresentation(coverageReport) {
     }
 
     const { lines, statements, functions, branches } = coverageReport[packageName]
+
+    if (packageName !== 'total' && (lines.pct === 'Unknown' || lines.pct === 0)) {
+      return report
+    }
 
     if (packageName === 'total') {
       return {
