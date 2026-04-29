@@ -10,6 +10,7 @@ applications:
             - nvm use 24
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
+            - pnpm config set store-dir $AMPLIFY_DIR/.pnpm-store
             - pnpm install
             # Deploy or update the SST backend for the current branch
             - npx sst deploy --stage $AWS_BRANCH --non-interactive
@@ -24,7 +25,7 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
-          - ../../.npm/**/*
+          - ../../.pnpm-store/**/*
           - ../../node_modules/**/*
 
   - appRoot: apps/docs
@@ -35,6 +36,7 @@ applications:
             - nvm install 24
             - nvm use 24
             - corepack enable pnpm
+            - pnpm config set store-dir $AMPLIFY_DIR/.pnpm-store
             - pnpm install
         build:
           commands:
@@ -46,5 +48,5 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
-          - ../../.npm/**/*
+          - ../../.pnpm-store/**/*
           - ../../node_modules/**/*
