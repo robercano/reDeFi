@@ -11,8 +11,11 @@ applications:
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
             - pnpm install
-            # Deploy the SST backend using the branch name as the stage
-            - npx sst deploy --stage pr-$AWS_BRANCH --non-interactive
+            # Deploy the SST backend ONLY for PR previews (branches starting with pr-)
+            - |
+              if [[ "$AWS_BRANCH" == pr-* ]]; then
+                npx sst deploy --stage $AWS_BRANCH --non-interactive
+              fi
         build:
           commands:
             # Run Turborepo build from the workspace root
