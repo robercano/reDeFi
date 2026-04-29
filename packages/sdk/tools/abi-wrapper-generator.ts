@@ -23,6 +23,17 @@ function findAllOZDirs(): string[] {
   const defaultDir = path.join(__dirname, '../node_modules/@openzeppelin/contracts')
   if (fs.existsSync(defaultDir)) ozDirs.push(defaultDir)
 
+  // Support hoisted node_modules
+  const rootOz = path.join(__dirname, '../../../node_modules/@openzeppelin')
+  if (fs.existsSync(rootOz)) {
+    const entries = fs.readdirSync(rootOz)
+    for (const entry of entries) {
+      if (entry.startsWith('contracts')) {
+        ozDirs.push(path.join(rootOz, entry))
+      }
+    }
+  }
+
   const resolved = new Set<string>()
   const finalDirs: string[] = []
   for (const d of ozDirs) {
