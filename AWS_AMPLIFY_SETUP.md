@@ -1,4 +1,4 @@
-# AWS Amplify Setup Guide for reDeFi
+0# AWS Amplify Setup Guide for reDeFi
 
 This guide contains the exact click-by-click steps you need to follow in the AWS Management Console to publish secure PR previews for `sdk-demo` and `docs`.
 
@@ -63,4 +63,3 @@ To ensure your preview URLs aren't publicly accessible to anyone on the internet
 **⚠️ Critical Final Step:** Because Next.js apps use Server-Side Rendering (SSR), the Edge nodes need to be refreshed for the password protection to apply. 
 - Go back to your **All apps** view.
 - Open the app, go to your current deployment, and click **Redeploy this version** (or simply merge a commit/PR to trigger a new build). The password protection will be active once the build finishes.
-
