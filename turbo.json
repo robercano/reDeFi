@@ -144,10 +144,12 @@
       ]
     },
     "test": {
-      "dependsOn": ["prebuild", "build", "^test"]
+      "dependsOn": ["prebuild", "build", "^test"],
+      "outputs": ["coverage/**"]
     },
     "test:integration": {
-      "dependsOn": ["prebuild", "build", "^test:integration"]
+      "dependsOn": ["prebuild", "build", "^test:integration"],
+      "outputs": ["coverage/**"]
     },
     "lint": {
       "dependsOn": ["prebuild", "build", "^lint"]
