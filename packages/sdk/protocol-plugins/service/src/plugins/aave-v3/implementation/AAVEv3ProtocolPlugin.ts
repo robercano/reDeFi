@@ -1,5 +1,5 @@
 import { AaveV3ContractNames } from '@thesolidchain/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   FiatCurrency,
   ChainFamilyName,
@@ -22,7 +22,6 @@ import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AA
 import { ContractInfo } from '../../common/types/ContractInfo'
 import { ChainContractsProvider } from '../../utils/ChainContractProvider'
 import { AaveV3AbiMap, AaveV3AbiMapType } from '../abis/AaveV3AddressAbiMap'
-import { AaveV3StepBuilders } from '../builders/AaveV3StepBuilders'
 import {
   IAaveV3LendingPoolId,
   IAaveV3LendingPoolIdData,
@@ -54,7 +53,6 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     ChainFamilyName.Arbitrum,
     ChainFamilyName.Optimism,
   ])
-  readonly stepBuilders: Partial<ActionBuildersMap> = AaveV3StepBuilders
 
   initialize(params: { context: IProtocolPluginContext }) {
     const contractsAbiProvider = new ChainContractsProvider(AaveV3AbiMap)

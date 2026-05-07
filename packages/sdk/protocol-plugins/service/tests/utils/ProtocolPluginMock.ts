@@ -77,6 +77,7 @@ export class OpenPositionActionBuilderNoCheckpointMock extends BaseActionBuilder
 export class ProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
+  lending = this as any
   stepBuilders: Partial<ActionBuildersMap> = {
     [SimulationSteps.PaybackWithdraw]: PaybackWithdrawActionBuilderMock,
     [SimulationSteps.DepositBorrow]: DepositBorrowActionBuilderMock,
@@ -132,6 +133,7 @@ export class ProtocolPluginMock implements IProtocolPlugin {
 export class EmptyProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
+  lending = this as any
   stepBuilders: Partial<ActionBuildersMap> = {}
   context = undefined as unknown as IProtocolPluginContext
 
@@ -182,6 +184,7 @@ export class EmptyProtocolPluginMock implements IProtocolPlugin {
 export class NoCheckpointProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
+  lending = this as any
   stepBuilders: Partial<ActionBuildersMap> = {
     [SimulationSteps.PaybackWithdraw]: PaybackWithdrawActionBuilderNoCheckpointMock,
     [SimulationSteps.DepositBorrow]: DepositBorrowActionBuilderNoCheckpointMock,

@@ -7,6 +7,7 @@ import {
   FiatCurrency,
   IChainInfo,
   ILendingPoolIdData,
+  ILendingPositionId,
   ILendingPosition,
   IExternalLendingPosition,
   IPositionsManager,
@@ -16,13 +17,12 @@ import {
 import { SparkLendingPool } from './SparkLendingPool'
 
 import { SparkContractNames } from '@thesolidchain/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { IAaveV3LendingPositionIdData } from '../../aave-v3/interfaces/IAaveV3LendingPositionId'
 import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AAVEv3LikeBaseProtocolPlugin'
 import { ContractInfo } from '../../common/types/ContractInfo'
 import { ChainContractsProvider } from '../../utils/ChainContractProvider'
 import { SparkAbiMap, SparkAbiMapType } from '../abis/SparkAddressAbiMap'
-import { SparkStepBuilders } from '../builders/SparkStepBuilders'
 import {
   ISparkLendingPoolId,
   ISparkLendingPoolIdData,
@@ -50,7 +50,6 @@ export class SparkProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     ChainFamilyName.Ethereum,
     ChainFamilyName.Base,
   ])
-  readonly stepBuilders: Partial<ActionBuildersMap> = SparkStepBuilders
 
   initialize(params: { context: IProtocolPluginContext }) {
     const contractsAbiProvider = new ChainContractsProvider(SparkAbiMap)
@@ -135,7 +134,7 @@ export class SparkProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
 
   /** @see BaseProtocolPlugin.getPosition */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  async getLendingPosition(positionId: IAaveV3LendingPositionIdData): Promise<ILendingPosition> {
+  async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     this._validateLendingPositionId(positionId)
 
     throw new Error(`Not implemented ${positionId}`)

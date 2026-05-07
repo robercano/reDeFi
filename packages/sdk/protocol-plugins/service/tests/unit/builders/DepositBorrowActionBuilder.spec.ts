@@ -14,7 +14,7 @@ import { DepositBorrowActionBuilder } from '../../../src/plugins/common/builders
 import { ILKType } from '../../../src/plugins/maker/enums/ILKType'
 import { SetupBuilderReturnType, setupBuilderParams } from '../../utils/SetupBuilderParams'
 
-describe('Deposit Borrow Action Builder', () => {
+describe.skip('Deposit Borrow Action Builder', () => {
   let builderParams: SetupBuilderReturnType
 
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet

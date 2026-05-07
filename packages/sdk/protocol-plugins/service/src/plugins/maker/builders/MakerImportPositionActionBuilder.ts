@@ -23,7 +23,7 @@ export class MakerImportPositionActionBuilder extends BaseActionBuilder<steps.Im
       throw new Error('Maker plugin not found')
     }
 
-    const importPositionTransaction = await makerPlugin.getImportPositionTransaction({
+    const importPositionTransaction = await makerPlugin.lending?.getImportPositionTransaction({
       user: user,
       externalPosition: step.inputs.externalPosition,
       positionsManager: positionsManager,

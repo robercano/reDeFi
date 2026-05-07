@@ -40,7 +40,7 @@ describe('Spark Protocol Plugin', () => {
       } as unknown as ISparkLendingPoolIdData
 
       await expect(
-        sparkProtocolPlugin.getLendingPool(invalidSparkPoolIdMock),
+        sparkProtocolPlugin.lending.getLendingPool(invalidSparkPoolIdMock),
       ).resolves.toBeDefined()
       assert.fail('Should throw error')
     } catch (error: unknown) {
@@ -50,7 +50,7 @@ describe('Spark Protocol Plugin', () => {
 
   it('should correctly return a SparkLendingPool object for a valid SparkPoolId', async () => {
     const sparkPoolIdValid = sparkPoolIdMock
-    await expect(sparkProtocolPlugin.getLendingPool(sparkPoolIdValid)).resolves.toBeDefined()
+    await expect(sparkProtocolPlugin.lending.getLendingPool(sparkPoolIdValid)).resolves.toBeDefined()
   })
 
   it('should throw an error when calling getPool with an unsupported ChainInfo', async () => {
@@ -65,7 +65,7 @@ describe('Spark Protocol Plugin', () => {
       },
     }
     await expect(
-      sparkProtocolPlugin.getLendingPool(invalidSparkPoolIdUnsupportedChain),
+      sparkProtocolPlugin.lending.getLendingPool(invalidSparkPoolIdUnsupportedChain),
     ).rejects.toThrow('Chain ID 10 is not supported')
   })
 
@@ -114,7 +114,7 @@ describe('Spark Protocol Plugin', () => {
     const positionId = SparkLendingPositionId.createFrom({
       id: 'mockPositionId',
     })
-    await expect(sparkProtocolPlugin.getLendingPosition(positionId)).rejects.toThrow(
+    await expect(sparkProtocolPlugin.lending.getLendingPosition(positionId)).rejects.toThrow(
       'Not implemented',
     )
   })

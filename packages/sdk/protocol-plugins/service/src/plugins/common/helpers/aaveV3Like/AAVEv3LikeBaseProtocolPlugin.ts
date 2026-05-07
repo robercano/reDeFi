@@ -15,7 +15,7 @@ import {
   IToken,
 } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
-import { BaseProtocolPlugin } from '../../../../implementation/BaseProtocolPlugin'
+import { BaseLendingProtocolPlugin } from '../../../../implementation/BaseLendingProtocolPlugin'
 import { ChainContractsProvider, GenericAbiMap } from '../../../utils/ChainContractProvider'
 import { PRECISION_BI, UNCAPPED_SUPPLY } from '../../constants/AaveV3LikeConstants'
 import { AllowedProtocolNames } from './AAVEv3LikeBuilderTypes'
@@ -42,7 +42,7 @@ type Asset<ContractNames extends string, ContractsAbiMap extends GenericAbiMap<C
 export abstract class AAVEv3LikeBaseProtocolPlugin<
   ContractNames extends string,
   ContractsAbiMap extends GenericAbiMap<ContractNames>,
-> extends BaseProtocolPlugin {
+> extends BaseLendingProtocolPlugin {
   abstract readonly protocolName: AllowedProtocolNames
 
   private _dataProviderContractName: Maybe<ContractNames>

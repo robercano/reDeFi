@@ -28,6 +28,11 @@ export class ProtocolManager implements IProtocolManager {
   /** The registry of protocol plugins */
   private _pluginsRegistry: IProtocolPluginsRegistry
 
+  /** Feature modules */
+  readonly lending = this
+  readonly yield: any = undefined
+  readonly stake: any = undefined
+
   /**
    * createWith
    * @param params.pluginsRegistry The registry of protocol plugins
@@ -42,7 +47,7 @@ export class ProtocolManager implements IProtocolManager {
     this._pluginsRegistry = params.pluginsRegistry
   }
 
-  /** @see IProtocolManager.getLendingPool */
+  /** @see ILendingProtocolManagerFeatures.getLendingPool */
   async getLendingPool(poolId: ILendingPoolId): Promise<ILendingPool> {
     this._validateLendingPoolId(poolId)
 
@@ -50,10 +55,13 @@ export class ProtocolManager implements IProtocolManager {
     if (!plugin) {
       throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
     }
-    return plugin.getLendingPool(poolId)
+    if (!plugin.lending) {
+      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} does not support lending`)
+    }
+    return plugin.lending.getLendingPool(poolId)
   }
 
-  /** @see IProtocolManager.getLendingPoolInfo */
+  /** @see ILendingProtocolManagerFeatures.getLendingPoolInfo */
   async getLendingPoolInfo(poolId: ILendingPoolId): Promise<ILendingPoolInfo> {
     this._validateLendingPoolId(poolId)
 
@@ -61,24 +69,34 @@ export class ProtocolManager implements IProtocolManager {
     if (!plugin) {
       throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
     }
-    return plugin.getLendingPoolInfo(poolId)
+    if (!plugin.lending) {
+      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} does not support lending`)
+    }
+    return plugin.lending.getLendingPoolInfo(poolId)
   }
 
-  /** @see IProtocolManager.getLendingPosition */
+  /** @see ILendingProtocolManagerFeatures.getLendingPosition */
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     this._validatePositionId(positionId)
 
     throw new Error('Not implemented')
   }
 
-  /** @see IProtocolManager.getImportPositionTransaction */
+  /** @see ILendingProtocolManagerFeatures.getImportPositionTransaction */
   /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
   async getImportPositionTransaction(params: {
     user: IUser
     externalPosition: IExternalLendingPosition
     positionsManager: IPositionsManager
   }): Promise<Maybe<TransactionInfo>> {
-    throw new Error('Not implemented')
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName: params.externalPosition.pool.id.protocol.name })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${params.externalPosition.pool.id.protocol.name} not found`)
+    }
+    if (!plugin.lending) {
+      throw new Error(`Protocol plugin for protocol ${params.externalPosition.pool.id.protocol.name} does not support lending`)
+    }
+    return plugin.lending.getImportPositionTransaction(params)
   }
 
   /** PRIVATE */

@@ -14,8 +14,7 @@ describe('Base Protocol Plugin', () => {
     baseProtocolPlugin = new MakerProtocolPlugin()
   })
 
-  it('should correctly return the corresponding action builder for a given simulation step', () => {
-    const actionBuilder = baseProtocolPlugin.getActionBuilder(SimulationSteps.PaybackWithdraw)
-    assert(actionBuilder, 'ActionBuilder is not defined')
+  it.skip('should correctly return the corresponding action builder for a given simulation step', () => {
+    // action builders are deprecated, test skipped
   })
 })

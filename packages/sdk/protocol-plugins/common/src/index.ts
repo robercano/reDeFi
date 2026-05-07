@@ -4,6 +4,9 @@ export type { IProtocolPluginContext } from './interfaces/IProtocolPluginContext
 export type { IProtocolPluginsRegistry } from './interfaces/IProtocolPluginsRegistry'
 export type { IStepBuilderContext } from './interfaces/IStepBuilderContext'
 export type { IContractProvider } from './interfaces/IContractProvider'
+export type { ILendingProtocolFeatures } from './interfaces/ILendingProtocolFeatures'
+export type { IYieldProtocolFeatures } from './interfaces/IYieldProtocolFeatures'
+export type { IStakeProtocolFeatures } from './interfaces/IStakeProtocolFeatures'
 export type {
   StorageAliasMap,
   StorageInputsType,
