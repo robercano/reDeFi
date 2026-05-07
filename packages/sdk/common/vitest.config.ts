@@ -3,6 +3,13 @@ import { baseConfig } from '@thesolidchain/config-vitest/vitest.base'
 
 export default mergeConfig(baseConfig, defineConfig({
   test: {
-    // custom config
+    coverage: {
+      thresholds: {
+        lines: 80,
+        functions: 80,
+        branches: 80,
+        statements: 80,
+      },
+    },
   }
 }))

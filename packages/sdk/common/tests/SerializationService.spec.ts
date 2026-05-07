@@ -7,14 +7,14 @@ describe('SerializationService', () => {
     const data = { key: 'value' }
     const serialized = SerializationService.stringify(data)
     expect(serialized).toBeDefined()
-    const parsed = SerializationService.parse<any>(serialized)
+    const parsed = SerializationService.parse<Record<string, unknown>>(serialized)
     expect(parsed.key).toBe('value')
   })
 
   it('should register custom transformer', () => {
     expect(() => {
       SerializationService.registerCustom(
-        { isApplicable: (v: any): v is any => false, serialize: (v: any) => v, deserialize: (v: any) => v },
+        { isApplicable: (_v: unknown): _v is unknown => false, serialize: (v: unknown) => v as never, deserialize: (v: unknown) => v },
         'Custom'
       )
     }).not.toThrow()

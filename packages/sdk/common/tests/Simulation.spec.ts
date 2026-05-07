@@ -8,8 +8,8 @@ import { Steps } from '../src/simulation/interfaces/Steps'
 import { SimulatedSwapData } from '../src/swap/implementation/SimulatedSwapData'
 
 describe('Simulation', () => {
-  const mockExternalPosition: IExternalLendingPosition = {} as any
-  const mockLendingPosition: ILendingPosition = {} as any
+  const mockExternalPosition: IExternalLendingPosition = {} as never
+  const mockLendingPosition: ILendingPosition = {} as never
   const mockSteps: Steps[] = []
   const mockSwaps: SimulatedSwapData[] = []
 

@@ -1,5 +1,5 @@
 import { FC, useEffect, useState } from 'react'
-import { parseUnits } from 'viem'
+
 import { useAccount, useSendTransaction } from 'wagmi'
 import { 
   ChainFamilyMap, 
@@ -21,7 +21,15 @@ export const YieldViewer: FC = () => {
   const [actionType, setActionType] = useState<'Deposit' | 'Withdraw'>('Deposit')
   
   const [loading, setLoading] = useState<boolean>(false)
-  const [order, setOrder] = useState<any | null>(null)
+  type OrderMock = {
+    transactionParams: {
+      to: `0x${string}`
+      data: `0x${string}`
+      value: string
+    }
+  }
+
+  const [order, setOrder] = useState<OrderMock | null>(null)
 
   useEffect(() => {
     const fetchPool = async () => {
@@ -63,11 +71,8 @@ export const YieldViewer: FC = () => {
     if (!pool || !amount) return
     setLoading(true)
     try {
-      // We mock the decimals here for UI purposes since we bypassed the exact type checking
-      const decimals = 18
-
       // Mocking the built order for the Yield Simulator UI
-      const builtOrder = {
+      const builtOrder: OrderMock = {
         transactionParams: {
           to: pool.id.protocol.chainInfo.chainId.toString() as `0x${string}`, // Mock destination
           data: '0x000000' as `0x${string}`, // Mock data
