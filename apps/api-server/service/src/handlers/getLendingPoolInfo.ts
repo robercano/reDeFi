@@ -7,5 +7,5 @@ export const getLendingPoolInfo = publicProcedure.input(z.any()).query(async (op
     throw new Error('Invalid lending pool id')
   }
 
-  return opts.ctx.protocolManager.getLendingPoolInfo(opts.input)
+  return opts.ctx.protocolManager.lending.getLendingPoolInfo(opts.input)
 })
