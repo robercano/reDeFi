@@ -325,3 +325,4 @@ export type {
   ProtocolPluginsRecordType,
 } from './implementation/ProtocolPluginsRegistry'
 export { ProtocolPluginsRecord } from './plugins/ProtocolPluginsRecord'
+export { BaseLendingProtocolPlugin } from './implementation/BaseLendingProtocolPlugin'

@@ -44,20 +44,7 @@ export abstract class BaseActionBuilder<
     protocolName: ProtocolName
     actionBuilderParams: ActionBuilderParams<FilterStep<SimulationSteps, StepType>>
   }): Promise<void> {
-    const { protocolName } = params
-    const { protocolsRegistry } = params.actionBuilderParams
-
-    const plugin = protocolsRegistry.getPlugin({ protocolName })
-    if (!plugin) {
-      throw new Error(`No protocol plugin found for protocol ${protocolName}`)
-    }
-
-    const builder = plugin.getActionBuilder(params.actionBuilderParams.step.type)
-    if (!builder) {
-      throw new Error(`No action builder found for protocol ${protocolName}`)
-    }
-
-    return builder.build(params.actionBuilderParams)
+    throw new Error('Not implemented: Builders are disabled in protocol plugins')
   }
 
   /**

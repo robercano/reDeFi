@@ -28,16 +28,16 @@ describe('Protocol Plugin | Integration | Morpho', () => {
   })
 
   it('should retrieve the correct pool from the protocol', async () => {
-    const pool = await morphoProtocolPlugin.getLendingPool(morphoPoolIdMock)
+    const pool = await morphoProtocolPlugin.lending.getLendingPool(morphoPoolIdMock)
 
     expect(pool).toBeDefined()
 
     if (!isMorphoLendingPool(pool)) {
-      fail('Expected pool to be a Morpho lending pool')
+      throw new Error('Expected pool to be a Morpho lending pool')
     }
 
     if (!isMorphoLendingPoolId(pool.id)) {
-      fail('Expected pool id to be a Morpho lending pool id')
+      throw new Error('Expected pool id to be a Morpho lending pool id')
     }
 
     expect(pool.type).toBe(PoolType.Lending)
@@ -59,8 +59,8 @@ describe('Protocol Plugin | Integration | Morpho', () => {
         quote: FiatCurrency.USD,
       }),
     })
-    const pool = await morphoProtocolPlugin.getLendingPool(morphoPoolIdMock)
-    const morphoPoolInfo = await morphoProtocolPlugin.getLendingPoolInfo(pool.id)
+    const pool = await morphoProtocolPlugin.lending.getLendingPool(morphoPoolIdMock)
+    const morphoPoolInfo = await morphoProtocolPlugin.lending.getLendingPoolInfo(pool.id)
 
     const morphoPoolCollateralInfo = morphoPoolInfo.collateral
     expect(morphoPoolCollateralInfo).toBeDefined()
@@ -101,9 +101,9 @@ describe('Protocol Plugin | Integration | Morpho', () => {
   })
 
   it('should retrieve the correct pool debt information from the protocol', async () => {
-    const pool = await morphoProtocolPlugin.getLendingPool(morphoPoolIdMock)
+    const pool = await morphoProtocolPlugin.lending.getLendingPool(morphoPoolIdMock)
 
-    const morphoPoolInfo = await morphoProtocolPlugin.getLendingPoolInfo(pool.id)
+    const morphoPoolInfo = await morphoProtocolPlugin.lending.getLendingPoolInfo(pool.id)
 
     const morphoPoolDebtInfo = morphoPoolInfo.debt
 

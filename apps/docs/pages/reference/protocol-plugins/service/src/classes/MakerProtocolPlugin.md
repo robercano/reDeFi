@@ -6,9 +6,14 @@
 
 # Class: MakerProtocolPlugin
 
+BaseLendingProtocolPlugin
+Base class for all lending protocol plugins
+
+It provides the lending feature module implementation, setting `lending = this`
+
 ## Extends
 
-- `BaseProtocolPlugin`
+- [`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md)
 
 ## Constructors
 
@@ -22,7 +27,7 @@
 
 #### Inherited from
 
-`BaseProtocolPlugin.constructor`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`constructor`](BaseLendingProtocolPlugin.md#constructor)
 
 ## Properties
 
@@ -38,6 +43,18 @@
 
 ***
 
+### lending
+
+> `readonly` **lending**: `MakerProtocolPlugin`
+
+Feature modules
+
+#### Inherited from
+
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`lending`](BaseLendingProtocolPlugin.md#lending)
+
+***
+
 ### protocolName
 
 > `readonly` **protocolName**: [`Maker`](../../../../client/src/enumerations/ProtocolName.md#maker) = `ProtocolName.Maker`
@@ -46,19 +63,20 @@ Name of the protocol that the plugin is implementing
 
 #### Overrides
 
-`BaseProtocolPlugin.protocolName`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`protocolName`](BaseLendingProtocolPlugin.md#protocolname)
 
 ***
 
-### stepBuilders
+### stake?
 
-> `readonly` **stepBuilders**: `Partial`\<`ActionBuildersMap`\> = `MakerStepBuilders`
+> `readonly` `optional` **stake?**: `IStakeProtocolFeatures`
 
-Map of action builders for the protocol
+Staking features (optional). 
+Defined if the protocol supports staking operations.
 
-#### Overrides
+#### Inherited from
 
-`BaseProtocolPlugin.stepBuilders`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`stake`](BaseLendingProtocolPlugin.md#stake)
 
 ***
 
@@ -70,7 +88,20 @@ List of supported chains for the protocol
 
 #### Overrides
 
-`BaseProtocolPlugin.supportedChains`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`supportedChains`](BaseLendingProtocolPlugin.md#supportedchains)
+
+***
+
+### yield?
+
+> `readonly` `optional` **yield?**: `IYieldProtocolFeatures`
+
+Yield features (optional). 
+Defined if the protocol supports yield operations.
+
+#### Inherited from
+
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`yield`](BaseLendingProtocolPlugin.md#yield)
 
 ## Accessors
 
@@ -86,9 +117,33 @@ List of supported chains for the protocol
 
 #### Inherited from
 
-`BaseProtocolPlugin.context`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`context`](BaseLendingProtocolPlugin.md#context)
 
 ## Methods
+
+### \_checkChainIdSupported()
+
+> `protected` **\_checkChainIdSupported**(`chainId`): `void`
+
+_checkChainIdSupported
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `chainId` | `number` |
+
+#### Returns
+
+`void`
+
+asserts that the chain ID is supported
+
+#### Inherited from
+
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_checkChainIdSupported`](BaseLendingProtocolPlugin.md#_checkchainidsupported)
+
+***
 
 ### \_getContractAddress()
 
@@ -112,7 +167,7 @@ The address of the contract or throws if not found
 
 #### Inherited from
 
-`BaseProtocolPlugin._getContractAddress`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_getContractAddress`](BaseLendingProtocolPlugin.md#_getcontractaddress)
 
 ***
 
@@ -136,7 +191,7 @@ BaseProtocolPlugin._getLendingPoolImpl
 
 #### Overrides
 
-`BaseProtocolPlugin._getLendingPoolImpl`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_getLendingPoolImpl`](BaseLendingProtocolPlugin.md#_getlendingpoolimpl)
 
 ***
 
@@ -160,7 +215,7 @@ BaseProtocolPlugin._getLendingPoolInfoImpl
 
 #### Overrides
 
-`BaseProtocolPlugin._getLendingPoolInfoImpl`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_getLendingPoolInfoImpl`](BaseLendingProtocolPlugin.md#_getlendingpoolinfoimpl)
 
 ***
 
@@ -184,7 +239,7 @@ BaseProtocolPlugin._validateLendingPoolId
 
 #### Overrides
 
-`BaseProtocolPlugin._validateLendingPoolId`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_validateLendingPoolId`](BaseLendingProtocolPlugin.md#_validatelendingpoolid)
 
 ***
 
@@ -208,38 +263,7 @@ BaseProtocolPlugin._validateLendingPositionId
 
 #### Overrides
 
-`BaseProtocolPlugin._validateLendingPositionId`
-
-***
-
-### getActionBuilder()
-
-> **getActionBuilder**\<`StepType`, `Step`\>(`stepType`): [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
-
-#### Type Parameters
-
-| Type Parameter |
-| ------ |
-| `StepType` *extends* [`SimulationSteps`](../../../../client/src/enumerations/SimulationSteps.md) |
-| `Step` *extends* `object` & [`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md) \| `object` & [`PullTokenStep`](../../../../client/src/namespaces/steps/type-aliases/PullTokenStep.md) \| `object` & [`DepositBorrowStep`](../../../../client/src/namespaces/steps/type-aliases/DepositBorrowStep.md) \| `object` & [`PaybackWithdrawStep`](../../../../client/src/namespaces/steps/type-aliases/PaybackWithdrawStep.md) \| `object` & [`SwapStep`](../../../../client/src/namespaces/steps/type-aliases/SwapStep.md) \| `object` & [`ReturnFundsStep`](../../../../client/src/namespaces/steps/type-aliases/ReturnFundsStep.md) \| `object` & [`RepayFlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/RepayFlashloanStep.md) \| `object` & [`NewPositionEventStep`](../../../../client/src/namespaces/steps/type-aliases/NewPositionEventStep.md) \| `object` & [`ImportStep`](../../../../client/src/namespaces/steps/type-aliases/ImportStep.md) \| `object` & [`OpenPosition`](../../../../client/src/namespaces/steps/type-aliases/OpenPosition.md) \| `object` & [`SkippedStep`](../../../../client/src/namespaces/steps/type-aliases/SkippedStep.md) |
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `stepType` | `StepType` |
-
-#### Returns
-
-[`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
-
-#### See
-
-IProtocolPlugin.getActionBuilder
-
-#### Inherited from
-
-`BaseProtocolPlugin.getActionBuilder`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`_validateLendingPositionId`](BaseLendingProtocolPlugin.md#_validatelendingpositionid)
 
 ***
 
@@ -266,7 +290,7 @@ BaseProtocolPlugin.getImportPositionTransaction
 
 #### Overrides
 
-`BaseProtocolPlugin.getImportPositionTransaction`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`getImportPositionTransaction`](BaseLendingProtocolPlugin.md#getimportpositiontransaction)
 
 ***
 
@@ -286,11 +310,11 @@ BaseProtocolPlugin.getImportPositionTransaction
 
 #### See
 
-IProtocolPlugin.getLendingPool
+ILendingProtocolFeatures.getLendingPool
 
 #### Inherited from
 
-`BaseProtocolPlugin.getLendingPool`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`getLendingPool`](BaseLendingProtocolPlugin.md#getlendingpool)
 
 ***
 
@@ -310,11 +334,11 @@ IProtocolPlugin.getLendingPool
 
 #### See
 
-IProtocolPlugin.getLendingPoolInfo
+ILendingProtocolFeatures.getLendingPoolInfo
 
 #### Inherited from
 
-`BaseProtocolPlugin.getLendingPoolInfo`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`getLendingPoolInfo`](BaseLendingProtocolPlugin.md#getlendingpoolinfo)
 
 ***
 
@@ -338,7 +362,7 @@ BaseProtocolPlugin.getLendingPosition
 
 #### Overrides
 
-`BaseProtocolPlugin.getLendingPosition`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`getLendingPosition`](BaseLendingProtocolPlugin.md#getlendingposition)
 
 ***
 
@@ -361,4 +385,4 @@ INITIALIZATION
 
 #### Overrides
 
-`BaseProtocolPlugin.initialize`
+[`BaseLendingProtocolPlugin`](BaseLendingProtocolPlugin.md).[`initialize`](BaseLendingProtocolPlugin.md#initialize)

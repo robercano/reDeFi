@@ -33,6 +33,18 @@ BaseProtocolPlugin
 
 ## Properties
 
+### lending
+
+> `readonly` **lending**: `AaveV3ProtocolPlugin`
+
+Feature modules
+
+#### Inherited from
+
+`AAVEv3LikeBaseProtocolPlugin.lending`
+
+***
+
 ### protocolName
 
 > `readonly` **protocolName**: [`AaveV3`](../../../../client/src/enumerations/ProtocolName.md#aavev3) = `ProtocolName.AaveV3`
@@ -43,15 +55,16 @@ BaseProtocolPlugin
 
 ***
 
-### stepBuilders
+### stake?
 
-> `readonly` **stepBuilders**: `Partial`\<`ActionBuildersMap`\> = `AaveV3StepBuilders`
+> `readonly` `optional` **stake?**: `IStakeProtocolFeatures`
 
-Map of action builders for the protocol
+Staking features (optional). 
+Defined if the protocol supports staking operations.
 
-#### Overrides
+#### Inherited from
 
-`AAVEv3LikeBaseProtocolPlugin.stepBuilders`
+`AAVEv3LikeBaseProtocolPlugin.stake`
 
 ***
 
@@ -64,6 +77,19 @@ List of supported chains for the protocol
 #### Overrides
 
 `AAVEv3LikeBaseProtocolPlugin.supportedChains`
+
+***
+
+### yield?
+
+> `readonly` `optional` **yield?**: `IYieldProtocolFeatures`
+
+Yield features (optional). 
+Defined if the protocol supports yield operations.
+
+#### Inherited from
+
+`AAVEv3LikeBaseProtocolPlugin.yield`
 
 ## Accessors
 
@@ -98,6 +124,30 @@ List of supported chains for the protocol
 `AAVEv3LikeBaseProtocolPlugin.contractsAbiProvider`
 
 ## Methods
+
+### \_checkChainIdSupported()
+
+> `protected` **\_checkChainIdSupported**(`chainId`): `void`
+
+_checkChainIdSupported
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `chainId` | `number` |
+
+#### Returns
+
+`void`
+
+asserts that the chain ID is supported
+
+#### Inherited from
+
+`AAVEv3LikeBaseProtocolPlugin._checkChainIdSupported`
+
+***
 
 ### \_getAssetFromToken()
 
@@ -373,37 +423,6 @@ BaseProtocolPlugin.validateLendingPoolId
 
 ***
 
-### getActionBuilder()
-
-> **getActionBuilder**\<`StepType`, `Step`\>(`stepType`): [`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
-
-#### Type Parameters
-
-| Type Parameter |
-| ------ |
-| `StepType` *extends* [`SimulationSteps`](../../../../client/src/enumerations/SimulationSteps.md) |
-| `Step` *extends* `object` & [`FlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/FlashloanStep.md) \| `object` & [`PullTokenStep`](../../../../client/src/namespaces/steps/type-aliases/PullTokenStep.md) \| `object` & [`DepositBorrowStep`](../../../../client/src/namespaces/steps/type-aliases/DepositBorrowStep.md) \| `object` & [`PaybackWithdrawStep`](../../../../client/src/namespaces/steps/type-aliases/PaybackWithdrawStep.md) \| `object` & [`SwapStep`](../../../../client/src/namespaces/steps/type-aliases/SwapStep.md) \| `object` & [`ReturnFundsStep`](../../../../client/src/namespaces/steps/type-aliases/ReturnFundsStep.md) \| `object` & [`RepayFlashloanStep`](../../../../client/src/namespaces/steps/type-aliases/RepayFlashloanStep.md) \| `object` & [`NewPositionEventStep`](../../../../client/src/namespaces/steps/type-aliases/NewPositionEventStep.md) \| `object` & [`ImportStep`](../../../../client/src/namespaces/steps/type-aliases/ImportStep.md) \| `object` & [`OpenPosition`](../../../../client/src/namespaces/steps/type-aliases/OpenPosition.md) \| `object` & [`SkippedStep`](../../../../client/src/namespaces/steps/type-aliases/SkippedStep.md) |
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `stepType` | `StepType` |
-
-#### Returns
-
-[`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<`IActionBuilder`\<`Step`\>\>
-
-#### See
-
-IProtocolPlugin.getActionBuilder
-
-#### Inherited from
-
-`AAVEv3LikeBaseProtocolPlugin.getActionBuilder`
-
-***
-
 ### getImportPositionTransaction()
 
 > **getImportPositionTransaction**(`params`): `Promise`\<[`Maybe`](../../../../client/src/type-aliases/Maybe.md)\<[`TransactionInfo`](../../../../client/src/interfaces/TransactionInfo.md)\>\>
@@ -447,7 +466,7 @@ BaseProtocolPlugin.getImportPositionTransaction
 
 #### See
 
-IProtocolPlugin.getLendingPool
+ILendingProtocolFeatures.getLendingPool
 
 #### Inherited from
 
@@ -471,7 +490,7 @@ IProtocolPlugin.getLendingPool
 
 #### See
 
-IProtocolPlugin.getLendingPoolInfo
+ILendingProtocolFeatures.getLendingPoolInfo
 
 #### Inherited from
 

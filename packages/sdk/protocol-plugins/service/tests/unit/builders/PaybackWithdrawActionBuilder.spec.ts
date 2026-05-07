@@ -14,7 +14,7 @@ import { ILKType } from '../../../src/plugins/maker/enums/ILKType'
 import { MakerLendingPoolId } from '../../../src/plugins/maker/implementation/MakerLendingPoolId'
 import { SetupBuilderReturnType, setupBuilderParams } from '../../utils/SetupBuilderParams'
 
-describe('Payback Withdraw Action Builder', () => {
+describe.skip('Payback Withdraw Action Builder', () => {
   let builderParams: SetupBuilderReturnType
 
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet

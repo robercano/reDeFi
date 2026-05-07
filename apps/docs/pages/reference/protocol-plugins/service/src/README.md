@@ -19,6 +19,7 @@
 - [AaveV3ProtocolPlugin](classes/AaveV3ProtocolPlugin.md)
 - [AaveV3SetEmodeAction](classes/AaveV3SetEmodeAction.md)
 - [AaveV3WithdrawAction](classes/AaveV3WithdrawAction.md)
+- [BaseLendingProtocolPlugin](classes/BaseLendingProtocolPlugin.md)
 - [DepositBorrowActionBuilder](classes/DepositBorrowActionBuilder.md)
 - [FlashloanAction](classes/FlashloanAction.md)
 - [FlashloanActionBuilder](classes/FlashloanActionBuilder.md)

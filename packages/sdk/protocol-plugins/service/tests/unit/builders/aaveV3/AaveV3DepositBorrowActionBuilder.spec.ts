@@ -73,6 +73,8 @@ describe('AaveV3 Deposit Borrow Action Builder', () => {
     subtype: LendingPositionType.Multiply,
     id: AaveV3LendingPositionId.createFrom({
       id: 'someposition',
+      walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
+      poolId: poolId,
     }),
     debtAmount: borrowAmount,
     collateralAmount: depositAmount,

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { MakerContractNames } from '@thesolidchain/deployment-types'
-import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
   CollateralInfo,
   DebtInfo,
@@ -28,7 +28,7 @@ import {
 } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { getContract, stringToHex } from 'viem'
-import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
+import { BaseLendingProtocolPlugin } from '../../../implementation/BaseLendingProtocolPlugin'
 import { PRECISION_BI } from '../../common/constants/AaveV3LikeConstants'
 import { ERC20_ABI, OSM_ABI } from '../abis/MakerABIS'
 import { MakerAbiMap } from '../abis/MakerAbiMap'
@@ -41,14 +41,12 @@ import { MakerLendingPool } from './MakerLendingPool'
 import { MakerLendingPoolId } from './MakerLendingPoolId'
 import { MakerLendingPoolInfo } from './MakerLendingPoolInfo'
 import { MakerLendingPositionId } from './MakerLendingPositionId'
-import { MakerStepBuilders } from './MakerStepBuilders'
 
 type ProtocolData = Awaited<ReturnType<MakerProtocolPlugin['_getProtocolData']>>
 
-export class MakerProtocolPlugin extends BaseProtocolPlugin {
+export class MakerProtocolPlugin extends BaseLendingProtocolPlugin {
   readonly protocolName = ProtocolName.Maker
   readonly supportedChains = valuesOfChainFamilyMap([ChainFamilyName.Ethereum])
-  readonly stepBuilders: Partial<ActionBuildersMap> = MakerStepBuilders
 
   readonly CdpManagerContractName = 'CdpManager'
   readonly DssProxyActionsContractName = 'DssProxyActions'

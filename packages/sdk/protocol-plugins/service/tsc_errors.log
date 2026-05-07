@@ -1,0 +1,21 @@
+
+> @thesolidchain/protocol-plugins@0.0.1 tsc /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+> tsc "-b"
+
+src/implementation/BaseActionBuilder.ts(55,28): error TS2339: Property 'getActionBuilder' does not exist on type 'IProtocolPlugin'.
+src/plugins/maker/builders/MakerImportPositionActionBuilder.ts(26,57): error TS2339: Property 'getImportPositionTransaction' does not exist on type 'IProtocolPlugin'.
+tests/integration/MorphoProtocolPlugin.spec.ts(36,7): error TS2304: Cannot find name 'fail'.
+tests/integration/MorphoProtocolPlugin.spec.ts(40,7): error TS2304: Cannot find name 'fail'.
+tests/integration/MorphoProtocolPlugin.spec.ts(47,17): error TS2339: Property 'oracle' does not exist on type 'ILendingPool'.
+tests/integration/MorphoProtocolPlugin.spec.ts(48,17): error TS2339: Property 'irm' does not exist on type 'ILendingPool'.
+tests/integration/MorphoProtocolPlugin.spec.ts(49,17): error TS2339: Property 'lltv' does not exist on type 'ILendingPool'.
+tests/unit/builders/aaveV3/AaveV3DepositBorrowActionBuilder.spec.ts(74,44): error TS2345: Argument of type '{ id: string; }' is not assignable to parameter of type 'AaveV3LendingPositionIdParameters'.
+  Type '{ id: string; }' is missing the following properties from type 'AaveV3LendingPositionIdParameters': walletAddress, poolId
+tests/unit/builders/aaveV3/AaveV3OpenPositionActionBuilder.spec.ts(72,44): error TS2345: Argument of type '{ id: string; }' is not assignable to parameter of type 'AaveV3LendingPositionIdParameters'.
+  Type '{ id: string; }' is missing the following properties from type 'AaveV3LendingPositionIdParameters': walletAddress, poolId
+tests/unit/builders/aaveV3/AaveV3PaybackWithdrawActionBuilder.spec.ts(74,44): error TS2345: Argument of type '{ id: string; }' is not assignable to parameter of type 'AaveV3LendingPositionIdParameters'.
+  Type '{ id: string; }' is missing the following properties from type 'AaveV3LendingPositionIdParameters': walletAddress, poolId
+tests/unit/plugins/BaseProtocolPlugin.spec.ts(18,46): error TS2339: Property 'getActionBuilder' does not exist on type 'BaseProtocolPlugin'.
+tests/unit/plugins/SparkProtocolPlugin.spec.ts(117,57): error TS2345: Argument of type 'SparkLendingPositionId' is not assignable to parameter of type 'Readonly<{ type: PositionType.Lending; id: string; walletAddress: IAddress; poolId: IAaveV3LendingPoolId; }>'.
+  Type 'SparkLendingPositionId' is missing the following properties from type 'Readonly<{ type: PositionType.Lending; id: string; walletAddress: IAddress; poolId: IAaveV3LendingPoolId; }>': walletAddress, poolId
+ ELIFECYCLE  Command failed with exit code 1.

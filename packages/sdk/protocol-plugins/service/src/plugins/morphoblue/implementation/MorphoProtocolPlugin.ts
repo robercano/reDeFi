@@ -23,10 +23,9 @@ import {
 } from '@thesolidchain/sdk-common'
 
 import { morphoBlueAbi, morphoBlueOracleAbi } from '@thesolidchain/abis'
-import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { BigNumber } from 'bignumber.js'
-import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
-import { MorphoStepBuilders } from '../builders/MorphoStepBuilders'
+import { BaseLendingProtocolPlugin } from '../../../implementation/BaseLendingProtocolPlugin'
 import { MorphoLLTVPrecision, MorphoOraclePricePrecision } from '../constants/MorphoConstants'
 import { IMorphoLendingPool } from '../interfaces/IMorphoLendingPool'
 import {
@@ -48,7 +47,7 @@ import { MorphoLendingPoolInfo } from './MorphoLendingPoolInfo'
  * Protocol plugin for the Morpho protocol
  * @see BaseProtocolPlugin
  */
-export class MorphoProtocolPlugin extends BaseProtocolPlugin {
+export class MorphoProtocolPlugin extends BaseLendingProtocolPlugin {
   static readonly MorphoBlueContractName = 'MorphoBlue'
 
   readonly protocolName: ProtocolName.MorphoBlue = ProtocolName.MorphoBlue
@@ -56,7 +55,6 @@ export class MorphoProtocolPlugin extends BaseProtocolPlugin {
     ChainFamilyName.Ethereum,
     ChainFamilyName.Base,
   ])
-  readonly stepBuilders: Partial<ActionBuildersMap> = MorphoStepBuilders
 
   initialize(params: { context: IProtocolPluginContext }) {
     super.initialize(params)
