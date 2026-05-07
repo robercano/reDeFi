@@ -57,7 +57,7 @@ import {
 import assert from 'assert'
 import { Hex } from 'viem'
 
-vi.setConfig({ testTimeout: (300000)
+vi.setConfig({ testTimeout: 300000 })
 
 const SDKAPiUrl = 'https://nkllstfoy8.execute-api.us-east-1.amazonaws.com/api/sdk'
 const TenderlyForkUrl = 'https://rpc.tenderly.co/fork/50e01944-8635-4d67-9569-004d72113328'

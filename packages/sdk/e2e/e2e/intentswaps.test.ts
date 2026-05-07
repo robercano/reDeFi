@@ -11,7 +11,7 @@ import { makeSDKWithSigner } from '@thesolidchain/sdk-client'
 import { Wallet } from 'ethers'
 import { createSendTransactionTool } from '@thesolidchain/testing-utils'
 
-vi.setConfig({ testTimeout: (300000)
+vi.setConfig({ testTimeout: 300000 })
 
 /**
  * @group e2e

@@ -8,9 +8,9 @@ describe('OrdersParameters', () => {
   it('ExternalLendingPositionId', () => {
     const id = ExternalLendingPositionId.createFrom({
       id: 'import-pos-1',
-      externalType: 'AaveV3' as any,
-      address: { toString: () => '0xAddress' } as any,
-      protocolId: { toString: () => 'AaveV3-pool' } as any
+      externalType: 'AaveV3' as never,
+      address: { toString: () => '0xAddress' } as never,
+      protocolId: { toString: () => 'AaveV3-pool' } as never
     })
     expect(id.externalType).toBe('AaveV3')
     expect(id.address).toBeDefined()
@@ -20,17 +20,17 @@ describe('OrdersParameters', () => {
 
   it('ExternalLendingPosition', () => {
     const pos = ExternalLendingPosition.createFrom({
-      type: 'Lending' as any,
+      type: 'Lending' as never,
       id: ExternalLendingPositionId.createFrom({
         id: 'import-pos-1',
-        externalType: 'AaveV3' as any,
-        address: { toString: () => '0xAddress' } as any,
-        protocolId: { toString: () => 'AaveV3-pool' } as any
+        externalType: 'AaveV3' as never,
+        address: { toString: () => '0xAddress' } as never,
+        protocolId: { toString: () => 'AaveV3-pool' } as never
       }),
-      pool: {} as any,
-      subtype: {} as any,
-      collateralAmount: {} as any,
-      debtAmount: {} as any
+      pool: {} as never,
+      subtype: {} as never,
+      collateralAmount: {} as never,
+      debtAmount: {} as never
     })
     expect(pos.id.id).toBe('import-pos-1')
     expect(pos.pool).toBeDefined()
@@ -40,18 +40,18 @@ describe('OrdersParameters', () => {
   it('ImportPositionParameters', () => {
     const params = ImportPositionParameters.createFrom({
       externalPosition: {
-        type: 'Lending' as any,
+        type: 'Lending' as never,
         id: ExternalLendingPositionId.createFrom({
           id: 'import-pos-1',
-          externalType: 'AaveV3' as any,
-          address: { toString: () => '0xAddress' } as any,
-          protocolId: { toString: () => 'AaveV3-pool' } as any
+          externalType: 'AaveV3' as never,
+          address: { toString: () => '0xAddress' } as never,
+          protocolId: { toString: () => 'AaveV3-pool' } as never
         }),
-        pool: {} as any,
-        subtype: {} as any,
-        collateralAmount: {} as any,
-        debtAmount: {} as any
-      } as any
+        pool: {} as never,
+        subtype: {} as never,
+        collateralAmount: {} as never,
+        debtAmount: {} as never
+      } as never
     })
     expect(params.externalPosition).toBeDefined()
     expect(params.toString()).toContain('Import position parameters: External lending position: id=External lending position ID: AaveV3 at 0xAddress (Lending Position ID: import-pos-1 with type: Lending)')
@@ -59,9 +59,9 @@ describe('OrdersParameters', () => {
 
   it('RefinanceParameters', () => {
     const params = RefinanceParameters.createFrom({
-      sourcePosition: { toString: () => 'SourcePos' } as any,
-      targetPool: { toString: () => 'TargetPool' } as any,
-      slippage: { toString: () => '1%' } as any
+      sourcePosition: { toString: () => 'SourcePos' } as never,
+      targetPool: { toString: () => 'TargetPool' } as never,
+      slippage: { toString: () => '1%' } as never
     })
     expect(params.sourcePosition).toBeDefined()
     expect(params.targetPool).toBeDefined()

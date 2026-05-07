@@ -6,7 +6,7 @@ import {
   borrowFromPosition,
   repayPositionDebt
 } from '../src/common/utils/PositionUtils'
-import { LendingPool } from '../src/lending-protocols/implementation/LendingPool'
+
 import { Token } from '../src/common/implementation/Token'
 import { TokenAmount } from '../src/common/implementation/TokenAmount'
 import { getChainInfoByChainId } from '../src/common/implementation/ChainFamilies'
@@ -34,7 +34,7 @@ describe('PositionUtils', () => {
   const poolData: ILendingPoolData = {
     collateralToken,
     debtToken
-  } as any // Mocking the rest of pool data
+  } as never // Mocking the rest of pool data
 
   it('should create a new empty position from pool', () => {
     const position = newEmptyPositionFromPool(poolData)

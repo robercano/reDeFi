@@ -42,7 +42,7 @@ import { TransactionUtils } from '@thesolidchain/testing-utils'
 import assert from 'assert'
 import { Hex } from 'viem'
 
-vi.setConfig({ testTimeout: (300000)
+vi.setConfig({ testTimeout: 300000 })
 
 /** TEST CONFIG */
 const config = {

@@ -3,6 +3,12 @@ import { baseConfig } from '@thesolidchain/config-vitest/vitest.base'
 
 export default mergeConfig(baseConfig, defineConfig({
   test: {
-    // custom config
+    coverage: {
+      exclude: [
+        'scripts/**',
+        'src/index.ts',
+        'src/reexports.ts'
+      ]
+    }
   }
 }))

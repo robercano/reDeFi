@@ -7,7 +7,7 @@ import {
 
 import { createTestSdkInstance } from './utils/createTestSdkInstance'
 
-vi.setConfig({ testTimeout: (300000)
+vi.setConfig({ testTimeout: 300000 })
 
 /**
  * @group e2e
