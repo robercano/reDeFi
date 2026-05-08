@@ -6,8 +6,6 @@ import {
 } from '@thesolidchain/order-planner-common'
 import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@thesolidchain/sdk-common'
 import { assert } from 'console'
-import { ActionBuildersConfig } from '../config/Config'
-import { DMAOrderPlanner } from './planners/DMAOrderPlanner'
 
 /** @see IOrderPlannerService */
 export class OrderPlannerService implements IOrderPlannerService {
@@ -15,10 +13,10 @@ export class OrderPlannerService implements IOrderPlannerService {
   readonly _orderPlanners: Map<SimulationType, IOrderPlanner> = new Map()
 
   constructor() {
-    this._registerOrderPlanner(DMAOrderPlanner)
+    // Register here all the order planners that are available
   }
 
-  async buildOrder(params: Omit<BuildOrderParams, 'actionBuildersMap'>): Promise<Maybe<Order>> {
+  async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
     const orderPlanner = this._orderPlanners.get(params.simulation.type)
     if (!orderPlanner) {
       throw SDKError.createFrom({
@@ -32,7 +30,6 @@ export class OrderPlannerService implements IOrderPlannerService {
       user: params.user,
       positionsManager: params.positionsManager,
       simulation: params.simulation,
-      actionBuildersMap: ActionBuildersConfig,
       addressBookManager: params.addressBookManager,
       swapManager: params.swapManager,
       protocolsRegistry: params.protocolsRegistry,
