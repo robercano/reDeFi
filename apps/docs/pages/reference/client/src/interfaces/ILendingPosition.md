@@ -17,9 +17,6 @@ Represents a position in a Lending protocol
 
 - [`IExternalLendingPosition`](IExternalLendingPosition.md)
 - [`IAaveV3LendingPosition`](../../../protocol-plugins/service/src/interfaces/IAaveV3LendingPosition.md)
-- [`ISparkLendingPosition`](../../../protocol-plugins/service/src/interfaces/ISparkLendingPosition.md)
-- [`IMakerLendingPosition`](../../../protocol-plugins/service/src/interfaces/IMakerLendingPosition.md)
-- [`IMorphoLendingPosition`](../../../protocol-plugins/service/src/interfaces/IMorphoLendingPosition.md)
 
 ## Properties
 

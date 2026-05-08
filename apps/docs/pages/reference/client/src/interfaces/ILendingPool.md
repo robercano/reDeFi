@@ -22,9 +22,6 @@ level through the PoolId
 ## Extended by
 
 - [`IAaveV3LendingPool`](../../../protocol-plugins/service/src/interfaces/IAaveV3LendingPool.md)
-- [`ISparkLendingPool`](../../../protocol-plugins/service/src/interfaces/ISparkLendingPool.md)
-- [`IMakerLendingPool`](../../../protocol-plugins/service/src/interfaces/IMakerLendingPool.md)
-- [`IMorphoLendingPool`](../../../protocol-plugins/service/src/interfaces/IMorphoLendingPool.md)
 
 ## Properties
 

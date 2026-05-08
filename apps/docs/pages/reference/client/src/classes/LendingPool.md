@@ -22,9 +22,6 @@ customizing the PoolId
 ## Extended by
 
 - [`AaveV3LendingPool`](../../../protocol-plugins/service/src/classes/AaveV3LendingPool.md)
-- [`SparkLendingPool`](../../../protocol-plugins/service/src/classes/SparkLendingPool.md)
-- [`MakerLendingPool`](../../../protocol-plugins/service/src/classes/MakerLendingPool.md)
-- [`MorphoLendingPool`](../../../protocol-plugins/service/src/classes/MorphoLendingPool.md)
 
 ## Implements
 

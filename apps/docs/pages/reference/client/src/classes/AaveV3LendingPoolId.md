@@ -67,7 +67,7 @@ SIGNATURE
 
 #### Inherited from
 
-[`MakerLendingPoolId`](MakerLendingPoolId.md).[`[___signature__]`](MakerLendingPoolId.md#___signature__-2)
+[`LendingPoolId`](LendingPoolId.md).[`[___signature__]`](LendingPoolId.md#___signature__-1)
 
 ***
 

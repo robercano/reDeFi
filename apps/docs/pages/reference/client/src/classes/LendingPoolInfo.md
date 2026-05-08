@@ -19,12 +19,6 @@ customizing the PoolId
 
 - `PoolInfo`
 
-## Extended by
-
-- [`SparkLendingPoolInfo`](../../../protocol-plugins/service/src/classes/SparkLendingPoolInfo.md)
-- [`MakerLendingPoolInfo`](../../../protocol-plugins/service/src/classes/MakerLendingPoolInfo.md)
-- [`MorphoLendingPoolInfo`](../../../protocol-plugins/service/src/classes/MorphoLendingPoolInfo.md)
-
 ## Implements
 
 - [`ILendingPoolInfo`](../interfaces/ILendingPoolInfo.md)
@@ -78,7 +72,7 @@ SIGNATURE
 
 #### Inherited from
 
-[`SparkLendingPoolInfo`](../../../protocol-plugins/service/src/classes/SparkLendingPoolInfo.md).[`[___signature__]`](../../../protocol-plugins/service/src/classes/SparkLendingPoolInfo.md#___signature__-2)
+`PoolInfo.[___signature__]`
 
 ***
 

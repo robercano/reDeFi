@@ -19,9 +19,6 @@ ILendingPositionId
 ## Extended by
 
 - [`AaveV3LendingPositionId`](AaveV3LendingPositionId.md)
-- [`MakerLendingPositionId`](MakerLendingPositionId.md)
-- [`MorphoLendingPositionId`](MorphoLendingPositionId.md)
-- [`SparkLendingPositionId`](SparkLendingPositionId.md)
 - [`ExternalLendingPositionId`](ExternalLendingPositionId.md)
 
 ## Implements

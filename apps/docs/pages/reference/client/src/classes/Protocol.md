@@ -15,9 +15,6 @@ IProtocol
 ## Extended by
 
 - [`AaveV3Protocol`](AaveV3Protocol.md)
-- [`MakerProtocol`](MakerProtocol.md)
-- [`MorphoProtocol`](MorphoProtocol.md)
-- [`SparkProtocol`](SparkProtocol.md)
 
 ## Implements
 

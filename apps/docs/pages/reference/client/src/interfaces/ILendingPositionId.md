@@ -17,9 +17,6 @@ Represents a position ID for a lending position
 
 - [`IExternalLendingPositionId`](IExternalLendingPositionId.md)
 - [`IAaveV3LendingPositionId`](../../../protocol-plugins/service/src/interfaces/IAaveV3LendingPositionId.md)
-- [`ISparkLendingPositionId`](../../../protocol-plugins/service/src/interfaces/ISparkLendingPositionId.md)
-- [`IMakerLendingPositionId`](../../../protocol-plugins/service/src/interfaces/IMakerLendingPositionId.md)
-- [`IMorphoLendingPositionId`](../../../protocol-plugins/service/src/interfaces/IMorphoLendingPositionId.md)
 
 ## Properties
 
