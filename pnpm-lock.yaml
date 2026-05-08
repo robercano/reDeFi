@@ -1794,6 +1794,9 @@ importers:
       '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../config/eslint
+      '@thesolidchain/tenderly-utils':
+        specifier: workspace:*
+        version: link:../../tenderly-utils
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.1(vitest@1.6.1)

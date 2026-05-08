@@ -141,7 +141,7 @@ export class TransactionUtils {
       to: params.transaction.target.value,
       value: BigInt(params.transaction.value),
       data: params.transaction.calldata,
-      chain: this.chain,
+      chain: null,
     })
   }
 

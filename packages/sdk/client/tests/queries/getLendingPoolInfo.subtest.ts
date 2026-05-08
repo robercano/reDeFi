@@ -1,10 +1,10 @@
 import {
-  ILKType,
-  MakerLendingPoolId,
-  MakerLendingPoolInfo,
-  MakerProtocol,
-  isMakerProtocol,
-  isMakerLendingPoolId,
+    EmodeType,
+  AaveV3LendingPoolId,
+  IAaveV3LendingPoolInfo,
+  AaveV3Protocol,
+  isAaveV3Protocol,
+  isAaveV3LendingPoolId,
 } from '@thesolidchain/protocol-plugins'
 import { Address, ChainFamilyMap, PoolType, ProtocolName, Token } from '@thesolidchain/sdk-common'
 import { vi, expect } from 'vitest'
@@ -18,18 +18,17 @@ export default async function getLendingPoolInfoTest() {
   const getLendingPoolInfoQuery: GetLendingPoolInfoType = vi.fn(async (poolId) => {
     expect(poolId).toBeDefined()
 
-    if (!isMakerLendingPoolId(poolId)) {
-      expect.fail('PoolId is not MakerPoolId')
+    if (!isAaveV3LendingPoolId(poolId)) {
+      expect.fail('PoolId is not AaveV3PoolId')
     }
 
     expect(poolId.protocol).toBeDefined()
-    expect(poolId.protocol.name).toBe(ProtocolName.Maker)
-    expect(poolId.ilkType).toBe(ILKType.ETH_A)
-
+    expect(poolId.protocol.name).toBe(ProtocolName.AaveV3)
+    
     return {
       type: PoolType.Lending,
       id: poolId,
-    } as unknown as MakerLendingPoolInfo
+    } as unknown as IAaveV3LendingPoolInfo
   })
 
   const rpcClient = {
@@ -52,14 +51,14 @@ export default async function getLendingPoolInfoTest() {
     expect.fail('Chain not found')
   }
 
-  const protocol = MakerProtocol.createFrom({
+  const protocol = AaveV3Protocol.createFrom({
     chainInfo: chain.chainInfo,
   })
 
-  assert(isMakerProtocol(protocol), 'Protocol is not MakerProtocol')
+  assert(isAaveV3Protocol(protocol), 'Protocol is not AaveV3Protocol')
 
-  const makerPoolId = MakerLendingPoolId.createFrom({
-    protocol: MakerProtocol.createFrom({
+  const aaveV3PoolId = AaveV3LendingPoolId.createFrom({
+    protocol: AaveV3Protocol.createFrom({
       chainInfo: chain.chainInfo,
     }),
     collateralToken: Token.createFrom({
@@ -80,17 +79,17 @@ export default async function getLendingPoolInfoTest() {
       symbol: 'USDC',
       decimals: 6,
     }),
-    ilkType: ILKType.ETH_A,
+    emodeType: EmodeType.None,
   })
 
-  const pool = await chain.protocols.getLendingPoolInfo({ poolId: makerPoolId })
+  const pool = await chain.protocols.getLendingPoolInfo({ poolId: aaveV3PoolId })
 
   if (!pool) {
     expect.fail('Pool not found')
   }
 
   expect(pool.type).toBe(PoolType.Lending)
-  expect(pool.id).toBe(makerPoolId)
+  expect(pool.id).toBe(aaveV3PoolId)
   expect(pool.id.protocol.name).toBe(protocol.name)
   expect(pool.id.protocol.chainInfo).toEqual(protocol.chainInfo)
 }

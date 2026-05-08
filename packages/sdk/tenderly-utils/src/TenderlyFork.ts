@@ -195,6 +195,26 @@ export class TenderlyFork {
     ])
   }
 
+  /**
+   * snapshot
+   * Takes a snapshot of the current state of the fork
+   *
+   * @returns The snapshot ID as a string
+   */
+  async snapshot(): Promise<string> {
+    return this.rpcProvider.send('evm_snapshot', [])
+  }
+
+  /**
+   * revert
+   * Reverts the state of the fork to a given snapshot
+   *
+   * @param snapshotId The ID of the snapshot to revert to
+   */
+  async revert(snapshotId: string): Promise<void> {
+    await this.rpcProvider.send('evm_revert', [snapshotId])
+  }
+
   /** PRIVATE */
 
   /**
@@ -215,18 +235,29 @@ export class TenderlyFork {
 
     try {
       response = await params.apiRequestClient.post(params.tenderlyApiUrl + '/vnets', {
-        network_id: params.chainInfo.chainId,
-        block_number: params.atBlock,
+        slug: "sdk-testnet-" + Date.now(),
+        display_name: "SDK TestNet",
+        fork_config: {
+          network_id: params.chainInfo.chainId,
+          block_number: params.atBlock,
+        },
+        virtual_network_config: {
+          chain_config: {
+            chain_id: params.chainInfo.chainId,
+          },
+        },
       })
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
-      throw new Error(`Error creating fork: ${JSON.stringify(error.response.data)}`)
+      const errorMsg = error.response ? JSON.stringify(error.response.data) : error.message
+      throw new Error(`Error creating fork: ${errorMsg}`)
     }
 
-    const forkId = response.data.root_transaction.fork_id
+    const forkId = response.data.id
+    const adminRpc = response.data.rpcs.find((rpc: any) => rpc.name === 'Admin RPC')?.url || response.data.rpcs[0].url
     return {
       forkId: forkId,
-      forkUrl: `https://rpc.tenderly.co/fork/${forkId}`,
+      forkUrl: adminRpc,
     }
   }
 }

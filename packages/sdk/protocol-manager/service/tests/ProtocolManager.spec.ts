@@ -2,8 +2,8 @@
 import { IProtocolManager, IProtocolManagerContext } from '@thesolidchain/protocol-manager-common'
 import {
   EmodeType,
-  SparkLendingPoolId,
-  SparkProtocol,
+  AaveV3LendingPoolId,
+  AaveV3Protocol,
   ProtocolPluginConstructor,
   ProtocolPluginsRegistry,
 } from '@thesolidchain/protocol-plugins'
@@ -26,8 +26,7 @@ describe('Protocol Manager', () => {
   beforeEach(async () => {
     ctx = await createProtocolManagerContext()
     mockPlugins = {
-      [ProtocolName.Spark]: MockPlugin as unknown as ProtocolPluginConstructor,
-      [ProtocolName.Maker]: MockPlugin as unknown as ProtocolPluginConstructor,
+      [ProtocolName.AaveV3]: MockPlugin as unknown as ProtocolPluginConstructor,
     }
     pluginsRegistry = new ProtocolPluginsRegistry({
       plugins: mockPlugins,
@@ -46,8 +45,8 @@ describe('Protocol Manager', () => {
     const unsupportedChainId = 'unsupportedChain'
     ctx.provider.getChainId = vi.fn().mockResolvedValue(unsupportedChainId)
     await expect(
-      protocolManager.getLendingPool({ protocol: { name: ProtocolName.Spark } } as any),
-    ).rejects.toThrow(`Invalid lending pool ID: {"protocol":{"name":"Spark"}}`)
+      protocolManager.getLendingPool({ protocol: { name: ProtocolName.AaveV3 } } as any),
+    ).rejects.toThrow(`Invalid lending pool ID: {"protocol":{"name":"AAVE_V3"}}`)
   })
 
   it('should retrieve the pool using the correct plugin and chain ID', async () => {
@@ -57,15 +56,15 @@ describe('Protocol Manager', () => {
       constructor(params: { __overrides?: { schema?: any; supportedChains?: any[] } }) {
         super({
           ...params,
-          protocolName: ProtocolName.Spark,
+          protocolName: ProtocolName.AaveV3,
         })
 
-        this.getLendingPool = vi.fn().mockResolvedValue('mockPoolData')
+        this.lending.getLendingPool = vi.fn().mockResolvedValue('mockPoolData')
       }
     }
 
     const mockPlugins = {
-      [ProtocolName.Spark]: TestMockPlugin as unknown as ProtocolPluginConstructor,
+      [ProtocolName.AaveV3]: TestMockPlugin as unknown as ProtocolPluginConstructor,
     }
 
     const pluginsRegistry = new ProtocolPluginsRegistry({
@@ -76,8 +75,8 @@ describe('Protocol Manager', () => {
     protocolManager = ProtocolManager.createWith({ pluginsRegistry })
 
     const chainId = 'supportedChain'
-    const poolId = SparkLendingPoolId.createFrom({
-      protocol: SparkProtocol.createFrom({
+    const poolId = AaveV3LendingPoolId.createFrom({
+      protocol: AaveV3Protocol.createFrom({
         chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
       }),
       collateralToken: Token.createFrom({
@@ -123,25 +122,27 @@ class MockPlugin implements IProtocolPlugin {
     this.schema = params.__overrides?.schema ?? {}
     this.supportedChains = params.__overrides?.supportedChains ?? []
     this.stepBuilders = {}
+    this.lending = {
+      getLendingPool: vi.fn(),
+      getLendingPoolInfo: vi.fn(),
+      getLendingPosition: vi.fn(),
+      isPoolId: vi.fn(),
+      validatePoolId: vi.fn(),
+    }
   }
 
   initialize(params: { context: IProtocolPluginContext }): void {
     this.context = params.context
   }
 
-  getLendingPool = vi.fn()
-  getLendingPoolInfo = vi.fn()
-  getLendingPosition = vi.fn()
+  lending: any
   getImportPositionTransaction = vi.fn()
-  // @ts-ignore
-  isPoolId = vi.fn()
-  validatePoolId = vi.fn()
   getActionBuilder = vi.fn()
   ctx = () => this.context
 }
 
 async function createProtocolManagerContext(): Promise<IProtocolManagerContext> {
-  const RPC_URL = process.env['E2E_SDK_FORK_URL_MAINNET'] || ''
+  const RPC_URL = 'http://localhost:8545'
   const provider: PublicClient = createPublicClient({
     batch: {
       multicall: true,

@@ -1,17 +1,11 @@
 import {
   EmodeType,
-  ILKType,
-  IMakerLendingPosition,
-  MakerLendingPool,
-  MakerLendingPoolId,
-  MakerLendingPosition,
-  MakerLendingPositionId,
-  MakerProtocol,
-  SparkLendingPool,
-  SparkLendingPoolId,
-  SparkLendingPosition,
-  SparkLendingPositionId,
-  SparkProtocol,
+  IAaveV3LendingPosition,
+  AaveV3LendingPool,
+  AaveV3LendingPoolId,
+  AaveV3LendingPosition,
+  AaveV3LendingPositionId,
+  AaveV3Protocol,
 } from '@thesolidchain/protocol-plugins'
 import {
   IRefinanceSimulation,
@@ -51,56 +45,13 @@ export default async function simulateNewOrder() {
     decimals: 18,
   })
 
-  const makerProtocol = MakerProtocol.createFrom({
+  const sourceProtocol = AaveV3Protocol.createFrom({
     chainInfo: chainInfo,
   })
 
-  const makerPoolId = MakerLendingPoolId.createFrom({
-    protocol: makerProtocol,
-    ilkType: ILKType.ETH_A,
-    collateralToken: Token.createFrom({
-      address: Address.createFromEthereum({
-        value: '0x6b175474e89094c44da98b954eedeac495271d0f',
-      }),
-      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
-      name: 'USD Coin',
-      symbol: 'USDC',
-      decimals: 6,
-    }),
-    debtToken: Token.createFrom({
-      address: Address.createFromEthereum({
-        value: '0x6b175474e89094c44da98b954eedeac495271d0f',
-      }),
-      chainInfo: { chainId: 1, name: 'Ethereum' },
-      name: 'USD Coin',
-      symbol: 'USDC',
-      decimals: 6,
-    }),
-  })
-
-  const pool = MakerLendingPool.createFrom({
-    id: makerPoolId,
-    collateralToken: makerPoolId.collateralToken,
-    debtToken: makerPoolId.debtToken,
-  })
-
-  const prevPosition: IMakerLendingPosition = MakerLendingPosition.createFrom({
-    subtype: LendingPositionType.Multiply,
-    id: MakerLendingPositionId.createFrom({
-      id: '1234567890',
-      vaultId: '1234567890',
-    }),
-    pool: pool,
-    debtAmount: TokenAmount.createFrom({ token: DAI, amount: '56.78' }),
-    collateralAmount: TokenAmount.createFrom({ token: WETH, amount: '105.98' }),
-  })
-
-  const sparkProtocol = SparkProtocol.createFrom({
-    chainInfo: chainInfo,
-  })
-
-  const sparkPoolId = SparkLendingPoolId.createFrom({
-    protocol: sparkProtocol,
+  const sourcePoolId = AaveV3LendingPoolId.createFrom({
+    protocol: sourceProtocol,
+    
     collateralToken: Token.createFrom({
       address: Address.createFromEthereum({
         value: '0x6b175474e89094c44da98b954eedeac495271d0f',
@@ -122,18 +73,67 @@ export default async function simulateNewOrder() {
     emodeType: EmodeType.None,
   })
 
-  const targetPool = SparkLendingPool.createFrom({
-    id: sparkPoolId,
-    collateralToken: sparkPoolId.collateralToken,
-    debtToken: sparkPoolId.debtToken,
+  const pool = AaveV3LendingPool.createFrom({
+    id: sourcePoolId,
+    collateralToken: sourcePoolId.collateralToken,
+    debtToken: sourcePoolId.debtToken,
+  })
+
+  const prevPosition: IAaveV3LendingPosition = AaveV3LendingPosition.createFrom({
+    subtype: LendingPositionType.Multiply,
+    id: AaveV3LendingPositionId.createFrom({
+      id: '1234567890',
+      poolId: sourcePoolId,
+      walletAddress: Address.createFromEthereum({ value: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266' }),
+    }),
+    pool: pool,
+    debtAmount: TokenAmount.createFrom({ token: DAI, amount: '56.78' }),
+    collateralAmount: TokenAmount.createFrom({ token: WETH, amount: '105.98' }),
+  })
+
+  const targetProtocol = AaveV3Protocol.createFrom({
+    chainInfo: chainInfo,
+  })
+
+  const targetPoolId = AaveV3LendingPoolId.createFrom({
+    protocol: targetProtocol,
+    collateralToken: Token.createFrom({
+      address: Address.createFromEthereum({
+        value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+      }),
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      name: 'USD Coin',
+      symbol: 'USDC',
+      decimals: 6,
+    }),
+    debtToken: Token.createFrom({
+      address: Address.createFromEthereum({
+        value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+      }),
+      chainInfo: { chainId: 1, name: 'Ethereum' },
+      name: 'USD Coin',
+      symbol: 'USDC',
+      decimals: 6,
+    }),
+    emodeType: EmodeType.None,
+  })
+
+  const targetPool = AaveV3LendingPool.createFrom({
+    id: targetPoolId,
+    collateralToken: targetPoolId.collateralToken,
+    debtToken: targetPoolId.debtToken,
   })
 
   const simulation: IRefinanceSimulation = RefinanceSimulation.createFrom({
     sourcePosition: prevPosition,
     swaps: [],
-    targetPosition: SparkLendingPosition.createFrom({
+    targetPosition: AaveV3LendingPosition.createFrom({
       subtype: LendingPositionType.Multiply,
-      id: SparkLendingPositionId.createFrom({ id: '1234567890' }),
+      id: AaveV3LendingPositionId.createFrom({
+        id: '1234567890',
+        poolId: targetPoolId,
+        walletAddress: Address.createFromEthereum({ value: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266' }),
+      }),
       debtAmount: TokenAmount.createFrom({ token: DAI, amount: '56.78' }),
       collateralAmount: TokenAmount.createFrom({ token: WETH, amount: '105.98' }),
       pool: targetPool,

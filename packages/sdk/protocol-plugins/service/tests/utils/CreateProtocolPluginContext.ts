@@ -13,8 +13,9 @@ import { IChainInfo } from '@thesolidchain/sdk-common'
 export async function createProtocolPluginContext(
   chainInfo: IChainInfo,
   __ctxOverrides?: Partial<IProtocolPluginContext>,
+  rpcUrl?: string
 ): Promise<IProtocolPluginContext> {
-  const RPC_URL = process.env['E2E_SDK_FORK_URL_MAINNET'] || ''
+  const RPC_URL = rpcUrl || process.env['E2E_SDK_FORK_URL_MAINNET'] || ''
   const provider: PublicClient = createPublicClient({
     batch: {
       multicall: true,

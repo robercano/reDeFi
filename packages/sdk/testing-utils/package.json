@@ -20,8 +20,7 @@
     "testw": "vitest watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
-    "encode:makerGive": "tsx ./scripts/encodeMakerGive.ts"
+    "build": "tsc -b --preserveWatchOutput tsconfig.build.json"
   },
   "dependencies": {
     "@thesolidchain/address-book-common": "workspace:*",
