@@ -76,3 +76,16 @@ export type {
 } from './implementation/ProtocolPluginsRegistry'
 export { ProtocolPluginsRecord } from './plugins/ProtocolPluginsRecord'
 export { BaseLendingProtocolPlugin } from './implementation/BaseLendingProtocolPlugin'
+
+// Common builders
+export { DepositBorrowActionBuilder } from './plugins/common/builders/DepositBorrowActionBuilder'
+export { FlashloanActionBuilder } from './plugins/common/builders/FlashloanActionBuilder'
+export { ImportPositionActionBuilder } from './plugins/common/builders/ImportPositionActionBuilder'
+export { PaybackWithdrawActionBuilder } from './plugins/common/builders/PaybackWithdrawActionBuilder'
+export { PositionCreatedActionBuilder } from './plugins/common/builders/PositionCreatedActionBuilder'
+export { PullTokenActionBuilder } from './plugins/common/builders/PullTokenActionBuilder'
+export { RepayFlashloanActionBuilder } from './plugins/common/builders/RepayFlashloanActionBuilder'
+export { ReturnFundsActionBuilder } from './plugins/common/builders/ReturnFundsActionBuilder'
+export { SwapActionBuilder } from './plugins/common/builders/SwapActionBuilder'
+export { OpenPositionActionBuilder } from './plugins/common/builders/OpenPositionActionBuilder'
+export { SkippedStepActionBuilder } from './plugins/common/builders/SkippedStepActionBuilder'

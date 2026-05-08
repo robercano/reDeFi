@@ -41,10 +41,10 @@ import assert from 'assert'
 import { createPublicClient, http } from 'viem'
 import { mainnet } from 'viem/chains'
 import { OrderPlannerService } from '../../src/implementation/OrderPlannerService'
-import { getMakerPosition } from '../utils/MakerSourcePosition'
+import { getAaveV3SourcePosition } from '../utils/AaveV3SourcePosition'
 import { getRefinanceSimulation } from '../utils/RefinanceSimulation/RefinanceSimulation'
 import { SetupDeployments } from '../utils/SetupDeployments'
-import { getSparkPosition } from '../utils/SparkTargetPosition'
+import { getAaveV3TargetPosition } from '../utils/AaveV3TargetPosition'
 
 describe('Order Planner Service', () => {
   const chainInfo: ChainInfo = ChainFamilyMap.Ethereum.Mainnet
@@ -93,8 +93,8 @@ describe('Order Planner Service', () => {
   })
 
   it('should process refinance simulation correctly', async () => {
-    const sourcePosition = getMakerPosition()
-    const targetPosition = getSparkPosition()
+    const sourcePosition = getAaveV3SourcePosition()
+    const targetPosition = getAaveV3TargetPosition()
 
     const refinanceSimulation: IRefinanceSimulation = getRefinanceSimulation({
       sourcePosition,

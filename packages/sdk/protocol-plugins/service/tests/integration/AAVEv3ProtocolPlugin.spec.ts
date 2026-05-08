@@ -11,18 +11,43 @@ import { IAaveV3LendingPoolId } from '../../src/plugins/aave-v3/interfaces/IAave
 import { AaveV3LendingPositionId } from '../../src/plugins/aave-v3/implementation/AaveV3LendingPositionId'
 import { LendingPositionType } from '@thesolidchain/sdk-common'
 import { ChainFamilyMap } from '@thesolidchain/sdk-common'
+import { TenderlyFork } from '@thesolidchain/tenderly-utils'
 
 describe('AAVEv3 Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext
   let validAaveV3PoolId: IAaveV3LendingPoolId
   let aaveV3ProtocolPlugin: AaveV3ProtocolPlugin
+  let fork: TenderlyFork
+  let snapshotId: string
+
   beforeAll(async () => {
-    ctx = await createProtocolPluginContext(ChainFamilyMap.Ethereum.Mainnet)
+    fork = await TenderlyFork.create({
+      tenderlyApiUrl: `https://api.tenderly.co/api/v1/account/${process.env.TENDERLY_USER}/project/${process.env.TENDERLY_PROJECT}`,
+      tenderlyAccessKey: process.env.TENDERLY_ACCESS_KEY!,
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+    })
+    ctx = await createProtocolPluginContext(ChainFamilyMap.Ethereum.Mainnet, {}, fork.forkUrl)
     validAaveV3PoolId = await getAaveV3PoolIdMock()
     aaveV3ProtocolPlugin = new AaveV3ProtocolPlugin()
     aaveV3ProtocolPlugin.initialize({
       context: ctx,
     })
+  }, 30000)
+
+  beforeEach(async () => {
+    snapshotId = await fork.snapshot()
+  })
+
+  afterEach(async () => {
+    if (snapshotId) {
+      await fork.revert(snapshotId)
+    }
+  })
+
+  afterAll(async () => {
+    if (fork) {
+      await fork.dispose()
+    }
   })
   // added skip since Aave adds new tokens which doesn't affect us, but which causing to this test to fail
   // (aggread with team as temporary solution)
@@ -143,7 +168,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
   })
 
   it('executes getSupplyTransaction on the fork and updates lending position', async () => {
-    const rpcUrl = process.env.E2E_SDK_FORK_URL_MAINNET!
+    const rpcUrl = fork.forkUrl
     const tenderlyChain = defineChain({
       id: 9991,
       name: 'Tenderly',
@@ -164,6 +189,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
       account: whaleAddress,
       to: userAddress,
       value: 10000000000000000000n, // 10 ETH
+      chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: fundHash })
 
@@ -174,6 +200,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
       abi: [{ name: 'deposit', type: 'function', stateMutability: 'payable', inputs: [], outputs: [] }],
       functionName: 'deposit',
       value: 1000000000000000000n, // 1 ETH
+      chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: wrapHash })
 
@@ -205,6 +232,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
       abi: [{ name: 'approve', type: 'function', stateMutability: 'nonpayable', inputs: [{ name: 'spender', type: 'address' }, { name: 'amount', type: 'uint256' }], outputs: [{ type: 'bool' }] }],
       functionName: 'approve',
       args: [supplyTxInfo.transaction.target.value as `0x${string}`, 1000000000000000000n],
+      chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: approveHash })
 
@@ -214,6 +242,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
       to: supplyTxInfo.transaction.target.value as `0x${string}`,
       data: supplyTxInfo.transaction.calldata as `0x${string}`,
       value: BigInt(supplyTxInfo.transaction.value),
+      chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: supplyHash })
 
