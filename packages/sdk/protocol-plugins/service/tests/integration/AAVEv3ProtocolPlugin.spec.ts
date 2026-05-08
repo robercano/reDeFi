@@ -1,5 +1,9 @@
+import { createWalletClient, createPublicClient, http, defineChain } from 'viem'
+import { mainnet } from 'viem/chains'
+import * as dotenv from 'dotenv'
+dotenv.config({ path: '../../../../.env' })
 import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
-import { Price, RiskRatio, TokenAmount, Percentage } from '@thesolidchain/sdk-common'
+import { Price, RiskRatio, TokenAmount, Percentage, Address, User, Wallet, ChainInfo } from '@thesolidchain/sdk-common'
 import { AaveV3ProtocolPlugin } from '../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
 import { getAaveV3PoolIdMock } from '../mocks/AAVEv3PoolIdMock'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
@@ -119,7 +123,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     const positionId = AaveV3LendingPositionId.createFrom({
       id: 'mockPositionId',
       poolId: validAaveV3PoolId,
-      walletAddress: { value: '0x1234567890123456789012345678901234567890' } as any, // Mocks address
+      walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
     })
 
     const position = await aaveV3ProtocolPlugin.getLendingPosition(positionId)
@@ -137,4 +141,84 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     expect(position.debtAmount.token.address.value).toBe(validAaveV3PoolId.debtToken.address.value)
     expect(Number(position.debtAmount.amount)).toBeGreaterThanOrEqual(0)
   })
+
+  it('executes getSupplyTransaction on the fork and updates lending position', async () => {
+    const rpcUrl = process.env.E2E_SDK_FORK_URL_MAINNET!
+    const tenderlyChain = defineChain({
+      id: 9991,
+      name: 'Tenderly',
+      network: 'tenderly',
+      nativeCurrency: { decimals: 18, name: 'Ether', symbol: 'ETH' },
+      rpcUrls: { default: { http: [rpcUrl] }, public: { http: [rpcUrl] } },
+    })
+
+    const publicClient = createPublicClient({ chain: tenderlyChain, transport: http(rpcUrl) })
+    const walletClient = createWalletClient({ chain: tenderlyChain, transport: http(rpcUrl) })
+
+    const whaleAddress = '0x28C6c06298d514Db089934071355E5743bf21d60' as const // Binance 14
+    const userAddress = '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' as const // E2E Test User
+    const wethAddress = '0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2' as const
+
+    // 1. Send 10 ETH from Whale to User
+    const fundHash = await walletClient.sendTransaction({
+      account: whaleAddress,
+      to: userAddress,
+      value: 10000000000000000000n, // 10 ETH
+    })
+    await publicClient.waitForTransactionReceipt({ hash: fundHash })
+
+    // 2. Wrap ETH into WETH as User
+    const wrapHash = await walletClient.writeContract({
+      account: userAddress,
+      address: wethAddress,
+      abi: [{ name: 'deposit', type: 'function', stateMutability: 'payable', inputs: [], outputs: [] }],
+      functionName: 'deposit',
+      value: 1000000000000000000n, // 1 ETH
+    })
+    await publicClient.waitForTransactionReceipt({ hash: wrapHash })
+
+    // 3. Generate supply transaction
+    const positionId = AaveV3LendingPositionId.createFrom({
+      id: 'forkPositionId',
+      walletAddress: Address.createFromEthereum({ value: userAddress }),
+      poolId: validAaveV3PoolId,
+    })
+
+    const supplyAmount = TokenAmount.createFrom({
+      token: validAaveV3PoolId.collateralToken,
+      amount: '1', // 1 WETH
+    }) as TokenAmount
+
+    const supplyTxInfo = await aaveV3ProtocolPlugin.getSupplyTransaction({
+      poolId: validAaveV3PoolId,
+      amount: supplyAmount,
+      user: User.createFrom({
+        chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum Mainnet' }),
+        wallet: Wallet.createFrom({ address: Address.createFromEthereum({ value: userAddress }) }),
+      }),
+    })
+
+    // 4. Approve Aave Pool
+    const approveHash = await walletClient.writeContract({
+      account: userAddress,
+      address: wethAddress,
+      abi: [{ name: 'approve', type: 'function', stateMutability: 'nonpayable', inputs: [{ name: 'spender', type: 'address' }, { name: 'amount', type: 'uint256' }], outputs: [{ type: 'bool' }] }],
+      functionName: 'approve',
+      args: [supplyTxInfo.transaction.target.value as `0x${string}`, 1000000000000000000n],
+    })
+    await publicClient.waitForTransactionReceipt({ hash: approveHash })
+
+    // 5. Execute Supply Transaction
+    const supplyHash = await walletClient.sendTransaction({
+      account: userAddress,
+      to: supplyTxInfo.transaction.target.value as `0x${string}`,
+      data: supplyTxInfo.transaction.calldata as `0x${string}`,
+      value: BigInt(supplyTxInfo.transaction.value),
+    })
+    await publicClient.waitForTransactionReceipt({ hash: supplyHash })
+
+    // 6. Verify Position updated
+    const newPosition = await aaveV3ProtocolPlugin.getLendingPosition(positionId)
+    expect(Number(newPosition.collateralAmount.amount)).toBeGreaterThanOrEqual(1)
+  }, 60000)
 })

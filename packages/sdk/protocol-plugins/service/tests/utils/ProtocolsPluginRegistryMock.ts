@@ -9,8 +9,7 @@ import { ISwapManager } from '@thesolidchain/swap-common'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { PublicClient } from 'viem'
 import { ProtocolPluginsRegistry } from '../../src/implementation/ProtocolPluginsRegistry'
-import { MakerProtocolPlugin } from '../../src/plugins/maker/implementation/MakerProtocolPlugin'
-import { SparkProtocolPlugin } from '../../src/plugins/spark/implementation/SparkProtocolPlugin'
+import { AaveV3ProtocolPlugin } from '../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
 import {
   EmptyProtocolPluginMock,
   NoCheckpointProtocolPluginMock,
@@ -63,8 +62,7 @@ export function createEmptyBuildersProtocolPluginsRegistry(): IProtocolPluginsRe
 
   return new ProtocolPluginsRegistry({
     plugins: {
-      [ProtocolName.Maker]: EmptyProtocolPluginMock,
-      [ProtocolName.Spark]: EmptyProtocolPluginMock,
+      [ProtocolName.AaveV3]: EmptyProtocolPluginMock,
     },
     context: protocolPluginContext,
   })
@@ -81,8 +79,7 @@ export function createNoCheckpointProtocolPluginsRegistry(): IProtocolPluginsReg
 
   return new ProtocolPluginsRegistry({
     plugins: {
-      [ProtocolName.Maker]: NoCheckpointProtocolPluginMock,
-      [ProtocolName.Spark]: NoCheckpointProtocolPluginMock,
+      [ProtocolName.AaveV3]: NoCheckpointProtocolPluginMock,
     },
     context: protocolPluginContext,
   })
@@ -99,8 +96,7 @@ export function createRealProtocolsPluginsRegistry(): IProtocolPluginsRegistry {
 
   return new ProtocolPluginsRegistry({
     plugins: {
-      [ProtocolName.Maker]: MakerProtocolPlugin,
-      [ProtocolName.Spark]: SparkProtocolPlugin,
+      [ProtocolName.AaveV3]: AaveV3ProtocolPlugin,
     },
     context: protocolPluginContext,
   })

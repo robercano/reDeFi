@@ -94,4 +94,16 @@ export function SetupDeployments(
     name: 'SparkDataProvider',
     address: '0xFc21d6d146E6086B8359705C8b28512a983db0cb',
   })
+
+  addressBookManager.setAddressByName({
+    chainInfo,
+    name: 'AavePool',
+    address: '0x87870Bca3F3fD6335C3F4ce8392D69350B4fA4E2', // Mainnet Aave V3 Pool
+  })
+
+  addressBookManager.setAddressByName({
+    chainInfo,
+    name: 'AaveOracle',
+    address: '0x54586bE62E3c3580375aE3723C145253060Ca0C2', // Mainnet Aave V3 Oracle
+  })
 }

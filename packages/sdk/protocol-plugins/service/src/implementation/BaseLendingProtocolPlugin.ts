@@ -13,6 +13,7 @@ import {
   ILendingPosition,
   ILendingPositionIdData,
   IUser,
+  TokenAmount,
 } from '@thesolidchain/sdk-common'
 
 import { BaseProtocolPlugin } from './BaseProtocolPlugin'
@@ -102,4 +103,13 @@ export abstract class BaseLendingProtocolPlugin extends BaseProtocolPlugin imple
     externalPosition: IExternalLendingPosition
     positionsManager: IPositionsManager
   }): Promise<Maybe<TransactionInfo>>
+
+  /** SUPPLY TRANSACTION */
+
+  /** @see ILendingProtocolFeatures.getSupplyTransaction */
+  abstract getSupplyTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
 }
