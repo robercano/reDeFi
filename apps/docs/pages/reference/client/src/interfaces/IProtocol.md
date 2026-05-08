@@ -18,9 +18,6 @@ This interface is used to add all the methods that the interface supports
 ## Extended by
 
 - [`IAaveV3Protocol`](IAaveV3Protocol.md)
-- [`IMakerProtocol`](IMakerProtocol.md)
-- [`IMorphoProtocol`](IMorphoProtocol.md)
-- [`ISparkProtocol`](ISparkProtocol.md)
 
 ## Properties
 

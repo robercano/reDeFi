@@ -23,9 +23,6 @@ tries to abstract this information to provide a common interface for all the pro
 ## Extended by
 
 - [`IAaveV3LendingPoolInfo`](../../../protocol-plugins/service/src/interfaces/IAaveV3LendingPoolInfo.md)
-- [`ISparkLendingPoolInfo`](../../../protocol-plugins/service/src/interfaces/ISparkLendingPoolInfo.md)
-- [`IMakerLendingPoolInfo`](../../../protocol-plugins/service/src/interfaces/IMakerLendingPoolInfo.md)
-- [`IMorphoLendingPoolInfo`](../../../protocol-plugins/service/src/interfaces/IMorphoLendingPoolInfo.md)
 
 ## Properties
 

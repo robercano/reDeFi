@@ -26,7 +26,6 @@
 - [FlashloanProvider](enumerations/FlashloanProvider.md)
 - [GlobalRoles](enumerations/GlobalRoles.md)
 - [GraphRoleName](enumerations/GraphRoleName.md)
-- [ILKType](enumerations/ILKType.md)
 - [IntentSwapProviderType](enumerations/IntentSwapProviderType.md)
 - [LendingPositionType](enumerations/LendingPositionType.md)
 - [OracleProviderType](enumerations/OracleProviderType.md)
@@ -70,15 +69,7 @@
 - [LendingPosition](classes/LendingPosition.md)
 - [LendingPositionId](classes/LendingPositionId.md)
 - [LoggingService](classes/LoggingService.md)
-- [MakerLendingPoolId](classes/MakerLendingPoolId.md)
-- [MakerLendingPosition](classes/MakerLendingPosition.md)
-- [MakerLendingPositionId](classes/MakerLendingPositionId.md)
-- [MakerProtocol](classes/MakerProtocol.md)
 - [MemoryCacheLayer](classes/MemoryCacheLayer.md)
-- [MorphoLendingPoolId](classes/MorphoLendingPoolId.md)
-- [MorphoLendingPosition](classes/MorphoLendingPosition.md)
-- [MorphoLendingPositionId](classes/MorphoLendingPositionId.md)
-- [MorphoProtocol](classes/MorphoProtocol.md)
 - [OrdersManagerClient](classes/OrdersManagerClient.md)
 - [Percentage](classes/Percentage.md)
 - [PortfolioManager](classes/PortfolioManager.md)
@@ -97,10 +88,6 @@
 - [SDKManagerWithSigner](classes/SDKManagerWithSigner.md)
 - [SerializationService](classes/SerializationService.md)
 - [Simulation](classes/Simulation.md)
-- [SparkLendingPoolId](classes/SparkLendingPoolId.md)
-- [SparkLendingPosition](classes/SparkLendingPosition.md)
-- [SparkLendingPositionId](classes/SparkLendingPositionId.md)
-- [SparkProtocol](classes/SparkProtocol.md)
 - [SwapError](classes/SwapError.md)
 - [Token](classes/Token.md)
 - [TokenAmount](classes/TokenAmount.md)
@@ -143,10 +130,6 @@
 - [ILendingPoolInfo](interfaces/ILendingPoolInfo.md)
 - [ILendingPosition](interfaces/ILendingPosition.md)
 - [ILendingPositionId](interfaces/ILendingPositionId.md)
-- [IMakerLendingPoolId](interfaces/IMakerLendingPoolId.md)
-- [IMakerProtocol](interfaces/IMakerProtocol.md)
-- [IMorphoLendingPoolId](interfaces/IMorphoLendingPoolId.md)
-- [IMorphoProtocol](interfaces/IMorphoProtocol.md)
 - [IOrdersManagerClient](interfaces/IOrdersManagerClient.md)
 - [IPercentage](interfaces/IPercentage.md)
 - [IPool](interfaces/IPool.md)
@@ -167,8 +150,6 @@
 - [ISDKError](interfaces/ISDKError.md)
 - [ISDKManager](interfaces/ISDKManager.md)
 - [ISimulation](interfaces/ISimulation.md)
-- [ISparkLendingPoolId](interfaces/ISparkLendingPoolId.md)
-- [ISparkProtocol](interfaces/ISparkProtocol.md)
 - [ISwapError](interfaces/ISwapError.md)
 - [IToken](interfaces/IToken.md)
 - [ITokenAmount](interfaces/ITokenAmount.md)
@@ -268,8 +249,6 @@
 - [LendingPoolParameters](type-aliases/LendingPoolParameters.md)
 - [LendingPositionIdParameters](type-aliases/LendingPositionIdParameters.md)
 - [LendingPositionParameters](type-aliases/LendingPositionParameters.md)
-- [MakerLendingPositionIdParameters](type-aliases/MakerLendingPositionIdParameters.md)
-- [MakerLendingPositionParameters](type-aliases/MakerLendingPositionParameters.md)
 - [Maybe](type-aliases/Maybe.md)
 - [MerklClaimTransactionInfo](type-aliases/MerklClaimTransactionInfo.md)
 - [MigrationTransactionInfo](type-aliases/MigrationTransactionInfo.md)
@@ -343,6 +322,7 @@
 - [hyperliquid](variables/hyperliquid.md)
 - [ImportPositionParametersDataSchema](variables/ImportPositionParametersDataSchema.md)
 - [ImportSimulationSchema](variables/ImportSimulationSchema.md)
+- [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
 - [LegacyChainIds](variables/LegacyChainIds.md)
 - [LegacyChainIdSchema](variables/LegacyChainIdSchema.md)
 - [LendingPoolDataSchema](variables/LendingPoolDataSchema.md)
@@ -430,8 +410,6 @@
 - [isLendingPosition](functions/isLendingPosition.md)
 - [isLendingPositionId](functions/isLendingPositionId.md)
 - [isLendingPositionType](functions/isLendingPositionType.md)
-- [isMakerLendingPoolId](functions/isMakerLendingPoolId.md)
-- [isMorphoLendingPoolId](functions/isMorphoLendingPoolId.md)
 - [isOracleProviderType](functions/isOracleProviderType.md)
 - [isPercentage](functions/isPercentage.md)
 - [isPercentageData](functions/isPercentageData.md)
@@ -452,7 +430,6 @@
 - [isRiskRatio](functions/isRiskRatio.md)
 - [isSDKError](functions/isSDKError.md)
 - [isSimulation](functions/isSimulation.md)
-- [isSparkLendingPoolId](functions/isSparkLendingPoolId.md)
 - [isStakingBucket](functions/isStakingBucket.md)
 - [isSwapError](functions/isSwapError.md)
 - [isToken](functions/isToken.md)
@@ -483,12 +460,150 @@
 
 ## References
 
+### ILKType
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### IMakerLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### IMakerProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### IMorphoLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### IMorphoProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### isMorphoLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### ISparkLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### ISparkProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### isSparkLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
 ### ITokenStanalone
 
 Renames and re-exports [IToken](interfaces/IToken.md)
 
 ***
 
+### MakerLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MakerLendingPosition
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MakerLendingPositionId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MakerLendingPositionIdParameters
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MakerLendingPositionParameters
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MakerProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MorphoLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MorphoLendingPosition
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MorphoLendingPositionId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### MorphoProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
 ### QuoteDataStanalone
 
 Renames and re-exports [QuoteData](type-aliases/QuoteData.md)
+
+***
+
+### SparkLendingPoolId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### SparkLendingPosition
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### SparkLendingPositionId
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)
+
+***
+
+### SparkProtocol
+
+Renames and re-exports [isMakerLendingPoolId](variables/isMakerLendingPoolId.md)

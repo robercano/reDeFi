@@ -19,9 +19,6 @@ ILendingPoolId
 ## Extended by
 
 - [`AaveV3LendingPoolId`](AaveV3LendingPoolId.md)
-- [`MakerLendingPoolId`](MakerLendingPoolId.md)
-- [`MorphoLendingPoolId`](MorphoLendingPoolId.md)
-- [`SparkLendingPoolId`](SparkLendingPoolId.md)
 
 ## Implements
 
@@ -76,7 +73,7 @@ SIGNATURE
 
 #### Inherited from
 
-[`MakerLendingPoolId`](MakerLendingPoolId.md).[`[___signature__]`](MakerLendingPoolId.md#___signature__-2)
+`LendingPoolId`.[`[___signature__]`](#___signature__-1)
 
 ***
 
