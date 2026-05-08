@@ -17,11 +17,21 @@ import {
   IUser,
   TokenAmount,
   LendingPositionType,
+  CollateralInfo,
+  DebtInfo,
+  Percentage,
+  Price,
+  RiskRatio,
+  RiskRatioType,
+  Denomination,
+  IToken,
+  ICollateralInfo,
 } from '@thesolidchain/sdk-common'
-import { AAVEv3LikeBaseProtocolPlugin } from '../../common/helpers/aaveV3Like/AAVEv3LikeBaseProtocolPlugin'
+import { BigNumber } from 'bignumber.js'
+import { BaseLendingProtocolPlugin } from '../../../implementation/BaseLendingProtocolPlugin'
 import { ContractInfo } from '../../common/types/ContractInfo'
 import { ChainContractsProvider } from '../../utils/ChainContractProvider'
-import { AaveV3AbiMap, AaveV3AbiMapType } from '../abis/AaveV3AddressAbiMap'
+import { AaveV3AbiMap } from '../abis/AaveV3AddressAbiMap'
 import {
   IAaveV3LendingPoolId,
   IAaveV3LendingPoolIdData,
@@ -36,16 +46,15 @@ import { AaveV3LendingPool } from './AaveV3LendingPool'
 import { AaveV3LendingPoolInfo } from './AaveV3LendingPoolInfo'
 import { aaveV3EmodeCategoryMap } from './EmodeCategoryMap'
 import { AaveV3LendingPosition } from './AaveV3LendingPosition'
+import { PRECISION_BI, UNCAPPED_SUPPLY } from '../../common/constants/AaveV3LikeConstants'
+import { encodeFunctionData } from 'viem'
 
 /**
  * @class AaveV3ProtocolPlugin
  * Aave V3 protocol plugin
  * @see BaseProtocolPlugin
  */
-export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
-  AaveV3ContractNames,
-  AaveV3AbiMapType
-> {
+export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
   readonly protocolName = ProtocolName.AaveV3
   readonly supportedChains = valuesOfChainFamilyMap([
     ChainFamilyName.Ethereum,
@@ -54,15 +63,11 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     ChainFamilyName.Optimism,
   ])
 
-  initialize(params: { context: IProtocolPluginContext }) {
-    const contractsAbiProvider = new ChainContractsProvider(AaveV3AbiMap)
+  private _contractsAbiProvider!: ChainContractsProvider<AaveV3ContractNames, typeof AaveV3AbiMap>
 
-    super.initialize({
-      ...params,
-      contractsAbiProvider,
-      dataProviderContractName: 'PoolDataProvider',
-      oracleContractName: 'Oracle',
-    })
+  initialize(params: { context: IProtocolPluginContext }) {
+    super.initialize(params)
+    this._contractsAbiProvider = new ChainContractsProvider(AaveV3AbiMap)
 
     if (
       !this.supportedChains.some(
@@ -75,7 +80,6 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
 
   /** VALIDATORS */
 
-  /** @see BaseProtocolPlugin._validateLendingPoolId */
   protected _validateLendingPoolId(
     candidate: ILendingPoolIdData,
   ): asserts candidate is IAaveV3LendingPoolIdData {
@@ -84,7 +88,6 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     }
   }
 
-  /** @see BaseProtocolPlugin.validateLendingPoolId */
   protected _validateLendingPositionId(
     candidate: IPositionIdData,
   ): asserts candidate is IAaveV3LendingPositionIdData {
@@ -95,7 +98,6 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
 
   /** LENDING POOLS */
 
-  /** @see BaseProtocolPlugin._getLendingPoolImpl */
   async _getLendingPoolImpl(aaveV3PoolId: IAaveV3LendingPoolId): Promise<AaveV3LendingPool> {
     return AaveV3LendingPool.createFrom({
       id: aaveV3PoolId,
@@ -104,34 +106,213 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     })
   }
 
-  /** @see BaseProtocolPlugin._getLendingPoolInfoImpl */
   async _getLendingPoolInfoImpl(
     aaveV3PoolId: IAaveV3LendingPoolId,
   ): Promise<AaveV3LendingPoolInfo> {
-    await this._inititalizeAssetsListIfNeeded({ chainInfo: aaveV3PoolId.protocol.chainInfo })
+    const chainInfo = aaveV3PoolId.protocol.chainInfo
 
-    const emode = aaveV3EmodeCategoryMap[aaveV3PoolId.emodeType]
-
-    const [collateralInfo, debtInfo] = await Promise.all([
-      this._getCollateralInfo({
-        token: aaveV3PoolId.collateralToken,
-        emode: emode,
-        poolBaseCurrencyToken: FiatCurrency.USD,
-      }),
-      this._getDebtInfo(aaveV3PoolId.debtToken, emode, FiatCurrency.USD),
+    const [dataProviderContract, oracleContract] = await Promise.all([
+      this._getContractDef({ chainInfo, contractName: 'PoolDataProvider' }),
+      this._getContractDef({ chainInfo, contractName: 'Oracle' }),
     ])
 
-    if (!collateralInfo) {
-      throw new Error(`Collateral info not found for ${aaveV3PoolId.collateralToken}`)
-    }
-    if (!debtInfo) {
-      throw new Error(`Debt info not found for ${aaveV3PoolId.debtToken}`)
-    }
+    const collateralAddress = aaveV3PoolId.collateralToken.address.value
+    const debtAddress = aaveV3PoolId.debtToken.address.value
+
+    const results = (await this.context.provider.multicall({
+      contracts: [
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveConfigurationData',
+          args: [collateralAddress],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveData',
+          args: [collateralAddress],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveCaps',
+          args: [collateralAddress],
+        },
+        {
+          abi: oracleContract.abi,
+          address: oracleContract.address,
+          functionName: 'getAssetPrice',
+          args: [collateralAddress],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveConfigurationData',
+          args: [debtAddress],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveData',
+          args: [debtAddress],
+        },
+        {
+          abi: dataProviderContract.abi,
+          address: dataProviderContract.address,
+          functionName: 'getReserveCaps',
+          args: [debtAddress],
+        },
+        {
+          abi: oracleContract.abi,
+          address: oracleContract.address,
+          functionName: 'getAssetPrice',
+          args: [debtAddress],
+        },
+      ],
+      allowFailure: false,
+    })) as any[]
+
+    const collateralInfo = this._buildCollateralInfo({
+      token: aaveV3PoolId.collateralToken,
+      poolBaseCurrencyToken: FiatCurrency.USD,
+      config: results[0] as bigint[],
+      data: results[1] as bigint[],
+      caps: results[2] as bigint[],
+      price: results[3] as bigint,
+    })
+
+    const debtInfo = this._buildDebtInfo({
+      token: aaveV3PoolId.debtToken,
+      poolBaseCurrencyToken: FiatCurrency.USD,
+      config: results[4] as bigint[],
+      data: results[5] as bigint[],
+      caps: results[6] as bigint[],
+      price: results[7] as bigint,
+    })
 
     return AaveV3LendingPoolInfo.createFrom({
       id: aaveV3PoolId,
       collateral: collateralInfo,
       debt: debtInfo,
+    })
+  }
+
+  private _buildCollateralInfo(params: {
+    token: IToken
+    poolBaseCurrencyToken: Denomination
+    config: bigint[]
+    data: bigint[]
+    caps: bigint[]
+    price: bigint
+  }): ICollateralInfo {
+    const { token, poolBaseCurrencyToken, config, data, caps, price } = params
+    const LTV_TO_PERCENTAGE_DIVISOR = new BigNumber(100)
+
+    const liquidationThreshold = config[2]
+    const liquidationBonus = config[3]
+    const totalAToken = data[2]
+    const supplyCap = caps[1]
+
+    return CollateralInfo.createFrom({
+      token,
+      price: Price.createFrom({
+        base: token,
+        quote: poolBaseCurrencyToken,
+        value: price.toString(),
+      }),
+      priceUSD: Price.createFrom({
+        base: token,
+        quote: FiatCurrency.USD,
+        value: price.toString(),
+      }),
+      liquidationThreshold: RiskRatio.createFrom({
+        value: Percentage.createFrom({
+          value: new BigNumber(liquidationThreshold.toString())
+            .div(LTV_TO_PERCENTAGE_DIVISOR)
+            .toNumber(),
+        }),
+        type: RiskRatioType.LTV,
+      }),
+      tokensLocked: TokenAmount.createFromBaseUnit({
+        token,
+        amount: totalAToken.toString(),
+      }),
+      maxSupply: TokenAmount.createFrom({
+        token,
+        amount: supplyCap === 0n ? UNCAPPED_SUPPLY : supplyCap.toString(),
+      }),
+      liquidationPenalty: Percentage.createFrom({
+        value: new BigNumber(liquidationBonus.toString())
+          .div(LTV_TO_PERCENTAGE_DIVISOR)
+          .toNumber(),
+      }),
+    })
+  }
+
+  private _buildDebtInfo(params: {
+    token: IToken
+    poolBaseCurrencyToken: Denomination
+    config: bigint[]
+    data: bigint[]
+    caps: bigint[]
+    price: bigint
+  }): DebtInfo {
+    const { token, poolBaseCurrencyToken, config, data, caps, price } = params
+    
+    const reserveFactor = config[4]
+    const totalStableDebt = data[3]
+    const totalVariableDebt = data[4]
+    const variableBorrowRate = data[6]
+    const borrowCap = caps[0]
+
+    const assetDecimals = token.decimals
+    const assetFactor = new BigNumber(10).pow(assetDecimals)
+    const borrowCapWithDecimals = BigInt(
+      new BigNumber(borrowCap.toString()).multipliedBy(assetFactor).toFixed(0),
+    )
+
+    const RESERVE_FACTOR_TO_PERCENTAGE_DIVISOR = 10000n
+    const PRECISION_PRESERVING_OFFSET = 1000000n
+    const RATE_DIVISOR_TO_GET_PERCENTAGE = Number((PRECISION_PRESERVING_OFFSET - 100n).toString())
+
+    const rate =
+      Number(((variableBorrowRate * PRECISION_PRESERVING_OFFSET) / PRECISION_BI.RAY).toString()) /
+      RATE_DIVISOR_TO_GET_PERCENTAGE
+    const totalBorrowed = totalVariableDebt + totalStableDebt
+
+    return DebtInfo.createFrom({
+      token,
+      price: Price.createFrom({
+        base: token,
+        quote: poolBaseCurrencyToken,
+        value: price.toString(),
+      }),
+      priceUSD: Price.createFrom({
+        base: token,
+        quote: FiatCurrency.USD,
+        value: price.toString(),
+      }),
+      interestRate: Percentage.createFrom({ value: rate }),
+      totalBorrowed: TokenAmount.createFromBaseUnit({
+        token,
+        amount: totalBorrowed.toString(),
+      }),
+      debtCeiling: TokenAmount.createFrom({
+        token,
+        amount: borrowCapWithDecimals === 0n ? UNCAPPED_SUPPLY : borrowCapWithDecimals.toString(),
+      }),
+      debtAvailable: TokenAmount.createFromBaseUnit({
+        token,
+        amount:
+          borrowCapWithDecimals === 0n
+            ? UNCAPPED_SUPPLY
+            : (borrowCapWithDecimals - totalBorrowed).toString(),
+      }),
+      dustLimit: TokenAmount.createFromBaseUnit({ token, amount: '0' }),
+      originationFee: Percentage.createFrom({
+        value: Number((reserveFactor / RESERVE_FACTOR_TO_PERCENTAGE_DIVISOR).toString()),
+      }),
     })
   }
 
@@ -172,10 +353,7 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
       allowFailure: false,
     })
 
-    // viem returns an array for multiple return values
-    // currentATokenBalance is index 0
     const currentATokenBalance = (collateralReserveData as unknown[])[0] as bigint
-    // currentVariableDebt is index 2
     const currentVariableDebt = (debtReserveData as unknown[])[2] as bigint
 
     const expectedEmode = aaveV3EmodeCategoryMap[poolId.emodeType]
@@ -202,8 +380,6 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
 
   /** IMPORT TRANSACTIONS */
 
-  /** @see BaseProtocolPlugin.getImportPositionTransaction */
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   async getImportPositionTransaction(params: {
     user: IUser
     externalPosition: IExternalLendingPosition
@@ -212,13 +388,47 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     return undefined
   }
 
+  /** SUPPLY TRANSACTION */
+
+  async getSupplyTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    const chainInfo = params.poolId.protocol.chainInfo
+    const aavePoolContract = await this._getContractDef({ chainInfo, contractName: 'AavePool' })
+
+    const asset = params.amount.token.address.value
+    const amount = params.amount.toSolidityValue()
+    const onBehalfOf = params.user.wallet.address.value
+    const referralCode = 0
+
+    const data = encodeFunctionData({
+      abi: aavePoolContract.abi,
+      functionName: 'supply',
+      args: [asset, amount, onBehalfOf, referralCode],
+    })
+
+    return {
+      transaction: {
+        target: { value: aavePoolContract.address } as any, // assuming IAddress shape
+        calldata: data as any,
+        value: '0',
+      },
+      description: 'Supply tokens to Aave V3',
+    }
+  }
+
   /** PRIVATE */
 
   protected async _getContractDef(params: {
     chainInfo: IChainInfo
     contractName: AaveV3ContractNames
   }): Promise<ContractInfo> {
-    const contractAddress = await this._getContractAddress(params)
+    const contractAddress = await this._getContractAddress({
+      chainInfo: params.chainInfo,
+      contractName: params.contractName,
+    })
 
     return {
       address: contractAddress.value,
@@ -226,3 +436,4 @@ export class AaveV3ProtocolPlugin extends AAVEv3LikeBaseProtocolPlugin<
     }
   }
 }
+
