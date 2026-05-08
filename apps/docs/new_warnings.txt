@@ -1,7 +1,0 @@
-
-> docs@0.1.0 generate:api /home/rcano/Development/thesolidchain/reDeFi/apps/docs
-> typedoc --json docs.json
-
-[96m[info][0m Loaded plugin typedoc-plugin-markdown
-[96m[info][0m markdown generated at ./pages/reference
-[96m[info][0m json generated at ./docs.json

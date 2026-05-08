@@ -15,13 +15,12 @@
     "test:integration": "turbo run test:integration --cache-dir=.turbo",
     "check-circular": "turbo run check-circular --cache-dir=.turbo",
     "db:migrate": "turbo run db:migrate --cache-dir=.turbo",
-    "cicheck": "turbo run cicheck --cache-dir=.turbo --filter=./packages/* && pnpm run coverage:total && pnpm run coverage:comments",
+    "cicheck": "turbo run cicheck --cache-dir=.turbo --filter=./packages/* && pnpm run coverage:total",
     "cicheck:dev": "turbo run cicheck --cache-dir=.turbo --output-logs=new-only --concurrency=100% --continue",
     "format": "prettier --log-level=error --cache --cache-strategy metadata --cache-location=.turbo/prettier --check \"./**/*.{ts,tsx,js,jsx,json}\"",
     "format:fix": "prettier --write --log-level=error --cache --cache-strategy metadata --cache-location=.turbo/prettier-fix \"./**/*.{ts,tsx,js,jsx,json}\"",
     "coverage:total": "node scripts/coverage-report/GenerateCoverageReport.js",
     "coverage:aggregate": "node scripts/aggregate-coverage.mjs",
-    "coverage:comments": "cd apps/docs && pnpm run generate:api && cd ../.. && node scripts/coverage-report/GenerateCommentsReport.js",
     "prepare": "husky"
   },
   "devDependencies": {

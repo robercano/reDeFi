@@ -24,6 +24,6 @@ console.table(coverageReportForVisualRepresentation)
 
 // 5. Generate and write the Markdown report to the docs
 const mdxContent = createMarkdownReport(coverageReportForVisualRepresentation)
-const docsPath = path.join(__dirname, '..', '..', 'apps', 'docs', 'pages', 'test-coverage.mdx')
+const docsPath = path.join(__dirname, '..', '..', 'docs', 'TEST_COVERAGE.md')
 fs.writeFileSync(docsPath, mdxContent, 'utf8')
 console.log(`Markdown coverage report successfully written to ${docsPath}`)
