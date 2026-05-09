@@ -31,7 +31,6 @@ export type {
   ActionBuilderParams,
   IActionBuilderConstructor,
   FilterStep,
-  ActionBuildersMap,
   DelegatedToProtocol,
   ActionBuilderUsedAction,
   IActionBuilder,

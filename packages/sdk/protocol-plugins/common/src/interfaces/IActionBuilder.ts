@@ -17,7 +17,6 @@ export type ActionBuilderParams<Step extends steps.Steps> = {
   addressBookManager: IAddressBookManager
   protocolsRegistry: IProtocolPluginsRegistry
   step: Step
-  actionBuildersMap: ActionBuildersMap
 }
 
 /**
@@ -33,13 +32,6 @@ export type FilterStep<
   SimulationStep extends SimulationSteps,
   Step extends steps.Steps,
 > = Step extends { type: SimulationStep } ? Step : never
-
-/**
- * Map of action builders to be used to register the action builders in the protocol plugins
- */
-export type ActionBuildersMap = {
-  [StepType in steps.Steps['type']]: IActionBuilderConstructor<FilterStep<StepType, steps.Steps>>
-}
 
 /**
  * Special type to indicate that the build process is delegated to the protocol
