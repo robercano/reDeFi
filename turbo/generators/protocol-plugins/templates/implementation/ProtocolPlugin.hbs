@@ -25,7 +25,7 @@ import {
 import { {{namePascalCase}}DebtConfigMap, {{namePascalCase}}DebtConfigRecord } from './{{namePascalCase}}DebtConfigMap'
 import { z } from 'zod'
 import { {{namePascalCase}}AddressAbiMap } from '../types/{{namePascalCase}}AddressAbiMap'
-import { ActionBuildersMap, IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import {
 {{nameCapitalised}}_PLACHOLDER_ABI
 } from '../abis/{{namePascalCase}}ABIS'
@@ -37,7 +37,7 @@ export class {{namePascalCase}}ProtocolPlugin extends BaseProtocolPlugin {
     readonly supportedChains = valuesOfChainFamilyMap([
         ChainFamilyName.Ethereum
     ])
-    readonly stepBuilders: Partial<ActionBuildersMap> = {}
+
 
     readonly {{nameCamelCase}}PoolidSchema = z.object({
         protocol: z.object({

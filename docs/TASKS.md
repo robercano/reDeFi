@@ -6,7 +6,7 @@ architecture you must ask me for advice. You can find the architecture descripti
 ARCHITECTURE.md file in this same directory.
 
 - Cleanup
-  - [ ] After removing the DMAOrderPlanner and the ActionBuildersMap from the OrderPlanner, refactor
+  - [x] After removing the DMAOrderPlanner and the ActionBuildersMap from the OrderPlanner, refactor
         the tests
   - [ ] Some imports are going outside of the package directory instead of importing it through the
         package.json. Analyze the repository and fix all the imports, installing the necessary

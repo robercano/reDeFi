@@ -13,5 +13,5 @@ import { BuildOrderParams } from '../types/BuildOrderParams'
  */
 export interface IOrderPlannerService {
   /** @see IOrderPlanner.buildOrder */
-  buildOrder(params: Omit<BuildOrderParams, 'actionBuildersMap'>): Promise<Maybe<Order>>
+  buildOrder(params: BuildOrderParams): Promise<Maybe<Order>>
 }

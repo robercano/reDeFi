@@ -1,7 +1,6 @@
 import {
   ActionBuilderParams,
   ActionBuilderUsedAction,
-  ActionBuildersMap,
   FilterStep,
   IActionBuilder,
   IProtocolPlugin,
@@ -78,12 +77,7 @@ export class ProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
   lending = this as any
-  stepBuilders: Partial<ActionBuildersMap> = {
-    [SimulationSteps.PaybackWithdraw]: PaybackWithdrawActionBuilderMock,
-    [SimulationSteps.DepositBorrow]: DepositBorrowActionBuilderMock,
-    [SimulationSteps.Import]: ImportPositionActionBuilderMock,
-    [SimulationSteps.OpenPosition]: OpenPositionActionBuilderMock,
-  }
+
   context = undefined as unknown as IProtocolPluginContext
 
   initialize(params: { context: IProtocolPluginContext }): void {
@@ -108,18 +102,7 @@ export class ProtocolPluginMock implements IProtocolPlugin {
     return undefined as unknown as ILendingPosition
   }
 
-  getActionBuilder<
-    StepType extends SimulationSteps,
-    Step extends FilterStep<StepType, steps.Steps>,
-  >(stepType: StepType): Maybe<IActionBuilder<Step>> {
-    const builder = this.stepBuilders[stepType]
 
-    if (!builder) {
-      return undefined
-    }
-
-    return new builder()
-  }
 
   async getImportPositionTransaction(params: {
     user: IUser
@@ -134,7 +117,7 @@ export class EmptyProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
   lending = this as any
-  stepBuilders: Partial<ActionBuildersMap> = {}
+
   context = undefined as unknown as IProtocolPluginContext
 
   initialize(params: { context: IProtocolPluginContext }): void {
@@ -159,18 +142,7 @@ export class EmptyProtocolPluginMock implements IProtocolPlugin {
     return undefined as unknown as ILendingPosition
   }
 
-  getActionBuilder<
-    StepType extends SimulationSteps,
-    Step extends FilterStep<StepType, steps.Steps>,
-  >(stepType: StepType): Maybe<IActionBuilder<Step>> {
-    const builder = this.stepBuilders[stepType]
 
-    if (!builder) {
-      return undefined
-    }
-
-    return new builder()
-  }
 
   async getImportPositionTransaction(params: {
     user: IUser
@@ -185,12 +157,7 @@ export class NoCheckpointProtocolPluginMock implements IProtocolPlugin {
   protocolName = ProtocolName.Spark
   supportedChains = [ChainFamilyMap.Ethereum.Mainnet]
   lending = this as any
-  stepBuilders: Partial<ActionBuildersMap> = {
-    [SimulationSteps.PaybackWithdraw]: PaybackWithdrawActionBuilderNoCheckpointMock,
-    [SimulationSteps.DepositBorrow]: DepositBorrowActionBuilderNoCheckpointMock,
-    [SimulationSteps.Import]: ImportPositionActionBuilderNoCheckpointMock,
-    [SimulationSteps.OpenPosition]: OpenPositionActionBuilderNoCheckpointMock,
-  }
+
   context = undefined as unknown as IProtocolPluginContext
 
   initialize(params: { context: IProtocolPluginContext }): void {
@@ -215,18 +182,7 @@ export class NoCheckpointProtocolPluginMock implements IProtocolPlugin {
     return undefined as unknown as ILendingPosition
   }
 
-  getActionBuilder<
-    StepType extends SimulationSteps,
-    Step extends FilterStep<StepType, steps.Steps>,
-  >(stepType: StepType): Maybe<IActionBuilder<Step>> {
-    const builder = this.stepBuilders[stepType]
 
-    if (!builder) {
-      return undefined
-    }
-
-    return new builder()
-  }
 
   async getImportPositionTransaction(params: {
     user: IUser

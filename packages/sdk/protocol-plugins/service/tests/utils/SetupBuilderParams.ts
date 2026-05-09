@@ -1,5 +1,5 @@
 import { IAddressBookManager } from '@thesolidchain/address-book-common'
-import { ActionBuildersMap, IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
+import { IProtocolPluginsRegistry } from '@thesolidchain/protocol-plugins-common'
 import { Address, ChainInfo, Wallet } from '@thesolidchain/sdk-common'
 import { IPositionsManager } from '@thesolidchain/sdk-common'
 import { IUser, User } from '@thesolidchain/sdk-common'
@@ -22,7 +22,6 @@ export type SetupBuilderReturnType = {
   swapManager: SwapManagerMock
   addressBookManager: IAddressBookManager
   protocolsRegistry: IProtocolPluginsRegistry
-  actionBuildersMap: ActionBuildersMap
   emptyProtocolsRegistry: IProtocolPluginsRegistry
   emptyBuildersProtocolRegistry: IProtocolPluginsRegistry
   noCheckpointProtocolsRegistry: IProtocolPluginsRegistry
@@ -50,7 +49,6 @@ export function setupBuilderParams(params: { chainInfo: ChainInfo }): SetupBuild
     swapManager: new SwapManagerMock(),
     addressBookManager: new AddressBookManagerMock(),
     protocolsRegistry: protocolsRegistry,
-    actionBuildersMap: {} as ActionBuildersMap,
     emptyProtocolsRegistry: emptyProtocolsRegistry,
     noCheckpointProtocolsRegistry: noCheckpointProtocolsRegistry,
     emptyBuildersProtocolRegistry: emptyBuildersProtocolRegistry,
