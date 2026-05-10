@@ -35,6 +35,7 @@
     "@thesolidchain/contracts-deployments": "workspace:*",
     "@thesolidchain/deployment-types": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
+    "@thesolidchain/hardhat-utils": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "hardhat": "^2.22.2",

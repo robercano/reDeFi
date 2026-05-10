@@ -26,6 +26,8 @@ import {
   Denomination,
   IToken,
   ICollateralInfo,
+  HexData,
+  IAddress,
 } from '@thesolidchain/sdk-common'
 import { BigNumber } from 'bignumber.js'
 import { BaseLendingProtocolPlugin } from '../../../implementation/BaseLendingProtocolPlugin'
@@ -171,7 +173,7 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
         },
       ],
       allowFailure: false,
-    })) as any[]
+    })) as unknown[]
 
     const collateralInfo = this._buildCollateralInfo({
       token: aaveV3PoolId.collateralToken,
@@ -380,7 +382,7 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   /** IMPORT TRANSACTIONS */
 
-  async getImportPositionTransaction(params: {
+  async getImportPositionTransaction(_params: {
     user: IUser
     externalPosition: IExternalLendingPosition
     positionsManager: IPositionsManager
@@ -411,8 +413,8 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
     return {
       transaction: {
-        target: { value: aavePoolContract.address } as any, // assuming IAddress shape
-        calldata: data as any,
+        target: { value: aavePoolContract.address } as IAddress, // assuming IAddress shape
+        calldata: data as HexData,
         value: '0',
       },
       description: 'Supply tokens to Aave V3',

@@ -254,7 +254,7 @@ export class TenderlyFork {
     }
 
     const forkId = response.data.id
-    const adminRpc = response.data.rpcs.find((rpc: any) => rpc.name === 'Admin RPC')?.url || response.data.rpcs[0].url
+    const adminRpc = response.data.rpcs.find((rpc: { name: string, url: string }) => rpc.name === 'Admin RPC')?.url || response.data.rpcs[0].url
     return {
       forkId: forkId,
       forkUrl: adminRpc,
