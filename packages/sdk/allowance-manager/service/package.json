@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@thesolidchain/blockchain-client-provider": "workspace:*",
+    "@thesolidchain/configuration-provider": "workspace:*",
     "@thesolidchain/contracts-provider-service": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/testing-utils": "workspace:*",

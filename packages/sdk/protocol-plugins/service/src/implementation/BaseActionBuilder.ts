@@ -40,7 +40,7 @@ export abstract class BaseActionBuilder<
    * @param params.protocolName The name of the protocol to delegate the action to
    * @param params.actionBuilderParams The parameters for the action builder
    */
-  protected async _delegateToProtocol(params: {
+  protected async _delegateToProtocol(_params: {
     protocolName: ProtocolName
     actionBuilderParams: ActionBuilderParams<FilterStep<SimulationSteps, StepType>>
   }): Promise<void> {

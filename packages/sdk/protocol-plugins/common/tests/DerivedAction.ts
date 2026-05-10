@@ -1,5 +1,5 @@
 import { ActionNames } from '@thesolidchain/deployment-types'
-import { ActionCall, BaseAction } from '@thesolidchain/protocol-plugins-common'
+import { ActionCall, BaseAction } from '../src'
 import { Hex } from 'viem'
 
 export class DerivedAction extends BaseAction<typeof DerivedAction.Config> {

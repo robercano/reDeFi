@@ -600,6 +600,9 @@ importers:
       '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../config/eslint
+      '@thesolidchain/hardhat-utils':
+        specifier: workspace:*
+        version: link:../../hardhat-utils
       '@vitest/coverage-v8':
         specifier: ^1.6.0
         version: 1.6.1(vitest@1.6.1)
@@ -886,6 +889,9 @@ importers:
       '@thesolidchain/config-vitest':
         specifier: workspace:*
         version: link:../../../config/vitest
+      '@thesolidchain/configuration-provider':
+        specifier: workspace:*
+        version: link:../../configuration-provider/service
       '@thesolidchain/contracts-provider-service':
         specifier: workspace:*
         version: link:../../contracts-provider/service
@@ -1969,6 +1975,9 @@ importers:
       '@thesolidchain/config-vitest':
         specifier: workspace:*
         version: link:../../../config/vitest
+      '@thesolidchain/configuration-provider':
+        specifier: workspace:*
+        version: link:../../configuration-provider/service
       '@thesolidchain/eslint-config':
         specifier: workspace:*
         version: link:../../../config/eslint

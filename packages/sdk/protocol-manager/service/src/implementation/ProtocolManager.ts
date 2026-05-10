@@ -30,8 +30,8 @@ export class ProtocolManager implements IProtocolManager {
 
   /** Feature modules */
   readonly lending = this
-  readonly yield: any = undefined
-  readonly stake: any = undefined
+  readonly yield: unknown = undefined
+  readonly stake: unknown = undefined
 
   /**
    * createWith

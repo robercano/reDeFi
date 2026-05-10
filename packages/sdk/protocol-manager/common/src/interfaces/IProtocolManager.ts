@@ -1,16 +1,3 @@
-import {
-  ILendingPoolId,
-  Maybe,
-  ILendingPool,
-  ILendingPoolInfo,
-  ILendingPosition,
-  ILendingPositionId,
-  IExternalLendingPosition,
-  IPositionsManager,
-  TransactionInfo,
-  IUser,
-} from '@thesolidchain/sdk-common'
-
 import { ILendingProtocolManagerFeatures } from './ILendingProtocolManagerFeatures'
 
 /**
@@ -26,10 +13,10 @@ export interface IProtocolManager {
   /** 
    * Yield features router.
    */
-  readonly yield: any // Hinted for future implementation, could be IYieldProtocolManagerFeatures
+  readonly yield: unknown // Hinted for future implementation, could be IYieldProtocolManagerFeatures
 
   /** 
    * Staking features router.
    */
-  readonly stake: any // Hinted for future implementation, could be IStakeProtocolManagerFeatures
+  readonly stake: unknown // Hinted for future implementation, could be IStakeProtocolManagerFeatures
 }
