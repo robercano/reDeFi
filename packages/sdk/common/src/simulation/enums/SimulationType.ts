@@ -2,6 +2,12 @@
  * Type of simulation that the simulator accepts
  */
 export enum SimulationType {
-  /** Depositing or withdrawing from the protocol */
-  Protocol = 'Protocol',
+  /** Simple token transfer between wallets or to a smart contract */
+  Transfer = 'Transfer',
+  /** Staking tokens into a protocol (e.g. validator staking) */
+  Stake = 'Stake',
+  /** Lending operations (deposit collateral, borrow, repay, withdraw) */
+  Lend = 'Lend',
+  /** Passive yield operations (deposit into Yearn, Lido, etc.) */
+  Yield = 'Yield',
 }

@@ -1,15 +1,24 @@
 import { ISimulationManager } from '../../interfaces/simulations/ISimulationManager'
 import { RPCMainClientType } from '../../rpc/SDKMainClient'
+import { LendingSimulator } from './LendingSimulator'
+import { StakeSimulator } from './StakeSimulator'
+import { TransferSimulator } from './TransferSimulator'
+import { YieldSimulator } from './YieldSimulator'
+
 /**
  * SimulationManager
  * @see ISimulationManager
  */
 export class SimulationManager implements ISimulationManager {
-  public readonly finance: undefined
-  public readonly refinance: undefined
-  public readonly automation: undefined
-  public readonly importing: undefined
-  public readonly earn: undefined
+  public readonly transfer: TransferSimulator
+  public readonly stake: StakeSimulator
+  public readonly lend: LendingSimulator
+  public readonly yield: YieldSimulator
 
-  public constructor(_params: { rpcClient: RPCMainClientType }) {}
+  public constructor(rpcClient: RPCMainClientType) {
+    this.transfer = new TransferSimulator(rpcClient)
+    this.stake = new StakeSimulator(rpcClient)
+    this.lend = new LendingSimulator(rpcClient)
+    this.yield = new YieldSimulator(rpcClient)
+  }
 }

@@ -327,6 +327,20 @@ export { SimulationSteps } from './simulation/enums/SimulationSteps'
 export { SimulationType } from './simulation/enums/SimulationType'
 export { TokenTransferTargetType } from './simulation/enums/TokenTransferTargetType'
 
+export {
+  BalanceChangeDataSchema,
+  isBalanceChange,
+} from './simulation/interfaces/IBalanceChange'
+export type { IBalanceChange, IBalanceChangeData } from './simulation/interfaces/IBalanceChange'
+export { BalanceChange } from './simulation/implementation/BalanceChange'
+
+export {
+  GasEstimationDataSchema,
+  isGasEstimation,
+} from './simulation/interfaces/IGasEstimation'
+export type { IGasEstimation, IGasEstimationData } from './simulation/interfaces/IGasEstimation'
+export { GasEstimation } from './simulation/implementation/GasEstimation'
+
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'
 export type { SimulationStrategy, StrategyStep } from './simulation/interfaces/SimulationStrategy'
