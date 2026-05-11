@@ -6,4 +6,3 @@ export { BuildOrderInputsDataSchema, isBuildOrderInputs } from './types/IBuildOr
 export type { IBuildOrderInputs, IBuildOrderInputsData } from './types/IBuildOrderInputs'
 export type { OrderPlannerClass } from './types/OrderPlannerClass'
 export { encodeForPositionsManager, encodeStrategy } from './utils/EncodeStrategy'
-export { generateStrategyName } from './utils/GenerateStrategyName'

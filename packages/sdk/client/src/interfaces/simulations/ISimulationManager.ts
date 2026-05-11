@@ -10,12 +10,7 @@
 export interface ISimulationManager {
   /** Finance related simulations, i.e.: Earn + Multriply + Borrow */
   readonly finance: undefined
-  /** Refinance related simulations: moving a position from one product to another in one step */
-  readonly refinance: undefined
-  /** Automation triggers simulation */
-  readonly automation: undefined
-  /** Importing simulation: ingressing an external position into the system */
-  readonly importing: undefined
+
   /** Armada Protocol simulations */
   readonly earn: undefined
 }

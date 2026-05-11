@@ -10,10 +10,6 @@ import {
   ILendingPosition,
   ILendingPositionId,
   isLendingPoolId,
-  IExternalLendingPosition,
-  IPositionsManager,
-  TransactionInfo,
-  IUser,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -82,22 +78,7 @@ export class ProtocolManager implements IProtocolManager {
     throw new Error('Not implemented')
   }
 
-  /** @see ILendingProtocolManagerFeatures.getImportPositionTransaction */
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-  async getImportPositionTransaction(params: {
-    user: IUser
-    externalPosition: IExternalLendingPosition
-    positionsManager: IPositionsManager
-  }): Promise<Maybe<TransactionInfo>> {
-    const plugin = this._pluginsRegistry.getPlugin({ protocolName: params.externalPosition.pool.id.protocol.name })
-    if (!plugin) {
-      throw new Error(`Protocol plugin for protocol ${params.externalPosition.pool.id.protocol.name} not found`)
-    }
-    if (!plugin.lending) {
-      throw new Error(`Protocol plugin for protocol ${params.externalPosition.pool.id.protocol.name} does not support lending`)
-    }
-    return plugin.lending.getImportPositionTransaction(params)
-  }
+
 
   /** PRIVATE */
 

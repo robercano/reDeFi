@@ -4,10 +4,7 @@ import {
   ILendingPoolInfo,
   ILendingPosition,
   ILendingPositionIdData,
-  IExternalLendingPosition,
-  IPositionsManager,
   TransactionInfo,
-  Maybe,
   IUser,
   TokenAmount,
 } from '@thesolidchain/sdk-common'
@@ -25,9 +22,4 @@ export interface ILendingProtocolFeatures {
     amount: TokenAmount
     user: IUser
   }): Promise<TransactionInfo>
-  getImportPositionTransaction(params: {
-    user: IUser
-    externalPosition: IExternalLendingPosition
-    positionsManager: IPositionsManager
-  }): Promise<Maybe<TransactionInfo>>
 }

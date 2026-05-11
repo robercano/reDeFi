@@ -4,7 +4,6 @@ import getTokenByAddress from './getTokenByAddress.subtest'
 import getTokenByName from './getTokenByName.subtest'
 import getTokenBySymbol from './getTokenBySymbol.subtest'
 import makeSDKTest from './makeSDK.subtest'
-import simulateNewOrder from './newOrder.subtest'
 import intentSwapClientTest from './intentSwapClient.subtest'
 import makeSDKWithSignerTest from './makeSDKWithSigner.subtest'
 import portfolioManagerTest from './portfolioManager.subtest'
@@ -16,7 +15,6 @@ describe('SDK Client', () => {
   it('should use the getLendingPool query', getLendingPoolTest.bind(this))
   it('should use the getLendingPoolInfo query', getLendingPoolInfoTest.bind(this))
 
-  it('should use the newOrder query', simulateNewOrder.bind(this))
   it('should use the getTokenBySymbol query', getTokenBySymbol.bind(this))
   it('should use the getTokenByAddress query', getTokenByAddress.bind(this))
   it('should use the getTokenByName query', getTokenByName.bind(this))
