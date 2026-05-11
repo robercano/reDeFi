@@ -31,7 +31,7 @@ ARCHITECTURE.md file in this same directory.
         them under the ProtocolPlugins. Write a document named PROTOCOL_PLUGINS_ARCHITECTURE.md with
         all the information and an implementation proposal. Don't implement any plugin yet
 - Step 1: Protocol Plugin Interfaces (The Contract)
-  - [ ] Define the base interfaces for `IYieldProtocolManagerFeatures` and `ILendingProtocolManagerFeatures`.
+  - [x] Define the base interfaces for `IYieldProtocolManagerFeatures` and `ILendingProtocolManagerFeatures`.
         Focus on creating the contract for Staking, Lending, and Yield generation (e.g., `IYieldPoolInfo`, 
         `IYieldPosition`). Do NOT implement any concrete protocol plugins yet. This establishes exactly 
         what data the Simulator will receive.

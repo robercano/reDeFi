@@ -11,6 +11,8 @@ export enum PoolType {
   Lending = 'Lending',
   /** Armada pool type, aggregated liquidity for yield */
   Armada = 'Armada',
+  /** Passive Yield pool (e.g., Yearn, Lido) */
+  Yield = 'Yield',
 }
 
 /**
