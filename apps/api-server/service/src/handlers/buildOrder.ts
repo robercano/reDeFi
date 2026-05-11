@@ -1,7 +1,7 @@
 import type { Order } from '@thesolidchain/sdk-common'
 import { Maybe, SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 
-import { isBuildOrderInputs } from '@thesolidchain/order-planner-common/'
+import { isBuildOrderInputs } from '@thesolidchain/order-planner-common'
 import { z } from 'zod'
 import { publicProcedure } from '../SDKTRPC'
 
