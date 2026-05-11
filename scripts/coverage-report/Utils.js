@@ -15,9 +15,13 @@ function getAllPathsForPackagesSummaries() {
   const appsNames = fs.existsSync(appsPath) ? getDirectories(appsPath) : []
 
   const appsSummaries = appsNames.reduce((summary, appName) => {
+    let summaryPath = path.join(appsPath, appName, 'coverage', 'coverage-summary.json')
+    if (fs.existsSync(path.join(appsPath, appName, 'service'))) {
+      summaryPath = path.join(appsPath, appName, 'service', 'coverage', 'coverage-summary.json')
+    }
     return {
       ...summary,
-      [appName]: path.join(appsPath, appName, 'coverage', 'coverage-summary.json'),
+      [appName]: summaryPath,
     }
   }, {})
 
@@ -87,15 +91,18 @@ function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSumm
   )
 }
 
-function createCoverageReportForVisualRepresentation(coverageReport) {
+function createCoverageReportForVisualRepresentation(coverageReport, commentCoverage = {}) {
   const separator = {
     ['-------------']: {
       'lines (%)': '-----',
       'statements (%)': '-----',
       'functions (%)': '-----',
       'branches (%)': '-----',
+      'comments (%)': '-----',
     },
   }
+
+  let totalCommentCoverages = [];
 
   return Object.keys(coverageReport).reduce((report, packageName) => {
     if (
@@ -111,7 +118,18 @@ function createCoverageReportForVisualRepresentation(coverageReport) {
       return report
     }
 
+    let cCov = 'Unknown';
+    if (packageName !== 'total' && commentCoverage[packageName] !== undefined) {
+      cCov = commentCoverage[packageName];
+      if (typeof cCov === 'number') {
+        totalCommentCoverages.push(cCov);
+      }
+    }
+
     if (packageName === 'total') {
+      const avgComments = totalCommentCoverages.length > 0 
+        ? Number((totalCommentCoverages.reduce((a, b) => a + b, 0) / totalCommentCoverages.length).toFixed(2)) 
+        : 'Unknown';
       return {
         ...report,
         ...separator,
@@ -120,6 +138,7 @@ function createCoverageReportForVisualRepresentation(coverageReport) {
           'statements (%)': statements.pct,
           'functions (%)': functions.pct,
           'branches (%)': branches.pct,
+          'comments (%)': avgComments,
         },
       }
     }
@@ -131,28 +150,30 @@ function createCoverageReportForVisualRepresentation(coverageReport) {
         'statements (%)': statements.pct,
         'functions (%)': functions.pct,
         'branches (%)': branches.pct,
+        'comments (%)': cCov,
       },
     }
   }, {})
 }
 
 function createMarkdownReport(coverageReportForVisualRepresentation) {
-  let md = '# Test Coverage Report\n\n'
-  md += 'This is the automatically generated test coverage report for the monorepo.\n\n'
-  md += '| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) |\n'
-  md += '|---|---|---|---|---|\n'
+  let md = '# Test & Comment Coverage Report\n\n'
+  md += 'This is the automatically generated coverage report for the monorepo.\n\n'
+  md += '| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) | Comments/JSDoc (%) |\n'
+  md += '|---|---|---|---|---|---|\n'
 
   Object.keys(coverageReportForVisualRepresentation).forEach((packageName) => {
     if (packageName === '-------------') return
     const row = coverageReportForVisualRepresentation[packageName]
-    const formatPct = (val) => (val !== undefined ? `${val}%` : 'N/A')
+    const formatPct = (val) => (val !== undefined && val !== 'Unknown' ? `${val}%` : 'N/A')
     const packNameFormatted = packageName === 'TOTAL' ? '**TOTAL**' : packageName
     const l = packageName === 'TOTAL' ? `**${formatPct(row['lines (%)'])}**` : formatPct(row['lines (%)'])
     const s = packageName === 'TOTAL' ? `**${formatPct(row['statements (%)'])}**` : formatPct(row['statements (%)'])
     const f = packageName === 'TOTAL' ? `**${formatPct(row['functions (%)'])}**` : formatPct(row['functions (%)'])
     const b = packageName === 'TOTAL' ? `**${formatPct(row['branches (%)'])}**` : formatPct(row['branches (%)'])
+    const c = packageName === 'TOTAL' ? `**${formatPct(row['comments (%)'])}**` : formatPct(row['comments (%)'])
 
-    md += `| ${packNameFormatted} | ${l} | ${s} | ${f} | ${b} |\n`
+    md += `| ${packNameFormatted} | ${l} | ${s} | ${f} | ${b} | ${c} |\n`
   })
 
   return md
