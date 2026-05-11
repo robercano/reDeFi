@@ -11,17 +11,17 @@ ARCHITECTURE.md file in this same directory.
   - [x] Some imports are going outside of the package directory instead of importing it through the
         package.json. Analyze the repository and fix all the imports, installing the necessary
         packages if needed
-  - [ ] There are parts of the SDK still referencing the Refinance component and the Import Position
+  - [x] There are parts of the SDK still referencing the Refinance component and the Import Position
         component that are not needed anymore. Analyze the repository and remove all references to
         this components. Refactor and cleanup the tests where needed.
-  - [ ] Wire up `json-summary` Vitest coverage reporter.
-  - [ ] Track comment / JSDoc coverage and display both test and comment coverage on Nextra docs.
-  - [ ] Scaffold unit tests for core services (e.g., `swap-service`, `portfolio-service`,
+  - [x] Wire up `json-summary` Vitest coverage reporter.
+  - [x] Track comment / JSDoc coverage and display both test and comment coverage on Nextra docs.
+  - [x] Scaffold unit tests for core services (e.g., `swap-service`, `portfolio-service`,
         `api-server`) to fix 0% coverage.
-  - [ ] Increase SDK overall test coverage to 80% by targeting `tokens-service`,
+  - [x] Increase SDK overall test coverage to 80% by targeting `tokens-service`,
         `blockchain-client-provider`, and `oracle-service`.
 - Expand roadmap
-  - [ ] Analyze the current market and propose a list of protocols to add to the Protocol Plugins.
+  - [x] Analyze the current market and propose a list of protocols to add to the Protocol Plugins.
         I'd like a breakdown of the most important 10 protocols out there and whether they support
         Lending, Staking, Rewards, or any other type of product. Try to analyze if in general things
         like Staking, Lending, or adding liquidity to protocols like Uniswap can be abstracted as

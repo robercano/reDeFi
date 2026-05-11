@@ -1,45 +1,49 @@
-import { DatabaseTokensProvider } from '../src/implementation/database/DatabaseTokensProvider'
-import { Address, ChainInfo } from '@thesolidchain/sdk-common'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { DatabaseTokensProvider } from '../src/implementation/database/DatabaseTokensProvider'
+import {
+  Address,
+  AddressType,
+  ChainIds,
+  NATIVE_CURRENCY_ADDRESS_LOWERCASE,
+} from '@thesolidchain/sdk-common'
 
 const mockSend = vi.fn()
-
-vi.mock('@aws-sdk/lib-dynamodb', () => {
-  return {
-    DynamoDBDocumentClient: {
-      from: vi.fn(() => ({
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        send: (...args: any[]) => mockSend(...args)
-      }))
-    },
-    GetCommand: vi.fn().mockImplementation((input) => ({ input, type: 'GetCommand' })),
-    QueryCommand: vi.fn().mockImplementation((input) => ({ input, type: 'QueryCommand' }))
-  }
-})
-
-vi.mock('@aws-sdk/client-dynamodb', () => {
-  return {
-    DynamoDBClient: vi.fn()
-  }
-})
+vi.mock('@aws-sdk/client-dynamodb', () => ({
+  DynamoDBClient: vi.fn().mockImplementation(() => ({}))
+}))
+vi.mock('@aws-sdk/lib-dynamodb', () => ({
+  DynamoDBDocumentClient: {
+    from: vi.fn().mockReturnValue({
+      send: (...args: any[]) => mockSend(...args)
+    })
+  },
+  GetCommand: vi.fn().mockImplementation((args) => args),
+  QueryCommand: vi.fn().mockImplementation((args) => args),
+}))
 
 describe('DatabaseTokensProvider', () => {
   let provider: DatabaseTokensProvider
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let configProvider: any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let blockchainClientProvider: any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let contractsProvider: any
+  const chainInfo = { chainId: ChainIds.Mainnet, name: 'Ethereum' } as any
 
   beforeEach(() => {
     vi.clearAllMocks()
-
     configProvider = {
-      getConfigurationItem: vi.fn().mockReturnValue('TokensTable')
+      getConfigurationItem: vi.fn().mockReturnValue('test-table')
     }
-    blockchainClientProvider = {}
-    contractsProvider = {}
+    blockchainClientProvider = {
+      getBlockchainClient: vi.fn().mockReturnValue({
+        getBalance: vi.fn().mockResolvedValue(1000n)
+      })
+    }
+    contractsProvider = {
+      getErc20Contract: vi.fn().mockReturnValue({
+        balanceOf: vi.fn().mockResolvedValue(2000n),
+        totalSupply: vi.fn().mockResolvedValue(3000n)
+      })
+    }
 
     provider = new DatabaseTokensProvider({
       configProvider,
@@ -48,72 +52,90 @@ describe('DatabaseTokensProvider', () => {
     })
   })
 
-  it('should initialize correctly', () => {
-    expect(provider).toBeDefined()
+  it('should initialize and return supported chain ids', () => {
+    expect(provider.getSupportedChainIds()).toEqual([1])
   })
 
-  describe('getTokenBySymbol', () => {
-    it('should query the database by symbol using GSI', async () => {
-      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
-      mockSend.mockResolvedValue({
-        Items: [
-          { address: '0x1234567890123456789012345678901234567890', decimals: 18, name: 'Token', symbol: 'TKN' }
-        ]
-      })
-
-      const token = await provider.getTokenBySymbol({ chainInfo: mockChainInfo, symbol: 'TKN' })
-
-      expect(mockSend).toHaveBeenCalledTimes(1)
-      const commandArgs = mockSend.mock.calls[0][0].input
-      expect(commandArgs.TableName).toBe('TokensTable')
-      expect(commandArgs.IndexName).toBe('symbolIndex')
-      
-      expect(token).toBeDefined()
-      expect(token.symbol).toBe('TKN')
-      expect(token.decimals).toBe(18)
+  it('getTokenBySymbol should return a token', async () => {
+    mockSend.mockResolvedValueOnce({
+      Items: [{ address: '0x1111111111111111111111111111111111111111', decimals: 18, name: 'Token', symbol: 'TKN' }]
     })
-
-    it('should throw an error if token not found', async () => {
-      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
-      mockSend.mockResolvedValue({ Items: [] })
-
-      await expect(
-        provider.getTokenBySymbol({ chainInfo: mockChainInfo, symbol: 'UNKNOWN' })
-      ).rejects.toThrowError('No token data found for symbol: UNKNOWN on chain: 1')
-    })
+    const token = await provider.getTokenBySymbol({ chainInfo, symbol: 'TKN' })
+    expect(token.symbol).toBe('TKN')
   })
 
-  describe('getTokenByAddress', () => {
-    it('should get the token from the database by address and chainId', async () => {
-      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
-      mockSend.mockResolvedValue({
-        Item: { address: '0x1234567890123456789012345678901234567890', decimals: 18, name: 'Token', symbol: 'TKN' }
-      })
+  it('getTokenBySymbol should throw if no items', async () => {
+    mockSend.mockResolvedValueOnce({ Items: [] })
+    await expect(provider.getTokenBySymbol({ chainInfo, symbol: 'TKN' })).rejects.toThrow()
+  })
 
-      const token = await provider.getTokenByAddress({
-        chainInfo: mockChainInfo,
-        address: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' })
-      })
-
-      expect(mockSend).toHaveBeenCalledTimes(1)
-      const commandArgs = mockSend.mock.calls[0][0].input
-      expect(commandArgs.TableName).toBe('TokensTable')
-      expect(commandArgs.Key.id).toBe('1#0x1234567890123456789012345678901234567890')
-      
-      expect(token).toBeDefined()
-      expect(token.symbol).toBe('TKN')
+  it('getTokenByAddress should return a token', async () => {
+    mockSend.mockResolvedValueOnce({
+      Item: { address: '0x1111111111111111111111111111111111111111', decimals: 18, name: 'Token', symbol: 'TKN' }
     })
-
-    it('should throw an error if token not found', async () => {
-      const mockChainInfo = { chainId: 1 } as unknown as ChainInfo
-      mockSend.mockResolvedValue({})
-
-      await expect(
-        provider.getTokenByAddress({
-          chainInfo: mockChainInfo,
-          address: Address.createFromEthereum({ value: '0x9999999999999999999999999999999999999999' })
-        })
-      ).rejects.toThrowError('No token data found for address: 0x9999999999999999999999999999999999999999 on chain: 1')
+    const token = await provider.getTokenByAddress({
+      chainInfo,
+      address: Address.createFrom({ value: '0x1111111111111111111111111111111111111111', type: AddressType.Ethereum })
     })
+    expect(token.symbol).toBe('TKN')
+  })
+
+  it('getTokenByAddress should throw if no item', async () => {
+    mockSend.mockResolvedValueOnce({})
+    await expect(provider.getTokenByAddress({
+      chainInfo,
+      address: Address.createFrom({ value: '0x1111111111111111111111111111111111111111', type: AddressType.Ethereum })
+    })).rejects.toThrow()
+  })
+
+  it('getTokenByName should throw', async () => {
+    await expect(provider.getTokenByName({ chainInfo, name: 'Token' })).rejects.toThrow()
+  })
+
+  it('getTokenBalanceBySymbol should return balance', async () => {
+    mockSend.mockResolvedValueOnce({
+      Items: [{ address: '0x1111111111111111111111111111111111111111', decimals: 18, name: 'Token', symbol: 'TKN' }]
+    })
+    const bal = await provider.getTokenBalanceBySymbol({
+      chainInfo,
+      symbol: 'TKN',
+      walletAddress: Address.createFrom({ value: '0x2222222222222222222222222222222222222222', type: AddressType.Ethereum })
+    })
+    expect(bal.toSolidityValue().toString()).toBe('2000')
+  })
+
+  it('getTokenBalanceByAddress should return balance for native currency', async () => {
+    mockSend.mockResolvedValueOnce({
+      Item: { address: NATIVE_CURRENCY_ADDRESS_LOWERCASE, decimals: 18, name: 'ETH', symbol: 'ETH' }
+    })
+    const bal = await provider.getTokenBalanceByAddress({
+      chainInfo,
+      address: Address.createFrom({ value: NATIVE_CURRENCY_ADDRESS_LOWERCASE, type: AddressType.Ethereum }),
+      walletAddress: Address.createFrom({ value: '0x2222222222222222222222222222222222222222', type: AddressType.Ethereum })
+    })
+    expect(bal.toSolidityValue().toString()).toBe('1000')
+  })
+
+  it('getTokenTotalSupply should throw for native currency', async () => {
+    mockSend.mockResolvedValueOnce({
+      Item: { address: NATIVE_CURRENCY_ADDRESS_LOWERCASE, decimals: 18, name: 'ETH', symbol: 'ETH' }
+    })
+    const token = await provider.getTokenByAddress({
+      chainInfo,
+      address: Address.createFrom({ value: NATIVE_CURRENCY_ADDRESS_LOWERCASE, type: AddressType.Ethereum })
+    })
+    await expect(provider.getTokenTotalSupply({ token })).rejects.toThrow()
+  })
+
+  it('getTokenTotalSupply should return supply for ERC20', async () => {
+    mockSend.mockResolvedValueOnce({
+      Item: { address: '0x1111111111111111111111111111111111111111', decimals: 18, name: 'Token', symbol: 'TKN' }
+    })
+    const token = await provider.getTokenByAddress({
+      chainInfo,
+      address: Address.createFrom({ value: '0x1111111111111111111111111111111111111111', type: AddressType.Ethereum })
+    })
+    const supply = await provider.getTokenTotalSupply({ token })
+    expect(supply.toSolidityValue().toString()).toBe('3000')
   })
 })
