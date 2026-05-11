@@ -136,7 +136,6 @@ class MockPlugin implements IProtocolPlugin {
   }
 
   lending: any
-  getImportPositionTransaction = vi.fn()
   getActionBuilder = vi.fn()
   ctx = () => this.context
 }

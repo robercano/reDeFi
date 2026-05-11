@@ -11,8 +11,6 @@ import {
   ILendingPoolIdData,
   ILendingPosition,
   ILendingPositionId,
-  IExternalLendingPosition,
-  IPositionsManager,
   TransactionInfo,
   IUser,
   TokenAmount,
@@ -380,15 +378,7 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     })
   }
 
-  /** IMPORT TRANSACTIONS */
 
-  async getImportPositionTransaction(_params: {
-    user: IUser
-    externalPosition: IExternalLendingPosition
-    positionsManager: IPositionsManager
-  }): Promise<Maybe<TransactionInfo>> {
-    return undefined
-  }
 
   /** SUPPLY TRANSACTION */
 

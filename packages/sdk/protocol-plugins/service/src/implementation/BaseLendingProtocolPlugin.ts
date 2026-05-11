@@ -3,9 +3,6 @@ import {
 } from '@thesolidchain/protocol-plugins-common'
 import {
   IPositionIdData,
-  Maybe,
-  IExternalLendingPosition,
-  IPositionsManager,
   TransactionInfo,
   ILendingPool,
   ILendingPoolIdData,
@@ -95,14 +92,6 @@ export abstract class BaseLendingProtocolPlugin extends BaseProtocolPlugin imple
   /** @see ILendingProtocolFeatures.getLendingPosition */
   abstract getLendingPosition(positionId: ILendingPositionIdData): Promise<ILendingPosition>
 
-  /** IMPORT POSITION */
-
-  /** @see ILendingProtocolFeatures.getImportPositionTransaction */
-  abstract getImportPositionTransaction(params: {
-    user: IUser
-    externalPosition: IExternalLendingPosition
-    positionsManager: IPositionsManager
-  }): Promise<Maybe<TransactionInfo>>
 
   /** SUPPLY TRANSACTION */
 

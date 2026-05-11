@@ -5,7 +5,6 @@ import { IToken } from '../../common/interfaces/IToken'
 import { ITokenAmount } from '../../common/interfaces/ITokenAmount'
 import { ILendingPool } from '../../lending-protocols/interfaces/ILendingPool'
 import { ILendingPosition } from '../../lending-protocols/interfaces/ILendingPosition'
-import { IExternalLendingPosition } from '../../orders/importing/interfaces/IExternalLendingPosition'
 import { SwapProviderType } from '../../swap/enums/SwapProviderType'
 
 import { SwapRoute } from '../../swap/implementation/QuoteData'
@@ -112,11 +111,6 @@ export type NewPositionEventStep = Step<
   }
 >
 
-export type ImportStep = Step<
-  SimulationSteps.Import,
-  { externalPosition: IExternalLendingPosition }
->
-
 export type OpenPosition = Step<
   SimulationSteps.OpenPosition,
   { pool: ILendingPool },
@@ -132,6 +126,5 @@ export type Steps =
   | ReturnFundsStep
   | RepayFlashloanStep
   | NewPositionEventStep
-  | ImportStep
   | OpenPosition
   | SkippedStep
