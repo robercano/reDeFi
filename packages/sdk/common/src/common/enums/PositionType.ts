@@ -11,6 +11,8 @@ export enum PositionType {
   Lending = 'Lending',
   /** Armada Protocol position, aggregated liquidity */
   Armada = 'Armada',
+  /** Passive Yield position (e.g., Yearn, Lido, etc.) */
+  Yield = 'Yield',
 }
 
 /**
