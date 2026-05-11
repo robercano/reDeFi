@@ -30,43 +30,31 @@ ARCHITECTURE.md file in this same directory.
         top 10 protocols with their types of products and propose an architecture to abstract all of
         them under the ProtocolPlugins. Write a document named PROTOCOL_PLUGINS_ARCHITECTURE.md with
         all the information and an implementation proposal. Don't implement any plugin yet
-- Protocol Plugins
-  - [ ] Scaffold the type of plugins that may be needed for interacting with the different
-        protocols. Focus on Staking and Lending protocols for now. Don't implement any plugins but
-        get the interface ready so it can be used in the Simulator once it is ready
-- Simulator: the Simulator is currently not doing anything. It should be used for the intent based
-  system. It should simulate a user request to understand if a certain Order can be fulfilled and
-  provide extended info. If the simulation is succesful, the OrderPlanner will take care later on of
-  creating the Order. A Simulation must include the data changes for the user (balances, stakes,
-  yield, anything that can change after executing the Order that the Simulation is simulating),
-  estimated gas costs and any other things that may be useful for the User
-  - [ ] Define the Order types that the Simulator can accept: Transfer tokens, Stake and Lend for
-        now. The current SimulationType has types that are not valid anymore. Remove those types and
-        add the new ones
-  - [ ] The SimulationManager is currently empty with outdated members that are not needed anymore.
-        Remove the members and cleanup any code using them
-  - [ ] The SimulationManager will handle the simulators that are specific for each simulation type
-        (Transfer, Stake, Yield). Create empty stubs for the simulators following the style and
-        architecture of the SDK and make the manager handle the simulations by routing them to the
-        proper simulator
-  - [ ] Create the basics tools for the Simulator like gas estimation and balance changes
-  - [ ] Create the simulators for each Simulator type. For this rely heavily on the existing tools
-        and managers in the SDK: ContractsProvider, ProtocolPlugins, etc... Ideally the Simualators
-        should never access the blockchain directly. If they need to, it probably means we are
-        missing a manager in the SDK. If you identify this either create the proper manager and
-        document it, or ask me for assessment. The Simulator should be based on intents. This means
-        that if an specific User action needs Aproval, Transfer and then a Contract call (through
-        the ProtocolPlugins for example), the simulation should provide all this actions. In the
-        past we've used the concept of SimulationSteps in which each step is an specialization of
-        the general SimulationStep and provides specific information for that step. The Steps will
-        later be used by the OrderPlanner to generate the proper calldata and bundle all user
-        actions. The Simulator should NOT be concerned with whether the transaction will be executed
-        in a multicall, SmartAccount or in several transactions. That's the work of the OrderPlanner
-  - [ ] Make sure that the Simulation includes the gas estimation and any balance or position
-        changes for the user, including portfolio changes with value changes in dollars (use the
-        oracle manager for this)
-  - [ ] Make sure there are tests for all the new code and that the coverage is up to standard for
-        reDeFi
+- Step 1: Protocol Plugin Interfaces (The Contract)
+  - [ ] Define the base interfaces for `IYieldProtocolManagerFeatures` and `ILendingProtocolManagerFeatures`.
+        Focus on creating the contract for Staking, Lending, and Yield generation (e.g., `IYieldPoolInfo`, 
+        `IYieldPosition`). Do NOT implement any concrete protocol plugins yet. This establishes exactly 
+        what data the Simulator will receive.
+- Step 2: Simulator Stubs & Core Tools
+  - [ ] Define the simulation types that the Simulator can accept: `Transfer`, `Stake`, `Lend`, and `Yield`.
+        Remove the outdated types from `SimulationType` and clean up the `SimulationManager`.
+  - [ ] Create the empty stubs for the simulators (`TransferSimulator`, `YieldSimulator`, `LendingSimulator`)
+        following the SDK architecture, and make the `SimulationManager` route requests to them.
+  - [ ] Create the foundational tools for the Simulator, such as utilities for gas estimation and user balance
+        changes (including fiat value changes via the oracle manager).
+- Step 3: Connect Simulator to Plugin Interfaces
+  - [ ] Implement the core logic inside the simulators (`YieldSimulator`, `LendingSimulator`) so they heavily 
+        rely on the previously defined `ProtocolPlugins` interfaces. The simulators should query the `ProtocolManager`
+        for a compatible plugin and build intent-based `SimulationStep` outputs without needing to know 
+        which specific protocol is being used.
+  - [ ] Ensure the Simulations cover gas estimations, balance changes, and any multi-step actions (e.g., 
+        Approve -> Transfer -> Contract Call) needed by the OrderPlanner.
+- Step 4: Concrete Protocol Plugins Implementation
+  - [ ] Build the concrete plugins (e.g., `YearnYieldPlugin`, `AaveLendingPlugin`, `LidoYieldPlugin`) 
+        implementing the interfaces from Step 1.
+  - [ ] Since the Simulator is already hooked up to the interfaces, test that adding these plugins magically 
+        makes the end-to-end simulations work.
+  - [ ] Ensure comprehensive test coverage (>80%) across all newly introduced interfaces, simulators, and plugins.
 - [ ] The order planner will be used for the intent based system. It receives a Simulation and
       creates an Order that the user can execute in the blockchain. The OrderPlanner must support
       different types of execution: Multicall, SmartAccount or Direct Transactions. The final Order
