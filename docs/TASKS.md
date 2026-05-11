@@ -36,11 +36,11 @@ ARCHITECTURE.md file in this same directory.
         `IYieldPosition`). Do NOT implement any concrete protocol plugins yet. This establishes exactly 
         what data the Simulator will receive.
 - Step 2: Simulator Stubs & Core Tools
-  - [ ] Define the simulation types that the Simulator can accept: `Transfer`, `Stake`, `Lend`, and `Yield`.
+  - [x] Define the simulation types that the Simulator can accept: `Transfer`, `Stake`, `Lend`, and `Yield`.
         Remove the outdated types from `SimulationType` and clean up the `SimulationManager`.
-  - [ ] Create the empty stubs for the simulators (`TransferSimulator`, `YieldSimulator`, `LendingSimulator`)
+  - [x] Create the empty stubs for the simulators (`TransferSimulator`, `YieldSimulator`, `LendingSimulator`)
         following the SDK architecture, and make the `SimulationManager` route requests to them.
-  - [ ] Create the foundational tools for the Simulator, such as utilities for gas estimation and user balance
+  - [x] Create the foundational tools for the Simulator, such as utilities for gas estimation and user balance
         changes (including fiat value changes via the oracle manager).
 - Step 3: Connect Simulator to Plugin Interfaces
   - [ ] Implement the core logic inside the simulators (`YieldSimulator`, `LendingSimulator`) so they heavily 
