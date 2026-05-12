@@ -25,7 +25,8 @@ import { YearnYieldPoolId } from './YearnYieldPoolId'
 import { isYearnYieldPoolId } from '../interfaces/IYearnYieldPoolId'
 import { YearnYieldPositionId } from './YearnYieldPositionId'
 import { isYearnYieldPositionId } from '../interfaces/IYearnYieldPositionId'
-import { BigNumber } from 'bignumber.js'
+import { IYearnDataSource } from '../interfaces/IYearnDataSource'
+import { DefaultYearnDataSource } from './DefaultYearnDataSource'
 
 export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldProtocolFeatures {
   public readonly protocolName = ProtocolName.Yearn
@@ -34,8 +35,11 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
   // Explicitly assign self to the `yield` feature
   public readonly yield: IYieldProtocolFeatures = this
 
-  public initialize(params: { context: IProtocolPluginContext }) {
+  private dataSource!: IYearnDataSource
+
+  public initialize(params: { context: IProtocolPluginContext; dataSource?: IYearnDataSource }) {
     super.initialize(params)
+    this.dataSource = params.dataSource || new DefaultYearnDataSource(params.context)
   }
 
   // --- Yield Feature Implementations ---
@@ -48,24 +52,17 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     const chainId = this.context.provider.chain?.id || 1
     this._checkChainIdSupported(chainId)
 
-    // TODO: Replace mock with actual on-chain or subgraph data fetch
-    const mockToken = {
-      address: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
-      chainInfo: this.context.provider.chain as unknown as IChainInfo,
-      decimals: 18,
-      symbol: 'MOCK',
-      name: 'Mock Token',
-    } as unknown as IToken
+    const vaultDto = await this.dataSource.getVault(poolId.vaultAddress)
 
     return {
       [Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo')]: Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo') as any,
       type: PoolType.Yield,
       id: poolId,
-      underlyingToken: mockToken,
-      receiptToken: mockToken,
+      underlyingToken: vaultDto.underlyingToken,
+      receiptToken: vaultDto.receiptToken,
       yieldType: YieldType.ValueAccruing,
-      currentApy: { value: new BigNumber(0.05) }, // 5% APY
-      totalValueLocked: { value: new BigNumber(1000000), currency: { symbol: 'USD', name: 'US Dollar', decimals: 2 } },
+      currentApy: vaultDto.currentApy,
+      totalValueLocked: vaultDto.totalValueLocked,
     } as unknown as IYieldPoolInfo
   }
 
@@ -77,27 +74,15 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     const chainId = this.context.provider.chain?.id || 1
     this._checkChainIdSupported(chainId)
 
-    // TODO: Replace mock with actual on-chain data fetch
-    const mockToken = {
-      address: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
-      chainInfo: this.context.provider.chain as unknown as IChainInfo,
-      decimals: 18,
-      symbol: 'MOCK',
-      name: 'Mock Token',
-    } as unknown as IToken
-
-    const mockAmount: ITokenAmount = TokenAmount.createFrom({
-      token: mockToken,
-      amount: '100',
-    })
+    const positionDto = await this.dataSource.getUserPosition(positionId.vaultAddress, positionId.walletAddress)
 
     return {
       [Symbol.for('@thesolidchain/sdk-common/IYieldPosition')]: Symbol.for('@thesolidchain/sdk-common/IYieldPosition') as any,
       type: PositionType.Yield,
       id: positionId,
       poolId: new YearnYieldPoolId(positionId.vaultAddress, this.context.provider.chain as unknown as IChainInfo),
-      principalAmount: mockAmount,
-      currentAmount: mockAmount,
+      principalAmount: positionDto.principalAmount,
+      currentAmount: positionDto.currentAmount,
       claimableRewards: [],
     } as unknown as IYieldPosition
   }

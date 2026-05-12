@@ -8,6 +8,47 @@ import { isYearnYieldPoolId } from '../../../src/plugins/yearn/interfaces/IYearn
 import { createProtocolPluginContext } from '../../utils/CreateProtocolPluginContext'
 import { getErrorMessage } from '../../utils/ErrorMessage'
 
+import { IYearnDataSource, YearnVaultDto, YearnPositionDto } from '../../../src/plugins/yearn/interfaces/IYearnDataSource'
+import { Percentage, TokenAmount } from '@thesolidchain/sdk-common'
+import BigNumber from 'bignumber.js'
+
+const mockUnderlyingToken = {
+  address: { value: '0x0000000000000000000000000000000000000000' } as any,
+  chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+  decimals: 18,
+  symbol: 'MOCK_UNDERLYING',
+  name: 'Mock Underlying',
+} as any
+
+const mockReceiptToken = {
+  address: { value: '0x1111111111111111111111111111111111111111' } as any,
+  chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+  decimals: 18,
+  symbol: 'MOCK_RECEIPT',
+  name: 'Mock Receipt',
+} as any
+
+const mockVaultDto: YearnVaultDto = {
+  underlyingToken: mockUnderlyingToken,
+  receiptToken: mockReceiptToken,
+  currentApy: Percentage.createFrom({ value: 0.05 }),
+  totalValueLocked: { value: new BigNumber(1000000), currency: { symbol: 'USD', name: 'US Dollar', decimals: 2 } } as any,
+}
+
+const mockPositionDto: YearnPositionDto = {
+  principalAmount: TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '100' }),
+  currentAmount: TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '100' }),
+}
+
+class MockYearnDataSource implements IYearnDataSource {
+  async getVault(vaultAddress: string): Promise<YearnVaultDto> {
+    return mockVaultDto
+  }
+  async getUserPosition(vaultAddress: string, userAddress: string): Promise<YearnPositionDto> {
+    return mockPositionDto
+  }
+}
+
 describe('Yearn Protocol Plugin', () => {
   let ctx: IProtocolPluginContext
   let poolIdMock: YearnYieldPoolId
@@ -20,7 +61,7 @@ describe('Yearn Protocol Plugin', () => {
       ChainFamilyMap.Ethereum.Mainnet,
     )
     plugin = new YearnProtocolPlugin()
-    plugin.initialize({ context: ctx })
+    plugin.initialize({ context: ctx, dataSource: new MockYearnDataSource() })
   })
 
   it('should verify that a given poolId is recognised as a valid format', () => {
@@ -38,7 +79,7 @@ describe('Yearn Protocol Plugin', () => {
   it('should correctly return mock pool info for getYieldPoolInfo', async () => {
     const poolInfo = await plugin.getYieldPoolInfo(poolIdMock)
     expect(poolInfo).toBeDefined()
-    expect(poolInfo.underlyingToken.symbol).toBe('MOCK')
+    expect(poolInfo.underlyingToken.symbol).toBe('MOCK_UNDERLYING')
     expect(poolInfo.currentApy.value.toString()).toBe('0.05')
   })
 
@@ -56,7 +97,7 @@ describe('Yearn Protocol Plugin', () => {
       }
       
       const badPlugin = new YearnProtocolPlugin()
-      badPlugin.initialize({ context: invalidCtx })
+      badPlugin.initialize({ context: invalidCtx, dataSource: new MockYearnDataSource() })
       
       await badPlugin.getYieldPoolInfo(poolIdMock)
       assert.fail('Should throw error')
@@ -75,6 +116,6 @@ describe('Yearn Protocol Plugin', () => {
 
     expect(position).toBeDefined()
     expect(position.principalAmount.amount.toString()).toBe('100')
-    expect(position.poolId.vaultAddress).toBe('0x1111111111111111111111111111111111111111')
+    expect((position.poolId as YearnYieldPoolId).vaultAddress).toBe('0x1111111111111111111111111111111111111111')
   })
 })
