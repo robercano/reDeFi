@@ -17,18 +17,20 @@ The Client SDK leverages:
 
 ### 1. Initialize the SDK Client
 
-The `ISDKManager` is the main entry point for interacting with the SDK on the client side. You instantiate it by providing your application's configuration and a standard Web3 provider.
+The `ISDKManager` is the main entry point for interacting with the SDK on the client side. You instantiate it by providing your application's configuration, specifically the `apiURL`.
 
 ```typescript
-import { createSDKManager } from '@thesolidchain/sdk-client';
-import { ChainFamilyMap } from '@thesolidchain/sdk-common';
+import { makeSDK, makeSDKWithSigner } from '@thesolidchain/sdk-client';
 
-// Example: Initialize the client for Ethereum Mainnet
-const sdk = createSDKManager({
-  chainId: ChainFamilyMap.Ethereum.Mainnet,
-  rpcUrl: 'https://eth-mainnet.alchemyapi.io/v2/YOUR_API_KEY',
-  // Inject your wallet provider (e.g., from wagmi or ethers)
-  provider: window.ethereum 
+// Initialize the read-only client
+const sdk = makeSDK({
+  apiURL: 'https://api.redefi.com/v1',
+});
+
+// Or, if you need to execute transactions, provide a signer
+const sdkWithSigner = makeSDKWithSigner({
+  apiURL: 'https://api.redefi.com/v1',
+  signer: myWalletSigner 
 });
 ```
 
