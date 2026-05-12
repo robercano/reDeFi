@@ -13,4 +13,6 @@ export enum SimulationSteps {
   NewPositionEvent = 'NewPositionEvent',
   OpenPosition = 'OpenPosition',
   Skipped = 'Skipped',
+  DepositYield = 'DepositYield',
+  WithdrawYield = 'WithdrawYield',
 }

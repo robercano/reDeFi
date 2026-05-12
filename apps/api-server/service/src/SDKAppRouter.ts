@@ -18,6 +18,8 @@ import { intentSwapsCheckOrder } from './handlers/intentSwapsCheckOrder'
 import { intentSwapsGetSellOrderQuote } from './handlers/intentSwapsGetSellOrderQuote'
 import { intentSwapsSendOrder } from './handlers/intentSwapsSendOrder'
 import { pingHandler } from './handlers/pingHandler'
+import { getYieldPoolInfo } from './handlers/getYieldPoolInfo'
+import { getYieldPosition } from './handlers/getYieldPosition'
 
 /**
  * Server
@@ -30,6 +32,8 @@ export const sdkAppRouter = router({
     getPosition: getPosition,
     getLendingPool: getLendingPool,
     getLendingPoolInfo: getLendingPoolInfo,
+    getYieldPoolInfo: getYieldPoolInfo,
+    getYieldPosition: getYieldPosition,
   },
   tokens: {
     getTokenBySymbol: getTokenBySymbol,

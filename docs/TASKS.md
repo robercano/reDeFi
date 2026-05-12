@@ -43,11 +43,11 @@ ARCHITECTURE.md file in this same directory.
   - [x] Create the foundational tools for the Simulator, such as utilities for gas estimation and user balance
         changes (including fiat value changes via the oracle manager).
 - Step 3: Connect Simulator to Plugin Interfaces
-  - [ ] Implement the core logic inside the simulators (`YieldSimulator`, `LendingSimulator`) so they heavily 
+  - [x] Implement the core logic inside the simulators (`YieldSimulator`, `LendingSimulator`) so they heavily 
         rely on the previously defined `ProtocolPlugins` interfaces. The simulators should query the `ProtocolManager`
         for a compatible plugin and build intent-based `SimulationStep` outputs without needing to know 
         which specific protocol is being used.
-  - [ ] Ensure the Simulations cover gas estimations, balance changes, and any multi-step actions (e.g., 
+  - [x] Ensure the Simulations cover gas estimations, balance changes, and any multi-step actions (e.g., 
         Approve -> Transfer -> Contract Call) needed by the OrderPlanner.
 - Step 4: Concrete Protocol Plugins Implementation
   - [ ] Build the concrete plugins (e.g., `YearnYieldPlugin`, `AaveLendingPlugin`, `LidoYieldPlugin`) 

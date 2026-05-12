@@ -1,3 +1,6 @@
+import { ITokenAmount, ILendingPoolId, ISimulation } from '@thesolidchain/sdk-common'
+
 export interface ILendingSimulator {
-  // Stub for lending simulator
+  simulateSupply(params: { poolId: ILendingPoolId; amount: ITokenAmount }): Promise<ISimulation>
+  simulateBorrow(params: { poolId: ILendingPoolId; amount: ITokenAmount }): Promise<ISimulation>
 }

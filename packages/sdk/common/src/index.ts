@@ -341,6 +341,10 @@ export {
 export type { IGasEstimation, IGasEstimationData } from './simulation/interfaces/IGasEstimation'
 export { GasEstimation } from './simulation/implementation/GasEstimation'
 
+// SIMULATION IMPLEMENTATIONS
+export * from './simulation/implementation/YieldSimulation'
+export * from './simulation/implementation/LendingSimulation'
+
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'
 export type { SimulationStrategy, StrategyStep } from './simulation/interfaces/SimulationStrategy'
