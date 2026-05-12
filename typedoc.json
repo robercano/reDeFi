@@ -11,17 +11,11 @@
     "./packages/sdk/tokens/service/src/index.ts"
   ],
   "entryPointStrategy": "resolve",
-  "out": "docs/api",
-  "plugin": ["typedoc-plugin-markdown"],
+  "out": "api-docs-dist",
   "theme": "default",
   "excludePrivate": true,
   "excludeProtected": true,
   "excludeInternal": true,
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "**/tests/**"],
-  "skipErrorChecking": true,
-  "outputFileStrategy": "modules",
-
-  "readme": "none",
-  "disableSources": true,
-  "githubPages": false
+  "skipErrorChecking": true
 }

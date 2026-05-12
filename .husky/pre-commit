@@ -10,8 +10,7 @@ if [ "$BRANCH" = "main" ]; then
   # If any of these fail, the commit will be aborted.
   pnpm run cicheck
   
-  # Generate documentation and stage it
+  # Generate documentation to ensure it builds successfully
   echo "Generating API documentation..."
   pnpm run docs:generate
-  git add docs/api/
 fi
