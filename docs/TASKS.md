@@ -52,6 +52,7 @@ ARCHITECTURE.md file in this same directory.
 - Step 4: Concrete Protocol Plugins Implementation
   - [ ] Build the concrete plugins (e.g., `YearnYieldPlugin`, `AaveLendingPlugin`, `LidoYieldPlugin`) 
         implementing the interfaces from Step 1.
+  - [ ] **NOTE**: Replace mock data with real on-chain/subgraph data for the plugins once the integration works end-to-end.
   - [ ] Since the Simulator is already hooked up to the interfaces, test that adding these plugins magically 
         makes the end-to-end simulations work.
   - [ ] Ensure comprehensive test coverage (>80%) across all newly introduced interfaces, simulators, and plugins.
