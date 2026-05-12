@@ -1,9 +1,0 @@
-[**redefi**](../../../README.md)
-
-***
-
-[redefi](../../../README.md) / [client/src](../README.md) / SwapRoute
-
-# Type Alias: SwapRoute
-
-> **SwapRoute** = `SwapHop`[]

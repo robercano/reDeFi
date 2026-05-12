@@ -19,6 +19,7 @@
   "excludeInternal": true,
   "exclude": ["**/*.spec.ts", "**/*.test.ts", "**/tests/**"],
   "skipErrorChecking": true,
+  "outputFileStrategy": "modules",
 
   "readme": "none",
   "disableSources": true,
