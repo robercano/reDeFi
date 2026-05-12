@@ -7,7 +7,10 @@ import { ISubscriptionProvider } from './ISubscriptionProvider'
  * ISubscriptionManager
  * Interface for the SubscriptionManager
  */
-export interface ISubscriptionManager extends IManagerWithProviders<SubscriptionProviderType, ISubscriptionProvider> {
+export interface ISubscriptionManager extends IManagerWithProviders<
+  SubscriptionProviderType,
+  ISubscriptionProvider
+> {
   /**
    * subscribeToNewBlocks
    * Subscribes to new blocks on the blockchain, utilizing the available providers
@@ -21,7 +24,7 @@ export interface ISubscriptionManager extends IManagerWithProviders<Subscription
   /**
    * unsubscribe
    * Cancels an active subscription
-   * 
+   *
    * @param subscriptionId The ID of the subscription to cancel
    */
   unsubscribe(subscriptionId: string): void

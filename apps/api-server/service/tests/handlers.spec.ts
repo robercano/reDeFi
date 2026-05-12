@@ -1,8 +1,22 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { createCallerFactory } from '../src/SDKTRPC'
 import { sdkAppRouter } from '../src/SDKAppRouter'
-import { ChainInfo, ChainIds, Address, Token, TokenAmount, IntentSwapProviderType, SwapProviderType, User } from '@thesolidchain/sdk-common'
-import { AaveV3LendingPoolId, AaveV3LendingPositionId, AaveV3Protocol, EmodeType } from '@thesolidchain/protocol-plugins'
+import {
+  ChainInfo,
+  ChainIds,
+  Address,
+  Token,
+  TokenAmount,
+  IntentSwapProviderType,
+  SwapProviderType,
+  User,
+} from '@thesolidchain/sdk-common'
+import {
+  AaveV3LendingPoolId,
+  AaveV3LendingPositionId,
+  AaveV3Protocol,
+  EmodeType,
+} from '@thesolidchain/protocol-plugins'
 
 const mockTokensManager = {
   getTokenByAddress: vi.fn(),
@@ -32,7 +46,7 @@ const mockProtocolManager = {
   lending: {
     getLendingPool: vi.fn(),
     getLendingPoolInfo: vi.fn(),
-  }
+  },
 }
 
 const mockPortfolioManager = {
@@ -61,12 +75,23 @@ describe('Handlers', () => {
   let caller: ReturnType<typeof createCaller>
 
   const chainInfo = ChainInfo.createFrom({ chainId: ChainIds.Mainnet, name: 'Mainnet' })
-  const address = Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' })
+  const address = Address.createFromEthereum({
+    value: '0x1111111111111111111111111111111111111111',
+  })
   const token = Token.createFrom({ address, chainInfo, symbol: 'ABC', name: 'ABC', decimals: 18 })
   const tokenAmount = TokenAmount.createFrom({ token, amount: '1000' })
   const protocol = AaveV3Protocol.createFrom({ chainInfo })
-  const lendingPoolId = AaveV3LendingPoolId.createFrom({ protocol, collateralToken: token, debtToken: token, emodeType: EmodeType.None })
-  const positionId = AaveV3LendingPositionId.createFrom({ id: '0x1', poolId: lendingPoolId, walletAddress: address })
+  const lendingPoolId = AaveV3LendingPoolId.createFrom({
+    protocol,
+    collateralToken: token,
+    debtToken: token,
+    emodeType: EmodeType.None,
+  })
+  const positionId = AaveV3LendingPositionId.createFrom({
+    id: '0x1',
+    poolId: lendingPoolId,
+    walletAddress: address,
+  })
   const user = User.createFrom({ wallet: { address }, chainInfo })
 
   beforeEach(() => {
@@ -83,7 +108,9 @@ describe('Handlers', () => {
 
   describe('protocols', () => {
     it('getPosition', async () => {
-      await expect(caller.protocols.getPosition(positionId as any)).rejects.toThrow('Not implemented')
+      await expect(caller.protocols.getPosition(positionId as any)).rejects.toThrow(
+        'Not implemented',
+      )
     })
     it('getLendingPool', async () => {
       mockProtocolManager.lending.getLendingPool.mockResolvedValue('pool')
@@ -103,7 +130,7 @@ describe('Handlers', () => {
       const res = await caller.tokens.getTokenByAddress({ chainInfo, address })
       expect(res).toBe('token')
     })
-    
+
     it('getTokenByName', async () => {
       mockTokensManager.getTokenByName.mockResolvedValue('token')
       const res = await caller.tokens.getTokenByName({ chainInfo, name: 'ABC' })
@@ -125,27 +152,51 @@ describe('Handlers', () => {
 
   describe('orders', () => {
     it('buildOrder', async () => {
-      await expect(caller.orders.buildOrder({ chainInfo, user, intent: { intentType: 0 } as any })).rejects.toThrow('Required')
+      await expect(
+        caller.orders.buildOrder({ chainInfo, user, intent: { intentType: 0 } as any }),
+      ).rejects.toThrow('Required')
     })
   })
 
   describe('intentSwaps', () => {
-    const sig = '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12'
-    
+    const sig =
+      '0x1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef1234567890abcdef12'
+
     it('getSellOrderQuote', async () => {
-      const res = await caller.intentSwaps.getSellOrderQuote({ providerType: IntentSwapProviderType.CowSwap, fromAmount: tokenAmount, toToken: token, sender: address } as any)
+      const res = await caller.intentSwaps.getSellOrderQuote({
+        providerType: IntentSwapProviderType.CowSwap,
+        fromAmount: tokenAmount,
+        toToken: token,
+        sender: address,
+      } as any)
       expect(res).toBe('quote')
     })
     it('sendOrder', async () => {
-      const res = await caller.intentSwaps.sendOrder({ providerType: IntentSwapProviderType.CowSwap, chainId: ChainIds.Mainnet, fromAmount: tokenAmount, sender: address, order: {}, signingResult: { signature: sig, signingScheme: 'eip712' } as any } as any)
+      const res = await caller.intentSwaps.sendOrder({
+        providerType: IntentSwapProviderType.CowSwap,
+        chainId: ChainIds.Mainnet,
+        fromAmount: tokenAmount,
+        sender: address,
+        order: {},
+        signingResult: { signature: sig, signingScheme: 'eip712' } as any,
+      } as any)
       expect(res).toBe('send')
     })
     it('cancelOrder', async () => {
-      const res = await caller.intentSwaps.cancelOrder({ providerType: IntentSwapProviderType.CowSwap, chainId: ChainIds.Mainnet, orderId: '0x123', signingResult: { signature: sig, signingScheme: 'eip712' } as any } as any)
+      const res = await caller.intentSwaps.cancelOrder({
+        providerType: IntentSwapProviderType.CowSwap,
+        chainId: ChainIds.Mainnet,
+        orderId: '0x123',
+        signingResult: { signature: sig, signingScheme: 'eip712' } as any,
+      } as any)
       expect(res).toBe('cancel')
     })
     it('checkOrder', async () => {
-      const res = await caller.intentSwaps.checkOrder({ providerType: IntentSwapProviderType.CowSwap, chainId: ChainIds.Mainnet, orderId: '0x123' } as any)
+      const res = await caller.intentSwaps.checkOrder({
+        providerType: IntentSwapProviderType.CowSwap,
+        chainId: ChainIds.Mainnet,
+        orderId: '0x123',
+      } as any)
       expect(res).toBe('check')
     })
   })
@@ -153,12 +204,23 @@ describe('Handlers', () => {
   describe('swaps', () => {
     it('getSwapDataExactInput', async () => {
       mockSwapManager.getSwapDataExactInput.mockResolvedValue('data')
-      const res = await caller.swaps.getSwapDataExactInput({ providerType: SwapProviderType.OneInch, fromAmount: tokenAmount, toToken: token, recipient: address, slippage: { value: 1 } as any } as any)
+      const res = await caller.swaps.getSwapDataExactInput({
+        providerType: SwapProviderType.OneInch,
+        fromAmount: tokenAmount,
+        toToken: token,
+        recipient: address,
+        slippage: { value: 1 } as any,
+      } as any)
       expect(res).toBe('data')
     })
     it('getSwapQuoteExactInput', async () => {
       mockSwapManager.getSwapQuoteExactInput.mockResolvedValue('quote')
-      const res = await caller.swaps.getSwapQuoteExactInput({ providerType: SwapProviderType.OneInch, fromAmount: tokenAmount, toToken: token, slippage: { value: 1 } as any } as any)
+      const res = await caller.swaps.getSwapQuoteExactInput({
+        providerType: SwapProviderType.OneInch,
+        fromAmount: tokenAmount,
+        toToken: token,
+        slippage: { value: 1 } as any,
+      } as any)
       expect(res).toBe('quote')
     })
   })

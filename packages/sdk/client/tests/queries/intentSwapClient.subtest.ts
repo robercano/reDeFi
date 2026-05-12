@@ -7,7 +7,7 @@ import { Token, TokenAmount, ChainFamilyMap, Address } from '@thesolidchain/sdk-
 
 export default async function intentSwapClientTest() {
   const mockSigner = {} as Signer
-  
+
   const getSellOrderQuote = vi.fn().mockResolvedValue({ quote: 'mock' })
   const sendOrder = vi.fn().mockResolvedValue('order_id')
   const cancelOrder = vi.fn().mockResolvedValue('cancel_id')
@@ -19,7 +19,7 @@ export default async function intentSwapClientTest() {
       sendOrder: { mutate: sendOrder },
       cancelOrder: { mutate: cancelOrder },
       checkOrder: { query: checkOrder },
-    }
+    },
   } as unknown as RPCMainClientType
 
   const client = new IntentSwapClient({ rpcClient, signer: mockSigner })
@@ -31,7 +31,7 @@ export default async function intentSwapClientTest() {
     symbol: 'USDC',
     decimals: 6,
   })
-  
+
   const daiToken = Token.createFrom({
     address: Address.createFromEthereum({ value: '0x6B175474E89094C44Da98b954EedeAC495271d0F' }),
     chainInfo: ChainFamilyMap.Ethereum.Mainnet,
@@ -42,11 +42,13 @@ export default async function intentSwapClientTest() {
 
   const fromAmount = TokenAmount.createFrom({
     token: usdcToken,
-    amount: '100'
+    amount: '100',
   })
 
   const sender = Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' })
-  const receiver = Address.createFromEthereum({ value: '0x0987654321098765432109876543210987654321' })
+  const receiver = Address.createFromEthereum({
+    value: '0x0987654321098765432109876543210987654321',
+  })
 
   // 1. getSellOrderQuote with limitPrice
   await client.getSellOrderQuote({
@@ -55,7 +57,7 @@ export default async function intentSwapClientTest() {
     sender,
     receiver,
     partiallyFillable: false,
-    limitPrice: '1.05'
+    limitPrice: '1.05',
   })
   expect(getSellOrderQuote).toHaveBeenCalled()
 
@@ -70,15 +72,19 @@ export default async function intentSwapClientTest() {
   expect(getSellOrderQuote).toHaveBeenCalledTimes(2)
 
   // Mock OrderSigningUtils
-  const signOrderSpy = vi.spyOn(OrderSigningUtils, 'signOrder').mockResolvedValue('mock_signature' as never)
-  const signCancelSpy = vi.spyOn(OrderSigningUtils, 'signOrderCancellation').mockResolvedValue('mock_cancel_signature' as never)
+  const signOrderSpy = vi
+    .spyOn(OrderSigningUtils, 'signOrder')
+    .mockResolvedValue('mock_signature' as never)
+  const signCancelSpy = vi
+    .spyOn(OrderSigningUtils, 'signOrderCancellation')
+    .mockResolvedValue('mock_cancel_signature' as never)
 
   // 2. sendOrder
   await client.sendOrder({
     chainId: 1,
     sender,
     fromAmount,
-    order: {} as never
+    order: {} as never,
   })
   expect(signOrderSpy).toHaveBeenCalled()
   expect(sendOrder).toHaveBeenCalled()
@@ -86,7 +92,7 @@ export default async function intentSwapClientTest() {
   // 3. cancelOrder
   await client.cancelOrder({
     chainId: 1,
-    orderId: 'mock_order_id'
+    orderId: 'mock_order_id',
   })
   expect(signCancelSpy).toHaveBeenCalled()
   expect(cancelOrder).toHaveBeenCalled()
@@ -94,10 +100,12 @@ export default async function intentSwapClientTest() {
   // 4. checkOrder
   await client.checkOrder({
     chainId: 1,
-    orderId: 'mock_order_id'
+    orderId: 'mock_order_id',
   })
   expect(checkOrder).toHaveBeenCalled()
 
   // Invalid chainId
-  await expect(client.sendOrder({ chainId: 999999 as never, sender, fromAmount, order: {} as never })).rejects.toThrow('Unsupported chainId: 999999')
+  await expect(
+    client.sendOrder({ chainId: 999999 as never, sender, fromAmount, order: {} as never }),
+  ).rejects.toThrow('Unsupported chainId: 999999')
 }

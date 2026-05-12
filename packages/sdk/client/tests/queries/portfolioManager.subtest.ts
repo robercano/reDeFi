@@ -10,13 +10,13 @@ export default async function portfolioManagerTest() {
     portfolio: {
       getUserPortfolio: { query: getUserPortfolio },
       getWalletHoldings: { query: getWalletHoldings },
-    }
+    },
   } as unknown as RPCMainClientType
 
   const client = new PortfolioManager({ rpcClient })
 
   await client.getPositions({ networks: [], wallet: {} as never })
-  
+
   await client.getUserPortfolio({ user: {} as never })
   expect(getUserPortfolio).toHaveBeenCalled()
 

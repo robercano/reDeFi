@@ -9,6 +9,8 @@ describe('chainIdToGraphChain', () => {
   })
 
   it('should throw error for unsupported chain id', () => {
-    expect(() => chainIdToGraphChain(99999)).toThrow('chainIdToGraphChain: Unsupported chain ID: 99999')
+    expect(() => chainIdToGraphChain(99999)).toThrow(
+      'chainIdToGraphChain: Unsupported chain ID: 99999',
+    )
   })
 })

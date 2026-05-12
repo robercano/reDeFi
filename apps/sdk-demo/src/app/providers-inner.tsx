@@ -13,18 +13,16 @@ import { AppSDKProvider } from './AppSDKContext'
 export function ProvidersInner({ children }: { children: React.ReactNode }) {
   // Setup query client with stable instance suitable for Next.js App Router
   const [queryClient] = useState(() => new QueryClient())
-  
+
   const apiURL = process.env.NEXT_PUBLIC_API_URL
   const apiKey = process.env.NEXT_PUBLIC_API_KEY
-  
+
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         <RainbowKitProvider>
           <SDKProvider apiURL={apiURL ?? ''} apiKey={apiKey ?? ''}>
-            <AppSDKProvider>
-              {children}
-            </AppSDKProvider>
+            <AppSDKProvider>{children}</AppSDKProvider>
           </SDKProvider>
         </RainbowKitProvider>
       </QueryClientProvider>

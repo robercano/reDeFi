@@ -16,11 +16,11 @@ export interface ISubscriptionProvider extends IManagerProvider<SubscriptionProv
    * @returns string A unique subscription ID to be used for unsubscribing
    */
   subscribeToNewBlocks(chainInfo: IChainInfo, callback: (blockNumber: bigint) => void): string
-  
+
   /**
    * unsubscribe
    * Cancels a subscription
-   * 
+   *
    * @param subscriptionId The ID of the subscription to cancel
    */
   unsubscribe(subscriptionId: string): void

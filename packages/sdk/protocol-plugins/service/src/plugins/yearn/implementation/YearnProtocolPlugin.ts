@@ -55,7 +55,9 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     const vaultDto = await this.dataSource.getVault(poolId.vaultAddress)
 
     return {
-      [Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo')]: Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo') as any,
+      [Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo')]: Symbol.for(
+        '@thesolidchain/sdk-common/IYieldPoolInfo',
+      ) as any,
       type: PoolType.Yield,
       id: poolId,
       underlyingToken: vaultDto.underlyingToken,
@@ -74,13 +76,21 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     const chainId = this.context.provider.chain?.id || 1
     this._checkChainIdSupported(chainId)
 
-    const positionDto = await this.dataSource.getUserPosition(positionId.vaultAddress, positionId.walletAddress)
+    const positionDto = await this.dataSource.getUserPosition(
+      positionId.vaultAddress,
+      positionId.walletAddress,
+    )
 
     return {
-      [Symbol.for('@thesolidchain/sdk-common/IYieldPosition')]: Symbol.for('@thesolidchain/sdk-common/IYieldPosition') as any,
+      [Symbol.for('@thesolidchain/sdk-common/IYieldPosition')]: Symbol.for(
+        '@thesolidchain/sdk-common/IYieldPosition',
+      ) as any,
       type: PositionType.Yield,
       id: positionId,
-      poolId: new YearnYieldPoolId(positionId.vaultAddress, this.context.provider.chain as unknown as IChainInfo),
+      poolId: new YearnYieldPoolId(
+        positionId.vaultAddress,
+        this.context.provider.chain as unknown as IChainInfo,
+      ),
       principalAmount: positionDto.principalAmount,
       currentAmount: positionDto.currentAmount,
       claimableRewards: [],

@@ -21,7 +21,7 @@ describe('Protocol', () => {
   it('should create a Protocol instance', () => {
     const chainInfo = getChainInfoByChainId(1)
     const protocol = new MockProtocol({ chainInfo })
-    
+
     expect(protocol.name).toBe(ProtocolName.AaveV3)
     expect(protocol.chainInfo).toBe(chainInfo)
   })
@@ -31,7 +31,7 @@ describe('Protocol', () => {
     const protocol1 = new MockProtocol({ chainInfo })
     const protocol2 = new MockProtocol({ chainInfo })
     const protocol3 = new AnotherProtocol({ chainInfo })
-    
+
     const anotherChain = getChainInfoByChainId(42161)
     const protocol4 = new MockProtocol({ chainInfo: anotherChain })
 

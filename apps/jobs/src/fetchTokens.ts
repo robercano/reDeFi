@@ -1,7 +1,12 @@
 import { Resource } from 'sst'
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb'
 import { DynamoDBDocumentClient, BatchWriteCommand } from '@aws-sdk/lib-dynamodb'
-import { S3Client, PutObjectCommand, ListObjectsV2Command, ListObjectsV2CommandOutput } from '@aws-sdk/client-s3'
+import {
+  S3Client,
+  PutObjectCommand,
+  ListObjectsV2Command,
+  ListObjectsV2CommandOutput,
+} from '@aws-sdk/client-s3'
 
 const client = new DynamoDBClient({})
 const docClient = DynamoDBDocumentClient.from(client)
@@ -188,7 +193,9 @@ export const handler = async () => {
       }
     }
 
-    console.log(`Successfully upserted all tokens to DynamoDB. Uploaded ${newUploadsCount} new logos.`)
+    console.log(
+      `Successfully upserted all tokens to DynamoDB. Uploaded ${newUploadsCount} new logos.`,
+    )
   } catch (error) {
     console.error('Failed to fetch and upsert tokens:', error)
     throw error

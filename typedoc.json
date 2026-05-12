@@ -1,0 +1,26 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./packages/sdk/common/src/index.ts",
+    "./packages/sdk/client/src/index.ts",
+    "./packages/sdk/oracle/service/src/index.ts",
+    "./packages/sdk/protocol-manager/service/src/index.ts",
+    "./packages/sdk/protocol-plugins/service/src/index.ts",
+    "./packages/sdk/subscriptions/service/src/index.ts",
+    "./packages/sdk/swap/service/src/index.ts",
+    "./packages/sdk/tokens/service/src/index.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "out": "docs/api",
+  "plugin": ["typedoc-plugin-markdown"],
+  "theme": "default",
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "exclude": ["**/*.spec.ts", "**/*.test.ts", "**/tests/**"],
+  "skipErrorChecking": true,
+
+  "readme": "none",
+  "disableSources": true,
+  "githubPages": false
+}

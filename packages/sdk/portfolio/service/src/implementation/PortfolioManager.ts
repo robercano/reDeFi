@@ -2,11 +2,18 @@ import { IPortfolioManager } from '@thesolidchain/portfolio-common'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { IOracleManager } from '@thesolidchain/oracle-common'
 import { ICacheService } from '@thesolidchain/api-server-common'
-import { IUser, Holding, UserPortfolio, CommonTokenSymbols, FiatCurrency, FiatCurrencyAmount } from '@thesolidchain/sdk-common'
+import {
+  IUser,
+  Holding,
+  UserPortfolio,
+  CommonTokenSymbols,
+  FiatCurrency,
+  FiatCurrencyAmount,
+} from '@thesolidchain/sdk-common'
 
 /**
  * PortfolioManager
- * Concrete implementation of IPortfolioManager. Handles the aggregation of a user's 
+ * Concrete implementation of IPortfolioManager. Handles the aggregation of a user's
  * portfolio by communicating with the tokens manager for balances and the oracle manager for spot prices.
  * Native caching via ICacheService is automatically applied to `getUserPortfolio` calls.
  */
@@ -40,7 +47,7 @@ export class PortfolioManager implements IPortfolioManager {
    * Fetches the native and ERC20 token balances for a user and calculates their
    * respective USD fiat values. Failed queries or absent spot prices are silently skipped
    * so the remaining valid holdings can still be returned.
-   * 
+   *
    * @param params.user - User entity containing wallet address and chain information
    * @returns Array of Holdings containing Token amounts and Fiat values
    */
@@ -91,10 +98,10 @@ export class PortfolioManager implements IPortfolioManager {
 
   /**
    * getUserPortfolio
-   * Calculates a completely hydrated UserPortfolio. It utilizes the injected 
-   * `cacheService` (if available) to avoid expensive, repeating queries. The portfolio is 
+   * Calculates a completely hydrated UserPortfolio. It utilizes the injected
+   * `cacheService` (if available) to avoid expensive, repeating queries. The portfolio is
    * keyed deterministically by the user's wallet address.
-   * 
+   *
    * @param params.user - User entity whose portfolio is being built
    * @returns Fully assembled UserPortfolio object containing holdings and total net fiat value
    */
@@ -103,7 +110,8 @@ export class PortfolioManager implements IPortfolioManager {
     const cacheKey = `PortfolioManager:getUserPortfolio:${user.wallet.address.value}`
 
     if (this._cacheService) {
-      const cachedPortfolio = await this._cacheService.get<Parameters<typeof UserPortfolio.createFrom>[0]>(cacheKey)
+      const cachedPortfolio =
+        await this._cacheService.get<Parameters<typeof UserPortfolio.createFrom>[0]>(cacheKey)
       if (cachedPortfolio) {
         return UserPortfolio.createFrom(cachedPortfolio)
       }

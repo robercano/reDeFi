@@ -9,7 +9,9 @@ export class BlockchainClientProviderMock implements IBlockchainManager {
 
   constructor(params: { configProvider: IConfigurationProvider; rpcUrl: string }) {
     this.rpcUrl = params.rpcUrl
-    this._manager = BlockchainManagerFactory.newBlockchainManager({ configProvider: params.configProvider })
+    this._manager = BlockchainManagerFactory.newBlockchainManager({
+      configProvider: params.configProvider,
+    })
   }
 
   public getBlockchainClient(params: {

@@ -10,12 +10,14 @@ const docClient = DynamoDBDocumentClient.from(client)
 export class DynamoDBCacheService implements ICacheService {
   private readonly _tableName: string
 
-  constructor(params: { configProvider: IConfigurationProvider, eventBus?: IEventBus }) {
+  constructor(params: { configProvider: IConfigurationProvider; eventBus?: IEventBus }) {
     this._tableName = params.configProvider.getConfigurationItem({ name: 'CACHE_TABLE_NAME' })
 
     if (params.eventBus) {
       params.eventBus.on('NewBlockMined', (payload: ISDKEventMap['NewBlockMined']) => {
-        console.log(`[DynamoDBCacheService] Invalidation triggered for chain ${payload.chainInfo.chainId} at block ${payload.blockNumber}`)
+        console.log(
+          `[DynamoDBCacheService] Invalidation triggered for chain ${payload.chainInfo.chainId} at block ${payload.blockNumber}`,
+        )
         // TODO: Implement actual cache invalidation logic based on prefixes or cache versions
       })
     }

@@ -17,9 +17,9 @@ describe('SubscriptionManagerFactory', () => {
     })
 
     expect(manager).toBeInstanceOf(SubscriptionManager)
-    
+
     expect(manager.hasProvider(SubscriptionProviderType.DEFAULT_RPC)).toBe(true)
-    
+
     const provider = manager.getProvider(SubscriptionProviderType.DEFAULT_RPC)
     expect(provider).toBeInstanceOf(DefaultRpcSubscriptionProvider)
   })

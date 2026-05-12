@@ -31,6 +31,8 @@ export type IYieldPositionIdData = Readonly<z.infer<typeof YieldPositionIdDataSc
  * @param maybeYieldPositionId Object to be checked
  * @returns true if the object is an IYieldPositionId
  */
-export function isYieldPositionId(maybeYieldPositionId: unknown): maybeYieldPositionId is IYieldPositionId {
+export function isYieldPositionId(
+  maybeYieldPositionId: unknown,
+): maybeYieldPositionId is IYieldPositionId {
   return YieldPositionIdDataSchema.safeParse(maybeYieldPositionId).success
 }

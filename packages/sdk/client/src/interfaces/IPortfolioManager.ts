@@ -1,4 +1,11 @@
-import type { ChainInfo, Wallet, Position, IUser, IUserPortfolio, IHolding } from '@thesolidchain/sdk-common'
+import type {
+  ChainInfo,
+  Wallet,
+  Position,
+  IUser,
+  IUserPortfolio,
+  IHolding,
+} from '@thesolidchain/sdk-common'
 
 /**
  * @interface IPortfolioManager

@@ -8,25 +8,31 @@ import { getChainInfoByChainId } from '../src/common/implementation/ChainFamilie
 
 class MockProtocol extends Protocol {
   readonly name = ProtocolName.AaveV3
-  public constructor(params: ProtocolParameters) { super(params) }
+  public constructor(params: ProtocolParameters) {
+    super(params)
+  }
 }
 
 class MockPoolId extends PoolId {
   readonly type = PoolType.Lending
   readonly protocol = new MockProtocol({ chainInfo: getChainInfoByChainId(1) })
-  public constructor(params: PoolIdParameters) { super(params) }
+  public constructor(params: PoolIdParameters) {
+    super(params)
+  }
 }
 
 class MockPool extends Pool {
   readonly type = PoolType.Lending
   readonly id = new MockPoolId({})
-  public constructor(params: PoolParameters) { super(params) }
+  public constructor(params: PoolParameters) {
+    super(params)
+  }
 }
 
 describe('Pool', () => {
   it('should create a Pool instance and return toString correctly', () => {
     const pool = new MockPool({})
-    
+
     expect(pool.type).toBe(PoolType.Lending)
     expect(pool.id.type).toBe(PoolType.Lending)
     expect(pool.toString()).toContain('Pool: Lending')

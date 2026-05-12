@@ -2,57 +2,57 @@ import { describe, it, expect, vi } from 'vitest'
 import { createSDKContext } from '../src/context/SDKContext'
 
 vi.mock('@thesolidchain/configuration-provider', () => ({
-  ConfigurationProvider: vi.fn().mockImplementation(() => ({}))
+  ConfigurationProvider: vi.fn().mockImplementation(() => ({})),
 }))
 vi.mock('@thesolidchain/events-service', () => ({
-  EventBus: vi.fn().mockImplementation(() => ({}))
+  EventBus: vi.fn().mockImplementation(() => ({})),
 }))
 vi.mock('@thesolidchain/api-server-common', () => ({
   DynamoDBCacheService: vi.fn().mockImplementation(() => ({})),
   ManagerProviderBase: class {},
 }))
 vi.mock('@thesolidchain/blockchain-client-provider', () => ({
-  BlockchainManagerFactory: { newBlockchainManager: vi.fn().mockReturnValue({}) }
+  BlockchainManagerFactory: { newBlockchainManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/abi-provider-service', () => ({
-  AbiProviderFactory: { newAbiProvider: vi.fn().mockReturnValue({}) }
+  AbiProviderFactory: { newAbiProvider: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/contracts-provider-service', () => ({
-  ContractsProviderFactory: { newContractsProvider: vi.fn().mockReturnValue({}) }
+  ContractsProviderFactory: { newContractsProvider: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/tokens-service', () => ({
-  TokensManagerFactory: { newTokensManager: vi.fn().mockReturnValue({}) }
+  TokensManagerFactory: { newTokensManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/address-book-service', () => ({
-  AddressBookManagerFactory: { newAddressBookManager: vi.fn().mockReturnValue({}) }
+  AddressBookManagerFactory: { newAddressBookManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/order-planner-service', () => ({
-  OrderPlannerService: vi.fn().mockImplementation(() => ({}))
+  OrderPlannerService: vi.fn().mockImplementation(() => ({})),
 }))
 vi.mock('@thesolidchain/swap-service', () => ({
   SwapManagerFactory: { newSwapManager: vi.fn().mockReturnValue({}) },
-  CowSwapProvider: vi.fn().mockImplementation(() => ({}))
+  CowSwapProvider: vi.fn().mockImplementation(() => ({})),
 }))
 vi.mock('@thesolidchain/oracle-service', () => ({
-  OracleManagerFactory: { newOracleManager: vi.fn().mockReturnValue({}) }
+  OracleManagerFactory: { newOracleManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/portfolio-service', () => ({
-  PortfolioManagerFactory: { newPortfolioManager: vi.fn().mockReturnValue({}) }
+  PortfolioManagerFactory: { newPortfolioManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('../src/context/CreateProtocolPluginsRegistry', () => ({
-  createProtocolsPluginsRegistry: vi.fn().mockReturnValue({})
+  createProtocolsPluginsRegistry: vi.fn().mockReturnValue({}),
 }))
 vi.mock('@thesolidchain/protocol-manager-service', () => ({
-  ProtocolManager: { createWith: vi.fn().mockReturnValue({}) }
+  ProtocolManager: { createWith: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/allowance-manager-service', () => ({
-  AllowanceManagerFactory: { newAllowanceManager: vi.fn().mockReturnValue({}) }
+  AllowanceManagerFactory: { newAllowanceManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/subscriptions-service', () => ({
-  SubscriptionManagerFactory: { newSubscriptionManager: vi.fn().mockReturnValue({}) }
+  SubscriptionManagerFactory: { newSubscriptionManager: vi.fn().mockReturnValue({}) },
 }))
 vi.mock('@thesolidchain/sdk-common', () => ({
-  LoggingService: { log: vi.fn(), debug: vi.fn() }
+  LoggingService: { log: vi.fn(), debug: vi.fn() },
 }))
 
 describe('SDKContext', () => {
@@ -62,7 +62,7 @@ describe('SDKContext', () => {
         headers: {},
         rawPath: '/test',
         rawQueryString: 'a=1',
-      }
+      },
     } as any
 
     const ctx = await createSDKContext(opts)

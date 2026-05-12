@@ -15,6 +15,8 @@ export default async function makeSDKWithSignerTest() {
   expect(sdk2).toBeDefined()
   expect(sdk2.intentSwaps).toBeDefined()
 
-  expect(() => makeSDKWithSigner({ signer: mockSigner } as never)).toThrowError('Either apiDomainUrl or apiURL must be provided')
+  expect(() => makeSDKWithSigner({ signer: mockSigner } as never)).toThrowError(
+    'Either apiDomainUrl or apiURL must be provided',
+  )
   expect(() => makeSDKWithSigner({ apiURL } as never)).toThrowError('Signer must be provided.')
 }

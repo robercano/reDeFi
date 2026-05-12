@@ -58,7 +58,9 @@ export class ProtocolManager implements IProtocolManager {
       throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
     }
     if (!plugin.lending) {
-      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} does not support lending`)
+      throw new Error(
+        `Protocol plugin for protocol ${poolId.protocol.name} does not support lending`,
+      )
     }
     return plugin.lending.getLendingPool(poolId)
   }
@@ -72,7 +74,9 @@ export class ProtocolManager implements IProtocolManager {
       throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
     }
     if (!plugin.lending) {
-      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} does not support lending`)
+      throw new Error(
+        `Protocol plugin for protocol ${poolId.protocol.name} does not support lending`,
+      )
     }
     return plugin.lending.getLendingPoolInfo(poolId)
   }
@@ -103,8 +107,6 @@ export class ProtocolManager implements IProtocolManager {
 
     throw new Error('Not implemented')
   }
-
-
 
   /** PRIVATE */
 

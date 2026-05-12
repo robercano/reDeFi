@@ -12,7 +12,7 @@ export interface ISDKEventMap {
     chainInfo: IChainInfo
     blockNumber: bigint
   }
-  
+
   /**
    * Fired when a user's portfolio or position is updated
    */

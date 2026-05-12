@@ -34,19 +34,29 @@ function getAllPathsForPackagesSummaries() {
       [packageName]: path.join(packagesPath, packageName, 'coverage', 'coverage-summary.json'),
     }
   }, {})
-  
+
   const sdkPath = path.join('packages', 'sdk')
   const sdkNames = fs.existsSync(sdkPath) ? getDirectories(sdkPath) : []
 
   const sdkSummaries = sdkNames.reduce((summary, packageName) => {
-    const pkgPath = path.join(sdkPath, packageName);
-    const subDirs = getDirectories(pkgPath);
-    let extraSummaries = {};
+    const pkgPath = path.join(sdkPath, packageName)
+    const subDirs = getDirectories(pkgPath)
+    let extraSummaries = {}
     if (subDirs.includes('service')) {
-      extraSummaries[`sdk-${packageName}-service`] = path.join(pkgPath, 'service', 'coverage', 'coverage-summary.json');
+      extraSummaries[`sdk-${packageName}-service`] = path.join(
+        pkgPath,
+        'service',
+        'coverage',
+        'coverage-summary.json',
+      )
     }
     if (subDirs.includes('common')) {
-      extraSummaries[`sdk-${packageName}-common`] = path.join(pkgPath, 'common', 'coverage', 'coverage-summary.json');
+      extraSummaries[`sdk-${packageName}-common`] = path.join(
+        pkgPath,
+        'common',
+        'coverage',
+        'coverage-summary.json',
+      )
     }
     return {
       ...summary,
@@ -65,7 +75,12 @@ function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSumm
       if (fs.existsSync(reportPath)) {
         const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
 
-        if (!report.total || !report.total.lines || report.total.lines.pct === 'Unknown' || report.total.lines.pct === 0) {
+        if (
+          !report.total ||
+          !report.total.lines ||
+          report.total.lines.pct === 'Unknown' ||
+          report.total.lines.pct === 0
+        ) {
           return summary
         }
 
@@ -76,7 +91,10 @@ function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSumm
             total[key].total += report.total[key].total
             total[key].covered += report.total[key].covered
             total[key].skipped += report.total[key].skipped
-            total[key].pct = total[key].total === 0 ? 'Unknown' : Number(((total[key].covered / total[key].total) * 100).toFixed(2))
+            total[key].pct =
+              total[key].total === 0
+                ? 'Unknown'
+                : Number(((total[key].covered / total[key].total) * 100).toFixed(2))
           } else {
             total[key] = { ...report.total[key] }
           }
@@ -102,7 +120,7 @@ function createCoverageReportForVisualRepresentation(coverageReport, commentCove
     },
   }
 
-  let totalCommentCoverages = [];
+  let totalCommentCoverages = []
 
   return Object.keys(coverageReport).reduce((report, packageName) => {
     if (
@@ -118,18 +136,23 @@ function createCoverageReportForVisualRepresentation(coverageReport, commentCove
       return report
     }
 
-    let cCov = 'Unknown';
+    let cCov = 'Unknown'
     if (packageName !== 'total' && commentCoverage[packageName] !== undefined) {
-      cCov = commentCoverage[packageName];
+      cCov = commentCoverage[packageName]
       if (typeof cCov === 'number') {
-        totalCommentCoverages.push(cCov);
+        totalCommentCoverages.push(cCov)
       }
     }
 
     if (packageName === 'total') {
-      const avgComments = totalCommentCoverages.length > 0 
-        ? Number((totalCommentCoverages.reduce((a, b) => a + b, 0) / totalCommentCoverages.length).toFixed(2)) 
-        : 'Unknown';
+      const avgComments =
+        totalCommentCoverages.length > 0
+          ? Number(
+              (
+                totalCommentCoverages.reduce((a, b) => a + b, 0) / totalCommentCoverages.length
+              ).toFixed(2),
+            )
+          : 'Unknown'
       return {
         ...report,
         ...separator,
@@ -159,7 +182,8 @@ function createCoverageReportForVisualRepresentation(coverageReport, commentCove
 function createMarkdownReport(coverageReportForVisualRepresentation) {
   let md = '# Test & Comment Coverage Report\n\n'
   md += 'This is the automatically generated coverage report for the monorepo.\n\n'
-  md += '| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) | Comments/JSDoc (%) |\n'
+  md +=
+    '| Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) | Comments/JSDoc (%) |\n'
   md += '|---|---|---|---|---|---|\n'
 
   Object.keys(coverageReportForVisualRepresentation).forEach((packageName) => {
@@ -167,11 +191,24 @@ function createMarkdownReport(coverageReportForVisualRepresentation) {
     const row = coverageReportForVisualRepresentation[packageName]
     const formatPct = (val) => (val !== undefined && val !== 'Unknown' ? `${val}%` : 'N/A')
     const packNameFormatted = packageName === 'TOTAL' ? '**TOTAL**' : packageName
-    const l = packageName === 'TOTAL' ? `**${formatPct(row['lines (%)'])}**` : formatPct(row['lines (%)'])
-    const s = packageName === 'TOTAL' ? `**${formatPct(row['statements (%)'])}**` : formatPct(row['statements (%)'])
-    const f = packageName === 'TOTAL' ? `**${formatPct(row['functions (%)'])}**` : formatPct(row['functions (%)'])
-    const b = packageName === 'TOTAL' ? `**${formatPct(row['branches (%)'])}**` : formatPct(row['branches (%)'])
-    const c = packageName === 'TOTAL' ? `**${formatPct(row['comments (%)'])}**` : formatPct(row['comments (%)'])
+    const l =
+      packageName === 'TOTAL' ? `**${formatPct(row['lines (%)'])}**` : formatPct(row['lines (%)'])
+    const s =
+      packageName === 'TOTAL'
+        ? `**${formatPct(row['statements (%)'])}**`
+        : formatPct(row['statements (%)'])
+    const f =
+      packageName === 'TOTAL'
+        ? `**${formatPct(row['functions (%)'])}**`
+        : formatPct(row['functions (%)'])
+    const b =
+      packageName === 'TOTAL'
+        ? `**${formatPct(row['branches (%)'])}**`
+        : formatPct(row['branches (%)'])
+    const c =
+      packageName === 'TOTAL'
+        ? `**${formatPct(row['comments (%)'])}**`
+        : formatPct(row['comments (%)'])
 
     md += `| ${packNameFormatted} | ${l} | ${s} | ${f} | ${b} | ${c} |\n`
   })

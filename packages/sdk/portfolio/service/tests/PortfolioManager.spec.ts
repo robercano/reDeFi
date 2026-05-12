@@ -3,7 +3,17 @@ import { PortfolioManager } from '../src/implementation/PortfolioManager'
 import { ITokensManager } from '@thesolidchain/tokens-common'
 import { IOracleManager } from '@thesolidchain/oracle-common'
 import { ICacheService } from '@thesolidchain/api-server-common'
-import { IUser, Holding, CommonTokenSymbols, FiatCurrency, FiatCurrencyAmount, ITokenAmount, IToken, IAddress, ChainIds } from '@thesolidchain/sdk-common'
+import {
+  IUser,
+  Holding,
+  CommonTokenSymbols,
+  FiatCurrency,
+  FiatCurrencyAmount,
+  ITokenAmount,
+  IToken,
+  IAddress,
+  ChainIds,
+} from '@thesolidchain/sdk-common'
 
 describe('PortfolioManager', () => {
   let mockTokensManager: import('vitest').Mocked<ITokensManager>
@@ -13,7 +23,7 @@ describe('PortfolioManager', () => {
 
   const mockUser: IUser = {
     wallet: { address: { value: '0x123' as IAddress } as any },
-    chainInfo: { chainId: ChainIds.Mainnet }
+    chainInfo: { chainId: ChainIds.Mainnet },
   } as IUser
 
   beforeEach(() => {
@@ -35,7 +45,7 @@ describe('PortfolioManager', () => {
       oracleManager: mockOracleManager,
       cacheService: mockCacheService,
     })
-    
+
     vi.spyOn(console, 'log').mockImplementation(() => {})
     vi.spyOn(console, 'warn').mockImplementation(() => {})
   })
@@ -68,7 +78,9 @@ describe('PortfolioManager', () => {
       token: mockToken,
       amount: '2',
       isZero: () => false,
-      multiply: vi.fn().mockReturnValue(FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '4000' }))
+      multiply: vi
+        .fn()
+        .mockReturnValue(FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '4000' })),
     } as unknown as ITokenAmount
 
     mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }) => {
@@ -93,7 +105,7 @@ describe('PortfolioManager', () => {
       token: mockToken,
       amount: '2',
       isZero: () => false,
-      multiply: vi.fn()
+      multiply: vi.fn(),
     } as unknown as ITokenAmount
 
     mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }) => {

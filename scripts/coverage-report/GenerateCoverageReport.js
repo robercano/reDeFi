@@ -20,8 +20,10 @@ const currCoverageReport =
 // 3. Generate comment/JSDoc coverage
 const commentCoverage = getCommentCoveragePerPackage(packagesSummaryPaths)
 // 4. Reformat the report for visual representation
-const coverageReportForVisualRepresentation =
-  createCoverageReportForVisualRepresentation(currCoverageReport, commentCoverage)
+const coverageReportForVisualRepresentation = createCoverageReportForVisualRepresentation(
+  currCoverageReport,
+  commentCoverage,
+)
 // 5. Print the report
 console.table(coverageReportForVisualRepresentation)
 

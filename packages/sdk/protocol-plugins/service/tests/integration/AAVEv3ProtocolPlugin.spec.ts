@@ -3,7 +3,16 @@ import { mainnet } from 'viem/chains'
 import * as dotenv from 'dotenv'
 dotenv.config({ path: '../../../../.env' })
 import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
-import { Price, RiskRatio, TokenAmount, Percentage, Address, User, Wallet, ChainInfo } from '@thesolidchain/sdk-common'
+import {
+  Price,
+  RiskRatio,
+  TokenAmount,
+  Percentage,
+  Address,
+  User,
+  Wallet,
+  ChainInfo,
+} from '@thesolidchain/sdk-common'
 import { AaveV3ProtocolPlugin } from '../../src/plugins/aave-v3/implementation/AAVEv3ProtocolPlugin'
 import { getAaveV3PoolIdMock } from '../mocks/AAVEv3PoolIdMock'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
@@ -149,7 +158,9 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     const positionId = AaveV3LendingPositionId.createFrom({
       id: 'mockPositionId',
       poolId: validAaveV3PoolId,
-      walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
+      walletAddress: Address.createFromEthereum({
+        value: '0x1234567890123456789012345678901234567890',
+      }),
     })
 
     const position = await aaveV3ProtocolPlugin.getLendingPosition(positionId)
@@ -157,9 +168,11 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     expect(position).toBeDefined()
     expect(position.id).toBe(positionId)
     expect(position.subtype).toBe(LendingPositionType.Borrow)
-    
+
     expect(position.collateralAmount).toBeInstanceOf(TokenAmount)
-    expect(position.collateralAmount.token.address.value).toBe(validAaveV3PoolId.collateralToken.address.value)
+    expect(position.collateralAmount.token.address.value).toBe(
+      validAaveV3PoolId.collateralToken.address.value,
+    )
     // Balance might be zero for this random address
     expect(Number(position.collateralAmount.amount)).toBeGreaterThanOrEqual(0)
 
@@ -198,7 +211,9 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     const wrapHash = await walletClient.writeContract({
       account: userAddress,
       address: wethAddress,
-      abi: [{ name: 'deposit', type: 'function', stateMutability: 'payable', inputs: [], outputs: [] }],
+      abi: [
+        { name: 'deposit', type: 'function', stateMutability: 'payable', inputs: [], outputs: [] },
+      ],
       functionName: 'deposit',
       value: 1000000000000000000n, // 1 ETH
       chain: null,
@@ -230,7 +245,18 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
     const approveHash = await walletClient.writeContract({
       account: userAddress,
       address: wethAddress,
-      abi: [{ name: 'approve', type: 'function', stateMutability: 'nonpayable', inputs: [{ name: 'spender', type: 'address' }, { name: 'amount', type: 'uint256' }], outputs: [{ type: 'bool' }] }],
+      abi: [
+        {
+          name: 'approve',
+          type: 'function',
+          stateMutability: 'nonpayable',
+          inputs: [
+            { name: 'spender', type: 'address' },
+            { name: 'amount', type: 'uint256' },
+          ],
+          outputs: [{ type: 'bool' }],
+        },
+      ],
       functionName: 'approve',
       args: [supplyTxInfo.transaction.target.value as `0x${string}`, 1000000000000000000n],
       chain: null,

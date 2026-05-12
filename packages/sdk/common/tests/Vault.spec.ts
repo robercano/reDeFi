@@ -7,23 +7,27 @@ import { Vault } from '../src/common/implementation/Vault'
 describe('Vault', () => {
   it('should create a Vault instance', () => {
     const chainInfo = getChainInfoByChainId(1)
-    const address = Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' })
+    const address = Address.createFromEthereum({
+      value: '0x1234567890123456789012345678901234567890',
+    })
     const assetToken = Token.createFrom({
       chainInfo,
       address,
       decimals: 18,
       symbol: 'USDC',
-      name: 'USD Coin'
+      name: 'USD Coin',
     })
 
-    const vaultAddress = Address.createFromEthereum({ value: '0x9876543210987654321098765432109876543210' })
+    const vaultAddress = Address.createFromEthereum({
+      value: '0x9876543210987654321098765432109876543210',
+    })
     const vault = Vault.createFrom({
       chainInfo,
       address: vaultAddress,
       decimals: 18,
       symbol: 'vUSDC',
       name: 'Vault USDC',
-      asset: assetToken
+      asset: assetToken,
     })
 
     expect(vault.symbol).toBe('vUSDC')

@@ -12,14 +12,20 @@ export class EventBus implements IEventBus {
     this._listeners = new Map()
   }
 
-  public on<K extends keyof ISDKEventMap>(event: K, listener: (payload: ISDKEventMap[K]) => void): void {
+  public on<K extends keyof ISDKEventMap>(
+    event: K,
+    listener: (payload: ISDKEventMap[K]) => void,
+  ): void {
     if (!this._listeners.has(event)) {
       this._listeners.set(event, new Set())
     }
     this._listeners.get(event)!.add(listener)
   }
 
-  public off<K extends keyof ISDKEventMap>(event: K, listener: (payload: ISDKEventMap[K]) => void): void {
+  public off<K extends keyof ISDKEventMap>(
+    event: K,
+    listener: (payload: ISDKEventMap[K]) => void,
+  ): void {
     const listenersForEvent = this._listeners.get(event)
     if (listenersForEvent) {
       listenersForEvent.delete(listener)
@@ -34,7 +40,7 @@ export class EventBus implements IEventBus {
     if (listenersForEvent) {
       // Create a shallow copy to prevent issues if listeners modify the Set during iteration
       const currentListeners = new Set(listenersForEvent)
-      currentListeners.forEach(listener => {
+      currentListeners.forEach((listener) => {
         try {
           listener(payload)
         } catch (error) {

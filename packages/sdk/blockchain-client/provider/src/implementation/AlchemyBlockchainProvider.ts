@@ -1,8 +1,16 @@
 import { createPublicClient, http, fallback, type Chain, type Transport } from 'viem'
 import { arbitrum, base, mainnet, sonic } from 'viem/chains'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
-import { BlockchainProviderType, hyperliquid, type ChainId, type IChainInfo } from '@thesolidchain/sdk-common'
-import { IBlockchainClient, IBlockchainClientProvider } from '@thesolidchain/blockchain-client-common'
+import {
+  BlockchainProviderType,
+  hyperliquid,
+  type ChainId,
+  type IChainInfo,
+} from '@thesolidchain/sdk-common'
+import {
+  IBlockchainClient,
+  IBlockchainClientProvider,
+} from '@thesolidchain/blockchain-client-common'
 
 /**
  * AlchemyBlockchainProvider implements the IBlockchainClientProvider interface for Alchemy
@@ -17,8 +25,10 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
 
   constructor(params: { configProvider: IConfigurationProvider }) {
     this.configProvider = params.configProvider
-    
-    const alchemyApiKey = this.configProvider.getConfigurationItem({ name: 'ALCHEMY_ENDPOINT_API_KEY' })
+
+    const alchemyApiKey = this.configProvider.getConfigurationItem({
+      name: 'ALCHEMY_ENDPOINT_API_KEY',
+    })
     if (!alchemyApiKey) {
       throw new Error('ALCHEMY_ENDPOINT_API_KEY is not defined')
     }
@@ -31,7 +41,10 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
     return this._supportedChains.map((chain) => chain.id as ChainId)
   }
 
-  public getBlockchainClient(params: { chainInfo: IChainInfo; rpcUrl?: string }): IBlockchainClient {
+  public getBlockchainClient(params: {
+    chainInfo: IChainInfo
+    rpcUrl?: string
+  }): IBlockchainClient {
     if (params.rpcUrl) {
       const chain = this._supportedChains.find((c) => c.id === params.chainInfo.chainId)
       if (!chain) {
@@ -51,15 +64,17 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   private _initializeClients(): void {
     for (const chain of this._supportedChains) {
       const alchemyUrl = this._getAlchemyUrl(chain.id)
-      
+
       const transports: Transport[] = []
-      
+
       if (alchemyUrl) {
         transports.push(http(alchemyUrl, { batch: true, fetchOptions: { method: 'POST' } }))
       }
 
       if (chain.rpcUrls.default?.http?.[0]) {
-        transports.push(http(chain.rpcUrls.default.http[0], { batch: true, fetchOptions: { method: 'POST' } }))
+        transports.push(
+          http(chain.rpcUrls.default.http[0], { batch: true, fetchOptions: { method: 'POST' } }),
+        )
       }
 
       if (transports.length === 0) {

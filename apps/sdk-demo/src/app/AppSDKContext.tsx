@@ -15,16 +15,12 @@ export function AppSDKProvider({ children }: { children: ReactNode }) {
   // Initialize the SDK, syncing it perfectly with the connected wallet.
   // The server handles data, but formulating write operations requires awareness of who the user is.
   // Fall back to mainnet (1) if no chain is actively connected.
-  const sdk = useSDK({ 
-    chainId: chainId ?? 1, 
-    walletAddress: address 
+  const sdk = useSDK({
+    chainId: chainId ?? 1,
+    walletAddress: address,
   })
 
-  return (
-    <AppSDKContext.Provider value={sdk}>
-      {children}
-    </AppSDKContext.Provider>
-  )
+  return <AppSDKContext.Provider value={sdk}>{children}</AppSDKContext.Provider>
 }
 
 // A custom hook so components can easily consume the pre-initialized SDK

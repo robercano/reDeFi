@@ -243,9 +243,7 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
         amount: supplyCap === 0n ? UNCAPPED_SUPPLY : supplyCap.toString(),
       }),
       liquidationPenalty: Percentage.createFrom({
-        value: new BigNumber(liquidationBonus.toString())
-          .div(LTV_TO_PERCENTAGE_DIVISOR)
-          .toNumber(),
+        value: new BigNumber(liquidationBonus.toString()).div(LTV_TO_PERCENTAGE_DIVISOR).toNumber(),
       }),
     })
   }
@@ -259,7 +257,7 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     price: bigint
   }): DebtInfo {
     const { token, poolBaseCurrencyToken, config, data, caps, price } = params
-    
+
     const reserveFactor = config[4]
     const totalStableDebt = data[3]
     const totalVariableDebt = data[4]
@@ -329,29 +327,30 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
       this._getContractDef({ chainInfo, contractName: 'AavePool' }),
     ])
 
-    const [collateralReserveData, debtReserveData, userEMode] = await this.context.provider.multicall({
-      contracts: [
-        {
-          abi: dataProviderContract.abi,
-          address: dataProviderContract.address,
-          functionName: 'getUserReserveData',
-          args: [poolId.collateralToken.address.value, walletAddress.value],
-        },
-        {
-          abi: dataProviderContract.abi,
-          address: dataProviderContract.address,
-          functionName: 'getUserReserveData',
-          args: [poolId.debtToken.address.value, walletAddress.value],
-        },
-        {
-          abi: aavePoolContract.abi,
-          address: aavePoolContract.address,
-          functionName: 'getUserEMode',
-          args: [walletAddress.value],
-        },
-      ],
-      allowFailure: false,
-    })
+    const [collateralReserveData, debtReserveData, userEMode] =
+      await this.context.provider.multicall({
+        contracts: [
+          {
+            abi: dataProviderContract.abi,
+            address: dataProviderContract.address,
+            functionName: 'getUserReserveData',
+            args: [poolId.collateralToken.address.value, walletAddress.value],
+          },
+          {
+            abi: dataProviderContract.abi,
+            address: dataProviderContract.address,
+            functionName: 'getUserReserveData',
+            args: [poolId.debtToken.address.value, walletAddress.value],
+          },
+          {
+            abi: aavePoolContract.abi,
+            address: aavePoolContract.address,
+            functionName: 'getUserEMode',
+            args: [walletAddress.value],
+          },
+        ],
+        allowFailure: false,
+      })
 
     const currentATokenBalance = (collateralReserveData as unknown[])[0] as bigint
     const currentVariableDebt = (debtReserveData as unknown[])[2] as bigint
@@ -377,8 +376,6 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
       }),
     })
   }
-
-
 
   /** SUPPLY TRANSACTION */
 
@@ -428,4 +425,3 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     }
   }
 }
-

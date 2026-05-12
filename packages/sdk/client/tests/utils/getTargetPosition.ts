@@ -17,7 +17,6 @@ export function getTargetPosition(params: {
   targetPool: ILendingPool
 }): ILendingPosition {
   switch (params.targetPool.id.protocol.name) {
-
     case ProtocolName.AaveV3:
       if (!isAaveV3LendingPool(params.targetPool)) {
         throw new Error('Pool is not AaveV3LendingPool')
@@ -25,10 +24,10 @@ export function getTargetPosition(params: {
 
       return AaveV3LendingPosition.createFrom({
         subtype: LendingPositionType.Multiply,
-        id: AaveV3LendingPositionId.createFrom({ 
+        id: AaveV3LendingPositionId.createFrom({
           id: '0987654321',
           poolId: params.targetPool.id,
-          walletAddress: Address.ZeroAddressEthereum
+          walletAddress: Address.ZeroAddressEthereum,
         }),
         pool: params.targetPool,
         debtAmount: TokenAmount.createFrom({

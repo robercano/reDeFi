@@ -7,7 +7,7 @@ describe('SDKError', () => {
     const error = SDKError.createFrom({
       type: SDKErrorType.Core,
       reason: 'Missing parameter',
-      message: 'Parameter X is required'
+      message: 'Parameter X is required',
     })
 
     expect(error).toBeInstanceOf(Error)

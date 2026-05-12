@@ -1,5 +1,9 @@
 import { ChainIds, ChainInfo, type ChainId } from '../src'
-import { getChainFamilyInfoByChainId, valuesOfChainFamilyMap, ChainFamilyName } from '../src/common/implementation/ChainFamilies'
+import {
+  getChainFamilyInfoByChainId,
+  valuesOfChainFamilyMap,
+  ChainFamilyName,
+} from '../src/common/implementation/ChainFamilies'
 
 describe('Chain Families', () => {
   it('should retrieve chain info by Id', () => {
@@ -55,7 +59,9 @@ describe('Chain Families', () => {
   })
 
   it('should throw an error for unsupported chain Id', () => {
-    expect(() => getChainFamilyInfoByChainId(999999)).toThrowError('Chain with id 999999 not supported')
+    expect(() => getChainFamilyInfoByChainId(999999)).toThrowError(
+      'Chain with id 999999 not supported',
+    )
   })
 })
 

@@ -1,5 +1,8 @@
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
-import { IBlockchainClientProvider, IBlockchainManager } from '@thesolidchain/blockchain-client-common'
+import {
+  IBlockchainClientProvider,
+  IBlockchainManager,
+} from '@thesolidchain/blockchain-client-common'
 import { LoggingService } from '@thesolidchain/sdk-common'
 
 import { AlchemyBlockchainProvider } from './AlchemyBlockchainProvider'
@@ -17,7 +20,9 @@ export class BlockchainManagerFactory {
     const providers: IBlockchainClientProvider[] = []
 
     try {
-      const alchemyProvider = new AlchemyBlockchainProvider({ configProvider: params.configProvider })
+      const alchemyProvider = new AlchemyBlockchainProvider({
+        configProvider: params.configProvider,
+      })
       providers.push(alchemyProvider)
     } catch (e) {
       LoggingService.error('Failed to initialize AlchemyBlockchainProvider: ', e)

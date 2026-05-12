@@ -8,8 +8,14 @@ import { FiatCurrency } from '../src/common/enums/FiatCurrency'
 
 describe('calculatePriceImpact', () => {
   const chainInfo = ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' })
-  const token = Token.createFrom({ chainInfo, address: Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' }), decimals: 18, symbol: 'COL', name: 'Collateral' })
-  
+  const token = Token.createFrom({
+    chainInfo,
+    address: Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' }),
+    decimals: 18,
+    symbol: 'COL',
+    name: 'Collateral',
+  })
+
   it('should calculate price impact correctly', () => {
     const spotPrice = Price.createFrom({ token, currency: FiatCurrency.USD, value: '100' })
     const quotePrice = Price.createFrom({ token, currency: FiatCurrency.USD, value: '90' })

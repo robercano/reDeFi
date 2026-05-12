@@ -89,9 +89,6 @@ export class ProtocolPluginMock implements IProtocolPlugin {
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     return undefined as unknown as ILendingPosition
   }
-
-
-
 }
 
 export class EmptyProtocolPluginMock implements IProtocolPlugin {
@@ -122,9 +119,6 @@ export class EmptyProtocolPluginMock implements IProtocolPlugin {
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     return undefined as unknown as ILendingPosition
   }
-
-
-
 }
 
 export class NoCheckpointProtocolPluginMock implements IProtocolPlugin {
@@ -155,7 +149,4 @@ export class NoCheckpointProtocolPluginMock implements IProtocolPlugin {
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     return undefined as unknown as ILendingPosition
   }
-
-
-
 }

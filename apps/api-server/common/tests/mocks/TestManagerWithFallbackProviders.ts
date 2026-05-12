@@ -2,7 +2,10 @@ import { TestManagerProvider, TestProviderType } from './TestManagerProvider'
 import { ManagerWithFallbackProvidersBase } from '../../src'
 import { IChainInfo } from '@thesolidchain/sdk-common'
 
-export class TestManager extends ManagerWithFallbackProvidersBase<TestProviderType, TestManagerProvider> {
+export class TestManager extends ManagerWithFallbackProvidersBase<
+  TestProviderType,
+  TestManagerProvider
+> {
   constructor(params: { providers: TestManagerProvider[]; cacheTTLSeconds?: number }) {
     super(params)
   }
@@ -13,6 +16,4 @@ export class TestManager extends ManagerWithFallbackProvidersBase<TestProviderTy
   }): TestManagerProvider {
     return this._getBestProvider(params)
   }
-
-
 }
