@@ -11,7 +11,7 @@
     "./packages/sdk/tokens/service/src/index.ts"
   ],
   "entryPointStrategy": "resolve",
-  "out": "api-docs-dist",
+  "out": "apps/sdk-demo/public/api-reference",
   "theme": "default",
   "excludePrivate": true,
   "excludeProtected": true,

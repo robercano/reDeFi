@@ -13,6 +13,7 @@ applications:
             - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
             - pnpm install
+            - pnpm run docs:generate
             # Deploy or update the SST backend for the current branch
             - npx sst deploy --stage $AWS_BRANCH
         build:
@@ -28,25 +29,3 @@ applications:
           - .next/cache/**/*
           - ../../.pnpm-store/**/*
           - ../../node_modules/**/*
-
-  - appRoot: .
-    frontend:
-      phases:
-        preBuild:
-          commands:
-            - nvm install 24
-            - nvm use 24
-            - corepack enable pnpm
-            - pnpm config set store-dir .pnpm-store
-            - pnpm install
-        build:
-          commands:
-            - pnpm run docs:generate
-      artifacts:
-        baseDirectory: api-docs-dist
-        files:
-          - '**/*'
-      cache:
-        paths:
-          - .pnpm-store/**/*
-          - node_modules/**/*
