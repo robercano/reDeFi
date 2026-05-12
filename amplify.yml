@@ -28,7 +28,7 @@ applications:
           - ../../.pnpm-store/**/*
           - ../../node_modules/**/*
 
-  - appRoot: apps/docs
+  - appRoot: .
     frontend:
       phases:
         preBuild:
@@ -40,14 +40,12 @@ applications:
             - pnpm install
         build:
           commands:
-            - pnpm run cicheck
-            - pnpm turbo run build --filter=docs
+            - pnpm run docs:generate
       artifacts:
-        baseDirectory: .next
+        baseDirectory: api-docs-dist
         files:
           - '**/*'
       cache:
         paths:
-          - .next/cache/**/*
-          - ../../.pnpm-store/**/*
-          - ../../node_modules/**/*
+          - .pnpm-store/**/*
+          - node_modules/**/*

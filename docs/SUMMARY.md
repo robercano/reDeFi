@@ -7,15 +7,7 @@
 
 ## SDK
 * [SDK Introduction](SDK_INTRODUCTION.md)
-* [API Reference](api/README.md)
-  * [Client SDK](api/client/src.md)
-  * [Common](api/common/src.md)
-  * [Oracle](api/oracle/service/src.md)
-  * [Protocol Manager](api/protocol-manager/service/src.md)
-  * [Protocol Plugins](api/protocol-plugins/service/src.md)
-  * [Subscriptions](api/subscriptions/service/src.md)
-  * [Swap](api/swap/service/src.md)
-  * [Tokens](api/tokens/service/src.md)
+* [Interactive API Reference](https://<YOUR_AMPLIFY_APP_ID>.amplifyapp.com/)
 
 * [Adding a New Plugin](ADD_NEW_PLUGIN.md)
 * [Adding an SDK Service](ADD_SDK_SERVICE.md)
