@@ -30,7 +30,7 @@ export class SDKManagerWithSigner implements ISDKManager {
 
   public constructor(params: { rpcClient: RPCMainClientType; signer: SDKSigner }) {
     this.eventBus = new EventBus()
-    this.simulator = new SimulationManager(params)
+    this.simulator = new SimulationManager(params.rpcClient)
     this.chains = new ChainsManagerClient(params)
     this.tokens = new TokensManagerClient2(params)
     this.users = new UsersManager(params)
