@@ -11,8 +11,8 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-portfolio-service | 97.57% | 97.57% | 83.33% | 85.71% | 26.32% |
 | sdk-oracle-service | 81.12% | 81.12% | 89.65% | 58.69% | 43.66% |
 | sdk-configuration-provider-service | 83.87% | 83.87% | 80% | 71.42% | 20% |
-| sdk-common | 97.16% | 97.16% | 82.35% | 96.4% | 61.67% |
+| sdk-common | 97.16% | 97.16% | 82.35% | 96.4% | 61.5% |
 | sdk-client | 90.16% | 90.16% | 80.24% | 83.8% | 30.1% |
 | sdk-address-book-service | 100% | 100% | 100% | 100% | 41.67% |
 | api-server | 89.12% | 89.12% | 66.66% | 72.09% | 3.45% |
-| **TOTAL** | **92.77%** | **92.77%** | **83.19%** | **85.82%** | **33.89%** |
+| **TOTAL** | **92.77%** | **92.77%** | **83.19%** | **85.82%** | **33.87%** |

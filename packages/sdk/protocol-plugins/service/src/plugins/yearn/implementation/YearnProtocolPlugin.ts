@@ -12,6 +12,7 @@ import {
   ITokenAmount,
   PositionType,
   IAddress,
+  Address,
   TokenAmount,
   IChainInfo,
 } from '@thesolidchain/sdk-common'
@@ -49,7 +50,8 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
 
     // TODO: Replace mock with actual on-chain or subgraph data fetch
     const mockToken = {
-      address: '0x0000000000000000000000000000000000000000',
+      address: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
+      chainInfo: this.context.provider.chain as unknown as IChainInfo,
       decimals: 18,
       symbol: 'MOCK',
       name: 'Mock Token',
@@ -77,7 +79,8 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
 
     // TODO: Replace mock with actual on-chain data fetch
     const mockToken = {
-      address: '0x0000000000000000000000000000000000000000',
+      address: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
+      chainInfo: this.context.provider.chain as unknown as IChainInfo,
       decimals: 18,
       symbol: 'MOCK',
       name: 'Mock Token',
