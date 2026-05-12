@@ -1,5 +1,8 @@
 import { z } from 'zod'
 import { SimulationType } from '../enums/SimulationType'
+import { Steps } from './Steps'
+import { IBalanceChange, BalanceChangeDataSchema } from './IBalanceChange'
+import { IGasEstimation, GasEstimationDataSchema } from './IGasEstimation'
 
 /**
  * Unique signature to provide branded types to the interface
@@ -15,6 +18,12 @@ export interface ISimulation {
   readonly [__signature__]: symbol
   /** The type of the simulation */
   readonly type: SimulationType
+  /** The sequence of steps to execute the simulation */
+  readonly steps: Steps[]
+  /** Balance changes resulting from the simulation */
+  readonly balanceChanges: IBalanceChange[]
+  /** Gas estimations for the simulation steps */
+  readonly gasEstimations: IGasEstimation[]
 }
 
 /**
@@ -22,6 +31,9 @@ export interface ISimulation {
  */
 export const SimulationSchema = z.object({
   type: z.nativeEnum(SimulationType),
+  steps: z.array(z.any()), // Steps are complex, we'll avoid deep validation for now or use z.any()
+  balanceChanges: z.array(BalanceChangeDataSchema),
+  gasEstimations: z.array(GasEstimationDataSchema),
 })
 
 /**

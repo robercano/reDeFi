@@ -1,4 +1,5 @@
 import { ILendingProtocolManagerFeatures } from './ILendingProtocolManagerFeatures'
+import { IYieldProtocolManagerFeatures } from './IYieldProtocolManagerFeatures'
 
 /**
  * @interface IProtocolManager
@@ -13,7 +14,7 @@ export interface IProtocolManager {
   /** 
    * Yield features router.
    */
-  readonly yield: unknown // Hinted for future implementation, could be IYieldProtocolManagerFeatures
+  readonly yield: IYieldProtocolManagerFeatures
 
   /** 
    * Staking features router.

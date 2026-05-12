@@ -12,6 +12,8 @@ import { FlashloanProvider } from '../enums/FlashloanProvider'
 import { SimulationSteps } from '../enums/SimulationSteps'
 import { TokenTransferTargetType } from '../enums/TokenTransferTargetType'
 import { ReferenceableField, ValueReference } from './ValueReference'
+import { IYieldPoolId } from '../../yield-protocols/interfaces/IYieldPoolId'
+import { IYieldPosition } from '../../yield-protocols/interfaces/IYieldPosition'
 
 export interface Step<T extends SimulationSteps, I, O = undefined> {
   type: T
@@ -117,6 +119,28 @@ export type OpenPosition = Step<
   { position: ILendingPosition }
 >
 
+export type DepositYieldStep = Step<
+  SimulationSteps.DepositYield,
+  {
+    depositAmount: ReferenceableField<ITokenAmount>
+    poolId: IYieldPoolId
+  },
+  {
+    depositAmount: ITokenAmount
+  }
+>
+
+export type WithdrawYieldStep = Step<
+  SimulationSteps.WithdrawYield,
+  {
+    withdrawAmount: ReferenceableField<ITokenAmount>
+    position: IYieldPosition
+  },
+  {
+    withdrawAmount: ITokenAmount
+  }
+>
+
 export type Steps =
   | FlashloanStep
   | PullTokenStep
@@ -128,3 +152,5 @@ export type Steps =
   | NewPositionEventStep
   | OpenPosition
   | SkippedStep
+  | DepositYieldStep
+  | WithdrawYieldStep
