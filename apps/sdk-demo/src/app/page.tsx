@@ -82,7 +82,15 @@ export default function Home() {
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--neon-cyan)]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
 
       {/* Top Navigation */}
-      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-3">
+      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-4">
+        <a
+          href="/api-reference/index.html"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="px-4 py-2 rounded-xl text-sm font-semibold text-[var(--neon-cyan)] border border-[var(--neon-cyan)]/30 hover:bg-[var(--neon-cyan)]/10 transition-all backdrop-blur-md"
+        >
+          API Reference ↗
+        </a>
         {isConnected && chainId && (
           <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm flex items-center gap-2 backdrop-blur-md">
             <span
