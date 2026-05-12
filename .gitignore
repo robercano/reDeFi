@@ -92,4 +92,4 @@ test-results/
 
 cmd.in
 cmd.out
-api-docs-dist/
+apps/sdk-demo/public/api-reference/
