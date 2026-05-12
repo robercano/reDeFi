@@ -44,6 +44,7 @@ export type { FiatCurrencyAmountParameters } from './common/implementation/FiatC
 export { Percentage } from './common/implementation/Percentage'
 export type { PercentageParameters } from './common/implementation/Percentage'
 export type { PoolParameters } from './common/implementation/Pool'
+export { PoolId } from './common/implementation/PoolId'
 export type { PoolIdParameters } from './common/implementation/PoolId'
 export type { PoolInfoParameters } from './common/implementation/PoolInfo'
 export { Position } from './common/implementation/Position'

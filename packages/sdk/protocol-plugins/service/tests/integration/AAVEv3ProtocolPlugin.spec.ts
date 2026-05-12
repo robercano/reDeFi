@@ -23,8 +23,9 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
   beforeAll(async () => {
     fork = await TenderlyFork.create({
       tenderlyApiUrl: `https://api.tenderly.co/api/v1/account/${process.env.TENDERLY_USER}/project/${process.env.TENDERLY_PROJECT}`,
-      tenderlyAccessKey: process.env.TENDERLY_ACCESS_KEY!,
+      tenderlyAccessKey: process.env.TENDERLY_ACCESS_KEY as string,
       chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      atBlock: 'latest',
     })
     ctx = await createProtocolPluginContext(ChainFamilyMap.Ethereum.Mainnet, {}, fork.forkUrl)
     validAaveV3PoolId = await getAaveV3PoolIdMock()
