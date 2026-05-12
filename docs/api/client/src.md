@@ -1,88 +1,12 @@
-[**redefi**](../../README.md)
+[**redefi**](../README.md)
 
 ***
 
-[redefi](../../README.md) / common/src
+[redefi](../README.md) / client/src
 
-# common/src
-
-## Namespaces
-
-- [steps](namespaces/steps.md)
+# client/src
 
 ## Enumerations
-
-### AddressType
-
-AddressType
-Represents the type of a blockchain address
-
-#### Enumeration Members
-
-##### Ethereum
-
-> **Ethereum**: `"Ethereum"`
-
-##### Unknown
-
-> **Unknown**: `"Unknown"`
-
-***
-
-### ArmadaMigrationType
-
-ArmadaMigrationType
-Enumerates the names of the protocols that are migratable by the Armada
-
-#### Enumeration Members
-
-##### AaveV3
-
-> **AaveV3**: `"AaveV3"`
-
-##### Compound
-
-> **Compound**: `"Compound"`
-
-##### Morpho
-
-> **Morpho**: `"Morpho"`
-
-***
-
-### ArmadaOperationType
-
-Armada operation type for the simulation
-
-#### Enumeration Members
-
-##### Deposit
-
-> **Deposit**: `"Deposit"`
-
-Deposit into the protocol
-
-##### Withdraw
-
-> **Withdraw**: `"Withdraw"`
-
-Withdraw from the protocol
-
-***
-
-### BlockchainProviderType
-
-#### Enumeration Members
-
-##### Alchemy
-
-> **Alchemy**: `"Alchemy"`
-
-##### Infura
-
-> **Infura**: `"Infura"`
-
-***
 
 ### CacheLayer
 
@@ -142,305 +66,6 @@ Defines the available caching layers in the SDK.
 
 ***
 
-### CommonTokenSymbols
-
-CommonTokenSymbols
-Common token symbols to be used with the tokens manager. Tokens can be retrieved by their symbol
-             using the tokens manager by passing an untyped string. These list is just a convenience utility
-             to avoid typos when using the tokens manager
-
-#### Enumeration Members
-
-##### AAVE
-
-> **AAVE**: `"AAVE"`
-
-##### BAL
-
-> **BAL**: `"BAL"`
-
-##### cbETH
-
-> **cbETH**: `"cbETH"`
-
-##### CRV
-
-> **CRV**: `"CRV"`
-
-##### crvUSD
-
-> **crvUSD**: `"crvUSD"`
-
-##### DAI
-
-> **DAI**: `"DAI"`
-
-##### ENS
-
-> **ENS**: `"ENS"`
-
-##### ETH
-
-> **ETH**: `"ETH"`
-
-##### ezETH
-
-> **ezETH**: `"ezETH"`
-
-##### FRAX
-
-> **FRAX**: `"FRAX"`
-
-##### FXS
-
-> **FXS**: `"FXS"`
-
-##### GHO
-
-> **GHO**: `"GHO"`
-
-##### GNO
-
-> **GNO**: `"GNO"`
-
-##### GUSD
-
-> **GUSD**: `"GUSD"`
-
-##### KNC
-
-> **KNC**: `"KNC"`
-
-##### LDO
-
-> **LDO**: `"LDO"`
-
-##### LINK
-
-> **LINK**: `"LINK"`
-
-##### LUSD
-
-> **LUSD**: `"LUSD"`
-
-##### MANA
-
-> **MANA**: `"MANA"`
-
-##### MATIC
-
-> **MATIC**: `"MATIC"`
-
-##### MKR
-
-> **MKR**: `"MKR"`
-
-##### ONEINCH
-
-> **ONEINCH**: `"1INCH"`
-
-##### osETH
-
-> **osETH**: `"osETH"`
-
-##### PYUSD
-
-> **PYUSD**: `"PYUSD"`
-
-##### renBTC
-
-> **renBTC**: `"renBTC"`
-
-##### rETH
-
-> **rETH**: `"rETH"`
-
-##### RPL
-
-> **RPL**: `"RPL"`
-
-##### sDAI
-
-> **sDAI**: `"sDAI"`
-
-##### SNX
-
-> **SNX**: `"SNX"`
-
-##### stETH
-
-> **stETH**: `"stETH"`
-
-##### STG
-
-> **STG**: `"STG"`
-
-##### sUSDe
-
-> **sUSDe**: `"sUSDe"`
-
-##### UNI
-
-> **UNI**: `"UNI"`
-
-##### USDA
-
-> **USDA**: `"USDA"`
-
-##### USDC
-
-> **USDC**: `"USDC"`
-
-##### USDe
-
-> **USDe**: `"USDe"`
-
-##### USDP
-
-> **USDP**: `"USDP"`
-
-##### USDT
-
-> **USDT**: `"USDT"`
-
-##### WBTC
-
-> **WBTC**: `"WBTC"`
-
-##### weETH
-
-> **weETH**: `"weETH"`
-
-##### WETH
-
-> **WETH**: `"WETH"`
-
-##### wstETH
-
-> **wstETH**: `"wstETH"`
-
-##### YFI
-
-> **YFI**: `"YFI"`
-
-***
-
-### ContractSpecificRoleName
-
-#### Enumeration Members
-
-##### COMMANDER\_ROLE
-
-> **COMMANDER\_ROLE**: `2`
-
-##### CURATOR\_ROLE
-
-> **CURATOR\_ROLE**: `0`
-
-##### KEEPER\_ROLE
-
-> **KEEPER\_ROLE**: `1`
-
-***
-
-### FiatCurrency
-
-FiatCurrency
-Used to indicate a currency
-
-It is the counterpart of a Token in real world assets
-
-#### Enumeration Members
-
-##### EUR
-
-> **EUR**: `"EUR"`
-
-##### USD
-
-> **USD**: `"USD"`
-
-***
-
-### FlashloanProvider
-
-Enum for the different flashloan providers supported by the DMA system
-
-#### Enumeration Members
-
-##### Balancer
-
-> **Balancer**: `1`
-
-##### Maker
-
-> **Maker**: `0`
-
-***
-
-### GlobalRoles
-
-GlobalRoles
-Enum for all global protocol roles
-
-#### Enumeration Members
-
-##### ADMIRALS\_QUARTERS\_ROLE
-
-> **ADMIRALS\_QUARTERS\_ROLE**: `"ADMIRALS_QUARTERS_ROLE"`
-
-##### DECAY\_CONTROLLER\_ROLE
-
-> **DECAY\_CONTROLLER\_ROLE**: `"DECAY_CONTROLLER_ROLE"`
-
-##### GOVERNOR\_ROLE
-
-> **GOVERNOR\_ROLE**: `"GOVERNOR_ROLE"`
-
-##### SUPER\_KEEPER\_ROLE
-
-> **SUPER\_KEEPER\_ROLE**: `"SUPER_KEEPER_ROLE"`
-
-***
-
-### GraphRoleName
-
-#### Enumeration Members
-
-##### ADMIRALS\_QUARTERS\_ROLE
-
-> **ADMIRALS\_QUARTERS\_ROLE**: `"ADMIRALS_QUARTERS_ROLE"`
-
-##### COMMANDER\_ROLE
-
-> **COMMANDER\_ROLE**: `"COMMANDER_ROLE"`
-
-##### CURATOR\_ROLE
-
-> **CURATOR\_ROLE**: `"CURATOR_ROLE"`
-
-##### DECAY\_CONTROLLER\_ROLE
-
-> **DECAY\_CONTROLLER\_ROLE**: `"DECAY_CONTROLLER_ROLE"`
-
-##### GOVERNOR\_ROLE
-
-> **GOVERNOR\_ROLE**: `"GOVERNOR_ROLE"`
-
-##### KEEPER\_ROLE
-
-> **KEEPER\_ROLE**: `"KEEPER_ROLE"`
-
-##### SUPER\_KEEPER\_ROLE
-
-> **SUPER\_KEEPER\_ROLE**: `"SUPER_KEEPER_ROLE"`
-
-##### WHITELIST\_ROLE
-
-> **WHITELIST\_ROLE**: `"WHITELIST_ROLE"`
-
-***
-
 ### IntentSwapProviderType
 
 IntentSwapProviderType
@@ -451,156 +76,6 @@ Represents the different intent swap providers
 ##### CowSwap
 
 > **CowSwap**: `"CowSwap"`
-
-***
-
-### LendingPositionType
-
-LendingPositionType
-Indicates the type of lending position in a lending protocol
-
-#### Enumeration Members
-
-##### Borrow
-
-> **Borrow**: `"Borrow"`
-
-Simple borrow with added collateral
-
-##### Earn
-
-> **Earn**: `"Earn"`
-
-Yield loops
-
-##### Multiply
-
-> **Multiply**: `"Multiply"`
-
-Borrow with leveraged collateral
-
-***
-
-### OracleProviderType
-
-Enum for the different types of Oracle providers
-
-#### Enumeration Members
-
-##### Coingecko
-
-> **Coingecko**: `"Coingecko"`
-
-##### OneInch
-
-> **OneInch**: `"OneInch"`
-
-***
-
-### PoolType
-
-PoolType
-Indicates the type of pool (supply or lending)
-
-#### Enumeration Members
-
-##### Armada
-
-> **Armada**: `"Armada"`
-
-Armada pool type, aggregated liquidity for yield
-
-##### Lending
-
-> **Lending**: `"Lending"`
-
-Lending pool, adding some collateral allows to borrow some debt
-
-##### Supply
-
-> **Supply**: `"Supply"`
-
-Staking pool: adding 1 token to the pool generates some interest earnings
-
-##### Yield
-
-> **Yield**: `"Yield"`
-
-Passive Yield pool (e.g., Yearn, Lido)
-
-***
-
-### PositionType
-
-PositionType
-Indicates the type of position
-
-#### Enumeration Members
-
-##### Armada
-
-> **Armada**: `"Armada"`
-
-Armada Protocol position, aggregated liquidity
-
-##### Lending
-
-> **Lending**: `"Lending"`
-
-Lending position, adding some collateral allows to borrow some debt
-
-##### Supply
-
-> **Supply**: `"Supply"`
-
-Staking position: adding 1 token to the pool generates some interest earnings
-
-##### Yield
-
-> **Yield**: `"Yield"`
-
-Passive Yield position (e.g., Yearn, Lido, etc.)
-
-***
-
-### ProtocolName
-
-ProtocolName
-Enumerates the names of the protocols that are supported by the SDK
-
-#### Enumeration Members
-
-##### AaveV2
-
-> **AaveV2**: `"AAVE"`
-
-##### AaveV3
-
-> **AaveV3**: `"AAVE_V3"`
-
-##### Ajna
-
-> **Ajna**: `"Ajna_rc13"`
-
-##### Armada
-
-> **Armada**: `"Armada"`
-
-##### Maker
-
-> **Maker**: `"Maker"`
-
-##### MorphoBlue
-
-> **MorphoBlue**: `"MorphoBlue"`
-
-##### Spark
-
-> **Spark**: `"Spark"`
-
-##### Yearn
-
-> **Yearn**: `"Yearn"`
 
 ***
 
@@ -628,246 +103,6 @@ Loan-to-Value ratio in percentage
 > **Multiple**: `"Multiple"`
 
 Multiply factor
-
-***
-
-### SDKErrorType
-
-Error types for the SDK
-
-Used to categorize errors and provide a more detailed error message for the client
-
-#### Enumeration Members
-
-##### ArmadaError
-
-> **ArmadaError**: `"ArmadaError"`
-
-Earn protocol service errors
-
-##### Core
-
-> **Core**: `"Core"`
-
-Core types error
-
-##### OrderPlannerError
-
-> **OrderPlannerError**: `"OrderPlannerError"`
-
-Order Planner errors
-
-##### Simulator
-
-> **Simulator**: `"Simulator"`
-
-Simulator errors
-
-##### SwapError
-
-> **SwapError**: `"SwapError"`
-
-Swap service errors
-
-***
-
-### SimulationSteps
-
-Enum for the different steps that the DMA simulator uses
-
-#### Enumeration Members
-
-##### DepositBorrow
-
-> **DepositBorrow**: `"DepositBorrow"`
-
-##### DepositYield
-
-> **DepositYield**: `"DepositYield"`
-
-##### Flashloan
-
-> **Flashloan**: `"Flashloan"`
-
-##### Import
-
-> **Import**: `"Import"`
-
-##### NewPositionEvent
-
-> **NewPositionEvent**: `"NewPositionEvent"`
-
-##### OpenPosition
-
-> **OpenPosition**: `"OpenPosition"`
-
-##### PaybackWithdraw
-
-> **PaybackWithdraw**: `"PaybackWithdraw"`
-
-##### PullToken
-
-> **PullToken**: `"PullToken"`
-
-##### RepayFlashloan
-
-> **RepayFlashloan**: `"RepayFlashloan"`
-
-##### ReturnFunds
-
-> **ReturnFunds**: `"ReturnFunds"`
-
-##### Skipped
-
-> **Skipped**: `"Skipped"`
-
-##### Swap
-
-> **Swap**: `"Swap"`
-
-##### WithdrawYield
-
-> **WithdrawYield**: `"WithdrawYield"`
-
-***
-
-### SimulationType
-
-Type of simulation that the simulator accepts
-
-#### Enumeration Members
-
-##### Lend
-
-> **Lend**: `"Lend"`
-
-Lending operations (deposit collateral, borrow, repay, withdraw)
-
-##### Stake
-
-> **Stake**: `"Stake"`
-
-Staking tokens into a protocol (e.g. validator staking)
-
-##### Transfer
-
-> **Transfer**: `"Transfer"`
-
-Simple token transfer between wallets or to a smart contract
-
-##### Yield
-
-> **Yield**: `"Yield"`
-
-Passive yield operations (deposit into Yearn, Lido, etc.)
-
-***
-
-### StakingBucket
-
-StakingBucket
-Enumerates the staking bucket types based on lockup periods
-
-#### Enumeration Members
-
-##### NoLockup
-
-> **NoLockup**: `0`
-
-##### OneToTwoYears
-
-> **OneToTwoYears**: `5`
-
-##### ShortTerm
-
-> **ShortTerm**: `1`
-
-##### SixToTwelveMonths
-
-> **SixToTwelveMonths**: `4`
-
-##### ThreeToSixMonths
-
-> **ThreeToSixMonths**: `3`
-
-##### TwoToThreeYears
-
-> **TwoToThreeYears**: `6`
-
-##### TwoWeeksToThreeMonths
-
-> **TwoWeeksToThreeMonths**: `2`
-
-***
-
-### SwapErrorType
-
-Swap error types
-
-Error types for the swap service
-
-#### Enumeration Members
-
-##### NoLiquidity
-
-> **NoLiquidity**: `"NoLiquidity"`
-
-The swap provider indicates that there is not enough liquidity for the swap
-
-##### Unknown
-
-> **Unknown**: `"Unknown"`
-
-The error is not known or could not be decoded
-
-***
-
-### SwapProviderType
-
-SwapProviderType
-Represents the different swap providers
-
-#### Enumeration Members
-
-##### OneInch
-
-> **OneInch**: `"OneInch"`
-
-***
-
-### TokensProviderType
-
-Enum for the different types of tokens providers.
-
-#### Enumeration Members
-
-##### Database
-
-> **Database**: `"Database"`
-
-Database backed list of tokens
-
-##### Static
-
-> **Static**: `"Static"`
-
-Pre-built list of tokens
-
-***
-
-### TokenTransferTargetType
-
-Type of token transfer target to be used when borrowing from a lending protocol
-
-#### Enumeration Members
-
-##### PositionsManager
-
-> **PositionsManager**: `1`
-
-##### StrategyExecutor
-
-> **StrategyExecutor**: `0`
 
 ***
 
@@ -934,66 +169,6 @@ Enum of all the transaction types that can be performed.
 
 > **Withdraw**: `"Withdraw"`
 
-***
-
-### VolatilityProfile
-
-Defines the generic volatility profiles for data caching.
-Rather than hardcoding operation names, plugins classify how often their data changes.
-
-#### Enumeration Members
-
-##### BLOCK\_BOUND
-
-> **BLOCK\_BOUND**: `"BLOCK_BOUND"`
-
-Changes every block (e.g., wallet balances, allowances)
-
-##### STATIC
-
-> **STATIC**: `"STATIC"`
-
-Never changes (e.g., token decimals, names, pool addresses)
-
-##### TIME\_FAST
-
-> **TIME\_FAST**: `"TIME_FAST"`
-
-Changes rapidly off-chain (e.g., live fiat prices from an Oracle)
-
-##### TIME\_SLOW
-
-> **TIME\_SLOW**: `"TIME_SLOW"`
-
-Changes slowly off-chain (e.g., historical APY data, chart data)
-
-***
-
-### YieldType
-
-YieldType
-Indicates the type of yield generated by a protocol
-
-#### Enumeration Members
-
-##### Claimable
-
-> **Claimable**: `"Claimable"`
-
-Claimable token: The yield is paid in a secondary reward token requiring a claim transaction
-
-##### Rebasing
-
-> **Rebasing**: `"Rebasing"`
-
-Rebase token: The token balance increases in the user wallet
-
-##### ValueAccruing
-
-> **ValueAccruing**: `"ValueAccruing"`
-
-Value accruing token: The token value increases relative to the underlying token
-
 ## Classes
 
 ### Address
@@ -1012,7 +187,7 @@ IAddress
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -1022,7 +197,7 @@ SIGNATURE
 
 ##### type
 
-> `readonly` **type**: [`AddressType`](#addresstype)
+> `readonly` **type**: [`AddressType`](../common/src/README.md#addresstype)
 
 The type of the address
 
@@ -1110,7 +285,7 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IAddress`](#iaddress).[`toString`](#tostring-21)
+[`IAddress`](#iaddress).[`toString`](#tostring-22)
 
 ##### createFrom()
 
@@ -1146,7 +321,7 @@ FACTORY METHODS
 
 ##### getType()
 
-> `static` **getType**(`address`): [`AddressType`](#addresstype)
+> `static` **getType**(`address`): [`AddressType`](../common/src/README.md#addresstype)
 
 ###### Parameters
 
@@ -1156,7 +331,7 @@ FACTORY METHODS
 
 ###### Returns
 
-[`AddressType`](#addresstype)
+[`AddressType`](../common/src/README.md#addresstype)
 
 ##### isValid()
 
@@ -1200,7 +375,7 @@ FACTORY METHODS
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 ###### Implementation of
 
@@ -1232,6 +407,87 @@ FACTORY METHODS
 
 ***
 
+### Chain
+
+Chain
+Implementation of the IChain interface for the SDK Client
+
+#### Implements
+
+- [`IChain`](#ichain)
+
+#### Constructors
+
+##### Constructor
+
+> **new Chain**(`params`): [`Chain`](#chain)
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`ChainInfo`](#chaininfo-1)
+
+###### protocolsManager
+
+[`ProtocolsManagerClient`](#protocolsmanagerclient)
+
+###### tokensManager
+
+[`TokensManagerClient`](#tokensmanagerclient)
+
+###### Returns
+
+[`Chain`](#chain)
+
+#### Properties
+
+##### chainInfo
+
+> `readonly` **chainInfo**: [`IChainInfo`](#ichaininfo)
+
+The information of the chain
+
+###### Implementation of
+
+[`IChain`](#ichain).[`chainInfo`](#chaininfo-6)
+
+##### protocols
+
+> `readonly` **protocols**: [`IProtocolsManagerClient`](#iprotocolsmanagerclient)
+
+The protocols manager client for the chain, allows to retrieve protocols on the chain
+
+###### Implementation of
+
+[`IChain`](#ichain).[`protocols`](#protocols-3)
+
+##### tokens
+
+> `readonly` **tokens**: [`ITokensManagerClient`](#itokensmanagerclient)
+
+The tokens manager client for the chain, allows to retrieve tokens on the chain
+
+###### Implementation of
+
+[`IChain`](#ichain).[`tokens`](#tokens-3)
+
+#### Methods
+
+##### toString()
+
+> **toString**(): `string`
+
+Returns a string representation of an object.
+
+###### Returns
+
+`string`
+
+***
+
 ### ChainInfo
 
 ChainInfo
@@ -1248,7 +504,7 @@ IChainInfo
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -1258,13 +514,13 @@ SIGNATURE
 
 ##### chainId
 
-> `readonly` **chainId**: [`ChainId`](#chainid-3)
+> `readonly` **chainId**: [`ChainId`](#chainid-2)
 
 ATTRIBUTES
 
 ###### Implementation of
 
-[`IChainInfo`](#ichaininfo).[`chainId`](#chainid-2)
+[`IChainInfo`](#ichaininfo).[`chainId`](#chainid-1)
 
 ##### name
 
@@ -1289,7 +545,7 @@ Checks if two chain infos are equal
 
 ###### chainInfo
 
-[`ChainInfo`](#chaininfo)
+[`ChainInfo`](#chaininfo-1)
 
 The chain info to compare
 
@@ -1322,11 +578,11 @@ The string representation should have enough info to debug the object
 
 ###### Implementation of
 
-[`IChainInfo`](#ichaininfo).[`toString`](#tostring-22)
+[`IChainInfo`](#ichaininfo).[`toString`](#tostring-23)
 
 ##### createFrom()
 
-> `static` **createFrom**(`params`): [`ChainInfo`](#chaininfo)
+> `static` **createFrom**(`params`): [`ChainInfo`](#chaininfo-1)
 
 FACTORY METHODS
 
@@ -1338,7 +594,117 @@ FACTORY METHODS
 
 ###### Returns
 
-[`ChainInfo`](#chaininfo)
+[`ChainInfo`](#chaininfo-1)
+
+***
+
+### ChainsManagerClient
+
+ChainsManagerClient
+Implementation of the IChainsManager interface for the SDK Client
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`IChainsManagerClient`](#ichainsmanagerclient)
+
+#### Constructors
+
+##### Constructor
+
+> **new ChainsManagerClient**(`params`): [`ChainsManagerClient`](#chainsmanagerclient)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`ChainsManagerClient`](#chainsmanagerclient)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Methods
+
+##### getChain()
+
+> **getChain**(`params`): `Promise`\<[`Chain`](#chain)\>
+
+getChain
+Retrieves a chain by its chain info
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`IChainInfoData`](#ichaininfodata)
+
+The info associated with the chain to retrieve
+
+###### Returns
+
+`Promise`\<[`Chain`](#chain)\>
+
+The chain for the given chain info
+
+###### Implementation of
+
+[`IChainsManagerClient`](#ichainsmanagerclient).[`getChain`](#getchain-1)
+
+##### getChainById()
+
+> **getChainById**(`params`): `Promise`\<[`Chain`](#chain)\>
+
+getChainById
+Retrieves a network by its chain ID
+
+###### Parameters
+
+###### params
+
+###### chainId
+
+`number`
+
+The chain ID of the network to retrieve
+
+###### Returns
+
+`Promise`\<[`Chain`](#chain)\>
+
+The network with the given chain ID
+
+###### Implementation of
+
+[`IChainsManagerClient`](#ichainsmanagerclient).[`getChainById`](#getchainbyid-1)
+
+##### getSupportedChains()
+
+> **getSupportedChains**(): `Promise`\<[`ChainInfo`](#chaininfo-1)[]\>
+
+getSupportedChains
+Retrieves the list of supported chains
+
+###### Returns
+
+`Promise`\<[`ChainInfo`](#chaininfo-1)[]\>
+
+The list of supported chains
+
+###### Implementation of
+
+[`IChainsManagerClient`](#ichainsmanagerclient).[`getSupportedChains`](#getsupportedchains-1)
 
 ***
 
@@ -1358,7 +724,7 @@ ICollateralInfo
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -1498,7 +864,7 @@ Fetches data using the layered caching strategy.
 
 ###### profile
 
-[`VolatilityProfile`](#volatilityprofile)
+[`VolatilityProfile`](../common/src/README.md#volatilityprofile)
 
 The volatility profile of the data.
 
@@ -1562,7 +928,7 @@ For now this class can be re-used among all the protocols and there is no need f
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -1696,7 +1062,7 @@ IFiatCurrencyAmount
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -1716,7 +1082,7 @@ The amount in floating point format
 
 ##### fiat
 
-> `readonly` **fiat**: [`FiatCurrency`](#fiatcurrency)
+> `readonly` **fiat**: [`FiatCurrency`](../common/src/README.md#fiatcurrency)
 
 Fiat currency for the amount
 
@@ -1810,7 +1176,7 @@ IFiatCurrencyAmount.multiply
 
 ###### Implementation of
 
-[`IFiatCurrencyAmount`](#ifiatcurrencyamount).[`multiply`](#multiply-5)
+[`IFiatCurrencyAmount`](#ifiatcurrencyamount).[`multiply`](#multiply-4)
 
 ##### subtract()
 
@@ -1888,7 +1254,7 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IFiatCurrencyAmount`](#ifiatcurrencyamount).[`toString`](#tostring-23)
+[`IFiatCurrencyAmount`](#ifiatcurrencyamount).[`toString`](#tostring-24)
 
 ##### createFrom()
 
@@ -1934,7 +1300,7 @@ FACTORY
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 ###### Implementation of
 
@@ -1974,7 +1340,7 @@ IHolding
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2014,7 +1380,7 @@ toString
 
 ###### Implementation of
 
-[`IHolding`](#iholding).[`toString`](#tostring-24)
+[`IHolding`](#iholding).[`toString`](#tostring-25)
 
 ##### createFrom()
 
@@ -2049,16 +1415,20 @@ customizing the PoolId
 
 - `Pool`
 
+#### Extended by
+
+- [`AaveV3LendingPool`](../protocol-plugins/service/src.md#aavev3lendingpool)
+
 #### Implements
 
 - [`ILendingPool`](#ilendingpool)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2068,7 +1438,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2116,7 +1486,7 @@ ATTRIBUTES
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending) = `PoolType.Lending`
+> `readonly` **type**: `Lending` = `PoolType.Lending`
 
 ATTRIBUTES
 
@@ -2144,7 +1514,7 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ###### Overrides
 
@@ -2164,16 +1534,20 @@ ILendingPoolId
 
 - [`PoolId`](#abstract-poolid)
 
+#### Extended by
+
+- [`AaveV3LendingPoolId`](../protocol-plugins/service/src.md#aavev3lendingpoolid-1)
+
 #### Implements
 
 - [`ILendingPoolId`](#ilendingpoolid-1)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2187,7 +1561,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2215,7 +1589,7 @@ Protocol where the pool is
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending) = `PoolType.Lending`
+> `readonly` **type**: `Lending` = `PoolType.Lending`
 
 ATTRIBUTES
 
@@ -2243,11 +1617,11 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ###### Overrides
 
-[`PoolId`](#abstract-poolid).[`toString`](#tostring-9)
+[`PoolId`](#abstract-poolid).[`toString`](#tostring-10)
 
 ***
 
@@ -2269,13 +1643,13 @@ customizing the PoolId
 #### Implements
 
 - [`ILendingPoolInfo`](#ilendingpoolinfo)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2285,7 +1659,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2333,7 +1707,7 @@ ATTRIBUTES
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending) = `PoolType.Lending`
+> `readonly` **type**: `Lending` = `PoolType.Lending`
 
 ATTRIBUTES
 
@@ -2361,7 +1735,7 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ###### Overrides
 
@@ -2381,6 +1755,10 @@ ILendingPosition
 
 - [`Position`](#abstract-position)
 
+#### Extended by
+
+- [`AaveV3LendingPosition`](../protocol-plugins/service/src.md#aavev3lendingposition)
+
 #### Implements
 
 - [`ILendingPosition`](#ilendingposition)
@@ -2389,7 +1767,7 @@ ILendingPosition
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2403,7 +1781,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2465,7 +1843,7 @@ Pool where the position is
 
 ##### subtype
 
-> `readonly` **subtype**: [`LendingPositionType`](#lendingpositiontype)
+> `readonly` **subtype**: [`LendingPositionType`](../common/src/README.md#lendingpositiontype)
 
 ATTRIBUTES
 
@@ -2475,7 +1853,7 @@ ATTRIBUTES
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending-1) = `PositionType.Lending`
+> `readonly` **type**: `Lending` = `PositionType.Lending`
 
 ATTRIBUTES
 
@@ -2501,6 +1879,10 @@ ILendingPositionId
 
 - [`PositionId`](#abstract-positionid)
 
+#### Extended by
+
+- [`AaveV3LendingPositionId`](../protocol-plugins/service/src.md#aavev3lendingpositionid-1)
+
 #### Implements
 
 - [`ILendingPositionIdData`](#ilendingpositioniddata)
@@ -2509,7 +1891,7 @@ ILendingPositionId
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2519,7 +1901,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2543,7 +1925,7 @@ ATTRIBUTES
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending-1) = `PositionType.Lending`
+> `readonly` **type**: `Lending` = `PositionType.Lending`
 
 ATTRIBUTES
 
@@ -2571,7 +1953,7 @@ IPrintable.toString
 
 ###### Overrides
 
-[`PositionId`](#abstract-positionid).[`toString`](#tostring-10)
+[`PositionId`](#abstract-positionid).[`toString`](#tostring-11)
 
 ***
 
@@ -2611,7 +1993,7 @@ ISimulation
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2641,7 +2023,7 @@ Gas estimations for the simulation steps
 
 ##### steps
 
-> `readonly` **steps**: [`Steps`](namespaces/steps.md#steps)[]
+> `readonly` **steps**: `Steps`[]
 
 The sequence of steps to execute the simulation
 
@@ -2651,71 +2033,13 @@ The sequence of steps to execute the simulation
 
 ##### type
 
-> `readonly` **type**: [`Lend`](#lend) = `SimulationType.Lend`
+> `readonly` **type**: `Lend` = `SimulationType.Lend`
 
 ATTRIBUTES
 
 ###### Overrides
 
 [`Simulation`](#abstract-simulation).[`type`](#type-12)
-
-***
-
-### LoggingService
-
-#### Constructors
-
-##### Constructor
-
-> **new LoggingService**(): [`LoggingService`](#loggingservice)
-
-###### Returns
-
-[`LoggingService`](#loggingservice)
-
-#### Methods
-
-##### debug()
-
-> `static` **debug**(...`messages`): `void`
-
-###### Parameters
-
-###### messages
-
-...`unknown`[]
-
-###### Returns
-
-`void`
-
-##### error()
-
-> `static` **error**(...`messages`): `void`
-
-###### Parameters
-
-###### messages
-
-...`unknown`[]
-
-###### Returns
-
-`void`
-
-##### log()
-
-> `static` **log**(...`messages`): `void`
-
-###### Parameters
-
-###### messages
-
-...`unknown`[]
-
-###### Returns
-
-`void`
 
 ***
 
@@ -2873,6 +2197,60 @@ Optional strategy to determine when to invalidate.
 
 ***
 
+### OrdersManagerClient
+
+#### See
+
+IOrdersManagerClient
+
+#### Implements
+
+- [`IOrdersManagerClient`](#iordersmanagerclient)
+
+#### Constructors
+
+##### Constructor
+
+> **new OrdersManagerClient**(`params`): [`OrdersManagerClient`](#ordersmanagerclient)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`OrdersManagerClient`](#ordersmanagerclient)
+
+#### Methods
+
+##### buildOrder()
+
+> **buildOrder**(`params`): `Promise`\<[`Order`](#order)\>
+
+###### Parameters
+
+###### params
+
+`IBuildOrderInputs`
+
+###### Returns
+
+`Promise`\<[`Order`](#order)\>
+
+###### See
+
+IOrdersManagerClient.buildOrder
+
+###### Implementation of
+
+[`IOrdersManagerClient`](#iordersmanagerclient).[`buildOrder`](#buildorder-1)
+
+***
+
 ### Percentage
 
 Percentage
@@ -2889,7 +2267,7 @@ IPercentage
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -2915,7 +2293,7 @@ The percentage of 100% with the given `PERCENTAGE_DECIMALS`
 
 ##### PERCENTAGE\_DECIMALS
 
-> `static` **PERCENTAGE\_DECIMALS**: `number` = `6`
+> `static` **PERCENTAGE\_DECIMALS**: `number`
 
 The number of decimals used to represent the percentage in Solidity
 
@@ -2991,7 +2369,7 @@ IPercentage.multiply
 
 ###### Implementation of
 
-[`IPercentage`](#ipercentage).[`multiply`](#multiply-6)
+[`IPercentage`](#ipercentage).[`multiply`](#multiply-5)
 
 ##### subtract()
 
@@ -3101,7 +2479,7 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPercentage`](#ipercentage).[`toString`](#tostring-26)
+[`IPercentage`](#ipercentage).[`toString`](#tostring-27)
 
 ##### createFrom()
 
@@ -3158,13 +2536,13 @@ IPoolIdData
 #### Implements
 
 - [`IPoolId`](#ipoolid-1)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -3184,7 +2562,7 @@ Protocol where the pool is
 
 ##### type
 
-> `abstract` `readonly` **type**: [`PoolType`](#pooltype)
+> `abstract` `readonly` **type**: [`PoolType`](../common/src/README.md#pooltype)
 
 ATTRIBUTES
 
@@ -3208,7 +2586,127 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### PortfolioManager
+
+IPortfolioManager
+Allows to retrieve a wallet's positions by their wallet and network. This is meant to be used in isolation
+             without having to retrieve a User or a Network
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`IPortfolioManager`](#iportfoliomanager)
+
+#### Constructors
+
+##### Constructor
+
+> **new PortfolioManager**(`params`): [`PortfolioManager`](#portfoliomanager)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`PortfolioManager`](#portfoliomanager)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Methods
+
+##### getPositions()
+
+> **getPositions**(`_params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositions
+Retrieves all positions of the given wallet for the given networks. The positions can be filtered by
+             their IDs
+
+###### Parameters
+
+###### \_params
+
+###### networks
+
+[`ChainInfo`](#chaininfo-1)[]
+
+###### wallet
+
+[`Wallet`](#wallet-1)
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+The list of positions for the given wallet and networks
+
+###### Implementation of
+
+[`IPortfolioManager`](#iportfoliomanager).[`getPositions`](#getpositions-1)
+
+##### getUserPortfolio()
+
+> **getUserPortfolio**(`params`): `Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+getUserPortfolio
+Retrieves all holdings and positions for the user resolving their Fiat balances
+
+###### Parameters
+
+###### params
+
+###### user
+
+[`IUser`](#iuser)
+
+The user to retrieve the portfolio for
+
+###### Returns
+
+`Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+###### Implementation of
+
+[`IPortfolioManager`](#iportfoliomanager).[`getUserPortfolio`](#getuserportfolio-1)
+
+##### getWalletHoldings()
+
+> **getWalletHoldings**(`params`): `Promise`\<[`IHolding`](#iholding)[]\>
+
+getWalletHoldings
+Fetches standard ERC20 wallet holdings
+
+###### Parameters
+
+###### params
+
+###### user
+
+[`IUser`](#iuser)
+
+The user to retrieve the holdings for
+
+###### Returns
+
+`Promise`\<[`IHolding`](#iholding)[]\>
+
+###### Implementation of
+
+[`IPortfolioManager`](#iportfoliomanager).[`getWalletHoldings`](#getwalletholdings-1)
 
 ***
 
@@ -3232,7 +2730,7 @@ IPosition
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -3262,7 +2760,7 @@ Pool where the position is opened
 
 ##### type
 
-> `abstract` `readonly` **type**: [`PositionType`](#positiontype)
+> `abstract` `readonly` **type**: [`PositionType`](../common/src/README.md#positiontype)
 
 ATTRIBUTES
 
@@ -3292,7 +2790,7 @@ IPositionIdData
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -3312,7 +2810,7 @@ ATTRIBUTES
 
 ##### type
 
-> `abstract` `readonly` **type**: [`PositionType`](#positiontype)
+> `abstract` `readonly` **type**: [`PositionType`](../common/src/README.md#positiontype)
 
 Type of the position
 
@@ -3347,7 +2845,7 @@ IPositionsManager
 #### Implements
 
 - [`IPositionsManager`](#ipositionsmanager)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -3375,11 +2873,11 @@ Returns a string representation of an object.
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ##### createFrom()
 
-> `static` **createFrom**(`params`): [`PositionsManager`](#positionsmanager-1)
+> `static` **createFrom**(`params`): [`PositionsManager`](#positionsmanager)
 
 Factory method
 
@@ -3391,7 +2889,77 @@ Factory method
 
 ###### Returns
 
-[`PositionsManager`](#positionsmanager-1)
+[`PositionsManager`](#positionsmanager)
+
+***
+
+### PositionUtils
+
+#### Constructors
+
+##### Constructor
+
+> **new PositionUtils**(): [`PositionUtils`](#positionutils)
+
+###### Returns
+
+[`PositionUtils`](#positionutils)
+
+#### Methods
+
+##### getLiquidationPriceInDebtTokens()
+
+> `static` **getLiquidationPriceInDebtTokens**(`__namedParameters`): `string`
+
+This code calculates the value of one collateral token expressed in debt tokens at which the loan-to-value (LTV) ratio will be at liquidationThreshold
+
+###### Parameters
+
+###### \_\_namedParameters
+
+###### debtPriceInUsd
+
+`string`
+
+###### liquidationThreshold
+
+[`Percentage`](#percentage)
+
+###### position
+
+[`ILendingPosition`](#ilendingposition)
+
+###### Returns
+
+`string`
+
+##### getLTV()
+
+> `static` **getLTV**(`__namedParameters`): [`IPercentage`](#ipercentage)
+
+###### Parameters
+
+###### \_\_namedParameters
+
+###### collateralPriceInUsd
+
+`string`
+
+###### collateralTokenAmount
+
+[`ITokenAmount`](#itokenamount)
+
+###### debtPriceInUsd
+
+`string`
+
+###### debtTokenAmount
+
+[`ITokenAmount`](#itokenamount)
+
+###### Returns
+
+[`IPercentage`](#ipercentage)
 
 ***
 
@@ -3411,7 +2979,7 @@ IPrice
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -3487,7 +3055,7 @@ IPrice.add
 
 ###### divider
 
-`string` \| `number` \| [`IPrice`](#iprice) \| [`IPercentage`](#ipercentage)
+`string` \| `number` \| [`IPercentage`](#ipercentage) \| [`IPrice`](#iprice)
 
 ###### Returns
 
@@ -3739,7 +3307,7 @@ IPrice.multiply
 
 ###### Implementation of
 
-[`IPrice`](#iprice).[`multiply`](#multiply-7)
+[`IPrice`](#iprice).[`multiply`](#multiply-6)
 
 ##### subtract()
 
@@ -3817,7 +3385,7 @@ IPrice.toString
 
 ###### Implementation of
 
-[`IPrice`](#iprice).[`toString`](#tostring-28)
+[`IPrice`](#iprice).[`toString`](#tostring-29)
 
 ##### createFrom()
 
@@ -3875,16 +3443,20 @@ Protocol
 
 IProtocol
 
+#### Extended by
+
+- [`AaveV3Protocol`](../protocol-plugins/service/src.md#aavev3protocol)
+
 #### Implements
 
 - [`IProtocol`](#iprotocol)
-- [`IPrintable`](#iprintable)
+- [`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -3900,11 +3472,11 @@ The chain information
 
 ###### Implementation of
 
-[`IProtocol`](#iprotocol).[`chainInfo`](#chaininfo-5)
+[`IProtocol`](#iprotocol).[`chainInfo`](#chaininfo-7)
 
 ##### name
 
-> `abstract` `readonly` **name**: [`ProtocolName`](#protocolname)
+> `abstract` `readonly` **name**: [`ProtocolName`](../common/src/README.md#protocolname)
 
 ATTRIBUTES
 
@@ -3950,7 +3522,103 @@ IPrintable.toString
 
 ###### Implementation of
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### ProtocolsManagerClient
+
+ProtocolsManagerClient
+
+#### See
+
+IProtocolsManagerClient
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`IProtocolsManagerClient`](#iprotocolsmanagerclient)
+
+#### Constructors
+
+##### Constructor
+
+> **new ProtocolsManagerClient**(`params`): [`ProtocolsManagerClient`](#protocolsmanagerclient)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`ProtocolsManagerClient`](#protocolsmanagerclient)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Methods
+
+##### getLendingPool()
+
+> **getLendingPool**(`params`): `Promise`\<[`ILendingPool`](#ilendingpool)\>
+
+getLendingPool
+Get the lending pool from the protocol
+
+###### Parameters
+
+###### params
+
+The pool id data
+
+###### poolId
+
+[`ILendingPoolIdData`](#ilendingpooliddata)
+
+###### Returns
+
+`Promise`\<[`ILendingPool`](#ilendingpool)\>
+
+The lending pool
+
+###### Implementation of
+
+[`IProtocolsManagerClient`](#iprotocolsmanagerclient).[`getLendingPool`](#getlendingpool-1)
+
+##### getLendingPoolInfo()
+
+> **getLendingPoolInfo**(`params`): `Promise`\<[`ILendingPoolInfo`](#ilendingpoolinfo)\>
+
+getLendingPoolInfo
+Get the lending pool info from the protocol
+
+###### Parameters
+
+###### params
+
+The pool id data
+
+###### poolId
+
+[`ILendingPoolIdData`](#ilendingpooliddata)
+
+###### Returns
+
+`Promise`\<[`ILendingPoolInfo`](#ilendingpoolinfo)\>
+
+The lending pool info
+
+###### Implementation of
+
+[`IProtocolsManagerClient`](#iprotocolsmanagerclient).[`getLendingPoolInfo`](#getlendingpoolinfo-1)
 
 ***
 
@@ -3970,7 +3638,7 @@ IRiskRatio
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4096,7 +3764,7 @@ ISDKError
 
 #### Extended by
 
-- [`SwapError`](#swaperror-1)
+- [`SwapError`](#swaperror)
 
 #### Implements
 
@@ -4106,7 +3774,7 @@ ISDKError
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4156,7 +3824,7 @@ Free form reason message, used to provide a short description of the problem
 
 ##### type
 
-> `readonly` **type**: [`SDKErrorType`](#sdkerrortype)
+> `readonly` **type**: [`SDKErrorType`](../common/src/README.md#sdkerrortype)
 
 ATTRIBUTES
 
@@ -4291,6 +3959,278 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 ###### Inherited from
 
 `Error.prepareStackTrace`
+
+***
+
+### SDKManager
+
+#### See
+
+ISDKManager
+
+#### Implements
+
+- [`ISDKManager`](#isdkmanager)
+
+#### Constructors
+
+##### Constructor
+
+> **new SDKManager**(`params`): [`SDKManager`](#sdkmanager)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`SDKManager`](#sdkmanager)
+
+#### Properties
+
+##### chains
+
+> `readonly` **chains**: [`ChainsManagerClient`](#chainsmanagerclient)
+
+Chains Manager for interacting with the different chains supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`chains`](#chains-2)
+
+##### eventBus
+
+> `readonly` **eventBus**: `IEventBus`
+
+The global event bus for SDK events
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`eventBus`](#eventbus-2)
+
+##### oracle
+
+> `readonly` **oracle**: `OracleManagerClient`
+
+Swap Manager for interacting with the swaps
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`oracle`](#oracle-2)
+
+##### orders
+
+> `readonly` **orders**: [`OrdersManagerClient`](#ordersmanagerclient)
+
+Orders Manager for building and handling execution orders
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`orders`](#orders-2)
+
+##### portfolio
+
+> `readonly` **portfolio**: [`PortfolioManager`](#portfoliomanager)
+
+Portfolio Manager for retrieving information about a user's portfolio
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`portfolio`](#portfolio-2)
+
+##### protocols
+
+> `readonly` **protocols**: [`ProtocolsManagerClient`](#protocolsmanagerclient)
+
+Protocols Manager for interacting with protocols
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`protocols`](#protocols-4)
+
+##### simulator
+
+> `readonly` **simulator**: `SimulationManager`
+
+Simulator for all the different operations supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`simulator`](#simulator-2)
+
+##### swaps
+
+> `readonly` **swaps**: `SwapManagerClient`
+
+Swap Manager for interacting with the swaps
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`swaps`](#swaps-2)
+
+##### tokens
+
+> `readonly` **tokens**: `TokensManagerClient2`
+
+Tokens Manager for interacting with the different tokens supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`tokens`](#tokens-4)
+
+##### users
+
+> `readonly` **users**: [`UsersManager`](#usersmanager)
+
+Users Manager for retrieving information about a user
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`users`](#users-2)
+
+***
+
+### SDKManagerWithSigner
+
+#### See
+
+ISDKManager
+
+#### Implements
+
+- [`ISDKManager`](#isdkmanager)
+
+#### Constructors
+
+##### Constructor
+
+> **new SDKManagerWithSigner**(`params`): [`SDKManagerWithSigner`](#sdkmanagerwithsigner)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### signer
+
+`Signer`
+
+###### Returns
+
+[`SDKManagerWithSigner`](#sdkmanagerwithsigner)
+
+#### Properties
+
+##### chains
+
+> `readonly` **chains**: [`ChainsManagerClient`](#chainsmanagerclient)
+
+Chains Manager for interacting with the different chains supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`chains`](#chains-2)
+
+##### eventBus
+
+> `readonly` **eventBus**: `IEventBus`
+
+The global event bus for SDK events
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`eventBus`](#eventbus-2)
+
+##### intentSwaps
+
+> `readonly` **intentSwaps**: `IntentSwapClient`
+
+##### oracle
+
+> `readonly` **oracle**: `OracleManagerClient`
+
+Swap Manager for interacting with the swaps
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`oracle`](#oracle-2)
+
+##### orders
+
+> `readonly` **orders**: [`OrdersManagerClient`](#ordersmanagerclient)
+
+Orders Manager for building and handling execution orders
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`orders`](#orders-2)
+
+##### portfolio
+
+> `readonly` **portfolio**: [`PortfolioManager`](#portfoliomanager)
+
+Portfolio Manager for retrieving information about a user's portfolio
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`portfolio`](#portfolio-2)
+
+##### protocols
+
+> `readonly` **protocols**: [`ProtocolsManagerClient`](#protocolsmanagerclient)
+
+Protocols Manager for interacting with protocols
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`protocols`](#protocols-4)
+
+##### simulator
+
+> `readonly` **simulator**: `SimulationManager`
+
+Simulator for all the different operations supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`simulator`](#simulator-2)
+
+##### swaps
+
+> `readonly` **swaps**: `SwapManagerClient`
+
+Swap Manager for interacting with the swaps
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`swaps`](#swaps-2)
+
+##### tokens
+
+> `readonly` **tokens**: `TokensManagerClient2`
+
+Tokens Manager for interacting with the different tokens supported in the SDK
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`tokens`](#tokens-4)
+
+##### users
+
+> `readonly` **users**: [`UsersManager`](#usersmanager)
+
+Users Manager for retrieving information about a user
+
+###### Implementation of
+
+[`ISDKManager`](#isdkmanager).[`users`](#users-2)
 
 ***
 
@@ -4483,7 +4423,7 @@ ISimulation
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4513,7 +4453,7 @@ Gas estimations for the simulation steps
 
 ##### steps
 
-> `readonly` **steps**: [`Steps`](namespaces/steps.md#steps)[]
+> `readonly` **steps**: `Steps`[]
 
 The sequence of steps to execute the simulation
 
@@ -4523,7 +4463,7 @@ The sequence of steps to execute the simulation
 
 ##### type
 
-> `abstract` `readonly` **type**: [`SimulationType`](#simulationtype)
+> `abstract` `readonly` **type**: [`SimulationType`](../common/src/README.md#simulationtype)
 
 ATTRIBUTES
 
@@ -4553,7 +4493,7 @@ ISwapError
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4567,7 +4507,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4645,7 +4585,7 @@ GET or POST status code
 
 ##### subtype
 
-> `readonly` **subtype**: [`SwapErrorType`](#swaperrortype)
+> `readonly` **subtype**: [`SwapErrorType`](../common/src/README.md#swaperrortype)
 
 Specific error for the swap service
 
@@ -4655,7 +4595,7 @@ Specific error for the swap service
 
 ##### type
 
-> `readonly` **type**: [`SwapError`](#swaperror)
+> `readonly` **type**: `SwapError`
 
 ATTRIBUTES
 
@@ -4755,7 +4695,7 @@ a();
 
 ##### createFrom()
 
-> `static` **createFrom**(`params`): [`SwapError`](#swaperror-1)
+> `static` **createFrom**(`params`): [`SwapError`](#swaperror)
 
 FACTORY
 
@@ -4767,7 +4707,7 @@ FACTORY
 
 ###### Returns
 
-[`SwapError`](#swaperror-1)
+[`SwapError`](#swaperror)
 
 ###### Overrides
 
@@ -4821,7 +4761,7 @@ IToken
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -4847,7 +4787,7 @@ Chain where the token is deployed
 
 ###### Implementation of
 
-[`IToken`](#itoken).[`chainInfo`](#chaininfo-6)
+[`IToken`](#itoken).[`chainInfo`](#chaininfo-8)
 
 ##### decimals
 
@@ -4963,7 +4903,7 @@ ITokenAmount
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5203,7 +5143,7 @@ ITokenAmount.multiply
 
 ###### Implementation of
 
-[`ITokenAmount`](#itokenamount).[`multiply`](#multiply-8)
+[`ITokenAmount`](#itokenamount).[`multiply`](#multiply-7)
 
 ##### subtract()
 
@@ -5325,6 +5265,145 @@ i.e.: amount in base unit (1eth = 1000000000000000000, 1btc = 100000000, etc...)
 
 ***
 
+### TokensManagerClient
+
+TokensManagerClient
+Implementation of the ITokensManager interface for the SDK Client
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`ITokensManagerClient`](#itokensmanagerclient)
+
+#### Constructors
+
+##### Constructor
+
+> **new TokensManagerClient**(`params`): [`TokensManagerClient`](#tokensmanagerclient)
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`ChainInfo`](#chaininfo-1)
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`TokensManagerClient`](#tokensmanagerclient)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Methods
+
+##### getTokenByAddress()
+
+> **getTokenByAddress**(`params`): `Promise`\<[`IToken`](#itoken)\>
+
+###### Parameters
+
+###### params
+
+###### address
+
+[`Address`](#address)
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+###### See
+
+ITokensManagerClient.getTokenByAddress
+
+###### Implementation of
+
+[`ITokensManagerClient`](#itokensmanagerclient).[`getTokenByAddress`](#gettokenbyaddress-1)
+
+##### getTokenByName()
+
+> **getTokenByName**(`_params`): `Promise`\<[`IToken`](#itoken)\>
+
+###### Parameters
+
+###### \_params
+
+###### name
+
+`string`
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+###### See
+
+ITokensManagerClient.getTokenByName
+
+###### Implementation of
+
+[`ITokensManagerClient`](#itokensmanagerclient).[`getTokenByName`](#gettokenbyname-1)
+
+##### getTokenBySymbol()
+
+> **getTokenBySymbol**(`params`): `Promise`\<[`IToken`](#itoken)\>
+
+###### Parameters
+
+###### params
+
+###### symbol
+
+`string`
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+###### See
+
+ITokensManagerClient.getTokenBySymbol
+
+###### Implementation of
+
+[`ITokensManagerClient`](#itokensmanagerclient).[`getTokenBySymbol`](#gettokenbysymbol-1)
+
+##### getTokenTotalSupply()
+
+> **getTokenTotalSupply**(`params`): `Promise`\<[`ITokenAmount`](#itokenamount)\>
+
+###### Parameters
+
+###### params
+
+###### token
+
+[`IToken`](#itoken)
+
+###### Returns
+
+`Promise`\<[`ITokenAmount`](#itokenamount)\>
+
+###### See
+
+ITokensManagerClient.getTokenTotalSupply
+
+###### Implementation of
+
+[`ITokensManagerClient`](#itokensmanagerclient).[`getTokenTotalSupply`](#gettokentotalsupply-1)
+
+***
+
 ### User
 
 User
@@ -5341,7 +5420,7 @@ IUser
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5357,7 +5436,7 @@ The chain the user is connected to
 
 ###### Implementation of
 
-[`IUser`](#iuser).[`chainInfo`](#chaininfo-7)
+[`IUser`](#iuser).[`chainInfo`](#chaininfo-9)
 
 ##### wallet
 
@@ -5441,6 +5520,185 @@ FACTORY
 
 ***
 
+### UserClient
+
+UserClient
+
+#### See
+
+IUserClient
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`IUserClient`](#iuserclient)
+
+#### Constructors
+
+##### Constructor
+
+> **new UserClient**(`params`): [`UserClient`](#userclient)
+
+Constructor
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`IChainInfo`](#ichaininfo)
+
+###### rpcClient
+
+`any`
+
+###### wallet
+
+[`IWallet`](#iwallet)
+
+###### Returns
+
+[`UserClient`](#userclient)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Properties
+
+##### user
+
+> **user**: [`IUser`](#iuser)
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`user`](#user-3)
+
+#### Methods
+
+##### getPortfolio()
+
+> **getPortfolio**(): `Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+getPortfolio
+Retrieves the full user portfolio (wallet holdings and positions)
+
+###### Returns
+
+`Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+The user portfolio
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`getPortfolio`](#getportfolio-1)
+
+##### getPosition()
+
+> **getPosition**(`params`): `Promise`\<[`Position`](#abstract-position)\>
+
+getPosition
+Retrieves a position of the user by its ID
+
+###### Parameters
+
+###### params
+
+###### id
+
+[`PositionId`](#abstract-positionid)
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)\>
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`getPosition`](#getposition-1)
+
+##### getPositionsByIds()
+
+> **getPositionsByIds**(`_params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositionsByIds
+Retrieves the list of positions of the user for the given IDs
+
+###### Parameters
+
+###### \_params
+
+###### positionIds
+
+[`PositionId`](#abstract-positionid)[]
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`getPositionsByIds`](#getpositionsbyids-1)
+
+##### getPositionsByProtocol()
+
+> **getPositionsByProtocol**(`_params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositionsByProtocol
+Retrieves the list of positions of the user for a given protocol
+
+###### Parameters
+
+###### \_params
+
+###### protocol
+
+[`IProtocol`](#iprotocol)
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`getPositionsByProtocol`](#getpositionsbyprotocol-1)
+
+##### newOrder()
+
+> **newOrder**(`params`): `Promise`\<[`Order`](#order)\>
+
+newOrder
+Creates a new order for the user based on the given simulation
+
+###### Parameters
+
+###### params
+
+###### positionsManager?
+
+[`IPositionsManager`](#ipositionsmanager)
+
+###### simulation
+
+[`ISimulation`](#isimulation)
+
+The simulation to create the order for
+
+###### Returns
+
+`Promise`\<[`Order`](#order)\>
+
+The new order created for the user
+
+###### Implementation of
+
+[`IUserClient`](#iuserclient).[`newOrder`](#neworder-1)
+
+***
+
 ### UserPortfolio
 
 UserPortfolio
@@ -5457,7 +5715,7 @@ IUserPortfolio
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5481,7 +5739,7 @@ ATTRIBUTES
 
 ###### Implementation of
 
-[`IUserPortfolio`](#iuserportfolio).[`user`](#user-2)
+[`IUserPortfolio`](#iuserportfolio).[`user`](#user-4)
 
 ##### walletHoldings
 
@@ -5525,6 +5783,78 @@ FACTORY
 
 ***
 
+### UsersManager
+
+IUsersManager
+Allows to retrieve a user by their wallet and network
+
+#### Extends
+
+- `IRPCClient`
+
+#### Implements
+
+- [`IUsersManager`](#iusersmanager)
+
+#### Constructors
+
+##### Constructor
+
+> **new UsersManager**(`params`): [`UsersManager`](#usersmanager)
+
+###### Parameters
+
+###### params
+
+###### rpcClient
+
+`any`
+
+###### Returns
+
+[`UsersManager`](#usersmanager)
+
+###### Overrides
+
+`IRPCClient.constructor`
+
+#### Methods
+
+##### getUserClient()
+
+> **getUserClient**(`params`): `Promise`\<[`UserClient`](#userclient)\>
+
+getUserClient
+Retrieves a user by their wallet and network
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`ChainInfo`](#chaininfo-1)
+
+The chain to retrieve the user for
+
+###### walletAddress
+
+[`Address`](#address)
+
+The wallet to retrieve the user for
+
+###### Returns
+
+`Promise`\<[`UserClient`](#userclient)\>
+
+The user for the given wallet and network
+
+###### Implementation of
+
+[`IUsersManager`](#iusersmanager).[`getUserClient`](#getuserclient-1)
+
+***
+
 ### Vault
 
 Vault
@@ -5545,7 +5875,7 @@ IVault
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5559,7 +5889,7 @@ SIGNATURE
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5603,11 +5933,11 @@ Chain where the token is deployed
 
 ###### Implementation of
 
-[`IVault`](#ivault).[`chainInfo`](#chaininfo-8)
+[`IVault`](#ivault).[`chainInfo`](#chaininfo-10)
 
 ###### Inherited from
 
-[`Token`](#token-3).[`chainInfo`](#chaininfo-2)
+[`Token`](#token-3).[`chainInfo`](#chaininfo-3)
 
 ##### decimals
 
@@ -5711,7 +6041,7 @@ IPrintable.toString
 
 ###### Inherited from
 
-[`Token`](#token-3).[`toString`](#tostring-15)
+[`Token`](#token-3).[`toString`](#tostring-16)
 
 ##### createFrom()
 
@@ -5753,7 +6083,7 @@ IWalletData
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
@@ -5861,13 +6191,13 @@ ISimulation
 
 ##### \[\_\_\_signature\_\_\]
 
-> `readonly` **\[\_\_\_signature\_\_\]**: `symbol` = `__signature__`
+> `readonly` **\[\_\_\_signature\_\_\]**: `symbol`
 
 SIGNATURE
 
 ###### Inherited from
 
-[`LendingSimulation`](#lendingsimulation).[`[___signature__]`](#___signature__-18)
+[`Simulation`](#abstract-simulation).[`[___signature__]`](#___signature__-27)
 
 ##### balanceChanges
 
@@ -5891,7 +6221,7 @@ Gas estimations for the simulation steps
 
 ##### steps
 
-> `readonly` **steps**: [`Steps`](namespaces/steps.md#steps)[]
+> `readonly` **steps**: `Steps`[]
 
 The sequence of steps to execute the simulation
 
@@ -5901,7 +6231,7 @@ The sequence of steps to execute the simulation
 
 ##### type
 
-> `readonly` **type**: [`Yield`](#yield-2) = `SimulationType.Yield`
+> `readonly` **type**: `Yield` = `SimulationType.Yield`
 
 ATTRIBUTES
 
@@ -5971,24 +6301,6 @@ A specific policy defining how a volatility profile should be cached.
 
 ***
 
-### HistoricalFleetRateResult
-
-#### Properties
-
-##### chainId
-
-> **chainId**: `string`
-
-##### fleetAddress
-
-> **fleetAddress**: `string`
-
-##### rates
-
-> **rates**: [`HistoricalFleetRates`](#historicalfleetrates)
-
-***
-
 ### HistoricalFleetRates
 
 #### Properties
@@ -6020,7 +6332,7 @@ Currently only Ethereum type is supported
 
 #### Extends
 
-- [`IAddressData`](#iaddressdata).[`IPrintable`](#iprintable).`ISolidityValue`\<[`AddressValue`](#addressvalue-1)\>
+- [`IAddressData`](#iaddressdata).[`IPrintable`](../common/src/README.md#iprintable).`ISolidityValue`\<[`AddressValue`](#addressvalue-1)\>
 
 #### Properties
 
@@ -6032,7 +6344,7 @@ Signature to differentiate from similar interfaces
 
 ##### type
 
-> `readonly` **type**: [`AddressType`](#addresstype)
+> `readonly` **type**: [`AddressType`](../common/src/README.md#addresstype)
 
 The type of the address
 
@@ -6106,7 +6418,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -6328,6 +6640,33 @@ Optional strategy to determine when to invalidate.
 
 ***
 
+### IChain
+
+IChain
+Represents a blockchain network and allows to access the tokens and protocols of the chain
+
+#### Properties
+
+##### chainInfo
+
+> **chainInfo**: [`IChainInfo`](#ichaininfo)
+
+The information of the chain
+
+##### protocols
+
+> **protocols**: [`IProtocolsManagerClient`](#iprotocolsmanagerclient)
+
+The protocols manager client for the chain, allows to retrieve protocols on the chain
+
+##### tokens
+
+> **tokens**: [`ITokensManagerClient`](#itokensmanagerclient)
+
+The tokens manager client for the chain, allows to retrieve tokens on the chain
+
+***
+
 ### IChainInfo
 
 IChainInfo
@@ -6335,7 +6674,7 @@ Information used to identify a blockchain network
 
 #### Extends
 
-- [`IChainInfoData`](#ichaininfodata).[`IPrintable`](#iprintable)
+- [`IChainInfoData`](#ichaininfodata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -6347,7 +6686,7 @@ Signature to differentiate from similar interfaces
 
 ##### chainId
 
-> `readonly` **chainId**: [`ChainId`](#chainid-3)
+> `readonly` **chainId**: [`ChainId`](#chainid-2)
 
 The chain ID of the network
 
@@ -6407,7 +6746,76 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### IChainsManagerClient
+
+IChainsManagerClient
+Interface for the ChainsManager client implementation. Allows to retrieve information for
+            a Chain given its ChainInfo. It also supports to lookup a chain by its name or chain ID
+
+#### Methods
+
+##### getChain()
+
+> **getChain**(`params`): `Promise`\<[`Chain`](#chain)\>
+
+getChain
+Retrieves a chain by its chain info
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`ChainInfo`](#chaininfo-1)
+
+The info associated with the chain to retrieve
+
+###### Returns
+
+`Promise`\<[`Chain`](#chain)\>
+
+The chain for the given chain info
+
+##### getChainById()
+
+> **getChainById**(`params`): `Promise`\<[`Chain`](#chain)\>
+
+getChainById
+Retrieves a network by its chain ID
+
+###### Parameters
+
+###### params
+
+###### chainId
+
+`number`
+
+The chain ID of the network to retrieve
+
+###### Returns
+
+`Promise`\<[`Chain`](#chain)\>
+
+The network with the given chain ID
+
+##### getSupportedChains()
+
+> **getSupportedChains**(): `Promise`\<[`ChainInfo`](#chaininfo-1)[]\>
+
+getSupportedChains
+Retrieves the list of supported chains
+
+###### Returns
+
+`Promise`\<[`ChainInfo`](#chaininfo-1)[]\>
+
+The list of supported chains
 
 ***
 
@@ -6646,7 +7054,7 @@ like Price or Percentage
 
 #### Extends
 
-- [`IFiatCurrencyAmountData`](#ifiatcurrencyamountdata).`IValueConverter`.[`IPrintable`](#iprintable)
+- [`IFiatCurrencyAmountData`](#ifiatcurrencyamountdata).`IValueConverter`.[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -6668,7 +7076,7 @@ The amount in floating point format
 
 ##### fiat
 
-> `readonly` **fiat**: [`FiatCurrency`](#fiatcurrency)
+> `readonly` **fiat**: [`FiatCurrency`](../common/src/README.md#fiatcurrency)
 
 Fiat currency for the amount
 
@@ -6852,7 +7260,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -6932,7 +7340,7 @@ Represents a generic holding like a token balance in a wallet.
 
 #### Extends
 
-- [`IHoldingData`](#iholdingdata).[`IPrintable`](#iprintable)
+- [`IHoldingData`](#iholdingdata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -6975,7 +7383,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -6993,6 +7401,10 @@ level through the PoolId
 #### Extends
 
 - [`IPool`](#ipool).[`ILendingPoolData`](#ilendingpooldata)
+
+#### Extended by
+
+- [`IAaveV3LendingPool`](../protocol-plugins/service/src.md#iaavev3lendingpool)
 
 #### Properties
 
@@ -7048,7 +7460,7 @@ Pool ID of the lending pool
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending)
+> `readonly` **type**: `Lending`
 
 Type of the pool
 
@@ -7075,7 +7487,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPool`](#ipool).[`toString`](#tostring-27)
+[`IPool`](#ipool).[`toString`](#tostring-28)
 
 ***
 
@@ -7093,6 +7505,10 @@ This may be fixed eventually, there is a discussion on the topic here: https://g
 #### Extends
 
 - [`IPoolId`](#ipoolid-1).[`ILendingPoolIdData`](#ilendingpooliddata)
+
+#### Extended by
+
+- [`IAaveV3LendingPoolId`](../protocol-plugins/service/src.md#iaavev3lendingpoolid-1)
 
 #### Properties
 
@@ -7128,7 +7544,7 @@ Protocol where the pool is
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending)
+> `readonly` **type**: `Lending`
 
 Pool type
 
@@ -7153,6 +7569,10 @@ tries to abstract this information to provide a common interface for all the pro
 #### Extends
 
 - [`IPoolInfo`](#ipoolinfo).[`ILendingPoolInfoData`](#ilendingpoolinfodata)
+
+#### Extended by
+
+- [`IAaveV3LendingPoolInfo`](../protocol-plugins/service/src.md#iaavev3lendingpoolinfo)
 
 #### Properties
 
@@ -7208,7 +7628,7 @@ Pool ID of the lending pool
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending)
+> `readonly` **type**: `Lending`
 
 Type of the pool
 
@@ -7226,6 +7646,10 @@ Represents a position in a Lending protocol
 #### Extends
 
 - [`IPosition`](#iposition).[`ILendingPositionData`](#ilendingpositiondata)
+
+#### Extended by
+
+- [`IAaveV3LendingPosition`](../protocol-plugins/service/src.md#iaavev3lendingposition)
 
 #### Properties
 
@@ -7291,7 +7715,7 @@ Pool where the position is
 
 ##### subtype
 
-> `readonly` **subtype**: [`LendingPositionType`](#lendingpositiontype)
+> `readonly` **subtype**: [`LendingPositionType`](../common/src/README.md#lendingpositiontype)
 
 Subtype of the position in the Lending protocol
 
@@ -7301,7 +7725,7 @@ Subtype of the position in the Lending protocol
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending-1)
+> `readonly` **type**: `Lending`
 
 Type of the position
 
@@ -7319,6 +7743,10 @@ Represents a position ID for a lending position
 #### Extends
 
 - [`IPositionId`](#ipositionid-1)
+
+#### Extended by
+
+- [`IAaveV3LendingPositionId`](../protocol-plugins/service/src.md#iaavev3lendingpositionid-1)
 
 #### Properties
 
@@ -7352,13 +7780,43 @@ Signature to differentiate from similar interfaces
 
 ##### type
 
-> `readonly` **type**: [`Lending`](#lending-1)
+> `readonly` **type**: `Lending`
 
 Type of the position
 
 ###### Overrides
 
 [`IPositionId`](#ipositionid-1).[`type`](#type-25)
+
+***
+
+### IOrdersManagerClient
+
+IOrdersManagerClient
+Interface of the OrdersManager for the SDK Client. Allows to build orders to execute transactions.
+
+#### Methods
+
+##### buildOrder()
+
+> **buildOrder**(`params`): `Promise`\<[`Order`](#order)\>
+
+buildOrder
+Build an order to be executed by the user
+
+###### Parameters
+
+###### params
+
+`IBuildOrderInputs`
+
+The inputs required to build the order
+
+###### Returns
+
+`Promise`\<[`Order`](#order)\>
+
+The built order
 
 ***
 
@@ -7369,7 +7827,7 @@ Percentage type that can be used for calculations with other types like TokenAmo
 
 #### Extends
 
-- [`IPercentageData`](#ipercentagedata).`IValueConverter`.[`IPrintable`](#iprintable)
+- [`IPercentageData`](#ipercentagedata).`IValueConverter`.[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -7573,7 +8031,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -7587,7 +8045,7 @@ It is meant to be specialized for each type of pool
 
 #### Extends
 
-- [`IPrintable`](#iprintable).[`IPoolData`](#ipooldata)
+- [`IPrintable`](../common/src/README.md#iprintable).[`IPoolData`](#ipooldata)
 
 #### Extended by
 
@@ -7613,7 +8071,7 @@ Unique identifier for the pool, to be specialized for each protocol
 
 ##### type
 
-> `readonly` **type**: [`PoolType`](#pooltype)
+> `readonly` **type**: [`PoolType`](../common/src/README.md#pooltype)
 
 Type of the pool
 
@@ -7640,7 +8098,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -7681,7 +8139,7 @@ Protocol where the pool is
 
 ##### type
 
-> `readonly` **type**: [`PoolType`](#pooltype)
+> `readonly` **type**: [`PoolType`](../common/src/README.md#pooltype)
 
 Pool type
 
@@ -7727,13 +8185,95 @@ Unique identifier for the pool, to be specialized for each protocol
 
 ##### type
 
-> `readonly` **type**: [`PoolType`](#pooltype)
+> `readonly` **type**: [`PoolType`](../common/src/README.md#pooltype)
 
 Type of the pool
 
 ###### Overrides
 
 `IPoolInfoData.type`
+
+***
+
+### IPortfolioManager
+
+IPortfolioManager
+Allows to retrieve a wallet's positions by their wallet and network. This is meant to be used in isolation
+             without having to retrieve a User or a Network
+
+#### Methods
+
+##### getPositions()
+
+> **getPositions**(`params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositions
+Retrieves all positions of the given wallet for the given networks. The positions can be filtered by
+             their IDs
+
+###### Parameters
+
+###### params
+
+###### networks
+
+[`ChainInfo`](#chaininfo-1)[]
+
+The list of networks to retrieve the positions for
+
+###### wallet
+
+[`Wallet`](#wallet-1)
+
+The wallet to retrieve the positions for
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+The list of positions for the given wallet and networks
+
+##### getUserPortfolio()
+
+> **getUserPortfolio**(`params`): `Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+getUserPortfolio
+Retrieves all holdings and positions for the user resolving their Fiat balances
+
+###### Parameters
+
+###### params
+
+###### user
+
+[`IUser`](#iuser)
+
+The user to retrieve the portfolio for
+
+###### Returns
+
+`Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+##### getWalletHoldings()
+
+> **getWalletHoldings**(`params`): `Promise`\<[`IHolding`](#iholding)[]\>
+
+getWalletHoldings
+Fetches standard ERC20 wallet holdings
+
+###### Parameters
+
+###### params
+
+###### user
+
+[`IUser`](#iuser)
+
+The user to retrieve the holdings for
+
+###### Returns
+
+`Promise`\<[`IHolding`](#iholding)[]\>
 
 ***
 
@@ -7781,7 +8321,7 @@ Pool where the position is opened
 
 ##### type
 
-> `readonly` **type**: [`PositionType`](#positiontype)
+> `readonly` **type**: [`PositionType`](../common/src/README.md#positiontype)
 
 Type of the position
 
@@ -7823,7 +8363,7 @@ Signature to differentiate from similar interfaces
 
 ##### type
 
-> `readonly` **type**: [`PositionType`](#positiontype)
+> `readonly` **type**: [`PositionType`](../common/src/README.md#positiontype)
 
 Type of the position
 
@@ -7883,7 +8423,7 @@ QUOTE/BASE
 
 #### Extends
 
-- [`IPriceData`](#ipricedata).`IValueConverter`.[`IPrintable`](#iprintable)
+- [`IPriceData`](#ipricedata).`IValueConverter`.[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -7961,7 +8501,7 @@ Divides the price by another price or a constant
 
 ###### divider
 
-`string` \| `number` \| [`IPrice`](#iprice) \| [`IPercentage`](#ipercentage)
+`string` \| `number` \| [`IPercentage`](#ipercentage) \| [`IPrice`](#iprice)
 
 The numeric string, number or price to divide by
 
@@ -8279,62 +8819,7 @@ Converts the price to a string
 
 ###### Overrides
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
-
-***
-
-### IPrintable
-
-IPrintable
-Interface for printable objects.
-
-This enables more readable debug objects
-
-#### Extended by
-
-- [`IAddress`](#iaddress)
-- [`IChainInfo`](#ichaininfo)
-- [`IFiatCurrencyAmount`](#ifiatcurrencyamount)
-- [`IPercentage`](#ipercentage)
-- [`IPool`](#ipool)
-- [`IPrice`](#iprice)
-- [`IRiskRatio`](#iriskratio)
-- [`ISDKError`](#isdkerror)
-- [`IToken`](#itoken)
-- [`ITokenAmount`](#itokenamount)
-- [`IHolding`](#iholding)
-- [`IUserPortfolio`](#iuserportfolio)
-- [`IUser`](#iuser)
-- [`IAddress`](../../client/src.md#iaddress)
-- [`IChainInfo`](../../client/src.md#ichaininfo)
-- [`IFiatCurrencyAmount`](../../client/src.md#ifiatcurrencyamount)
-- [`IPercentage`](../../client/src.md#ipercentage)
-- [`IPool`](../../client/src.md#ipool)
-- [`IPrice`](../../client/src.md#iprice)
-- [`IRiskRatio`](../../client/src.md#iriskratio)
-- [`ISDKError`](../../client/src.md#isdkerror)
-- [`IToken`](../../client/src.md#itoken)
-- [`ITokenAmount`](../../client/src.md#itokenamount)
-- [`IHolding`](../../client/src.md#iholding)
-- [`IUserPortfolio`](../../client/src.md#iuserportfolio)
-- [`IUser`](../../client/src.md#iuser)
-
-#### Methods
-
-##### toString()
-
-> **toString**(): `string`
-
-toString
-Returns a string representation of the object
-
-###### Returns
-
-`string`
-
-string
-
-The string representation should have enough info to debug the object
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -8348,6 +8833,10 @@ This interface is used to add all the methods that the interface supports
 #### Extends
 
 - [`IProtocolData`](#iprotocoldata)
+
+#### Extended by
+
+- [`IAaveV3Protocol`](../protocol-plugins/service/src.md#iaavev3protocol)
 
 #### Properties
 
@@ -8369,7 +8858,7 @@ The chain information
 
 ##### name
 
-> `readonly` **name**: [`ProtocolName`](#protocolname)
+> `readonly` **name**: [`ProtocolName`](../common/src/README.md#protocolname)
 
 The name of the protocol
 
@@ -8400,6 +8889,65 @@ The protocol to compare
 true if the protocols are equal
 
 Equality is determined by the name and chain information
+
+***
+
+### IProtocolsManagerClient
+
+IProtocolsManagerClient
+Interface of the ProtocolsManager for the SDK Client. Allows to retrieve information for a Protocol
+
+#### See
+
+IProtocolsManager
+
+#### Methods
+
+##### getLendingPool()
+
+> **getLendingPool**(`params`): `Promise`\<[`ILendingPool`](#ilendingpool)\>
+
+getLendingPool
+Get the lending pool from the protocol
+
+###### Parameters
+
+###### params
+
+The pool id data
+
+###### poolId
+
+[`ILendingPoolIdData`](#ilendingpooliddata)
+
+###### Returns
+
+`Promise`\<[`ILendingPool`](#ilendingpool)\>
+
+The lending pool
+
+##### getLendingPoolInfo()
+
+> **getLendingPoolInfo**(`params`): `Promise`\<[`ILendingPoolInfo`](#ilendingpoolinfo)\>
+
+getLendingPoolInfo
+Get the lending pool info from the protocol
+
+###### Parameters
+
+###### params
+
+The pool id data
+
+###### poolId
+
+[`ILendingPoolIdData`](#ilendingpooliddata)
+
+###### Returns
+
+`Promise`\<[`ILendingPoolInfo`](#ilendingpoolinfo)\>
+
+The lending pool info
 
 ***
 
@@ -8449,7 +8997,7 @@ Interface for the implementors of the risk ratio
 
 #### Extends
 
-- [`IRiskRatioData`](#iriskratiodata).[`IPrintable`](#iprintable)
+- [`IRiskRatioData`](#iriskratiodata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -8528,7 +9076,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -8539,7 +9087,7 @@ Represents a custom error of the SDK
 
 #### Extends
 
-- [`ISDKErrorData`](#isdkerrordata).[`IPrintable`](#iprintable)
+- [`ISDKErrorData`](#isdkerrordata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Extended by
 
@@ -8575,7 +9123,7 @@ Free form reason message, used to provide a short description of the problem
 
 ##### type
 
-> `readonly` **type**: [`SDKErrorType`](#sdkerrortype)
+> `readonly` **type**: [`SDKErrorType`](../common/src/README.md#sdkerrortype)
 
 Error type main category
 
@@ -8602,7 +9150,79 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### ISDKManager
+
+Main entry point for interacting with the reDeFi SDK on the client side.
+
+This interface exposes all the available managers and services to handle chains, tokens, portfolios, swaps, oracles, and protocols.
+
+ ISDKManager
+
+#### Properties
+
+##### chains
+
+> `readonly` **chains**: [`IChainsManagerClient`](#ichainsmanagerclient)
+
+Chains Manager for interacting with the different chains supported in the SDK
+
+##### eventBus
+
+> `readonly` **eventBus**: `IEventBus`
+
+The global event bus for SDK events
+
+##### oracle
+
+> `readonly` **oracle**: `IOracleManagerClient`
+
+Swap Manager for interacting with the swaps
+
+##### orders
+
+> `readonly` **orders**: [`IOrdersManagerClient`](#iordersmanagerclient)
+
+Orders Manager for building and handling execution orders
+
+##### portfolio
+
+> `readonly` **portfolio**: [`IPortfolioManager`](#iportfoliomanager)
+
+Portfolio Manager for retrieving information about a user's portfolio
+
+##### protocols
+
+> `readonly` **protocols**: [`IProtocolsManagerClient`](#iprotocolsmanagerclient)
+
+Protocols Manager for interacting with protocols
+
+##### simulator
+
+> `readonly` **simulator**: `ISimulationManager`
+
+Simulator for all the different operations supported in the SDK
+
+##### swaps
+
+> `readonly` **swaps**: `ISwapManagerClient`
+
+Swap Manager for interacting with the swaps
+
+##### tokens
+
+> `readonly` **tokens**: `ITokensManagerClient2`
+
+Tokens Manager for interacting with the different tokens supported in the SDK
+
+##### users
+
+> `readonly` **users**: [`IUsersManager`](#iusersmanager)
+
+Users Manager for retrieving information about a user
 
 ***
 
@@ -8633,13 +9253,13 @@ Gas estimations for the simulation steps
 
 ##### steps
 
-> `readonly` **steps**: [`Steps`](namespaces/steps.md#steps)[]
+> `readonly` **steps**: `Steps`[]
 
 The sequence of steps to execute the simulation
 
 ##### type
 
-> `readonly` **type**: [`SimulationType`](#simulationtype)
+> `readonly` **type**: [`SimulationType`](../common/src/README.md#simulationtype)
 
 The type of the simulation
 
@@ -8718,7 +9338,7 @@ GET or POST status code
 
 ##### subtype
 
-> `readonly` **subtype**: [`SwapErrorType`](#swaperrortype)
+> `readonly` **subtype**: [`SwapErrorType`](../common/src/README.md#swaperrortype)
 
 Specific error for the swap service
 
@@ -8728,7 +9348,7 @@ Specific error for the swap service
 
 ##### type
 
-> `readonly` **type**: [`SwapError`](#swaperror)
+> `readonly` **type**: `SwapError`
 
 Error type main category
 
@@ -8766,7 +9386,7 @@ Represents an token in a Chain, typically used to represent ERC-20 tokens
 
 #### Extends
 
-- [`ITokenData`](#itokendata).[`IPrintable`](#iprintable)
+- [`ITokenData`](#itokendata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Extended by
 
@@ -8882,7 +9502,7 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
 
 ***
 
@@ -8895,7 +9515,7 @@ This interface is used to add all the methods that the interface supports
 
 #### Extends
 
-- [`ITokenAmountData`](#itokenamountdata).`IValueConverter`.[`IPrintable`](#iprintable)
+- [`ITokenAmountData`](#itokenamountdata).`IValueConverter`.[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -9219,7 +9839,114 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### ITokensManagerClient
+
+ITokensManagerClient
+Interface for the TokensManager client implementation. Allows to retrieve information for
+             a Token given its Chain, and its Address or symbol. The difference with the server side
+             is that it stores the chain info internally and passes it as a parameter to the RPC calls
+
+#### See
+
+ITokensManager
+
+#### Methods
+
+##### getTokenByAddress()
+
+> **getTokenByAddress**(`params`): `Promise`\<[`IToken`](#itoken)\>
+
+getTokenByAddress
+Retrieves a token by its address
+
+###### Parameters
+
+###### params
+
+###### address
+
+[`Address`](#address)
+
+The address of the token to retrieve
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+The token with the given address
+
+##### getTokenByName()
+
+> **getTokenByName**(`params`): `Promise`\<[`IToken`](#itoken)\>
+
+getTokenByName
+Retrieves a token by its name
+
+###### Parameters
+
+###### params
+
+###### name
+
+`string`
+
+The name of the token to retrieve
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+The token with the given name
+
+##### getTokenBySymbol()
+
+> **getTokenBySymbol**(`params`): `Promise`\<[`IToken`](#itoken)\>
+
+getTokenBySymbol
+Retrieves a token by its symbol
+
+###### Parameters
+
+###### params
+
+###### symbol
+
+`string`
+
+The symbol of the token to retrieve
+
+###### Returns
+
+`Promise`\<[`IToken`](#itoken)\>
+
+The token with the given symbol
+
+##### getTokenTotalSupply()
+
+> **getTokenTotalSupply**(`params`): `Promise`\<[`ITokenAmount`](#itokenamount)\>
+
+getTokenTotalSupply
+Retrieves the total supply for a given token
+
+###### Parameters
+
+###### params
+
+###### token
+
+[`IToken`](#itoken)
+
+The token whose supply should be retrieved
+
+###### Returns
+
+`Promise`\<[`ITokenAmount`](#itokenamount)\>
+
+The token supply wrapped inside an ITokenAmount
 
 ***
 
@@ -9229,7 +9956,7 @@ Represents a user of the system connected with a wallet on a particular chain
 
 #### Extends
 
-- [`IUserData`](#iuserdata).[`IPrintable`](#iprintable)
+- [`IUserData`](#iuserdata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -9278,7 +10005,122 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### IUserClient
+
+IUserClient
+Represents a user and allows to access their positions and to create new orders
+
+dev: This interface must be used to get positions for a user that will be used to create orders. To retrieve
+     positions for portfolio please
+
+#### See
+
+PortfolioManager
+
+#### Properties
+
+##### user
+
+> **user**: [`IUser`](#iuser)
+
+#### Methods
+
+##### getPortfolio()
+
+> **getPortfolio**(): `Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+getPortfolio
+Retrieves the full user portfolio (wallet holdings and positions)
+
+###### Returns
+
+`Promise`\<[`IUserPortfolio`](#iuserportfolio)\>
+
+The user portfolio
+
+##### getPosition()
+
+> **getPosition**(`params`): `Promise`\<[`Position`](#abstract-position)\>
+
+getPosition
+Retrieves a position of the user by its ID
+
+###### Parameters
+
+###### params
+
+###### id
+
+[`PositionId`](#abstract-positionid)
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)\>
+
+##### getPositionsByIds()
+
+> **getPositionsByIds**(`params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositionsByIds
+Retrieves the list of positions of the user for the given IDs
+
+###### Parameters
+
+###### params
+
+###### positionIds
+
+[`PositionId`](#abstract-positionid)[]
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+##### getPositionsByProtocol()
+
+> **getPositionsByProtocol**(`params`): `Promise`\<[`Position`](#abstract-position)[]\>
+
+getPositionsByProtocol
+Retrieves the list of positions of the user for a given protocol
+
+###### Parameters
+
+###### params
+
+###### protocol
+
+[`IProtocol`](#iprotocol)
+
+###### Returns
+
+`Promise`\<[`Position`](#abstract-position)[]\>
+
+##### newOrder()
+
+> **newOrder**(`params`): `Promise`\<[`Order`](#order)\>
+
+newOrder
+Creates a new order for the user based on the given simulation
+
+###### Parameters
+
+###### params
+
+###### simulation
+
+[`ISimulation`](#isimulation)
+
+The simulation to create the order for
+
+###### Returns
+
+`Promise`\<[`Order`](#order)\>
+
+The new order created for the user
 
 ***
 
@@ -9289,7 +10131,7 @@ Represents the portfolio holdings of a specific user.
 
 #### Extends
 
-- [`IUserPortfolioData`](#iuserportfoliodata).[`IPrintable`](#iprintable)
+- [`IUserPortfolioData`](#iuserportfoliodata).[`IPrintable`](../common/src/README.md#iprintable)
 
 #### Properties
 
@@ -9340,7 +10182,45 @@ The string representation should have enough info to debug the object
 
 ###### Inherited from
 
-[`IPrintable`](#iprintable).[`toString`](#tostring-29)
+[`IPrintable`](../common/src/README.md#iprintable).[`toString`](../common/src/README.md#tostring-29)
+
+***
+
+### IUsersManager
+
+IUsersManager
+Allows to retrieve a user by their wallet and network
+
+#### Methods
+
+##### getUserClient()
+
+> **getUserClient**(`params`): `Promise`\<[`IUserClient`](#iuserclient)\>
+
+getUserClient
+Retrieves a user by their wallet and network
+
+###### Parameters
+
+###### params
+
+###### chainInfo
+
+[`ChainInfo`](#chaininfo-1)
+
+The chain to retrieve the user for
+
+###### walletAddress
+
+[`Address`](#address)
+
+The wallet to retrieve the user for
+
+###### Returns
+
+`Promise`\<[`IUserClient`](#iuserclient)\>
+
+The user for the given wallet and network
 
 ***
 
@@ -9399,7 +10279,7 @@ Chain where the token is deployed
 
 ###### Inherited from
 
-[`IToken`](#itoken).[`chainInfo`](#chaininfo-6)
+[`IToken`](#itoken).[`chainInfo`](#chaininfo-8)
 
 ##### decimals
 
@@ -9592,7 +10472,7 @@ Protocol where the pool is
 
 ##### type
 
-> `readonly` **type**: [`Yield`](#yield)
+> `readonly` **type**: `Yield`
 
 Pool type
 
@@ -9675,7 +10555,7 @@ Total Value Locked in the pool
 
 ##### type
 
-> `readonly` **type**: [`Yield`](#yield)
+> `readonly` **type**: `Yield`
 
 Type of the pool
 
@@ -9695,7 +10575,7 @@ The underlying token that is deposited
 
 ##### yieldType
 
-> `readonly` **yieldType**: [`YieldType`](#yieldtype)
+> `readonly` **yieldType**: [`YieldType`](../common/src/README.md#yieldtype)
 
 The yield type classification
 
@@ -9798,7 +10678,7 @@ Amount originally deposited or the principal basis
 
 ##### type
 
-> `readonly` **type**: [`Yield`](#yield-1)
+> `readonly` **type**: `Yield`
 
 Type of the position
 
@@ -9849,7 +10729,7 @@ Signature to differentiate from similar interfaces
 
 ##### type
 
-> `readonly` **type**: [`Yield`](#yield-1)
+> `readonly` **type**: `Yield`
 
 Type of the position
 
@@ -9874,75 +10754,9 @@ Simulation
 
 ##### transactions
 
-> **transactions**: [`TransactionInfo`](#transactioninfo)[]
+> **transactions**: [`TransactionInfo`](../common/src/README.md#transactioninfo)[]
 
 Transaction info
-
-***
-
-### StakingStake
-
-Staking stake position details
-
-#### Properties
-
-##### amount
-
-> **amount**: `bigint`
-
-##### id
-
-> **id**: `string`
-
-##### index
-
-> **index**: `number`
-
-##### lockupEndTime
-
-> **lockupEndTime**: `bigint`
-
-##### lockupPeriod
-
-> **lockupPeriod**: `bigint`
-
-##### lockupStartTime
-
-> **lockupStartTime**: `bigint`
-
-##### multiplier
-
-> **multiplier**: `number`
-
-##### owner
-
-> **owner**: `` `0x${string}` ``
-
-##### weightedAmount
-
-> **weightedAmount**: `bigint`
-
-##### weightedAmountNormalized
-
-> **weightedAmountNormalized**: `number`
-
-***
-
-### StrategyStep
-
-#### Properties
-
-##### name
-
-> **name**: `string`
-
-##### optional
-
-> **optional**: `boolean`
-
-##### step
-
-> **step**: [`SimulationSteps`](#simulationsteps)
 
 ***
 
@@ -9964,48 +10778,6 @@ Low level transaction that can be sent to the blockchain
 ##### value
 
 > **value**: `string`
-
-***
-
-### TransactionInfo
-
-TransactionInfo
-Contains the low level transaction plus a description of what the transaction is for.
-             This could be used to display the transaction to the user.
-
-#### Properties
-
-##### description
-
-> **description**: `string`
-
-High-level description of the transaction
-
-##### transaction
-
-> **transaction**: [`Transaction`](#transaction)
-
-Low level transaction that can be sent to the blockchain
-
-***
-
-### ValueReference
-
-#### Type Parameters
-
-##### T
-
-`T`
-
-#### Properties
-
-##### estimatedValue
-
-> **estimatedValue**: `T`
-
-##### path
-
-> **path**: \[`string`, `string`\]
 
 ## Type Aliases
 
@@ -10057,7 +10829,7 @@ Type for the parameters of Address
 
 ##### migrationType
 
-> **migrationType**: [`ArmadaMigrationType`](#armadamigrationtype)
+> **migrationType**: [`ArmadaMigrationType`](../common/src/README.md#armadamigrationtype)
 
 ##### positionTokenAmount
 
@@ -10070,30 +10842,6 @@ Type for the parameters of Address
 ##### usdValue
 
 > **usdValue**: [`IFiatCurrencyAmount`](#ifiatcurrencyamount)
-
-***
-
-### ArmadaMigratablePositionApy
-
-> **ArmadaMigratablePositionApy** = `object`
-
-#### Properties
-
-##### apy
-
-> **apy**: [`IPercentage`](#ipercentage) \| `null`
-
-##### apy30d
-
-> **apy30d**: [`IPercentage`](#ipercentage) \| `null`
-
-##### apy7d
-
-> **apy7d**: [`IPercentage`](#ipercentage) \| `null`
-
-##### positionId
-
-> **positionId**: `string`
 
 ***
 
@@ -10121,7 +10869,7 @@ Type for the parameters of Address
 
 ##### chainInfo
 
-> **chainInfo**: [`ChainInfo`](#chaininfo)
+> **chainInfo**: [`ChainInfo`](#chaininfo-1)
 
 ##### familyName
 
@@ -10200,7 +10948,7 @@ Type for the parameters of DebtInfo
 
 ### Denomination
 
-> **Denomination** = [`IToken`](#itoken) \| [`FiatCurrency`](#fiatcurrency)
+> **Denomination** = [`IToken`](#itoken) \| [`FiatCurrency`](../common/src/README.md#fiatcurrency)
 
 Denomination
 Type for the instances of denomination
@@ -10209,7 +10957,7 @@ Type for the instances of denomination
 
 ### DenominationData
 
-> **DenominationData** = [`ITokenData`](#itokendata) \| [`FiatCurrency`](#fiatcurrency)
+> **DenominationData** = [`ITokenData`](#itokendata) \| [`FiatCurrency`](../common/src/README.md#fiatcurrency)
 
 DenominationData
 Type for the denomination
@@ -10230,7 +10978,7 @@ A denomination can be a token or a fiat currency
 
 ##### type
 
-> **type**: [`Deposit`](#deposit-1)
+> **type**: [`Deposit`](#deposit)
 
 ***
 
@@ -10292,7 +11040,7 @@ Type for the parameters of FiatCurrencyAmount
 
 ### GlobalCacheConfig
 
-> **GlobalCacheConfig** = `Record`\<[`VolatilityProfile`](#volatilityprofile), [`CachePolicy`](#cachepolicy)\>
+> **GlobalCacheConfig** = `Record`\<[`VolatilityProfile`](../common/src/README.md#volatilityprofile), [`CachePolicy`](#cachepolicy)\>
 
 Global configuration map mapping volatility profiles to caching policies.
 
@@ -10594,7 +11342,7 @@ The price of the asset
 
 ##### provider
 
-> **provider**: [`OracleProviderType`](#oracleprovidertype)
+> **provider**: [`OracleProviderType`](../common/src/README.md#oracleprovidertype)
 
 The oracle provider type
 
@@ -10760,22 +11508,7 @@ Type for the parameters of LendingPosition
 
 ##### steps
 
-> **steps**: [`Steps`](namespaces/steps.md#steps)[]
-
-***
-
-### Maybe
-
-> **Maybe**\<`T`\> = `T` \| `undefined`
-
-Maybe
-Represents a type that can be undefined
-
-#### Type Parameters
-
-##### T
-
-`T`
+> **steps**: `Steps`[]
 
 ***
 
@@ -10913,7 +11646,7 @@ Gives information about a swap operation without providing
 
 ##### provider
 
-> **provider**: [`SwapProviderType`](#swapprovidertype)
+> **provider**: [`SwapProviderType`](../common/src/README.md#swapprovidertype)
 
 ##### routes
 
@@ -10927,7 +11660,7 @@ Gives information about a swap operation without providing
 
 ### ReferenceableField
 
-> **ReferenceableField**\<`T`\> = `T` \| [`ValueReference`](#valuereference)\<`T`\>
+> **ReferenceableField**\<`T`\> = `T` \| [`ValueReference`](../common/src/README.md#valuereference)\<`T`\>
 
 #### Type Parameters
 
@@ -10945,38 +11678,6 @@ Type for the parameters of RiskRatio
 
 ***
 
-### Role
-
-> **Role** = `object`
-
-#### Properties
-
-##### id
-
-> **id**: `string`
-
-##### institution
-
-> **institution**: `object`
-
-###### id
-
-> **id**: `string`
-
-##### name
-
-> **name**: `string`
-
-##### owner
-
-> **owner**: `string`
-
-##### targetContract
-
-> **targetContract**: `string`
-
-***
-
 ### RolesResponse
 
 > **RolesResponse** = `object`
@@ -10985,7 +11686,7 @@ Type for the parameters of RiskRatio
 
 ##### roles
 
-> **roles**: [`Role`](#role)[]
+> **roles**: [`Role`](../common/src/README.md#role)[]
 
 ***
 
@@ -11027,7 +11728,7 @@ as gas estimation is not relevant for simulation purposes.
 
 ### SimulationStrategy
 
-> **SimulationStrategy** = readonly [`StrategyStep`](#strategystep)[]
+> **SimulationStrategy** = readonly [`StrategyStep`](../common/src/README.md#strategystep)[]
 
 ***
 
@@ -11048,7 +11749,7 @@ Price by addresses
 
 ##### provider
 
-> **provider**: [`OracleProviderType`](#oracleprovidertype)
+> **provider**: [`OracleProviderType`](../common/src/README.md#oracleprovidertype)
 
 The oracle provider type
 
@@ -11062,7 +11763,7 @@ The oracle provider type
 
 ##### type
 
-> **type**: [`Stake`](#stake-1)
+> **type**: [`Stake`](#stake)
 
 ***
 
@@ -11089,7 +11790,7 @@ Represents the data needed to perform a swap between two tokens
 
 ##### provider
 
-> **provider**: [`SwapProviderType`](#swapprovidertype)
+> **provider**: [`SwapProviderType`](../common/src/README.md#swapprovidertype)
 
 ##### targetContract
 
@@ -11166,15 +11867,6 @@ Type for the parameters of TokenAmount
 > **TokenParameters** = `Omit`\<[`ITokenData`](#itokendata), `""`\>
 
 Type for the parameters of Token
-
-***
-
-### TokenSymbol
-
-> **TokenSymbol** = `string`
-
-TokenSymbol
-Represents the symbol of a token
 
 ***
 
@@ -11342,30 +12034,6 @@ Type for the parameters of UserPortfolio
 
 ***
 
-### VaultApys
-
-> **VaultApys** = `object`
-
-#### Properties
-
-##### live
-
-> **live**: [`IPercentage`](#ipercentage) \| `null`
-
-##### sma24h
-
-> **sma24h**: [`IPercentage`](#ipercentage) \| `null`
-
-##### sma30day
-
-> **sma30day**: [`IPercentage`](#ipercentage) \| `null`
-
-##### sma7day
-
-> **sma7day**: [`IPercentage`](#ipercentage) \| `null`
-
-***
-
 ### VaultParameters
 
 > **VaultParameters** = `Omit`\<[`IVaultData`](#ivaultdata), `""`\>
@@ -11394,7 +12062,7 @@ Type for the parameters of Wallet
 
 ##### type
 
-> **type**: [`Withdraw`](#withdraw-1)
+> **type**: [`Withdraw`](#withdraw)
 
 ***
 
@@ -11414,13 +12082,13 @@ Type for the parameters of Wallet
 
 ##### steps
 
-> **steps**: [`Steps`](namespaces/steps.md#steps)[]
+> **steps**: `Steps`[]
 
 ## Variables
 
 ### \_\_schemaChecker
 
-> `const` **\_\_schemaChecker**: [`FiatCurrency`](#fiatcurrency)
+> `const` **\_\_schemaChecker**: [`FiatCurrency`](../common/src/README.md#fiatcurrency)
 
 Checker to make sure that the schema is aligned with the interface
 
@@ -11458,9 +12126,15 @@ Unique signature to provide branded types to the interface
 
 ***
 
+### AaveV3LendingPoolId
+
+> **AaveV3LendingPoolId**: `any`
+
+***
+
 ### AddressDataSchema
 
-> `const` **AddressDataSchema**: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>
+> `const` **AddressDataSchema**: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<*typeof* [`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>
 
 Zod schema for IAddress
 
@@ -11468,7 +12142,7 @@ Zod schema for IAddress
 
 ### ArmadaMigrationTypeSchema
 
-> `const` **ArmadaMigrationTypeSchema**: `ZodNativeEnum`\<*typeof* [`ArmadaMigrationType`](#armadamigrationtype)\>
+> `const` **ArmadaMigrationTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`ArmadaMigrationType`](../common/src/README.md#armadamigrationtype)\>
 
 Zod schema for ProtocolName
 
@@ -11476,7 +12150,7 @@ Zod schema for ProtocolName
 
 ### BalanceChangeDataSchema
 
-> `const` **BalanceChangeDataSchema**: `ZodObject`\<\{ `amount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token?`: [`IToken`](#itoken); \}, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token?`: [`IToken`](#itoken); \}\>
+> `const` **BalanceChangeDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token`: [`IToken`](#itoken); \}, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token`: [`IToken`](#itoken); \}\>
 
 ***
 
@@ -11488,27 +12162,27 @@ Zod schema for ProtocolName
 
 ##### Arbitrum
 
-> **Arbitrum**: `Record`\<`"ArbitrumOne"`, [`ChainInfo`](#chaininfo)\> = `ArbitrumFamily`
+> **Arbitrum**: `Record`\<`"ArbitrumOne"`, [`ChainInfo`](#chaininfo-1)\>
 
 ##### Base
 
-> **Base**: `Record`\<`"Base"`, [`ChainInfo`](#chaininfo)\> = `BaseFamily`
+> **Base**: `Record`\<`"Base"`, [`ChainInfo`](#chaininfo-1)\>
 
 ##### Ethereum
 
-> **Ethereum**: `Record`\<`"Mainnet"`, [`ChainInfo`](#chaininfo)\> = `EthereumFamily`
+> **Ethereum**: `Record`\<`"Mainnet"`, [`ChainInfo`](#chaininfo-1)\>
 
 ##### Hyperliquid
 
-> **Hyperliquid**: `Record`\<`"Hyperliquid"`, [`ChainInfo`](#chaininfo)\> = `HyperliquidFamily`
+> **Hyperliquid**: `Record`\<`"Hyperliquid"`, [`ChainInfo`](#chaininfo-1)\>
 
 ##### Optimism
 
-> **Optimism**: `Record`\<`"Optimism"`, [`ChainInfo`](#chaininfo)\> = `OptimismFamily`
+> **Optimism**: `Record`\<`"Optimism"`, [`ChainInfo`](#chaininfo-1)\>
 
 ##### Sonic
 
-> **Sonic**: `Record`\<`"Sonic"`, [`ChainInfo`](#chaininfo)\> = `SonicFamily`
+> **Sonic**: `Record`\<`"Sonic"`, [`ChainInfo`](#chaininfo-1)\>
 
 ***
 
@@ -11520,35 +12194,51 @@ Zod schema for ProtocolName
 
 ##### ArbitrumOne
 
-> `readonly` **ArbitrumOne**: `42161` = `42161`
+> `readonly` **ArbitrumOne**: `42161`
 
 ##### Base
 
-> `readonly` **Base**: `8453` = `8453`
+> `readonly` **Base**: `8453`
 
 ##### Hyperliquid
 
-> `readonly` **Hyperliquid**: `999` = `999`
+> `readonly` **Hyperliquid**: `999`
 
 ##### Mainnet
 
-> `readonly` **Mainnet**: `1` = `1`
+> `readonly` **Mainnet**: `1`
 
 ##### Sonic
 
-> `readonly` **Sonic**: `146` = `146`
+> `readonly` **Sonic**: `146`
 
 ***
 
 ### ChainIdSchema
 
-> `const` **ChainIdSchema**: `ZodUnion`\<\[`ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 146 \| 999 \| 8453 \| 42161\>\[\]\]\>
+> `const` **ChainIdSchema**: `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 999\>\[\]\]\>
+
+***
+
+### chainIdToGraphChain
+
+> `const` **chainIdToGraphChain**: (`chainId`) => [`GraphChain`](#graphchain)
+
+#### Parameters
+
+##### chainId
+
+`number`
+
+#### Returns
+
+[`GraphChain`](#graphchain)
 
 ***
 
 ### ChainInfoDataSchema
 
-> `const` **ChainInfoDataSchema**: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<\[`ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 146 \| 999 \| 8453 \| 42161\>\[\]\]\>, `ZodUnion`\<\[`ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 10 \| 146 \| 8453 \| 42161\>\[\]\]\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>
+> `const` **ChainInfoDataSchema**: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 999\>\[\]\]\>, `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 10\>\[\]\]\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>
 
 Zod schema for IChainInfo
 
@@ -11556,7 +12246,7 @@ Zod schema for IChainInfo
 
 ### CollateralInfoDataSchema
 
-> `const` **CollateralInfoDataSchema**: `ZodObject`\<\{ `liquidationPenalty`: `ZodType`\<[`IPercentage`](#ipercentage), `ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `liquidationThreshold`: `ZodType`\<[`IRiskRatio`](#iriskratio), `ZodTypeDef`, [`IRiskRatio`](#iriskratio)\>; `maxSupply`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `price`: `ZodType`\<[`IPrice`](#iprice), `ZodTypeDef`, [`IPrice`](#iprice)\>; `priceUSD`: `ZodType`\<[`IPrice`](#iprice), `ZodTypeDef`, [`IPrice`](#iprice)\>; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `tokensLocked`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `ZodTypeAny`, \{ `liquidationPenalty?`: [`IPercentage`](#ipercentage); `liquidationThreshold?`: [`IRiskRatio`](#iriskratio); `maxSupply?`: [`ITokenAmount`](#itokenamount); `price?`: [`IPrice`](#iprice); `priceUSD?`: [`IPrice`](#iprice); `token?`: [`IToken`](#itoken); `tokensLocked?`: [`ITokenAmount`](#itokenamount); \}, \{ `liquidationPenalty?`: [`IPercentage`](#ipercentage); `liquidationThreshold?`: [`IRiskRatio`](#iriskratio); `maxSupply?`: [`ITokenAmount`](#itokenamount); `price?`: [`IPrice`](#iprice); `priceUSD?`: [`IPrice`](#iprice); `token?`: [`IToken`](#itoken); `tokensLocked?`: [`ITokenAmount`](#itokenamount); \}\>
+> `const` **CollateralInfoDataSchema**: `z.ZodObject`\<\{ `liquidationPenalty`: `z.ZodType`\<[`IPercentage`](#ipercentage), `z.ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `liquidationThreshold`: `z.ZodType`\<[`IRiskRatio`](#iriskratio), `z.ZodTypeDef`, [`IRiskRatio`](#iriskratio)\>; `maxSupply`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `price`: `z.ZodType`\<[`IPrice`](#iprice), `z.ZodTypeDef`, [`IPrice`](#iprice)\>; `priceUSD`: `z.ZodType`\<[`IPrice`](#iprice), `z.ZodTypeDef`, [`IPrice`](#iprice)\>; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `tokensLocked`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `liquidationPenalty`: [`IPercentage`](#ipercentage); `liquidationThreshold`: [`IRiskRatio`](#iriskratio); `maxSupply`: [`ITokenAmount`](#itokenamount); `price`: [`IPrice`](#iprice); `priceUSD`: [`IPrice`](#iprice); `token`: [`IToken`](#itoken); `tokensLocked`: [`ITokenAmount`](#itokenamount); \}, \{ `liquidationPenalty`: [`IPercentage`](#ipercentage); `liquidationThreshold`: [`IRiskRatio`](#iriskratio); `maxSupply`: [`ITokenAmount`](#itokenamount); `price`: [`IPrice`](#iprice); `priceUSD`: [`IPrice`](#iprice); `token`: [`IToken`](#itoken); `tokensLocked`: [`ITokenAmount`](#itokenamount); \}\>
 
 Zod schema for ICollateralInfo
 
@@ -11564,7 +12254,7 @@ Zod schema for ICollateralInfo
 
 ### DebtInfoDataSchema
 
-> `const` **DebtInfoDataSchema**: `ZodObject`\<\{ `debtAvailable`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `debtCeiling`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `dustLimit`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `interestRate`: `ZodType`\<[`IPercentage`](#ipercentage), `ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `originationFee`: `ZodType`\<[`IPercentage`](#ipercentage), `ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `price`: `ZodType`\<[`IPrice`](#iprice), `ZodTypeDef`, [`IPrice`](#iprice)\>; `priceUSD`: `ZodType`\<[`IPrice`](#iprice), `ZodTypeDef`, [`IPrice`](#iprice)\>; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `totalBorrowed`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `ZodTypeAny`, \{ `debtAvailable?`: [`ITokenAmount`](#itokenamount); `debtCeiling?`: [`ITokenAmount`](#itokenamount); `dustLimit?`: [`ITokenAmount`](#itokenamount); `interestRate?`: [`IPercentage`](#ipercentage); `originationFee?`: [`IPercentage`](#ipercentage); `price?`: [`IPrice`](#iprice); `priceUSD?`: [`IPrice`](#iprice); `token?`: [`IToken`](#itoken); `totalBorrowed?`: [`ITokenAmount`](#itokenamount); \}, \{ `debtAvailable?`: [`ITokenAmount`](#itokenamount); `debtCeiling?`: [`ITokenAmount`](#itokenamount); `dustLimit?`: [`ITokenAmount`](#itokenamount); `interestRate?`: [`IPercentage`](#ipercentage); `originationFee?`: [`IPercentage`](#ipercentage); `price?`: [`IPrice`](#iprice); `priceUSD?`: [`IPrice`](#iprice); `token?`: [`IToken`](#itoken); `totalBorrowed?`: [`ITokenAmount`](#itokenamount); \}\>
+> `const` **DebtInfoDataSchema**: `z.ZodObject`\<\{ `debtAvailable`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `debtCeiling`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `dustLimit`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `interestRate`: `z.ZodType`\<[`IPercentage`](#ipercentage), `z.ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `originationFee`: `z.ZodType`\<[`IPercentage`](#ipercentage), `z.ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `price`: `z.ZodType`\<[`IPrice`](#iprice), `z.ZodTypeDef`, [`IPrice`](#iprice)\>; `priceUSD`: `z.ZodType`\<[`IPrice`](#iprice), `z.ZodTypeDef`, [`IPrice`](#iprice)\>; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `totalBorrowed`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `debtAvailable`: [`ITokenAmount`](#itokenamount); `debtCeiling`: [`ITokenAmount`](#itokenamount); `dustLimit`: [`ITokenAmount`](#itokenamount); `interestRate`: [`IPercentage`](#ipercentage); `originationFee`: [`IPercentage`](#ipercentage); `price`: [`IPrice`](#iprice); `priceUSD`: [`IPrice`](#iprice); `token`: [`IToken`](#itoken); `totalBorrowed`: [`ITokenAmount`](#itokenamount); \}, \{ `debtAvailable`: [`ITokenAmount`](#itokenamount); `debtCeiling`: [`ITokenAmount`](#itokenamount); `dustLimit`: [`ITokenAmount`](#itokenamount); `interestRate`: [`IPercentage`](#ipercentage); `originationFee`: [`IPercentage`](#ipercentage); `price`: [`IPrice`](#iprice); `priceUSD`: [`IPrice`](#iprice); `token`: [`IToken`](#itoken); `totalBorrowed`: [`ITokenAmount`](#itokenamount); \}\>
 
 Zod schema for IDebtInfo
 
@@ -11572,7 +12262,7 @@ Zod schema for IDebtInfo
 
 ### DenominationDataSchema
 
-> `const` **DenominationDataSchema**: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<\[`ZodLiteral`\<...\>, `ZodLiteral`\<...\>, `...ZodLiteral<(...)>[]`\]\>, `ZodUnion`\<\[`ZodLiteral`\<...\>, `ZodLiteral`\<...\>, `...ZodLiteral<(...)>[]`\]\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>
+> `const` **DenominationDataSchema**: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<\[`z.ZodLiteral`\<...\>, `z.ZodLiteral`\<...\>, `...(...)`\]\>, `z.ZodUnion`\<\[`z.ZodLiteral`\<...\>, `z.ZodLiteral`\<...\>, `...(...)`\]\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<*typeof* [`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>
 
 Zod schema for Denomination
 
@@ -11588,19 +12278,19 @@ Standard fetch configuration for the SDK
 
 ##### EXTENDED\_TIMEOUT
 
-> `readonly` **EXTENDED\_TIMEOUT**: `30000` = `30_000`
+> `readonly` **EXTENDED\_TIMEOUT**: `30000`
 
 Timeout for critical operations that need more time
 
 ##### SHORT\_TIMEOUT
 
-> `readonly` **SHORT\_TIMEOUT**: `5000` = `5_000`
+> `readonly` **SHORT\_TIMEOUT**: `5000`
 
 Timeout for quick operations
 
 ##### TIMEOUT
 
-> `readonly` **TIMEOUT**: `10000` = `10_000`
+> `readonly` **TIMEOUT**: `10000`
 
 Standard timeout for API calls in milliseconds
 
@@ -11608,7 +12298,7 @@ Standard timeout for API calls in milliseconds
 
 ### FiatCurrencyAmountDataSchema
 
-> `const` **FiatCurrencyAmountDataSchema**: `ZodObject`\<\{ `amount`: `ZodString`; `fiat`: `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}, \{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}\>
+> `const` **FiatCurrencyAmountDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodString`; `fiat`: `z.ZodNativeEnum`\<*typeof* [`FiatCurrency`](../common/src/README.md#fiatcurrency)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}, \{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}\>
 
 Zod schema for IFiatCurrencyAmount
 
@@ -11616,7 +12306,7 @@ Zod schema for IFiatCurrencyAmount
 
 ### FiatCurrencySchema
 
-> `const` **FiatCurrencySchema**: `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>
+> `const` **FiatCurrencySchema**: `z.ZodNativeEnum`\<*typeof* [`FiatCurrency`](../common/src/README.md#fiatcurrency)\>
 
 FiatCurrencySchema
 Zod schema for the FiatCurrency enum
@@ -11625,13 +12315,29 @@ Zod schema for the FiatCurrency enum
 
 ### GasEstimationDataSchema
 
-> `const` **GasEstimationDataSchema**: `ZodObject`\<\{ `gasFiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `gasTokenAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `ZodTypeAny`, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount?`: [`ITokenAmount`](#itokenamount); \}, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount?`: [`ITokenAmount`](#itokenamount); \}\>
+> `const` **GasEstimationDataSchema**: `z.ZodObject`\<\{ `gasFiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `gasTokenAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `gasFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount`: [`ITokenAmount`](#itokenamount); \}, \{ `gasFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount`: [`ITokenAmount`](#itokenamount); \}\>
+
+***
+
+### getViemChain
+
+> `const` **getViemChain**: (`chainId`) => \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `blockTime?`: `number`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.basescan.org/api"`; `name`: `"Basescan"`; `url`: `"https://basescan.org"`; \}; \}; `blockTime`: `2000`; `contracts`: \{ `disputeGameFactory`: \{ `1`: \{ `address`: `"0x43edB88C4B80fDD2AdFF2412A7BebF9dF42cB40e"`; \}; \}; `gasPriceOracle`: \{ `address`: `"0x420000000000000000000000000000000000000F"`; \}; `l1Block`: \{ `address`: `"0x4200000000000000000000000000000000000015"`; \}; `l1StandardBridge`: \{ `1`: \{ `address`: `"0x3154Cf16ccdb4C6d922629664174b904d80F2C35"`; `blockCreated`: `17482143`; \}; \}; `l2CrossDomainMessenger`: \{ `address`: `"0x4200000000000000000000000000000000000007"`; \}; `l2Erc721Bridge`: \{ `address`: `"0x4200000000000000000000000000000000000014"`; \}; `l2OutputOracle`: \{ `1`: \{ `address`: `"0x56315b90c40730925ec5485cf004d835058518A0"`; \}; \}; `l2StandardBridge`: \{ `address`: `"0x4200000000000000000000000000000000000010"`; \}; `l2ToL1MessagePasser`: \{ `address`: `"0x4200000000000000000000000000000000000016"`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `5022`; \}; `portal`: \{ `1`: \{ `address`: `"0x49048044D57e1C92A77f79988d21Fa8fAF74E97e"`; `blockCreated`: `17482143`; \}; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters`: \{ `block`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => `object` & `object`; `type`: `"block"`; \}; `transaction`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => \{ `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: `boolean`; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash`: `Hex`; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"deposit"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList?`: ... \| ...; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId?`: ... \| ...; `from`: `Address`; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas?`: ... \| ...; `maxPriorityFeePerGas?`: ... \| ...; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"legacy"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity?`: ... \| ...; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas?`: ... \| ...; `maxPriorityFeePerGas?`: ... \| ...; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip2930"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip1559"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes`: readonly ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas`: `bigint`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip4844"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList`: `SignedAuthorizationList`; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip7702"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} & `object`; `type`: `"transaction"`; \}; `transactionReceipt`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => `object` & `object`; `type`: `"transactionReceipt"`; \}; \}; `id`: `8453`; `name`: `"Base"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://mainnet.base.org"`\]; \}; \}; `serializers`: \{ `transaction`: `serializeTransactionOpStack`; \}; `sourceId`: `1`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.etherscan.io/api"`; `name`: `"Etherscan"`; `url`: `"https://etherscan.io"`; \}; \}; `blockTime`: `12000`; `contracts`: \{ `ensUniversalResolver`: \{ `address`: `"0xeeeeeeee14d718c2b47d9923deab1335e144eeee"`; `blockCreated`: `23085558`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `14353601`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `1`; `name`: `"Ethereum"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://eth.merkle.io"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.arbiscan.io/api"`; `name`: `"Arbiscan"`; `url`: `"https://arbiscan.io"`; \}; \}; `blockTime`: `250`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `7654707`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `42161`; `name`: `"Arbitrum One"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://arb1.arbitrum.io/rpc"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `name`: `"Sonic Explorer"`; `url`: `"https://sonicscan.org"`; \}; \}; `blockTime`: `630`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `60`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `146`; `name`: `"Sonic"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Sonic"`; `symbol`: `"S"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.soniclabs.com"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet`: `false`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \}
+
+#### Parameters
+
+##### chainId
+
+[`ChainId`](#chainid-2)
+
+#### Returns
+
+\{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `blockTime?`: `number`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.basescan.org/api"`; `name`: `"Basescan"`; `url`: `"https://basescan.org"`; \}; \}; `blockTime`: `2000`; `contracts`: \{ `disputeGameFactory`: \{ `1`: \{ `address`: `"0x43edB88C4B80fDD2AdFF2412A7BebF9dF42cB40e"`; \}; \}; `gasPriceOracle`: \{ `address`: `"0x420000000000000000000000000000000000000F"`; \}; `l1Block`: \{ `address`: `"0x4200000000000000000000000000000000000015"`; \}; `l1StandardBridge`: \{ `1`: \{ `address`: `"0x3154Cf16ccdb4C6d922629664174b904d80F2C35"`; `blockCreated`: `17482143`; \}; \}; `l2CrossDomainMessenger`: \{ `address`: `"0x4200000000000000000000000000000000000007"`; \}; `l2Erc721Bridge`: \{ `address`: `"0x4200000000000000000000000000000000000014"`; \}; `l2OutputOracle`: \{ `1`: \{ `address`: `"0x56315b90c40730925ec5485cf004d835058518A0"`; \}; \}; `l2StandardBridge`: \{ `address`: `"0x4200000000000000000000000000000000000010"`; \}; `l2ToL1MessagePasser`: \{ `address`: `"0x4200000000000000000000000000000000000016"`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `5022`; \}; `portal`: \{ `1`: \{ `address`: `"0x49048044D57e1C92A77f79988d21Fa8fAF74E97e"`; `blockCreated`: `17482143`; \}; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters`: \{ `block`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => `object` & `object`; `type`: `"block"`; \}; `transaction`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => \{ `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: `boolean`; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash`: `Hex`; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"deposit"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList?`: ... \| ...; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId?`: ... \| ...; `from`: `Address`; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas?`: ... \| ...; `maxPriorityFeePerGas?`: ... \| ...; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"legacy"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity?`: ... \| ...; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas?`: ... \| ...; `maxPriorityFeePerGas?`: ... \| ...; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip2930"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip1559"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: ... \| ...; `blobVersionedHashes`: readonly ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas`: `bigint`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip4844"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList`: `SignedAuthorizationList`; `blobVersionedHashes?`: ... \| ...; `blockHash`: ... \| ...; `blockNumber`: ... \| ...; `chainId`: `number`; `from`: `Address`; `gas`: `bigint`; `gasPrice?`: ... \| ...; `hash`: `Hash`; `input`: `Hex`; `isSystemTx?`: ... \| ...; `maxFeePerBlobGas?`: ... \| ...; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: ... \| ...; `nonce`: `number`; `r`: `Hex`; `s`: `Hex`; `sourceHash?`: ... \| ...; `to`: ... \| ...; `transactionIndex`: ... \| ...; `type`: `"eip7702"`; `typeHex`: ... \| ...; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} & `object`; `type`: `"transaction"`; \}; `transactionReceipt`: \{ `exclude`: \[\] \| `undefined`; `format`: (`args`, `action?`) => `object` & `object`; `type`: `"transactionReceipt"`; \}; \}; `id`: `8453`; `name`: `"Base"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://mainnet.base.org"`\]; \}; \}; `serializers`: \{ `transaction`: `serializeTransactionOpStack`; \}; `sourceId`: `1`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.etherscan.io/api"`; `name`: `"Etherscan"`; `url`: `"https://etherscan.io"`; \}; \}; `blockTime`: `12000`; `contracts`: \{ `ensUniversalResolver`: \{ `address`: `"0xeeeeeeee14d718c2b47d9923deab1335e144eeee"`; `blockCreated`: `23085558`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `14353601`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `1`; `name`: `"Ethereum"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://eth.merkle.io"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.arbiscan.io/api"`; `name`: `"Arbiscan"`; `url`: `"https://arbiscan.io"`; \}; \}; `blockTime`: `250`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `7654707`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `42161`; `name`: `"Arbitrum One"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://arb1.arbitrum.io/rpc"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `name`: `"Sonic Explorer"`; `url`: `"https://sonicscan.org"`; \}; \}; `blockTime`: `630`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `60`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`; `formatters?`: `undefined`; `id`: `146`; `name`: `"Sonic"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Sonic"`; `symbol`: `"S"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.soniclabs.com"`\]; \}; \}; `serializers?`: `ChainSerializers`; `sourceId?`: `number`; `testnet`: `false`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>; \}
 
 ***
 
 ### GLOBAL\_ROLE\_HASHES
 
-> `const` **GLOBAL\_ROLE\_HASHES**: `Record`\<[`GlobalRoles`](#globalroles), [`HexData`](#hexdata) \| `null`\>
+> `const` **GLOBAL\_ROLE\_HASHES**: `Record`\<[`GlobalRoles`](../common/src/README.md#globalroles), [`HexData`](#hexdata) \| `null`\>
 
 GLOBAL_ROLE_HASHES
 Mapping of global role names to their contract hashes
@@ -11641,7 +12347,7 @@ Note: These will be populated at runtime from contract calls
 
 ### HoldingDataSchema
 
-> `const` **HoldingDataSchema**: `ZodObject`\<\{ `amount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); \}, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); \}\>
+> `const` **HoldingDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); \}, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); \}\>
 
 Zod schema for IHolding
 
@@ -11657,35 +12363,29 @@ Zod schema for IHolding
 
 > **blockExplorers**: `object`
 
-Collection of block explorers
-
 ###### blockExplorers.default
 
 > `readonly` **default**: `object`
 
 ###### blockExplorers.default.apiUrl
 
-> `readonly` **apiUrl**: `"https://api.hyperevmscan.io/api"` = `'https://api.hyperevmscan.io/api'`
+> `readonly` **apiUrl**: `"https://api.hyperevmscan.io/api"`
 
 ###### blockExplorers.default.name
 
-> `readonly` **name**: `"HyperEVMScan"` = `'HyperEVMScan'`
+> `readonly` **name**: `"HyperEVMScan"`
 
 ###### blockExplorers.default.url
 
-> `readonly` **url**: `"https://hyperevmscan.io"` = `'https://hyperevmscan.io'`
+> `readonly` **url**: `"https://hyperevmscan.io"`
 
 ##### blockTime?
 
 > `optional` **blockTime?**: `number`
 
-Block time in milliseconds.
-
 ##### contracts
 
 > **contracts**: `object`
-
-Collection of contracts
 
 ###### contracts.multicall3
 
@@ -11693,113 +12393,67 @@ Collection of contracts
 
 ###### contracts.multicall3.address
 
-> `readonly` **address**: `"0xca11bde05977b3631167028862be2a173976ca11"` = `'0xca11bde05977b3631167028862be2a173976ca11'`
+> `readonly` **address**: `"0xca11bde05977b3631167028862be2a173976ca11"`
 
 ###### contracts.multicall3.blockCreated
 
-> `readonly` **blockCreated**: `13051` = `13051`
+> `readonly` **blockCreated**: `13051`
 
-##### ~~custom?~~
+##### custom?
 
 > `optional` **custom?**: `Record`\<`string`, `unknown`\>
-
-Custom chain data.
-
-###### Deprecated
-
-use `.extend` instead.
 
 ##### ensTlds?
 
 > `optional` **ensTlds?**: readonly `string`[]
 
-Collection of ENS TLDs for the chain.
-
 ##### experimental\_preconfirmationTime?
 
 > `optional` **experimental\_preconfirmationTime?**: `number`
-
-Preconfirmation time in milliseconds.
-
-##### extend
-
-> **extend**: \<`extended`\>(`extended`) => `Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>
-
-###### Type Parameters
-
-###### extended
-
-`extended` *extends* `Record`\<`string`, `unknown`\>
-
-###### Parameters
-
-###### extended
-
-`extended`
-
-###### Returns
-
-`Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>
 
 ##### extendSchema?
 
 > `optional` **extendSchema?**: `Record`\<`string`, `unknown`\>
 
-Extend schema.
-
 ##### fees?
 
-> `optional` **fees?**: `ChainFees`\<`undefined`\>
-
-Modifies how fees are derived.
+> `optional` **fees?**: `ChainFees`
 
 ##### formatters?
 
 > `optional` **formatters?**: `undefined`
 
-Modifies how data is formatted and typed (e.g. blocks and transactions)
-
 ##### id
 
 > **id**: `999`
-
-ID in number form
 
 ##### name
 
 > **name**: `"HyperEVM"`
 
-Human-readable name
-
 ##### nativeCurrency
 
 > **nativeCurrency**: `object`
 
-Currency used by chain
-
 ###### nativeCurrency.decimals
 
-> `readonly` **decimals**: `18` = `18`
+> `readonly` **decimals**: `18`
 
 ###### nativeCurrency.name
 
-> `readonly` **name**: `"HYPE"` = `'HYPE'`
+> `readonly` **name**: `"HYPE"`
 
 ###### nativeCurrency.symbol
 
-> `readonly` **symbol**: `"HYPE"` = `'HYPE'`
+> `readonly` **symbol**: `"HYPE"`
 
 ##### prepareTransactionRequest?
 
-> `optional` **prepareTransactionRequest?**: `PrepareTransactionRequestFn` \| \[`PrepareTransactionRequestFn`, `object`\]
-
-Function to prepare a transaction request. Runs before the transaction is filled.
+> `optional` **prepareTransactionRequest?**: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| \[((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\>) \| `undefined`, `object`\]
 
 ##### rpcUrls
 
 > **rpcUrls**: `object`
-
-Collection of RPC endpoints
 
 ###### rpcUrls.default
 
@@ -11811,27 +12465,65 @@ Collection of RPC endpoints
 
 ##### serializers?
 
-> `optional` **serializers?**: `ChainSerializers`\<`undefined`, `TransactionSerializable`\>
-
-Modifies how data is serialized (e.g. transactions).
+> `optional` **serializers?**: `ChainSerializers`
 
 ##### sourceId?
 
 > `optional` **sourceId?**: `number`
 
-Source Chain ID (ie. the L1 chain)
-
 ##### testnet?
 
 > `optional` **testnet?**: `boolean`
 
-Flag for test networks
-
 ##### verifyHash?
 
-> `optional` **verifyHash?**: `ChainVerifyHashFn`
+> `optional` **verifyHash?**: (`client`, `parameters`) => `Promise`\<`VerifyHashActionReturnType`\>
 
-Chain-specific signature verification.
+###### Parameters
+
+###### client
+
+`Client`
+
+###### parameters
+
+`VerifyHashActionParameters`
+
+###### Returns
+
+`Promise`\<`VerifyHashActionReturnType`\>
+
+***
+
+### isChainId
+
+> `const` **isChainId**: (`maybeChainId`) => `maybeChainId is ChainId`
+
+#### Parameters
+
+##### maybeChainId
+
+`unknown`
+
+#### Returns
+
+`maybeChainId is ChainId`
+
+***
+
+### isLegacyChainId
+
+> `const` **isLegacyChainId**: (`maybeChainId`) => `maybeChainId is LegacyChainId`
+
+#### Parameters
+
+##### maybeChainId
+
+`unknown`
+
+#### Returns
+
+`maybeChainId is LegacyChainId`
 
 ***
 
@@ -11843,35 +12535,35 @@ Chain-specific signature verification.
 
 ##### ArbitrumOne
 
-> `readonly` **ArbitrumOne**: `42161` = `42161`
+> `readonly` **ArbitrumOne**: `42161`
 
 ##### Base
 
-> `readonly` **Base**: `8453` = `8453`
+> `readonly` **Base**: `8453`
 
 ##### Mainnet
 
-> `readonly` **Mainnet**: `1` = `1`
+> `readonly` **Mainnet**: `1`
 
 ##### Optimism
 
-> `readonly` **Optimism**: `10` = `10`
+> `readonly` **Optimism**: `10`
 
 ##### Sonic
 
-> `readonly` **Sonic**: `146` = `146`
+> `readonly` **Sonic**: `146`
 
 ***
 
 ### LegacyChainIdSchema
 
-> `const` **LegacyChainIdSchema**: `ZodUnion`\<\[`ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 10 \| 146 \| 8453 \| 42161\>\[\]\]\>
+> `const` **LegacyChainIdSchema**: `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, ...z.ZodLiteral\<1 \| 8453 \| 42161 \| 146 \| 10\>\[\]\]\>
 
 ***
 
 ### LendingPoolDataSchema
 
-> `const` **LendingPoolDataSchema**: `ZodObject`\<\{ `collateralToken`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `debtToken`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `id`: `ZodType`\<[`ILendingPoolId`](#ilendingpoolid-1), `ZodTypeDef`, [`ILendingPoolId`](#ilendingpoolid-1)\>; `type`: `ZodLiteral`\<[`Lending`](#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `collateralToken?`: [`IToken`](#itoken); `debtToken?`: [`IToken`](#itoken); `id?`: [`ILendingPoolId`](#ilendingpoolid-1); `type?`: [`Lending`](#lending); \}, \{ `collateralToken?`: [`IToken`](#itoken); `debtToken?`: [`IToken`](#itoken); `id?`: [`ILendingPoolId`](#ilendingpoolid-1); `type?`: [`Lending`](#lending); \}\>
+> `const` **LendingPoolDataSchema**: `z.ZodObject`\<\{ `collateralToken`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `debtToken`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `id`: `z.ZodType`\<[`ILendingPoolId`](#ilendingpoolid-1), `z.ZodTypeDef`, [`ILendingPoolId`](#ilendingpoolid-1)\>; `type`: `z.ZodLiteral`\<`PoolType.Lending`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `collateralToken`: [`IToken`](#itoken); `debtToken`: [`IToken`](#itoken); `id`: [`ILendingPoolId`](#ilendingpoolid-1); `type`: `PoolType.Lending`; \}, \{ `collateralToken`: [`IToken`](#itoken); `debtToken`: [`IToken`](#itoken); `id`: [`ILendingPoolId`](#ilendingpoolid-1); `type`: `PoolType.Lending`; \}\>
 
 Zod schema for ILendingPool
 
@@ -11879,7 +12571,7 @@ Zod schema for ILendingPool
 
 ### LendingPoolIdDataSchema
 
-> `const` **LendingPoolIdDataSchema**: `ZodObject`\<\{ `protocol`: `ZodType`\<[`IProtocol`](#iprotocol), `ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `ZodLiteral`\<[`Lending`](#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`Lending`](#lending); \}, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`Lending`](#lending); \}\>
+> `const` **LendingPoolIdDataSchema**: `z.ZodObject`\<\{ `protocol`: `z.ZodType`\<[`IProtocol`](#iprotocol), `z.ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `z.ZodLiteral`\<`PoolType.Lending`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: `PoolType.Lending`; \}, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: `PoolType.Lending`; \}\>
 
 Zod schema for ILendingPoolId
 
@@ -11887,7 +12579,7 @@ Zod schema for ILendingPoolId
 
 ### LendingPoolInfoDataSchema
 
-> `const` **LendingPoolInfoDataSchema**: `ZodObject`\<\{ `collateral`: `ZodType`\<[`ICollateralInfo`](#icollateralinfo), `ZodTypeDef`, [`ICollateralInfo`](#icollateralinfo)\>; `debt`: `ZodType`\<[`IDebtInfo`](#idebtinfo), `ZodTypeDef`, [`IDebtInfo`](#idebtinfo)\>; `id`: `ZodType`\<[`ILendingPoolId`](#ilendingpoolid-1), `ZodTypeDef`, [`ILendingPoolId`](#ilendingpoolid-1)\>; `type`: `ZodLiteral`\<[`Lending`](#lending)\>; \}, `"strip"`, `ZodTypeAny`, \{ `collateral?`: [`ICollateralInfo`](#icollateralinfo); `debt?`: [`IDebtInfo`](#idebtinfo); `id?`: [`ILendingPoolId`](#ilendingpoolid-1); `type?`: [`Lending`](#lending); \}, \{ `collateral?`: [`ICollateralInfo`](#icollateralinfo); `debt?`: [`IDebtInfo`](#idebtinfo); `id?`: [`ILendingPoolId`](#ilendingpoolid-1); `type?`: [`Lending`](#lending); \}\>
+> `const` **LendingPoolInfoDataSchema**: `z.ZodObject`\<\{ `collateral`: `z.ZodType`\<[`ICollateralInfo`](#icollateralinfo), `z.ZodTypeDef`, [`ICollateralInfo`](#icollateralinfo)\>; `debt`: `z.ZodType`\<[`IDebtInfo`](#idebtinfo), `z.ZodTypeDef`, [`IDebtInfo`](#idebtinfo)\>; `id`: `z.ZodType`\<[`ILendingPoolId`](#ilendingpoolid-1), `z.ZodTypeDef`, [`ILendingPoolId`](#ilendingpoolid-1)\>; `type`: `z.ZodLiteral`\<`PoolType.Lending`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `collateral`: [`ICollateralInfo`](#icollateralinfo); `debt`: [`IDebtInfo`](#idebtinfo); `id`: [`ILendingPoolId`](#ilendingpoolid-1); `type`: `PoolType.Lending`; \}, \{ `collateral`: [`ICollateralInfo`](#icollateralinfo); `debt`: [`IDebtInfo`](#idebtinfo); `id`: [`ILendingPoolId`](#ilendingpoolid-1); `type`: `PoolType.Lending`; \}\>
 
 Zod schema for ILendingPoolInfo
 
@@ -11895,7 +12587,7 @@ Zod schema for ILendingPoolInfo
 
 ### LendingPositionDataSchema
 
-> `const` **LendingPositionDataSchema**: `ZodObject`\<\{ `collateralAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `debtAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `id`: `ZodType`\<[`ILendingPositionId`](#ilendingpositionid-1), `ZodTypeDef`, [`ILendingPositionId`](#ilendingpositionid-1)\>; `pool`: `ZodType`\<[`ILendingPool`](#ilendingpool), `ZodTypeDef`, [`ILendingPool`](#ilendingpool)\>; `subtype`: `ZodNativeEnum`\<*typeof* [`LendingPositionType`](#lendingpositiontype)\>; `type`: `ZodLiteral`\<[`Lending`](#lending-1)\>; \}, `"strip"`, `ZodTypeAny`, \{ `collateralAmount?`: [`ITokenAmount`](#itokenamount); `debtAmount?`: [`ITokenAmount`](#itokenamount); `id?`: [`ILendingPositionId`](#ilendingpositionid-1); `pool?`: [`ILendingPool`](#ilendingpool); `subtype?`: [`LendingPositionType`](#lendingpositiontype); `type?`: [`Lending`](#lending-1); \}, \{ `collateralAmount?`: [`ITokenAmount`](#itokenamount); `debtAmount?`: [`ITokenAmount`](#itokenamount); `id?`: [`ILendingPositionId`](#ilendingpositionid-1); `pool?`: [`ILendingPool`](#ilendingpool); `subtype?`: [`LendingPositionType`](#lendingpositiontype); `type?`: [`Lending`](#lending-1); \}\>
+> `const` **LendingPositionDataSchema**: `z.ZodObject`\<\{ `collateralAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `debtAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `id`: `z.ZodType`\<[`ILendingPositionId`](#ilendingpositionid-1), `z.ZodTypeDef`, [`ILendingPositionId`](#ilendingpositionid-1)\>; `pool`: `z.ZodType`\<[`ILendingPool`](#ilendingpool), `z.ZodTypeDef`, [`ILendingPool`](#ilendingpool)\>; `subtype`: `z.ZodNativeEnum`\<*typeof* [`LendingPositionType`](../common/src/README.md#lendingpositiontype)\>; `type`: `z.ZodLiteral`\<`PositionType.Lending`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `collateralAmount`: [`ITokenAmount`](#itokenamount); `debtAmount`: [`ITokenAmount`](#itokenamount); `id`: [`ILendingPositionId`](#ilendingpositionid-1); `pool`: [`ILendingPool`](#ilendingpool); `subtype`: [`LendingPositionType`](../common/src/README.md#lendingpositiontype); `type`: `PositionType.Lending`; \}, \{ `collateralAmount`: [`ITokenAmount`](#itokenamount); `debtAmount`: [`ITokenAmount`](#itokenamount); `id`: [`ILendingPositionId`](#ilendingpositionid-1); `pool`: [`ILendingPool`](#ilendingpool); `subtype`: [`LendingPositionType`](../common/src/README.md#lendingpositiontype); `type`: `PositionType.Lending`; \}\>
 
 Zod schema for ILendingPosition
 
@@ -11903,7 +12595,7 @@ Zod schema for ILendingPosition
 
 ### LendingPositionIdDataSchema
 
-> `const` **LendingPositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodLiteral`\<[`Lending`](#lending-1)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: `string`; `type?`: [`Lending`](#lending-1); \}, \{ `id?`: `string`; `type?`: [`Lending`](#lending-1); \}\>
+> `const` **LendingPositionIdDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodString`; `type`: `z.ZodLiteral`\<`PositionType.Lending`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: `string`; `type`: `PositionType.Lending`; \}, \{ `id`: `string`; `type`: `PositionType.Lending`; \}\>
 
 Zod schema for ILendingPositionId
 
@@ -11911,7 +12603,7 @@ Zod schema for ILendingPositionId
 
 ### LendingPositionTypeSchema
 
-> `const` **LendingPositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`LendingPositionType`](#lendingpositiontype)\>
+> `const` **LendingPositionTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`LendingPositionType`](../common/src/README.md#lendingpositiontype)\>
 
 Zod schema for LendingPositionType
 
@@ -11925,13 +12617,13 @@ Zod schema for LendingPositionType
 
 ### NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE
 
-> `const` **NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE**: `` `0x${string}` ``
+> `const` **NATIVE\_CURRENCY\_ADDRESS\_LOWERCASE**: [`AddressValue`](#addressvalue-1)
 
 ***
 
 ### OracleProviderTypeSchema
 
-> `const` **OracleProviderTypeSchema**: `ZodNativeEnum`\<*typeof* [`OracleProviderType`](#oracleprovidertype)\>
+> `const` **OracleProviderTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`OracleProviderType`](../common/src/README.md#oracleprovidertype)\>
 
 Zod schema for OracleProviderType
 
@@ -11939,7 +12631,7 @@ Zod schema for OracleProviderType
 
 ### PercentageDataSchema
 
-> `const` **PercentageDataSchema**: `ZodObject`\<\{ `value`: `ZodNumber`; \}, `"strip"`, `ZodTypeAny`, \{ `value?`: `number`; \}, \{ `value?`: `number`; \}\>
+> `const` **PercentageDataSchema**: `z.ZodObject`\<\{ `value`: `z.ZodNumber`; \}, `"strip"`, `z.ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>
 
 Zod schema for IPercentage
 
@@ -11947,7 +12639,7 @@ Zod schema for IPercentage
 
 ### PoolDataSchema
 
-> `const` **PoolDataSchema**: `ZodObject`\<\{ `id`: `ZodType`\<[`IPoolId`](#ipoolid-1), `ZodTypeDef`, [`IPoolId`](#ipoolid-1)\>; `type`: `ZodNativeEnum`\<*typeof* [`PoolType`](#pooltype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: [`IPoolId`](#ipoolid-1); `type?`: [`PoolType`](#pooltype); \}, \{ `id?`: [`IPoolId`](#ipoolid-1); `type?`: [`PoolType`](#pooltype); \}\>
+> `const` **PoolDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodType`\<[`IPoolId`](#ipoolid-1), `z.ZodTypeDef`, [`IPoolId`](#ipoolid-1)\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../common/src/README.md#pooltype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: [`IPoolId`](#ipoolid-1); `type`: [`PoolType`](../common/src/README.md#pooltype); \}, \{ `id`: [`IPoolId`](#ipoolid-1); `type`: [`PoolType`](../common/src/README.md#pooltype); \}\>
 
 Zod schema for IPool
 
@@ -11955,7 +12647,7 @@ Zod schema for IPool
 
 ### PoolIdDataSchema
 
-> `const` **PoolIdDataSchema**: `ZodObject`\<\{ `protocol`: `ZodType`\<[`IProtocol`](#iprotocol), `ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `ZodNativeEnum`\<*typeof* [`PoolType`](#pooltype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}\>
+> `const` **PoolIdDataSchema**: `z.ZodObject`\<\{ `protocol`: `z.ZodType`\<[`IProtocol`](#iprotocol), `z.ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../common/src/README.md#pooltype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}\>
 
 Zod schema for IPoolId
 
@@ -11963,7 +12655,7 @@ Zod schema for IPoolId
 
 ### PoolInfoDataSchema
 
-> `const` **PoolInfoDataSchema**: `ZodObject`\<\{ `id`: `ZodObject`\<\{ `protocol`: `ZodType`\<[`IProtocol`](#iprotocol), `ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `ZodNativeEnum`\<*typeof* [`PoolType`](#pooltype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}\>; `type`: `ZodNativeEnum`\<*typeof* [`PoolType`](#pooltype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}; `type?`: [`PoolType`](#pooltype); \}, \{ `id?`: \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`PoolType`](#pooltype); \}; `type?`: [`PoolType`](#pooltype); \}\>
+> `const` **PoolInfoDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodObject`\<\{ `protocol`: `z.ZodType`\<[`IProtocol`](#iprotocol), `z.ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../common/src/README.md#pooltype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../common/src/README.md#pooltype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}; `type`: [`PoolType`](../common/src/README.md#pooltype); \}, \{ `id`: \{ `protocol`: [`IProtocol`](#iprotocol); `type`: [`PoolType`](../common/src/README.md#pooltype); \}; `type`: [`PoolType`](../common/src/README.md#pooltype); \}\>
 
 Zod schema for IPoolInfo
 
@@ -11971,7 +12663,7 @@ Zod schema for IPoolInfo
 
 ### PoolTypeSchema
 
-> `const` **PoolTypeSchema**: `ZodNativeEnum`\<*typeof* [`PoolType`](#pooltype)\>
+> `const` **PoolTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`PoolType`](../common/src/README.md#pooltype)\>
 
 Zod schema for PoolType
 
@@ -11979,7 +12671,7 @@ Zod schema for PoolType
 
 ### PositionDataSchema
 
-> `const` **PositionDataSchema**: `ZodObject`\<\{ `id`: `ZodType`\<[`IPositionId`](#ipositionid-1), `ZodTypeDef`, [`IPositionId`](#ipositionid-1)\>; `pool`: `ZodType`\<[`IPool`](#ipool), `ZodTypeDef`, [`IPool`](#ipool)\>; `type`: `ZodNativeEnum`\<*typeof* [`PositionType`](#positiontype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: [`IPositionId`](#ipositionid-1); `pool?`: [`IPool`](#ipool); `type?`: [`PositionType`](#positiontype); \}, \{ `id?`: [`IPositionId`](#ipositionid-1); `pool?`: [`IPool`](#ipool); `type?`: [`PositionType`](#positiontype); \}\>
+> `const` **PositionDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodType`\<[`IPositionId`](#ipositionid-1), `z.ZodTypeDef`, [`IPositionId`](#ipositionid-1)\>; `pool`: `z.ZodType`\<[`IPool`](#ipool), `z.ZodTypeDef`, [`IPool`](#ipool)\>; `type`: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../common/src/README.md#positiontype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: [`IPositionId`](#ipositionid-1); `pool`: [`IPool`](#ipool); `type`: [`PositionType`](../common/src/README.md#positiontype); \}, \{ `id`: [`IPositionId`](#ipositionid-1); `pool`: [`IPool`](#ipool); `type`: [`PositionType`](../common/src/README.md#positiontype); \}\>
 
 Zod schema for IPosition
 
@@ -11987,7 +12679,7 @@ Zod schema for IPosition
 
 ### PositionIdDataSchema
 
-> `const` **PositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodNativeEnum`\<*typeof* [`PositionType`](#positiontype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: `string`; `type?`: [`PositionType`](#positiontype); \}, \{ `id?`: `string`; `type?`: [`PositionType`](#positiontype); \}\>
+> `const` **PositionIdDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodString`; `type`: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../common/src/README.md#positiontype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: `string`; `type`: [`PositionType`](../common/src/README.md#positiontype); \}, \{ `id`: `string`; `type`: [`PositionType`](../common/src/README.md#positiontype); \}\>
 
 Zod schema for IPositionId
 
@@ -11995,7 +12687,7 @@ Zod schema for IPositionId
 
 ### PositionsManagerDataSchema
 
-> `const` **PositionsManagerDataSchema**: `ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; \}\>
+> `const` **PositionsManagerDataSchema**: `z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; \}\>
 
 Zod schema for IPositionsManager
 
@@ -12003,7 +12695,7 @@ Zod schema for IPositionsManager
 
 ### PositionTypeSchema
 
-> `const` **PositionTypeSchema**: `ZodNativeEnum`\<*typeof* [`PositionType`](#positiontype)\>
+> `const` **PositionTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`PositionType`](../common/src/README.md#positiontype)\>
 
 Zod schema for PositionType
 
@@ -12011,7 +12703,7 @@ Zod schema for PositionType
 
 ### PriceDataSchema
 
-> `const` **PriceDataSchema**: `ZodObject`\<\{ `base`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<...\>, `ZodUnion`\<...\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `quote`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<...\>, `ZodUnion`\<...\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `value`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}\>
+> `const` **PriceDataSchema**: `z.ZodObject`\<\{ `base`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<...\>, `z.ZodUnion`\<...\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `quote`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<...\>, `z.ZodUnion`\<...\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `value`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}\>
 
 Zod schema for IPrice
 
@@ -12019,7 +12711,7 @@ Zod schema for IPrice
 
 ### ProtocolDataSchema
 
-> `const` **ProtocolDataSchema**: `ZodObject`\<\{ `chainInfo`: `ZodType`\<[`IChainInfo`](#ichaininfo), `ZodTypeDef`, [`IChainInfo`](#ichaininfo)\>; `name`: `ZodNativeEnum`\<*typeof* [`ProtocolName`](#protocolname)\>; \}, `"strip"`, `ZodTypeAny`, \{ `chainInfo?`: [`IChainInfo`](#ichaininfo); `name?`: [`ProtocolName`](#protocolname); \}, \{ `chainInfo?`: [`IChainInfo`](#ichaininfo); `name?`: [`ProtocolName`](#protocolname); \}\>
+> `const` **ProtocolDataSchema**: `z.ZodObject`\<\{ `chainInfo`: `z.ZodType`\<[`IChainInfo`](#ichaininfo), `z.ZodTypeDef`, [`IChainInfo`](#ichaininfo)\>; `name`: `z.ZodNativeEnum`\<*typeof* [`ProtocolName`](../common/src/README.md#protocolname)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](#ichaininfo); `name`: [`ProtocolName`](../common/src/README.md#protocolname); \}, \{ `chainInfo`: [`IChainInfo`](#ichaininfo); `name`: [`ProtocolName`](../common/src/README.md#protocolname); \}\>
 
 Zod schema for IProtocol
 
@@ -12027,7 +12719,7 @@ Zod schema for IProtocol
 
 ### ProtocolNameSchema
 
-> `const` **ProtocolNameSchema**: `ZodNativeEnum`\<*typeof* [`ProtocolName`](#protocolname)\>
+> `const` **ProtocolNameSchema**: `z.ZodNativeEnum`\<*typeof* [`ProtocolName`](../common/src/README.md#protocolname)\>
 
 Zod schema for ProtocolName
 
@@ -12035,7 +12727,7 @@ Zod schema for ProtocolName
 
 ### RebalanceDataSchema
 
-> `const` **RebalanceDataSchema**: `ZodObject`\<\{ `amount`: `ZodObject`\<\{ `amount`: `ZodString`; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}, \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\>; `fromArk`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `toArk`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}; `fromArk?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `toArk?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; \}, \{ `amount?`: \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}; `fromArk?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `toArk?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; \}\>
+> `const` **RebalanceDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodObject`\<\{ `amount`: `z.ZodString`; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}, \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\>; `fromArk`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `toArk`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}; `fromArk`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `toArk`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; \}, \{ `amount`: \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}; `fromArk`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `toArk`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; \}\>
 
 Zod schema for IRebalanceData
 
@@ -12043,7 +12735,7 @@ Zod schema for IRebalanceData
 
 ### RiskRatioDataSchema
 
-> `const` **RiskRatioDataSchema**: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`RiskRatioType`](#riskratiotype)\>; `value`: `ZodUnion`\<\[`ZodObject`\<\{ `value`: `ZodNumber`; \}, `"strip"`, `ZodTypeAny`, \{ `value?`: `number`; \}, \{ `value?`: `number`; \}\>, `ZodNumber`\]\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`RiskRatioType`](#riskratiotype); `value?`: `number` \| \{ `value?`: `number`; \}; \}, \{ `type?`: [`RiskRatioType`](#riskratiotype); `value?`: `number` \| \{ `value?`: `number`; \}; \}\>
+> `const` **RiskRatioDataSchema**: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<*typeof* [`RiskRatioType`](#riskratiotype)\>; `value`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `value`: `z.ZodNumber`; \}, `"strip"`, `z.ZodTypeAny`, \{ `value`: `number`; \}, \{ `value`: `number`; \}\>, `z.ZodNumber`\]\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`RiskRatioType`](#riskratiotype); `value`: `number` \| \{ `value`: `number`; \}; \}, \{ `type`: [`RiskRatioType`](#riskratiotype); `value`: `number` \| \{ `value`: `number`; \}; \}\>
 
 Zod schema for IRiskRatioData
 
@@ -12051,7 +12743,7 @@ Zod schema for IRiskRatioData
 
 ### SDKErrorDataSchema
 
-> `const` **SDKErrorDataSchema**: `ZodObject`\<\{ `message`: `ZodString`; `reason`: `ZodString`; `type`: `ZodNativeEnum`\<*typeof* [`SDKErrorType`](#sdkerrortype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `message?`: `string`; `reason?`: `string`; `type?`: [`SDKErrorType`](#sdkerrortype); \}, \{ `message?`: `string`; `reason?`: `string`; `type?`: [`SDKErrorType`](#sdkerrortype); \}\>
+> `const` **SDKErrorDataSchema**: `z.ZodObject`\<\{ `message`: `z.ZodString`; `reason`: `z.ZodString`; `type`: `z.ZodNativeEnum`\<*typeof* [`SDKErrorType`](../common/src/README.md#sdkerrortype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `message`: `string`; `reason`: `string`; `type`: [`SDKErrorType`](../common/src/README.md#sdkerrortype); \}, \{ `message`: `string`; `reason`: `string`; `type`: [`SDKErrorType`](../common/src/README.md#sdkerrortype); \}\>
 
 Zod schema for ISDKError
 
@@ -12059,7 +12751,7 @@ Zod schema for ISDKError
 
 ### SimulationSchema
 
-> `const` **SimulationSchema**: `ZodObject`\<\{ `balanceChanges`: `ZodArray`\<`ZodObject`\<\{ `amount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token?`: [`IToken`](#itoken); \}, \{ `amount?`: [`ITokenAmount`](#itokenamount); `fiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token?`: [`IToken`](#itoken); \}\>, `"many"`\>; `gasEstimations`: `ZodArray`\<`ZodObject`\<\{ `gasFiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `gasTokenAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `ZodTypeAny`, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount?`: [`ITokenAmount`](#itokenamount); \}, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount?`: [`ITokenAmount`](#itokenamount); \}\>, `"many"`\>; `steps`: `ZodArray`\<`ZodAny`, `"many"`\>; `type`: `ZodNativeEnum`\<*typeof* [`SimulationType`](#simulationtype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `balanceChanges?`: `object`[]; `gasEstimations?`: `object`[]; `steps?`: `any`[]; `type?`: [`SimulationType`](#simulationtype); \}, \{ `balanceChanges?`: `object`[]; `gasEstimations?`: `object`[]; `steps?`: `any`[]; `type?`: [`SimulationType`](#simulationtype); \}\>
+> `const` **SimulationSchema**: `z.ZodObject`\<\{ `balanceChanges`: `z.ZodArray`\<`z.ZodObject`\<\{ `amount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `fiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token`: [`IToken`](#itoken); \}, \{ `amount`: [`ITokenAmount`](#itokenamount); `fiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `token`: [`IToken`](#itoken); \}\>, `"many"`\>; `gasEstimations`: `z.ZodArray`\<`z.ZodObject`\<\{ `gasFiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `gasTokenAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `gasFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount`: [`ITokenAmount`](#itokenamount); \}, \{ `gasFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `gasTokenAmount`: [`ITokenAmount`](#itokenamount); \}\>, `"many"`\>; `steps`: `z.ZodArray`\<`z.ZodAny`, `"many"`\>; `type`: `z.ZodNativeEnum`\<*typeof* [`SimulationType`](../common/src/README.md#simulationtype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `balanceChanges`: `object`[]; `gasEstimations`: `object`[]; `steps`: `any`[]; `type`: [`SimulationType`](../common/src/README.md#simulationtype); \}, \{ `balanceChanges`: `object`[]; `gasEstimations`: `object`[]; `steps`: `any`[]; `type`: [`SimulationType`](../common/src/README.md#simulationtype); \}\>
 
 Zod schema for ISimulation
 
@@ -12067,7 +12759,7 @@ Zod schema for ISimulation
 
 ### SpotPriceInfoDataSchema
 
-> `const` **SpotPriceInfoDataSchema**: `ZodObject`\<\{ `price`: `ZodObject`\<\{ `base`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<...\>; `value`: `ZodType`\<..., ..., ...\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<...\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}, \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `quote`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<...\>; `value`: `ZodType`\<..., ..., ...\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<...\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}, \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `value`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}\>; `provider`: `ZodNativeEnum`\<*typeof* [`OracleProviderType`](#oracleprovidertype)\>; `token`: `ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<\[`ZodLiteral`\<...\>, `ZodLiteral`\<...\>, `...ZodLiteral<(...)>[]`\]\>, `ZodUnion`\<\[`ZodLiteral`\<...\>, `ZodLiteral`\<...\>, `...ZodLiteral<(...)>[]`\]\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>; \}, `"strip"`, `ZodTypeAny`, \{ `price?`: \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}; `provider?`: [`OracleProviderType`](#oracleprovidertype); `token?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}; \}, \{ `price?`: \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}; `provider?`: [`OracleProviderType`](#oracleprovidertype); `token?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}; \}\>
+> `const` **SpotPriceInfoDataSchema**: `z.ZodObject`\<\{ `price`: `z.ZodObject`\<\{ `base`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<...\>; `value`: `z.ZodType`\<..., ..., ...\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<...\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}, \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `quote`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<...\>; `value`: `z.ZodType`\<..., ..., ...\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<...\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}, \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `value`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}\>; `provider`: `z.ZodNativeEnum`\<*typeof* [`OracleProviderType`](../common/src/README.md#oracleprovidertype)\>; `token`: `z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<\[`z.ZodLiteral`\<...\>, `z.ZodLiteral`\<...\>, `...(...)`\]\>, `z.ZodUnion`\<\[`z.ZodLiteral`\<...\>, `z.ZodLiteral`\<...\>, `...(...)`\]\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `price`: \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}; `provider`: [`OracleProviderType`](../common/src/README.md#oracleprovidertype); `token`: \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; \}, \{ `price`: \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}; `provider`: [`OracleProviderType`](../common/src/README.md#oracleprovidertype); `token`: \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; \}\>
 
 Zod schema for ISpotPriceInfo
 
@@ -12075,7 +12767,7 @@ Zod schema for ISpotPriceInfo
 
 ### SpotPricesInfoDataSchema
 
-> `const` **SpotPricesInfoDataSchema**: `ZodObject`\<\{ `priceByAddress`: `ZodRecord`\<`ZodString`, `ZodObject`\<\{ `base`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: ...; `value`: ...; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: ...; `value?`: ...; \}, \{ `type?`: ...; `value?`: ...; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: ...; `name`: ...; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: ...; `name?`: ...; \}, \{ `chainId?`: ...; `name?`: ...; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<...\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}; `chainInfo?`: \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}; `chainInfo?`: \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `quote`: `ZodUnion`\<\[`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: ...; `value`: ...; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: ...; `value?`: ...; \}, \{ `type?`: ...; `value?`: ...; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: ...; `name`: ...; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: ...; `name?`: ...; \}, \{ `chainId?`: ...; `name?`: ...; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<...\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}; `chainInfo?`: \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${(...)}` ``; \}; `chainInfo?`: \{ `chainId?`: ... \| ... \| ... \| ... \| ... \| ...; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodNativeEnum`\<*typeof* [`FiatCurrency`](#fiatcurrency)\>\]\>; `value`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}\>\>; `provider`: `ZodNativeEnum`\<*typeof* [`OracleProviderType`](#oracleprovidertype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `priceByAddress?`: `Record`\<`string`, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}\>; `provider?`: [`OracleProviderType`](#oracleprovidertype); \}, \{ `priceByAddress?`: `Record`\<`string`, \{ `base?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `quote?`: \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \} \| [`USD`](#usd) \| [`EUR`](#eur); `value?`: `string`; \}\>; `provider?`: [`OracleProviderType`](#oracleprovidertype); \}\>
+> `const` **SpotPricesInfoDataSchema**: `z.ZodObject`\<\{ `priceByAddress`: `z.ZodRecord`\<`z.ZodString`, `z.ZodObject`\<\{ `base`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: ...; `value`: ...; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: ...; `value`: ...; \}, \{ `type`: ...; `value`: ...; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: ...; `name`: ...; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: ...; `name`: ...; \}, \{ `chainId`: ...; `name`: ...; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<...\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}; `chainInfo`: \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}; `chainInfo`: \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `quote`: `z.ZodUnion`\<\[`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: ...; `value`: ...; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: ...; `value`: ...; \}, \{ `type`: ...; `value`: ...; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: ...; `name`: ...; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: ...; `name`: ...; \}, \{ `chainId`: ...; `name`: ...; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<...\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}; `chainInfo`: \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${(...)}` ``; \}; `chainInfo`: \{ `chainId`: ... \| ... \| ... \| ... \| ... \| ...; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodNativeEnum`\<[`FiatCurrency`](../common/src/README.md#fiatcurrency)\>\]\>; `value`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}\>\>; `provider`: `z.ZodNativeEnum`\<*typeof* [`OracleProviderType`](../common/src/README.md#oracleprovidertype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `priceByAddress`: `Record`\<`string`, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}\>; `provider`: [`OracleProviderType`](../common/src/README.md#oracleprovidertype); \}, \{ `priceByAddress`: `Record`\<`string`, \{ `base`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `quote`: [`FiatCurrency`](../common/src/README.md#fiatcurrency) \| \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}; `value`: `string`; \}\>; `provider`: [`OracleProviderType`](../common/src/README.md#oracleprovidertype); \}\>
 
 Zod schema for ISpotPriceInfo
 
@@ -12083,7 +12775,7 @@ Zod schema for ISpotPriceInfo
 
 ### StakingBucketSchema
 
-> `const` **StakingBucketSchema**: `ZodNativeEnum`\<*typeof* [`StakingBucket`](#stakingbucket)\>
+> `const` **StakingBucketSchema**: `z.ZodNativeEnum`\<*typeof* [`StakingBucket`](../common/src/README.md#stakingbucket)\>
 
 Zod schema for StakingBucket
 
@@ -12091,13 +12783,13 @@ Zod schema for StakingBucket
 
 ### StakingBucketValues
 
-> `const` **StakingBucketValues**: [`StakingBucket`](#stakingbucket)[]
+> `const` **StakingBucketValues**: [`StakingBucket`](../common/src/README.md#stakingbucket)[]
 
 ***
 
 ### SwapErrorDataSchema
 
-> `const` **SwapErrorDataSchema**: `ZodObject`\<\{ `apiQuery`: `ZodString`; `message`: `ZodString`; `reason`: `ZodString`; `statusCode`: `ZodNumber`; `subtype`: `ZodNativeEnum`\<*typeof* [`SwapErrorType`](#swaperrortype)\>; `type`: `ZodLiteral`\<[`SwapError`](#swaperror)\>; \}, `"strip"`, `ZodTypeAny`, \{ `apiQuery?`: `string`; `message?`: `string`; `reason?`: `string`; `statusCode?`: `number`; `subtype?`: [`SwapErrorType`](#swaperrortype); `type?`: [`SwapError`](#swaperror); \}, \{ `apiQuery?`: `string`; `message?`: `string`; `reason?`: `string`; `statusCode?`: `number`; `subtype?`: [`SwapErrorType`](#swaperrortype); `type?`: [`SwapError`](#swaperror); \}\>
+> `const` **SwapErrorDataSchema**: `z.ZodObject`\<\{ `apiQuery`: `z.ZodString`; `message`: `z.ZodString`; `reason`: `z.ZodString`; `statusCode`: `z.ZodNumber`; `subtype`: `z.ZodNativeEnum`\<*typeof* [`SwapErrorType`](../common/src/README.md#swaperrortype)\>; `type`: `z.ZodLiteral`\<`SDKErrorType.SwapError`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `apiQuery`: `string`; `message`: `string`; `reason`: `string`; `statusCode`: `number`; `subtype`: [`SwapErrorType`](../common/src/README.md#swaperrortype); `type`: `SDKErrorType.SwapError`; \}, \{ `apiQuery`: `string`; `message`: `string`; `reason`: `string`; `statusCode`: `number`; `subtype`: [`SwapErrorType`](../common/src/README.md#swaperrortype); `type`: `SDKErrorType.SwapError`; \}\>
 
 Zod schema for ISwapError
 
@@ -12105,7 +12797,7 @@ Zod schema for ISwapError
 
 ### TokenAmountDataSchema
 
-> `const` **TokenAmountDataSchema**: `ZodObject`\<\{ `amount`: `ZodString`; `token`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}, \{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\>
+> `const` **TokenAmountDataSchema**: `z.ZodObject`\<\{ `amount`: `z.ZodString`; `token`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}, \{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\>
 
 Zod schema for ITokenAmount
 
@@ -12113,7 +12805,7 @@ Zod schema for ITokenAmount
 
 ### TokenDataSchema
 
-> `const` **TokenDataSchema**: `ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<\[`ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `146` \| `999` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 146 \| 999 \| 8453 \| 42161\>\[\]\]\>, `ZodUnion`\<\[`ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, `ZodLiteral`\<`1` \| `10` \| `146` \| `8453` \| `42161`\>, ...ZodLiteral\<1 \| 10 \| 146 \| 8453 \| 42161\>\[\]\]\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>
+> `const` **TokenDataSchema**: `z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `999`\>, `...z.ZodLiteral<(...)>[]`\]\>, `z.ZodUnion`\<\[`z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, `z.ZodLiteral`\<`1` \| `8453` \| `42161` \| `146` \| `10`\>, `...z.ZodLiteral<(...)>[]`\]\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>
 
 Zod schema for IToken
 
@@ -12121,7 +12813,7 @@ Zod schema for IToken
 
 ### TokensProviderTypeSchema
 
-> `const` **TokensProviderTypeSchema**: `ZodNativeEnum`\<*typeof* [`TokensProviderType`](#tokensprovidertype)\>
+> `const` **TokensProviderTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`TokensProviderType`](../common/src/README.md#tokensprovidertype)\>
 
 Zod schema for the TokensProviderType enum.
 
@@ -12129,7 +12821,7 @@ Zod schema for the TokensProviderType enum.
 
 ### TokenSymbolSchema
 
-> `const` **TokenSymbolSchema**: `ZodString`
+> `const` **TokenSymbolSchema**: `z.ZodString`
 
 Zod schema for TokenSymbol
 
@@ -12137,7 +12829,7 @@ Zod schema for TokenSymbol
 
 ### UserDataSchema
 
-> `const` **UserDataSchema**: `ZodObject`\<\{ `chainInfo`: `ZodType`\<[`IChainInfo`](#ichaininfo), `ZodTypeDef`, [`IChainInfo`](#ichaininfo)\>; `wallet`: `ZodType`\<[`IWallet`](#iwallet), `ZodTypeDef`, [`IWallet`](#iwallet)\>; \}, `"strip"`, `ZodTypeAny`, \{ `chainInfo?`: [`IChainInfo`](#ichaininfo); `wallet?`: [`IWallet`](#iwallet); \}, \{ `chainInfo?`: [`IChainInfo`](#ichaininfo); `wallet?`: [`IWallet`](#iwallet); \}\>
+> `const` **UserDataSchema**: `z.ZodObject`\<\{ `chainInfo`: `z.ZodType`\<[`IChainInfo`](#ichaininfo), `z.ZodTypeDef`, [`IChainInfo`](#ichaininfo)\>; `wallet`: `z.ZodType`\<[`IWallet`](#iwallet), `z.ZodTypeDef`, [`IWallet`](#iwallet)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainInfo`: [`IChainInfo`](#ichaininfo); `wallet`: [`IWallet`](#iwallet); \}, \{ `chainInfo`: [`IChainInfo`](#ichaininfo); `wallet`: [`IWallet`](#iwallet); \}\>
 
 Zod schema for the data part of IUser
 
@@ -12145,7 +12837,7 @@ Zod schema for the data part of IUser
 
 ### UserPortfolioDataSchema
 
-> `const` **UserPortfolioDataSchema**: `ZodObject`\<\{ `totalFiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `user`: `ZodType`\<[`IUser`](#iuser), `ZodTypeDef`, [`IUser`](#iuser)\>; `walletHoldings`: `ZodArray`\<`ZodType`\<[`IHolding`](#iholding), `ZodTypeDef`, [`IHolding`](#iholding)\>, `"many"`\>; \}, `"strip"`, `ZodTypeAny`, \{ `totalFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `user?`: [`IUser`](#iuser); `walletHoldings?`: [`IHolding`](#iholding)[]; \}, \{ `totalFiatValue?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `user?`: [`IUser`](#iuser); `walletHoldings?`: [`IHolding`](#iholding)[]; \}\>
+> `const` **UserPortfolioDataSchema**: `z.ZodObject`\<\{ `totalFiatValue`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `user`: `z.ZodType`\<[`IUser`](#iuser), `z.ZodTypeDef`, [`IUser`](#iuser)\>; `walletHoldings`: `z.ZodArray`\<`z.ZodType`\<[`IHolding`](#iholding), `z.ZodTypeDef`, [`IHolding`](#iholding)\>, `"many"`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `totalFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `user`: [`IUser`](#iuser); `walletHoldings`: [`IHolding`](#iholding)[]; \}, \{ `totalFiatValue`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `user`: [`IUser`](#iuser); `walletHoldings`: [`IHolding`](#iholding)[]; \}\>
 
 Zod schema for IUserPortfolio
 
@@ -12153,7 +12845,7 @@ Zod schema for IUserPortfolio
 
 ### VaultDataSchema
 
-> `const` **VaultDataSchema**: `ZodIntersection`\<`ZodObject`\<\{ `address`: `ZodObject`\<\{ `type`: `ZodNativeEnum`\<*typeof* [`AddressType`](#addresstype)\>; `value`: `ZodType`\<`` `0x${string}` ``, `ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `ZodTypeAny`, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}, \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}\>; `chainInfo`: `ZodObject`\<\{ `chainId`: `ZodUnion`\<\[`ZodUnion`\<\[`ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, ...ZodLiteral\<(...) \| (...) \| (...) \| (...) \| (...)\>\[\]\]\>, `ZodUnion`\<\[`ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, ...ZodLiteral\<(...) \| (...) \| (...) \| (...) \| (...)\>\[\]\]\>\]\>; `name`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}, \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}\>; `decimals`: `ZodNumber`; `logoURI`: `ZodOptional`\<`ZodNullable`\<`ZodString`\>\>; `name`: `ZodString`; `symbol`: `ZodString`; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}, \{ `address?`: \{ `type?`: [`AddressType`](#addresstype); `value?`: `` `0x${string}` ``; \}; `chainInfo?`: \{ `chainId?`: `1` \| `10` \| `146` \| `999` \| `8453` \| `42161`; `name?`: `string`; \}; `decimals?`: `number`; `logoURI?`: `string`; `name?`: `string`; `symbol?`: `string`; \}\>, `ZodObject`\<\{ `asset`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `ZodTypeAny`, \{ `asset?`: [`IToken`](#itoken); \}, \{ `asset?`: [`IToken`](#itoken); \}\>\>
+> `const` **VaultDataSchema**: `z.ZodIntersection`\<`z.ZodObject`\<\{ `address`: `z.ZodObject`\<\{ `type`: `z.ZodNativeEnum`\<[`AddressType`](../common/src/README.md#addresstype)\>; `value`: `z.ZodType`\<`` `0x${string}` ``, `z.ZodTypeDef`, `` `0x${string}` ``\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}, \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}\>; `chainInfo`: `z.ZodObject`\<\{ `chainId`: `z.ZodUnion`\<\[`z.ZodUnion`\<\[`z.ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `z.ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `...(...)[]`\]\>, `z.ZodUnion`\<\[`z.ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `z.ZodLiteral`\<... \| ... \| ... \| ... \| ...\>, `...(...)[]`\]\>\]\>; `name`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}, \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}\>; `decimals`: `z.ZodNumber`; `logoURI`: `z.ZodOptional`\<`z.ZodNullable`\<`z.ZodString`\>\>; `name`: `z.ZodString`; `symbol`: `z.ZodString`; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}, \{ `address`: \{ `type`: [`AddressType`](../common/src/README.md#addresstype); `value`: `` `0x${string}` ``; \}; `chainInfo`: \{ `chainId`: `1` \| `8453` \| `42161` \| `146` \| `999` \| `10`; `name`: `string`; \}; `decimals`: `number`; `logoURI?`: `string` \| `null`; `name`: `string`; `symbol`: `string`; \}\>, `z.ZodObject`\<\{ `asset`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `asset`: [`IToken`](#itoken); \}, \{ `asset`: [`IToken`](#itoken); \}\>\>
 
 Zod schema for IVault
 
@@ -12161,7 +12853,7 @@ Zod schema for IVault
 
 ### WalletDataSchema
 
-> `const` **WalletDataSchema**: `ZodObject`\<\{ `address`: `ZodType`\<[`IAddress`](#iaddress), `ZodTypeDef`, [`IAddress`](#iaddress)\>; \}, `"strip"`, `ZodTypeAny`, \{ `address?`: [`IAddress`](#iaddress); \}, \{ `address?`: [`IAddress`](#iaddress); \}\>
+> `const` **WalletDataSchema**: `z.ZodObject`\<\{ `address`: `z.ZodType`\<[`IAddress`](#iaddress), `z.ZodTypeDef`, [`IAddress`](#iaddress)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `address`: [`IAddress`](#iaddress); \}, \{ `address`: [`IAddress`](#iaddress); \}\>
 
 Zod schema for IWallet
 
@@ -12169,7 +12861,7 @@ Zod schema for IWallet
 
 ### YieldPoolIdDataSchema
 
-> `const` **YieldPoolIdDataSchema**: `ZodObject`\<\{ `protocol`: `ZodType`\<[`IProtocol`](#iprotocol), `ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `ZodLiteral`\<[`Yield`](#yield)\>; \}, `"strip"`, `ZodTypeAny`, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`Yield`](#yield); \}, \{ `protocol?`: [`IProtocol`](#iprotocol); `type?`: [`Yield`](#yield); \}\>
+> `const` **YieldPoolIdDataSchema**: `z.ZodObject`\<\{ `protocol`: `z.ZodType`\<[`IProtocol`](#iprotocol), `z.ZodTypeDef`, [`IProtocol`](#iprotocol)\>; `type`: `z.ZodLiteral`\<`PoolType.Yield`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: `PoolType.Yield`; \}, \{ `protocol`: [`IProtocol`](#iprotocol); `type`: `PoolType.Yield`; \}\>
 
 Zod schema for IYieldPoolId
 
@@ -12177,7 +12869,7 @@ Zod schema for IYieldPoolId
 
 ### YieldPoolInfoDataSchema
 
-> `const` **YieldPoolInfoDataSchema**: `ZodObject`\<\{ `currentApy`: `ZodType`\<[`IPercentage`](#ipercentage), `ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `id`: `ZodType`\<[`IYieldPoolId`](#iyieldpoolid), `ZodTypeDef`, [`IYieldPoolId`](#iyieldpoolid)\>; `receiptToken`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `totalValueLocked`: `ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `type`: `ZodLiteral`\<[`Yield`](#yield)\>; `underlyingToken`: `ZodType`\<[`IToken`](#itoken), `ZodTypeDef`, [`IToken`](#itoken)\>; `yieldType`: `ZodNativeEnum`\<*typeof* [`YieldType`](#yieldtype)\>; \}, `"strip"`, `ZodTypeAny`, \{ `currentApy?`: [`IPercentage`](#ipercentage); `id?`: [`IYieldPoolId`](#iyieldpoolid); `receiptToken?`: [`IToken`](#itoken); `totalValueLocked?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `type?`: [`Yield`](#yield); `underlyingToken?`: [`IToken`](#itoken); `yieldType?`: [`YieldType`](#yieldtype); \}, \{ `currentApy?`: [`IPercentage`](#ipercentage); `id?`: [`IYieldPoolId`](#iyieldpoolid); `receiptToken?`: [`IToken`](#itoken); `totalValueLocked?`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `type?`: [`Yield`](#yield); `underlyingToken?`: [`IToken`](#itoken); `yieldType?`: [`YieldType`](#yieldtype); \}\>
+> `const` **YieldPoolInfoDataSchema**: `z.ZodObject`\<\{ `currentApy`: `z.ZodType`\<[`IPercentage`](#ipercentage), `z.ZodTypeDef`, [`IPercentage`](#ipercentage)\>; `id`: `z.ZodType`\<[`IYieldPoolId`](#iyieldpoolid), `z.ZodTypeDef`, [`IYieldPoolId`](#iyieldpoolid)\>; `receiptToken`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `totalValueLocked`: `z.ZodType`\<[`IFiatCurrencyAmount`](#ifiatcurrencyamount), `z.ZodTypeDef`, [`IFiatCurrencyAmount`](#ifiatcurrencyamount)\>; `type`: `z.ZodLiteral`\<`PoolType.Yield`\>; `underlyingToken`: `z.ZodType`\<[`IToken`](#itoken), `z.ZodTypeDef`, [`IToken`](#itoken)\>; `yieldType`: `z.ZodNativeEnum`\<*typeof* [`YieldType`](../common/src/README.md#yieldtype)\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `currentApy`: [`IPercentage`](#ipercentage); `id`: [`IYieldPoolId`](#iyieldpoolid); `receiptToken`: [`IToken`](#itoken); `totalValueLocked`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `type`: `PoolType.Yield`; `underlyingToken`: [`IToken`](#itoken); `yieldType`: [`YieldType`](../common/src/README.md#yieldtype); \}, \{ `currentApy`: [`IPercentage`](#ipercentage); `id`: [`IYieldPoolId`](#iyieldpoolid); `receiptToken`: [`IToken`](#itoken); `totalValueLocked`: [`IFiatCurrencyAmount`](#ifiatcurrencyamount); `type`: `PoolType.Yield`; `underlyingToken`: [`IToken`](#itoken); `yieldType`: [`YieldType`](../common/src/README.md#yieldtype); \}\>
 
 Zod schema for IYieldPoolInfo
 
@@ -12185,7 +12877,7 @@ Zod schema for IYieldPoolInfo
 
 ### YieldPositionDataSchema
 
-> `const` **YieldPositionDataSchema**: `ZodObject`\<\{ `claimableRewards`: `ZodArray`\<`ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>, `"many"`\>; `currentAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `id`: `ZodType`\<[`IYieldPositionId`](#iyieldpositionid-1), `ZodTypeDef`, [`IYieldPositionId`](#iyieldpositionid-1)\>; `pool`: `ZodType`\<[`IPool`](#ipool), `ZodTypeDef`, [`IPool`](#ipool)\>; `poolId`: `ZodType`\<[`IYieldPoolId`](#iyieldpoolid), `ZodTypeDef`, [`IYieldPoolId`](#iyieldpoolid)\>; `principalAmount`: `ZodType`\<[`ITokenAmount`](#itokenamount), `ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `type`: `ZodLiteral`\<[`Yield`](#yield-1)\>; \}, `"strip"`, `ZodTypeAny`, \{ `claimableRewards?`: [`ITokenAmount`](#itokenamount)[]; `currentAmount?`: [`ITokenAmount`](#itokenamount); `id?`: [`IYieldPositionId`](#iyieldpositionid-1); `pool?`: [`IPool`](#ipool); `poolId?`: [`IYieldPoolId`](#iyieldpoolid); `principalAmount?`: [`ITokenAmount`](#itokenamount); `type?`: [`Yield`](#yield-1); \}, \{ `claimableRewards?`: [`ITokenAmount`](#itokenamount)[]; `currentAmount?`: [`ITokenAmount`](#itokenamount); `id?`: [`IYieldPositionId`](#iyieldpositionid-1); `pool?`: [`IPool`](#ipool); `poolId?`: [`IYieldPoolId`](#iyieldpoolid); `principalAmount?`: [`ITokenAmount`](#itokenamount); `type?`: [`Yield`](#yield-1); \}\>
+> `const` **YieldPositionDataSchema**: `z.ZodObject`\<\{ `claimableRewards`: `z.ZodArray`\<`z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>, `"many"`\>; `currentAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `id`: `z.ZodType`\<[`IYieldPositionId`](#iyieldpositionid-1), `z.ZodTypeDef`, [`IYieldPositionId`](#iyieldpositionid-1)\>; `pool`: `z.ZodType`\<[`IPool`](#ipool), `z.ZodTypeDef`, [`IPool`](#ipool)\>; `poolId`: `z.ZodType`\<[`IYieldPoolId`](#iyieldpoolid), `z.ZodTypeDef`, [`IYieldPoolId`](#iyieldpoolid)\>; `principalAmount`: `z.ZodType`\<[`ITokenAmount`](#itokenamount), `z.ZodTypeDef`, [`ITokenAmount`](#itokenamount)\>; `type`: `z.ZodLiteral`\<`PositionType.Yield`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `claimableRewards`: [`ITokenAmount`](#itokenamount)[]; `currentAmount`: [`ITokenAmount`](#itokenamount); `id`: [`IYieldPositionId`](#iyieldpositionid-1); `pool`: [`IPool`](#ipool); `poolId`: [`IYieldPoolId`](#iyieldpoolid); `principalAmount`: [`ITokenAmount`](#itokenamount); `type`: `PositionType.Yield`; \}, \{ `claimableRewards`: [`ITokenAmount`](#itokenamount)[]; `currentAmount`: [`ITokenAmount`](#itokenamount); `id`: [`IYieldPositionId`](#iyieldpositionid-1); `pool`: [`IPool`](#ipool); `poolId`: [`IYieldPoolId`](#iyieldpoolid); `principalAmount`: [`ITokenAmount`](#itokenamount); `type`: `PositionType.Yield`; \}\>
 
 Zod schema for IYieldPosition
 
@@ -12193,7 +12885,7 @@ Zod schema for IYieldPosition
 
 ### YieldPositionIdDataSchema
 
-> `const` **YieldPositionIdDataSchema**: `ZodObject`\<\{ `id`: `ZodString`; `type`: `ZodLiteral`\<[`Yield`](#yield-1)\>; \}, `"strip"`, `ZodTypeAny`, \{ `id?`: `string`; `type?`: [`Yield`](#yield-1); \}, \{ `id?`: `string`; `type?`: [`Yield`](#yield-1); \}\>
+> `const` **YieldPositionIdDataSchema**: `z.ZodObject`\<\{ `id`: `z.ZodString`; `type`: `z.ZodLiteral`\<`PositionType.Yield`\>; \}, `"strip"`, `z.ZodTypeAny`, \{ `id`: `string`; `type`: `PositionType.Yield`; \}, \{ `id`: `string`; `type`: `PositionType.Yield`; \}\>
 
 Zod schema for IYieldPositionId
 
@@ -12201,7 +12893,7 @@ Zod schema for IYieldPositionId
 
 ### YieldTypeSchema
 
-> `const` **YieldTypeSchema**: `ZodNativeEnum`\<*typeof* [`YieldType`](#yieldtype)\>
+> `const` **YieldTypeSchema**: `z.ZodNativeEnum`\<*typeof* [`YieldType`](../common/src/README.md#yieldtype)\>
 
 Zod schema for YieldType
 
@@ -12238,7 +12930,7 @@ The class using this decorator MUST have a `cacheOrchestrator` property.
 
 ##### profile
 
-[`VolatilityProfile`](#volatilityprofile)
+[`VolatilityProfile`](../common/src/README.md#volatilityprofile)
 
 The data volatility profile to govern caching rules.
 
@@ -12274,22 +12966,6 @@ The offer price is price quoted to us by a liquidity provider and takes
 
 ***
 
-### chainIdToGraphChain()
-
-> **chainIdToGraphChain**(`chainId`): [`GraphChain`](#graphchain)
-
-#### Parameters
-
-##### chainId
-
-`number`
-
-#### Returns
-
-[`GraphChain`](#graphchain)
-
-***
-
 ### createTimeoutSignal()
 
 > **createTimeoutSignal**(`timeout?`): `AbortSignal`
@@ -12300,7 +12976,7 @@ Creates an AbortSignal with the standard timeout
 
 ##### timeout?
 
-`number` = `FETCH_CONFIG.TIMEOUT`
+`number`
 
 Timeout in milliseconds (defaults to standard timeout)
 
@@ -12464,34 +13140,6 @@ The resulting token amount
 
 ***
 
-### formatTokenAmountHumanReadable()
-
-> **formatTokenAmountHumanReadable**(`tokenAmount`, `options?`): `string`
-
-formatTokenAmountHumanReadable
-
-#### Parameters
-
-##### tokenAmount
-
-[`ITokenAmount`](#itokenamount)
-
-The token amount to format
-
-##### options?
-
-`NumberFormatOptions`
-
-Optional formatting options for Intl.NumberFormat
-
-#### Returns
-
-`string`
-
-A human readable string representation of the token amount
-
-***
-
 ### getChainFamilyInfoByChainId()
 
 > **getChainFamilyInfoByChainId**(`chainId`): [`ChainFamilyInfo`](#chainfamilyinfo)
@@ -12521,7 +13169,7 @@ Error if the chainId is not supported
 
 ### getChainInfoByChainId()
 
-> **getChainInfoByChainId**(`chainId`): [`ChainInfo`](#chaininfo)
+> **getChainInfoByChainId**(`chainId`): [`ChainInfo`](#chaininfo-1)
 
 getChainInfoByChainId
 Retrieves the ChainInfo for a given chainId
@@ -12536,7 +13184,7 @@ The chainId to retrieve the ChainInfo for
 
 #### Returns
 
-[`ChainInfo`](#chaininfo)
+[`ChainInfo`](#chaininfo-1)
 
 The ChainInfo for the given chainId
 
@@ -12565,228 +13213,6 @@ Error if the chainId is not supported
 #### Returns
 
 `T`
-
-***
-
-### getViemChain()
-
-> **getViemChain**(`chainId`): \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.basescan.org/api"`; `name`: `"Basescan"`; `url`: `"https://basescan.org"`; \}; \}; `blockTime`: `2000`; `contracts`: \{ `disputeGameFactory`: \{ `1`: \{ `address`: `"0x43edB88C4B80fDD2AdFF2412A7BebF9dF42cB40e"`; \}; \}; `gasPriceOracle`: \{ `address`: `"0x420000000000000000000000000000000000000F"`; \}; `l1Block`: \{ `address`: `"0x4200000000000000000000000000000000000015"`; \}; `l1StandardBridge`: \{ `1`: \{ `address`: `"0x3154Cf16ccdb4C6d922629664174b904d80F2C35"`; `blockCreated`: `17482143`; \}; \}; `l2CrossDomainMessenger`: \{ `address`: `"0x4200000000000000000000000000000000000007"`; \}; `l2Erc721Bridge`: \{ `address`: `"0x4200000000000000000000000000000000000014"`; \}; `l2OutputOracle`: \{ `1`: \{ `address`: `"0x56315b90c40730925ec5485cf004d835058518A0"`; \}; \}; `l2StandardBridge`: \{ `address`: `"0x4200000000000000000000000000000000000010"`; \}; `l2ToL1MessagePasser`: \{ `address`: `"0x4200000000000000000000000000000000000016"`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `5022`; \}; `portal`: \{ `1`: \{ `address`: `"0x49048044D57e1C92A77f79988d21Fa8fAF74E97e"`; `blockCreated`: `17482143`; \}; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters`: \{ `block`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => `object`; `type`: `"block"`; \}; `transaction`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => \{ `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `boolean`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `bigint`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash`: `` `0x${string}` ``; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"deposit"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList?`: `undefined`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId?`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas?`: `undefined`; `maxPriorityFeePerGas?`: `undefined`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"legacy"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity?`: `undefined`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas?`: `undefined`; `maxPriorityFeePerGas?`: `undefined`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip2930"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip1559"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes`: readonly `` `0x${string}` ``[]; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas`: `bigint`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip4844"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList`: `SignedAuthorizationList`\<`number`\>; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip7702"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \}; `type`: `"transaction"`; \}; `transactionReceipt`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => `object`; `type`: `"transactionReceipt"`; \}; \}; `id`: `8453`; `name`: `"Base"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://mainnet.base.org"`\]; \}; \}; `serializers`: \{ `transaction`: (`transaction`, `signature?`) => `` `0x02${string}` `` \| `` `0x01${string}` `` \| `` `0x03${string}` `` \| `` `0x04${string}` `` \| `TransactionSerializedLegacy` \| `` `0x7e${string}` ``; \}; `sourceId`: `1`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.etherscan.io/api"`; `name`: `"Etherscan"`; `url`: `"https://etherscan.io"`; \}; \}; `blockTime`: `12000`; `contracts`: \{ `ensUniversalResolver`: \{ `address`: `"0xeeeeeeee14d718c2b47d9923deab1335e144eeee"`; `blockCreated`: `23085558`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `14353601`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `1`; `name`: `"Ethereum"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://eth.merkle.io"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.arbiscan.io/api"`; `name`: `"Arbiscan"`; `url`: `"https://arbiscan.io"`; \}; \}; `blockTime`: `250`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `7654707`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `42161`; `name`: `"Arbitrum One"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://arb1.arbitrum.io/rpc"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `name`: `"Sonic Explorer"`; `url`: `"https://sonicscan.org"`; \}; \}; `blockTime`: `630`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `60`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `146`; `name`: `"Sonic"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Sonic"`; `symbol`: `"S"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.soniclabs.com"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet`: `false`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \} \| \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `blockTime?`: `number`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extend`: \<`extended`\>(`extended`) => `Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `prepareTransactionRequest?`: `PrepareTransactionRequestFn` \| \[`PrepareTransactionRequestFn`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: `ChainVerifyHashFn`; \}
-
-#### Parameters
-
-##### chainId
-
-[`ChainId`](#chainid-3)
-
-#### Returns
-
-##### Type Literal
-
-\{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.basescan.org/api"`; `name`: `"Basescan"`; `url`: `"https://basescan.org"`; \}; \}; `blockTime`: `2000`; `contracts`: \{ `disputeGameFactory`: \{ `1`: \{ `address`: `"0x43edB88C4B80fDD2AdFF2412A7BebF9dF42cB40e"`; \}; \}; `gasPriceOracle`: \{ `address`: `"0x420000000000000000000000000000000000000F"`; \}; `l1Block`: \{ `address`: `"0x4200000000000000000000000000000000000015"`; \}; `l1StandardBridge`: \{ `1`: \{ `address`: `"0x3154Cf16ccdb4C6d922629664174b904d80F2C35"`; `blockCreated`: `17482143`; \}; \}; `l2CrossDomainMessenger`: \{ `address`: `"0x4200000000000000000000000000000000000007"`; \}; `l2Erc721Bridge`: \{ `address`: `"0x4200000000000000000000000000000000000014"`; \}; `l2OutputOracle`: \{ `1`: \{ `address`: `"0x56315b90c40730925ec5485cf004d835058518A0"`; \}; \}; `l2StandardBridge`: \{ `address`: `"0x4200000000000000000000000000000000000010"`; \}; `l2ToL1MessagePasser`: \{ `address`: `"0x4200000000000000000000000000000000000016"`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `5022`; \}; `portal`: \{ `1`: \{ `address`: `"0x49048044D57e1C92A77f79988d21Fa8fAF74E97e"`; `blockCreated`: `17482143`; \}; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters`: \{ `block`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => `object`; `type`: `"block"`; \}; `transaction`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => \{ `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `boolean`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `bigint`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash`: `` `0x${string}` ``; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"deposit"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList?`: `undefined`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId?`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas?`: `undefined`; `maxPriorityFeePerGas?`: `undefined`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"legacy"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity?`: `undefined`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice`: `bigint`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas?`: `undefined`; `maxPriorityFeePerGas?`: `undefined`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip2930"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip1559"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList?`: `undefined`; `blobVersionedHashes`: readonly `` `0x${string}` ``[]; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas`: `bigint`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip4844"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \} \| \{ `accessList`: `AccessList`; `authorizationList`: `SignedAuthorizationList`\<`number`\>; `blobVersionedHashes?`: `undefined`; `blockHash`: `` `0x${string}` ``; `blockNumber`: `bigint`; `chainId`: `number`; `from`: `` `0x${string}` ``; `gas`: `bigint`; `gasPrice?`: `undefined`; `hash`: `` `0x${string}` ``; `input`: `` `0x${string}` ``; `isSystemTx?`: `undefined`; `maxFeePerBlobGas?`: `undefined`; `maxFeePerGas`: `bigint`; `maxPriorityFeePerGas`: `bigint`; `mint?`: `undefined`; `nonce`: `number`; `r`: `` `0x${string}` ``; `s`: `` `0x${string}` ``; `sourceHash?`: `undefined`; `to`: `` `0x${string}` ``; `transactionIndex`: `number`; `type`: `"eip7702"`; `typeHex`: `` `0x${string}` ``; `v`: `bigint`; `value`: `bigint`; `yParity`: `number`; \}; `type`: `"transaction"`; \}; `transactionReceipt`: \{ `exclude`: \[\]; `format`: (`args`, `action?`) => `object`; `type`: `"transactionReceipt"`; \}; \}; `id`: `8453`; `name`: `"Base"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://mainnet.base.org"`\]; \}; \}; `serializers`: \{ `transaction`: (`transaction`, `signature?`) => `` `0x02${string}` `` \| `` `0x01${string}` `` \| `` `0x03${string}` `` \| `` `0x04${string}` `` \| `TransactionSerializedLegacy` \| `` `0x7e${string}` ``; \}; `sourceId`: `1`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \}
-
-***
-
-##### Type Literal
-
-\{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.etherscan.io/api"`; `name`: `"Etherscan"`; `url`: `"https://etherscan.io"`; \}; \}; `blockTime`: `12000`; `contracts`: \{ `ensUniversalResolver`: \{ `address`: `"0xeeeeeeee14d718c2b47d9923deab1335e144eeee"`; `blockCreated`: `23085558`; \}; `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `14353601`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `1`; `name`: `"Ethereum"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://eth.merkle.io"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \}
-
-***
-
-##### Type Literal
-
-\{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.arbiscan.io/api"`; `name`: `"Arbiscan"`; `url`: `"https://arbiscan.io"`; \}; \}; `blockTime`: `250`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `7654707`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `42161`; `name`: `"Arbitrum One"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://arb1.arbitrum.io/rpc"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \}
-
-***
-
-##### Type Literal
-
-\{ `blockExplorers`: \{ `default`: \{ `name`: `"Sonic Explorer"`; `url`: `"https://sonicscan.org"`; \}; \}; `blockTime`: `630`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `60`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `146`; `name`: `"Sonic"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"Sonic"`; `symbol`: `"S"`; \}; `prepareTransactionRequest?`: ((`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>) \| \[(`args`, `options`) => `Promise`\<`PrepareTransactionRequestParameters`\<`Chain`, `Account`, `Chain`, `` `0x${string}` `` \| `Account`, `PrepareTransactionRequestRequest`\<`Chain`, `Chain`, `Chain`\>\>\>, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.soniclabs.com"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\<`bigint`, `number`\>\>; `sourceId?`: `number`; `testnet`: `false`; `verifyHash?`: (`client`, `parameters`) => `Promise`\<`boolean`\>; \}
-
-***
-
-##### Type Literal
-
-\{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `blockTime?`: `number`; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `custom?`: `Record`\<`string`, `unknown`\>; `ensTlds?`: readonly `string`[]; `experimental_preconfirmationTime?`: `number`; `extend`: \<`extended`\>(`extended`) => `Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>; `extendSchema?`: `Record`\<`string`, `unknown`\>; `fees?`: `ChainFees`\<`undefined`\>; `formatters?`: `undefined`; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `prepareTransactionRequest?`: `PrepareTransactionRequestFn` \| \[`PrepareTransactionRequestFn`, `object`\]; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; `serializers?`: `ChainSerializers`\<`undefined`, `TransactionSerializable`\>; `sourceId?`: `number`; `testnet?`: `boolean`; `verifyHash?`: `ChainVerifyHashFn`; \}
-
-###### blockExplorers
-
-> **blockExplorers**: `object`
-
-Collection of block explorers
-
-###### blockExplorers.default
-
-> `readonly` **default**: `object`
-
-###### blockExplorers.default.apiUrl
-
-> `readonly` **apiUrl**: `"https://api.hyperevmscan.io/api"` = `'https://api.hyperevmscan.io/api'`
-
-###### blockExplorers.default.name
-
-> `readonly` **name**: `"HyperEVMScan"` = `'HyperEVMScan'`
-
-###### blockExplorers.default.url
-
-> `readonly` **url**: `"https://hyperevmscan.io"` = `'https://hyperevmscan.io'`
-
-###### blockTime?
-
-> `optional` **blockTime?**: `number`
-
-Block time in milliseconds.
-
-###### contracts
-
-> **contracts**: `object`
-
-Collection of contracts
-
-###### contracts.multicall3
-
-> `readonly` **multicall3**: `object`
-
-###### contracts.multicall3.address
-
-> `readonly` **address**: `"0xca11bde05977b3631167028862be2a173976ca11"` = `'0xca11bde05977b3631167028862be2a173976ca11'`
-
-###### contracts.multicall3.blockCreated
-
-> `readonly` **blockCreated**: `13051` = `13051`
-
-###### ~~custom?~~
-
-> `optional` **custom?**: `Record`\<`string`, `unknown`\>
-
-Custom chain data.
-
-###### Deprecated
-
-use `.extend` instead.
-
-###### ensTlds?
-
-> `optional` **ensTlds?**: readonly `string`[]
-
-Collection of ENS TLDs for the chain.
-
-###### experimental\_preconfirmationTime?
-
-> `optional` **experimental\_preconfirmationTime?**: `number`
-
-Preconfirmation time in milliseconds.
-
-###### extend
-
-> **extend**: \<`extended`\>(`extended`) => `Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>
-
-###### Type Parameters
-
-###### extended
-
-`extended` *extends* `Record`\<`string`, `unknown`\>
-
-###### Parameters
-
-###### extended
-
-`extended`
-
-###### Returns
-
-`Assign`\<`Assign`\<`Chain`\<`undefined`\>, \{ `blockExplorers`: \{ `default`: \{ `apiUrl`: `"https://api.hyperevmscan.io/api"`; `name`: `"HyperEVMScan"`; `url`: `"https://hyperevmscan.io"`; \}; \}; `contracts`: \{ `multicall3`: \{ `address`: `"0xca11bde05977b3631167028862be2a173976ca11"`; `blockCreated`: `13051`; \}; \}; `id`: `999`; `name`: `"HyperEVM"`; `nativeCurrency`: \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \}; `rpcUrls`: \{ `default`: \{ `http`: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]; \}; \}; \}\>, `extended`\>
-
-###### extendSchema?
-
-> `optional` **extendSchema?**: `Record`\<`string`, `unknown`\>
-
-Extend schema.
-
-###### fees?
-
-> `optional` **fees?**: `ChainFees`\<`undefined`\>
-
-Modifies how fees are derived.
-
-###### formatters?
-
-> `optional` **formatters?**: `undefined`
-
-Modifies how data is formatted and typed (e.g. blocks and transactions)
-
-###### id
-
-> **id**: `999`
-
-ID in number form
-
-###### name
-
-> **name**: `"HyperEVM"`
-
-Human-readable name
-
-###### nativeCurrency
-
-> **nativeCurrency**: `object`
-
-Currency used by chain
-
-###### nativeCurrency.decimals
-
-> `readonly` **decimals**: `18` = `18`
-
-###### nativeCurrency.name
-
-> `readonly` **name**: `"HYPE"` = `'HYPE'`
-
-###### nativeCurrency.symbol
-
-> `readonly` **symbol**: `"HYPE"` = `'HYPE'`
-
-###### prepareTransactionRequest?
-
-> `optional` **prepareTransactionRequest?**: `PrepareTransactionRequestFn` \| \[`PrepareTransactionRequestFn`, `object`\]
-
-Function to prepare a transaction request. Runs before the transaction is filled.
-
-###### rpcUrls
-
-> **rpcUrls**: `object`
-
-Collection of RPC endpoints
-
-###### rpcUrls.default
-
-> `readonly` **default**: `object`
-
-###### rpcUrls.default.http
-
-> `readonly` **http**: readonly \[`"https://rpc.hyperliquid.xyz/evm"`\]
-
-###### serializers?
-
-> `optional` **serializers?**: `ChainSerializers`\<`undefined`, `TransactionSerializable`\>
-
-Modifies how data is serialized (e.g. transactions).
-
-###### sourceId?
-
-> `optional` **sourceId?**: `number`
-
-Source Chain ID (ie. the L1 chain)
-
-###### testnet?
-
-> `optional` **testnet?**: `boolean`
-
-Flag for test networks
-
-###### verifyHash?
-
-> `optional` **verifyHash?**: `ChainVerifyHashFn`
-
-Chain-specific signature verification.
 
 ***
 
@@ -12884,22 +13310,6 @@ true if the object is a ProtocolName
 
 ***
 
-### isChainId()
-
-> **isChainId**(`maybeChainId`): `maybeChainId is ChainId`
-
-#### Parameters
-
-##### maybeChainId
-
-`unknown`
-
-#### Returns
-
-`maybeChainId is ChainId`
-
-***
-
 ### isChainInfo()
 
 > **isChainInfo**(`maybeChainInfo`, `returnedErrors?`): `maybeChainInfo is IChainInfo`
@@ -12926,7 +13336,7 @@ true if the object is an IChainInfo
 
 ### isCollateralInfo()
 
-> **isCollateralInfo**(`maybeCollateralInfo`): `maybeCollateralInfo is Readonly<{ liquidationPenalty?: IPercentage; liquidationThreshold?: IRiskRatio; maxSupply?: ITokenAmount; price?: IPrice; priceUSD?: IPrice; token?: IToken; tokensLocked?: ITokenAmount }>`
+> **isCollateralInfo**(`maybeCollateralInfo`): `maybeCollateralInfo is Readonly<{ liquidationPenalty: IPercentage; liquidationThreshold: IRiskRatio; maxSupply: ITokenAmount; price: IPrice; priceUSD: IPrice; token: IToken; tokensLocked: ITokenAmount }>`
 
 Type guard for ICollateralInfo
 
@@ -12938,7 +13348,7 @@ Type guard for ICollateralInfo
 
 #### Returns
 
-`maybeCollateralInfo is Readonly<{ liquidationPenalty?: IPercentage; liquidationThreshold?: IRiskRatio; maxSupply?: ITokenAmount; price?: IPrice; priceUSD?: IPrice; token?: IToken; tokensLocked?: ITokenAmount }>`
+`maybeCollateralInfo is Readonly<{ liquidationPenalty: IPercentage; liquidationThreshold: IRiskRatio; maxSupply: ITokenAmount; price: IPrice; priceUSD: IPrice; token: IToken; tokensLocked: ITokenAmount }>`
 
 true if the object is an ICollateralInfo
 
@@ -12946,7 +13356,7 @@ true if the object is an ICollateralInfo
 
 ### isDebtInfo()
 
-> **isDebtInfo**(`maybeDebtInfo`): `maybeDebtInfo is Readonly<{ debtAvailable?: ITokenAmount; debtCeiling?: ITokenAmount; dustLimit?: ITokenAmount; interestRate?: IPercentage; originationFee?: IPercentage; price?: IPrice; priceUSD?: IPrice; token?: IToken; totalBorrowed?: ITokenAmount }>`
+> **isDebtInfo**(`maybeDebtInfo`): `maybeDebtInfo is Readonly<{ debtAvailable: ITokenAmount; debtCeiling: ITokenAmount; dustLimit: ITokenAmount; interestRate: IPercentage; originationFee: IPercentage; price: IPrice; priceUSD: IPrice; token: IToken; totalBorrowed: ITokenAmount }>`
 
 Type guard for IDebtInfo
 
@@ -12958,7 +13368,7 @@ Type guard for IDebtInfo
 
 #### Returns
 
-`maybeDebtInfo is Readonly<{ debtAvailable?: ITokenAmount; debtCeiling?: ITokenAmount; dustLimit?: ITokenAmount; interestRate?: IPercentage; originationFee?: IPercentage; price?: IPrice; priceUSD?: IPrice; token?: IToken; totalBorrowed?: ITokenAmount }>`
+`maybeDebtInfo is Readonly<{ debtAvailable: ITokenAmount; debtCeiling: ITokenAmount; dustLimit: ITokenAmount; interestRate: IPercentage; originationFee: IPercentage; price: IPrice; priceUSD: IPrice; token: IToken; totalBorrowed: ITokenAmount }>`
 
 true if the object is an IDebtInfo
 
@@ -13077,22 +13487,6 @@ Object to be checked
 `maybeHolding is IHolding`
 
 true if the object is an IHolding
-
-***
-
-### isLegacyChainId()
-
-> **isLegacyChainId**(`maybeChainId`): `maybeChainId is LegacyChainId`
-
-#### Parameters
-
-##### maybeChainId
-
-`unknown`
-
-#### Returns
-
-`maybeChainId is LegacyChainId`
 
 ***
 
@@ -13284,7 +13678,7 @@ true if the object is an IPercentage
 
 ### isPercentageData()
 
-> **isPercentageData**(`maybePercentageData`, `returnedErrors?`): `maybePercentageData is Readonly<{ value?: number }>`
+> **isPercentageData**(`maybePercentageData`, `returnedErrors?`): `maybePercentageData is Readonly<{ value: number }>`
 
 Type guard for IPercentageData
 
@@ -13300,7 +13694,7 @@ Type guard for IPercentageData
 
 #### Returns
 
-`maybePercentageData is Readonly<{ value?: number }>`
+`maybePercentageData is Readonly<{ value: number }>`
 
 true if the object is an IPercentageData
 
@@ -13574,7 +13968,7 @@ true if the object is an IRiskRatio
 
 ### isSDKError()
 
-> **isSDKError**(`maybeErrorData`): `maybeErrorData is Readonly<{ message?: string; reason?: string; type?: SDKErrorType }>`
+> **isSDKError**(`maybeErrorData`): `maybeErrorData is Readonly<{ message: string; reason: string; type: SDKErrorType }>`
 
 Type guard for ISDKError
 
@@ -13586,7 +13980,7 @@ Type guard for ISDKError
 
 #### Returns
 
-`maybeErrorData is Readonly<{ message?: string; reason?: string; type?: SDKErrorType }>`
+`maybeErrorData is Readonly<{ message: string; reason: string; type: SDKErrorType }>`
 
 true if the object is an ISDKError
 
@@ -13636,7 +14030,7 @@ true if the object is a StakingBucket
 
 ### isSwapError()
 
-> **isSwapError**(`maybeSwapErrorData`): `maybeSwapErrorData is Readonly<{ apiQuery?: string; message?: string; reason?: string; statusCode?: number; subtype?: SwapErrorType; type?: SwapError }>`
+> **isSwapError**(`maybeSwapErrorData`): `maybeSwapErrorData is Readonly<{ apiQuery: string; message: string; reason: string; statusCode: number; subtype: SwapErrorType; type: SwapError }>`
 
 Type guard for ISwapError
 
@@ -13648,7 +14042,7 @@ Type guard for ISwapError
 
 #### Returns
 
-`maybeSwapErrorData is Readonly<{ apiQuery?: string; message?: string; reason?: string; statusCode?: number; subtype?: SwapErrorType; type?: SwapError }>`
+`maybeSwapErrorData is Readonly<{ apiQuery: string; message: string; reason: string; statusCode: number; subtype: SwapErrorType; type: SwapError }>`
 
 true if the object is an ISwapError
 
@@ -13700,7 +14094,7 @@ true if the object is an ITokenAmount
 
 ### isTokenAmountData()
 
-> **isTokenAmountData**(`maybeTokenAmount`): `maybeTokenAmount is Readonly<{ amount?: string; token?: IToken }>`
+> **isTokenAmountData**(`maybeTokenAmount`): `maybeTokenAmount is Readonly<{ amount: string; token: IToken }>`
 
 Type guard for ITokenAmountData
 
@@ -13712,7 +14106,7 @@ Type guard for ITokenAmountData
 
 #### Returns
 
-`maybeTokenAmount is Readonly<{ amount?: string; token?: IToken }>`
+`maybeTokenAmount is Readonly<{ amount: string; token: IToken }>`
 
 true if the object is an ITokenAmountData
 
@@ -13720,7 +14114,7 @@ true if the object is an ITokenAmountData
 
 ### isTokenData()
 
-> **isTokenData**(`maybeTokenData`): maybeTokenData is Readonly\<\{ address?: \{ type?: AddressType; value?: \`0x$\{string\}\` \}; chainInfo?: \{ chainId?: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name?: string \}; decimals?: number; logoURI?: string; name?: string; symbol?: string \}\>
+> **isTokenData**(`maybeTokenData`): maybeTokenData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string; name: string; symbol: string \}\>
 
 Type guard for ITokenData
 
@@ -13732,7 +14126,7 @@ Type guard for ITokenData
 
 #### Returns
 
-maybeTokenData is Readonly\<\{ address?: \{ type?: AddressType; value?: \`0x$\{string\}\` \}; chainInfo?: \{ chainId?: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name?: string \}; decimals?: number; logoURI?: string; name?: string; symbol?: string \}\>
+maybeTokenData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string; name: string; symbol: string \}\>
 
 true if the object is an ITokenData
 
@@ -13872,7 +14266,7 @@ true if the object is an IVault
 
 ### isVaultData()
 
-> **isVaultData**(`maybeVaultData`): maybeVaultData is Readonly\<\{ address?: \{ type?: AddressType; value?: \`0x$\{string\}\` \}; chainInfo?: \{ chainId?: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name?: string \}; decimals?: number; logoURI?: string; name?: string; symbol?: string \} & \{ asset?: IToken \}\>
+> **isVaultData**(`maybeVaultData`): maybeVaultData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string; name: string; symbol: string \} & \{ asset: IToken \}\>
 
 Type guard for IVaultData
 
@@ -13884,7 +14278,7 @@ Type guard for IVaultData
 
 #### Returns
 
-maybeVaultData is Readonly\<\{ address?: \{ type?: AddressType; value?: \`0x$\{string\}\` \}; chainInfo?: \{ chainId?: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name?: string \}; decimals?: number; logoURI?: string; name?: string; symbol?: string \} & \{ asset?: IToken \}\>
+maybeVaultData is Readonly\<\{ address: \{ type: AddressType; value: \`0x$\{string\}\` \}; chainInfo: \{ chainId: 1 \| 10 \| 146 \| 999 \| 8453 \| 42161; name: string \}; decimals: number; logoURI?: string; name: string; symbol: string \} & \{ asset: IToken \}\>
 
 true if the object is an IVaultData
 
@@ -14020,6 +14414,38 @@ true if the object is a YieldType
 
 ***
 
+### makeSDK()
+
+> **makeSDK**(`params`): [`SDKManager`](#sdkmanager)
+
+#### Parameters
+
+##### params
+
+`MakeSDKParams`
+
+#### Returns
+
+[`SDKManager`](#sdkmanager)
+
+***
+
+### makeSDKWithSigner()
+
+> **makeSDKWithSigner**(`params`): [`SDKManagerWithSigner`](#sdkmanagerwithsigner)
+
+#### Parameters
+
+##### params
+
+`MakeSDKWithSignerParams`
+
+#### Returns
+
+[`SDKManagerWithSigner`](#sdkmanagerwithsigner)
+
+***
+
 ### multiplyFiatCurrencyAmountByPercentage()
 
 > **multiplyFiatCurrencyAmountByPercentage**(`fiatCurrencyAmount`, `percentage`): [`IFiatCurrencyAmountData`](#ifiatcurrencyamountdata)
@@ -14050,7 +14476,7 @@ The resulting fiat currency amount
 
 ### multiplyFiatCurrencyAmountByPrice()
 
-> **multiplyFiatCurrencyAmountByPrice**(`fiatCurrencyAmount`, `price`): `Readonly`\<\{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}\>
+> **multiplyFiatCurrencyAmountByPrice**(`fiatCurrencyAmount`, `price`): `Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}\>
 
 Multiply a fiat currency amount by a price
 
@@ -14070,7 +14496,7 @@ The price to multiply by
 
 #### Returns
 
-`Readonly`\<\{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}\>
+`Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}\>
 
 The resulting fiat currency amount or token amount depending on the price quote
 
@@ -14162,7 +14588,7 @@ The resulting token amount
 
 ### multiplyTokenAmountByPrice()
 
-> **multiplyTokenAmountByPrice**(`tokenAmount`, `price`): `Readonly`\<\{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}\>
+> **multiplyTokenAmountByPrice**(`tokenAmount`, `price`): `Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}\>
 
 Multiply a token amount by a price
 
@@ -14182,7 +14608,7 @@ The price to multiply by
 
 #### Returns
 
-`Readonly`\<\{ `amount?`: `string`; `token?`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount?`: `string`; `fiat?`: [`FiatCurrency`](#fiatcurrency); \}\>
+`Readonly`\<\{ `amount`: `string`; `token`: [`IToken`](#itoken); \}\> \| `Readonly`\<\{ `amount`: `string`; `fiat`: [`FiatCurrency`](../common/src/README.md#fiatcurrency); \}\>
 
 The resulting token amount or currency amount depending on the price quote
 
@@ -14242,7 +14668,7 @@ The resulting token amount or currency amount depending on the price quote
 
 ### valuesOfChainFamilyMap()
 
-> **valuesOfChainFamilyMap**(`families`): [`ChainInfo`](#chaininfo)[]
+> **valuesOfChainFamilyMap**(`families`): [`ChainInfo`](#chaininfo-1)[]
 
 #### Parameters
 
@@ -14252,7 +14678,7 @@ The resulting token amount or currency amount depending on the price quote
 
 #### Returns
 
-[`ChainInfo`](#chaininfo)[]
+[`ChainInfo`](#chaininfo-1)[]
 
 ***
 
@@ -14276,12 +14702,288 @@ The resulting token amount or currency amount depending on the price quote
 
 ## References
 
+### AaveV3LendingPosition
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### AaveV3LendingPositionId
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### AaveV3Protocol
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### AddressType
+
+Re-exports [AddressType](../common/src/README.md#addresstype)
+
+***
+
+### ArmadaMigratablePositionApy
+
+Re-exports [ArmadaMigratablePositionApy](../common/src/README.md#armadamigratablepositionapy)
+
+***
+
+### ArmadaMigrationType
+
+Re-exports [ArmadaMigrationType](../common/src/README.md#armadamigrationtype)
+
+***
+
+### ArmadaOperationType
+
+Re-exports [ArmadaOperationType](../common/src/README.md#armadaoperationtype)
+
+***
+
+### BlockchainProviderType
+
+Re-exports [BlockchainProviderType](../common/src/README.md#blockchainprovidertype)
+
+***
+
+### CommonTokenSymbols
+
+Re-exports [CommonTokenSymbols](../common/src/README.md#commontokensymbols)
+
+***
+
+### ContractSpecificRoleName
+
+Re-exports [ContractSpecificRoleName](../common/src/README.md#contractspecificrolename)
+
+***
+
+### EmodeType
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### FiatCurrency
+
+Re-exports [FiatCurrency](../common/src/README.md#fiatcurrency)
+
+***
+
+### FlashloanProvider
+
+Re-exports [FlashloanProvider](../common/src/README.md#flashloanprovider)
+
+***
+
+### formatTokenAmountHumanReadable
+
+Re-exports [formatTokenAmountHumanReadable](../common/src/README.md#formattokenamounthumanreadable)
+
+***
+
+### GlobalRoles
+
+Re-exports [GlobalRoles](../common/src/README.md#globalroles)
+
+***
+
+### GraphRoleName
+
+Re-exports [GraphRoleName](../common/src/README.md#graphrolename)
+
+***
+
+### HistoricalFleetRateResult
+
+Re-exports [HistoricalFleetRateResult](../common/src/README.md#historicalfleetrateresult)
+
+***
+
+### IAaveV3LendingPoolId
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### IAaveV3Protocol
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
+### IPrintable
+
+Re-exports [IPrintable](../common/src/README.md#iprintable)
+
+***
+
+### isAaveV3LendingPoolId
+
+Renames and re-exports [AaveV3LendingPoolId](#aavev3lendingpoolid)
+
+***
+
 ### ITokenStanalone
 
 Renames and re-exports [IToken](#itoken)
 
 ***
 
+### LendingPositionType
+
+Re-exports [LendingPositionType](../common/src/README.md#lendingpositiontype)
+
+***
+
+### LoggingService
+
+Re-exports [LoggingService](../common/src/README.md#loggingservice)
+
+***
+
+### Maybe
+
+Re-exports [Maybe](../common/src/README.md#maybe)
+
+***
+
+### OracleProviderType
+
+Re-exports [OracleProviderType](../common/src/README.md#oracleprovidertype)
+
+***
+
+### PoolType
+
+Re-exports [PoolType](../common/src/README.md#pooltype)
+
+***
+
+### PositionType
+
+Re-exports [PositionType](../common/src/README.md#positiontype)
+
+***
+
+### ProtocolName
+
+Re-exports [ProtocolName](../common/src/README.md#protocolname)
+
+***
+
 ### QuoteDataStanalone
 
 Renames and re-exports [QuoteData](#quotedata)
+
+***
+
+### Role
+
+Re-exports [Role](../common/src/README.md#role)
+
+***
+
+### SDKErrorType
+
+Re-exports [SDKErrorType](../common/src/README.md#sdkerrortype)
+
+***
+
+### SimulationSteps
+
+Re-exports [SimulationSteps](../common/src/README.md#simulationsteps)
+
+***
+
+### SimulationType
+
+Re-exports [SimulationType](../common/src/README.md#simulationtype)
+
+***
+
+### StakingBucket
+
+Re-exports [StakingBucket](../common/src/README.md#stakingbucket)
+
+***
+
+### StakingStake
+
+Re-exports [StakingStake](../common/src/README.md#stakingstake)
+
+***
+
+### steps
+
+Re-exports [steps](../common/src/namespaces/steps.md)
+
+***
+
+### StrategyStep
+
+Re-exports [StrategyStep](../common/src/README.md#strategystep)
+
+***
+
+### SwapErrorType
+
+Re-exports [SwapErrorType](../common/src/README.md#swaperrortype)
+
+***
+
+### SwapProviderType
+
+Re-exports [SwapProviderType](../common/src/README.md#swapprovidertype)
+
+***
+
+### TokensProviderType
+
+Re-exports [TokensProviderType](../common/src/README.md#tokensprovidertype)
+
+***
+
+### TokenSymbol
+
+Re-exports [TokenSymbol](../common/src/README.md#tokensymbol-1)
+
+***
+
+### TokenTransferTargetType
+
+Re-exports [TokenTransferTargetType](../common/src/README.md#tokentransfertargettype)
+
+***
+
+### TransactionInfo
+
+Re-exports [TransactionInfo](../common/src/README.md#transactioninfo)
+
+***
+
+### ValueReference
+
+Re-exports [ValueReference](../common/src/README.md#valuereference)
+
+***
+
+### VaultApys
+
+Re-exports [VaultApys](../common/src/README.md#vaultapys)
+
+***
+
+### VolatilityProfile
+
+Re-exports [VolatilityProfile](../common/src/README.md#volatilityprofile)
+
+***
+
+### YieldType
+
+Re-exports [YieldType](../common/src/README.md#yieldtype)
