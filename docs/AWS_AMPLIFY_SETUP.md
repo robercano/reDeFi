@@ -63,3 +63,20 @@ To ensure your preview URLs aren't publicly accessible to anyone on the internet
 **⚠️ Critical Final Step:** Because Next.js apps use Server-Side Rendering (SSR), the Edge nodes need to be refreshed for the password protection to apply. 
 - Go back to your **All apps** view.
 - Open the app, go to your current deployment, and click **Redeploy this version** (or simply merge a commit/PR to trigger a new build). The password protection will be active once the build finishes.
+
+---
+
+## Troubleshooting
+
+### Error: `is not authorized to perform: ssm:GetParameter on resource: ... parameter/sst/bootstrap`
+If your build fails with this error, it means the default AWS IAM Role that Amplify uses for builds (`AmplifySSRLoggingRole-...`) does not have the permissions required to run `npx sst deploy`. SST needs permission to provision infrastructure (SSM, CloudFormation, S3, etc.).
+
+**How to fix it:**
+1. Log in to the **AWS Management Console** and navigate to **IAM** (Identity and Access Management).
+2. Click on **Roles** in the left sidebar.
+3. Search for the role mentioned in your error log (e.g., `AmplifySSRLoggingRole-...`).
+4. Click on the role name.
+5. Click the **Add permissions** dropdown and select **Attach policies**.
+6. For a quick fix in a development environment, you can attach the `AdministratorAccess` policy (SST requires extensive permissions to deploy full-stack resources). Alternatively, you can create a custom inline policy specifically granting the required SST deployment permissions.
+7. Click **Add permissions**.
+8. Go back to Amplify and retry the deployment.
