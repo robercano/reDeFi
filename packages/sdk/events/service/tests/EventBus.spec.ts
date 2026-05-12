@@ -54,7 +54,7 @@ describe('EventBus', () => {
 
   it('should catch and log errors in listeners without crashing', () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-    
+
     const badListener = vi.fn(() => {
       throw new Error('Listener failed')
     })

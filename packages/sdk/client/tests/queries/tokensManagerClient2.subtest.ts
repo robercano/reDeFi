@@ -10,7 +10,7 @@ export default async function tokensManagerClient2Test() {
     tokens: {
       getTokenBySymbol: { query: getTokenBySymbol },
       getTokenByAddress: { query: getTokenByAddress },
-    }
+    },
   } as unknown as RPCMainClientType
 
   const client = new TokensManagerClient2({ rpcClient })
@@ -18,6 +18,9 @@ export default async function tokensManagerClient2Test() {
   await client.getTokenBySymbol({ chainId: 1, symbol: 'USDC' })
   expect(getTokenBySymbol).toHaveBeenCalled()
 
-  await client.getTokenByAddress({ chainId: 1, addressValue: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' })
+  await client.getTokenByAddress({
+    chainId: 1,
+    addressValue: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+  })
   expect(getTokenByAddress).toHaveBeenCalled()
 }

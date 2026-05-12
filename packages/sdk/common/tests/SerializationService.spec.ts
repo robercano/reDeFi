@@ -14,8 +14,12 @@ describe('SerializationService', () => {
   it('should register custom transformer', () => {
     expect(() => {
       SerializationService.registerCustom(
-        { isApplicable: (_v: unknown): _v is unknown => false, serialize: (v: unknown) => v as never, deserialize: (v: unknown) => v },
-        'Custom'
+        {
+          isApplicable: (_v: unknown): _v is unknown => false,
+          serialize: (v: unknown) => v as never,
+          deserialize: (v: unknown) => v,
+        },
+        'Custom',
       )
     }).not.toThrow()
   })
@@ -35,9 +39,13 @@ describe('SerializationService', () => {
   it('should handle transformer errors and log them', () => {
     const transformer = SerializationService.getTransformer()
     const debugSpy = vi.spyOn(LoggingService, 'debug').mockImplementation(() => {})
-    
-    const stringifySpy = vi.spyOn(SerializationService, 'stringify').mockImplementation(() => { throw new Error('mock error') })
-    const parseSpy = vi.spyOn(SerializationService, 'parse').mockImplementation(() => { throw new Error('mock error') })
+
+    const stringifySpy = vi.spyOn(SerializationService, 'stringify').mockImplementation(() => {
+      throw new Error('mock error')
+    })
+    const parseSpy = vi.spyOn(SerializationService, 'parse').mockImplementation(() => {
+      throw new Error('mock error')
+    })
 
     expect(() => transformer.input.serialize({})).toThrow()
     expect(debugSpy).toHaveBeenCalled()
@@ -47,7 +55,7 @@ describe('SerializationService', () => {
 
     expect(() => transformer.input.deserialize('invalid')).toThrow()
     expect(() => transformer.output.deserialize('invalid')).toThrow()
-    
+
     stringifySpy.mockRestore()
     parseSpy.mockRestore()
   })

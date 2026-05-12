@@ -1,5 +1,5 @@
 import {
-    EmodeType,
+  EmodeType,
   AaveV3LendingPoolId,
   IAaveV3LendingPoolInfo,
   AaveV3Protocol,
@@ -24,7 +24,7 @@ export default async function getLendingPoolInfoTest() {
 
     expect(poolId.protocol).toBeDefined()
     expect(poolId.protocol.name).toBe(ProtocolName.AaveV3)
-    
+
     return {
       type: PoolType.Lending,
       id: poolId,

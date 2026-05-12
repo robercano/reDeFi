@@ -7,7 +7,7 @@ import { z } from 'zod'
 export enum SubscriptionProviderType {
   ALCHEMY = 'ALCHEMY',
   INFURA = 'INFURA',
-  DEFAULT_RPC = 'DEFAULT_RPC'
+  DEFAULT_RPC = 'DEFAULT_RPC',
 }
 
 /**
@@ -17,7 +17,7 @@ export const SubscriptionProviderTypeSchema = z.nativeEnum(SubscriptionProviderT
 
 /**
  * Type guard for SubscriptionProviderType
- * @param value 
+ * @param value
  * @returns boolean true if the value is a SubscriptionProviderType
  */
 export const isSubscriptionProviderType = (value: unknown): value is SubscriptionProviderType => {

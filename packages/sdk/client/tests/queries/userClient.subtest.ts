@@ -12,13 +12,13 @@ export default async function userClientTest() {
     },
     orders: {
       buildOrder: { mutate: buildOrder },
-    }
+    },
   } as unknown as RPCMainClientType
 
   const client = new UserClient({
     rpcClient,
     chainInfo: { chainId: 1, name: 'Mainnet' } as never,
-    wallet: { address: { value: '0x1234567890123456789012345678901234567890' } } as never
+    wallet: { address: { value: '0x1234567890123456789012345678901234567890' } } as never,
   })
 
   await client.getPortfolio()

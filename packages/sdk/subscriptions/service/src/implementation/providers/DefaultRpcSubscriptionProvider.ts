@@ -1,4 +1,7 @@
-import { SubscriptionProviderType, ISubscriptionProvider } from '@thesolidchain/subscriptions-common'
+import {
+  SubscriptionProviderType,
+  ISubscriptionProvider,
+} from '@thesolidchain/subscriptions-common'
 import { ChainIds, type IChainInfo, type ChainId } from '@thesolidchain/sdk-common'
 import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
@@ -11,15 +14,15 @@ export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
   public type: SubscriptionProviderType
   public configProvider: IConfigurationProvider
   private _blockchainManager: IBlockchainManager
-  
+
   // Track active unwatch functions by a generated subscription ID
   private _subscriptions: Map<string, () => void>
   private _subIdCounter: number
 
-  constructor(params: { 
-    type: SubscriptionProviderType, 
-    configProvider: IConfigurationProvider,
-    blockchainClientProvider: IBlockchainManager 
+  constructor(params: {
+    type: SubscriptionProviderType
+    configProvider: IConfigurationProvider
+    blockchainClientProvider: IBlockchainManager
   }) {
     this.type = params.type
     this.configProvider = params.configProvider
@@ -40,9 +43,12 @@ export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
    * @param params.callback Function to call when a new block is mined
    * @returns string A unique subscription ID to be used for unsubscribing
    */
-  public subscribeToNewBlocks(chainInfo: IChainInfo, callback: (blockNumber: bigint) => void): string {
+  public subscribeToNewBlocks(
+    chainInfo: IChainInfo,
+    callback: (blockNumber: bigint) => void,
+  ): string {
     const client = this._blockchainManager.getBlockchainClient({ chainInfo })
-    
+
     // viem watchBlockNumber
     const unwatch = client.watchBlockNumber({
       onBlockNumber: (blockNumber: bigint) => {
@@ -50,19 +56,19 @@ export class DefaultRpcSubscriptionProvider implements ISubscriptionProvider {
       },
       onError: (error: Error) => {
         console.error(`[SubscriptionProvider] Error watching blocks on ${chainInfo.name}:`, error)
-      }
+      },
     })
 
     const subId = `${this.type}-block-${++this._subIdCounter}`
     this._subscriptions.set(subId, unwatch)
-    
+
     return subId
   }
-  
+
   /**
    * unsubscribe
    * Cancels a subscription
-   * 
+   *
    * @param params.subscriptionId The ID of the subscription to cancel
    */
   public unsubscribe(subscriptionId: string): void {

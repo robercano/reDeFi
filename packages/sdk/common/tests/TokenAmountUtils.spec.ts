@@ -31,7 +31,9 @@ describe('TokenAmountUtils', () => {
     })
 
     it('should format token amount using custom options', () => {
-      const formatted = formatTokenAmountHumanReadable(mockTokenAmount, { maximumFractionDigits: 4 })
+      const formatted = formatTokenAmountHumanReadable(mockTokenAmount, {
+        maximumFractionDigits: 4,
+      })
       expect(formatted).toEqual('1.2346M')
     })
   })

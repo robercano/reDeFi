@@ -10,9 +10,11 @@ import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
 import type { IEventBus } from '@thesolidchain/events-common'
 
 /**
- * SDKManager is the main entry point for interacting with the SDK in the client side
+ * Main entry point for interacting with the reDeFi SDK on the client side.
  *
- * It contains all the available services that can be used to interact with the SDK
+ * This interface exposes all the available managers and services to handle chains, tokens, portfolios, swaps, oracles, and protocols.
+ *
+ * @interface ISDKManager
  */
 export interface ISDKManager {
   /** The global event bus for SDK events */

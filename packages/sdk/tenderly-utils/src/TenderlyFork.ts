@@ -235,8 +235,8 @@ export class TenderlyFork {
 
     try {
       response = await params.apiRequestClient.post(params.tenderlyApiUrl + '/vnets', {
-        slug: "sdk-testnet-" + Date.now(),
-        display_name: "SDK TestNet",
+        slug: 'sdk-testnet-' + Date.now(),
+        display_name: 'SDK TestNet',
         fork_config: {
           network_id: params.chainInfo.chainId,
           block_number: params.atBlock,
@@ -254,7 +254,9 @@ export class TenderlyFork {
     }
 
     const forkId = response.data.id
-    const adminRpc = response.data.rpcs.find((rpc: { name: string, url: string }) => rpc.name === 'Admin RPC')?.url || response.data.rpcs[0].url
+    const adminRpc =
+      response.data.rpcs.find((rpc: { name: string; url: string }) => rpc.name === 'Admin RPC')
+        ?.url || response.data.rpcs[0].url
     return {
       forkId: forkId,
       forkUrl: adminRpc,

@@ -19,7 +19,7 @@ export function TokenFetcher() {
   const [tokenData, setTokenData] = useState<TokenData | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  
+
   // Dynamically pull the chainId from the connected wallet connection
   const { chainId } = useAccount()
 
@@ -34,8 +34,11 @@ export function TokenFetcher() {
 
     try {
       // Pass the chainId dynamically to the fetcher request
-      const data = await sdk.getTokenBySymbol({ chainId: chainId ?? 1, symbol: symbol.toUpperCase() })
-      
+      const data = await sdk.getTokenBySymbol({
+        chainId: chainId ?? 1,
+        symbol: symbol.toUpperCase(),
+      })
+
       let supplyAmount = 'Not Supported'
       const supply = await sdk.getTokenTotalSupply({ token: data as IToken })
       if (supply) {
@@ -110,7 +113,11 @@ export function TokenFetcher() {
           <div className="flex items-center gap-4 mb-8">
             <div className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-2xl border border-neutral-700 text-[var(--neon-orange)] shadow-inner overflow-hidden">
               {tokenData.logoURI ? (
-                <img src={tokenData.logoURI as string} alt={`${tokenData.symbol} logo`} className="w-full h-full object-cover" />
+                <img
+                  src={tokenData.logoURI as string}
+                  alt={`${tokenData.symbol} logo`}
+                  className="w-full h-full object-cover"
+                />
               ) : (
                 tokenData.symbol?.slice(0, 1) || '?'
               )}
@@ -133,7 +140,10 @@ export function TokenFetcher() {
               const formattedKey = key.replace(/([A-Z])/g, ' $1').trim()
 
               return (
-                <div key={key} className="bg-neutral-900/80 p-4 rounded-lg border border-neutral-800 flex flex-col justify-center transition-colors hover:border-neutral-600">
+                <div
+                  key={key}
+                  className="bg-neutral-900/80 p-4 rounded-lg border border-neutral-800 flex flex-col justify-center transition-colors hover:border-neutral-600"
+                >
                   <span className="text-xs text-neutral-500 uppercase tracking-wider font-semibold block mb-2">
                     {formattedKey}
                   </span>

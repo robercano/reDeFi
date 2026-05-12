@@ -1,5 +1,10 @@
 import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
-import { TokensProviderType, Cache, VolatilityProfile, DataOrchestrator } from '@thesolidchain/sdk-common'
+import {
+  TokensProviderType,
+  Cache,
+  VolatilityProfile,
+  DataOrchestrator,
+} from '@thesolidchain/sdk-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 
 /**

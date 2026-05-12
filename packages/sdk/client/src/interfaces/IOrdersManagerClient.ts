@@ -1,7 +1,4 @@
-import {
-  Maybe,
-  Order,
-} from '@thesolidchain/sdk-common'
+import { Maybe, Order } from '@thesolidchain/sdk-common'
 import { IBuildOrderInputs } from '@thesolidchain/order-planner-common'
 
 /**

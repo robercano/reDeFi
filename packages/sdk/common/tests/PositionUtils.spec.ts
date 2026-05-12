@@ -4,7 +4,7 @@ import {
   depositToPosition,
   withdrawFromPosition,
   borrowFromPosition,
-  repayPositionDebt
+  repayPositionDebt,
 } from '../src/common/utils/PositionUtils'
 
 import { Token } from '../src/common/implementation/Token'
@@ -20,7 +20,7 @@ describe('PositionUtils', () => {
     address: Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' }),
     decimals: 18,
     symbol: 'COL',
-    name: 'Collateral Token'
+    name: 'Collateral Token',
   })
 
   const debtToken = Token.createFrom({
@@ -28,12 +28,12 @@ describe('PositionUtils', () => {
     address: Address.createFromEthereum({ value: '0x2222222222222222222222222222222222222222' }),
     decimals: 18,
     symbol: 'DEBT',
-    name: 'Debt Token'
+    name: 'Debt Token',
   })
 
   const poolData: ILendingPoolData = {
     collateralToken,
-    debtToken
+    debtToken,
   } as never // Mocking the rest of pool data
 
   it('should create a new empty position from pool', () => {
@@ -51,7 +51,10 @@ describe('PositionUtils', () => {
   })
 
   it('should handle withdrawFromPosition', () => {
-    const position = depositToPosition(newEmptyPositionFromPool(poolData), TokenAmount.createFrom({ token: collateralToken, amount: '100' }))
+    const position = depositToPosition(
+      newEmptyPositionFromPool(poolData),
+      TokenAmount.createFrom({ token: collateralToken, amount: '100' }),
+    )
     const withdrawAmount = TokenAmount.createFrom({ token: collateralToken, amount: '40' })
     const updated = withdrawFromPosition(position, withdrawAmount)
     expect(updated.collateralAmount.amount).toBe('60')
@@ -65,7 +68,10 @@ describe('PositionUtils', () => {
   })
 
   it('should handle repayPositionDebt', () => {
-    const position = borrowFromPosition(newEmptyPositionFromPool(poolData), TokenAmount.createFrom({ token: debtToken, amount: '50' }))
+    const position = borrowFromPosition(
+      newEmptyPositionFromPool(poolData),
+      TokenAmount.createFrom({ token: debtToken, amount: '50' }),
+    )
     const repayAmount = TokenAmount.createFrom({ token: debtToken, amount: '20' })
     const updated = repayPositionDebt(position, repayAmount)
     expect(updated.debtAmount.amount).toBe('30')

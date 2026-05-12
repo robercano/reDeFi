@@ -1,5 +1,8 @@
 import { describe, expect, it } from 'vitest'
-import { isValueReference, getValueFromReference } from '../src/simulation/interfaces/ValueReference'
+import {
+  isValueReference,
+  getValueFromReference,
+} from '../src/simulation/interfaces/ValueReference'
 
 describe('ValueReference', () => {
   it('should correctly identify a ValueReference', () => {

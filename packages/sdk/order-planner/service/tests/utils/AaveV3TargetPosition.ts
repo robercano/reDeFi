@@ -1,4 +1,3 @@
-
 import {
   IAaveV3LendingPool,
   IAaveV3LendingPosition,
@@ -69,7 +68,9 @@ export function getAaveV3TargetPosition(): IAaveV3LendingPosition {
     id: AaveV3LendingPositionId.createFrom({
       id: 'aaveV3Position',
       poolId: poolId,
-      walletAddress: Address.createFromEthereum({ value: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266' }),
+      walletAddress: Address.createFromEthereum({
+        value: '0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266',
+      }),
     }),
     debtAmount,
     collateralAmount,

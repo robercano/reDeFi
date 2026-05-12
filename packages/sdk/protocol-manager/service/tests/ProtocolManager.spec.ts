@@ -118,11 +118,29 @@ describe('Protocol Manager', () => {
       context: ctx,
     })
     protocolManager = ProtocolManager.createWith({ pluginsRegistry })
-    
+
     const poolId = AaveV3LendingPoolId.createFrom({
-      protocol: AaveV3Protocol.createFrom({ chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }) }),
-      collateralToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
-      debtToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
+      protocol: AaveV3Protocol.createFrom({
+        chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
+      }),
+      collateralToken: Token.createFrom({
+        address: Address.createFromEthereum({
+          value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+        }),
+        chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+        name: 'USD Coin',
+        symbol: 'USDC',
+        decimals: 6,
+      }),
+      debtToken: Token.createFrom({
+        address: Address.createFromEthereum({
+          value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+        }),
+        chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+        name: 'USD Coin',
+        symbol: 'USDC',
+        decimals: 6,
+      }),
       emodeType: EmodeType.None,
     })
 
@@ -142,33 +160,79 @@ describe('Protocol Manager', () => {
       context: ctx,
     })
     protocolManager = ProtocolManager.createWith({ pluginsRegistry })
-    
+
     const poolId = AaveV3LendingPoolId.createFrom({
-      protocol: AaveV3Protocol.createFrom({ chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }) }),
-      collateralToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
-      debtToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
+      protocol: AaveV3Protocol.createFrom({
+        chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
+      }),
+      collateralToken: Token.createFrom({
+        address: Address.createFromEthereum({
+          value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+        }),
+        chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+        name: 'USD Coin',
+        symbol: 'USDC',
+        decimals: 6,
+      }),
+      debtToken: Token.createFrom({
+        address: Address.createFromEthereum({
+          value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+        }),
+        chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+        name: 'USD Coin',
+        symbol: 'USDC',
+        decimals: 6,
+      }),
       emodeType: EmodeType.None,
     })
 
-    await expect(protocolManager.getLendingPool(poolId as any)).rejects.toThrow('does not support lending')
-    await expect(protocolManager.getLendingPoolInfo(poolId as any)).rejects.toThrow('does not support lending')
+    await expect(protocolManager.getLendingPool(poolId as any)).rejects.toThrow(
+      'does not support lending',
+    )
+    await expect(protocolManager.getLendingPoolInfo(poolId as any)).rejects.toThrow(
+      'does not support lending',
+    )
   })
 
   it('should throw not implemented for getLendingPosition', async () => {
     const positionId = {
-      protocol: AaveV3Protocol.createFrom({ chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }) }),
+      protocol: AaveV3Protocol.createFrom({
+        chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
+      }),
       poolId: AaveV3LendingPoolId.createFrom({
-        protocol: AaveV3Protocol.createFrom({ chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }) }),
-        collateralToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
-        debtToken: Token.createFrom({ address: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }), chainInfo: ChainFamilyMap.Ethereum.Mainnet, name: 'USD Coin', symbol: 'USDC', decimals: 6 }),
+        protocol: AaveV3Protocol.createFrom({
+          chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
+        }),
+        collateralToken: Token.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+          }),
+          chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+          name: 'USD Coin',
+          symbol: 'USDC',
+          decimals: 6,
+        }),
+        debtToken: Token.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+          }),
+          chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+          name: 'USD Coin',
+          symbol: 'USDC',
+          decimals: 6,
+        }),
         emodeType: EmodeType.None,
       }),
-      walletAddress: Address.createFromEthereum({ value: '0x6b175474e89094c44da98b954eedeac495271d0f' }),
+      walletAddress: Address.createFromEthereum({
+        value: '0x6b175474e89094c44da98b954eedeac495271d0f',
+      }),
     }
 
     // Since isPositionId needs __signature__ let's just mock it
-    await expect(protocolManager.getLendingPosition({} as any)).rejects.toThrow('Invalid lending pool ID')
-    
+    await expect(protocolManager.getLendingPosition({} as any)).rejects.toThrow(
+      'Invalid lending pool ID',
+    )
+
     // Now with valid id, wait isPositionId just checks __signature__?
     const validPosId = { ...positionId, [Symbol.for('isPositionId')]: true }
     // Actually wait, let's just use try catch or expect rejects

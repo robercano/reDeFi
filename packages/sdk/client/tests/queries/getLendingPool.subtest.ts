@@ -22,7 +22,7 @@ export default async function getLendingPoolTest() {
 
     expect(poolId.protocol).toBeDefined()
     expect(poolId.protocol.name).toBe(ProtocolName.AaveV3)
-    
+
     return {
       type: PoolType.Lending,
       id: poolId,

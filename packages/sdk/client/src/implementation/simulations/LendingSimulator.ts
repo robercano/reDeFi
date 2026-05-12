@@ -1,9 +1,9 @@
 import { ILendingSimulator } from '../../interfaces/simulations/ILendingSimulator'
 import { RPCMainClientType } from '../../rpc/SDKMainClient'
-import { 
-  ITokenAmount, 
-  ILendingPoolId, 
-  ISimulation, 
+import {
+  ITokenAmount,
+  ILendingPoolId,
+  ISimulation,
   SimulationSteps,
   LendingSimulation,
 } from '@thesolidchain/sdk-common'
@@ -11,7 +11,10 @@ import {
 export class LendingSimulator implements ILendingSimulator {
   public constructor(private readonly rpcClient: RPCMainClientType) {}
 
-  async simulateSupply(params: { poolId: ILendingPoolId; amount: ITokenAmount }): Promise<ISimulation> {
+  async simulateSupply(params: {
+    poolId: ILendingPoolId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
     const poolInfo = await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
 
     // Build the SimulationStep
@@ -25,8 +28,8 @@ export class LendingSimulator implements ILendingSimulator {
         },
         output: {
           depositAmount: params.amount,
-        }
-      } as any // Cast to any to bypass complex generics for now
+        },
+      } as any, // Cast to any to bypass complex generics for now
     ]
 
     // Construct intent-based simulation output
@@ -37,7 +40,10 @@ export class LendingSimulator implements ILendingSimulator {
     })
   }
 
-  async simulateBorrow(params: { poolId: ILendingPoolId; amount: ITokenAmount }): Promise<ISimulation> {
+  async simulateBorrow(params: {
+    poolId: ILendingPoolId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
     const poolInfo = await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
 
     const steps = [
@@ -50,8 +56,8 @@ export class LendingSimulator implements ILendingSimulator {
         },
         output: {
           borrowAmount: params.amount,
-        }
-      } as any
+        },
+      } as any,
     ]
 
     return new LendingSimulation({

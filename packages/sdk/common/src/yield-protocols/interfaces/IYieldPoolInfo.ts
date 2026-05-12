@@ -5,7 +5,10 @@ import { IToken, isToken } from '../../common/interfaces/IToken'
 import { IPercentage, isPercentage } from '../../common/interfaces/IPercentage'
 import { YieldType, YieldTypeSchema } from '../types/YieldType'
 import { IYieldPoolId, isYieldPoolId } from './IYieldPoolId'
-import { IFiatCurrencyAmount, isFiatCurrencyAmount } from '../../common/interfaces/IFiatCurrencyAmount'
+import {
+  IFiatCurrencyAmount,
+  isFiatCurrencyAmount,
+} from '../../common/interfaces/IFiatCurrencyAmount'
 
 /**
  * Unique signature to provide branded types to the interface

@@ -12,7 +12,7 @@ export class PortfolioManagerFactory {
   /**
    * newPortfolioManager
    * Constructs and returns a new instance of PortfolioManager.
-   * 
+   *
    * @param params.tokensManager - Required tokens manager instance
    * @param params.oracleManager - Required oracle manager instance
    * @param params.cacheService - Optional cache service for caching aggregated portfolios

@@ -1,4 +1,8 @@
-import { SubscriptionProviderType, ISubscriptionManager, ISubscriptionProvider } from '@thesolidchain/subscriptions-common'
+import {
+  SubscriptionProviderType,
+  ISubscriptionManager,
+  ISubscriptionProvider,
+} from '@thesolidchain/subscriptions-common'
 import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { IEventBus } from '@thesolidchain/events-common'
@@ -11,8 +15,8 @@ export class SubscriptionManagerFactory {
    * Creates a new instance of SubscriptionManager
    */
   public static newSubscriptionManager(params: {
-    configProvider: IConfigurationProvider,
-    blockchainClientProvider: IBlockchainManager,
+    configProvider: IConfigurationProvider
+    blockchainClientProvider: IBlockchainManager
     eventBus?: IEventBus
   }): ISubscriptionManager {
     const providers = new Map<SubscriptionProviderType, ISubscriptionProvider>()
@@ -21,7 +25,7 @@ export class SubscriptionManagerFactory {
     const defaultRpcProvider = new DefaultRpcSubscriptionProvider({
       type: SubscriptionProviderType.DEFAULT_RPC,
       configProvider: params.configProvider,
-      blockchainClientProvider: params.blockchainClientProvider
+      blockchainClientProvider: params.blockchainClientProvider,
     })
     providers.set(SubscriptionProviderType.DEFAULT_RPC, defaultRpcProvider)
 

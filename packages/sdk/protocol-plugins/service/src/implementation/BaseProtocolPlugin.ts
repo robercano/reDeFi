@@ -5,13 +5,7 @@ import {
   IYieldProtocolFeatures,
   IStakeProtocolFeatures,
 } from '@thesolidchain/protocol-plugins-common'
-import {
-  ChainInfo,
-  IAddress,
-  IChainInfo,
-  Maybe,
-  ProtocolName,
-} from '@thesolidchain/sdk-common'
+import { ChainInfo, IAddress, IChainInfo, Maybe, ProtocolName } from '@thesolidchain/sdk-common'
 
 import { getContractAddress } from '../plugins/utils/GetContractAddress'
 
@@ -93,4 +87,3 @@ export abstract class BaseProtocolPlugin implements IProtocolPlugin {
     }
   }
 }
-

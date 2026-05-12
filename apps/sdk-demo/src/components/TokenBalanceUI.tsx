@@ -15,24 +15,24 @@ export function TokenBalanceUI({ token, balance, fiatValue }: TokenBalanceUIProp
         <div>
           <h4 className="font-bold text-xl text-white">{token.symbol}</h4>
           <p className="text-xs text-neutral-500 font-mono mt-1 break-all pr-4">
-             {token.address?.value}
+            {token.address?.value}
           </p>
         </div>
         <div className="w-10 h-10 rounded-full flex-shrink-0 bg-neutral-800 border border-neutral-700 flex items-center justify-center text-xs font-bold text-[var(--neon-cyan)] overflow-hidden">
           {token.logoURI ? (
-            <Image 
-              src={token.logoURI} 
+            <Image
+              src={token.logoURI}
               alt={token.symbol}
               width={40}
               height={40}
-              className="w-full h-full object-cover" 
+              className="w-full h-full object-cover"
             />
           ) : (
             token.symbol?.slice(0, 3)
           )}
         </div>
       </div>
-      
+
       {(balance !== undefined || fiatValue !== undefined) && (
         <div className="space-y-1">
           {balance !== undefined && (
@@ -44,9 +44,7 @@ export function TokenBalanceUI({ token, balance, fiatValue }: TokenBalanceUIProp
           {fiatValue !== undefined && (
             <div className="flex justify-between items-center text-sm">
               <span className="text-neutral-500">Fiat Value:</span>
-              <span className="text-[var(--neon-cyan)] font-mono font-bold">
-                 {fiatValue}
-              </span>
+              <span className="text-[var(--neon-cyan)] font-mono font-bold">{fiatValue}</span>
             </div>
           )}
         </div>

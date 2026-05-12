@@ -118,7 +118,9 @@ describe('AAVEv3 Protocol Plugin', () => {
     const positionId = AaveV3LendingPositionId.createFrom({
       id: 'mockPositionId',
       poolId: aaveV3PoolIdMock,
-      walletAddress: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }),
+      walletAddress: Address.createFromEthereum({
+        value: '0x1234567890123456789012345678901234567890',
+      }),
     })
 
     vi.spyOn(ctx.provider, 'multicall').mockResolvedValue([

@@ -1,6 +1,4 @@
-import {
-  ILendingProtocolFeatures,
-} from '@thesolidchain/protocol-plugins-common'
+import { ILendingProtocolFeatures } from '@thesolidchain/protocol-plugins-common'
 import {
   IPositionIdData,
   TransactionInfo,
@@ -21,7 +19,10 @@ import { BaseProtocolPlugin } from './BaseProtocolPlugin'
  *
  * It provides the lending feature module implementation, setting `lending = this`
  */
-export abstract class BaseLendingProtocolPlugin extends BaseProtocolPlugin implements ILendingProtocolFeatures {
+export abstract class BaseLendingProtocolPlugin
+  extends BaseProtocolPlugin
+  implements ILendingProtocolFeatures
+{
   /** Feature modules */
   readonly lending = this
 
@@ -91,7 +92,6 @@ export abstract class BaseLendingProtocolPlugin extends BaseProtocolPlugin imple
 
   /** @see ILendingProtocolFeatures.getLendingPosition */
   abstract getLendingPosition(positionId: ILendingPositionIdData): Promise<ILendingPosition>
-
 
   /** SUPPLY TRANSACTION */
 

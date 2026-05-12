@@ -1,7 +1,4 @@
-import {
-  ChainInfo,
-  ProtocolName,
-} from '@thesolidchain/sdk-common'
+import { ChainInfo, ProtocolName } from '@thesolidchain/sdk-common'
 
 import { type IProtocolPluginContext } from './IProtocolPluginContext'
 import { ILendingProtocolFeatures } from './ILendingProtocolFeatures'
@@ -20,21 +17,21 @@ export interface IProtocolPlugin {
   initialize(params: { context: IProtocolPluginContext }): void
 
   // --- Feature Modules ---
-  
-  /** 
-   * Lending features (optional). 
+
+  /**
+   * Lending features (optional).
    * Defined if the protocol supports lending operations.
    */
   readonly lending?: ILendingProtocolFeatures
 
-  /** 
-   * Yield features (optional). 
+  /**
+   * Yield features (optional).
    * Defined if the protocol supports yield operations.
    */
   readonly yield?: IYieldProtocolFeatures
 
-  /** 
-   * Staking features (optional). 
+  /**
+   * Staking features (optional).
    * Defined if the protocol supports staking operations.
    */
   readonly stake?: IStakeProtocolFeatures

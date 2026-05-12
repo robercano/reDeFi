@@ -1,5 +1,9 @@
 import { ManagerWithFallbackProvidersBase } from '@thesolidchain/api-server-common'
-import { IBlockchainClientProvider, IBlockchainManager, IBlockchainClient } from '@thesolidchain/blockchain-client-common'
+import {
+  IBlockchainClientProvider,
+  IBlockchainManager,
+  IBlockchainClient,
+} from '@thesolidchain/blockchain-client-common'
 import { BlockchainProviderType, IChainInfo } from '@thesolidchain/sdk-common'
 
 /**
@@ -18,7 +22,10 @@ export class BlockchainManager
   /**
    * @see IBlockchainManager.getBlockchainClient
    */
-  public getBlockchainClient(params: { chainInfo: IChainInfo; rpcUrl?: string }): IBlockchainClient {
+  public getBlockchainClient(params: {
+    chainInfo: IChainInfo
+    rpcUrl?: string
+  }): IBlockchainClient {
     const bestProvider = this._getBestProvider({ chainInfo: params.chainInfo })
     return bestProvider.getBlockchainClient(params)
   }

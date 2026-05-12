@@ -1,4 +1,10 @@
-import { IPoolIdData, IPool, IPoolInfo, IPositionIdData, IPosition } from '@thesolidchain/sdk-common'
+import {
+  IPoolIdData,
+  IPool,
+  IPoolInfo,
+  IPositionIdData,
+  IPosition,
+} from '@thesolidchain/sdk-common'
 
 /**
  * @interface IStakeProtocolFeatures

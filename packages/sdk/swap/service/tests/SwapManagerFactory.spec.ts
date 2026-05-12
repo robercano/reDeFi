@@ -6,8 +6,8 @@ import type { IConfigurationProvider } from '@thesolidchain/configuration-provid
 
 vi.mock('../src/implementation/oneinch/OneInchSwapProvider', () => ({
   OneInchSwapProvider: vi.fn().mockImplementation(() => ({
-    getSupportedChainIds: () => [1]
-  }))
+    getSupportedChainIds: () => [1],
+  })),
 }))
 
 describe('SwapManagerFactory', () => {

@@ -14,23 +14,23 @@ describe('Holding', () => {
     address: Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' }),
     decimals: 18,
     symbol: 'MOCK',
-    name: 'Mock Token'
+    name: 'Mock Token',
   })
 
   const amount = TokenAmount.createFrom({
     token,
-    amount: '1000000000000000000000'
+    amount: '1000000000000000000000',
   })
 
   const fiatValue = FiatCurrencyAmount.createFrom({
     fiat: FiatCurrency.USD,
-    amount: '1500.5'
+    amount: '1500.5',
   })
 
   it('should create a Holding instance', () => {
     const holding = Holding.createFrom({
       amount,
-      fiatValue
+      fiatValue,
     })
 
     expect(holding.amount).toBe(amount)
@@ -40,7 +40,7 @@ describe('Holding', () => {
   it('should stringify correctly', () => {
     const holding = Holding.createFrom({
       amount,
-      fiatValue
+      fiatValue,
     })
 
     expect(holding.toString()).toContain('Holding:')

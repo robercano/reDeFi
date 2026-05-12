@@ -1,13 +1,13 @@
-import { handler } from './fetchTokens';
+import { handler } from './fetchTokens'
 
-console.log('Manually triggering fetchTokens...');
+console.log('Manually triggering fetchTokens...')
 
 handler()
   .then(() => {
-    console.log('Successfully completed manual fetch.');
-    process.exit(0);
+    console.log('Successfully completed manual fetch.')
+    process.exit(0)
   })
   .catch((error) => {
-    console.error('Manual fetch failed:', error);
-    process.exit(1);
-  });
+    console.error('Manual fetch failed:', error)
+    process.exit(1)
+  })

@@ -11,7 +11,8 @@ const SDK_TOOLS = [
   {
     id: 'portfolio-viewer',
     name: 'User Portfolio',
-    description: 'Fetch the aggregated portfolio balances and estimated fiat valuations for the actively connected user.',
+    description:
+      'Fetch the aggregated portfolio balances and estimated fiat valuations for the actively connected user.',
     component: PortfolioViewer,
   },
   {
@@ -29,7 +30,8 @@ const SDK_TOOLS = [
   {
     id: 'swap-viewer',
     name: 'Swap Simulator',
-    description: 'Simulate decentralized exchanges to find optimal swap routes and quotes between two tokens.',
+    description:
+      'Simulate decentralized exchanges to find optimal swap routes and quotes between two tokens.',
     component: SwapViewer,
   },
   // Placeholder to demonstrate how other tools can be added seamlessly
@@ -39,8 +41,18 @@ const SDK_TOOLS = [
     description: 'Manage and interact with DeFi vaults using the SDK.',
     component: () => (
       <div className="w-full max-w-xl mx-auto mt-16 p-12 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm text-center">
-        <svg className="w-12 h-12 mx-auto text-neutral-600 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        <svg
+          className="w-12 h-12 mx-auto text-neutral-600 mb-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+          />
         </svg>
         <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
         <p className="text-neutral-400">The Vault Manager tool is currently under construction.</p>
@@ -56,7 +68,7 @@ const EmptyComponent = () => null
 
 export default function Home() {
   const { chain, chainId, isConnected } = useAccount()
-  
+
   // State to track which tool is currently selected
   const [activeToolId, setActiveToolId] = useState<string>(SDK_TOOLS[0].id)
 
@@ -73,7 +85,9 @@ export default function Home() {
       <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-3">
         {isConnected && chainId && (
           <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm flex items-center gap-2 backdrop-blur-md">
-            <span className={`w-2 h-2 rounded-full ${chain ? 'bg-[var(--neon-cyan)] shadow-[0_0_8px_rgba(0,240,255,0.8)]' : 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'} animate-pulse`}></span>
+            <span
+              className={`w-2 h-2 rounded-full ${chain ? 'bg-[var(--neon-cyan)] shadow-[0_0_8px_rgba(0,240,255,0.8)]' : 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'} animate-pulse`}
+            ></span>
             {chain?.name || `Unknown Network (${chainId})`}
           </div>
         )}
@@ -81,7 +95,6 @@ export default function Home() {
       </nav>
 
       <main className="container mx-auto px-6 py-6 relative z-10 flex flex-col items-center min-h-screen">
-        
         {/* Header Section */}
         <header className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--neon-cyan)]/30 bg-[var(--neon-cyan)]/5 mb-6 backdrop-blur-md">
@@ -93,7 +106,7 @@ export default function Home() {
           <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-tight drop-shadow-2xl">
             Developer <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--neon-orange)] to-[var(--neon-cyan)] filter drop-shadow-[0_0_20px_rgba(255,85,0,0.5)]">
-               Toolkit Hub
+              Toolkit Hub
             </span>
           </h1>
           <p className="text-lg text-neutral-400 max-w-2xl mx-auto font-light leading-relaxed">
@@ -139,11 +152,15 @@ export default function Home() {
         </div>
       </main>
 
-      <style dangerouslySetInnerHTML={{ __html: `
+      <style
+        dangerouslySetInnerHTML={{
+          __html: `
         @keyframes shimmer {
           100% { transform: translateX(100%); }
         }
-      `}} />
+      `,
+        }}
+      />
     </div>
   )
 }

@@ -21,6 +21,7 @@
     "format:fix": "prettier --write --log-level=error --cache --cache-strategy metadata --cache-location=.turbo/prettier-fix \"./**/*.{ts,tsx,js,jsx,json}\"",
     "coverage:total": "node scripts/coverage-report/GenerateCoverageReport.js",
     "coverage:aggregate": "node scripts/aggregate-coverage.mjs",
+    "docs:generate": "typedoc",
     "prepare": "husky"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "@turbo/gen": "^2.0.6",
     "@types/aws-lambda": "^8.10.137",
     "@types/node": "^24.0.0",
+    "@vitest/coverage-v8": "^1.6.0",
     "create-ts-index": "^1.14.0",
     "dotenv": "^16.4.5",
     "dotenv-cli": "^7.4.2",
@@ -51,10 +53,11 @@
     "tsc-alias": "^1.8.8",
     "tsx": "^4.16.5",
     "turbo": "^2.5.5",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0",
     "typescript": "^5.7.3",
-    "zx": "^8.3.0",
     "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "zx": "^8.3.0"
   },
   "packageManager": "pnpm@8.15.9+sha256.daa27a0b541bc635323ff96c2ded995467ff9fe6d69ff67021558aa9ad9dcc36",
   "engines": {

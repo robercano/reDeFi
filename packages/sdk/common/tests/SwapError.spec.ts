@@ -9,7 +9,7 @@ describe('SwapError', () => {
       message: 'Insufficient liquidity',
       subtype: SwapErrorType.InsufficientLiquidity,
       apiQuery: 'https://api.1inch.io/v5.0/1/swap',
-      statusCode: 400
+      statusCode: 400,
     })
 
     expect(error.type).toBe(SDKErrorType.SwapError)

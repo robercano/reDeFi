@@ -19,7 +19,10 @@ export class TokensManagerMock extends TokensManager {
     })
   }
 
-  override async getTokenBySymbol(params: { chainInfo: IChainInfo; symbol: string }): Promise<IToken> {
+  override async getTokenBySymbol(params: {
+    chainInfo: IChainInfo
+    symbol: string
+  }): Promise<IToken> {
     return Token.createFrom({
       chainInfo: params.chainInfo,
       address: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
@@ -29,7 +32,10 @@ export class TokensManagerMock extends TokensManager {
     })
   }
 
-  override async getTokenByAddress(params: { chainInfo: IChainInfo; address: IAddress }): Promise<IToken> {
+  override async getTokenByAddress(params: {
+    chainInfo: IChainInfo
+    address: IAddress
+  }): Promise<IToken> {
     return Token.createFrom({
       chainInfo: params.chainInfo,
       address: params.address,

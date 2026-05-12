@@ -1,7 +1,10 @@
 import { z } from 'zod'
 
 import { ITokenAmount, isTokenAmount } from '../../common/interfaces/ITokenAmount'
-import { IFiatCurrencyAmount, isFiatCurrencyAmount } from '../../common/interfaces/IFiatCurrencyAmount'
+import {
+  IFiatCurrencyAmount,
+  isFiatCurrencyAmount,
+} from '../../common/interfaces/IFiatCurrencyAmount'
 import { IPrintable } from '../../common/interfaces/IPrintable'
 
 /**

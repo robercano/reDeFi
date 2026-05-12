@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 
-const DynamicProviders = dynamic(() => import('./providers-inner').then(m => m.ProvidersInner), {
+const DynamicProviders = dynamic(() => import('./providers-inner').then((m) => m.ProvidersInner), {
   ssr: false,
 })
 

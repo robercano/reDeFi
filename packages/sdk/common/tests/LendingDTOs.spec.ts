@@ -17,27 +17,27 @@ describe('Lending DTOs', () => {
     address: Address.createFromEthereum({ value: '0x1111111111111111111111111111111111111111' }),
     decimals: 18,
     symbol: 'MOCK',
-    name: 'Mock Token'
+    name: 'Mock Token',
   })
-  
+
   const mockPrice = Price.createFrom({
     baseToken: mockToken,
     quoteToken: mockToken,
-    value: 1
+    value: 1,
   })
-  
+
   const mockTokenAmount = TokenAmount.createFrom({
     token: mockToken,
-    amount: 1000n
+    amount: 1000n,
   })
-  
+
   const mockPercentage = Percentage.createFrom({
-    value: 0.05
+    value: 0.05,
   })
-  
+
   const mockRiskRatio = RiskRatio.createFrom({
     type: RiskRatioType.LTV,
-    value: { value: 0.75 }
+    value: { value: 0.75 },
   })
 
   it('should create CollateralInfo', () => {
@@ -48,7 +48,7 @@ describe('Lending DTOs', () => {
       liquidationThreshold: mockRiskRatio,
       maxSupply: mockTokenAmount,
       tokensLocked: mockTokenAmount,
-      liquidationPenalty: mockPercentage
+      liquidationPenalty: mockPercentage,
     })
 
     expect(collateralInfo.token.symbol).toBe('MOCK')
@@ -65,7 +65,7 @@ describe('Lending DTOs', () => {
       debtCeiling: mockTokenAmount,
       debtAvailable: mockTokenAmount,
       dustLimit: mockTokenAmount,
-      originationFee: mockPercentage
+      originationFee: mockPercentage,
     })
 
     expect(debtInfo.token.symbol).toBe('MOCK')

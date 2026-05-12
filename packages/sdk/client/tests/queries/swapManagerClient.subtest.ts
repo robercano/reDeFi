@@ -8,7 +8,7 @@ export default async function swapManagerClientTest() {
   const rpcClient = {
     swaps: {
       getSwapQuoteExactInput: { query: getSwapQuoteExactInput },
-    }
+    },
   } as unknown as RPCMainClientType
 
   const client = new SwapManagerClient({ rpcClient })

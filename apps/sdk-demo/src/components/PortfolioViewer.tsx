@@ -10,7 +10,7 @@ export function PortfolioViewer() {
   const [portfolio, setPortfolio] = useState<IUserPortfolio | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  
+
   const { isConnected } = useAccount()
   const sdk = useAppSDK()
 
@@ -23,9 +23,9 @@ export function PortfolioViewer() {
     try {
       const user = sdk.getCurrentUser()
       if (!user.wallet.address) {
-         throw new Error("Wallet address is not defined.")
+        throw new Error('Wallet address is not defined.')
       }
-      
+
       const userPortfolio = await sdk.getUserPortfolio({ user })
       console.log('[PortfolioViewer] Fetched user portfolio:', userPortfolio)
       setPortfolio(userPortfolio)
@@ -76,7 +76,6 @@ export function PortfolioViewer() {
 
       {portfolio && (
         <div className="space-y-6 animate-in slide-in-from-bottom-4 duration-500">
-          
           {/* Total Value Header Card */}
           <div className="p-8 rounded-2xl bg-gradient-to-br from-black/80 to-black/40 border border-neutral-800 shadow-2xl relative overflow-hidden group">
             <div className="absolute right-0 top-0 w-64 h-64 bg-[var(--neon-cyan)]/5 blur-[80px] -mt-10 -mr-10 transition-all duration-700 group-hover:bg-[var(--neon-cyan)]/10"></div>

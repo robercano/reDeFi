@@ -3,7 +3,7 @@
  * @description Standardized interface for implementing caching mechanisms across the system.
  * This abstraction allows managers to safely store and retrieve data seamlessly
  * without tightly coupling to the underlying infrastructure (e.g., DynamoDB, Redis, or Memory).
- * 
+ *
  * ReDeFi aims to be a standard in the industry, and this generic cache abstraction
  * plays a critical role in minimizing latency, avoiding rate limits from external APIs,
  * and maintaining high availability even when third-party providers degrade.

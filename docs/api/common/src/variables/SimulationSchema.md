@@ -1,0 +1,11 @@
+[**redefi**](../../../README.md)
+
+***
+
+[redefi](../../../README.md) / [common/src](../README.md) / SimulationSchema
+
+# Variable: SimulationSchema
+
+> `const` **SimulationSchema**: `ZodObject`\<\{ `balanceChanges`: `ZodArray`\<`ZodObject`\<\{ `amount`: `ZodType`\<[`ITokenAmount`](../interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../interfaces/ITokenAmount.md)\>; `fiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md), `ZodTypeDef`, [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md)\>; `token`: `ZodType`\<[`IToken`](../interfaces/IToken.md), `ZodTypeDef`, [`IToken`](../interfaces/IToken.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `amount?`: [`ITokenAmount`](../interfaces/ITokenAmount.md); `fiatValue?`: [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md); `token?`: [`IToken`](../interfaces/IToken.md); \}, \{ `amount?`: [`ITokenAmount`](../interfaces/ITokenAmount.md); `fiatValue?`: [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md); `token?`: [`IToken`](../interfaces/IToken.md); \}\>, `"many"`\>; `gasEstimations`: `ZodArray`\<`ZodObject`\<\{ `gasFiatValue`: `ZodType`\<[`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md), `ZodTypeDef`, [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md)\>; `gasTokenAmount`: `ZodType`\<[`ITokenAmount`](../interfaces/ITokenAmount.md), `ZodTypeDef`, [`ITokenAmount`](../interfaces/ITokenAmount.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md); `gasTokenAmount?`: [`ITokenAmount`](../interfaces/ITokenAmount.md); \}, \{ `gasFiatValue?`: [`IFiatCurrencyAmount`](../interfaces/IFiatCurrencyAmount.md); `gasTokenAmount?`: [`ITokenAmount`](../interfaces/ITokenAmount.md); \}\>, `"many"`\>; `steps`: `ZodArray`\<`ZodAny`, `"many"`\>; `type`: `ZodNativeEnum`\<*typeof* [`SimulationType`](../enumerations/SimulationType.md)\>; \}, `"strip"`, `ZodTypeAny`, \{ `balanceChanges?`: `object`[]; `gasEstimations?`: `object`[]; `steps?`: `any`[]; `type?`: [`SimulationType`](../enumerations/SimulationType.md); \}, \{ `balanceChanges?`: `object`[]; `gasEstimations?`: `object`[]; `steps?`: `any`[]; `type?`: [`SimulationType`](../enumerations/SimulationType.md); \}\>
+
+Zod schema for ISimulation

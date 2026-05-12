@@ -1,5 +1,10 @@
-
-import { isToken, OracleProviderType, Cache, VolatilityProfile, DataOrchestrator } from '@thesolidchain/sdk-common'
+import {
+  isToken,
+  OracleProviderType,
+  Cache,
+  VolatilityProfile,
+  DataOrchestrator,
+} from '@thesolidchain/sdk-common'
 import { IOracleManager, IOracleProvider } from '@thesolidchain/oracle-common'
 import { ManagerWithFallbackProvidersBase, ICacheService } from '@thesolidchain/api-server-common'
 

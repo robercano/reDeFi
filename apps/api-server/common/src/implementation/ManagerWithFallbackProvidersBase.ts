@@ -11,7 +11,9 @@ import type { ICacheService } from '../interfaces/ICacheService'
 export class ManagerWithFallbackProvidersBase<
   ProviderType extends string,
   ManagerProvider extends IManagerProvider<ProviderType>,
-> implements IManagerWithProviders<ProviderType, ManagerProvider>, ICacheAware {
+>
+  implements IManagerWithProviders<ProviderType, ManagerProvider>, ICacheAware
+{
   private _providersByChainId: Map<ChainId, ManagerProvider[]>
   private _providersByType: Map<ProviderType, ManagerProvider>
   protected readonly _cacheService?: ICacheService
@@ -25,14 +27,14 @@ export class ManagerWithFallbackProvidersBase<
 
   /** CONSTRUCTOR */
 
-  protected constructor(params: { 
+  protected constructor(params: {
     /**
      * IMPORTANT: The order of the providers in this array is critical!
      * It defines the fallback sequence. The manager will always attempt to use the
      * first provider in the list for a given chain. If it fails, it will sequentially
      * fallback to the next available provider in the order they are provided here.
      */
-    providers: ManagerProvider[] 
+    providers: ManagerProvider[]
     cacheService?: ICacheService
     cacheTTLSeconds?: number
     cacheOrchestrator?: DataOrchestrator

@@ -113,7 +113,7 @@ export default $config({
     }
 
     if (backendUrls.length > 0) {
-      backendUrls[0].apply(url => {
+      backendUrls[0].apply((url) => {
         require('fs').appendFileSync('.env.local', `NEXT_PUBLIC_API_URL='${url}'\n`)
       })
     }

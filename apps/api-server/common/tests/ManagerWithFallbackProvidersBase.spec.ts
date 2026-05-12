@@ -4,7 +4,6 @@ import assert from 'assert'
 import { TestManagerProvider, TestProviderType } from './mocks/TestManagerProvider'
 import { TestManager } from './mocks/TestManagerWithFallbackProviders'
 
-
 describe('SDK Server Common | Unit | ManagerProviderBase', () => {
   let testManager: TestManager
 
@@ -66,6 +65,4 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
       }),
     ).toThrow('No provider found for chainId: 10')
   })
-
-
 })

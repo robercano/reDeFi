@@ -1,6 +1,9 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { SubscriptionManager } from '../src/implementation/SubscriptionManager'
-import { ISubscriptionProvider, SubscriptionProviderType } from '@thesolidchain/subscriptions-common'
+import {
+  ISubscriptionProvider,
+  SubscriptionProviderType,
+} from '@thesolidchain/subscriptions-common'
 import type { IChainInfo } from '@thesolidchain/sdk-common'
 
 describe('SubscriptionManager', () => {
@@ -65,7 +68,10 @@ describe('SubscriptionManager', () => {
       const result = manager.subscribeToNewBlocks(mockChainInfo, callback)
 
       expect(result).toBe('sub-1')
-      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
+      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(
+        mockChainInfo,
+        expect.any(Function),
+      )
       expect(mockProvider2.subscribeToNewBlocks).not.toHaveBeenCalled()
     })
 
@@ -79,8 +85,14 @@ describe('SubscriptionManager', () => {
       const result = manager.subscribeToNewBlocks(mockChainInfo, callback)
 
       expect(result).toBe('sub-2')
-      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
-      expect(mockProvider2.subscribeToNewBlocks).toHaveBeenCalledWith(mockChainInfo, expect.any(Function))
+      expect(mockProvider1.subscribeToNewBlocks).toHaveBeenCalledWith(
+        mockChainInfo,
+        expect.any(Function),
+      )
+      expect(mockProvider2.subscribeToNewBlocks).toHaveBeenCalledWith(
+        mockChainInfo,
+        expect.any(Function),
+      )
     })
 
     it('should throw an error if all providers fail', () => {
@@ -104,7 +116,7 @@ describe('SubscriptionManager', () => {
       vi.mocked(mockProvider1.unsubscribe).mockImplementation(() => {
         throw new Error('Unsubscribe failed')
       })
-      
+
       manager.unsubscribe('sub-1')
 
       expect(mockProvider1.unsubscribe).toHaveBeenCalledWith('sub-1')

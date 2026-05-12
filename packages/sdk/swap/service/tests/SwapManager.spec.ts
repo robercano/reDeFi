@@ -1,7 +1,14 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { SwapManager } from '../src/implementation/SwapManager'
 import { ISwapProvider } from '@thesolidchain/swap-common'
-import { ITokenAmount, IToken, IAddress, IPercentage, ChainIds, SwapProviderType } from '@thesolidchain/sdk-common'
+import {
+  ITokenAmount,
+  IToken,
+  IAddress,
+  IPercentage,
+  ChainIds,
+  SwapProviderType,
+} from '@thesolidchain/sdk-common'
 
 describe('SwapManager', () => {
   let mockProvider: import('vitest').Mocked<ISwapProvider>

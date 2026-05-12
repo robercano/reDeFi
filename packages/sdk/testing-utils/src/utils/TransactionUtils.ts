@@ -1,4 +1,3 @@
-
 import { IChainInfo, Maybe, Transaction } from '@thesolidchain/sdk-common'
 import {
   Account,

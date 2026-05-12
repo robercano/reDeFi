@@ -1,11 +1,7 @@
 import { FC, useEffect, useState } from 'react'
 
 import { useAccount, useSendTransaction } from 'wagmi'
-import { 
-  ChainFamilyMap, 
-  ILendingPool, 
-  ILendingPoolInfo, 
-} from '@thesolidchain/sdk-common'
+import { ChainFamilyMap, ILendingPool, ILendingPoolInfo } from '@thesolidchain/sdk-common'
 import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType } from '@thesolidchain/protocol-plugins'
 import { useSDK } from '@thesolidchain/sdk-react'
 
@@ -16,10 +12,10 @@ export const YieldViewer: FC = () => {
 
   const [pool, setPool] = useState<ILendingPool | null>(null)
   const [poolInfo, setPoolInfo] = useState<ILendingPoolInfo | null>(null)
-  
+
   const [amount, setAmount] = useState<string>('')
   const [actionType, setActionType] = useState<'Deposit' | 'Withdraw'>('Deposit')
-  
+
   const [loading, setLoading] = useState<boolean>(false)
   type OrderMock = {
     transactionParams: {
@@ -36,11 +32,14 @@ export const YieldViewer: FC = () => {
       setLoading(true)
       try {
         const chainInfo = ChainFamilyMap.Ethereum.Mainnet
-        
+
         // Resolve collateral and debt tokens (Mocking WETH/USDC)
-        const collateralToken = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'WETH' })
+        const collateralToken = await sdk.getTokenBySymbol({
+          chainId: chainInfo.chainId,
+          symbol: 'WETH',
+        })
         const debtToken = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'USDC' })
-        
+
         if (!collateralToken || !debtToken) {
           throw new Error('Failed to resolve tokens')
         }
@@ -54,7 +53,7 @@ export const YieldViewer: FC = () => {
 
         const p = await sdk.getLendingPool({ poolId })
         const pInfo = await sdk.getLendingPoolInfo({ poolId })
-        
+
         setPool(p || null)
         setPoolInfo(pInfo || null)
       } catch (error) {
@@ -77,12 +76,12 @@ export const YieldViewer: FC = () => {
           to: pool.id.protocol.chainInfo.chainId.toString() as `0x${string}`, // Mock destination
           data: '0x000000' as `0x${string}`, // Mock data
           value: '0',
-        }
+        },
       }
-      
+
       // Simulate network delay
       await new Promise((resolve) => setTimeout(resolve, 1000))
-      
+
       setOrder(builtOrder || null)
     } catch (error) {
       console.error('Failed to build order', error)
@@ -110,7 +109,7 @@ export const YieldViewer: FC = () => {
   return (
     <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
       <h3 className="text-xl font-medium text-white mb-6">Yield Simulator</h3>
-      
+
       <div className="bg-white/5 rounded-xl p-4 mb-6">
         <h4 className="text-sm text-gray-400 mb-2">Selected Pool</h4>
         {loading && !pool ? (
@@ -118,11 +117,20 @@ export const YieldViewer: FC = () => {
         ) : pool && poolInfo ? (
           <div className="flex justify-between items-center">
             <div>
-              <div className="text-white font-medium">Aave V3 {(((pool.id as unknown) as { collateralToken: { symbol: string } }).collateralToken)?.symbol} / {(((pool.id as unknown) as { debtToken: { symbol: string } }).debtToken)?.symbol}</div>
+              <div className="text-white font-medium">
+                Aave V3{' '}
+                {
+                  (pool.id as unknown as { collateralToken: { symbol: string } }).collateralToken
+                    ?.symbol
+                }{' '}
+                / {(pool.id as unknown as { debtToken: { symbol: string } }).debtToken?.symbol}
+              </div>
               <div className="text-sm text-gray-400">Ethereum Mainnet</div>
             </div>
             <div className="text-right">
-              <div className="text-emerald-400 font-medium">{(((poolInfo as unknown) as { apy: number }).apy || 5.2).toString()}% APY</div>
+              <div className="text-emerald-400 font-medium">
+                {((poolInfo as unknown as { apy: number }).apy || 5.2).toString()}% APY
+              </div>
               <div className="text-sm text-gray-400">Supply Rate</div>
             </div>
           </div>
@@ -135,8 +143,8 @@ export const YieldViewer: FC = () => {
         <button
           onClick={() => setActionType('Deposit')}
           className={`flex-1 py-2 rounded-lg font-medium transition-colors ${
-            actionType === 'Deposit' 
-              ? 'bg-emerald-500 text-white' 
+            actionType === 'Deposit'
+              ? 'bg-emerald-500 text-white'
               : 'bg-white/5 text-gray-400 hover:bg-white/10'
           }`}
         >
@@ -145,8 +153,8 @@ export const YieldViewer: FC = () => {
         <button
           onClick={() => setActionType('Withdraw')}
           className={`flex-1 py-2 rounded-lg font-medium transition-colors ${
-            actionType === 'Withdraw' 
-              ? 'bg-blue-500 text-white' 
+            actionType === 'Withdraw'
+              ? 'bg-blue-500 text-white'
               : 'bg-white/5 text-gray-400 hover:bg-white/10'
           }`}
         >
@@ -166,7 +174,8 @@ export const YieldViewer: FC = () => {
               className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
             />
             <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
-              {(((pool?.id as unknown) as { collateralToken: { symbol: string } })?.collateralToken)?.symbol || 'WETH'}
+              {(pool?.id as unknown as { collateralToken: { symbol: string } })?.collateralToken
+                ?.symbol || 'WETH'}
             </div>
           </div>
         </div>

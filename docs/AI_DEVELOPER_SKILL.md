@@ -34,6 +34,14 @@ Always use this mechanism when executing tests, builds, linting, or Git commits.
 2. **Documentation Sync**: If you add a new feature or change an architecture pattern, update the Nextra documentation in `apps/docs/pages/`. Never leave documentation lagging behind the codebase.
 3. **Type Safety**: Maintain strict TypeScript adherence. Use proper generics and strictly avoid `any` or `@ts-ignore` flags unless absolutely unavoidable.
 
+### Documentation
+- All new public interfaces, classes, methods, and types must include TSDoc comments (`/** ... */`). 
+- Include `@param` and `@returns` descriptions for methods.
+- The pre-commit hook (`docs:generate`) automatically extracts these to `docs/api/`. Ensure your comments are descriptive enough to form a proper API reference!
+
+### Git Commit Conventions
+- Use Conventional Commits.
+
 ## Testing, Quality & CI/CD
 You are responsible for ensuring that the monorepo is always production-ready and green.
 1. **Testing Requirements**:

@@ -1,5 +1,5 @@
-const { defineConfig } = require('vitest/config');
-const tsconfigPaths = require('vite-tsconfig-paths');
+const { defineConfig } = require('vitest/config')
+const tsconfigPaths = require('vite-tsconfig-paths')
 
 exports.baseConfig = defineConfig({
   plugins: [tsconfigPaths.default ? tsconfigPaths.default() : tsconfigPaths()],
@@ -13,4 +13,4 @@ exports.baseConfig = defineConfig({
     },
     passWithNoTests: true,
   },
-});
+})

@@ -1,5 +1,8 @@
 import { z } from 'zod'
-import { IFiatCurrencyAmount, isFiatCurrencyAmount } from '../../common/interfaces/IFiatCurrencyAmount'
+import {
+  IFiatCurrencyAmount,
+  isFiatCurrencyAmount,
+} from '../../common/interfaces/IFiatCurrencyAmount'
 import { ITokenAmount, isTokenAmount } from '../../common/interfaces/ITokenAmount'
 
 export const __signature__: unique symbol = Symbol()
