@@ -49,13 +49,47 @@ ARCHITECTURE.md file in this same directory.
         which specific protocol is being used.
   - [x] Ensure the Simulations cover gas estimations, balance changes, and any multi-step actions (e.g., 
         Approve -> Transfer -> Contract Call) needed by the OrderPlanner.
-- Step 4: Concrete Protocol Plugins Implementation
-  - [ ] Build the concrete plugins (e.g., `YearnYieldPlugin`, `AaveLendingPlugin`, `LidoYieldPlugin`) 
-        implementing the interfaces from Step 1.
+- Step 4: Yearn Finance Protocol Plugin Implementation
+  - [x] Build the concrete plugin `YearnProtocolPlugin` implementing the yield interfaces.
   - [ ] **NOTE**: Replace mock data with real on-chain/subgraph data for the plugins once the integration works end-to-end.
-  - [ ] Since the Simulator is already hooked up to the interfaces, test that adding these plugins magically 
-        makes the end-to-end simulations work.
-  - [ ] Ensure comprehensive test coverage (>80%) across all newly introduced interfaces, simulators, and plugins.
+  - [x] Test that adding this plugin magically makes the end-to-end simulations work.
+  - [x] Ensure comprehensive test coverage (>80%).
+- Step 5: Lido Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `LidoProtocolPlugin` implementing the yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 6: Aave V3 Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `AaveV3ProtocolPlugin` implementing lending and yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 7: Maker / Sky Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `MakerProtocolPlugin` implementing lending and yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 8: Uniswap V3 Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `UniswapV3ProtocolPlugin` implementing liquidity interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 9: Curve Finance Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `CurveProtocolPlugin` implementing liquidity and yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 10: Compound V3 Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `CompoundV3ProtocolPlugin` implementing lending and yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 11: Convex Finance Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `ConvexProtocolPlugin` implementing yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 12: EigenLayer Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `EigenLayerProtocolPlugin` implementing stake and yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
+- Step 13: Pendle Protocol Plugin Implementation
+  - [ ] Build the concrete plugin `PendleProtocolPlugin` implementing yield interfaces.
+  - [ ] Test simulator end-to-end integration.
+  - [ ] Ensure comprehensive test coverage (>80%).
 - [ ] The order planner will be used for the intent based system. It receives a Simulation and
       creates an Order that the user can execute in the blockchain. The OrderPlanner must support
       different types of execution: Multicall, SmartAccount or Direct Transactions. The final Order
