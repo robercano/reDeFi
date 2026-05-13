@@ -20,9 +20,9 @@ export interface IYearnYieldPositionId extends IYieldPositionId, IYearnYieldPosi
   readonly walletAddress: string
 }
 
-/** 
+/**
  * Zod schema for validating Yearn Yield Position ID DTOs.
- * @public 
+ * @public
  */
 export const YearnYieldPositionIdDataSchema = z.object({
   ...YieldPositionIdDataSchema.shape,
@@ -31,9 +31,9 @@ export const YearnYieldPositionIdDataSchema = z.object({
   walletAddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/),
 })
 
-/** 
+/**
  * Type representing the serialized data of a Yearn Yield Position ID.
- * @public 
+ * @public
  */
 export type IYearnYieldPositionIdData = Readonly<z.infer<typeof YearnYieldPositionIdDataSchema>>
 

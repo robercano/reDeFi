@@ -1,5 +1,6 @@
 import { Address } from '../src/common/implementation/Address'
 import { AddressType } from '../src/common/enums/AddressType'
+import { isAddress } from '../src/common/interfaces/IAddress'
 
 describe('SDK Common | Address', () => {
   describe('#createFrom()', () => {
@@ -113,6 +114,22 @@ describe('SDK Common | Address', () => {
 
       const bn = address.toBigNumber()
       expect(bn.toString(16)).toEqual('b2c639c533813f4aa9d7837caf62653d097ff85')
+    })
+  })
+
+  describe('#isAddress()', () => {
+    it('should return true for valid IAddress', () => {
+      const valid = {
+        value: '0x0b2c639c533813f4aa9d7837caf62653d097ff85',
+        type: AddressType.Ethereum,
+      }
+      expect(isAddress(valid)).toBeTruthy()
+    })
+    it('should return false for invalid IAddress', () => {
+      const invalid = { value: 'invalid-address', type: AddressType.Ethereum }
+      const errors: string[] = []
+      expect(isAddress(invalid, errors)).toBeFalsy()
+      expect(errors.length).toBeGreaterThan(0)
     })
   })
 })

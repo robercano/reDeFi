@@ -230,7 +230,7 @@ describe('Protocol Manager', () => {
 
     // Since isPositionId needs __signature__ let's just mock it
     await expect(protocolManager.getLendingPosition({} as any)).rejects.toThrow(
-      'Invalid lending pool ID',
+      'Invalid position ID',
     )
 
     // Now with valid id, wait isPositionId just checks __signature__?

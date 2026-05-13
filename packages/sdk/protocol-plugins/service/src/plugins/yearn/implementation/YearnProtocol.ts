@@ -1,9 +1,9 @@
 import { Protocol, ProtocolName, SerializationService } from '@thesolidchain/sdk-common'
 import { IYearnProtocol, IYearnProtocolData, __signature__ } from '../interfaces/IYearnProtocol'
 
-/** 
- * Initialization parameters for the Yearn Protocol. 
- * @public 
+/**
+ * Initialization parameters for the Yearn Protocol.
+ * @public
  */
 export type YearnProtocolParameters = Omit<IYearnProtocolData, 'name'>
 

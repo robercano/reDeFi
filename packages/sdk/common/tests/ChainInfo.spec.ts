@@ -1,4 +1,5 @@
 import { ChainInfo } from '../src/common/implementation/ChainInfo'
+import { isChainInfo } from '../src/common/interfaces/IChainInfo'
 
 describe('SDK Common | ChainInfo', () => {
   describe('#createFrom()', () => {
@@ -56,6 +57,18 @@ describe('SDK Common | ChainInfo', () => {
       })
 
       expect(ethereumInfo.toString()).toEqual('Ethereum (ID: 1)')
+    })
+  })
+  describe('#isChainInfo()', () => {
+    it('should return true for valid IChainInfo', () => {
+      const valid = { chainId: 1, name: 'Ethereum' }
+      expect(isChainInfo(valid)).toBeTruthy()
+    })
+    it('should return false for invalid IChainInfo', () => {
+      const invalid = { chainId: 'not-a-number', name: 'Ethereum' }
+      const errors: string[] = []
+      expect(isChainInfo(invalid, errors)).toBeFalsy()
+      expect(errors.length).toBeGreaterThan(0)
     })
   })
 })

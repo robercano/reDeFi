@@ -18,9 +18,9 @@ export interface IYearnYieldPoolId extends IYieldPoolId, IYearnYieldPoolIdData {
   readonly vaultAddress: string
 }
 
-/** 
+/**
  * Zod schema for validating Yearn Yield Pool ID DTOs.
- * @public 
+ * @public
  */
 export const YearnYieldPoolIdDataSchema = z.object({
   ...YieldPoolIdDataSchema.shape,
@@ -28,9 +28,9 @@ export const YearnYieldPoolIdDataSchema = z.object({
   vaultAddress: z.string().regex(/^0x[a-fA-F0-9]{40}$/),
 })
 
-/** 
+/**
  * Type representing the serialized data of a Yearn Yield Pool ID.
- * @public 
+ * @public
  */
 export type IYearnYieldPoolIdData = Readonly<z.infer<typeof YearnYieldPoolIdDataSchema>>
 
