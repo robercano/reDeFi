@@ -15,18 +15,18 @@ export interface IYearnProtocol extends IProtocol, IYearnProtocolData {
   readonly name: ProtocolName.Yearn
 }
 
-/** 
+/**
  * Zod schema for validating Yearn Protocol DTOs.
- * @public 
+ * @public
  */
 export const YearnProtocolDataSchema = z.object({
   ...ProtocolDataSchema.shape,
   name: z.literal(ProtocolName.Yearn),
 })
 
-/** 
+/**
  * Type representing the serialized data of the Yearn Protocol.
- * @public 
+ * @public
  */
 export type IYearnProtocolData = Readonly<z.infer<typeof YearnProtocolDataSchema>>
 

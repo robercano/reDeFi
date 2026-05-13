@@ -299,4 +299,15 @@ describe('SDK Common | FiatCurrencyAmount', () => {
       expect(fiatAmount.toBigNumber().toString()).toEqual('108.54')
     })
   })
+
+  describe('#isFiatCurrencyAmount()', () => {
+    it('should return true for valid IFiatCurrencyAmount', () => {
+      const valid = { fiat: FiatCurrency.USD, amount: '10' }
+      expect(isFiatCurrencyAmount(valid)).toBeTruthy()
+    })
+    it('should return false for invalid IFiatCurrencyAmount', () => {
+      const invalid = { fiat: 'NOT_A_FIAT', amount: '10' }
+      expect(isFiatCurrencyAmount(invalid)).toBeFalsy()
+    })
+  })
 })

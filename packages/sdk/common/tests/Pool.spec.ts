@@ -5,6 +5,8 @@ import { PoolType } from '../src/common/enums/PoolType'
 import { Protocol, ProtocolParameters } from '../src/common/implementation/Protocol'
 import { ProtocolName } from '../src/common/enums/ProtocolName'
 import { getChainInfoByChainId } from '../src/common/implementation/ChainFamilies'
+import { isPool } from '../src/common/interfaces/IPool'
+import { isPoolId } from '../src/common/interfaces/IPoolId'
 
 class MockProtocol extends Protocol {
   readonly name = ProtocolName.AaveV3
@@ -37,5 +39,15 @@ describe('Pool', () => {
     expect(pool.id.type).toBe(PoolType.Lending)
     expect(pool.toString()).toContain('Pool: Lending')
     expect(pool.id.toString()).toContain('Pool ID:')
+  })
+
+  it('isPool should return true for valid IPool', () => {
+    const pool = new MockPool({})
+    expect(isPool(pool)).toBeTruthy()
+  })
+
+  it('isPoolId should return true for valid IPoolId', () => {
+    const poolId = new MockPoolId({})
+    expect(isPoolId(poolId)).toBeTruthy()
   })
 })

@@ -6,6 +6,7 @@ import {
   Percentage,
   IFiatCurrencyAmount,
   FiatCurrencyAmount,
+  FiatCurrency,
 } from '@thesolidchain/sdk-common'
 import { parseAbi } from 'viem'
 import { IYearnDataSource, YearnVaultDto, YearnPositionDto } from '../interfaces/IYearnDataSource'
@@ -36,7 +37,7 @@ export class DefaultYearnDataSource implements IYearnDataSource {
   async getVault(vaultAddress: string): Promise<YearnVaultDto> {
     const vaultAddressObj = Address.createFromEthereum({ value: vaultAddress })
     const chainInfo = this.context.provider.chain as unknown as IChainInfo
-    const chainId = chainInfo.id || 1
+    const chainId = chainInfo.chainId || 1
 
     // Fetch receipt token (the vault itself)
     const receiptToken = await this.context.tokensManager.getTokenByAddress({
@@ -65,14 +66,16 @@ export class DefaultYearnDataSource implements IYearnDataSource {
       const response = await fetch(`https://ydaemon.yearn.fi/${chainId}/vaults/${vaultAddress}`)
       if (response.ok) {
         const vaultData = await response.json()
-        
+
         // Prefer netAPR, fallback to forwardAPR.netAPR, then default to 0
-        currentApyValue =
-          vaultData.apr?.netAPR ?? vaultData.apr?.forwardAPR?.netAPR ?? 0
+        currentApyValue = vaultData.apr?.netAPR ?? vaultData.apr?.forwardAPR?.netAPR ?? 0
 
         // Grab USD TVL if available
         if (vaultData.tvl?.tvl) {
-          tvlAmount = FiatCurrencyAmount.createFrom({ value: vaultData.tvl.tvl })
+          tvlAmount = FiatCurrencyAmount.createFrom({
+            fiat: FiatCurrency.USD,
+            amount: vaultData.tvl.tvl.toString(),
+          })
         }
       }
     } catch (error) {
