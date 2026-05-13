@@ -19,20 +19,22 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@thesolidchain/events-common": "workspace:*",
     "@thesolidchain/order-planner-common": "workspace:*",
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/sdk-client": "workspace:*",
-    "@thesolidchain/events-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.2",
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/config-vitest": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/testing-utils": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*",
     "@types/react": "^19.0.8",
-    "@thesolidchain/config-vitest": "workspace:*",
-    "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "@vitest/coverage-v8": "^1.6.0",
+    "jsdom": "^29.1.1",
+    "vitest": "^1.6.0"
   },
   "peerDependencies": {
     "react": "^19.0.0"

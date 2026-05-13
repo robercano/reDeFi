@@ -30,9 +30,10 @@
   },
   "devDependencies": {
     "@thesolidchain/config-typescript": "workspace:*",
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-vitest": "workspace:*",
-    "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@vitest/coverage-v8": "^1.6.0",
+    "aws-sdk-client-mock": "^4.1.0",
+    "vitest": "^1.6.0"
   }
 }

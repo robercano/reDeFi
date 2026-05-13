@@ -1,11 +1,8 @@
-import { defineConfig, mergeConfig } from 'vitest/config'
-import { baseConfig } from '@thesolidchain/config-vitest/vitest.base'
+import { defineConfig } from 'vitest/config'
 
-export default mergeConfig(
-  baseConfig,
-  defineConfig({
-    test: {
-      // custom config
-    },
-  }),
-)
+export default defineConfig({
+  test: {
+    environment: 'jsdom',
+    globals: true,
+  },
+})

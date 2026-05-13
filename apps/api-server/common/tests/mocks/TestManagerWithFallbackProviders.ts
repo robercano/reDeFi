@@ -16,4 +16,12 @@ export class TestManager extends ManagerWithFallbackProvidersBase<
   }): TestManagerProvider {
     return this._getBestProvider(params)
   }
+
+  executeWithFallback<T>(params: {
+    chainInfo: IChainInfo
+    action: (provider: TestManagerProvider) => Promise<T>
+    forceUseProvider?: TestProviderType
+  }): Promise<T> {
+    return this._executeWithFallback(params)
+  }
 }
