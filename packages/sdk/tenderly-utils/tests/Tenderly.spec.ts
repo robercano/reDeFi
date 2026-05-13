@@ -46,7 +46,7 @@ describe('Tenderly', () => {
         display_name: 'test vnet',
         rpcs: [{ url: 'http://rpc.test', name: 'RPC' }],
       }),
-    } as any)
+    } as unknown as Response)
 
     const vnet = await tenderly.createVnet({
       chainInfo: { chainId: 1 } as IChainInfo,
@@ -66,7 +66,7 @@ describe('Tenderly', () => {
         display_name: 'test fork',
         rpcs: [{ url: 'http://rpc.fork', name: 'RPC' }],
       }),
-    } as any)
+    } as unknown as Response)
     const forkedVnet = await vnet.fork()
     expect(forkedVnet.getName()).toBe('test fork')
 
@@ -74,30 +74,30 @@ describe('Tenderly', () => {
     vi.mocked(global.fetch).mockResolvedValueOnce({
       ok: true,
       json: async () => ({ result: '0xsnap1' }),
-    } as any)
+    } as unknown as Response)
     const snapId = await vnet.createSnapshot()
     expect(snapId).toBe('0xsnap1')
 
     // test revertSnapshot
-    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as any)
+    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.revertSnapshot('0xsnap1')
 
     // test setErc20Balance
-    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as any)
+    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.setErc20Balance({
-      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as any,
-      walletAddress: { value: '0xwallet' } as any,
+      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
 
     // test setBalance
-    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as any)
+    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.setBalance({
-      amount: { toSolidityValue: () => 100n } as any,
-      walletAddress: { value: '0xwallet' } as any,
+      amount: { toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
 
     // test delete
-    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as any)
+    vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.delete()
 
     // test calling method on deleted vnet
@@ -109,7 +109,7 @@ describe('Tenderly', () => {
     vi.mocked(global.fetch).mockResolvedValueOnce({
       ok: false,
       statusText: 'Bad Request',
-    } as any)
+    } as unknown as Response)
 
     await expect(
       tenderly.createVnet({

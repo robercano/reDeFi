@@ -1,9 +1,0 @@
-{
-  "extends": "@thesolidchain/config-typescript/tsconfig.base.json",
-  "compilerOptions": {
-    "rootDir": "src",
-    "outDir": "dist"
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "**/*.spec.ts"]
-}

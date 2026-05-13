@@ -1,11 +1,10 @@
-import { ProtocolName, PositionType, IChainInfo, PositionId } from '@thesolidchain/sdk-common'
+import { PositionType, IChainInfo, PositionId, __YieldPositionIdSignature__ } from '@thesolidchain/sdk-common'
 import { YearnProtocol } from './YearnProtocol'
 import {
   IYearnYieldPositionId,
   IYearnYieldPositionIdData,
+  __signature__,
 } from '../interfaces/IYearnYieldPositionId'
-import { __signature__ } from '../interfaces/IYearnYieldPositionId'
-import { __YieldPositionIdSignature__ } from '@thesolidchain/sdk-common'
 
 /**
  * Unique identifier for a user's Yearn Vault Position.

@@ -20,18 +20,17 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@thesolidchain/address-book-common": "workspace:*",
     "@thesolidchain/common": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
-    "@thesolidchain/sdk-common": "workspace:*",
-    "@thesolidchain/address-book-common": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
-    "@thesolidchain/contracts-core": "workspace:*"
+    "@thesolidchain/sdk-common": "workspace:*"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/config-vitest": "workspace:*",
-    "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@vitest/coverage-v8": "^1.6.0",
+    "vitest": "^1.6.0"
   }
 }

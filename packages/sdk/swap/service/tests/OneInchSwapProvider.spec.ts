@@ -32,14 +32,14 @@ describe('OneInchSwapProvider', () => {
         if (params.name === 'ONE_INCH_SWAP_CHAIN_IDS') return '1'
         return null
       }),
-    } as any
+    } as unknown as import('vitest').Mocked<IConfigurationProvider>
 
     mockFetch.mockReset()
   })
 
   it('should initialize correctly with valid config', () => {
     const provider = new OneInchSwapProvider({ configProvider })
-    expect((provider as any).type).toBe(SwapProviderType.OneInch)
+    expect((provider as unknown as { type: string }).type).toBe(SwapProviderType.OneInch)
     expect(provider.getSupportedChainIds()).toEqual([ChainIds.Mainnet])
   })
 
@@ -78,7 +78,7 @@ describe('OneInchSwapProvider', () => {
           gasPrice: '10',
         },
       }),
-    } as any)
+    } as unknown as import('node-fetch').Response)
 
     const result = await provider.getSwapDataExactInput({
       fromAmount: mockFromAmount,
@@ -118,7 +118,7 @@ describe('OneInchSwapProvider', () => {
         protocols: [],
         gas: 200000,
       }),
-    } as any)
+    } as unknown as import('node-fetch').Response)
 
     const result = await provider.getSwapQuoteExactInput({
       fromAmount: mockFromAmount,
@@ -157,7 +157,7 @@ describe('OneInchSwapProvider', () => {
       ok: false,
       status: 400,
       json: async () => ({ description: 'insufficient liquidity' }),
-    } as any)
+    } as unknown as import('node-fetch').Response)
 
     await expect(
       provider.getSwapDataExactInput({
@@ -170,7 +170,7 @@ describe('OneInchSwapProvider', () => {
   })
 
   it('should throw error if config is missing', () => {
-    configProvider.getConfigurationItem.mockReturnValue(null as any)
+    configProvider.getConfigurationItem.mockReturnValue(null as unknown as string)
     expect(() => new OneInchSwapProvider({ configProvider })).toThrow()
   })
 })

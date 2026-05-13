@@ -1,8 +1,8 @@
-import { BlockchainClientProvider } from '@thesolidchain/blockchain-client-provider'
+import { BlockchainClientProviderMock, decodeAllowanceCalldata } from '@thesolidchain/testing-utils'
 import { ConfigurationProvider } from '@thesolidchain/configuration-provider'
 import { ContractsProviderFactory } from '@thesolidchain/contracts-provider-service'
 import { Address, ChainFamilyMap, ChainInfo, Token, TokenAmount } from '@thesolidchain/sdk-common'
-import { decodeAllowanceCalldata } from '@thesolidchain/testing-utils/utils/AllowanceDecoding'
+
 import { AllowanceManagerFactory, type AllowanceManager } from '../src'
 
 describe('Armada Protocol Service', () => {
@@ -30,8 +30,9 @@ describe('Armada Protocol Service', () => {
   let allowanceManager: AllowanceManager
 
   beforeEach(() => {
+    process.env.INFURA_ENDPOINT_API_KEY = 'dummy'
     const configProvider = new ConfigurationProvider()
-    const blockchainClientProvider = new BlockchainClientProvider({ configProvider })
+    const blockchainClientProvider = new BlockchainClientProviderMock({ configProvider, rpcUrl: 'http://localhost:8545' })
     const contractsProvider = ContractsProviderFactory.newContractsProvider({
       configProvider,
       blockchainClientProvider,
@@ -53,9 +54,13 @@ describe('Armada Protocol Service', () => {
     expect(transactionInfo?.transaction.target.value).toBe(tokenAddress.value)
     expect(transactionInfo?.transaction.value).toBe('0')
 
-    const decodedCalldata = decodeAllowanceCalldata(transactionInfo?.transaction.calldata)
+    if (!transactionInfo?.transaction.calldata) {
+      throw new Error('Calldata is undefined')
+    }
+
+    const decodedCalldata = decodeAllowanceCalldata(transactionInfo.transaction.calldata)
     if (!decodedCalldata) {
-      fail('Decoded calldata is undefined')
+      throw new Error('Decoded calldata is undefined')
     }
 
     expect(decodedCalldata.spender.toString()).toBe(fleetAddress.value)

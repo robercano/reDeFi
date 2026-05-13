@@ -75,9 +75,8 @@ describe('CoingeckoOracleProvider', () => {
 
   beforeEach(() => {
     provider = new CoingeckoOracleProvider({
-      configProvider: mockConfigProvider as any,
-      callKey: 'test',
-    } as any)
+      configProvider: mockConfigProvider as unknown as import('@thesolidchain/configuration-provider-common').IConfigurationProvider,
+    })
     fetchMock.mockReset()
   })
 

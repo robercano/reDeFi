@@ -63,7 +63,7 @@ describe('SDKContext', () => {
         rawPath: '/test',
         rawQueryString: 'a=1',
       },
-    } as any
+    } as unknown as Parameters<typeof createSDKContext>[0]
 
     const ctx = await createSDKContext(opts)
     expect(ctx.callUrl).toBe('/test?a=1')

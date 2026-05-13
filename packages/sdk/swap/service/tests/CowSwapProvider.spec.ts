@@ -19,7 +19,7 @@ const mockGetOrder = vi.fn()
 const mockGetTrades = vi.fn()
 
 vi.mock('@cowprotocol/cow-sdk', async (importOriginal) => {
-  const actual = await importOriginal<any>()
+  const actual = await importOriginal<Record<string, unknown>>()
   return {
     ...actual,
     OrderBookApi: vi.fn().mockImplementation(() => ({
@@ -40,10 +40,10 @@ describe('CowSwapProvider', () => {
   beforeEach(() => {
     configProvider = {
       getConfigurationItem: vi.fn(),
-    } as any
+    } as unknown as import('vitest').Mocked<IConfigurationProvider>
 
-    allowanceManager = {} as any
-    tokensManager = {} as any
+    allowanceManager = {} as unknown as import('vitest').Mocked<IAllowanceManager>
+    tokensManager = {} as unknown as import('vitest').Mocked<ITokensManager>
 
     mockGetQuote.mockReset()
     mockSendOrder.mockReset()
@@ -54,13 +54,13 @@ describe('CowSwapProvider', () => {
 
   it('should initialize correctly', () => {
     const provider = new CowSwapProvider({ configProvider, allowanceManager, tokensManager })
-    expect((provider as any).type).toBe(IntentSwapProviderType.CowSwap)
+    expect((provider as unknown as { type: string }).type).toBe(IntentSwapProviderType.CowSwap)
     expect(provider.getSupportedChainIds()).toContain(ChainIds.Mainnet)
   })
 
   it('should throw error when checking supported chain ID if invalid', () => {
     const provider = new CowSwapProvider({ configProvider, allowanceManager, tokensManager })
-    expect(() => (provider as any)._assertSupportedChainId(9999)).toThrow(
+    expect(() => (provider as unknown as { _assertSupportedChainId: (chainId: number) => void })._assertSupportedChainId(9999)).toThrow(
       /not supported by CowSwapProvider/,
     )
   })
@@ -134,7 +134,7 @@ describe('CowSwapProvider', () => {
       },
     })
 
-    const limitPrice = { value: '0.8', multiply: vi.fn(), toString: () => '0.8' } as any
+    const limitPrice = { value: '0.8', multiply: vi.fn(), toString: () => '0.8' } as unknown as import('@thesolidchain/sdk-common').Price
     const limitAmount = TokenAmount.createFrom({ token: mockToToken, amount: '800' })
     mockFromAmount.multiply = vi.fn().mockReturnValue(limitAmount)
 
@@ -157,7 +157,7 @@ describe('CowSwapProvider', () => {
     const result = await provider.cancelOrder({
       chainId: ChainIds.Mainnet,
       orderId: '0xorderid',
-      signingResult: {} as any,
+      signingResult: {} as unknown as import('@cowprotocol/cow-sdk').SigningResult,
     })
 
     expect(result.result).toBe('1 order(s) 0xorderid')

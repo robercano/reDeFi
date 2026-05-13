@@ -10,7 +10,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run=true --silent=false",
+    "test": "vitest run --coverage",
     "testw": "vitest watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -19,7 +19,6 @@
   "dependencies": {
     "@thesolidchain/address-book-common": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
-    "@thesolidchain/contracts-core": "workspace:*",
     "@thesolidchain/contracts-provider-common": "workspace:*",
     "@thesolidchain/deployment-types": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
@@ -34,13 +33,13 @@
     "viem": "2.43.5"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
-    "@types/yargs": "^17.0.32",
-    "tsx": "^4.7.2",
-    "yargs": "^17.7.2",
     "@thesolidchain/config-vitest": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@types/yargs": "^17.0.32",
+    "@vitest/coverage-v8": "^1.6.0",
+    "tsx": "^4.7.2",
     "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "yargs": "^17.7.2"
   }
 }

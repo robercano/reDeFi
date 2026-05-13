@@ -15,7 +15,7 @@ export class LendingSimulator implements ILendingSimulator {
     poolId: ILendingPoolId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    const poolInfo = await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
+    await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
 
     // Build the SimulationStep
     const steps = [
@@ -29,7 +29,7 @@ export class LendingSimulator implements ILendingSimulator {
         output: {
           depositAmount: params.amount,
         },
-      } as any, // Cast to any to bypass complex generics for now
+      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
     ]
 
     // Construct intent-based simulation output
@@ -44,7 +44,7 @@ export class LendingSimulator implements ILendingSimulator {
     poolId: ILendingPoolId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    const poolInfo = await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
+    await this.rpcClient.protocols.getLendingPoolInfo.query(params.poolId)
 
     const steps = [
       {
@@ -57,7 +57,7 @@ export class LendingSimulator implements ILendingSimulator {
         output: {
           borrowAmount: params.amount,
         },
-      } as any,
+      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
     ]
 
     return new LendingSimulation({

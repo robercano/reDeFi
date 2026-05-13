@@ -1,1 +1,0 @@
-export { MainnetConfig } from './conf'

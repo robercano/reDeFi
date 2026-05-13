@@ -17,7 +17,7 @@
         "node_modules/@thesolidchain/protocol-plugins-common/src/index.ts"
       ],
       "@thesolidchain/testing-utils": ["node_modules/@thesolidchain/testing-utils/src/index.ts"],
-      "@thesolidchain/contracts-core": ["node_modules/@thesolidchain/contracts-core/src/index.ts"],
+
       "@thesolidchain/deployment-utils": [
         "node_modules/@thesolidchain/deployment-utils/src/index.ts"
       ],

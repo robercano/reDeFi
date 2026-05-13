@@ -28,6 +28,10 @@ export class AddressBookManager implements IAddressBookManager {
 
     const deployment = this.deployments[deploymentKey]
 
+    if (!deployment) {
+      return undefined
+    }
+
     const contractInfo = deployment.contracts[params.name] || deployment.dependencies[params.name]
     if (!contractInfo) {
       return undefined

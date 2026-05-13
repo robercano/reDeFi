@@ -1,4 +1,5 @@
 export { getTargetHash, decodeActionCalldata } from './utils/ActionDecoding'
+export { decodeAllowanceCalldata } from './utils/AllowanceDecoding'
 export { decodeFleetDepositCalldata, decodeFleetWithdrawCalldata } from './utils/ArmadaDecoding'
 export { getErrorMessage } from './utils/ErrorMessage'
 export { decodePositionsManagerCalldata } from './utils/PositionsManagerDecoding'
