@@ -5,7 +5,10 @@ import { TransactionType, TokenAmount } from '@thesolidchain/sdk-common'
 
 /**
  * AllowanceManager
- * This class is the implementation of the IAllowanceManager interface. Takes care of generating transactions for setting an allowance
+ * This class is the concrete implementation of the IAllowanceManager interface.
+ * It is responsible for orchestrating ERC-20 approval flows, verifying existing
+ * token allowances against required transaction amounts, and generating the necessary
+ * approval transaction payloads when allowances are insufficient.
  */
 export class AllowanceManager implements IAllowanceManager {
   private _configProvider: IConfigurationProvider
@@ -21,7 +24,18 @@ export class AllowanceManager implements IAllowanceManager {
   }
 
   /** FUNCTIONS */
-  /** @see IAllowanceManager.getApproval */
+  /**
+   * getApproval
+   * Evaluates the current token allowance of a user for a specific spender and amount.
+   * If the owner's allowance is equal to or greater than the required amount, no approval is needed.
+   * Otherwise, it generates the unsigned transaction data required to approve the spender for the exact amount.
+   * 
+   * @param params.amount - The required token amount needed by the spender.
+   * @param params.spender - The address of the spender (e.g., a protocol vault or router).
+   * @param params.owner - Optional owner address. If missing, it always generates an approval transaction.
+   * @param params.chainInfo - The network chain context for the token contract.
+   * @returns Unsigned transaction for approval, or undefined if the allowance is already sufficient.
+   */
   async getApproval(
     params: Parameters<IAllowanceManager['getApproval']>[0],
   ): ReturnType<IAllowanceManager['getApproval']> {

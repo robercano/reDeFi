@@ -16,13 +16,22 @@ import {
  * InfuraBlockchainProvider implements the IBlockchainClientProvider interface for Infura
  */
 export class InfuraBlockchainProvider implements IBlockchainClientProvider {
+  /** The unique identifier representing this provider type. */
   public readonly type = BlockchainProviderType.Infura
+  /** The configuration provider used to fetch API keys and other settings. */
   public readonly configProvider: IConfigurationProvider
 
   private readonly _blockchainClients: Map<number, IBlockchainClient> = new Map()
   private readonly _supportedChains: Chain[] = [mainnet, arbitrum, base, sonic, hyperliquid]
   private readonly _apiKey: string
 
+  /**
+   * Initializes a new instance of the InfuraBlockchainProvider.
+   *
+   * @param params - The initialization parameters.
+   * @param params.configProvider - The configuration provider dependency.
+   * @throws {Error} If INFURA_ENDPOINT_API_KEY is missing from configuration.
+   */
   constructor(params: { configProvider: IConfigurationProvider }) {
     this.configProvider = params.configProvider
 
@@ -37,10 +46,26 @@ export class InfuraBlockchainProvider implements IBlockchainClientProvider {
     this._initializeClients()
   }
 
+  /**
+   * Returns a list of chain IDs supported by this provider.
+   *
+   * @returns An array of supported ChainId values.
+   */
   public getSupportedChainIds(): ChainId[] {
     return this._supportedChains.map((chain) => chain.id as ChainId)
   }
 
+  /**
+   * Retrieves a blockchain client instance for the specified chain.
+   * If an `rpcUrl` is provided, a new temporary client is created and returned.
+   * Otherwise, the shared initialized client for the chain is returned.
+   *
+   * @param params - The parameters required to get a blockchain client.
+   * @param params.chainInfo - The chain information.
+   * @param params.rpcUrl - Optional custom RPC URL to use for the client.
+   * @returns The viem public client cast to IBlockchainClient.
+   * @throws {Error} If the chain is unsupported or no client has been initialized.
+   */
   public getBlockchainClient(params: {
     chainInfo: IChainInfo
     rpcUrl?: string
@@ -61,6 +86,11 @@ export class InfuraBlockchainProvider implements IBlockchainClientProvider {
     return client
   }
 
+  /**
+   * Initializes viem public clients for all supported chains.
+   * Uses fallback transports with the Infura URL prioritized over the chain's default HTTP RPC.
+   * @internal
+   */
   private _initializeClients(): void {
     for (const chain of this._supportedChains) {
       const infuraUrl = this._getInfuraUrl(chain.id)

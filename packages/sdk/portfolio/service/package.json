@@ -10,7 +10,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
-    "test": "vitest run=true --silent=false",
+    "test": "vitest run --coverage",
     "testw": "vitest watch",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

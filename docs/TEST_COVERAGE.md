@@ -4,21 +4,21 @@ This is the automatically generated coverage report for the monorepo.
 
 | Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) | Comments/JSDoc (%) |
 |---|---|---|---|---|---|
-| serverless-shared | 0% | 0% | 0% | 0% | 0.61% |
+| serverless-shared | 92.39% | 92.39% | 81.48% | 93.24% | 2.44% |
 | sdk-tokens-service | 93.62% | 93.62% | 87.5% | 90.32% | 25% |
 | sdk-tokens-common | 0% | 0% | 0% | 0% | 38.1% |
 | sdk-testing-utils | 0% | 0% | 0% | 0% | 0% |
-| sdk-tenderly-utils | 0% | 0% | 0% | 0% | 14.74% |
+| sdk-tenderly-utils | 97.14% | 97.14% | 97.05% | 78.94% | 14.74% |
 | sdk-swap-service | 82.08% | 82.08% | 89.65% | 64.06% | 25.93% |
 | sdk-swap-common | 0% | 0% | 0% | 0% | 24% |
 | sdk-subscriptions-service | 81.91% | 81.91% | 71.42% | 93.75% | 18.52% |
 | sdk-subscriptions-common | 0% | 0% | 0% | 0% | 100% |
 | sdk-react | 0% | 0% | 0% | 0% | 2.56% |
-| sdk-protocol-plugins-service | 86.2% | 86.2% | 81.66% | 89.39% | 50.72% |
+| sdk-protocol-plugins-service | 69.61% | 69.61% | 42.3% | 67.1% | 50.72% |
 | sdk-protocol-plugins-common | 0% | 0% | 0% | 0% | 43.67% |
 | sdk-protocol-manager-service | 83.22% | 83.22% | 66.66% | 85.71% | 76.47% |
 | sdk-protocol-manager-common | 0% | 0% | 0% | 0% | 50% |
-| sdk-portfolio-service | 98.84% | 98.84% | 83.33% | 94.44% | 26.32% |
+| sdk-portfolio-service | 0% | 0% | 0% | 0% | 26.32% |
 | sdk-portfolio-common | 0% | 0% | 0% | 0% | 60% |
 | sdk-order-planner-service | 98.82% | 98.82% | 80% | 83.33% | 100% |
 | sdk-order-planner-common | 0% | 0% | 0% | 0% | 51.72% |
@@ -27,7 +27,7 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-events-service | 98.71% | 98.71% | 83.33% | 90.9% | 80% |
 | sdk-events-common | 0% | 0% | 0% | 0% | 58.33% |
 | sdk-e2e | 0% | 0% | 0% | 0% | N/A |
-| sdk-contracts-provider-service | 0% | 0% | 0% | 0% | 56.19% |
+| sdk-contracts-provider-service | 93.97% | 93.97% | 88% | 90.69% | 57.08% |
 | sdk-contracts-provider-common | 0% | 0% | 0% | 0% | 96.9% |
 | sdk-configuration-provider-service | 83.87% | 83.87% | 80% | 71.42% | 20% |
 | sdk-configuration-provider-common | 0% | 0% | 0% | 0% | 80% |
@@ -39,7 +39,7 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-allowance-manager-common | 0% | 0% | 0% | 0% | 33.33% |
 | sdk-address-book-service | 100% | 100% | 100% | 100% | 41.67% |
 | sdk-address-book-common | 0% | 0% | 0% | 0% | 50% |
-| sdk-abi-provider-service | 0% | 0% | 0% | 0% | 40% |
+| sdk-abi-provider-service | 97.33% | 97.33% | 83.33% | 83.33% | 50% |
 | sdk-abi-provider-common | 0% | 0% | 0% | 0% | 80% |
 | contracts-utils | 0% | 0% | 0% | 0% | 0% |
 | contracts-deployments | 0% | 0% | 0% | 0% | 0% |
@@ -49,4 +49,4 @@ This is the automatically generated coverage report for the monorepo.
 | api-server-service | 87.77% | 87.77% | 66.66% | 72.09% | 3.45% |
 | api-server-common | 63.42% | 63.42% | 75% | 92.85% | 47.37% |
 | api-router | 0% | 0% | 0% | 0% | 0% |
-| **TOTAL** | **65.99%** | **65.99%** | **70.2%** | **78.94%** | **37.52%** |
+| **TOTAL** | **67.39%** | **67.39%** | **68.19%** | **79.05%** | **37.81%** |
