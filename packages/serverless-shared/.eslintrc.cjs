@@ -13,5 +13,6 @@ module.exports = {
     'dist/',
     'coverage/',
     '.eslintrc.cjs',
+    'tests/**/*.ts',
   ],
 }

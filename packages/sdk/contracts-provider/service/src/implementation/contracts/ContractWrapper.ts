@@ -13,7 +13,13 @@ import {
 
 /**
  * ContractWrapper
- * Base class for all contract wrappers
+ * Base abstract class for all strictly-typed contract wrappers in the SDK.
+ * It manages the underlying `viem` contract instance and provides standardized
+ * methods to build transaction calldata.
+ * 
+ * @typeParam TAbi - The exact literal type of the contract ABI
+ * @typeParam TClient - The specific client type (e.g. PublicClient, WalletClient)
+ * @typeParam TAddress - The constrained IAddress type identifying the contract
  */
 export abstract class ContractWrapper<
   const TAbi extends ContractAbi,
@@ -25,7 +31,13 @@ export abstract class ContractWrapper<
   private readonly _address: TAddress
   readonly _contract: GetContractReturnType<TAbi, TClient, TAddress['value']>
 
-  /** CONSTRUCTOR */
+  /**
+   * Initializes the ContractWrapper, automatically instantiating the viem `getContract` reference.
+   * 
+   * @param params.blockchainClient - The viem client instance bound to this contract
+   * @param params.chainInfo - Information about the chain where the contract resides
+   * @param params.address - The strictly-typed contract address
+   */
   protected constructor(params: {
     blockchainClient: TClient
     chainInfo: IChainInfo
@@ -53,16 +65,30 @@ export abstract class ContractWrapper<
     return this._address
   }
 
-  /** @see IContractWrapper.blockchainProvider */
+  /** @see IContractWrapper.blockchainClient */
   get blockchainClient(): TClient {
     return this._blockchainClient
   }
 
+  /**
+   * The underlying viem contract instance used to perform reads and simulations.
+   */
   get contract(): GetContractReturnType<TAbi, TClient, TAddress['value']> {
     return this._contract
   }
 
   /** HELPERS */
+
+  /**
+   * Helper function to construct a `TransactionInfo` object representing a contract interaction.
+   * Automatically encodes the function data using the contract ABI.
+   * 
+   * @param params.functionName - The typed name of the function to call
+   * @param params.args - The typed arguments matching the function signature
+   * @param params.description - Human-readable description of the intent (e.g. 'Approve USDC')
+   * @param params.value - Optional native value (e.g. ETH) to send with the transaction
+   * @returns A constructed `TransactionInfo` representing the encoded intent
+   */
 
   protected async _createTransaction<
     TFunctionName extends ContractFunctionName<TAbi>,

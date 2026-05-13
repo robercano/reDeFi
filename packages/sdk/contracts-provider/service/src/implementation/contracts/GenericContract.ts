@@ -8,7 +8,9 @@ import type { ContractAbi } from '@thesolidchain/abi-provider-common'
 
 /**
  * GenericContractWrapper
- * Implementation for the generic contract
+ * A specialized wrapper for contracts that allows dynamic ABI assignment.
+ * It provides built-in utilities to cast the contract interface into standard 
+ * abstractions like ERC20 or ERC4626 dynamically.
  */
 export class GenericContractWrapper<
   const TClient extends IBlockchainClient,
@@ -20,9 +22,14 @@ export class GenericContractWrapper<
 
   /** FACTORY METHOD */
   /**
-   * Creates a new instance of the GenericContractWrapper
+   * Asynchronously creates a new instance of the GenericContractWrapper, instantiating
+   * an underlying ERC4626 wrapper internally for rapid casting.
    *
-   * @see constructor
+   * @param params.blockchainClient - The viem client instance bound to this contract
+   * @param params.chainInfo - Information about the chain where the contract resides
+   * @param params.address - The strictly-typed contract address
+   * @param params.abi - The custom ABI to bind to this generic wrapper
+   * @returns A fully initialized GenericContractWrapper
    */
   static async create<
     TClient extends IBlockchainClient,
@@ -61,7 +68,12 @@ export class GenericContractWrapper<
     this._abi = params.abi
   }
 
-  /** CASTING METHODS */
+  /**
+   * Casts the underlying generic contract representation into a typed `IERC20` interface.
+   * Useful when the generic contract is known to implement the ERC20 standard.
+   * 
+   * @returns An `IERC20` implementation wrapper
+   */
   asErc20(): IERC20 {
     return ContractsFactory.getERC20({
       blockchainClient: this.blockchainClient,
@@ -70,6 +82,12 @@ export class GenericContractWrapper<
     }) as unknown as IERC20
   }
 
+  /**
+   * Casts the underlying generic contract representation into a typed `IERC4626` interface.
+   * Useful when the generic contract is known to implement the ERC4626 Vault standard.
+   * 
+   * @returns An `IERC4626` implementation wrapper
+   */
   asErc4626(): IERC4626 {
     return this._erc4626Contract
   }

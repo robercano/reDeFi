@@ -18,13 +18,13 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-protocol-plugins-common | 0% | 0% | 0% | 0% | 43.67% |
 | sdk-protocol-manager-service | 83.22% | 83.22% | 66.66% | 85.71% | 76.47% |
 | sdk-protocol-manager-common | 0% | 0% | 0% | 0% | 50% |
-| sdk-portfolio-service | 0% | 0% | 0% | 0% | 26.32% |
+| sdk-portfolio-service | 98.84% | 98.84% | 83.33% | 94.44% | 26.32% |
 | sdk-portfolio-common | 0% | 0% | 0% | 0% | 60% |
-| sdk-order-planner-service | 0% | 0% | 0% | 0% | 75% |
+| sdk-order-planner-service | 98.82% | 98.82% | 80% | 83.33% | 100% |
 | sdk-order-planner-common | 0% | 0% | 0% | 0% | 51.72% |
 | sdk-oracle-service | 81.21% | 81.21% | 89.65% | 58.69% | 43.66% |
 | sdk-oracle-common | 0% | 0% | 0% | 0% | 33.33% |
-| sdk-events-service | 0% | 0% | 0% | 0% | 20% |
+| sdk-events-service | 98.71% | 98.71% | 83.33% | 90.9% | 80% |
 | sdk-events-common | 0% | 0% | 0% | 0% | 58.33% |
 | sdk-e2e | 0% | 0% | 0% | 0% | N/A |
 | sdk-contracts-provider-service | 0% | 0% | 0% | 0% | 56.19% |
@@ -49,4 +49,4 @@ This is the automatically generated coverage report for the monorepo.
 | api-server-service | 87.77% | 87.77% | 66.66% | 72.09% | 3.45% |
 | api-server-common | 63.42% | 63.42% | 75% | 92.85% | 47.37% |
 | api-router | 0% | 0% | 0% | 0% | 0% |
-| **TOTAL** | **64.84%** | **64.84%** | **69.45%** | **78.18%** | **35.59%** |
+| **TOTAL** | **65.99%** | **65.99%** | **70.2%** | **78.94%** | **37.52%** |

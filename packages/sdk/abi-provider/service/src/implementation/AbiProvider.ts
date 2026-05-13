@@ -10,20 +10,32 @@ import { erc20Abi, erc4626Abi } from 'viem'
 
 /**
  * AbiProvider
+ * A service that provides access to standard contract ABIs (e.g. ERC20, ERC4626).
+ * This acts as the central registry for ABIs used across the SDK to encode and decode contract interactions.
+ * 
  * @implements IAbiProvider
  */
 export class AbiProvider implements IAbiProvider {
   private _configProvider: IConfigurationProvider
   private _abis: ContractAbiRecord
 
-  /** CONSTRUCTOR */
+  /**
+   * Initializes the AbiProvider, loading the standard ABIs configuration.
+   * 
+   * @param params.configProvider - Configuration provider to access SDK settings
+   */
   constructor(params: { configProvider: IConfigurationProvider }) {
     this._configProvider = params.configProvider
 
     this._abis = this._getAbisConfiguration()
   }
 
-  /** FUNCTIONS */
+  /**
+   * Retrieves the ABI for a specific contract standard.
+   * 
+   * @param params.type - The contract standard to fetch the ABI for (e.g. `AbiContractType.ERC20`)
+   * @returns A promise resolving to the exact `ContractAbi`
+   */
   async getAbi(params: { type: AbiContractType }): Promise<ContractAbi> {
     return this._abis[params.type]
   }

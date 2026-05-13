@@ -20,9 +20,12 @@ export type Vnet = {
 }
 
 /**
- * Class that offers utility functions for interacting with Tenderly, including sending transactions
+ * Tenderly
+ * Utility class for interacting with the Tenderly API. 
+ * Allows creating, forking, snapping, and manipulating virtual testnets (Vnets)
+ * natively via fetch endpoints.
  *
- * It makes use of different utilities across the repo to offer a unified experience
+ * It is primarily used for testing or dry-run simulations.
  */
 export class Tenderly {
   public readonly tenderlyAccount: string
@@ -30,7 +33,12 @@ export class Tenderly {
   public readonly tenderlyApiUrl: string
   public readonly tenderlyAccessKey: string
 
-  /** CONSTRUCTOR */
+  /**
+   * Initializes the Tenderly client.
+   * Relies on `TENDERLY_USER`, `TENDERLY_PROJECT`, and `TENDERLY_ACCESS_KEY` environment variables.
+   * 
+   * @throws Error if any required environment variable is missing.
+   */
   constructor() {
     const { TENDERLY_USER, TENDERLY_PROJECT, TENDERLY_ACCESS_KEY } = process.env
 
@@ -46,7 +54,11 @@ export class Tenderly {
 
   /**
    * createVnet
-   * Creates a new Tenderly vnet
+   * Provisions a new Tenderly Virtual Network (Vnet) based on a specific chain and block.
+   * 
+   * @param params.chainInfo - Information about the chain to fork
+   * @param params.atBlock - The specific block number to fork from, or 'latest'
+   * @returns A promise resolving to a `Vnet` interface that controls the created virtual network
    */
   async createVnet(params: { chainInfo: IChainInfo; atBlock?: number | 'latest' }): Promise<Vnet> {
     console.log('Creating vnet...')
