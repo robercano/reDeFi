@@ -4,106 +4,101 @@
 const fs = require('fs')
 const path = require('path')
 
+const EXCLUDED_PACKAGES = [
+  'packages/config',
+  'packages/deployment-types',
+  'packages/deployment-utils',
+  'packages/hardhat-utils',
+  'packages/ui',
+  'apps/sdk-demo',
+  'apps/sdk-infra',
+  'apps/jobs',
+]
+
+function isExcluded(dir) {
+  const normalizedDir = dir.replace(/\\/g, '/')
+  return EXCLUDED_PACKAGES.some((ex) => normalizedDir.startsWith(ex))
+}
+
 function getAllPathsForPackagesSummaries() {
-  const getDirectories = (source) =>
-    fs
-      .readdirSync(source, { withFileTypes: true })
-      .filter((dirent) => dirent.isDirectory())
-      .map((dirent) => dirent.name)
+  const summaries = {}
 
-  const appsPath = 'apps'
-  const appsNames = fs.existsSync(appsPath) ? getDirectories(appsPath) : []
+  const findPackages = (dir) => {
+    if (!fs.existsSync(dir)) return
+    const files = fs.readdirSync(dir, { withFileTypes: true })
 
-  const appsSummaries = appsNames.reduce((summary, appName) => {
-    let summaryPath = path.join(appsPath, appName, 'coverage', 'coverage-summary.json')
-    if (fs.existsSync(path.join(appsPath, appName, 'service'))) {
-      summaryPath = path.join(appsPath, appName, 'service', 'coverage', 'coverage-summary.json')
+    let hasPackageJson = false
+    for (const file of files) {
+      if (file.name === 'package.json') {
+        hasPackageJson = true
+        break
+      }
     }
-    return {
-      ...summary,
-      [appName]: summaryPath,
-    }
-  }, {})
 
-  const packagesPath = 'packages'
-  const packageNames = fs.existsSync(packagesPath) ? getDirectories(packagesPath) : []
+    if (hasPackageJson && !isExcluded(dir)) {
+      let pkgName = dir.replace(/\\/g, '/')
+      pkgName = pkgName.replace(/^apps\//, '')
+      pkgName = pkgName.replace(/^packages\/sdk\//, 'sdk-')
+      pkgName = pkgName.replace(/^packages\//, '')
+      pkgName = pkgName.replace(/\//g, '-')
 
-  const packagesSummaries = packageNames.reduce((summary, packageName) => {
-    return {
-      ...summary,
-      [packageName]: path.join(packagesPath, packageName, 'coverage', 'coverage-summary.json'),
+      summaries[pkgName] = path.join(dir, 'coverage', 'coverage-summary.json')
     }
-  }, {})
 
-  const sdkPath = path.join('packages', 'sdk')
-  const sdkNames = fs.existsSync(sdkPath) ? getDirectories(sdkPath) : []
+    for (const file of files) {
+      if (
+        file.isDirectory() &&
+        !['node_modules', '.next', 'dist', 'build', '.git', 'bundle', 'mock'].includes(file.name)
+      ) {
+        findPackages(path.join(dir, file.name))
+      }
+    }
+  }
 
-  const sdkSummaries = sdkNames.reduce((summary, packageName) => {
-    const pkgPath = path.join(sdkPath, packageName)
-    const subDirs = getDirectories(pkgPath)
-    let extraSummaries = {}
-    if (subDirs.includes('service')) {
-      extraSummaries[`sdk-${packageName}-service`] = path.join(
-        pkgPath,
-        'service',
-        'coverage',
-        'coverage-summary.json',
-      )
-    }
-    if (subDirs.includes('common')) {
-      extraSummaries[`sdk-${packageName}-common`] = path.join(
-        pkgPath,
-        'common',
-        'coverage',
-        'coverage-summary.json',
-      )
-    }
-    return {
-      ...summary,
-      [`sdk-${packageName}`]: path.join(pkgPath, 'coverage', 'coverage-summary.json'),
-      ...extraSummaries,
-    }
-  }, {})
+  findPackages('apps')
+  findPackages('packages')
 
-  return { ...appsSummaries, ...packagesSummaries, ...sdkSummaries }
+  return summaries
 }
 
 function readSummaryPerPackageAndCreateJoinedSummaryReportWithTotal(packagesSummaryPaths) {
   return Object.keys(packagesSummaryPaths).reduce(
     (summary, packageName) => {
       const reportPath = packagesSummaryPaths[packageName]
+      let report = null
+
       if (fs.existsSync(reportPath)) {
-        const report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
-
-        if (
-          !report.total ||
-          !report.total.lines ||
-          report.total.lines.pct === 'Unknown' ||
-          report.total.lines.pct === 0
-        ) {
-          return summary
-        }
-
-        const { total } = summary
-
-        Object.keys(report.total).forEach((key) => {
-          if (total[key]) {
-            total[key].total += report.total[key].total
-            total[key].covered += report.total[key].covered
-            total[key].skipped += report.total[key].skipped
-            total[key].pct =
-              total[key].total === 0
-                ? 'Unknown'
-                : Number(((total[key].covered / total[key].total) * 100).toFixed(2))
-          } else {
-            total[key] = { ...report.total[key] }
-          }
-        })
-
-        return { [packageName]: report.total, ...summary, total }
+        report = JSON.parse(fs.readFileSync(reportPath, 'utf8'))
       }
 
-      return summary
+      if (!report || !report.total || !report.total.lines || report.total.lines.pct === 'Unknown') {
+        report = {
+          total: {
+            lines: { total: 0, covered: 0, skipped: 0, pct: 0 },
+            statements: { total: 0, covered: 0, skipped: 0, pct: 0 },
+            functions: { total: 0, covered: 0, skipped: 0, pct: 0 },
+            branches: { total: 0, covered: 0, skipped: 0, pct: 0 },
+          },
+        }
+      }
+
+      const { total } = summary
+
+      Object.keys(report.total).forEach((key) => {
+        if (total[key]) {
+          total[key].total += report.total[key].total
+          total[key].covered += report.total[key].covered
+          total[key].skipped += report.total[key].skipped
+          total[key].pct =
+            total[key].total === 0
+              ? 0
+              : Number(((total[key].covered / total[key].total) * 100).toFixed(2))
+        } else {
+          total[key] = { ...report.total[key] }
+        }
+      })
+
+      return { [packageName]: report.total, ...summary, total }
     },
     { total: {} },
   )
@@ -132,7 +127,7 @@ function createCoverageReportForVisualRepresentation(coverageReport, commentCove
 
     const { lines, statements, functions, branches } = coverageReport[packageName]
 
-    if (packageName !== 'total' && (lines.pct === 'Unknown' || lines.pct === 0)) {
+    if (packageName !== 'total' && lines.pct === 'Unknown') {
       return report
     }
 
