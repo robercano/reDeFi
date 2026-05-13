@@ -14,7 +14,11 @@ export class BlockchainManager
   extends ManagerWithFallbackProvidersBase<BlockchainProviderType, IBlockchainClientProvider>
   implements IBlockchainManager
 {
-  /** CONSTRUCTOR */
+  /**
+   * Creates a new instance of the BlockchainManager.
+   * @param params - The initialization parameters.
+   * @param params.providers - An array of available blockchain client providers.
+   */
   constructor(params: { providers: IBlockchainClientProvider[] }) {
     super(params)
   }

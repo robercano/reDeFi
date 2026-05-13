@@ -12,7 +12,9 @@ describe('Blockchain Provider', () => {
         if (params.name === 'ALCHEMY_ENDPOINT_API_KEY') {
           return 'alchemy_test_key'
         }
-
+        if (params.name === 'INFURA_ENDPOINT_API_KEY') {
+          return 'infura_test_key'
+        }
         return undefined
       },
     } as unknown as IConfigurationProvider

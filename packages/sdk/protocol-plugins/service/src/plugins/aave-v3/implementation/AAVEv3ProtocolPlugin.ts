@@ -55,7 +55,10 @@ import { encodeFunctionData } from 'viem'
  * @see BaseProtocolPlugin
  */
 export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
+  /** The unique name identifying this protocol. */
   readonly protocolName = ProtocolName.AaveV3
+  
+  /** The list of chains on which this protocol is supported. */
   readonly supportedChains = valuesOfChainFamilyMap([
     ChainFamilyName.Ethereum,
     ChainFamilyName.Base,
@@ -65,6 +68,13 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   private _contractsAbiProvider!: ChainContractsProvider<AaveV3ContractNames, typeof AaveV3AbiMap>
 
+  /**
+   * Initializes the Aave V3 protocol plugin with the given context.
+   *
+   * @param params - The initialization parameters.
+   * @param params.context - The protocol plugin context providing configuration and chain access.
+   * @throws {Error} If the chain provided in the context is not supported by Aave V3.
+   */
   initialize(params: { context: IProtocolPluginContext }) {
     super.initialize(params)
     this._contractsAbiProvider = new ChainContractsProvider(AaveV3AbiMap)
@@ -80,6 +90,13 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   /** VALIDATORS */
 
+  /**
+   * Validates if a given candidate object conforms to the Aave V3 lending pool ID structure.
+   *
+   * @param candidate - The lending pool ID candidate to validate.
+   * @throws {Error} If the candidate is not a valid Aave V3 lending pool ID.
+   * @internal
+   */
   protected _validateLendingPoolId(
     candidate: ILendingPoolIdData,
   ): asserts candidate is IAaveV3LendingPoolIdData {
@@ -88,6 +105,13 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     }
   }
 
+  /**
+   * Validates if a given candidate object conforms to the Aave V3 lending position ID structure.
+   *
+   * @param candidate - The lending position ID candidate to validate.
+   * @throws {Error} If the candidate is not a valid Aave V3 lending position ID.
+   * @internal
+   */
   protected _validateLendingPositionId(
     candidate: IPositionIdData,
   ): asserts candidate is IAaveV3LendingPositionIdData {
@@ -98,6 +122,13 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   /** LENDING POOLS */
 
+  /**
+   * Retrieves an Aave V3 lending pool instance for the given pool ID.
+   *
+   * @param aaveV3PoolId - The Aave V3 lending pool ID.
+   * @returns A promise that resolves to the Aave V3 lending pool instance.
+   * @internal
+   */
   async _getLendingPoolImpl(aaveV3PoolId: IAaveV3LendingPoolId): Promise<AaveV3LendingPool> {
     return AaveV3LendingPool.createFrom({
       id: aaveV3PoolId,
@@ -106,6 +137,14 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     })
   }
 
+  /**
+   * Retrieves detailed information about an Aave V3 lending pool, including collateral and debt metrics.
+   * Executes multicall against the PoolDataProvider and Oracle contracts to fetch reserves and prices.
+   *
+   * @param aaveV3PoolId - The Aave V3 lending pool ID.
+   * @returns A promise that resolves to detailed Aave V3 lending pool information.
+   * @internal
+   */
   async _getLendingPoolInfoImpl(
     aaveV3PoolId: IAaveV3LendingPoolId,
   ): Promise<AaveV3LendingPoolInfo> {
@@ -316,6 +355,14 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   /** POSITIONS */
 
+  /**
+   * Retrieves a lending position for a specific wallet in an Aave V3 pool.
+   * Fetches user reserve data (aToken and debtToken balances) and validates eMode settings.
+   *
+   * @param positionId - The lending position ID containing the pool ID and wallet address.
+   * @returns A promise that resolves to the lending position details.
+   * @throws {Error} If the user's eMode does not match the pool's expected eMode.
+   */
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     this._validateLendingPositionId(positionId)
 
@@ -379,6 +426,15 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
 
   /** SUPPLY TRANSACTION */
 
+  /**
+   * Generates a supply transaction to deposit tokens into an Aave V3 pool.
+   *
+   * @param params - The supply parameters.
+   * @param params.poolId - The lending pool ID to supply to.
+   * @param params.amount - The token amount to supply.
+   * @param params.user - The user initiating the supply transaction.
+   * @returns A promise that resolves to the supply transaction information.
+   */
   async getSupplyTransaction(params: {
     poolId: ILendingPoolIdData
     amount: TokenAmount
