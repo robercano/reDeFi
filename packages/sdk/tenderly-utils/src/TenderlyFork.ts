@@ -5,7 +5,9 @@ import { JsonRpcProvider, ethers } from 'ethers'
 import { TransactionReceipt } from 'viem'
 
 /**
- * Implements the convenience methods to create and interact with a Tenderly Fork
+ * TenderlyFork
+ * Represents a dedicated Tenderly Fork. Provides methods to manipulate the fork state
+ * (e.g. setting balances, snapping/reverting) and send transactions for integration testing.
  */
 export class TenderlyFork {
   public readonly tenderlyApiUrl: string
@@ -56,7 +58,13 @@ export class TenderlyFork {
 
   /**
    * create
-   * Creates a new Tenderly fork with the given parameters
+   * Asynchronously provisions a new Tenderly fork using the API and initializes the `TenderlyFork` wrapper.
+   * 
+   * @param params.tenderlyApiUrl - The API URL for the Tenderly project
+   * @param params.tenderlyAccessKey - Authentication access key
+   * @param params.chainInfo - Information about the network to fork
+   * @param params.atBlock - The block number to fork from, or 'latest'
+   * @returns A promise resolving to a configured `TenderlyFork` instance
    */
   static async create(params: {
     tenderlyApiUrl: string

@@ -1,75 +1,80 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi } from 'vitest'
 import { EventBus } from '../src/implementation/EventBus'
-import { ISDKEventMap } from '@thesolidchain/events-common'
+import { IChainInfo } from '@thesolidchain/sdk-common'
 
 describe('EventBus', () => {
-  let eventBus: EventBus
+  const mockChainInfo = {
+    chainId: 1,
+    name: 'Ethereum',
+  } as unknown as IChainInfo
 
-  beforeEach(() => {
-    eventBus = new EventBus()
-  })
-
-  it('should allow subscribing and receiving events', () => {
+  it('should allow listeners to subscribe and receive events', () => {
+    const eventBus = new EventBus()
     const listener = vi.fn()
-    eventBus.on('PositionUpdated', listener)
 
-    const payload: ISDKEventMap['PositionUpdated'] = { userAddress: '0x123' }
-    eventBus.emit('PositionUpdated', payload)
+    eventBus.on('NewBlockMined', listener)
+
+    const payload = { chainInfo: mockChainInfo, blockNumber: 100n }
+    eventBus.emit('NewBlockMined', payload)
 
     expect(listener).toHaveBeenCalledTimes(1)
     expect(listener).toHaveBeenCalledWith(payload)
   })
 
-  it('should allow unsubscribing from events', () => {
+  it('should allow multiple listeners for the same event', () => {
+    const eventBus = new EventBus()
+    const listenerA = vi.fn()
+    const listenerB = vi.fn()
+
+    eventBus.on('PositionUpdated', listenerA)
+    eventBus.on('PositionUpdated', listenerB)
+
+    const payload = { userAddress: '0x123' }
+    eventBus.emit('PositionUpdated', payload)
+
+    expect(listenerA).toHaveBeenCalledTimes(1)
+    expect(listenerB).toHaveBeenCalledTimes(1)
+  })
+
+  it('should allow listeners to unsubscribe', () => {
+    const eventBus = new EventBus()
     const listener = vi.fn()
+
     eventBus.on('PositionUpdated', listener)
     eventBus.off('PositionUpdated', listener)
 
-    const payload: ISDKEventMap['PositionUpdated'] = { userAddress: '0x123' }
-    eventBus.emit('PositionUpdated', payload)
+    eventBus.emit('PositionUpdated', { userAddress: '0x123' })
 
     expect(listener).not.toHaveBeenCalled()
   })
 
-  it('should not throw if unsubscribing a non-existent listener', () => {
+  it('should not throw if unsubscribing a listener that was not subscribed', () => {
+    const eventBus = new EventBus()
     const listener = vi.fn()
-    expect(() => {
-      eventBus.off('PositionUpdated', listener)
-    }).not.toThrow()
+
+    expect(() => eventBus.off('PositionUpdated', listener)).not.toThrow()
   })
 
-  it('should handle multiple listeners for the same event', () => {
-    const listener1 = vi.fn()
-    const listener2 = vi.fn()
+  it('should continue executing other listeners if one throws an error', () => {
+    const eventBus = new EventBus()
+    
+    // Silence console.error for this test as the EventBus logs errors
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 
-    eventBus.on('PositionUpdated', listener1)
-    eventBus.on('PositionUpdated', listener2)
-
-    const payload: ISDKEventMap['PositionUpdated'] = { userAddress: '0x123' }
-    eventBus.emit('PositionUpdated', payload)
-
-    expect(listener1).toHaveBeenCalledWith(payload)
-    expect(listener2).toHaveBeenCalledWith(payload)
-  })
-
-  it('should catch and log errors in listeners without crashing', () => {
-    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
-
-    const badListener = vi.fn(() => {
-      throw new Error('Listener failed')
+    const throwingListener = vi.fn(() => {
+      throw new Error('Test error')
     })
-    const goodListener = vi.fn()
+    const successfulListener = vi.fn()
 
-    eventBus.on('PositionUpdated', badListener)
-    eventBus.on('PositionUpdated', goodListener)
+    eventBus.on('NewBlockMined', throwingListener)
+    eventBus.on('NewBlockMined', successfulListener)
 
-    const payload: ISDKEventMap['PositionUpdated'] = { userAddress: '0x123' }
-    eventBus.emit('PositionUpdated', payload)
+    eventBus.emit('NewBlockMined', { chainInfo: mockChainInfo, blockNumber: 100n })
 
-    expect(badListener).toHaveBeenCalled()
-    expect(consoleErrorSpy).toHaveBeenCalled()
-    expect(goodListener).toHaveBeenCalled()
+    expect(throwingListener).toHaveBeenCalledTimes(1)
+    expect(successfulListener).toHaveBeenCalledTimes(1)
+    expect(consoleSpy).toHaveBeenCalled()
 
-    consoleErrorSpy.mockRestore()
+    consoleSpy.mockRestore()
   })
 })

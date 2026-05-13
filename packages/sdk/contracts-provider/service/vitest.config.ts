@@ -5,7 +5,9 @@ export default mergeConfig(
   baseConfig,
   defineConfig({
     test: {
-      // custom config
+      coverage: {
+        exclude: ['src/generated/**'],
+      },
     },
   }),
 )
