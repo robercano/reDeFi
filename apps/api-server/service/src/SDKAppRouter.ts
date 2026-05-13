@@ -22,7 +22,9 @@ import { getYieldPoolInfo } from './handlers/getYieldPoolInfo'
 import { getYieldPosition } from './handlers/getYieldPosition'
 
 /**
- * Server
+ * @name sdkAppRouter
+ * @description The main tRPC router that exposes all the backend SDK services.
+ *              It maps high-level feature sets (protocols, tokens, swaps) to their specific backend handlers.
  */
 export const sdkAppRouter = router({
   debug: {

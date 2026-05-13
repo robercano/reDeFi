@@ -21,6 +21,17 @@ type UseSdk = {
   chainId?: number
 }
 
+/**
+ * @name useSDK
+ * @description A comprehensive React Hook that provides access to the backend SDK methods.
+ *              It initializes the SDK client using the context parameters and memoizes the action handlers
+ *              for performance optimization within the React component lifecycle.
+ *
+ * @param params - The hook initialization parameters.
+ * @param params.walletAddress - The active wallet address connecting to the SDK.
+ * @param params.chainId - The currently active chain ID context.
+ * @returns A memoized object containing the SDK event bus and various data retrieval/execution functions.
+ */
 export const useSDK = (params: UseSdk) => {
   const { apiURL, apiKey } = useSDKContext()
   const sdk = useMemo(() => {
