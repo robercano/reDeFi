@@ -17,8 +17,8 @@ describe('SwapManager', () => {
   const mockToken: IToken = { chainInfo: { chainId: ChainIds.Mainnet } } as IToken
   const mockFromAmount: ITokenAmount = { token: mockToken } as ITokenAmount
   const mockToToken: IToken = {} as IToken
-  const mockRecipient: IAddress = '0xRecipient' as IAddress
-  const mockSlippage: IPercentage = 1 as IPercentage
+  const mockRecipient: IAddress = '0xRecipient' as unknown as IAddress
+  const mockSlippage: IPercentage = 1 as unknown as IPercentage
 
   beforeEach(() => {
     mockProvider = {
@@ -32,7 +32,7 @@ describe('SwapManager', () => {
   })
 
   it('should route getSwapDataExactInput to the provider', async () => {
-    const mockResult = { tx: {} } as any
+    const mockResult = { tx: {} } as unknown as import('@thesolidchain/sdk-common').SwapData
     mockProvider.getSwapDataExactInput.mockResolvedValue(mockResult)
 
     const params = {
@@ -48,7 +48,7 @@ describe('SwapManager', () => {
   })
 
   it('should route getSwapQuoteExactInput to the provider', async () => {
-    const mockQuote = { amountOut: {} } as any
+    const mockQuote = { amountOut: {} } as unknown as import('@thesolidchain/sdk-common').QuoteData
     mockProvider.getSwapQuoteExactInput.mockResolvedValue(mockQuote)
 
     const params = {

@@ -18,7 +18,7 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox-viem": "^2.0.0",
     "@thesolidchain/common": "workspace:*",
-    "@thesolidchain/contracts-utils": "workspace:*",
+
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/hardhat-utils": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",

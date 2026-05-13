@@ -16,7 +16,7 @@ vi.mock('../src/generated/V5_6_1/ERC721V5_6_1', () => ({ ERC721V5_6_1: class { v
 describe('ContractsFactory', () => {
   const mockClient = {} as IBlockchainClient
   const mockChainInfo = {} as IChainInfo
-  const mockAddress = { value: '0x1' } as IAddress
+  const mockAddress = { value: '0x1' } as unknown as IAddress
 
   const baseParams = {
     blockchainClient: mockClient,
@@ -25,8 +25,8 @@ describe('ContractsFactory', () => {
   }
 
   it('should instantiate V4_9_6 and default versions for ERC20', () => {
-    const v4 = ContractsFactory.getERC20({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as any
-    const v5 = ContractsFactory.getERC20({ ...baseParams }) as any
+    const v4 = ContractsFactory.getERC20({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as unknown as { version: string, type: string }
+    const v5 = ContractsFactory.getERC20({ ...baseParams }) as unknown as { version: string, type: string }
 
     expect(v4.version).toBe('4.9.6')
     expect(v4.type).toBe('ERC20')
@@ -35,8 +35,8 @@ describe('ContractsFactory', () => {
   })
 
   it('should instantiate V4_9_6 and default versions for ERC4626', () => {
-    const v4 = ContractsFactory.getERC4626({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as any
-    const v5 = ContractsFactory.getERC4626({ ...baseParams }) as any
+    const v4 = ContractsFactory.getERC4626({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as unknown as { version: string, type: string }
+    const v5 = ContractsFactory.getERC4626({ ...baseParams }) as unknown as { version: string, type: string }
 
     expect(v4.version).toBe('4.9.6')
     expect(v4.type).toBe('ERC4626')
@@ -45,8 +45,8 @@ describe('ContractsFactory', () => {
   })
 
   it('should instantiate V4_9_6 and default versions for ERC1155', () => {
-    const v4 = ContractsFactory.getERC1155({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as any
-    const v5 = ContractsFactory.getERC1155({ ...baseParams }) as any
+    const v4 = ContractsFactory.getERC1155({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as unknown as { version: string, type: string }
+    const v5 = ContractsFactory.getERC1155({ ...baseParams }) as unknown as { version: string, type: string }
 
     expect(v4.version).toBe('4.9.6')
     expect(v4.type).toBe('ERC1155')
@@ -55,8 +55,8 @@ describe('ContractsFactory', () => {
   })
 
   it('should instantiate V4_9_6 and default versions for ERC721', () => {
-    const v4 = ContractsFactory.getERC721({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as any
-    const v5 = ContractsFactory.getERC721({ ...baseParams }) as any
+    const v4 = ContractsFactory.getERC721({ ...baseParams, version: OpenZeppelinVersion.V4_9_6 }) as unknown as { version: string, type: string }
+    const v5 = ContractsFactory.getERC721({ ...baseParams }) as unknown as { version: string, type: string }
 
     expect(v4.version).toBe('4.9.6')
     expect(v4.type).toBe('ERC721')

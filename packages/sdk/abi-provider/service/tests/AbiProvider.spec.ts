@@ -1,4 +1,4 @@
-import { describe, it, expect, vi } from 'vitest'
+import { describe, it, expect } from 'vitest'
 import { AbiProvider } from '../src/implementation/AbiProvider'
 import { AbiProviderFactory } from '../src/implementation/AbiProviderFactory'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'

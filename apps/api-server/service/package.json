@@ -30,7 +30,6 @@
     "@thesolidchain/common": "workspace:*",
     "@thesolidchain/configuration-provider": "workspace:*",
     "@thesolidchain/configuration-provider-common": "workspace:*",
-    "@thesolidchain/contracts-core": "workspace:*",
     "@thesolidchain/contracts-provider-common": "workspace:*",
     "@thesolidchain/contracts-provider-service": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
@@ -57,10 +56,10 @@
     "zod": "3.25.61"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
     "@thesolidchain/config-vitest": "workspace:*",
-    "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@vitest/coverage-v8": "^1.6.0",
+    "vitest": "^1.6.0"
   }
 }

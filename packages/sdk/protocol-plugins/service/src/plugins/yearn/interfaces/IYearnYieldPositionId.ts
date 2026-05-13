@@ -1,4 +1,4 @@
-import { IYieldPositionId, YieldPositionIdDataSchema, PoolType } from '@thesolidchain/sdk-common'
+import { IYieldPositionId, YieldPositionIdDataSchema } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IYearnProtocol, isYearnProtocol } from './IYearnProtocol'
 

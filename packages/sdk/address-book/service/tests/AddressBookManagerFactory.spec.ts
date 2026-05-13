@@ -16,24 +16,22 @@ describe('TokensManagerFactory', () => {
     })
   })
 
-  it('should return the address of a core contract', async () => {
+  it('should return undefined when requesting a core contract since deployments are empty', async () => {
     const operationExecutorAddress = await addressBookManager.getAddressByName({
       chainInfo,
       name: 'OperationExecutor',
     })
 
-    assert(operationExecutorAddress, 'Address not found')
-    expect(operationExecutorAddress.type).toEqual(AddressType.Ethereum)
+    expect(operationExecutorAddress).toBeUndefined()
   })
 
-  it('should return the address of a dependency contract', async () => {
+  it('should return undefined when requesting a dependency contract since deployments are empty', async () => {
     const morphoBlueAddress = await addressBookManager.getAddressByName({
       chainInfo,
       name: 'MorphoBlue',
     })
 
-    assert(morphoBlueAddress, 'Address not found')
-    expect(morphoBlueAddress.type).toEqual(AddressType.Ethereum)
+    expect(morphoBlueAddress).toBeUndefined()
   })
 
   it('should return undefined if the name does not exist', async () => {

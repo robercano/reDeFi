@@ -14,36 +14,36 @@ vi.mock('@aws-sdk/client-dynamodb', () => ({
 vi.mock('@aws-sdk/lib-dynamodb', () => ({
   DynamoDBDocumentClient: {
     from: vi.fn().mockReturnValue({
-      send: (...args: any[]) => mockSend(...args),
+      send: (...args: unknown[]) => mockSend(...args),
     }),
   },
-  GetCommand: vi.fn().mockImplementation((args) => args),
-  QueryCommand: vi.fn().mockImplementation((args) => args),
+  GetCommand: vi.fn().mockImplementation((args: unknown) => args),
+  QueryCommand: vi.fn().mockImplementation((args: unknown) => args),
 }))
 
 describe('DatabaseTokensProvider', () => {
   let provider: DatabaseTokensProvider
-  let configProvider: any
-  let blockchainClientProvider: any
-  let contractsProvider: any
-  const chainInfo = { chainId: ChainIds.Mainnet, name: 'Ethereum' } as any
+  let configProvider: import('@thesolidchain/configuration-provider-common').IConfigurationProvider
+  let blockchainClientProvider: import('@thesolidchain/blockchain-client-common').IBlockchainClientProvider
+  let contractsProvider: import('@thesolidchain/contracts-provider-common').IContractsProvider
+  const chainInfo = { chainId: ChainIds.Mainnet, name: 'Ethereum' } as unknown as import('@thesolidchain/sdk-common').IChainInfo
 
   beforeEach(() => {
     vi.clearAllMocks()
     configProvider = {
       getConfigurationItem: vi.fn().mockReturnValue('test-table'),
-    }
+    } as unknown as import('@thesolidchain/configuration-provider-common').IConfigurationProvider
     blockchainClientProvider = {
       getBlockchainClient: vi.fn().mockReturnValue({
         getBalance: vi.fn().mockResolvedValue(1000n),
       }),
-    }
+    } as unknown as import('@thesolidchain/blockchain-client-common').IBlockchainClientProvider
     contractsProvider = {
       getErc20Contract: vi.fn().mockReturnValue({
         balanceOf: vi.fn().mockResolvedValue(2000n),
         totalSupply: vi.fn().mockResolvedValue(3000n),
       }),
-    }
+    } as unknown as import('@thesolidchain/contracts-provider-common').IContractsProvider
 
     provider = new DatabaseTokensProvider({
       configProvider,

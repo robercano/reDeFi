@@ -1,8 +1,6 @@
-import * as React from 'react'
 import { renderHook } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { useSDKEvent } from '../src/hooks/useSDKEvent'
-import { SDKProvider } from '../src/components/SDKProvider'
 
 const mockOn = vi.fn()
 const mockOff = vi.fn()

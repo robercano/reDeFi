@@ -21,7 +21,7 @@ vi.mock('../src/factory/ContractsFactory', () => ({
 describe('GenericContractWrapper', () => {
   const mockClient = {} as IBlockchainClient
   const mockChainInfo = {} as IChainInfo
-  const mockAddress = { value: '0x123' } as IAddress
+  const mockAddress = { value: '0x123' } as unknown as IAddress
   const mockAbi = [{ type: 'function', name: 'test' }] as unknown as ContractAbi
 
   it('should create and store state correctly', async () => {
@@ -83,7 +83,7 @@ describe('GenericContractWrapper', () => {
     })
 
     // Access the protected _createTransaction method for testing
-    const tx = await (wrapper as any)._createTransaction({
+    const tx = await (wrapper as unknown as { _createTransaction: (opts: { functionName: string, args: unknown[], description: string, value: bigint }) => Promise<{ transaction: { target: IAddress, calldata: string, value: string }, description: string }> })._createTransaction({
       functionName: 'test',
       args: [],
       description: 'Test call',

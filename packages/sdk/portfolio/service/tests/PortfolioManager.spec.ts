@@ -44,17 +44,17 @@ describe('PortfolioManager', () => {
       getTokenByName: vi.fn(),
       getTokenBalanceByAddress: vi.fn(),
       getTokenTotalSupply: vi.fn(),
-    } as any
+    } as unknown as import('vitest').Mocked<ITokensManager>
 
     mockOracleManager = {
       getSpotPrice: vi.fn(),
       getSpotPrices: vi.fn(),
-    } as any
+    } as unknown as import('vitest').Mocked<IOracleManager>
 
     mockCacheService = {
       get: vi.fn(),
       set: vi.fn(),
-    } as any
+    } as unknown as import('vitest').Mocked<ICacheService>
 
     portfolioManager = PortfolioManagerFactory.newPortfolioManager({
       tokensManager: mockTokensManager,
@@ -66,13 +66,13 @@ describe('PortfolioManager', () => {
 
   describe('getWalletHoldings', () => {
     it('should aggregate non-zero balances and compute fiat values correctly', async () => {
-      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: any) => {
-        if (symbol === CommonTokenSymbols.USDC) return mockBalance as any
+      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
+        if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
         return undefined
       })
 
       const mockFiatAmount = { price: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '1' }) }
-      mockOracleManager.getSpotPrice.mockResolvedValue(mockFiatAmount as any)
+      mockOracleManager.getSpotPrice.mockResolvedValue(mockFiatAmount as unknown as import('@thesolidchain/sdk-common').ISpotPriceInfo)
 
       const holdings = await portfolioManager.getWalletHoldings({ user: mockUser })
 
@@ -90,8 +90,8 @@ describe('PortfolioManager', () => {
     })
 
     it('should silently skip fiat conversion if oracle fails', async () => {
-      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: any) => {
-        if (symbol === CommonTokenSymbols.USDC) return mockBalance as any
+      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
+        if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
         return undefined
       })
 
@@ -111,7 +111,7 @@ describe('PortfolioManager', () => {
         walletHoldings: [],
         totalFiatValue: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '0' }),
       }
-      mockCacheService.get.mockResolvedValue(mockCachedPortfolio as any)
+      mockCacheService.get.mockResolvedValue(mockCachedPortfolio as unknown as import('@thesolidchain/sdk-common').IPortfolio)
 
       const portfolio = await portfolioManager.getUserPortfolio({ user: mockUser })
 
@@ -121,15 +121,15 @@ describe('PortfolioManager', () => {
     })
 
     it('should compute and cache portfolio if not available in cache', async () => {
-      mockCacheService.get.mockResolvedValue(undefined as any)
+      mockCacheService.get.mockResolvedValue(undefined)
 
-      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: any) => {
-        if (symbol === CommonTokenSymbols.USDC) return mockBalance as any
+      mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
+        if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
         return undefined
       })
 
       const mockFiatAmount = { price: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '1' }) }
-      mockOracleManager.getSpotPrice.mockResolvedValue(mockFiatAmount as any)
+      mockOracleManager.getSpotPrice.mockResolvedValue(mockFiatAmount as unknown as import('@thesolidchain/sdk-common').ISpotPriceInfo)
 
       const portfolio = await portfolioManager.getUserPortfolio({ user: mockUser })
 

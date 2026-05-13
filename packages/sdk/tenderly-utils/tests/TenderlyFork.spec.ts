@@ -97,7 +97,7 @@ describe('TenderlyFork', () => {
 
     const receipt = await fork.sendTransaction({
       walletPrivateKey: '0xabc',
-      transaction: { to: { value: '0x123' }, data: '0x' } as any,
+      transaction: { to: { value: '0x123' }, data: '0x' } as unknown as import('@thesolidchain/sdk-common').Transaction,
     })
     expect(receipt).toEqual({ status: 1 })
   })
@@ -111,8 +111,8 @@ describe('TenderlyFork', () => {
     })
 
     await fork.setErc20Balance({
-      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as any,
-      walletAddress: { value: '0xwallet' } as any,
+      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
   })
 
@@ -124,8 +124,8 @@ describe('TenderlyFork', () => {
       atBlock: 'latest',
     })
 
-    await fork.setETHBalance({ amount: 100n, walletAddress: { value: '0xwallet' } as any })
-    const bal = await fork.getETHBalance({ walletAddress: { value: '0xwallet' } as any, atBlock: 123 })
+    await fork.setETHBalance({ amount: 100n, walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress })
+    const bal = await fork.getETHBalance({ walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress, atBlock: 123 })
     expect(bal).toBe('0xsnapshot')
   })
 
@@ -147,7 +147,7 @@ describe('TenderlyFork', () => {
     })
     vi.mocked(axios.create).mockReturnValueOnce({
       post: mockPost,
-    } as any)
+    } as unknown as import('axios').AxiosInstance)
 
     await expect(
       TenderlyFork.create({

@@ -7,7 +7,7 @@
         "node_modules/@thesolidchain/order-planner-common/src/*"
       ],
       "@thesolidchain/sdk-common/*": ["node_modules/@thesolidchain/sdk-common/src/*"],
-      "@thesolidchain/contracts-core": ["node_modules/@thesolidchain/contracts-core/src/index.ts"],
+
       "@thesolidchain/swap-common/*": ["node_modules/@thesolidchain/swap-common/src/*"],
       "@thesolidchain/deployment-utils": [
         "node_modules/@thesolidchain/deployment-utils/src/index.ts"

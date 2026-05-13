@@ -113,6 +113,7 @@ export function TokenFetcher() {
           <div className="flex items-center gap-4 mb-8">
             <div className="w-14 h-14 rounded-full bg-neutral-800 flex items-center justify-center font-bold text-2xl border border-neutral-700 text-[var(--neon-orange)] shadow-inner overflow-hidden">
               {tokenData.logoURI ? (
+                /* eslint-disable-next-line @next/next/no-img-element */
                 <img
                   src={tokenData.logoURI as string}
                   alt={`${tokenData.symbol} logo`}

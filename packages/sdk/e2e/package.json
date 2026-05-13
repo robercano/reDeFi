@@ -23,7 +23,8 @@
     "e2e:tokens": "vitest run --roots e2e -- ./e2e/tokens.test.ts"
   },
   "devDependencies": {
-    "@thesolidchain/contracts-core": "workspace:*",
+    "@thesolidchain/config-typescript": "workspace:*",
+    "@thesolidchain/config-vitest": "workspace:*",
     "@thesolidchain/deployment-utils": "workspace:*",
     "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/protocol-manager-service": "workspace:*",
@@ -33,10 +34,8 @@
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/tenderly-utils": "workspace:*",
     "@thesolidchain/testing-utils": "workspace:*",
-    "@thesolidchain/config-typescript": "workspace:*",
-    "@thesolidchain/config-vitest": "workspace:*",
-    "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "@vitest/coverage-v8": "^1.6.0",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
     "bignumber.js": "^9.3.1",

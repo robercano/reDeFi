@@ -13,11 +13,16 @@ const EXCLUDED_PACKAGES = [
   'apps/sdk-demo',
   'apps/sdk-infra',
   'apps/jobs',
+  'apps/api-router',
+  'packages/abis',
+  'packages/common',
+  'packages/sdk/testing-utils',
+  'packages/sdk/e2e',
 ]
 
 function isExcluded(dir) {
   const normalizedDir = dir.replace(/\\/g, '/')
-  return EXCLUDED_PACKAGES.some((ex) => normalizedDir.startsWith(ex))
+  return EXCLUDED_PACKAGES.some((ex) => normalizedDir.includes(ex)) || normalizedDir.endsWith('/common')
 }
 
 function getAllPathsForPackagesSummaries() {

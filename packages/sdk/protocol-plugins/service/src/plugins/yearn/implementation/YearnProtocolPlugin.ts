@@ -8,12 +8,7 @@ import {
   valuesOfChainFamilyMap,
   PoolType,
   YieldType,
-  IToken,
-  ITokenAmount,
   PositionType,
-  IAddress,
-  Address,
-  TokenAmount,
   IChainInfo,
 } from '@thesolidchain/sdk-common'
 import {
@@ -78,7 +73,7 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     return {
       [Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo')]: Symbol.for(
         '@thesolidchain/sdk-common/IYieldPoolInfo',
-      ) as any,
+      ) as unknown as symbol,
       type: PoolType.Yield,
       id: poolId,
       underlyingToken: vaultDto.underlyingToken,
@@ -112,7 +107,7 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     return {
       [Symbol.for('@thesolidchain/sdk-common/IYieldPosition')]: Symbol.for(
         '@thesolidchain/sdk-common/IYieldPosition',
-      ) as any,
+      ) as unknown as symbol,
       type: PositionType.Yield,
       id: positionId,
       poolId: new YearnYieldPoolId(

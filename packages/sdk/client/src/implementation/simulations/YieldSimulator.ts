@@ -15,7 +15,7 @@ export class YieldSimulator implements IYieldSimulator {
     poolId: IYieldPoolId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    const poolInfo = await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
+    await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
 
     // Build the SimulationStep
     const steps = [
@@ -28,7 +28,7 @@ export class YieldSimulator implements IYieldSimulator {
         output: {
           depositAmount: params.amount,
         },
-      } as any, // For now we cast to any since Step complex generics are not fully resolved here
+      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
     ]
 
     // Construct intent-based simulation output
@@ -43,19 +43,19 @@ export class YieldSimulator implements IYieldSimulator {
     poolId: IYieldPoolId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    const poolInfo = await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
+    await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
 
     const steps = [
       {
         type: SimulationSteps.WithdrawYield,
         input: {
           withdrawAmount: { value: params.amount },
-          position: null as any, // In reality, we'd fetch or pass the position
+          position: null as unknown as import('@thesolidchain/sdk-common').IYieldPositionId,
         },
         output: {
           withdrawAmount: params.amount,
         },
-      } as any,
+      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
     ]
 
     return new YieldSimulation({
