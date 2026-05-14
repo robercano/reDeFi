@@ -5,6 +5,7 @@ import { TokenFetcher } from '../components/TokenFetcher'
 import { PortfolioViewer } from '../components/PortfolioViewer'
 import { YieldViewer } from '../components/YieldViewer'
 import { SwapViewer } from '../components/SwapViewer'
+import { ProtocolInteractor } from '../components/ProtocolInteractor'
 
 // Tool registry representing the available SDK demonstrations
 const SDK_TOOLS = [
@@ -14,6 +15,12 @@ const SDK_TOOLS = [
     description:
       'Fetch the aggregated portfolio balances and estimated fiat valuations for the actively connected user.',
     component: PortfolioViewer,
+  },
+  {
+    id: 'protocol-interactor',
+    name: 'Protocol Interactor',
+    description: 'Interact with protocols (Aave, Yearn, Lido) to simulate and execute deposits or withdrawals.',
+    component: ProtocolInteractor,
   },
   {
     id: 'yield-viewer',
@@ -33,31 +40,6 @@ const SDK_TOOLS = [
     description:
       'Simulate decentralized exchanges to find optimal swap routes and quotes between two tokens.',
     component: SwapViewer,
-  },
-  // Placeholder to demonstrate how other tools can be added seamlessly
-  {
-    id: 'vault-manager',
-    name: 'Vault Manager',
-    description: 'Manage and interact with DeFi vaults using the SDK.',
-    component: () => (
-      <div className="w-full max-w-xl mx-auto mt-16 p-12 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm text-center">
-        <svg
-          className="w-12 h-12 mx-auto text-neutral-600 mb-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
-          />
-        </svg>
-        <h3 className="text-2xl font-bold text-white mb-2">Coming Soon</h3>
-        <p className="text-neutral-400">The Vault Manager tool is currently under construction.</p>
-      </div>
-    ),
   },
 ]
 
