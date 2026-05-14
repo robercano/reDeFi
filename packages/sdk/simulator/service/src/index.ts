@@ -1,1 +1,5 @@
 export * from './SimulatorManager'
+export * from './LendingSimulatorManager'
+export * from './YieldSimulatorManager'
+export * from './StakeSimulatorManager'
+export * from './TransferSimulatorManager'

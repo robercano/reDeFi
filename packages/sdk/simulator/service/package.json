@@ -18,7 +18,8 @@
   "dependencies": {
     "@thesolidchain/sdk-common": "workspace:*",
     "@thesolidchain/protocol-manager-common": "workspace:*",
-    "@thesolidchain/simulator-common": "workspace:*"
+    "@thesolidchain/simulator-common": "workspace:*",
+    "@thesolidchain/blockchain-client-common": "workspace:*"
   },
   "devDependencies": {
     "@thesolidchain/eslint-config": "workspace:*",
