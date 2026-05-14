@@ -4,7 +4,7 @@ import type { IPortfolioManager } from './IPortfolioManager'
 import type { ISwapManagerClient } from './ISwapManagerClient'
 import type { ITokensManagerClient2 } from './ITokensManagerClient2'
 import type { IUsersManager } from './IUsersManager'
-import type { ISimulationManager } from './simulations/ISimulationManager'
+import type { ISimulatorClient } from './simulations/ISimulatorClient'
 import type { IOrdersManagerClient } from './IOrdersManagerClient'
 import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
 import type { IEventBus } from '@thesolidchain/events-common'
@@ -20,7 +20,7 @@ export interface ISDKManager {
   /** The global event bus for SDK events */
   readonly eventBus: IEventBus
   /** Simulator for all the different operations supported in the SDK */
-  readonly simulator: ISimulationManager
+  readonly simulator: ISimulatorClient
   /** Chains Manager for interacting with the different chains supported in the SDK */
   readonly chains: IChainsManagerClient
   /** Tokens Manager for interacting with the different tokens supported in the SDK */

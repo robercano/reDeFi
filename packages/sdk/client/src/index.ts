@@ -20,6 +20,8 @@ export type { ISDKManager } from './interfaces/ISDKManager'
 export type { ITokensManagerClient } from './interfaces/ITokensManagerClient'
 export type { IUserClient } from './interfaces/IUserClient'
 export type { IUsersManager } from './interfaces/IUsersManager'
+export type { ISimulatorClient } from './interfaces/simulations/ISimulatorClient'
+export { SimulatorClient } from './implementation/simulations/SimulatorClient'
 export { PositionUtils } from './utils/PositionUtils'
 
 export * from './reexports'

@@ -5,7 +5,7 @@ import { OracleManagerClient } from './OracleManagerClient'
 import { PortfolioManager } from './PortfolioManager'
 import { ProtocolsManagerClient } from './ProtocolsManagerClient'
 import { OrdersManagerClient } from './OrdersManagerClient'
-import { SimulationManager } from './simulations/SimulationManager'
+import { SimulatorClient } from './simulations/SimulatorClient'
 import { SwapManagerClient } from './SwapManagerClient'
 import { TokensManagerClient2 } from './TokensManagerClient2'
 import { UsersManager } from './UsersManager'
@@ -15,7 +15,7 @@ import type { IEventBus } from '@thesolidchain/events-common'
 /** @see ISDKManager */
 export class SDKManager implements ISDKManager {
   public readonly eventBus: IEventBus
-  public readonly simulator: SimulationManager
+  public readonly simulator: SimulatorClient
   public readonly chains: ChainsManagerClient
   public readonly tokens: TokensManagerClient2
   public readonly users: UsersManager
@@ -27,7 +27,7 @@ export class SDKManager implements ISDKManager {
 
   public constructor(params: { rpcClient: RPCMainClientType }) {
     this.eventBus = new EventBus()
-    this.simulator = new SimulationManager(params.rpcClient)
+    this.simulator = new SimulatorClient(params.rpcClient)
     this.chains = new ChainsManagerClient(params)
     this.tokens = new TokensManagerClient2(params)
     this.users = new UsersManager(params)

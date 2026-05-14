@@ -1,4 +1,5 @@
 import { makeSDK } from '@thesolidchain/sdk-client'
+import type { ISimulatorClient, SimulatorClient } from '@thesolidchain/sdk-client'
 import { useCallback, useMemo } from 'react'
 
 import { useSDKContext } from '../components/SDKContext'
@@ -96,9 +97,11 @@ export const useSDK = (params: UseSdk) => {
       getLendingPool,
       getLendingPoolInfo,
       buildOrder,
+      simulator: sdk.simulator,
     }),
     [
       sdk.eventBus,
+      sdk.simulator,
       getCurrentUser,
       getWalletAddress,
       getChainInfo,
