@@ -5,6 +5,13 @@ import {
   ITransferSimulatorManager,
   IYieldSimulatorManager,
 } from '@thesolidchain/simulator-common'
+import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
+import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
+
+import { LendingSimulatorManager } from './LendingSimulatorManager'
+import { YieldSimulatorManager } from './YieldSimulatorManager'
+import { StakeSimulatorManager } from './StakeSimulatorManager'
+import { TransferSimulatorManager } from './TransferSimulatorManager'
 
 export class SimulatorManager implements ISimulatorManager {
   readonly lend: ILendingSimulatorManager
@@ -12,11 +19,10 @@ export class SimulatorManager implements ISimulatorManager {
   readonly transfer: ITransferSimulatorManager
   readonly yield: IYieldSimulatorManager
 
-  constructor() {
-    // Stubs for phase 1. These will be properly implemented in phase 2.
-    this.lend = {} as ILendingSimulatorManager
-    this.stake = {} as IStakeSimulatorManager
-    this.transfer = {} as ITransferSimulatorManager
-    this.yield = {} as IYieldSimulatorManager
+  constructor(protocolManager: IProtocolManager, blockchainManager: IBlockchainManager) {
+    this.lend = new LendingSimulatorManager(protocolManager, blockchainManager)
+    this.stake = new StakeSimulatorManager(protocolManager, blockchainManager)
+    this.transfer = new TransferSimulatorManager(protocolManager, blockchainManager)
+    this.yield = new YieldSimulatorManager(protocolManager, blockchainManager)
   }
 }
