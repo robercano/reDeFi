@@ -20,6 +20,7 @@ import { intentSwapsSendOrder } from './handlers/intentSwapsSendOrder'
 import { pingHandler } from './handlers/pingHandler'
 import { getYieldPoolInfo } from './handlers/getYieldPoolInfo'
 import { getYieldPosition } from './handlers/getYieldPosition'
+import { simulatorRouter } from './routers/simulatorRouter'
 
 /**
  * @name sdkAppRouter
@@ -64,6 +65,7 @@ export const sdkAppRouter = router({
     getWalletHoldings: getWalletHoldings,
     getUserPortfolio: getUserPortfolio,
   },
+  simulator: simulatorRouter,
 })
 
 export type SDKAppRouter = typeof sdkAppRouter

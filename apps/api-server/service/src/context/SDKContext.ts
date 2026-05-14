@@ -29,6 +29,9 @@ import { IEventBus } from '@thesolidchain/events-common'
 import { EventBus } from '@thesolidchain/events-service'
 import { DynamoDBCacheService, ICacheService } from '@thesolidchain/api-server-common'
 
+import { ISimulatorManager } from '@thesolidchain/simulator-common'
+import { SimulatorManager } from '@thesolidchain/simulator-service'
+
 import { LoggingService } from '@thesolidchain/sdk-common'
 import { CreateAWSLambdaContextOptions } from '@trpc/server/adapters/aws-lambda'
 import type { APIGatewayProxyEventV2 } from 'aws-lambda'
@@ -56,6 +59,7 @@ export type SDKAppContext = {
   intentSwapsManager: CowSwapProvider
   subscriptionManager: ISubscriptionManager
   eventBus: IEventBus
+  simulatorManager: ISimulatorManager
 }
 
 const quickHashCode = (str: string): string => {
@@ -125,6 +129,8 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     eventBus,
   })
 
+  const simulatorManager = new SimulatorManager(protocolManager, blockchainClientProvider)
+
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,
     callKey: quickHashCode(`${opts.event.rawPath}${opts.event.rawQueryString}`),
@@ -145,5 +151,6 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     intentSwapsManager,
     subscriptionManager,
     eventBus,
+    simulatorManager,
   }
 }
