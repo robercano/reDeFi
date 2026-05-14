@@ -13,4 +13,9 @@ if [ "$BRANCH" = "main" ]; then
   # Generate documentation to ensure it builds successfully
   echo "Generating API documentation..."
   pnpm run docs:generate
+
+  # Stage generated files so they are included in the commit
+  git add docs/TEST_COVERAGE.md
+  # Stage generated API documentation if any
+  git add docs/
 fi
