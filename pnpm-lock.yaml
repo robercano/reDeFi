@@ -278,6 +278,12 @@ importers:
       '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../../../packages/sdk/common
+      '@thesolidchain/simulator-common':
+        specifier: workspace:*
+        version: link:../../../packages/sdk/simulator/common
+      '@thesolidchain/simulator-service':
+        specifier: workspace:*
+        version: link:../../../packages/sdk/simulator/service
       '@thesolidchain/subscriptions-common':
         specifier: workspace:*
         version: link:../../../packages/sdk/subscriptions/common
