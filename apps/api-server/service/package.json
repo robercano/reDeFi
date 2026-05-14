@@ -46,6 +46,8 @@
     "@thesolidchain/protocol-plugins": "workspace:*",
     "@thesolidchain/protocol-plugins-common": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/simulator-common": "workspace:*",
+    "@thesolidchain/simulator-service": "workspace:*",
     "@thesolidchain/subscriptions-common": "workspace:*",
     "@thesolidchain/subscriptions-service": "workspace:*",
     "@thesolidchain/swap-common": "workspace:*",
