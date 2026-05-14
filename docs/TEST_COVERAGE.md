@@ -24,5 +24,5 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-allowance-manager-service | 0% | 0% | 0% | 0% | 40% |
 | sdk-address-book-service | 0% | 0% | 0% | 0% | 41.67% |
 | sdk-abi-provider-service | 0% | 0% | 0% | 0% | 50% |
-| api-server-service | 0% | 0% | 0% | 0% | 10.34% |
-| **TOTAL** | **92.39%** | **92.39%** | **81.48%** | **93.24%** | **36.05%** |
+| api-server-service | 0% | 0% | 0% | 0% | 10% |
+| **TOTAL** | **92.39%** | **92.39%** | **81.48%** | **93.24%** | **36.04%** |
