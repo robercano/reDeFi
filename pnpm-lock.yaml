@@ -1743,6 +1743,59 @@ importers:
         specifier: ^1.6.0
         version: 1.6.1(@types/node@24.12.2)(jsdom@29.1.1)
 
+  packages/sdk/simulator/common:
+    dependencies:
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../common
+    devDependencies:
+      '@thesolidchain/config-typescript':
+        specifier: workspace:*
+        version: link:../../../config/typescript
+      '@thesolidchain/config-vitest':
+        specifier: workspace:*
+        version: link:../../../config/vitest
+      '@thesolidchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../../config/eslint
+      '@vitest/coverage-v8':
+        specifier: ^1.6.0
+        version: 1.6.1(vitest@1.6.1)
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.1(@types/node@24.12.2)(jsdom@29.1.1)
+
+  packages/sdk/simulator/service:
+    dependencies:
+      '@thesolidchain/blockchain-client-common':
+        specifier: workspace:*
+        version: link:../../blockchain-client/common
+      '@thesolidchain/protocol-manager-common':
+        specifier: workspace:*
+        version: link:../../protocol-manager/common
+      '@thesolidchain/sdk-common':
+        specifier: workspace:*
+        version: link:../../common
+      '@thesolidchain/simulator-common':
+        specifier: workspace:*
+        version: link:../common
+    devDependencies:
+      '@thesolidchain/config-typescript':
+        specifier: workspace:*
+        version: link:../../../config/typescript
+      '@thesolidchain/config-vitest':
+        specifier: workspace:*
+        version: link:../../../config/vitest
+      '@thesolidchain/eslint-config':
+        specifier: workspace:*
+        version: link:../../../config/eslint
+      '@vitest/coverage-v8':
+        specifier: ^1.6.0
+        version: 1.6.1(vitest@1.6.1)
+      vitest:
+        specifier: ^1.6.0
+        version: 1.6.1(@types/node@24.12.2)(jsdom@29.1.1)
+
   packages/sdk/subscriptions/common:
     dependencies:
       '@thesolidchain/api-server-common':
