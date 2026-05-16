@@ -64,3 +64,4 @@ describe('Simulation DTOs', () => {
     expect(dto.gasEstimations).toBeDefined()
   })
 })
+// End of SimulationDTOs tests
