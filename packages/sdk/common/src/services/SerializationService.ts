@@ -36,7 +36,7 @@ export class SerializationService {
             const serializedData = SerializationService.stringify(obj)
             return serializedData
           } catch (error) {
-            LoggingService.debug(' => serialize request error :: ', JSON.stringify(obj), error)
+            LoggingService.error(' => serialize request error :: ', JSON.stringify(obj), error)
             throw error
           }
         },
@@ -45,7 +45,7 @@ export class SerializationService {
             const parsedData = SerializationService.parse(serializedData)
             return parsedData
           } catch (error) {
-            LoggingService.debug(' => deserialize request error :: ', serializedData, error)
+            LoggingService.error(' => deserialize request error :: ', serializedData, error)
             throw error
           }
         },
@@ -56,7 +56,7 @@ export class SerializationService {
             const serializedData = SerializationService.stringify(obj)
             return serializedData
           } catch (error) {
-            LoggingService.debug(' => serialize response error :: ', JSON.stringify(obj), error)
+            LoggingService.error(' => serialize response error :: ', JSON.stringify(obj), error)
             throw error
           }
         },
@@ -65,7 +65,7 @@ export class SerializationService {
             const parsedData = SerializationService.parse(serializedData)
             return parsedData
           } catch (error) {
-            LoggingService.debug(' => deserialize response error :: ', serializedData, error)
+            LoggingService.error(' => deserialize response error :: ', serializedData, error)
             throw error
           }
         },
