@@ -9,6 +9,7 @@ export const metadata: Metadata = {
 }
 
 import { Providers } from './providers'
+import { DebugWidget } from '../components/DebugWidget'
 
 export default function RootLayout({
   children,
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en" className={`h-full antialiased dark`}>
       <body className="min-h-full flex flex-col">
         <Providers>{children}</Providers>
+        <DebugWidget />
       </body>
     </html>
   )
