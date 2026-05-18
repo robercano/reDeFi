@@ -24,10 +24,10 @@ This document tracks potential architectural and configuration optimizations to 
 - Removed `sst deploy` from the Amplify frontend pipeline.
 **Benefit:** Frontend-only changes will deploy instantly without waiting for CloudFormation drift-checks, saving 2-3 minutes per build.
 
-## 4. Enable Vercel Remote Caching (Game Changer)
-**Current State:** Turborepo currently only uses local caching (`.turbo` folders) inside the AWS build container and relies on Amplify to zip/unzip the cache.
+## 4. Enable Vercel Remote Caching (Completed ✅)
+**Current State:** Turborepo handles caching natively over the cloud using Vercel. 
 **Action Item:** 
-- Create a free Vercel account.
-- Run `npx turbo login` and `npx turbo link` in the root of the project to enable Remote Caching.
-- Inject the `TURBO_TOKEN` and `TURBO_TEAM` environment variables into AWS Amplify.
-**Benefit:** The AWS Amplify server and local developer machines will share a cloud cache. If a developer runs `pnpm build` locally before pushing, the AWS Amplify server will instantly download the pre-compiled artifacts from the cloud instead of compiling them itself, resulting in near-instant builds.
+- Created Vercel account and ran `npx turbo link`.
+- Injected `TURBO_TOKEN` and `TURBO_TEAM` into AWS Amplify Console.
+- Removed local `.turbo-cache` backup logic from `amplify.yml`.
+**Benefit:** Eliminates the heavy AWS Amplify ZIP extraction process for the monorepo cache. Builds will now instantly download pre-compiled artifacts directly from Vercel's servers resulting in near-instant build times across both AWS and local environments.
