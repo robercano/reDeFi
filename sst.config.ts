@@ -112,12 +112,11 @@ export default $config({
       }
     }
 
-    if (backendUrls.length > 0) {
-      backendUrls[0].apply((url) => {
-        const apiKey = process.env.SDK_API_KEY || 'default-dev-key'
-        require('fs').appendFileSync('.env.local', `NEXT_PUBLIC_API_URL='${url}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`)
-      })
-    }
+    sdkGateway.url.apply((gatewayUrl) => {
+      const apiKey = process.env.SDK_API_KEY || 'default-dev-key'
+      const baseUrl = `${gatewayUrl}/sdk/trpc/`
+      require('fs').appendFileSync('.env.local', `NEXT_PUBLIC_API_URL='${baseUrl}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`)
+    })
 
     return {
       Stage: $app.stage,
