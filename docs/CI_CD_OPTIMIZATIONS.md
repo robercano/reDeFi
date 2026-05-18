@@ -2,13 +2,13 @@
 
 This document tracks potential architectural and configuration optimizations to further reduce the AWS Amplify build times for the frontend and backend deployments.
 
-## 1. Move `docs:generate` into Turborepo (High Impact)
-**Current State:** The pipeline runs `pnpm -w run docs:generate` directly. Because this command bypasses Turborepo, TypeDoc is forced to parse the entire monorepo from scratch every single time (taking 30-60+ seconds).
+## 1. Move `docs:generate` into Turborepo (Completed ✅)
+**Current State:** The pipeline now runs `pnpm turbo run docs:generate`.
 **Action Item:** 
-- Add a `docs` task to `turbo.json`.
-- Configure Turbo to cache the HTML output folder (`apps/sdk-demo/public/api-reference`).
-- Update `amplify.yml` to run `pnpm turbo run docs` (or let it run automatically as a dependency of the build step).
-**Benefit:** If backend code hasn't changed, Turbo will instantly restore the HTML files from the cache in ~0.1 seconds instead of regenerating them.
+- Added a `//#docs:generate` task to `turbo.json`.
+- Configured Turbo to cache the HTML output folder (`apps/sdk-demo/public/api-reference`).
+- Updated `amplify.yml` to run `pnpm turbo run docs:generate`.
+**Benefit:** If SDK code hasn't changed, Turbo instantly restores the HTML files from the cache instead of regenerating them, saving ~30-40 seconds.
 
 ## 2. Remove `nvm install 24` from `amplify.yml` (Quick Win)
 **Current State:** Installing Node.js 24 from scratch on every run takes about 15-20 seconds.
