@@ -5,8 +5,6 @@ applications:
       phases:
         preBuild:
           commands:
-            - nvm install 24
-            - nvm use 24
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
             - pnpm config set store-dir .pnpm-store
