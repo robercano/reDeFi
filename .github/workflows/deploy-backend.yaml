@@ -27,7 +27,6 @@ jobs:
       AWS_REGION: eu-north-1
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      SDK_API_KEY: ${{ secrets.SDK_API_KEY }}
 
     steps:
       - name: Checkout Code
