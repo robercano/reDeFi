@@ -10,11 +10,11 @@ applications:
             - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
             - pnpm install --prefer-offline
-            - pnpm turbo run docs:generate --cache-dir=.turbo-cache
+            - pnpm turbo run docs:generate
         build:
           commands:
             # Run Turborepo build from the workspace root
-            - pnpm turbo run build --filter=sdk-demo --cache-dir=.turbo-cache
+            - pnpm turbo run build --filter=sdk-demo
       artifacts:
         baseDirectory: .next
         files:
@@ -22,5 +22,4 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
-          - .turbo-cache/**/*
           - .pnpm-store/**/*
