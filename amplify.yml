@@ -13,13 +13,13 @@ applications:
             - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
             - pnpm install --prefer-offline
-            - pnpm turbo run docs:generate
+            - pnpm turbo run docs:generate --cache-dir=.turbo-cache
             # Deploy or update the SST backend for the current branch
             - npx sst deploy --stage $AWS_BRANCH
         build:
           commands:
             # Run Turborepo build from the workspace root
-            - pnpm turbo run build --filter=sdk-demo
+            - pnpm turbo run build --filter=sdk-demo --cache-dir=.turbo-cache
       artifacts:
         baseDirectory: .next
         files:
@@ -27,6 +27,6 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
-          - ../../**/.turbo/**/*
+          - .turbo-cache/**/*
           - .pnpm-store/**/*
           - ../../.sst/**/*
