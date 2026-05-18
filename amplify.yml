@@ -10,7 +10,7 @@ applications:
             - nvm use 24
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
-            - pnpm config set store-dir ../../.pnpm-store
+            - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
             - pnpm install
             - pnpm -w run docs:generate
@@ -28,6 +28,6 @@ applications:
         paths:
           - .next/cache/**/*
           - .turbo/**/*
-          - ../../.pnpm-store/**/*
+          - .pnpm-store/**/*
           - ../../node_modules/**/*
           - ../../node_modules/.cache/turbo/**/*
