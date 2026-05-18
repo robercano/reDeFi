@@ -33,16 +33,16 @@ export class SerializationService {
       input: {
         serialize: (obj: unknown) => {
           try {
-            const serializedData = SerializationService.stringify(obj)
+            const serializedData = SuperJSON.serialize(obj)
             return serializedData
           } catch (error) {
-            LoggingService.error(' => serialize request error :: ', JSON.stringify(obj), error)
+            LoggingService.error(' => serialize request error :: ', obj, error)
             throw error
           }
         },
-        deserialize: (serializedData: string) => {
+        deserialize: (serializedData: any) => {
           try {
-            const parsedData = SerializationService.parse(serializedData)
+            const parsedData = SuperJSON.deserialize(serializedData)
             return parsedData
           } catch (error) {
             LoggingService.error(' => deserialize request error :: ', serializedData, error)
@@ -53,16 +53,16 @@ export class SerializationService {
       output: {
         serialize: (obj: unknown) => {
           try {
-            const serializedData = SerializationService.stringify(obj)
+            const serializedData = SuperJSON.serialize(obj)
             return serializedData
           } catch (error) {
-            LoggingService.error(' => serialize response error :: ', JSON.stringify(obj), error)
+            LoggingService.error(' => serialize response error :: ', obj, error)
             throw error
           }
         },
-        deserialize: (serializedData: string) => {
+        deserialize: (serializedData: any) => {
           try {
-            const parsedData = SerializationService.parse(serializedData)
+            const parsedData = SuperJSON.deserialize(serializedData)
             return parsedData
           } catch (error) {
             LoggingService.error(' => deserialize response error :: ', serializedData, error)

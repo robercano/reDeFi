@@ -25,8 +25,22 @@ export function DebugWidget() {
     const originalConsoleError = console.error
     console.error = (...args: unknown[]) => {
       const msg = args.map((a) => (typeof a === 'object' && a && 'message' in a ? String((a as Error).message) : String(a))).join(' ')
-      handleError(`[Console] ${msg}`)
+      handleError(`[Error] ${msg}`)
       originalConsoleError.apply(console, args)
+    }
+
+    const originalConsoleDebug = console.debug
+    console.debug = (...args: unknown[]) => {
+      const msg = args.map((a) => (typeof a === 'object' && a && 'message' in a ? String((a as Error).message) : String(a))).join(' ')
+      handleError(`[Debug] ${msg}`)
+      originalConsoleDebug.apply(console, args)
+    }
+
+    const originalConsoleWarn = console.warn
+    console.warn = (...args: unknown[]) => {
+      const msg = args.map((a) => (typeof a === 'object' && a && 'message' in a ? String((a as Error).message) : String(a))).join(' ')
+      handleError(`[Warn] ${msg}`)
+      originalConsoleWarn.apply(console, args)
     }
 
     window.addEventListener('unhandledrejection', onUnhandledRejection)
@@ -36,6 +50,8 @@ export function DebugWidget() {
       window.removeEventListener('unhandledrejection', onUnhandledRejection)
       window.removeEventListener('error', onError)
       console.error = originalConsoleError
+      console.debug = originalConsoleDebug
+      console.warn = originalConsoleWarn
     }
   }, [])
 
