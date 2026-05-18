@@ -73,6 +73,10 @@ export default function Home() {
         >
           API Reference ↗
         </a>
+        <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-xs font-mono text-neutral-400 shadow-sm flex items-center gap-2 backdrop-blur-md">
+          <span className="text-[var(--neon-orange)]">Backend:</span>
+          {process.env.NEXT_PUBLIC_API_URL || 'Not Configured'}
+        </div>
         {isConnected && chainId && (
           <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm flex items-center gap-2 backdrop-blur-md">
             <span
