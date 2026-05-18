@@ -48,8 +48,10 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Create .env file
+        env:
+          PROD_ENV: ${{ secrets.PRODUCTION_DOTENV }}
         run: |
-          echo "${{ secrets.PRODUCTION_DOTENV }}" > .env
+          echo "$PROD_ENV" > .env
           sed -i '/^AWS_PROFILE=/d' .env
 
       - name: Deploy Backend
