@@ -38,10 +38,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
     const alchemyApiKey = this.configProvider.getConfigurationItem({
       name: 'ALCHEMY_ENDPOINT_API_KEY',
     })
-    if (!alchemyApiKey) {
-      throw new Error('ALCHEMY_ENDPOINT_API_KEY is not defined')
-    }
-    this._apiKey = alchemyApiKey
+    this._apiKey = alchemyApiKey || ''
 
     this._initializeClients()
   }
@@ -122,6 +119,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   }
 
   private _getAlchemyUrl(chainId: number): string | undefined {
+    if (!this._apiKey) return undefined
     if (chainId === mainnet.id) {
       return `https://eth-mainnet.g.alchemy.com/v2/${this._apiKey}`
     } else if (chainId === base.id) {
