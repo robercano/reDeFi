@@ -16,13 +16,13 @@ This document tracks potential architectural and configuration optimizations to 
 - Deleted the `nvm install 24` and `nvm use 24` lines from `amplify.yml`.
 **Benefit:** Saves ~20 seconds of unnecessary provisioning overhead per build.
 
-## 3. Decouple the Backend and Frontend Deployments (Architectural)
-**Current State:** `npx sst deploy` runs before every single frontend build. Even if only a React component changes, the pipeline pauses for 1-3 minutes while AWS CloudFormation checks the entire backend infrastructure for drift.
+## 3. Decouple the Backend and Frontend Deployments (Completed ✅)
+**Current State:** Deployments are fully decoupled. Backend changes trigger `.github/workflows/deploy-backend.yaml`, while AWS Amplify purely handles the Next.js frontend build.
 **Action Item:** 
-- Split the deployments into two separate pipelines/actions.
-- Create a GitHub Action specifically for `sst deploy` that only triggers when files in `apps/api-server/` or `packages/` change.
-- Remove the `sst deploy` command from the Amplify frontend pipeline entirely.
-**Benefit:** Frontend-only changes will deploy instantly without waiting for CloudFormation.
+- Split the deployments into two separate pipelines.
+- Created `deploy-backend.yaml` GitHub Action for `sst deploy`.
+- Removed `sst deploy` from the Amplify frontend pipeline.
+**Benefit:** Frontend-only changes will deploy instantly without waiting for CloudFormation drift-checks, saving 2-3 minutes per build.
 
 ## 4. Enable Vercel Remote Caching (Game Changer)
 **Current State:** Turborepo currently only uses local caching (`.turbo` folders) inside the AWS build container and relies on Amplify to zip/unzip the cache.
