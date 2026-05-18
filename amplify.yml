@@ -12,7 +12,7 @@ applications:
             - corepack enable pnpm
             - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
-            - pnpm install
+            - pnpm install --prefer-offline
             - pnpm -w run docs:generate
             # Deploy or update the SST backend for the current branch
             - npx sst deploy --stage $AWS_BRANCH
@@ -27,7 +27,8 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
-          - .turbo/**/*
+          - ../../**/.turbo/**/*
           - .pnpm-store/**/*
+          - ../../.sst/**/*
           - ../../node_modules/**/*
           - ../../node_modules/.cache/turbo/**/*
