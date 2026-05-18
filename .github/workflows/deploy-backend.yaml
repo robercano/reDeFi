@@ -50,6 +50,7 @@ jobs:
       - name: Create .env file
         run: |
           echo "${{ secrets.PRODUCTION_DOTENV }}" > .env
+          sed -i '/^AWS_PROFILE=/d' .env
 
       - name: Deploy Backend
         run: npx sst deploy --stage main
