@@ -5,21 +5,25 @@ applications:
       phases:
         preBuild:
           commands:
-            # Install Node 24 to respect package.json engines constraint
-            - nvm install 24
-            - nvm use 24
             # Install pnpm and dependencies at the root level
             - corepack enable pnpm
             - pnpm config set store-dir .pnpm-store
             - sed -i 's/node-linker = isolated/node-linker = hoisted/g' ../../.npmrc
             - pnpm install --prefer-offline
             - pnpm turbo run docs:generate --cache-dir=.turbo-cache
+            # Restore .sst cache to workspace root
+            - cp -r .sst-cache ../../.sst || true
             # Deploy or update the SST backend for the current branch
             - npx sst deploy --stage $AWS_BRANCH
         build:
           commands:
             # Run Turborepo build from the workspace root
             - pnpm turbo run build --filter=sdk-demo --cache-dir=.turbo-cache
+        postBuild:
+          commands:
+            # Backup .sst cache inside appRoot to avoid Amplify ZIP path stripping
+            - mkdir -p .sst-cache
+            - cp -r ../../.sst/* .sst-cache/ || true
       artifacts:
         baseDirectory: .next
         files:
@@ -29,4 +33,4 @@ applications:
           - .next/cache/**/*
           - .turbo-cache/**/*
           - .pnpm-store/**/*
-          - ../../.sst/**/*
+          - .sst-cache/**/*

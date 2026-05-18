@@ -10,14 +10,11 @@ This document tracks potential architectural and configuration optimizations to 
 - Updated `amplify.yml` to run `pnpm turbo run docs:generate`.
 **Benefit:** If SDK code hasn't changed, Turbo instantly restores the HTML files from the cache instead of regenerating them, saving ~30-40 seconds.
 
-## 2. Remove `nvm install 24` from `amplify.yml` (Quick Win)
-**Current State:** Installing Node.js 24 from scratch on every run takes about 15-20 seconds.
+## 2. Remove `nvm install 24` from `amplify.yml` (Completed ✅)
+**Current State:** AWS Amplify natively provisions Node 24 through AL2023.
 **Action Item:** 
-- Open the AWS Amplify Console.
-- Navigate to **Build Settings** -> **Build Image Settings**.
-- Set the container to natively boot up with Node.js 24 (Amazon Linux 2023 supports this).
-- Delete the `nvm install 24` and `nvm use 24` lines from `amplify.yml`.
-**Benefit:** Saves 20 seconds of unnecessary provisioning overhead per build. (Can be done anytime via AWS Console)
+- Deleted the `nvm install 24` and `nvm use 24` lines from `amplify.yml`.
+**Benefit:** Saves ~20 seconds of unnecessary provisioning overhead per build.
 
 ## 3. Decouple the Backend and Frontend Deployments (Architectural)
 **Current State:** `npx sst deploy` runs before every single frontend build. Even if only a React component changes, the pipeline pauses for 1-3 minutes while AWS CloudFormation checks the entire backend infrastructure for drift.
