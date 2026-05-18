@@ -27,5 +27,7 @@ applications:
       cache:
         paths:
           - .next/cache/**/*
+          - .turbo/**/*
           - ../../.pnpm-store/**/*
           - ../../node_modules/**/*
+          - ../../node_modules/.cache/turbo/**/*
