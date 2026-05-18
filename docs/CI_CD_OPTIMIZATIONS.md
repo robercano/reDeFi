@@ -17,7 +17,7 @@ This document tracks potential architectural and configuration optimizations to 
 - Navigate to **Build Settings** -> **Build Image Settings**.
 - Set the container to natively boot up with Node.js 24 (Amazon Linux 2023 supports this).
 - Delete the `nvm install 24` and `nvm use 24` lines from `amplify.yml`.
-**Benefit:** Saves 20 seconds of unnecessary provisioning overhead per build.
+**Benefit:** Saves 20 seconds of unnecessary provisioning overhead per build. (Can be done anytime via AWS Console)
 
 ## 3. Decouple the Backend and Frontend Deployments (Architectural)
 **Current State:** `npx sst deploy` runs before every single frontend build. Even if only a React component changes, the pipeline pauses for 1-3 minutes while AWS CloudFormation checks the entire backend infrastructure for drift.
