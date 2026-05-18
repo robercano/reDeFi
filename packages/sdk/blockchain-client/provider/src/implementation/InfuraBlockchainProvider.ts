@@ -38,10 +38,7 @@ export class InfuraBlockchainProvider implements IBlockchainClientProvider {
     const infuraApiKey = this.configProvider.getConfigurationItem({
       name: 'INFURA_ENDPOINT_API_KEY',
     })
-    if (!infuraApiKey) {
-      throw new Error('INFURA_ENDPOINT_API_KEY is not defined')
-    }
-    this._apiKey = infuraApiKey
+    this._apiKey = infuraApiKey || ''
 
     this._initializeClients()
   }
@@ -122,6 +119,7 @@ export class InfuraBlockchainProvider implements IBlockchainClientProvider {
   }
 
   private _getInfuraUrl(chainId: number): string | undefined {
+    if (!this._apiKey) return undefined
     if (chainId === mainnet.id) {
       return `https://mainnet.infura.io/v3/${this._apiKey}`
     } else if (chainId === base.id) {
