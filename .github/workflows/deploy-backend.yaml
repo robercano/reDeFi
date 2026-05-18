@@ -9,6 +9,7 @@ on:
       - 'sst.config.ts'
       - 'package.json'
       - 'pnpm-lock.yaml'
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
