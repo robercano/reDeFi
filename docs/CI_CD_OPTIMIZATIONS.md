@@ -1,0 +1,36 @@
+# CI/CD Pipeline Optimizations (AWS Amplify & Turborepo)
+
+This document tracks potential architectural and configuration optimizations to further reduce the AWS Amplify build times for the frontend and backend deployments.
+
+## 1. Move `docs:generate` into Turborepo (High Impact)
+**Current State:** The pipeline runs `pnpm -w run docs:generate` directly. Because this command bypasses Turborepo, TypeDoc is forced to parse the entire monorepo from scratch every single time (taking 30-60+ seconds).
+**Action Item:** 
+- Add a `docs` task to `turbo.json`.
+- Configure Turbo to cache the HTML output folder (`apps/sdk-demo/public/api-reference`).
+- Update `amplify.yml` to run `pnpm turbo run docs` (or let it run automatically as a dependency of the build step).
+**Benefit:** If backend code hasn't changed, Turbo will instantly restore the HTML files from the cache in ~0.1 seconds instead of regenerating them.
+
+## 2. Remove `nvm install 24` from `amplify.yml` (Quick Win)
+**Current State:** Installing Node.js 24 from scratch on every run takes about 15-20 seconds.
+**Action Item:** 
+- Open the AWS Amplify Console.
+- Navigate to **Build Settings** -> **Build Image Settings**.
+- Set the container to natively boot up with Node.js 24 (Amazon Linux 2023 supports this).
+- Delete the `nvm install 24` and `nvm use 24` lines from `amplify.yml`.
+**Benefit:** Saves 20 seconds of unnecessary provisioning overhead per build.
+
+## 3. Decouple the Backend and Frontend Deployments (Architectural)
+**Current State:** `npx sst deploy` runs before every single frontend build. Even if only a React component changes, the pipeline pauses for 1-3 minutes while AWS CloudFormation checks the entire backend infrastructure for drift.
+**Action Item:** 
+- Split the deployments into two separate pipelines/actions.
+- Create a GitHub Action specifically for `sst deploy` that only triggers when files in `apps/api-server/` or `packages/` change.
+- Remove the `sst deploy` command from the Amplify frontend pipeline entirely.
+**Benefit:** Frontend-only changes will deploy instantly without waiting for CloudFormation.
+
+## 4. Enable Vercel Remote Caching (Game Changer)
+**Current State:** Turborepo currently only uses local caching (`.turbo` folders) inside the AWS build container and relies on Amplify to zip/unzip the cache.
+**Action Item:** 
+- Create a free Vercel account.
+- Run `npx turbo login` and `npx turbo link` in the root of the project to enable Remote Caching.
+- Inject the `TURBO_TOKEN` and `TURBO_TEAM` environment variables into AWS Amplify.
+**Benefit:** The AWS Amplify server and local developer machines will share a cloud cache. If a developer runs `pnpm build` locally before pushing, the AWS Amplify server will instantly download the pre-compiled artifacts from the cloud instead of compiling them itself, resulting in near-instant builds.
