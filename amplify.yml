@@ -30,5 +30,3 @@ applications:
           - ../../**/.turbo/**/*
           - .pnpm-store/**/*
           - ../../.sst/**/*
-          - ../../node_modules/**/*
-          - ../../node_modules/.cache/turbo/**/*
