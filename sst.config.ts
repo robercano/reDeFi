@@ -114,7 +114,8 @@ export default $config({
 
     if (backendUrls.length > 0) {
       backendUrls[0].apply((url) => {
-        require('fs').appendFileSync('.env.local', `NEXT_PUBLIC_API_URL='${url}'\n`)
+        const apiKey = process.env.SDK_API_KEY || 'default-dev-key'
+        require('fs').appendFileSync('.env.local', `NEXT_PUBLIC_API_URL='${url}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`)
       })
     }
 
