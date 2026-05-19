@@ -5,7 +5,7 @@ This is the automatically generated coverage report for the monorepo.
 | Package | Lines (%) | Statements (%) | Functions (%) | Branches (%) | Comments/JSDoc (%) |
 |---|---|---|---|---|---|
 | serverless-shared | 92.39% | 92.39% | 81.48% | 93.24% | 2.44% |
-| sdk-tokens-service | 93.62% | 93.62% | 87.5% | 90.32% | 25% |
+| sdk-tokens-service | 93.62% | 93.62% | 87.5% | 90.32% | 16.92% |
 | sdk-tenderly-utils | 97.14% | 97.14% | 97.05% | 78.94% | 14.74% |
 | sdk-swap-service | 82.08% | 82.08% | 89.65% | 64.06% | 25.93% |
 | sdk-subscriptions-service | 81.91% | 81.91% | 71.42% | 93.75% | 18.52% |
@@ -25,4 +25,4 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-address-book-service | 100% | 100% | 100% | 100% | 41.67% |
 | sdk-abi-provider-service | 0% | 0% | 0% | 0% | 50% |
 | api-server-service | 87.26% | 87.26% | 66.66% | 72.09% | 10% |
-| **TOTAL** | **87.76%** | **87.76%** | **81.1%** | **81.02%** | **34.45%** |
+| **TOTAL** | **87.76%** | **87.76%** | **81.1%** | **81.02%** | **34.07%** |

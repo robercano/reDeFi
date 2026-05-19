@@ -5,6 +5,7 @@ import { ICacheService } from '@thesolidchain/api-server-common'
 import { ITokensManager, ITokensProvider } from '@thesolidchain/tokens-common'
 import { TokensManager } from './TokensManager'
 import { DatabaseTokensProvider } from './database/DatabaseTokensProvider'
+import { SepoliaTokensProvider } from './sepolia/SepoliaTokensProvider'
 
 /**
  * TokensManagerFactory
@@ -65,6 +66,13 @@ export class TokensManagerFactory {
       contractsProvider: contractsProvider,
     })
 
-    this.providers = [databaseProvider]
+    // Sepolia hardcoded provider
+    const sepoliaProvider = new SepoliaTokensProvider({
+      configProvider: configProvider,
+      blockchainClientProvider: blockchainClientProvider,
+      contractsProvider: contractsProvider,
+    })
+
+    this.providers = [databaseProvider, sepoliaProvider]
   }
 }
