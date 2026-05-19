@@ -1,6 +1,12 @@
 {
   "$schema": "https://turbo.build/schema.v2.json",
-  "globalDependencies": ["**/.env.*local"],
+  "globalDependencies": [
+    "**/.env.*local",
+    "vitest.config.ts",
+    "vitest.workspace.ts",
+    "packages/config/vitest/**",
+    "scripts/coverage-report/**"
+  ],
   "globalEnv": [
     "RPC_GATEWAY",
     "NEXT_PUBLIC_SHA",
