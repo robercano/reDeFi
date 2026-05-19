@@ -5,6 +5,7 @@ import {
   PositionsManagerDataSchema,
   SimulationSchema,
   UserDataSchema,
+  ExecutionType,
 } from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 
@@ -19,6 +20,8 @@ export interface IBuildOrderInputs extends IBuildOrderInputsData {
   positionsManager?: IPositionsManager
   /** Simulation to generate the order */
   simulation: ISimulation
+  /** Execution Type (Direct, Multicall, etc). Defaults to Direct */
+  executionType?: ExecutionType
 }
 
 /**
@@ -28,6 +31,7 @@ export const BuildOrderInputsDataSchema = z.object({
   user: UserDataSchema,
   positionsManager: PositionsManagerDataSchema.or(z.undefined()),
   simulation: SimulationSchema,
+  executionType: z.nativeEnum(ExecutionType).optional(),
 })
 
 /**

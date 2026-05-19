@@ -1,4 +1,5 @@
 export type { IOrderPlanner } from './interfaces/IOrderPlanner'
+export type { ISwapOrderPlanner } from './interfaces/ISwapOrderPlanner'
 export type { IOrderPlannerService } from './interfaces/IOrderPlannerService'
 export type { BuildOrderParams } from './types/BuildOrderParams'
 export type { IBuildOrderDependencies } from './types/IBuildOrderDependencies'
