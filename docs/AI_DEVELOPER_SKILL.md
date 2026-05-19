@@ -16,48 +16,50 @@ Instead, you must use the custom `cmd.in` / `cmd.out` pipeline located in the ro
 3. **Autonomy**: You must analyze `cmd.out` to decide if you need to continue the task (e.g., fixing an error, moving to the next step) **without asking the user for permission**.
 Always use this mechanism when executing tests, builds, linting, or Git commits.
 
-## Architecture & Principles
-1. **Intent-Based Design**: Abstract complex multi-step transactions (e.g., Approve -> Deposit) into unified Intents. The frontend developer should never orchestrate raw transactions manually.
-2. **Protocol Agnostic Core**: Rely on the `ProtocolRegistry` and discrete plugins for protocol-specific logic (e.g., Aave V3, Morpho). Never hardcode protocol mechanics in the core SDK.
-3. **Standardized Domain Entities**: Ensure all new features utilize standard domain objects like `IPortfolio`, `Vault`, and `Token`.
-4. **Reusability**: Before writing new utility functions, deeply inspect `@thesolidchain/sdk-common` and existing packages. Always utilize existing classes, formatters, and blockchain managers (`BlockchainManagerWithProviders`).
-5. **Layered Caching & Batching**: Always optimize RPC reads using caching layers and Multicall3 to ensure the SDK is hyper-efficient and respects rate limits.
+## Architecture: The Intent Execution Flow
+The SDK is built around a unified **Simulator -> OrderPlanner -> ProtocolPlugins** architecture to abstract away complex Web3 interactions. 
+1. **Simulation Phase:** The user expresses an intent (Swap, Transfer, Yield). The `SimulatorManager` evaluates token balances, checks allowances via the `AddressBook`, fetches quotes, and queries the `ProtocolManager` plugins. It outputs a `Simulation` containing a sequence of `SimulationStep`s.
+2. **Validation:** The frontend displays the `Simulation` data (estimations, warnings) to the user.
+3. **Order Planning Phase:** Once validated, the `OrderPlannerService` converts the `SimulationStep`s into raw EVM calldata (`TransactionInfo`) and outputs a bundled `Order` (handling Direct TXs, Multicall, or ERC4337 Smart Account logic via the `ExecutionType` flag).
+
+## Core SDK Types
+- **`Simulation`**: A wrapper containing `SimulationStep`s, expected gas, and human-readable warnings for a dry-run execution.
+- **`SimulationStep`**: An atomic action required for an intent (e.g., `Approve`, `Swap`, `Permit2`).
+- **`Order`**: The final bundled executable object returned by the `OrderPlanner`, containing raw transactions or EIP-712 intents.
+- **`TransactionInfo`**: An encoded EVM transaction (`to`, `data`, `value`, `gasPrice`).
+- **`IYieldPoolInfo` / `IYieldPosition`**: Standardized objects representing a DeFi Yield/Staking/Lending pool and the user's current position within it.
+
+## SDK Components
+- **`SimulatorManager`**: The entry point for dry-runs. Contains specific sub-simulators (`lend`, `stake`, `transfer`, `yield`, `swap`).
+- **`OrderPlannerService`**: The router that takes a `Simulation` and dispatches it to the correct `IOrderPlanner` to generate an `Order`.
+- **`ProtocolManager`**: Maintains the registry of loaded `ProtocolPlugin`s and queries them to find compatible integrations for a user's intent.
+- **`ContractsProvider`**: A hyper-efficient singleton used across the SDK to generate ABIs and encoded calldata for standard interactions (ERC20 approvals, WETH wrapping).
+
+## SDK Services
+- **`SwapManager` (1inch/DEX)**: Handles fetching exact input/output quotes and `SwapData` (calldata) for standard EVM DEX swaps.
+- **`IntentSwapClient` (CowSwap)**: Handles off-chain solver-based intents. Generates `IntentQuoteData` and submits signed orders to the solver network.
+- **`OracleManager`**: Resolves on-chain spot prices and calculates fiat equivalent values for tokens.
+- **`TokenManager`**: Resolves `IToken` metadata (decimals, symbol, chainId) and provides cached lists of supported assets.
+- **`PortfolioService`**: Aggregates a user's Web3 wallet balances and positions across all integrated protocol plugins.
 
 ## Tech Stack & Project Context
 1. **Core SDK Frameworks**: TypeScript, `viem` for EVM interactions, and `pnpm` with `turborepo` for monorepo package management.
-2. **Cloud Infrastructure**: AWS and SST (Serverless Stack) for deploying the backend architecture and caching layers (API Gateway, Lambda, DynamoDB).
-3. **Documentation**: Nextra (built on Next.js) is used for all project documentation and auto-generated API references.
-4. **Project Roadmap**: The project's roadmap and pending tasks are located inside the Nextra documentation system at `apps/docs/pages/roadmap`. Do not look for a separate `TASK_LIST.md` file.
+2. **Cloud Infrastructure**: AWS and SST (Serverless Stack) for deploying the backend architecture and caching layers.
+3. **Documentation**: The project roadmap and pending tasks are located in `docs/ROADMAP.md` and `docs/TASKS.md`.
 
 ## Coding Standards & Developer Experience
-1. **Extensive Comments**: Every new class, interface, method, and exported function **MUST** have comprehensive JSDoc comments. These are critical as they power the auto-generated Nextra API reference documentation. Clearly explain the purpose, parameters, return types, and edge cases.
-2. **Documentation Sync**: If you add a new feature or change an architecture pattern, update the Nextra documentation in `apps/docs/pages/`. Never leave documentation lagging behind the codebase.
-3. **Type Safety**: Maintain strict TypeScript adherence. Use proper generics and strictly avoid `any` or `@ts-ignore` flags unless absolutely unavoidable.
-
-### Documentation
-- All new public interfaces, classes, methods, and types must include TSDoc comments (`/** ... */`). 
-- Include `@param` and `@returns` descriptions for methods.
-- The pre-commit hook (`docs:generate`) automatically extracts these to `docs/api/`. Ensure your comments are descriptive enough to form a proper API reference!
-
-### Git Commit Conventions
-- Use Conventional Commits.
+1. **Extensive Comments**: Every new class, interface, method, and exported function **MUST** have comprehensive TSDoc comments (`/** ... */`) with `@param` and `@returns`. The pre-commit hook automatically extracts these to the Nextra API reference documentation.
+2. **Type Safety**: Maintain strict TypeScript adherence. Use proper generics and strictly avoid `any` or `@ts-ignore`.
+3. **Reusability**: Deeply inspect `@thesolidchain/sdk-common` and existing packages before writing new utilities. Use the `ContractsProvider` and `AddressBook` natively.
 
 ## Testing, Quality & CI/CD
-You are responsible for ensuring that the monorepo is always production-ready and green.
 1. **Testing Requirements**:
-   - **Unit Tests**: Test all pure functions, mathematical computations, and data parsers exhaustively.
-   - **Component Tests**: Test how protocol plugins interact with the core SDK context and manager classes.
-   - **E2E Tests**: Use local Anvil mainnet forks to run actual EVM executions. Use Playwright for React UI component testing.
+   - **Unit Tests**: Test pure functions, Action Builders, and Protocol Plugins exhaustively via Vitest.
+   - **E2E Tests**: Use local Anvil mainnet forks to run actual EVM executions.
 2. **Validation Pipeline**:
-   - Before completing *any* task, you **MUST** run the linter (`pnpm run lint` or equivalent).
-   - You **MUST** run the test suite (`pnpm run test`) and achieve high code coverage for your modifications.
-   - You **MUST** run the build process (`pnpm build` and `pnpm run generate:api` for docs) to ensure there are no TypeScript compilation or TypeDoc generation errors.
-3. **Coverage**: Ensure all new branches, edge cases, and custom error states are explicitly tested.
-
-## Workflow Execution Protocol
-When assigned a new feature or bug fix:
-1. **Analyze**: Read relevant files, understand the context, and trace how the feature impacts the global SDK vision.
-2. **Plan**: Outline the interfaces, required tests, and documentation changes before writing implementation code.
-3. **Implement**: Write the code, strictly adhering to the existing architectural patterns.
-4. **Validate**: Use the `cmd.in` pipeline to lint, test, and build. Fix all warnings and errors.
-5. **Document & Commit**: Generate the updated API docs, write manual guides if necessary, and commit using Conventional Commits.
+   - Before completing *any* task, you **MUST** run the test suite (`pnpm run test`) and achieve high code coverage.
+   - You **MUST** run the build process (`pnpm build`) to ensure there are no TypeScript compilation errors.
+3. **Workflow Execution**:
+   - Analyze existing architecture before building.
+   - Implement plugins adhering strictly to `IYieldProtocolManagerFeatures`, etc.
+   - Validate and commit using Conventional Commits.
