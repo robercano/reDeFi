@@ -4,13 +4,13 @@ The reDeFi SDK has a well-defined architecture. Any tasks must comply with this 
 
 ## 1. Core Architecture Refactoring
 
-- [ ] **Simulator Scope Expansion:**
-  - Add `swap` support to the `ISimulatorManager`.
-  - Refine `SimulationStep` types to clearly define pre-requisite actions (e.g., Direct Approvals, Permit, Permit2).
-- [ ] **Order Planner Enhancements:**
-  - Introduce an `ExecutionType` flag (e.g., `DIRECT`, `MULTICALL`, `ERC4337`) to `BuildOrderParams` to dictate how transactions are bundled.
-  - Ensure the `OrderPlannerService` dynamically accepts and processes Swaps, Transfers, Yield, and Staking simulations to generate standardized `Order` outputs.
-  - Implement Multicall and SmartAccount transaction bundling within the planners.
+- [x] **Simulator Scope Expansion:**
+  - [x] Add `swap` support to the `ISimulatorManager`.
+  - [x] Refine `SimulationStep` types to clearly define pre-requisite actions (e.g., Direct Approvals, Permit, Permit2).
+- [x] **Order Planner Enhancements:**
+  - [x] Introduce an `ExecutionType` flag (e.g., `DIRECT`, `MULTICALL`, `ERC4337`) to `BuildOrderParams` to dictate how transactions are bundled.
+  - [x] Ensure the `OrderPlannerService` dynamically accepts and processes Swaps, Transfers, Yield, and Staking simulations to generate standardized `Order` outputs.
+  - [x] Implement Multicall and SmartAccount transaction bundling within the planners.
 
 ## 2. Frontend Swap Execution (SDK & React)
 
