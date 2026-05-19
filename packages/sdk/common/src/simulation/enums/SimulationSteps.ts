@@ -3,6 +3,9 @@
  */
 export enum SimulationSteps {
   Flashloan = 'Flashloan',
+  Approve = 'Approve',
+  Permit = 'Permit',
+  Permit2 = 'Permit2',
   DepositBorrow = 'DepositBorrow',
   PaybackWithdraw = 'PaybackWithdraw',
   Swap = 'Swap',

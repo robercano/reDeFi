@@ -17,6 +17,7 @@
     "e2e:admin:feerevenue": "vitest run --roots e2e -- ./e2e/admin.getFeeRevenueConfig.test.ts",
     "e2e:priceOracle": "vitest run --roots e2e -- ./e2e/priceOracle.test.ts",
     "e2e:swapQuote": "vitest run --roots e2e -- ./e2e/swapQuote.test.ts",
+    "e2e:swapMulticall": "vitest run --root e2e ./e2e/simulatorSwapMulticall.test.ts",
     "e2e:transfer": "vitest run --roots e2e -- ./e2e/armadaProtocol.erc20Transfer.test.ts",
     "e2e:vaulthistoricalrates": "vitest run --roots e2e -- ./e2e/armadaProtocol.vaultsHistoricalRates.test.ts",
     "e2e:protocoltvl": "vitest run --roots e2e -- ./e2e/armadaProtocol.getProtocolTvl.test.ts",

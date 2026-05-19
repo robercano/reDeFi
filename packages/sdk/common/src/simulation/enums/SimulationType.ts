@@ -10,4 +10,6 @@ export enum SimulationType {
   Lend = 'Lend',
   /** Passive yield operations (deposit into Yearn, Lido, etc.) */
   Yield = 'Yield',
+  /** Swapping tokens through a DEX or Aggregator */
+  Swap = 'Swap',
 }

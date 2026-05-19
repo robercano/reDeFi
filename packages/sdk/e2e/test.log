@@ -1,0 +1,19 @@
+
+> @thesolidchain/sdk-e2e@0.0.1 e2e:swapMulticall /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/e2e
+> vitest run --roots e2e -- ./e2e/simulatorSwapMulticall.test.ts
+
+file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/vendor/cac.cdAtVkJZ.js:403
+          throw new CACError(`Unknown option \`${name.length > 1 ? `--${name}` : `-${name}`}\``);
+                ^
+
+CACError: Unknown option `--roots`
+    at Command.checkUnknownOptions (file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/vendor/cac.cdAtVkJZ.js:403:17)
+    at CAC.runMatchedCommand (file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/vendor/cac.cdAtVkJZ.js:603:13)
+    at CAC.parse (file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/vendor/cac.cdAtVkJZ.js:544:12)
+    at file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/cli.js:9:13
+    at ModuleJob.run (node:internal/modules/esm/module_job:437:25)
+    at async node:internal/modules/esm/loader:639:26
+    at async main (file:///home/rcano/Development/thesolidchain/reDeFi/node_modules/.pnpm/vitest@1.6.1_@types+node@24.12.2_jsdom@29.1.1/node_modules/vitest/dist/cli-wrapper.js:45:5)
+
+Node.js v24.15.0
+ ELIFECYCLE  Command failed with exit code 1.

@@ -141,6 +141,36 @@ export type WithdrawYieldStep = Step<
   }
 >
 
+export type ApproveStep = Step<
+  SimulationSteps.Approve,
+  {
+    token: IToken
+    amount: ReferenceableField<ITokenAmount>
+    spender: string
+  }
+>
+
+export type PermitStep = Step<
+  SimulationSteps.Permit,
+  {
+    token: IToken
+    amount: ReferenceableField<ITokenAmount>
+    spender: string
+    deadline: bigint
+  }
+>
+
+export type Permit2Step = Step<
+  SimulationSteps.Permit2,
+  {
+    token: IToken
+    amount: ReferenceableField<ITokenAmount>
+    spender: string
+    nonce: bigint
+    deadline: bigint
+  }
+>
+
 export type Steps =
   | FlashloanStep
   | PullTokenStep
@@ -154,3 +184,6 @@ export type Steps =
   | SkippedStep
   | DepositYieldStep
   | WithdrawYieldStep
+  | ApproveStep
+  | PermitStep
+  | Permit2Step

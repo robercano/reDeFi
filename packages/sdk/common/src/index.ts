@@ -300,6 +300,7 @@ export type {
   IPositionsManagerData,
 } from './orders/common/interfaces/IPositionsManager'
 export { TransactionType } from './orders/common/types/ExtendedTransactionInfo'
+export { ExecutionType } from './orders/common/enums/ExecutionType'
 export type {
   ApproveTransactionInfo,
   BridgeTransactionInfo,
@@ -347,6 +348,13 @@ export * from './simulation/implementation/LendingSimulation'
 
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'
+export type {
+  ApproveStep,
+  PermitStep,
+  Permit2Step,
+  SwapStep,
+} from './simulation/interfaces/Steps'
+export type { ISwapSimulationParams } from './simulation/interfaces/ISwapSimulationParams'
 export type { SimulationStrategy, StrategyStep } from './simulation/interfaces/SimulationStrategy'
 export { getValueFromReference, isValueReference } from './simulation/interfaces/ValueReference'
 export type { ReferenceableField, ValueReference } from './simulation/interfaces/ValueReference'

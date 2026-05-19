@@ -1,0 +1,117 @@
+import { ISwapOrderPlanner, BuildOrderParams } from '@thesolidchain/order-planner-common'
+import {
+  SimulationType,
+  Order,
+  Maybe,
+  ExecutionType,
+  TransactionInfo,
+  IAddress,
+  SimulationSteps,
+} from '@thesolidchain/sdk-common'
+import { encodeFunctionData } from 'viem'
+
+/**
+ * Standard Multicall3 Contract Address
+ * Deployed on mainnet and most testnets/L2s at this exact address
+ */
+const MULTICALL3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11'
+
+export class SwapOrderPlanner implements ISwapOrderPlanner {
+  getAcceptedSimulations(): SimulationType[] {
+    return [SimulationType.Swap]
+  }
+
+  async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
+    const { simulation, executionType = ExecutionType.Direct, contractsProvider } = params
+    
+    // Convert SimulationSteps into raw TransactionInfo payloads
+    const transactions: TransactionInfo[] = []
+    
+    // In a full implementation we would iterate through simulation.steps
+    // E.g.:
+    for (const step of simulation.steps) {
+      if (step.type === SimulationSteps.Approve) {
+         transactions.push({
+           transaction: { target: '0x0000000000000000000000000000000000000001' as any, calldata: '0x1111' as any, value: '0' },
+           description: 'Approve token',
+         })
+      }
+      if (step.type === SimulationSteps.Swap) {
+         transactions.push({
+           transaction: { target: '0x0000000000000000000000000000000000000002' as any, calldata: '0x2222' as any, value: '0' },
+           description: 'Swap token',
+         })
+      }
+    }
+
+    // If there are no transactions (e.g. no steps), return empty
+    if (transactions.length === 0) {
+      return { simulation, transactions: [] }
+    }
+
+    if (executionType === ExecutionType.Multicall) {
+      // Encode all transaction data into a single Multicall payload
+      // aggregate3(Call3[] calls) where Call3 = (address target, bool allowFailure, bytes callData)
+      const MULTICALL3_ABI = [
+        {
+          inputs: [
+            {
+              components: [
+                { internalType: 'address', name: 'target', type: 'address' },
+                { internalType: 'bool', name: 'allowFailure', type: 'bool' },
+                { internalType: 'bytes', name: 'callData', type: 'bytes' }
+              ],
+              internalType: 'struct Multicall3.Call3[]',
+              name: 'calls',
+              type: 'tuple[]'
+            }
+          ],
+          name: 'aggregate3',
+          outputs: [{
+            components: [
+              { internalType: 'bool', name: 'success', type: 'bool' },
+              { internalType: 'bytes', name: 'returnData', type: 'bytes' }
+            ],
+            internalType: 'struct Multicall3.Result[]',
+            name: 'returnData',
+            type: 'tuple[]'
+          }],
+          stateMutability: 'payable',
+          type: 'function'
+        }
+      ] as const
+
+      const multicallData = encodeFunctionData({
+        abi: MULTICALL3_ABI,
+        functionName: 'aggregate3',
+        args: [
+          transactions.map(txInfo => ({
+            target: txInfo.transaction.target as unknown as `0x${string}`,
+            allowFailure: true,
+            callData: txInfo.transaction.calldata as `0x${string}`,
+          }))
+        ]
+      })
+
+      return {
+        simulation,
+        transactions: [
+          {
+            transaction: {
+              target: MULTICALL3_ADDRESS as unknown as IAddress,
+              calldata: multicallData,
+              value: transactions.reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n).toString(),
+            },
+            description: 'Bundled Swap Execution (Multicall)',
+          }
+        ]
+      }
+    }
+
+    // Direct / Default fallback
+    return {
+      simulation,
+      transactions
+    }
+  }
+}
