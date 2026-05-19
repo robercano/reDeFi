@@ -112,7 +112,13 @@ export function SwapViewer() {
       fetchQuote(false)
     } catch (err) {
       console.error(err)
-      setError((err as Error)?.message || 'Failed to execute swap.')
+      const message = (err as Error)?.message || ''
+      
+      if (message.includes('User rejected the request') || message.includes('User denied transaction signature')) {
+        setError('Transaction was rejected by the user. Please try again when you are ready.')
+      } else {
+        setError(message || 'Failed to execute swap.')
+      }
     } finally {
       setLoading(false)
     }
