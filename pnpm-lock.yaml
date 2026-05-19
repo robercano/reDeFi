@@ -305,6 +305,9 @@ importers:
       '@trpc/server':
         specifier: 11.8.0
         version: 11.8.0(typescript@5.9.3)
+      superjson:
+        specifier: ^1.13.3
+        version: 1.13.3
       zod:
         specifier: 3.25.61
         version: 3.25.61
@@ -917,6 +920,9 @@ importers:
       '@thesolidchain/sdk-common':
         specifier: workspace:*
         version: link:../common
+      '@thesolidchain/simulator-common':
+        specifier: workspace:*
+        version: link:../simulator/common
       '@trpc/client':
         specifier: 11.8.0
         version: 11.8.0(@trpc/server@11.8.0)(typescript@5.9.3)
@@ -1773,6 +1779,9 @@ importers:
 
   packages/sdk/simulator/service:
     dependencies:
+      '@thesolidchain/allowance-manager-common':
+        specifier: workspace:*
+        version: link:../../allowance-manager/common
       '@thesolidchain/blockchain-client-common':
         specifier: workspace:*
         version: link:../../blockchain-client/common
@@ -1785,6 +1794,9 @@ importers:
       '@thesolidchain/simulator-common':
         specifier: workspace:*
         version: link:../common
+      '@thesolidchain/swap-common':
+        specifier: workspace:*
+        version: link:../../swap/common
     devDependencies:
       '@thesolidchain/config-typescript':
         specifier: workspace:*

@@ -129,7 +129,12 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     eventBus,
   })
 
-  const simulatorManager = new SimulatorManager(protocolManager, blockchainClientProvider)
+  const simulatorManager = new SimulatorManager(
+    protocolManager,
+    blockchainClientProvider,
+    swapManager,
+    allowanceManager
+  )
 
   return {
     callUrl: `${opts.event.rawPath}?${opts.event.rawQueryString}`,

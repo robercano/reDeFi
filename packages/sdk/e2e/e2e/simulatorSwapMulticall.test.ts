@@ -81,10 +81,31 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
       token: fromToken,
     })
 
+    const mockSwapManager = {
+      getSwapDataExactInput: async () => ({
+        transaction: { target: '0x0000000000000000000000000000000000000002', calldata: '0x2222', value: '0' },
+        quote: {
+          provider: '1inch',
+          routes: [],
+          spotPrice: { value: '0', decimals: 18 },
+          offerPrice: { value: '0', decimals: 18 },
+          toTokenAmount: { token: toToken, amount: '0' },
+        },
+        allowanceTarget: '0x0000000000000000000000000000000000000003'
+      })
+    } as any
+
+    const mockAllowanceManager = {
+      getApproval: async () => ({
+        allowanceAmount: { token: fromToken, amount: '0' },
+        transaction: { target: '0x0000000000000000000000000000000000000003', calldata: '0x1111', value: '0' }
+      })
+    } as any
+
     // 1. Simulate the Swap using the manager directly
-    const swapSimulator = new SwapSimulatorManager()
+    const swapSimulator = new SwapSimulatorManager(mockSwapManager, mockAllowanceManager)
     const simulation = await swapSimulator.simulateSwap({
-      user: userAddress as any,
+      user: { wallet: { address: userAddress } } as any,
       sellToken: fromToken,
       buyToken: toToken,
       sellAmount: fromAmount,
@@ -118,12 +139,17 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
     
     // Type casting to access the arguments since it's a tuple array
     const calls = decoded.args?.[0] as any[]
-    assert.strictEqual(calls.length, 1) // Only Swap step returned by simulator stub
+    assert.strictEqual(calls.length, 2) // Approve + Swap
 
-    // Assert the stubbed swap step is correctly encoded
-    assert.strictEqual(calls[0].target.toLowerCase(), '0x0000000000000000000000000000000000000002')
+    // Assert the mocked approval step
+    assert.strictEqual(calls[0].target.toLowerCase(), '0x0000000000000000000000000000000000000003')
     assert.strictEqual(calls[0].allowFailure, true)
-    assert.strictEqual(calls[0].callData, '0x2222')
+    assert.strictEqual(calls[0].callData, '0x1111')
+
+    // Assert the mocked swap step
+    assert.strictEqual(calls[1].target.toLowerCase(), '0x0000000000000000000000000000000000000002')
+    assert.strictEqual(calls[1].allowFailure, true)
+    assert.strictEqual(calls[1].callData, '0x2222')
     
     console.log('Successfully verified Multicall transaction encoding!')
   })

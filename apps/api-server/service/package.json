@@ -55,6 +55,7 @@
     "@thesolidchain/tokens-common": "workspace:*",
     "@thesolidchain/tokens-service": "workspace:*",
     "@trpc/server": "11.8.0",
+    "superjson": "^1.13.3",
     "zod": "3.25.61"
   },
   "devDependencies": {

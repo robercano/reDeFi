@@ -2,15 +2,16 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
-import { useAccount } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken, QuoteData } from '@thesolidchain/sdk-common'
+import { useAccount, useSendTransaction } from 'wagmi'
+import { formatTokenAmountHumanReadable, IToken, TokenAmount, ISimulation, Order, SimulationSteps, ExecutionType, SwapStep, Percentage } from '@thesolidchain/sdk-common'
 
 export function SwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')
   const [toSymbol, setToSymbol] = useState('USDC')
   const [fromAmount, setFromAmount] = useState('1')
   const [slippage, setSlippage] = useState('1')
-  const [quote, setQuote] = useState<QuoteData | null>(null)
+  const [simulation, setSimulation] = useState<ISimulation | null>(null)
+  const [order, setOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
@@ -24,7 +25,8 @@ export function SwapViewer() {
       if (!isSilent) {
         setLoading(true)
         setError(null)
-        setQuote(null)
+        setSimulation(null)
+        setOrder(null)
       }
 
       try {
@@ -45,16 +47,31 @@ export function SwapViewer() {
         if (!toToken)
           throw new Error(`Could not resolve token ${toSymbol} on chain ${activeChainId}`)
 
-        // 2. Fetch Swap Quote
-        const quoteData = await sdk.getSwapQuote({
-          fromAmount,
-          fromToken: fromToken as IToken,
-          toToken: toToken as IToken,
-          slippage: Number(slippage),
+        // 2. Fetch Swap Simulation
+        const fromAmountToken = TokenAmount.createFrom({
+          amount: fromAmount,
+          token: fromToken as IToken,
+        })
+        const user = await sdk.getCurrentUser()
+
+        const simulationData = await sdk.simulator.swap.simulateSwap({
+          user: user,
+          sellToken: fromToken as IToken,
+          buyToken: toToken as IToken,
+          sellAmount: fromAmountToken,
+          slippage: { value: slippage } as unknown as Percentage,
         })
 
-        setQuote(quoteData)
+        setSimulation(simulationData)
         if (isSilent) setError(null)
+
+        // 3. Build the Execution Order
+        const orderData = await sdk.buildOrder({
+           user: user.wallet.address,
+           simulation: simulationData,
+           executionType: ExecutionType.Multicall,
+        })
+        setOrder(orderData)
       } catch (err) {
         console.error(err)
         setError((err as Error)?.message || 'Failed to fetch swap quote.')
@@ -65,6 +82,28 @@ export function SwapViewer() {
     },
     [fromSymbol, toSymbol, fromAmount, slippage, chainId, sdk],
   )
+
+  const { sendTransactionAsync } = useSendTransaction()
+  const handleExecute = async () => {
+    if (!order || order.transactions.length === 0) return
+    try {
+      setLoading(true)
+      const txInfo = order.transactions[0].transaction
+      const hash = await sendTransactionAsync({
+        to: txInfo.target as `0x${string}`,
+        data: txInfo.calldata as `0x${string}`,
+        value: BigInt(txInfo.value || 0),
+      })
+      console.log('Swap submitted:', hash)
+      alert(`Swap submitted! Tx: ${hash}`)
+      fetchQuote(false)
+    } catch (err) {
+      console.error(err)
+      setError((err as Error)?.message || 'Failed to execute swap.')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   // Polling Effect
   useEffect(() => {
@@ -173,7 +212,7 @@ export function SwapViewer() {
         </div>
       )}
 
-      {quote && (
+      {simulation && (
         <div className="p-6 mt-6 rounded-xl bg-black/60 border border-[var(--neon-cyan)]/30 backdrop-blur-md shadow-[0_0_15px_rgba(0,240,255,0.1)] relative overflow-hidden animate-in slide-in-from-bottom-4">
           <div className="absolute right-0 top-0 w-40 h-40 bg-[var(--neon-cyan)]/10 blur-[60px] -mt-10 -mr-10"></div>
 
@@ -185,8 +224,10 @@ export function SwapViewer() {
             <div className="flex-1">
               <div className="text-sm text-neutral-500 mb-1">Pay</div>
               <div className="text-2xl font-bold text-white break-words">
-                {formatTokenAmountHumanReadable(quote.fromTokenAmount)}{' '}
-                {quote.fromTokenAmount.token.symbol}
+                {(() => {
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
+                  return swapStep ? formatTokenAmountHumanReadable(swapStep.inputs.inputAmount) + ' ' + swapStep.inputs.inputAmount.token.symbol : ''
+                })()}
               </div>
             </div>
 
@@ -204,28 +245,41 @@ export function SwapViewer() {
             <div className="flex-1 text-right">
               <div className="text-sm text-neutral-500 mb-1">Receive (Estimated)</div>
               <div className="text-2xl font-bold text-[var(--neon-cyan)] break-words">
-                {formatTokenAmountHumanReadable(quote.toTokenAmount)}{' '}
-                {quote.toTokenAmount.token.symbol}
+                {(() => {
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
+                  return swapStep ? formatTokenAmountHumanReadable(swapStep.outputs.received) + ' ' + swapStep.outputs.received.token.symbol : ''
+                })()}
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 mb-6">
             <div>
               <div className="text-xs text-neutral-500 uppercase font-semibold mb-1">Provider</div>
               <div className="font-mono text-white text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
-                {quote.provider}
+                {(() => {
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
+                  return swapStep ? swapStep.inputs.provider : 'Unknown'
+                })()}
               </div>
             </div>
             <div>
               <div className="text-xs text-neutral-500 uppercase font-semibold mb-1">
-                Estimated Gas
+                Steps Required
               </div>
-              <div className="font-mono text-white text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
-                {quote.estimatedGas}
+              <div className="font-mono text-[var(--neon-orange)] text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
+                {simulation.steps.length} ({simulation.steps.map(s => s.type.split('_').pop()).join(' + ')})
               </div>
             </div>
           </div>
+          
+          <button
+            onClick={handleExecute}
+            disabled={loading || !order || order.transactions.length === 0}
+            className="w-full px-6 py-4 rounded-xl font-bold text-black bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-orange)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:shadow-none"
+          >
+            {loading ? 'Executing...' : 'Execute Swap'}
+          </button>
         </div>
       )}
     </div>

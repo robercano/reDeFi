@@ -1,5 +1,6 @@
 import { SerializationService } from '@thesolidchain/sdk-common'
 import { initTRPC } from '@trpc/server'
+import type SuperJSON from 'superjson'
 import { SDKAppContext } from './context/SDKContext'
 
 /**

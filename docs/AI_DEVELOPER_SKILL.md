@@ -115,3 +115,16 @@ abstract away complex Web3 interactions.
    - Analyze existing architecture before building.
    - Implement plugins adhering strictly to `IYieldProtocolManagerFeatures`, etc.
    - Validate and commit using Conventional Commits.
+
+## Lessons Learned & Gotchas
+
+### tRPC Endpoint Exposure & Frontend Client Parity
+When building features that span the backend (`api-server`) and the frontend (`sdk-client`), simply implementing the logic in the core shared managers (e.g. `SimulatorManager`) is **not enough**. You must ensure that the endpoint is properly exposed across the network boundary and typed correctly in the client SDK.
+
+Whenever a new feature/manager is added to the backend context:
+1. **API Router**: Explicitly define the `publicProcedure` endpoint in `apps/api-server/service/src/routers/` so that the tRPC server exposes the route.
+2. **Client Interface**: Add the exact same route namespace/method mapping to the corresponding interface in `packages/sdk/client/src/interfaces/`.
+3. **Client Implementation**: The concrete client class in `packages/sdk/client/src/implementation/` MUST instantiate the client-side proxy.
+4. **Client Proxy File**: A client-side wrapper class must exist that proxies the request over the RPC connection (e.g., `this.rpcClient.simulator.swap.simulateSwap.query(params)`).
+
+Failure to align these 4 steps will result in the client SDK receiving `undefined` for the endpoint, causing silent UI failures or runtime `TypeError`s.

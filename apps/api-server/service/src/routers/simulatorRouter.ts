@@ -19,4 +19,10 @@ export const simulatorRouter = router({
       return opts.ctx.simulatorManager.lend.simulateBorrow({ poolId, amount })
     }),
   }),
+  swap: router({
+    simulateSwap: publicProcedure.input(z.any()).query(async (opts) => {
+      const params = opts.input
+      return opts.ctx.simulatorManager.swap.simulateSwap(params)
+    }),
+  }),
 })

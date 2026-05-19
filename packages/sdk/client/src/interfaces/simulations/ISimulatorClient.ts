@@ -2,6 +2,7 @@ import { ILendingSimulator } from './ILendingSimulator'
 import { IStakeSimulator } from './IStakeSimulator'
 import { ITransferSimulator } from './ITransferSimulator'
 import { IYieldSimulator } from './IYieldSimulator'
+import { ISwapSimulatorManager } from '@thesolidchain/simulator-common'
 
 /**
  * Interface for the Simulator Client
@@ -18,4 +19,6 @@ export interface ISimulatorClient {
   readonly lend: ILendingSimulator
   /** Passive yield protocol operations */
   readonly yield: IYieldSimulator
+  /** Swap operations */
+  readonly swap: ISwapSimulatorManager
 }

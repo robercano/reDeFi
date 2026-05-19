@@ -1,4 +1,4 @@
-import type { Percentage, QuoteData, Token, TokenAmount } from '@thesolidchain/sdk-common'
+import type { Percentage, QuoteData, Token, TokenAmount, Address } from '@thesolidchain/sdk-common'
 import { IRPCClient } from '../interfaces/IRPCClient'
 import type { ISwapManagerClient } from '../interfaces/ISwapManagerClient'
 import type { RPCMainClientType } from '../rpc/SDKMainClient'
@@ -21,6 +21,21 @@ export class SwapManagerClient extends IRPCClient implements ISwapManagerClient 
     return this.rpcClient.swaps.getSwapQuoteExactInput.query({
       fromAmount: params.fromAmount,
       toToken: params.toToken,
+      slippage: params.slippage,
+    })
+  }
+
+  /** @see ISwapManagerClient.getSwapDataExactInput */
+  public async getSwapDataExactInput(params: {
+    fromAmount: TokenAmount
+    toToken: Token
+    recipient: Address
+    slippage: Percentage
+  }): Promise<import('@thesolidchain/sdk-common').SwapData> {
+    return this.rpcClient.swaps.getSwapDataExactInput.query({
+      fromAmount: params.fromAmount,
+      toToken: params.toToken,
+      recipient: params.recipient,
       slippage: params.slippage,
     })
   }
