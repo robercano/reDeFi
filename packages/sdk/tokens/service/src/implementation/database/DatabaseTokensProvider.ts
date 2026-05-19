@@ -14,6 +14,8 @@ import {
   Token,
   TokenAmount,
   TokensProviderType,
+  ChainIds,
+  ChainId,
 } from '@thesolidchain/sdk-common'
 import { ITokensProvider } from '@thesolidchain/tokens-common'
 
@@ -44,8 +46,7 @@ export class DatabaseTokensProvider
   }
 
   getSupportedChainIds: ITokensProvider['getSupportedChainIds'] = () => {
-    // In a real app we'd query supported chains or configure them
-    return [1] // Assuming Ethereum for now, or fetch from config
+    return Object.values(ChainIds) as ChainId[]
   }
 
   getTokenBySymbol: ITokensProvider['getTokenBySymbol'] = async (params) => {
