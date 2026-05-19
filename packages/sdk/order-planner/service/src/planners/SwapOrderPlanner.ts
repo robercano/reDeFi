@@ -9,6 +9,7 @@ import {
   SimulationSteps,
 } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
+import { Address } from '@thesolidchain/sdk-common'
 
 /**
  * Standard Multicall3 Contract Address
@@ -86,7 +87,7 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
         functionName: 'aggregate3',
         args: [
           transactions.map(txInfo => ({
-            target: txInfo.transaction.target as unknown as `0x${string}`,
+            target: txInfo.transaction.target.value as `0x${string}`,
             allowFailure: true,
             callData: txInfo.transaction.calldata as `0x${string}`,
           }))
@@ -98,7 +99,7 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
         transactions: [
           {
             transaction: {
-              target: MULTICALL3_ADDRESS as unknown as IAddress,
+              target: Address.createFromEthereum({ value: MULTICALL3_ADDRESS }),
               calldata: multicallData,
               value: transactions.reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n).toString(),
             },

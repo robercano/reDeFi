@@ -103,7 +103,7 @@ export function SwapViewer() {
       setLoading(true)
       const txInfo = order.transactions[0].transaction
       const hash = await sendTransactionAsync({
-        to: txInfo.target as `0x${string}`,
+        to: txInfo.target.value as `0x${string}`,
         data: txInfo.calldata as `0x${string}`,
         value: BigInt(txInfo.value || 0),
       })
