@@ -1,6 +1,6 @@
 import type { ChainId } from '../types/ChainId'
 import { defineChain, extractChain } from 'viem'
-import { arbitrum, base, mainnet, optimism, sonic } from 'viem/chains'
+import { arbitrum, base, mainnet, optimism, sonic, sepolia } from 'viem/chains'
 
 export const hyperliquid = defineChain({
   id: 999,
@@ -28,7 +28,7 @@ export const hyperliquid = defineChain({
 
 export const getViemChain = (chainId: ChainId) => {
   return extractChain({
-    chains: [base, mainnet, arbitrum, sonic, optimism, hyperliquid],
+    chains: [base, mainnet, arbitrum, sonic, optimism, hyperliquid, sepolia],
     id: chainId,
   })
 }
