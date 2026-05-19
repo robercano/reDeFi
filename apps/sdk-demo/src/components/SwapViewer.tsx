@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount, useSendTransaction } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken, TokenAmount, ISimulation, Order, SimulationSteps, ExecutionType, SwapStep, Percentage } from '@thesolidchain/sdk-common'
+import { formatTokenAmountHumanReadable, IToken, TokenAmount, ISimulation, Order, SimulationSteps, ExecutionType, SwapStep, Percentage, User, ChainInfo, Wallet, Address } from '@thesolidchain/sdk-common'
 
 export function SwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')
@@ -52,7 +52,20 @@ export function SwapViewer() {
           amount: fromAmount,
           token: fromToken as IToken,
         })
-        const user = await sdk.getCurrentUser()
+        let user;
+        try {
+          user = sdk.getCurrentUser()
+        } catch (e) {
+          if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+            console.warn('Wallet not connected. Using mock user for simulation.')
+            user = User.createFrom({
+              chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
+              wallet: Wallet.createFrom({ address: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }) })
+            })
+          } else {
+            throw e
+          }
+        }
 
         const simulationData = await sdk.simulator.swap.simulateSwap({
           user: user,
@@ -67,7 +80,7 @@ export function SwapViewer() {
 
         // 3. Build the Execution Order
         const orderData = await sdk.buildOrder({
-           user: user.wallet.address,
+           user: user,
            simulation: simulationData,
            executionType: ExecutionType.Multicall,
         })
