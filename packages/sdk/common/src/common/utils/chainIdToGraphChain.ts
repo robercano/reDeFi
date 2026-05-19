@@ -1,7 +1,7 @@
 import { type ChainId } from '../types/ChainId'
 import { ChainIds } from '../implementation/ChainIds'
 
-export type GraphChain = 'mainnet' | 'base' | 'arbitrum' | 'sonic' | 'hyperliquid'
+export type GraphChain = 'mainnet' | 'base' | 'arbitrum' | 'sonic' | 'hyperliquid' | 'sepolia'
 
 const keyMap: Record<ChainId, GraphChain> = {
   [ChainIds.Mainnet]: 'mainnet',
@@ -9,6 +9,7 @@ const keyMap: Record<ChainId, GraphChain> = {
   [ChainIds.ArbitrumOne]: 'arbitrum',
   [ChainIds.Sonic]: 'sonic',
   [ChainIds.Hyperliquid]: 'hyperliquid',
+  [ChainIds.Sepolia]: 'sepolia',
 }
 
 export const chainIdToGraphChain = (chainId: number) => {

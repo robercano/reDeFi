@@ -17,10 +17,14 @@ export enum ChainFamilyName {
 /**
  * Chain definition per family
  */
-const EthereumFamily: Record<'Mainnet', ChainInfo> = {
+const EthereumFamily: Record<'Mainnet' | 'Sepolia', ChainInfo> = {
   ['Mainnet']: ChainInfo.createFrom({
     chainId: ChainIds.Mainnet,
     name: 'Mainnet',
+  }),
+  ['Sepolia']: ChainInfo.createFrom({
+    chainId: ChainIds.Sepolia,
+    name: 'Sepolia',
   }),
 }
 
