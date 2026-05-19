@@ -38,6 +38,7 @@
     "@thesolidchain/events-common": "workspace:*",
     "@thesolidchain/events-service": "workspace:*",
     "@thesolidchain/sdk-common": "workspace:*",
+    "@thesolidchain/simulator-common": "workspace:*",
     "@trpc/client": "11.8.0",
     "bignumber.js": "^9.3.1"
   },

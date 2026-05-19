@@ -32,14 +32,14 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
          transactions.push({
-           transaction: { target: '0x0000000000000000000000000000000000000001' as any, calldata: '0x1111' as any, value: '0' },
-           description: 'Approve token',
+           transaction: (step as any).outputs.transaction,
+           description: (step as any).description || 'Approve token',
          })
       }
       if (step.type === SimulationSteps.Swap) {
          transactions.push({
-           transaction: { target: '0x0000000000000000000000000000000000000002' as any, calldata: '0x2222' as any, value: '0' },
-           description: 'Swap token',
+           transaction: (step as any).outputs.transaction,
+           description: (step as any).description || 'Swap token',
          })
       }
     }

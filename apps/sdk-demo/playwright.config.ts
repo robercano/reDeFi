@@ -28,6 +28,14 @@ export default defineConfig({
     trace: 'on-first-retry',
     /* Avoid headless locally if you want to see it, but headless by default */
     headless: true,
+    launchOptions: {
+      executablePath: '/usr/bin/chromium-browser',
+    },
+    /* Basic Auth credentials for local development server */
+    httpCredentials: {
+      username: process.env.DEMO_USER || 'admin',
+      password: process.env.DEMO_PASSWORD || 'redefi2026',
+    },
   },
 
   /* Configure projects for major browsers */
