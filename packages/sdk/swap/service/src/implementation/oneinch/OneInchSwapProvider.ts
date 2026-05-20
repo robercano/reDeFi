@@ -214,7 +214,7 @@ export class OneInchSwapProvider
     disableEstimate?: boolean
     allowPartialFill?: boolean
   }): string {
-    const chainId = params.chainInfo.chainId
+    const chainId = Number(params.chainInfo.chainId) === 9991 ? 1 : params.chainInfo.chainId
     const fromTokenAddress = params.fromTokenAmount.token.address.value.toLowerCase()
     const toTokenAddress = params.toToken.address.value.toLowerCase()
     const fromAmount = params.fromTokenAmount.toSolidityValue()
@@ -250,7 +250,7 @@ export class OneInchSwapProvider
     fromTokenAmount: ITokenAmount
     toToken: IToken
   }): string {
-    const chainId = params.chainInfo.chainId
+    const chainId = Number(params.chainInfo.chainId) === 9991 ? 1 : params.chainInfo.chainId
     const fromTokenAddress = params.fromTokenAmount.token.address.value.toLowerCase()
     const toTokenAddress = params.toToken.address.value.toLowerCase()
     const fromAmount = params.fromTokenAmount.toSolidityValue()
@@ -346,8 +346,7 @@ export class OneInchSwapProvider
           : ONE_INCH_EXCLUDED_SWAP_PROTOCOLS.split(','),
       },
       chainIds: ONE_INCH_SWAP_CHAIN_IDS.split(',')
-        .map((id: string) => parseInt(id))
-        .filter(isChainId),
+        .map((id: string) => parseInt(id)) as ChainId[],
     }
   }
 

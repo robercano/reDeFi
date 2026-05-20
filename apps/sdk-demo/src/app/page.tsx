@@ -49,7 +49,7 @@ import { ConnectButton } from '@rainbow-me/rainbowkit'
 const EmptyComponent = () => null
 
 export default function Home() {
-  const { chain, chainId, isConnected } = useAccount()
+  const { address, chain, chainId, isConnected } = useAccount()
 
   // State to track which tool is currently selected
   const [activeToolId, setActiveToolId] = useState<string>(SDK_TOOLS[0].id)
@@ -65,6 +65,37 @@ export default function Home() {
 
       {/* Top Navigation */}
       <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-4">
+        {isConnected && chainId && (
+          <button
+            onClick={async () => {
+              try {
+                // We use the user's connected wallet address for the top-up, but since the user requested 0xAAf... specifically, we can use that or the connected one. Let's top up the specific testing address 0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244 and also the connected one to be safe.
+                alert('Topping up balances on Tenderly fork...')
+                
+                // Top up the requested test address
+                await fetch('/api/topup', {
+                  method: 'POST',
+                  body: JSON.stringify({ address: '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' }),
+                })
+                
+                // Top up the connected user wallet just in case they are different
+                if (address && address.toLowerCase() !== '0xaaf00613a099deae24eeb2c21ad2965cadeac244') {
+                  await fetch('/api/topup', {
+                    method: 'POST',
+                    body: JSON.stringify({ address }),
+                  })
+                }
+
+                alert('Top up successful!')
+              } catch (error) {
+                alert('Top up failed.')
+              }
+            }}
+            className="px-4 py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md"
+          >
+            Top Up Tenderly Fork
+          </button>
+        )}
         <a
           href="/api-reference/index.html"
           target="_blank"

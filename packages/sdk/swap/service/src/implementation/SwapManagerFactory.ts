@@ -1,6 +1,7 @@
 import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { SwapManager } from './SwapManager'
 import { OneInchSwapProvider } from './oneinch/OneInchSwapProvider'
+import { SepoliaSwapProvider } from './sepolia/SepoliaSwapProvider'
 
 /**
  * @class SwapManagerFactory
@@ -9,7 +10,7 @@ import { OneInchSwapProvider } from './oneinch/OneInchSwapProvider'
 export class SwapManagerFactory {
   public static newSwapManager(params: { configProvider: IConfigurationProvider }): SwapManager {
     return new SwapManager({
-      providers: [new OneInchSwapProvider(params)],
+      providers: [new OneInchSwapProvider(params), new SepoliaSwapProvider(params)],
     })
   }
 }
