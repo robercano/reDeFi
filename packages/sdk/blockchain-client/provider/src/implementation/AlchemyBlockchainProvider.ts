@@ -24,6 +24,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   private readonly _blockchainClients: Map<number, IBlockchainClient> = new Map()
   private readonly _supportedChains: Chain[] = [mainnet, arbitrum, base, sonic, hyperliquid]
   private readonly _apiKey: string
+  private readonly _tenderlyForkUrl: string | undefined
 
   /**
    * Initializes a new instance of the AlchemyBlockchainProvider.
@@ -39,6 +40,10 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
       name: 'ALCHEMY_ENDPOINT_API_KEY',
     })
     this._apiKey = alchemyApiKey || ''
+
+    this._tenderlyForkUrl = this.configProvider.getConfigurationItem({
+      name: 'E2E_SDK_FORK_URL_MAINNET',
+    })
 
     this._initializeClients()
   }
@@ -119,7 +124,12 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   }
 
   private _getAlchemyUrl(chainId: number): string | undefined {
+    if (chainId === mainnet.id && this._tenderlyForkUrl) {
+      return this._tenderlyForkUrl
+    }
+    
     if (!this._apiKey) return undefined
+    
     if (chainId === mainnet.id) {
       return `https://eth-mainnet.g.alchemy.com/v2/${this._apiKey}`
     } else if (chainId === base.id) {
