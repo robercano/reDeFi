@@ -20,9 +20,9 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-contracts-provider-service | 0% | 0% | 0% | 0% | 57.08% |
 | sdk-configuration-provider-service | 83.87% | 83.87% | 80% | 71.42% | 20% |
 | sdk-client | 86.17% | 86.17% | 76.66% | 83.63% | 30.67% |
-| sdk-blockchain-client-provider | 84.61% | 84.61% | 78.94% | 74.5% | 36.59% |
+| sdk-blockchain-client-provider | 84.61% | 84.61% | 78.94% | 74.5% | 35.71% |
 | sdk-allowance-manager-service | 100% | 100% | 100% | 100% | 40% |
 | sdk-address-book-service | 100% | 100% | 100% | 100% | 41.67% |
 | sdk-abi-provider-service | 0% | 0% | 0% | 0% | 50% |
 | api-server-service | 87.26% | 87.26% | 66.66% | 72.09% | 10% |
-| **TOTAL** | **87.76%** | **87.76%** | **81.1%** | **81.02%** | **33.94%** |
+| **TOTAL** | **87.76%** | **87.76%** | **81.1%** | **81.02%** | **33.9%** |

@@ -5,5 +5,7 @@ export const getChainInfoHandler = (chainId?: number) => () => {
     throw new Error('ChainId is not defined')
   }
 
-  return getChainInfoByChainId(chainId)
+  // Map Tenderly fork ID to mainnet
+  const mappedChainId = chainId === 9991 ? 1 : chainId
+  return getChainInfoByChainId(mappedChainId)
 }
