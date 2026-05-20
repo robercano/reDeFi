@@ -64,7 +64,7 @@ export default function Home() {
       <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-[var(--neon-cyan)]/10 blur-[120px] rounded-full pointer-events-none mix-blend-screen" />
 
       {/* Top Navigation */}
-      <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-4">
+      <nav className="w-full relative z-20 flex flex-wrap justify-center sm:justify-end p-4 md:p-6 md:px-12 items-center gap-2 md:gap-4">
           <button
             onClick={async () => {
               try {
@@ -90,24 +90,24 @@ export default function Home() {
                 alert('Top up failed.')
               }
             }}
-            className="px-4 py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md"
+            className="px-3 py-2 md:px-4 md:py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-xs md:text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md whitespace-nowrap"
           >
-            Top Up Tenderly Fork
+            Top Up Fork
           </button>
         <a
           href="/api-reference/index.html"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 rounded-xl text-sm font-semibold text-[var(--neon-cyan)] border border-[var(--neon-cyan)]/30 hover:bg-[var(--neon-cyan)]/10 transition-all backdrop-blur-md"
+          className="hidden sm:inline-flex px-4 py-2 rounded-xl text-sm font-semibold text-[var(--neon-cyan)] border border-[var(--neon-cyan)]/30 hover:bg-[var(--neon-cyan)]/10 transition-all backdrop-blur-md"
         >
           API Reference ↗
         </a>
-        <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-xs font-mono text-neutral-400 shadow-sm flex items-center gap-2 backdrop-blur-md">
+        <div className="hidden md:flex px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-xs font-mono text-neutral-400 shadow-sm items-center gap-2 backdrop-blur-md">
           <span className="text-[var(--neon-orange)]">Backend:</span>
           {process.env.NEXT_PUBLIC_API_URL || 'Not Configured'}
         </div>
         {isConnected && chainId && (
-          <div className="px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm flex items-center gap-2 backdrop-blur-md">
+          <div className="hidden sm:flex px-4 py-2 bg-neutral-900 border border-neutral-800 rounded-xl text-sm font-semibold text-neutral-300 shadow-sm items-center gap-2 backdrop-blur-md">
             <span
               className={`w-2 h-2 rounded-full ${chain ? 'bg-[var(--neon-cyan)] shadow-[0_0_8px_rgba(0,240,255,0.8)]' : 'bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]'} animate-pulse`}
             ></span>
