@@ -65,7 +65,6 @@ export default function Home() {
 
       {/* Top Navigation */}
       <nav className="w-full relative z-20 flex justify-end p-6 md:px-12 items-center gap-4">
-        {isConnected && chainId && (
           <button
             onClick={async () => {
               try {
@@ -95,7 +94,6 @@ export default function Home() {
           >
             Top Up Tenderly Fork
           </button>
-        )}
         <a
           href="/api-reference/index.html"
           target="_blank"
