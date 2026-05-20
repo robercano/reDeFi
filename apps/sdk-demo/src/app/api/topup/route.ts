@@ -20,13 +20,12 @@ export async function POST(request: Request) {
       { name: 'DAI', address: '0x6B175474E89094C44Da98b954EedeAC495271d0F' },
     ]
 
-    const amountHex = '0x152D02C7E14AF6800000' // 100,000 * 10^18 roughly. For USDC/USDT which have 6 decimals this is a massive number but Tenderly accepts it for ERC20. Actually let's use appropriate decimals.
     // Let's use 10,000 for everything appropriately.
     // 10,000 ETH = 0x021E19E0C9BAB2400000
     // 10,000 USDC (6 dec) = 0x2540BE400
 
-    const ethAmountHex = '0x021e19e0c9bab2400000' // 10000 ETH
-    const genericAmountHex = '0x021e19e0c9bab2400000' // 10000 with 18 decimals
+    const ethAmountHex = '0x21e19e0c9bab2400000' // 10000 ETH
+    const genericAmountHex = '0x21e19e0c9bab2400000' // 10000 with 18 decimals
     const usdcAmountHex = '0x2540BE400' // 10000 with 6 decimals
 
     const requests = tokensToTopUp.map((token, index) => {
