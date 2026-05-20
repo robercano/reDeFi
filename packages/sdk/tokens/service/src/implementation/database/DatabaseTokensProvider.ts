@@ -46,7 +46,7 @@ export class DatabaseTokensProvider
   }
 
   getSupportedChainIds: ITokensProvider['getSupportedChainIds'] = () => {
-    return [...(Object.values(ChainIds) as ChainId[]), 9991 as ChainId]
+    return [...(Object.values(ChainIds) as ChainId[])]
   }
 
   getTokenBySymbol: ITokensProvider['getTokenBySymbol'] = async (params) => {
@@ -62,7 +62,7 @@ export class DatabaseTokensProvider
         FilterExpression: 'chainId = :chainId',
         ExpressionAttributeValues: {
           ':symbol': symbol,
-          ':chainId': Number(chainInfo.chainId) === 9991 ? 1 : chainInfo.chainId,
+          ':chainId': chainInfo.chainId,
         },
       }),
     )
@@ -84,7 +84,7 @@ export class DatabaseTokensProvider
       new GetCommand({
         TableName: tableName,
         Key: {
-          id: `${Number(chainInfo.chainId) === 9991 ? 1 : chainInfo.chainId}#${address.value}`,
+          id: `${chainInfo.chainId}#${address.value}`,
         },
       }),
     )
