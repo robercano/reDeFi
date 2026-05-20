@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
-import { useAccount, useSendTransaction } from 'wagmi'
+import { useAccount, useSendTransaction, usePublicClient } from 'wagmi'
 import { formatTokenAmountHumanReadable, IToken, TokenAmount, ISimulation, Order, SimulationSteps, ExecutionType, SwapStep, Percentage, User, ChainInfo, Wallet, Address } from '@thesolidchain/sdk-common'
 
 export function SwapViewer() {
@@ -13,6 +13,7 @@ export function SwapViewer() {
   const [simulation, setSimulation] = useState<ISimulation | null>(null)
   const [order, setOrder] = useState<Order | null>(null)
   const [loading, setLoading] = useState(false)
+  const [executingIndex, setExecutingIndex] = useState(-1)
   const [error, setError] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
 
@@ -84,7 +85,7 @@ export function SwapViewer() {
            simulation: simulationData,
            executionType: ExecutionType.Multicall,
         })
-        setOrder(orderData)
+        setOrder(orderData || null)
       } catch (err) {
         console.error(err)
         setError((err as Error)?.message || 'Failed to fetch swap quote.')
@@ -96,19 +97,32 @@ export function SwapViewer() {
     [fromSymbol, toSymbol, fromAmount, slippage, chainId, sdk],
   )
 
+  const publicClient = usePublicClient()
   const { sendTransactionAsync } = useSendTransaction()
   const handleExecute = async () => {
     if (!order || order.transactions.length === 0) return
     try {
       setLoading(true)
-      const txInfo = order.transactions[0].transaction
-      const hash = await sendTransactionAsync({
-        to: txInfo.target.value as `0x${string}`,
-        data: txInfo.calldata as `0x${string}`,
-        value: BigInt(txInfo.value || 0),
-      })
-      console.log('Swap submitted:', hash)
-      alert(`Swap submitted! Tx: ${hash}`)
+      
+      for (let i = 0; i < order.transactions.length; i++) {
+        setExecutingIndex(i)
+        const txInfo = order.transactions[i]
+        
+        const hash = await sendTransactionAsync({
+          to: txInfo.transaction.target.value as `0x${string}`,
+          data: txInfo.transaction.calldata as `0x${string}`,
+          value: BigInt(txInfo.transaction.value || 0),
+        })
+        
+        console.log(`Transaction ${i + 1} submitted:`, hash)
+        
+        if (publicClient) {
+          // Wait for confirmation before prompting the user for the next transaction
+          await publicClient.waitForTransactionReceipt({ hash })
+        }
+      }
+      
+      alert(`All transactions submitted successfully!`)
       fetchQuote(false)
     } catch (err) {
       console.error(err)
@@ -121,6 +135,7 @@ export function SwapViewer() {
       }
     } finally {
       setLoading(false)
+      setExecutingIndex(-1)
     }
   }
 
@@ -297,7 +312,13 @@ export function SwapViewer() {
             disabled={loading || !order || order.transactions.length === 0}
             className="w-full px-6 py-4 rounded-xl font-bold text-black bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-orange)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:shadow-none"
           >
-            {loading ? 'Executing...' : 'Execute Swap'}
+            {loading && executingIndex >= 0 && order
+              ? `Executing ${executingIndex + 1}/${order.transactions.length}: ${order.transactions[executingIndex].description}`
+              : loading
+              ? 'Executing...'
+              : order && order.transactions.length > 1
+              ? `Execute Swap (${order.transactions.length} steps)`
+              : 'Execute Swap'}
           </button>
         </div>
       )}
