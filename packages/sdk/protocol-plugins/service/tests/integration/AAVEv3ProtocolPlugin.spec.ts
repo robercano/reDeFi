@@ -184,7 +184,7 @@ describe('AAVEv3 Protocol Plugin (Integration)', () => {
   it('executes getSupplyTransaction on the fork and updates lending position', async () => {
     const rpcUrl = fork.forkUrl
     const tenderlyChain = defineChain({
-      id: 9991,
+      id: 1,
       name: 'Tenderly',
       network: 'tenderly',
       nativeCurrency: { decimals: 18, name: 'Ether', symbol: 'ETH' },
