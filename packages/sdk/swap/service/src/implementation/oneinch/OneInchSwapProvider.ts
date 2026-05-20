@@ -214,7 +214,7 @@ export class OneInchSwapProvider
     disableEstimate?: boolean
     allowPartialFill?: boolean
   }): string {
-    const chainId = Number(params.chainInfo.chainId) === 9991 ? 1 : params.chainInfo.chainId
+    const chainId = params.chainInfo.chainId
     const fromTokenAddress = params.fromTokenAmount.token.address.value.toLowerCase()
     const toTokenAddress = params.toToken.address.value.toLowerCase()
     const fromAmount = params.fromTokenAmount.toSolidityValue()
@@ -250,7 +250,7 @@ export class OneInchSwapProvider
     fromTokenAmount: ITokenAmount
     toToken: IToken
   }): string {
-    const chainId = Number(params.chainInfo.chainId) === 9991 ? 1 : params.chainInfo.chainId
+    const chainId = params.chainInfo.chainId
     const fromTokenAddress = params.fromTokenAmount.token.address.value.toLowerCase()
     const toTokenAddress = params.toToken.address.value.toLowerCase()
     const fromAmount = params.fromTokenAmount.toSolidityValue()
