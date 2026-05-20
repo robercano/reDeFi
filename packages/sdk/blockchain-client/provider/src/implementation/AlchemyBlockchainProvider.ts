@@ -41,9 +41,14 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
     })
     this._apiKey = alchemyApiKey || ''
 
-    this._tenderlyForkUrl = this.configProvider.getConfigurationItem({
-      name: 'E2E_SDK_FORK_URL_MAINNET',
-    })
+    try {
+      this._tenderlyForkUrl = this.configProvider.getConfigurationItem({
+        name: 'E2E_SDK_FORK_URL_MAINNET',
+      }) as string
+    } catch (e) {
+      // Optional for production, only required for E2E testing
+      this._tenderlyForkUrl = undefined
+    }
 
     this._initializeClients()
   }
