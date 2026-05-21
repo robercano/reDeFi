@@ -51,7 +51,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
       }) as string
       
       // Safety check: Ensure the fork is ONLY used in development mode
-      if (environmentTag !== 'development') {
+      if (environmentTag !== 'development' && environmentTag !== 'dev') {
         this._tenderlyForkUrl = undefined
       }
     } catch (e) {
