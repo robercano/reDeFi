@@ -23,19 +23,25 @@ export function createMainRPCClient(params: {
   logging?: boolean
   apiKey?: string
 }): RPCMainClientType {
+  // Automatically append the API version if the user provided the base URL
+  let finalApiUrl = params.apiURL
+  if (finalApiUrl.endsWith('/sdk/trpc') || finalApiUrl.endsWith('/sdk/trpc/')) {
+    finalApiUrl = finalApiUrl.replace(/\/$/, '') + '/v1'
+  }
+
   return createTRPCClient<SDKAppRouter>({
     links: [
       loggerLink({
         enabled: () => !!params.logging,
         logger(opts) {
-          const apiUrlBase = new URL(`${params.apiURL}/${opts.path}`)
+          const apiUrlBase = new URL(`${finalApiUrl}/${opts.path}`)
           const input = SerializationService.stringify(opts.input)
           apiUrlBase.searchParams.set('input', input)
           LoggingService.log(`SDK call (${opts.path}):`, apiUrlBase.toString())
         },
       }),
       httpBatchLink({
-        url: params.apiURL,
+        url: finalApiUrl,
         transformer: SerializationService.getTransformer(),
         maxURLLength: 5000,
         fetch: (url, opts) => fetch(url, { ...opts, credentials: 'omit' }),
