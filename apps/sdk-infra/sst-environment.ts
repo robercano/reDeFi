@@ -23,7 +23,7 @@ const envSchema = z.object({
   ALCHEMY_ENDPOINT_API_KEY: z.string().default(''),
   SDK_LOGGING_ENABLED: z.string().default('false'),
   SDK_DEBUG_ENABLED: z.string().default('false'),
-  SDK_USE_FORK: z.string().nonempty().default(''),
+  SDK_USE_FORK: z.string().default(''),
   SDK_FORK_CONFIG: z.string().default(''),
   ENVIRONMENT_TAG: z.string().default('development'),
   E2E_SDK_FORK_URL_MAINNET: z.string().default(''),
