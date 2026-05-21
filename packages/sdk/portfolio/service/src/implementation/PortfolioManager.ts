@@ -107,7 +107,7 @@ export class PortfolioManager implements IPortfolioManager {
    */
   async getUserPortfolio(params: { user: IUser }): Promise<UserPortfolio> {
     const { user } = params
-    const cacheKey = `PortfolioManager:getUserPortfolio:${user.wallet.address.value}`
+    const cacheKey = `PortfolioManager:getUserPortfolio:${user.chainInfo.chainId}:${user.wallet.address.value}`
 
     if (this._cacheService) {
       const cachedPortfolio =
