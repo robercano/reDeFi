@@ -25,6 +25,7 @@ const envSchema = z.object({
   SDK_DEBUG_ENABLED: z.string().default('false'),
   SDK_USE_FORK: z.string().nonempty().default(''),
   SDK_FORK_CONFIG: z.string().default(''),
+  ENVIRONMENT_TAG: z.string().default('development'),
   E2E_SDK_FORK_URL_MAINNET: z.string().default(''),
   SDK_DEPLOYED_VERSIONS_MAP: z.string().nonempty(),
 })

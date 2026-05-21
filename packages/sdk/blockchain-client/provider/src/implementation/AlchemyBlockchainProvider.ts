@@ -45,6 +45,15 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
       this._tenderlyForkUrl = this.configProvider.getConfigurationItem({
         name: 'E2E_SDK_FORK_URL_MAINNET',
       }) as string
+
+      const environmentTag = this.configProvider.getConfigurationItem({
+        name: 'ENVIRONMENT_TAG',
+      }) as string
+      
+      // Safety check: Ensure the fork is ONLY used in development mode
+      if (environmentTag !== 'development') {
+        this._tenderlyForkUrl = undefined
+      }
     } catch (e) {
       // Optional for production, only required for E2E testing
       this._tenderlyForkUrl = undefined
