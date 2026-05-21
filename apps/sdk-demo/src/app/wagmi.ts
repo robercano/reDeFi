@@ -2,7 +2,7 @@ import { getDefaultConfig } from '@rainbow-me/rainbowkit'
 import { arbitrum, mainnet, sepolia, base, bsc, polygon, optimism, avalanche } from 'wagmi/chains'
 
 const isDev = process.env.NODE_ENV === 'development'
-const forkUrl = process.env.E2E_SDK_FORK_URL_MAINNET
+const forkUrl = process.env.NEXT_PUBLIC_TENDERLY_RPC_URL || process.env.E2E_SDK_FORK_URL_MAINNET
 
 const customMainnet = {
   ...mainnet,
