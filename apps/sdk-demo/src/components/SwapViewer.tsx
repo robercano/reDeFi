@@ -118,17 +118,22 @@ export function SwapViewer() {
           value: BigInt(txInfo.transaction.value || 0),
         })
         
-        console.log(`Transaction ${i + 1} submitted:`, hash)
+        console.log(`Transaction ${i + 1} submitted, hash: ${hash}. Waiting for receipt...`)
         
         if (publicClient) {
           // Wait for confirmation before prompting the user for the next transaction
+          console.log('Public client found. Polling for receipt...')
           const receipt = await publicClient.waitForTransactionReceipt({ hash })
+          console.log(`Receipt received for ${hash}! Status:`, receipt.status)
           if (receipt.status === 'reverted') {
             throw new Error(`Transaction ${i + 1} reverted on chain! Hash: ${hash}`)
           }
+        } else {
+          console.warn('No publicClient available to wait for receipt!')
         }
       }
       
+      console.log('All transactions finished! Setting success message.')
       setSuccessMsg(`All ${order.transactions.length} transactions executed successfully!`)
       fetchQuote(true)
     } catch (err) {
