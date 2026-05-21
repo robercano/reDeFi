@@ -15,6 +15,7 @@ export function SwapViewer() {
   const [loading, setLoading] = useState(false)
   const [executingIndex, setExecutingIndex] = useState(-1)
   const [error, setError] = useState<string | null>(null)
+  const [successMsg, setSuccessMsg] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
 
   const { chainId } = useAccount()
@@ -26,6 +27,7 @@ export function SwapViewer() {
       if (!isSilent) {
         setLoading(true)
         setError(null)
+        setSuccessMsg(null)
         setSimulation(null)
         setOrder(null)
       }
@@ -103,6 +105,8 @@ export function SwapViewer() {
     if (!order || order.transactions.length === 0) return
     try {
       setLoading(true)
+      setError(null)
+      setSuccessMsg(null)
       
       for (let i = 0; i < order.transactions.length; i++) {
         setExecutingIndex(i)
@@ -118,12 +122,15 @@ export function SwapViewer() {
         
         if (publicClient) {
           // Wait for confirmation before prompting the user for the next transaction
-          await publicClient.waitForTransactionReceipt({ hash })
+          const receipt = await publicClient.waitForTransactionReceipt({ hash })
+          if (receipt.status === 'reverted') {
+            throw new Error(`Transaction ${i + 1} reverted on chain! Hash: ${hash}`)
+          }
         }
       }
       
-      alert(`All transactions submitted successfully!`)
-      fetchQuote(false)
+      setSuccessMsg(`All ${order.transactions.length} transactions executed successfully!`)
+      fetchQuote(true)
     } catch (err) {
       console.error(err)
       const message = (err as Error)?.message || ''
@@ -243,6 +250,12 @@ export function SwapViewer() {
       {error && (
         <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 mb-6 font-mono text-sm break-words">
           Error: {error}
+        </div>
+      )}
+
+      {successMsg && (
+        <div className="p-4 rounded-xl bg-[var(--neon-cyan)]/10 border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] mb-6 font-mono text-sm break-words shadow-[0_0_15px_rgba(0,240,255,0.2)]">
+          🎉 {successMsg}
         </div>
       )}
 
