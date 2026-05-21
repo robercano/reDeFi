@@ -74,24 +74,33 @@ export default function Home() {
                 setTopUpMessage('Topping up...')
                 
                 // Top up the requested test address
-                let res1 = await fetch('/api/topup', {
+                const res1 = await fetch('/api/topup', {
                   method: 'POST',
                   body: JSON.stringify({ address: '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' }),
                 })
-                if (!res1.ok) throw new Error('Failed to top up test address')
+                if (!res1.ok) {
+                  const errorData = await res1.json().catch(() => ({}))
+                  throw new Error(errorData.error || `HTTP ${res1.status}`)
+                }
                 
                 // Top up the connected user wallet just in case they are different
                 if (address && address.toLowerCase() !== '0xaaf00613a099deae24eeb2c21ad2965cadeac244') {
-                  let res2 = await fetch('/api/topup', {
+                  const res2 = await fetch('/api/topup', {
                     method: 'POST',
                     body: JSON.stringify({ address }),
                   })
-                  if (!res2.ok) throw new Error('Failed to top up connected wallet')
+                  if (!res2.ok) {
+                    const errorData = await res2.json().catch(() => ({}))
+                    throw new Error(errorData.error || `HTTP ${res2.status}`)
+                  }
                 }
 
                 setTopUpMessage('Success!')
-              } catch (error) {
-                setTopUpMessage('Failed!')
+              } catch (err) {
+                const error = err as Error
+                console.error("Top up error:", error)
+                setTopUpMessage(`Error: ${error.message.substring(0, 30)}...`)
+                alert(`Top up failed details: ${error.message}`)
               } finally {
                 setIsToppingUp(false)
                 setTimeout(() => setTopUpMessage(''), 3000)
