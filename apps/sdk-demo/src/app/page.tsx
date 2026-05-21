@@ -53,6 +53,8 @@ export default function Home() {
 
   // State to track which tool is currently selected
   const [activeToolId, setActiveToolId] = useState<string>(SDK_TOOLS[0].id)
+  const [isToppingUp, setIsToppingUp] = useState(false)
+  const [topUpMessage, setTopUpMessage] = useState('')
 
   const activeTool = SDK_TOOLS.find((t) => t.id === activeToolId)
   const ActiveComponent = activeTool?.component || EmptyComponent
@@ -68,31 +70,37 @@ export default function Home() {
           <button
             onClick={async () => {
               try {
-                // We use the user's connected wallet address for the top-up, but since the user requested 0xAAf... specifically, we can use that or the connected one. Let's top up the specific testing address 0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244 and also the connected one to be safe.
-                alert('Topping up balances on Tenderly fork...')
+                setIsToppingUp(true)
+                setTopUpMessage('Topping up...')
                 
                 // Top up the requested test address
-                await fetch('/api/topup', {
+                let res1 = await fetch('/api/topup', {
                   method: 'POST',
                   body: JSON.stringify({ address: '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' }),
                 })
+                if (!res1.ok) throw new Error('Failed to top up test address')
                 
                 // Top up the connected user wallet just in case they are different
                 if (address && address.toLowerCase() !== '0xaaf00613a099deae24eeb2c21ad2965cadeac244') {
-                  await fetch('/api/topup', {
+                  let res2 = await fetch('/api/topup', {
                     method: 'POST',
                     body: JSON.stringify({ address }),
                   })
+                  if (!res2.ok) throw new Error('Failed to top up connected wallet')
                 }
 
-                alert('Top up successful!')
+                setTopUpMessage('Success!')
               } catch (error) {
-                alert('Top up failed.')
+                setTopUpMessage('Failed!')
+              } finally {
+                setIsToppingUp(false)
+                setTimeout(() => setTopUpMessage(''), 3000)
               }
             }}
-            className="px-3 py-2 md:px-4 md:py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-xs md:text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md whitespace-nowrap"
+            disabled={isToppingUp}
+            className="px-3 py-2 md:px-4 md:py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-xs md:text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md whitespace-nowrap disabled:opacity-50"
           >
-            Top Up Fork
+            {isToppingUp ? 'Topping up...' : topUpMessage || 'Top Up Fork'}
           </button>
         <a
           href="/api-reference/index.html"
