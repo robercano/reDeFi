@@ -54,4 +54,4 @@ jobs:
           sed -i '/^AWS_PROFILE=/d' .env
 
       - name: Deploy Backend
-        run: npx sst deploy --stage main
+        run: npx sst deploy --stage development
