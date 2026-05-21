@@ -1,6 +1,9 @@
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  env: {
+    E2E_SDK_FORK_URL_MAINNET: process.env.E2E_SDK_FORK_URL_MAINNET,
+  },
   output: 'standalone',
   images: {
     remotePatterns: [
