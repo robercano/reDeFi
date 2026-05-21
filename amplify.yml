@@ -16,6 +16,8 @@ applications:
             - pnpm turbo run docs:generate
         build:
           commands:
+            # Inject Amplify Environment Variables into .env.production for Next.js SSR
+            - echo "E2E_SDK_FORK_URL_MAINNET=$E2E_SDK_FORK_URL_MAINNET" >> .env.production
             # Run Turborepo build from the workspace root
             - pnpm turbo run build --filter=sdk-demo
       artifacts:
