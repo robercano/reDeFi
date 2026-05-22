@@ -14,7 +14,7 @@ import { Price } from '@thesolidchain/sdk-common'
  * implements IIntentSwapClient
  */
 export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {
-  private readonly _signer: SDKSigner
+  private readonly _signer?: SDKSigner
 
   private _validateChainId(chainId: number) {
     if (!ALL_SUPPORTED_CHAIN_IDS.includes(chainId as SupportedChainId)) {
@@ -22,7 +22,7 @@ export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {
     }
   }
 
-  public constructor(params: { rpcClient: RPCMainClientType; signer: SDKSigner }) {
+  public constructor(params: { rpcClient: RPCMainClientType; signer?: SDKSigner }) {
     super(params)
     this._signer = params.signer
   }
@@ -53,6 +53,7 @@ export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {
     this._validateChainId(params.chainId)
 
     const signer = this._signer
+    if (!signer) throw new Error('Signer is required to send IntentSwap orders')
 
     const signingResult = await OrderSigningUtils.signOrder(
       params.order,
@@ -75,6 +76,7 @@ export class IntentSwapClient extends IRPCClient implements IIntentSwapClient {
     this._validateChainId(params.chainId)
 
     const signer = this._signer
+    if (!signer) throw new Error('Signer is required to cancel IntentSwap orders')
 
     const orderCancellationsSigningResult = await OrderSigningUtils.signOrderCancellation(
       params.orderId,

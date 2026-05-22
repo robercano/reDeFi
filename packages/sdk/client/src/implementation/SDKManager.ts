@@ -7,6 +7,7 @@ import { ProtocolsManagerClient } from './ProtocolsManagerClient'
 import { OrdersManagerClient } from './OrdersManagerClient'
 import { SimulatorClient } from './simulations/SimulatorClient'
 import { SwapManagerClient } from './SwapManagerClient'
+import { IntentSwapClient } from './IntentSwapClient'
 import { TokensManagerClient2 } from './TokensManagerClient2'
 import { UsersManager } from './UsersManager'
 import { EventBus } from '@thesolidchain/events-service'
@@ -21,6 +22,7 @@ export class SDKManager implements ISDKManager {
   public readonly users: UsersManager
   public readonly portfolio: PortfolioManager
   public readonly swaps: SwapManagerClient
+  public readonly intentSwaps: IntentSwapClient
   public readonly oracle: OracleManagerClient
   public readonly protocols: ProtocolsManagerClient
   public readonly orders: OrdersManagerClient
@@ -33,6 +35,7 @@ export class SDKManager implements ISDKManager {
     this.users = new UsersManager(params)
     this.portfolio = new PortfolioManager(params)
     this.swaps = new SwapManagerClient(params)
+    this.intentSwaps = new IntentSwapClient(params)
     this.oracle = new OracleManagerClient(params)
     this.protocols = new ProtocolsManagerClient(params)
     this.orders = new OrdersManagerClient(params)

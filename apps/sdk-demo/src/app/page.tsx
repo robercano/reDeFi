@@ -5,6 +5,7 @@ import { TokenFetcher } from '../components/TokenFetcher'
 import { PortfolioViewer } from '../components/PortfolioViewer'
 import { YieldViewer } from '../components/YieldViewer'
 import { SwapViewer } from '../components/SwapViewer'
+import { IntentSwapViewer } from '../components/IntentSwapViewer'
 import { ProtocolInteractor } from '../components/ProtocolInteractor'
 
 // Tool registry representing the available SDK demonstrations
@@ -36,10 +37,17 @@ const SDK_TOOLS = [
   },
   {
     id: 'swap-viewer',
-    name: 'Swap Simulator',
+    name: 'Direct Swap Simulator',
     description:
       'Simulate decentralized exchanges to find optimal swap routes and quotes between two tokens.',
     component: SwapViewer,
+  },
+  {
+    id: 'intent-swap-viewer',
+    name: 'Intent Swap Simulator',
+    description:
+      'Use off-chain solvers (CowSwap) to find optimal intents and sign orders gaslessly.',
+    component: IntentSwapViewer,
   },
 ]
 

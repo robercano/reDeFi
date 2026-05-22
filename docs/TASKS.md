@@ -14,13 +14,13 @@ The reDeFi SDK has a well-defined architecture. Any tasks must comply with this 
 
 ## 2. Frontend Swap Execution (SDK & React)
 
-- [ ] **Standard Swaps (1inch):**
-  - Add `getSwapDataExactInput` to `ISwapManagerClient` and implement it in `SwapManagerClient`.
-  - Create `getSwapDataHandler` in `sdk-react` and expose it via `useSDK`.
-- [ ] **Intent-Based Swaps (CowSwap):**
-  - Create React handlers for `getSellOrderQuote`, `sendOrder`, and `checkOrder`.
-  - Expose `intentSwaps` handlers via `useSDK`.
-- [ ] **UI Integration:** Add an "Execute Swap" flow in `SwapViewer.tsx` to utilize the exported payloads.
+- [x] **Standard Swaps (1inch):**
+  - [x] Add `getSwapDataExactInput` to `ISwapManagerClient` and implement it in `SwapManagerClient`.
+  - [x] Create `getSwapDataHandler` in `sdk-react` and expose it via `useSDK`.
+- [x] **Intent-Based Swaps (CowSwap):**
+  - [x] Create React handlers for `getSellOrderQuote`, `sendOrder`, and `checkOrder`.
+  - [x] Expose `intentSwaps` handlers via `useSDK`.
+- [x] **UI Integration:** Add an "Execute Swap" flow in `SwapViewer.tsx` to utilize the exported payloads.
 
 ## 3. Protocol Plugins Implementation
 

@@ -2,6 +2,7 @@ import type { IChainsManagerClient } from './IChainsManager'
 import type { IOracleManagerClient } from './IOracleManagerClient'
 import type { IPortfolioManager } from './IPortfolioManager'
 import type { ISwapManagerClient } from './ISwapManagerClient'
+import type { IIntentSwapClient } from './IIntentSwapClient'
 import type { ITokensManagerClient2 } from './ITokensManagerClient2'
 import type { IUsersManager } from './IUsersManager'
 import type { ISimulatorClient } from './simulations/ISimulatorClient'
@@ -35,6 +36,8 @@ export interface ISDKManager {
   readonly oracle: IOracleManagerClient
   /** Protocols Manager for interacting with protocols */
   readonly protocols: IProtocolsManagerClient
+  /** Intent Swaps Manager for interacting with off-chain solvers */
+  readonly intentSwaps: IIntentSwapClient
   /** Orders Manager for building and handling execution orders */
   readonly orders: IOrdersManagerClient
 }

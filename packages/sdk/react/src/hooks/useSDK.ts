@@ -1,5 +1,5 @@
-import { makeSDK } from '@thesolidchain/sdk-client'
-import type { ISimulatorClient, SimulatorClient } from '@thesolidchain/sdk-client'
+import { makeSDK, makeSDKWithSigner } from '@thesolidchain/sdk-client'
+import type { ISimulatorClient, SimulatorClient, SDKSigner } from '@thesolidchain/sdk-client'
 import { useCallback, useMemo } from 'react'
 
 import { useSDKContext } from '../components/SDKContext'
@@ -10,6 +10,11 @@ import { getCurrentUserHandler } from '../handlers/getCurrentUserHandler'
 import { getSpotPriceHandler } from '../handlers/getSpotPriceHandler'
 import { getSpotPricesHandler } from '../handlers/getSpotPricesHandler'
 import { getSwapQuoteHandler } from '../handlers/getSwapQuoteHandler'
+import { getSwapDataHandler } from '../handlers/getSwapDataHandler'
+import { getSellOrderQuoteHandler } from '../handlers/getSellOrderQuoteHandler'
+import { sendOrderHandler } from '../handlers/sendOrderHandler'
+import { checkOrderHandler } from '../handlers/checkOrderHandler'
+import { cancelOrderHandler } from '../handlers/cancelOrderHandler'
 import { getTokenBySymbolHandler } from '../handlers/getTokenBySymbolHandler'
 import { getTokenTotalSupplyHandler } from '../handlers/getTokenTotalSupplyHandler'
 import { getUserPortfolioHandler } from '../handlers/getUserPortfolioHandler'
@@ -20,6 +25,7 @@ import { buildOrderHandler } from '../handlers/buildOrderHandler'
 type UseSdk = {
   walletAddress?: string
   chainId?: number
+  signer?: SDKSigner
 }
 
 /**
@@ -31,15 +37,19 @@ type UseSdk = {
  * @param params - The hook initialization parameters.
  * @param params.walletAddress - The active wallet address connecting to the SDK.
  * @param params.chainId - The currently active chain ID context.
+ * @param params.signer - An optional signer for operations that require user signatures (like intents).
  * @returns A memoized object containing the SDK event bus and various data retrieval/execution functions.
  */
 export const useSDK = (params: UseSdk) => {
   const { apiURL, apiKey } = useSDKContext()
-  const sdk = useMemo(() => {
-    return makeSDK({ apiURL, apiKey })
-  }, [apiURL, apiKey])
+  const { chainId, walletAddress: walletAddressString, signer } = params
 
-  const { chainId, walletAddress: walletAddressString } = params
+  const sdk = useMemo(() => {
+    if (signer) {
+      return makeSDKWithSigner({ apiURL, apiKey, signer })
+    }
+    return makeSDK({ apiURL, apiKey })
+  }, [apiURL, apiKey, signer])
 
   const getChainInfo = useMemo(() => getChainInfoHandler(chainId), [chainId])
   const getTargetChainInfo = useCallback((specificChainId: number) => {
@@ -65,6 +75,7 @@ export const useSDK = (params: UseSdk) => {
 
   // SWAPS
   const getSwapQuote = useMemo(() => getSwapQuoteHandler(sdk), [sdk])
+  const getSwapData = useMemo(() => getSwapDataHandler(sdk), [sdk])
 
   // ORACLES
 
@@ -80,6 +91,14 @@ export const useSDK = (params: UseSdk) => {
   const getLendingPoolInfo = useMemo(() => getLendingPoolInfoHandler(sdk), [sdk])
   const buildOrder = useMemo(() => buildOrderHandler(sdk), [sdk])
 
+  // INTENT SWAPS
+  const intentSwaps = useMemo(() => ({
+    getSellOrderQuote: getSellOrderQuoteHandler(sdk),
+    sendOrder: sendOrderHandler(sdk),
+    checkOrder: checkOrderHandler(sdk),
+    cancelOrder: cancelOrderHandler(sdk),
+  }), [sdk])
+
   const memo = useMemo(
     () => ({
       eventBus: sdk.eventBus,
@@ -91,12 +110,14 @@ export const useSDK = (params: UseSdk) => {
       getTokenBySymbol,
       getTokenTotalSupply,
       getSwapQuote,
+      getSwapData,
       getSpotPrice,
       getSpotPrices,
       getUserPortfolio,
       getLendingPool,
       getLendingPoolInfo,
       buildOrder,
+      intentSwaps,
       simulator: sdk.simulator,
     }),
     [
@@ -110,12 +131,14 @@ export const useSDK = (params: UseSdk) => {
       getTokenBySymbol,
       getTokenTotalSupply,
       getSwapQuote,
+      getSwapData,
       getSpotPrice,
       getSpotPrices,
       getUserPortfolio,
       getLendingPool,
       getLendingPoolInfo,
       buildOrder,
+      intentSwaps,
     ],
   )
 
