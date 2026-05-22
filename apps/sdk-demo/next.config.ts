@@ -4,12 +4,12 @@ import * as path from 'path'
 
 let forkUrl = process.env.E2E_SDK_FORK_URL_MAINNET;
 try {
-  let rootEnvPath = path.resolve(process.cwd(), '../../.env');
+  // Turborepo execution from root
+  let rootEnvPath = path.resolve(process.cwd(), '.env');
+  
+  // Next.js execution from apps/sdk-demo
   if (!fs.existsSync(rootEnvPath)) {
-    rootEnvPath = path.resolve(__dirname, '../../.env');
-  }
-  if (!fs.existsSync(rootEnvPath)) {
-    rootEnvPath = path.resolve(process.cwd(), '.env'); // fallback
+    rootEnvPath = path.resolve(process.cwd(), '../../.env');
   }
 
   if (fs.existsSync(rootEnvPath)) {
@@ -32,6 +32,7 @@ try {
 const nextConfig: NextConfig = {
   env: {
     E2E_SDK_FORK_URL_MAINNET: forkUrl,
+    NEXT_PUBLIC_TENDERLY_RPC_URL: forkUrl,
   },
   output: 'standalone',
   images: {
