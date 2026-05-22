@@ -129,8 +129,26 @@ export function SwapViewer() {
         logDebug(`Transaction ${i + 1}/${order.transactions.length} submitted. Hash: ${hash}`)
         
         if (publicClient) {
-          logDebug(`Waiting for receipt for ${hash}...`)
-          const receipt = await publicClient.waitForTransactionReceipt({ hash })
+          const rpcUrl = publicClient.chain?.rpcUrls?.default?.http?.[0] || 'Unknown RPC'
+          logDebug(`PublicClient RPC URL: ${rpcUrl}`)
+          logDebug(`Polling manually for receipt of ${hash}...`)
+          
+          let receipt = null
+          let attempts = 0
+          while (!receipt && attempts < 30) {
+            try {
+              receipt = await publicClient.getTransactionReceipt({ hash })
+            } catch (e) {
+              // Viem throws if not found yet
+              attempts++
+              await new Promise(r => setTimeout(r, 1000))
+            }
+          }
+
+          if (!receipt) {
+            throw new Error(`Transaction receipt not found after 30 seconds! Hash: ${hash}`)
+          }
+
           logDebug(`Receipt received! Status: ${receipt.status}`)
           if (receipt.status === 'reverted') {
             logDebug('Transaction reverted!')
