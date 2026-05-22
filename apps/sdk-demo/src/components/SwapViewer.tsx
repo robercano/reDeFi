@@ -17,6 +17,12 @@ export function SwapViewer() {
   const [error, setError] = useState<string | null>(null)
   const [successMsg, setSuccessMsg] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
+  const [debugLog, setDebugLog] = useState<string[]>([])
+
+  const logDebug = (msg: string) => {
+    console.log('[SwapViewer Debug]', msg)
+    setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${msg}`])
+  }
 
   const { chainId } = useAccount()
   const sdk = useAppSDK()
@@ -104,9 +110,11 @@ export function SwapViewer() {
   const handleExecute = async () => {
     if (!order || order.transactions.length === 0) return
     try {
+      logDebug('Starting execution...')
       setLoading(true)
       setError(null)
       setSuccessMsg(null)
+      setDebugLog([])
       
       for (let i = 0; i < order.transactions.length; i++) {
         setExecutingIndex(i)
@@ -118,25 +126,28 @@ export function SwapViewer() {
           value: BigInt(txInfo.transaction.value || 0),
         })
         
-        console.log(`Transaction ${i + 1} submitted, hash: ${hash}. Waiting for receipt...`)
+        logDebug(`Transaction ${i + 1}/${order.transactions.length} submitted. Hash: ${hash}`)
         
         if (publicClient) {
-          // Wait for confirmation before prompting the user for the next transaction
-          console.log('Public client found. Polling for receipt...')
+          logDebug(`Waiting for receipt for ${hash}...`)
           const receipt = await publicClient.waitForTransactionReceipt({ hash })
-          console.log(`Receipt received for ${hash}! Status:`, receipt.status)
+          logDebug(`Receipt received! Status: ${receipt.status}`)
           if (receipt.status === 'reverted') {
+            logDebug('Transaction reverted!')
             throw new Error(`Transaction ${i + 1} reverted on chain! Hash: ${hash}`)
           }
         } else {
-          console.warn('No publicClient available to wait for receipt!')
+          logDebug('No publicClient available!')
         }
       }
       
-      console.log('All transactions finished! Setting success message.')
+      logDebug('All transactions finished! Setting success message.')
       setSuccessMsg(`All ${order.transactions.length} transactions executed successfully!`)
+      logDebug('Calling fetchQuote(true) to refresh balances...')
       fetchQuote(true)
+      logDebug('Execution flow complete.')
     } catch (err) {
+      logDebug(`Error caught: ${(err as Error)?.message}`)
       console.error(err)
       const message = (err as Error)?.message || ''
       
@@ -261,6 +272,15 @@ export function SwapViewer() {
       {successMsg && (
         <div className="p-4 rounded-xl bg-[var(--neon-cyan)]/10 border border-[var(--neon-cyan)]/30 text-[var(--neon-cyan)] mb-6 font-mono text-sm break-words shadow-[0_0_15px_rgba(0,240,255,0.2)]">
           🎉 {successMsg}
+        </div>
+      )}
+
+      {debugLog.length > 0 && (
+        <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-700 text-neutral-300 mb-6 font-mono text-xs break-words max-h-40 overflow-y-auto">
+          <div className="text-[var(--neon-orange)] mb-2 font-bold uppercase">Execution Log (Debug)</div>
+          {debugLog.map((log, i) => (
+            <div key={i}>{log}</div>
+          ))}
         </div>
       )}
 
