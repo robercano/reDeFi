@@ -65,7 +65,7 @@ export function SwapViewer() {
         try {
           user = sdk.getCurrentUser()
         } catch (e) {
-          if (process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'test') {
+          if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'development' || process.env.NEXT_PUBLIC_BUILD_TYPE === 'test') {
             console.warn('Wallet not connected. Using mock user for simulation.')
             user = User.createFrom({
               chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
