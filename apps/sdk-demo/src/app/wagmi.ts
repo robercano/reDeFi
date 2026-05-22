@@ -1,12 +1,14 @@
 import { getDefaultConfig } from '@rainbow-me/rainbowkit'
 import { arbitrum, mainnet, sepolia, base, bsc, polygon, optimism, avalanche } from 'wagmi/chains'
 
-const isDev = process.env.NODE_ENV === 'development'
 const forkUrl = process.env.NEXT_PUBLIC_TENDERLY_RPC_URL || process.env.E2E_SDK_FORK_URL_MAINNET
 
+// We rely on the presence of forkUrl rather than NODE_ENV === 'development'
+// because Next.js forces NODE_ENV='production' during AWS Amplify builds.
+// To disable this in true production, simply do not set these environment variables.
 const customMainnet = {
   ...mainnet,
-  ...(isDev && forkUrl
+  ...(forkUrl
     ? {
         rpcUrls: {
           ...mainnet.rpcUrls,
