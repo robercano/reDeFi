@@ -46,7 +46,7 @@ describe('SwapOrderPlanner', () => {
       simulation: {
         type: SimulationType.Swap,
         steps: [
-          { type: SimulationSteps.Swap } // Just a dummy step to simulate
+          { type: SimulationSteps.Swap, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' } } }
         ],
         balanceChanges: [],
         gasEstimations: [],
@@ -58,7 +58,7 @@ describe('SwapOrderPlanner', () => {
     const order = await planner.buildOrder(params)
     expect(order?.transactions).toEqual([
       {
-        transaction: { target: '0x0000000000000000000000000000000000000002', calldata: '0xSwapData', value: '100' },
+        transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' },
         description: 'Swap token',
       }
     ])
@@ -69,8 +69,8 @@ describe('SwapOrderPlanner', () => {
       simulation: {
         type: SimulationType.Swap,
         steps: [
-          { type: SimulationSteps.Approve },
-          { type: SimulationSteps.Swap }
+          { type: SimulationSteps.Approve, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000001' }, calldata: '0xApprove', value: '0' } } },
+          { type: SimulationSteps.Swap, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' } } }
         ],
         balanceChanges: [],
         gasEstimations: [],
@@ -82,7 +82,7 @@ describe('SwapOrderPlanner', () => {
     const order = await planner.buildOrder(params)
     expect(order?.transactions).toHaveLength(1)
     expect(order?.transactions[0].description).toBe('Bundled Swap Execution (Multicall)')
-    expect(order?.transactions[0].transaction.target).toBe('0xcA11bde05977b3631167028862bE2a173976CA11')
+    expect(order?.transactions[0].transaction.target.value).toBe('0xcA11bde05977b3631167028862bE2a173976CA11')
     expect(order?.transactions[0].transaction.value).toBe('100')
   })
 })

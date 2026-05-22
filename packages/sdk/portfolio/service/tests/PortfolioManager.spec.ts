@@ -68,7 +68,7 @@ describe('PortfolioManager', () => {
     it('should aggregate non-zero balances and compute fiat values correctly', async () => {
       mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
         if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-        return undefined
+        return undefined as any
       })
 
       const mockFiatAmount = { price: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '1' }) }
@@ -92,7 +92,7 @@ describe('PortfolioManager', () => {
     it('should silently skip fiat conversion if oracle fails', async () => {
       mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
         if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-        return undefined
+        return undefined as any
       })
 
       mockOracleManager.getSpotPrice.mockRejectedValue(new Error('Oracle error'))
@@ -111,12 +111,12 @@ describe('PortfolioManager', () => {
         walletHoldings: [],
         totalFiatValue: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '0' }),
       }
-      mockCacheService.get.mockResolvedValue(mockCachedPortfolio as unknown as import('@thesolidchain/sdk-common').IPortfolio)
+      mockCacheService.get.mockResolvedValue(mockCachedPortfolio as any)
 
       const portfolio = await portfolioManager.getUserPortfolio({ user: mockUser })
 
       expect(portfolio).toBeDefined()
-      expect(mockCacheService.get).toHaveBeenCalledWith(`PortfolioManager:getUserPortfolio:0x123`)
+      expect(mockCacheService.get).toHaveBeenCalledWith(`PortfolioManager:getUserPortfolio:1:0x123`)
       expect(mockTokensManager.getTokenBalanceBySymbol).not.toHaveBeenCalled()
     })
 
@@ -125,7 +125,7 @@ describe('PortfolioManager', () => {
 
       mockTokensManager.getTokenBalanceBySymbol.mockImplementation(async ({ symbol }: { symbol: string }) => {
         if (symbol === CommonTokenSymbols.USDC) return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-        return undefined
+        return undefined as any
       })
 
       const mockFiatAmount = { price: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '1' }) }
@@ -136,7 +136,7 @@ describe('PortfolioManager', () => {
       expect(portfolio.walletHoldings).toHaveLength(1)
       expect(portfolio.totalFiatValue.amount).toBe('1') // Total is 1 USD
       expect(mockCacheService.set).toHaveBeenCalledWith(
-        `PortfolioManager:getUserPortfolio:0x123`,
+        `PortfolioManager:getUserPortfolio:1:0x123`,
         portfolio,
         60
       )
