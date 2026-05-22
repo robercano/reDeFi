@@ -7,9 +7,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Address is required' }, { status: 400 })
     }
 
-    const tenderlyUrl = process.env.E2E_SDK_FORK_URL_MAINNET
+    const tenderlyUrl = process.env.NEXT_PUBLIC_TENDERLY_RPC_URL || process.env.E2E_SDK_FORK_URL_MAINNET
     if (!tenderlyUrl) {
-      return NextResponse.json({ error: 'E2E_SDK_FORK_URL_MAINNET not set' }, { status: 500 })
+      return NextResponse.json({ error: 'Tenderly RPC URL not configured in environment variables' }, { status: 500 })
     }
 
     const tokensToTopUp = [
