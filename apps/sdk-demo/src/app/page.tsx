@@ -53,6 +53,7 @@ const SDK_TOOLS = [
 
 import { useAccount } from 'wagmi'
 import { ConnectButton } from '@rainbow-me/rainbowkit'
+import { ActivityViewer } from '../components/ActivityViewer'
 
 const EmptyComponent = () => null
 
@@ -139,6 +140,7 @@ export default function Home() {
             {chain?.name || `Unknown Network (${chainId})`}
           </div>
         )}
+        <ActivityViewer />
         <ConnectButton chainStatus="none" />
       </nav>
 
