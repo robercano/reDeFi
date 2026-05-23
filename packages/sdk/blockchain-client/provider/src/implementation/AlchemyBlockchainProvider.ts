@@ -1,5 +1,5 @@
 import { createPublicClient, http, fallback, type Chain, type Transport } from 'viem'
-import { arbitrum, base, mainnet, sonic } from 'viem/chains'
+import { arbitrum, base, mainnet, sonic, sepolia, optimism } from 'viem/chains'
 import { IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import {
   BlockchainProviderType,
@@ -22,7 +22,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   public readonly configProvider: IConfigurationProvider
 
   private readonly _blockchainClients: Map<number, IBlockchainClient> = new Map()
-  private readonly _supportedChains: Chain[] = [mainnet, arbitrum, base, sonic, hyperliquid]
+  private readonly _supportedChains: Chain[] = [mainnet, arbitrum, base, sonic, hyperliquid, sepolia, optimism]
   private readonly _apiKey: string
   private readonly _tenderlyForkUrl: string | undefined
 
@@ -152,6 +152,10 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
       return `https://arb-mainnet.g.alchemy.com/v2/${this._apiKey}`
     } else if (chainId === sonic.id) {
       return `https://sonic-mainnet.g.alchemy.com/v2/${this._apiKey}`
+    } else if (chainId === sepolia.id) {
+      return `https://eth-sepolia.g.alchemy.com/v2/${this._apiKey}`
+    } else if (chainId === optimism.id) {
+      return `https://opt-mainnet.g.alchemy.com/v2/${this._apiKey}`
     }
     return undefined
   }

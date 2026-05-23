@@ -442,6 +442,8 @@ export class CoingeckoOracleProvider
         return 'sonic-3'
       case ChainIds.Hyperliquid:
         return 'hyperliquid'
+      case ChainIds.Sepolia:
+        return 'ethereum'
       default:
         throw new Error(`Unsupported coingecko Id for chain: ${chainId}`)
     }
@@ -510,6 +512,8 @@ export class CoingeckoOracleProvider
         return 'sonic'
       case ChainIds.Hyperliquid:
         return 'hyperevm'
+      case ChainIds.Sepolia:
+        return 'ethereum'
       default:
         throw new Error(`Unsupported coingecko platform chain: ${chainId}`)
     }
