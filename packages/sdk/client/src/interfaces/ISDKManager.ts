@@ -10,6 +10,8 @@ import type { IOrdersManagerClient } from './IOrdersManagerClient'
 import type { IProtocolsManagerClient } from './IProtocolsManagerClient'
 import type { IEventBus } from '@thesolidchain/events-common'
 
+import type { IActivityService } from '@thesolidchain/sdk-common'
+
 /**
  * Main entry point for interacting with the reDeFi SDK on the client side.
  *
@@ -40,4 +42,6 @@ export interface ISDKManager {
   readonly intentSwaps: IIntentSwapClient
   /** Orders Manager for building and handling execution orders */
   readonly orders: IOrdersManagerClient
+  /** Activity Manager for tracking user intents and transactions */
+  readonly activity: IActivityService
 }

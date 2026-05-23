@@ -3,17 +3,9 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount, useSendTransaction, usePublicClient } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken, TokenAmount, IntentQuoteData, Address, ChainId } from '@thesolidchain/sdk-common'
+import { formatTokenAmountHumanReadable, IToken, TokenAmount, IntentQuoteData, Address, ChainId, ActivityType, ActivityStatus } from '@thesolidchain/sdk-common'
 
-interface SavedIntent {
-  orderId: string
-  chainId: number
-  fromSymbol: string
-  toSymbol: string
-  fromAmount: string
-  status: string
-  timestamp: number
-}
+
 
 export function IntentSwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')
@@ -26,17 +18,7 @@ export function IntentSwapViewer() {
   const [successMsg, setSuccessMsg] = useState<string | null>(null)
   const [isPolling, setIsPolling] = useState(false)
   const [debugLog, setDebugLog] = useState<string[]>([])
-  const [savedIntents, setSavedIntents] = useState<SavedIntent[]>([])
 
-  // Load saved intents on mount
-  useEffect(() => {
-    const saved = localStorage.getItem('intentSwapViewer_savedIntents')
-    if (saved) {
-      try {
-        setSavedIntents(JSON.parse(saved))
-      } catch { }
-    }
-  }, [])
 
   const logDebug = (msg: string) => {
     console.log('[IntentSwapViewer Debug]', msg)
@@ -137,10 +119,38 @@ export function IntentSwapViewer() {
          })
          logDebug(`Submitted prerequisite tx: ${hash}. Waiting for receipt...`)
          
+         // Log the transaction
+         await sdk.activity.logActivity({
+           id: hash,
+           type: ActivityType.TRANSACTION,
+           status: ActivityStatus.PENDING,
+           chainId: activeChainId,
+           timestamp: Date.now(),
+           walletAddress: userAddress,
+           metadata: {
+             title: result.status === 'allowance_needed' ? `Approve ${intentQuote.fromAmount.token.symbol}` : `Wrap Native Token`,
+             explorerLink: `https://sepolia.etherscan.io/tx/${hash}`
+           }
+         })
+
          if (publicClient) {
            await publicClient.waitForTransactionReceipt({ hash })
            logDebug('Receipt confirmed! Re-attempting sendOrder...')
            
+           // Update transaction status
+           await sdk.activity.logActivity({
+             id: hash,
+             type: ActivityType.TRANSACTION,
+             status: ActivityStatus.SUCCESS,
+             chainId: activeChainId,
+             timestamp: Date.now(),
+             walletAddress: userAddress,
+             metadata: {
+               title: result.status === 'allowance_needed' ? `Approve ${intentQuote.fromAmount.token.symbol}` : `Wrap Native Token`,
+               explorerLink: `https://sepolia.etherscan.io/tx/${hash}`
+             }
+           })
+
            // Re-trigger handleExecute now that prerequisite is met
            await handleExecute()
            return
@@ -151,19 +161,17 @@ export function IntentSwapViewer() {
          logDebug(`Order sent successfully! Order ID: ${result.orderId}`)
          setSuccessMsg(`Intent successfully sent to CowSwap solvers! Order ID: ${result.orderId}`)
          
-         const newIntent: SavedIntent = {
-           orderId: result.orderId,
+         // Log to global activity tracker
+         await sdk.activity.logActivity({
+           id: result.orderId,
+           type: ActivityType.INTENT,
+           status: ActivityStatus.PENDING,
            chainId: activeChainId,
-           fromSymbol: intentQuote.fromAmount.token.symbol,
-           toSymbol: intentQuote.toAmount.token.symbol,
-           fromAmount: formatTokenAmountHumanReadable(intentQuote.fromAmount),
-           status: 'pending',
-           timestamp: Date.now()
-         }
-         setSavedIntents(prev => {
-           const updated = [newIntent, ...prev].slice(0, 10)
-           localStorage.setItem('intentSwapViewer_savedIntents', JSON.stringify(updated))
-           return updated
+           timestamp: Date.now(),
+           walletAddress: userAddress,
+           metadata: {
+             title: `Swap ${formatTokenAmountHumanReadable(intentQuote.fromAmount)} ${intentQuote.fromAmount.token.symbol} for ${intentQuote.toAmount.token.symbol}`,
+           }
          })
 
          fetchQuote(true)
@@ -199,32 +207,7 @@ export function IntentSwapViewer() {
     }
   }, [isPolling, fromSymbol, toSymbol, fromAmount, fetchQuote])
 
-  const checkPendingIntents = async () => {
-    if (savedIntents.length === 0) return
-    logDebug('Checking status of recent intents...')
-    
-    let hasUpdates = false
-    const updatedIntents = await Promise.all(savedIntents.map(async (intent) => {
-      if (['fulfilled', 'cancelled', 'expired'].includes(intent.status)) return intent
-      
-      try {
-        const res = await sdk.intentSwaps.checkOrder({ 
-          orderId: intent.orderId, 
-          chainId: intent.chainId as ChainId 
-        })
-        if (res?.order?.status && res.order.status !== intent.status) {
-          hasUpdates = true
-          return { ...intent, status: res.order.status }
-        }
-      } catch { }
-      return intent
-    }))
-    
-    if (hasUpdates) {
-      setSavedIntents(updatedIntents)
-      localStorage.setItem('intentSwapViewer_savedIntents', JSON.stringify(updatedIntents))
-    }
-  }
+
 
   return (
     <div className="w-full max-w-2xl mx-auto mt-8 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
@@ -390,63 +373,6 @@ export function IntentSwapViewer() {
         </div>
       )}
 
-      {/* History Section */}
-      {savedIntents.length > 0 && (
-        <div className="mt-12 p-6 rounded-xl bg-neutral-900/50 border border-neutral-800">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-bold text-white flex items-center gap-2">
-              Recent Intents
-            </h3>
-            <button 
-              onClick={checkPendingIntents}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[var(--neon-cyan)]/10 text-[var(--neon-cyan)] hover:bg-[var(--neon-cyan)]/20 transition-colors"
-            >
-              Refresh Status
-            </button>
-          </div>
-          
-          <div className="space-y-3">
-            {savedIntents.map((intent) => (
-              <div key={intent.orderId} className="p-4 rounded-lg bg-black/40 border border-neutral-800 flex items-center justify-between gap-4 flex-wrap">
-                <div className="flex-1 min-w-[200px]">
-                  <div className="text-sm font-bold text-white">
-                    Swap {intent.fromAmount} {intent.fromSymbol} → {intent.toSymbol}
-                  </div>
-                  <div className="text-xs text-neutral-500 font-mono mt-1 break-all">
-                    ID: {intent.orderId.substring(0, 10)}...{intent.orderId.substring(intent.orderId.length - 8)}
-                  </div>
-                  <div className="text-xs text-neutral-600 mt-1">
-                    {new Date(intent.timestamp).toLocaleString()}
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider
-                    ${intent.status === 'fulfilled' ? 'bg-green-500/10 text-green-400 border border-green-500/20' : ''}
-                    ${intent.status === 'pending' || intent.status === 'open' ? 'bg-orange-500/10 text-orange-400 border border-orange-500/20 animate-pulse' : ''}
-                    ${intent.status === 'cancelled' || intent.status === 'expired' ? 'bg-red-500/10 text-red-400 border border-red-500/20' : ''}
-                    ${!['fulfilled', 'pending', 'open', 'cancelled', 'expired'].includes(intent.status) ? 'bg-neutral-800 text-neutral-400' : ''}
-                  `}>
-                    {intent.status}
-                  </div>
-                  
-                  <a 
-                    href={`https://explorer.cow.fi/sepolia/orders/${intent.orderId}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="p-2 rounded-lg bg-neutral-800 hover:bg-neutral-700 transition-colors text-neutral-300"
-                    title="View on Explorer"
-                  >
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   )
 }

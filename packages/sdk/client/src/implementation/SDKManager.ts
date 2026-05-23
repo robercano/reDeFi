@@ -12,6 +12,7 @@ import { TokensManagerClient2 } from './TokensManagerClient2'
 import { UsersManager } from './UsersManager'
 import { EventBus } from '@thesolidchain/events-service'
 import type { IEventBus } from '@thesolidchain/events-common'
+import { ActivityService } from './ActivityService'
 
 /** @see ISDKManager */
 export class SDKManager implements ISDKManager {
@@ -26,6 +27,7 @@ export class SDKManager implements ISDKManager {
   public readonly oracle: OracleManagerClient
   public readonly protocols: ProtocolsManagerClient
   public readonly orders: OrdersManagerClient
+  public readonly activity: ActivityService
 
   public constructor(params: { rpcClient: RPCMainClientType }) {
     this.eventBus = new EventBus()
@@ -39,5 +41,6 @@ export class SDKManager implements ISDKManager {
     this.oracle = new OracleManagerClient(params)
     this.protocols = new ProtocolsManagerClient(params)
     this.orders = new OrdersManagerClient(params)
+    this.activity = new ActivityService(this)
   }
 }

@@ -13,6 +13,7 @@ import { OrdersManagerClient } from './OrdersManagerClient'
 import { SimulatorClient } from './simulations/SimulatorClient'
 import { EventBus } from '@thesolidchain/events-service'
 import type { IEventBus } from '@thesolidchain/events-common'
+import { ActivityService } from './ActivityService'
 
 /** @see ISDKManager */
 export class SDKManagerWithSigner implements ISDKManager {
@@ -27,6 +28,7 @@ export class SDKManagerWithSigner implements ISDKManager {
   public readonly orders: OrdersManagerClient
   public readonly intentSwaps: IntentSwapClient
   public readonly eventBus: IEventBus
+  public readonly activity: ActivityService
 
   public constructor(params: { rpcClient: RPCMainClientType; signer: SDKSigner }) {
     this.eventBus = new EventBus()
@@ -43,5 +45,6 @@ export class SDKManagerWithSigner implements ISDKManager {
       rpcClient: params.rpcClient,
       signer: params.signer,
     })
+    this.activity = new ActivityService(this)
   }
 }

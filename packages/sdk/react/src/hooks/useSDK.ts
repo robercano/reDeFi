@@ -1,5 +1,6 @@
 import { makeSDK, makeSDKWithSigner } from '@thesolidchain/sdk-client'
 import type { ISimulatorClient, SimulatorClient, SDKSigner } from '@thesolidchain/sdk-client'
+import type { IActivityService } from '@thesolidchain/sdk-common'
 import { useCallback, useMemo } from 'react'
 
 import { useSDKContext } from '../components/SDKContext'
@@ -119,10 +120,12 @@ export const useSDK = (params: UseSdk) => {
       buildOrder,
       intentSwaps,
       simulator: sdk.simulator,
+      activity: sdk.activity as IActivityService,
     }),
     [
       sdk.eventBus,
       sdk.simulator,
+      sdk.activity,
       getCurrentUser,
       getWalletAddress,
       getChainInfo,
