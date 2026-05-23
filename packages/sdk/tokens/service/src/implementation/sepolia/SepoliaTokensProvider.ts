@@ -42,6 +42,12 @@ const SEPOLIA_TOKENS_MOCK_DATA = [
     name: 'Dai Stablecoin',
     symbol: 'DAI',
   },
+  {
+    address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    decimals: 18,
+    name: 'Ethereum',
+    symbol: 'ETH',
+  },
 ]
 
 export class SepoliaTokensProvider
