@@ -15,7 +15,9 @@ export function formatTokenAmountHumanReadable(
     compactDisplay: 'short',
     maximumFractionDigits: 2,
   }
-  return new Intl.NumberFormat('en-US', { ...defaultOptions, ...options }).format(
-    Number(tokenAmount.amount),
-  )
+  const numAmount = Number(tokenAmount.amount)
+  if (numAmount > 0 && numAmount < 0.01) {
+    return '< 0.01'
+  }
+  return new Intl.NumberFormat('en-US', { ...defaultOptions, ...options }).format(numAmount)
 }

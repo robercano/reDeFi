@@ -42,6 +42,7 @@ export function PortfolioViewer() {
     if (!amountStr) return '$0.00'
     const num = Number(amountStr)
     if (isNaN(num)) return `$0.00`
+    if (num > 0 && num < 0.01) return `< $0.01`
     return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(num)
   }
 
