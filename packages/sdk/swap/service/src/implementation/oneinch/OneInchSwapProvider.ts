@@ -234,7 +234,7 @@ export class OneInchSwapProvider
         ? '&excludeProtocols=' + this._excludedSwapProtocols.join(',')
         : ''
 
-    return `${this._apiUrl}/swap/${this._version}/${chainId}/swap?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${fromAmount}&fromAddress=${recipient}&slippage=${params.slippage.value}&disableEstimate=${disableEstimate}&allowPartialFill=${allowPartialFill}${protocolsParam}${excludedProtocolsParam}${excludeProtocolsParam}`
+    return `${this._apiUrl}/swap/${this._version}/${chainId}/swap?src=${fromTokenAddress}&dst=${toTokenAddress}&amount=${fromAmount}&from=${recipient}&slippage=${params.slippage.value}&disableEstimate=${disableEstimate}&allowPartialFill=${allowPartialFill}${protocolsParam}${excludedProtocolsParam}${excludeProtocolsParam}`
   }
 
   /**
@@ -263,7 +263,7 @@ export class OneInchSwapProvider
         ? '&excludedProtocols=' + this._excludedSwapProtocols.join(',')
         : ''
 
-    return `${this._apiUrl}/swap/${this._version}/${chainId}/quote?fromTokenAddress=${fromTokenAddress}&toTokenAddress=${toTokenAddress}&amount=${fromAmount}${protocolsParam}${excludedProtocolsParam}&includeProtocols=true&includeGas=true`
+    return `${this._apiUrl}/swap/${this._version}/${chainId}/quote?src=${fromTokenAddress}&dst=${toTokenAddress}&amount=${fromAmount}${protocolsParam}${excludedProtocolsParam}&includeProtocols=true&includeGas=true`
   }
 
   /**
