@@ -1,0 +1,12 @@
+
+> sdk-demo@0.1.0 dev /home/rcano/Development/thesolidchain/reDeFi/apps/sdk-demo
+> dotenv -e ../../.env -e ../../.env.local -- next dev
+
+▲ Next.js 16.2.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.255.255.254:3000
+- Environments: .env.local
+✓ Ready in 374ms
+[Next.js Config] Found root .env file at: /home/rcano/Development/thesolidchain/reDeFi/.env
+[Next.js Config] Injected E2E_SDK_FORK_URL_MAINNET: https://virtual.mainnet.eu.rpc.tenderly.co/fb0e875d-db46-4df0-b666-961b680f1aff
+

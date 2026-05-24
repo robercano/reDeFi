@@ -38,16 +38,17 @@
     "@thesolidchain/swap-common": "workspace:*",
     "@thesolidchain/tokens-common": "workspace:*",
     "@thesolidchain/tokens-service": "workspace:^",
+    "@viem/anvil": "^0.0.10",
     "viem": "2.43.5"
   },
   "devDependencies": {
-    "@thesolidchain/eslint-config": "workspace:*",
     "@thesolidchain/config-typescript": "workspace:*",
-    "@types/yargs": "^17.0.32",
-    "tsx": "^4.7.2",
-    "yargs": "^17.7.2",
     "@thesolidchain/config-vitest": "workspace:*",
+    "@thesolidchain/eslint-config": "workspace:*",
+    "@types/yargs": "^17.0.32",
+    "@vitest/coverage-v8": "^1.6.0",
+    "tsx": "^4.7.2",
     "vitest": "^1.6.0",
-    "@vitest/coverage-v8": "^1.6.0"
+    "yargs": "^17.7.2"
   }
 }
