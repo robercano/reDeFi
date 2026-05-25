@@ -16,7 +16,7 @@ import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContex
 import { AnvilFork } from '@thesolidchain/testing-utils'
 
 const LIDO_STETH_ADDRESS = '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84'
-const ETH_RPC_URL = process.env.VITE_ETH_RPC_URL || 'https://cloudflare-eth.com'
+const ETH_RPC_URL = process.env.E2E_SDK_FORK_URL_MAINNET || 'https://cloudflare-eth.com'
 
 describe('Lido Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext
