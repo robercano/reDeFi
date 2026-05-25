@@ -3,6 +3,9 @@ import {
   IYieldPoolInfo,
   IYieldPositionId,
   IYieldPosition,
+  ITokenAmount,
+  IUser,
+  TransactionInfo,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -12,4 +15,14 @@ import {
 export interface IYieldProtocolFeatures {
   getYieldPoolInfo(poolId: IYieldPoolId): Promise<IYieldPoolInfo>
   getYieldPosition(positionId: IYieldPositionId): Promise<IYieldPosition>
+  getDepositTransaction(params: {
+    poolId: IYieldPoolId
+    amount: ITokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
+  getWithdrawTransaction(params: {
+    positionId: IYieldPositionId
+    amount: ITokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
 }

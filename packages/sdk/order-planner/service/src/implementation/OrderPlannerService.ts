@@ -7,6 +7,7 @@ import {
 import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@thesolidchain/sdk-common'
 import { assert } from 'console'
 import { SwapOrderPlanner } from '../planners/SwapOrderPlanner'
+import { YieldOrderPlanner } from '../planners/YieldOrderPlanner'
 
 /**
  * OrderPlannerService
@@ -25,6 +26,7 @@ export class OrderPlannerService implements IOrderPlannerService {
    */
   constructor() {
     this._registerOrderPlanner(SwapOrderPlanner)
+    this._registerOrderPlanner(YieldOrderPlanner)
   }
 
   /**

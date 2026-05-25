@@ -3,9 +3,8 @@ import { RPCMainClientType } from '../../rpc/SDKMainClient'
 import {
   ITokenAmount,
   IYieldPoolId,
+  IYieldPositionId,
   ISimulation,
-  SimulationSteps,
-  YieldSimulation,
 } from '@thesolidchain/sdk-common'
 
 export class YieldSimulator implements IYieldSimulator {
@@ -15,53 +14,13 @@ export class YieldSimulator implements IYieldSimulator {
     poolId: IYieldPoolId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
-
-    // Build the SimulationStep
-    const steps = [
-      {
-        type: SimulationSteps.DepositYield,
-        input: {
-          depositAmount: { value: params.amount },
-          poolId: params.poolId,
-        },
-        output: {
-          depositAmount: params.amount,
-        },
-      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
-    ]
-
-    // Construct intent-based simulation output
-    return new YieldSimulation({
-      steps,
-      balanceChanges: [],
-      gasEstimations: [],
-    })
+    return await this.rpcClient.simulator.yield.simulateDeposit.query(params)
   }
 
   async simulateWithdraw(params: {
-    poolId: IYieldPoolId
+    positionId: IYieldPositionId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    await this.rpcClient.protocols.getYieldPoolInfo.query(params.poolId)
-
-    const steps = [
-      {
-        type: SimulationSteps.WithdrawYield,
-        input: {
-          withdrawAmount: { value: params.amount },
-          position: null as unknown as import('@thesolidchain/sdk-common').IYieldPositionId,
-        },
-        output: {
-          withdrawAmount: params.amount,
-        },
-      } as unknown as import('@thesolidchain/sdk-common').ISimulation['steps'][number],
-    ]
-
-    return new YieldSimulation({
-      steps,
-      balanceChanges: [],
-      gasEstimations: [],
-    })
+    return await this.rpcClient.simulator.yield.simulateWithdraw.query(params)
   }
 }

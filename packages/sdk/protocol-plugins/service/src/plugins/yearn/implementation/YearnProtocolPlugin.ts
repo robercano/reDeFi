@@ -10,6 +10,9 @@ import {
   YieldType,
   PositionType,
   IChainInfo,
+  ITokenAmount,
+  IUser,
+  TransactionInfo,
 } from '@thesolidchain/sdk-common'
 import {
   IProtocolPluginContext,
@@ -118,5 +121,13 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
       currentAmount: positionDto.currentAmount,
       claimableRewards: [],
     } as unknown as IYieldPosition
+  }
+
+  public async getDepositTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method not implemented.')
+  }
+
+  public async getWithdrawTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method not implemented.')
   }
 }
