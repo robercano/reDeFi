@@ -68,7 +68,7 @@ describe('Lido Protocol Plugin (Integration)', () => {
     expect(Number(poolInfo.currentApy.value)).toBeGreaterThan(0)
     
     expect(poolInfo.totalValueLocked).toBeDefined()
-    expect(Number(poolInfo.totalValueLocked!.value)).toBeGreaterThan(0)
+    expect(Number(poolInfo.totalValueLocked!.amount)).toBeGreaterThan(0)
   })
 
   it('correctly retrieves user lending position data from blockchain after deposit', async () => {
@@ -82,7 +82,7 @@ describe('Lido Protocol Plugin (Integration)', () => {
 
     const rpcUrl = fork.forkUrl
     const localChain = defineChain({
-      id: ChainIds.Ethereum,
+      id: ChainIds.Mainnet,
       name: 'Local',
       network: 'local',
       nativeCurrency: { decimals: 18, name: 'Ether', symbol: 'ETH' },
@@ -101,12 +101,11 @@ describe('Lido Protocol Plugin (Integration)', () => {
     })
     await publicClient.waitForTransactionReceipt({ hash: depositHash })
 
-    const positionId = LidoYieldPositionId.createFrom({
-      id: 'forkPositionId',
-      tokenAddress: LIDO_STETH_ADDRESS,
-      walletAddress: userAddress,
-      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
-    })
+    const positionId = new LidoYieldPositionId(
+      LIDO_STETH_ADDRESS,
+      userAddress,
+      ChainFamilyMap.Ethereum.Mainnet,
+    )
 
     const position = await plugin.getYieldPosition(positionId)
 
