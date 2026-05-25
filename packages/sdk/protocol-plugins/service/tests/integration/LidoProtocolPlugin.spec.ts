@@ -58,7 +58,9 @@ describe('Lido Protocol Plugin (Integration)', () => {
   it('correctly populates pool configuration from blockchain data', async () => {
     const oracleMock = ctx.oracleManager as OracleManagerMock
     oracleMock.setSpotPrice({
-      price: Price.createFrom({ value: '3000' }),
+      price: {
+        multiply: () => ({ amount: '300000000', value: '300000000', currency: FiatCurrency.USD }),
+      },
     } as any)
 
     const poolInfo = await plugin.getYieldPoolInfo(validLidoPoolId)
