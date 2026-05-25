@@ -13,6 +13,7 @@ export enum ProtocolName {
   Ajna = 'Ajna_rc13',
   Armada = 'Armada',
   Yearn = 'Yearn',
+  Lido = 'Lido',
 }
 
 /**
