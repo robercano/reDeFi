@@ -11,7 +11,7 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-subscriptions-service | 81.91% | 81.91% | 71.42% | 93.75% | 18.52% |
 | sdk-simulator-service | 0% | 0% | 0% | 0% | 10% |
 | sdk-react | 89.64% | 89.64% | 91.66% | 89.23% | 5.36% |
-| sdk-protocol-plugins-service | 0% | 0% | 0% | 0% | 50.48% |
+| sdk-protocol-plugins-service | 76% | 76% | 41.66% | 68.62% | 50.48% |
 | sdk-protocol-manager-service | 83.22% | 83.22% | 66.66% | 85.71% | 76.47% |
 | sdk-portfolio-service | 98.84% | 98.84% | 83.33% | 94.44% | 26.32% |
 | sdk-order-planner-service | 99.5% | 99.5% | 85.71% | 87.5% | 57.14% |
@@ -25,4 +25,4 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-address-book-service | 100% | 100% | 100% | 100% | 41.67% |
 | sdk-abi-provider-service | 0% | 0% | 0% | 0% | 50% |
 | api-server-service | 87.19% | 87.19% | 66.66% | 72.09% | 10% |
-| **TOTAL** | **84.73%** | **84.73%** | **80.06%** | **79.08%** | **33.82%** |
+| **TOTAL** | **81.61%** | **81.61%** | **69%** | **77.75%** | **33.82%** |
