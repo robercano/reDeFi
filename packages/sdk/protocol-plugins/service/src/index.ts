@@ -86,3 +86,27 @@ export { RepayFlashloanActionBuilder } from './plugins/common/builders/RepayFlas
 export { ReturnFundsActionBuilder } from './plugins/common/builders/ReturnFundsActionBuilder'
 export { SwapActionBuilder } from './plugins/common/builders/SwapActionBuilder'
 export { OpenPositionActionBuilder } from './plugins/common/builders/OpenPositionActionBuilder'
+
+// Lido plugin
+export { LidoProtocolPlugin } from './plugins/lido/implementation/LidoProtocolPlugin'
+export { LidoProtocol } from './plugins/lido/implementation/LidoProtocol'
+export { LidoYieldPoolId } from './plugins/lido/implementation/LidoYieldPoolId'
+export { LidoYieldPositionId } from './plugins/lido/implementation/LidoYieldPositionId'
+export {
+  isLidoProtocol,
+  LidoProtocolDataSchema,
+  type ILidoProtocol,
+  type ILidoProtocolData,
+} from './plugins/lido/interfaces/ILidoProtocol'
+export {
+  isLidoYieldPoolId,
+  LidoYieldPoolIdDataSchema,
+  type ILidoYieldPoolId,
+  type ILidoYieldPoolIdData,
+} from './plugins/lido/interfaces/ILidoYieldPoolId'
+export {
+  isLidoYieldPositionId,
+  LidoYieldPositionIdDataSchema,
+  type ILidoYieldPositionId,
+  type ILidoYieldPositionIdData,
+} from './plugins/lido/interfaces/ILidoYieldPositionId'

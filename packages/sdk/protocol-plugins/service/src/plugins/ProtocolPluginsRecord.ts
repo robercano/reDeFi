@@ -2,6 +2,7 @@ import { ProtocolName } from '@thesolidchain/sdk-common'
 import { ProtocolPluginsRecordType } from '../implementation/ProtocolPluginsRegistry'
 import { AaveV3ProtocolPlugin } from './aave-v3/implementation/AAVEv3ProtocolPlugin'
 import { YearnProtocolPlugin } from './yearn/implementation/YearnProtocolPlugin'
+import { LidoProtocolPlugin } from './lido/implementation/LidoProtocolPlugin'
 
 /**
  * Protocol plugins record
@@ -11,4 +12,5 @@ import { YearnProtocolPlugin } from './yearn/implementation/YearnProtocolPlugin'
 export const ProtocolPluginsRecord: ProtocolPluginsRecordType = {
   [ProtocolName.AaveV3]: AaveV3ProtocolPlugin,
   [ProtocolName.Yearn]: YearnProtocolPlugin,
+  [ProtocolName.Lido]: LidoProtocolPlugin,
 }
