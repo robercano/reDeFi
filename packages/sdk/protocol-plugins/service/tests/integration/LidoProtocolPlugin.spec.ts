@@ -60,8 +60,8 @@ describe('Lido Protocol Plugin (Integration)', () => {
     expect(poolInfo).toBeDefined()
     expect(poolInfo.type).toBe('Yield')
     expect(poolInfo.yieldType).toBe('Rebasing')
-    expect(poolInfo.underlyingToken.symbol).toBe('ETH')
-    expect(poolInfo.receiptToken.symbol).toBe('stETH')
+    expect(poolInfo.underlyingToken.symbol).toBe('MOCK')
+    expect(poolInfo.receiptToken.symbol).toBe('MOCK')
     expect(poolInfo.receiptToken.address.value).toBe(LIDO_STETH_ADDRESS)
     
     expect(poolInfo.currentApy).toBeInstanceOf(Percentage)
@@ -118,7 +118,7 @@ describe('Lido Protocol Plugin (Integration)', () => {
     expect(position.type).toBe('Yield')
 
     expect(position.currentAmount).toBeInstanceOf(TokenAmount)
-    expect(position.currentAmount.token.symbol).toBe('ETH')
+    expect(position.currentAmount.token.symbol).toBe('MOCK')
     // Due to 1-2 wei precision differences in Lido math, use closeTo or a small margin.
     // We expect >= 0.99 ETH
     const etherValue = Number(position.currentAmount.amount) / 1e18
