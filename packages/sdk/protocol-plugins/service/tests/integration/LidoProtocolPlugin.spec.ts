@@ -92,6 +92,9 @@ describe('Lido Protocol Plugin (Integration)', () => {
     const publicClient = createPublicClient({ chain: localChain, transport: http(rpcUrl) })
     const walletClient = createWalletClient({ chain: localChain, transport: http(rpcUrl) })
 
+    const testClient = fork.transactionUtils.testClient
+    await testClient.impersonateAccount({ address: userAddress })
+
     // Simulate sending 1 ETH to the Lido contract (fallback mints stETH)
     const depositHash = await walletClient.sendTransaction({
       account: userAddress,
@@ -100,6 +103,7 @@ describe('Lido Protocol Plugin (Integration)', () => {
       chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: depositHash })
+    await testClient.stopImpersonatingAccount({ address: userAddress })
 
     const positionId = new LidoYieldPositionId(
       LIDO_STETH_ADDRESS,

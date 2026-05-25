@@ -59,8 +59,9 @@ export class DefaultLidoDataSource implements ILidoDataSource {
     const spotPriceInfo = await this.context.oracleManager.getSpotPrice({
       baseToken: receiptToken,
     })
-    
-    const tvlAmount = spotPriceInfo.price.multiply(totalSupplyAmount) as IFiatCurrencyAmount
+    const tvlAmount = spotPriceInfo?.price
+      ? (spotPriceInfo.price.multiply(totalSupplyAmount) as IFiatCurrencyAmount)
+      : undefined
 
     return {
       underlyingToken,
