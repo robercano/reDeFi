@@ -70,6 +70,15 @@ export class AnvilFork {
     await this.anvil.stop()
   }
 
+  public async snapshot(): Promise<string> {
+    const id = await this.transactionUtils.testClient.snapshot()
+    return id as string
+  }
+
+  public async revert(id: string) {
+    await this.transactionUtils.testClient.revert({ id: id as `0x${string}` })
+  }
+
   public async sendTransaction(params: {
     walletPrivateKey: HexData
     transaction: Transaction
