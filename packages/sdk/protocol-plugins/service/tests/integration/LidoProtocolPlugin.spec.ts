@@ -13,7 +13,8 @@ import { LidoProtocolPlugin } from '../../src/plugins/lido/implementation/LidoPr
 import { LidoYieldPoolId } from '../../src/plugins/lido/implementation/LidoYieldPoolId'
 import { LidoYieldPositionId } from '../../src/plugins/lido/implementation/LidoYieldPositionId'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
-import { AnvilFork } from '@thesolidchain/testing-utils'
+import { AnvilFork, OracleManagerMock } from '@thesolidchain/testing-utils'
+import { Price, FiatCurrency } from '@thesolidchain/sdk-common'
 
 const LIDO_STETH_ADDRESS = '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84'
 const ETH_RPC_URL = process.env.E2E_SDK_FORK_URL_MAINNET || 'https://cloudflare-eth.com'
@@ -55,6 +56,11 @@ describe('Lido Protocol Plugin (Integration)', () => {
   })
 
   it('correctly populates pool configuration from blockchain data', async () => {
+    const oracleMock = ctx.oracleManager as OracleManagerMock
+    oracleMock.setSpotPrice({
+      price: Price.createFrom({ value: '3000' }),
+    } as any)
+
     const poolInfo = await plugin.getYieldPoolInfo(validLidoPoolId)
 
     expect(poolInfo).toBeDefined()
