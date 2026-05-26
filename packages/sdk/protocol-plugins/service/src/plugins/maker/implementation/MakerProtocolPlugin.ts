@@ -108,14 +108,16 @@ export class MakerProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     }
 
     // Standard ERC-4626 deposit function
-    const depositAbi = parseAbi(['function deposit(uint256 assets, address receiver) external returns (uint256)'])
-    
+    const depositAbi = parseAbi([
+      'function deposit(uint256 assets, address receiver) external returns (uint256)',
+    ])
+
     const calldata = encodeFunctionData({
       abi: depositAbi,
       functionName: 'deposit',
       args: [
         BigInt(params.amount.toSolidityValue()),
-        params.user.wallet.address.value as `0x${string}`
+        params.user.wallet.address.value as `0x${string}`,
       ],
     })
 
@@ -142,9 +144,9 @@ export class MakerProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     // we use `withdraw` rather than `redeem`.
     // ERC-4626: withdraw(uint256 assets, address receiver, address owner)
     const withdrawAbi = parseAbi([
-      'function withdraw(uint256 assets, address receiver, address owner) external returns (uint256)'
+      'function withdraw(uint256 assets, address receiver, address owner) external returns (uint256)',
     ])
-    
+
     const calldata = encodeFunctionData({
       abi: withdrawAbi,
       functionName: 'withdraw',

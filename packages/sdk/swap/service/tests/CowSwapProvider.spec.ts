@@ -60,9 +60,11 @@ describe('CowSwapProvider', () => {
 
   it('should throw error when checking supported chain ID if invalid', () => {
     const provider = new CowSwapProvider({ configProvider, allowanceManager, tokensManager })
-    expect(() => (provider as unknown as { _assertSupportedChainId: (chainId: number) => void })._assertSupportedChainId(9999)).toThrow(
-      /not supported by CowSwapProvider/,
-    )
+    expect(() =>
+      (
+        provider as unknown as { _assertSupportedChainId: (chainId: number) => void }
+      )._assertSupportedChainId(9999),
+    ).toThrow(/not supported by CowSwapProvider/)
   })
 
   it('should get sell order quote correctly', async () => {
@@ -134,7 +136,11 @@ describe('CowSwapProvider', () => {
       },
     })
 
-    const limitPrice = { value: '0.8', multiply: vi.fn(), toString: () => '0.8' } as unknown as import('@thesolidchain/sdk-common').Price
+    const limitPrice = {
+      value: '0.8',
+      multiply: vi.fn(),
+      toString: () => '0.8',
+    } as unknown as import('@thesolidchain/sdk-common').Price
     const limitAmount = TokenAmount.createFrom({ token: mockToToken, amount: '800' })
     mockFromAmount.multiply = vi.fn().mockReturnValue(limitAmount)
 

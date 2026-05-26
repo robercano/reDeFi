@@ -59,7 +59,7 @@ export class TenderlyFork {
   /**
    * create
    * Asynchronously provisions a new Tenderly fork using the API and initializes the `TenderlyFork` wrapper.
-   * 
+   *
    * @param params.tenderlyApiUrl - The API URL for the Tenderly project
    * @param params.tenderlyAccessKey - Authentication access key
    * @param params.chainInfo - Information about the network to fork

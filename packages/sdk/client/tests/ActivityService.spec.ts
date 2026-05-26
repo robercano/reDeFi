@@ -13,14 +13,14 @@ describe('ActivityService', () => {
       getItem: vi.fn(),
       setItem: vi.fn(),
       removeItem: vi.fn(),
-      clear: vi.fn()
+      clear: vi.fn(),
     }
     vi.stubGlobal('window', { localStorage: localStorageMock })
 
     sdkManagerMock = {
       intentSwaps: {
-        checkOrder: vi.fn()
-      }
+        checkOrder: vi.fn(),
+      },
     }
     activityService = new ActivityService(sdkManagerMock as any)
   })
@@ -37,17 +37,17 @@ describe('ActivityService', () => {
       status: ActivityStatus.PENDING,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }
 
     localStorageMock.getItem.mockReturnValueOnce(null)
-    
+
     await activityService.logActivity(record)
 
     expect(localStorageMock.getItem).toHaveBeenCalledWith('redefi_activity_history_0x123')
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'redefi_activity_history_0x123',
-      JSON.stringify([record])
+      JSON.stringify([record]),
     )
   })
 
@@ -58,7 +58,7 @@ describe('ActivityService', () => {
       status: ActivityStatus.PENDING,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }
 
     localStorageMock.getItem.mockReturnValueOnce(JSON.stringify([record]))
@@ -68,7 +68,7 @@ describe('ActivityService', () => {
 
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'redefi_activity_history_0x123',
-      JSON.stringify([updatedRecord])
+      JSON.stringify([updatedRecord]),
     )
   })
 
@@ -79,7 +79,7 @@ describe('ActivityService', () => {
       status: ActivityStatus.SUCCESS,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }))
 
     localStorageMock.getItem.mockReturnValueOnce(JSON.stringify(records))
@@ -90,14 +90,14 @@ describe('ActivityService', () => {
       status: ActivityStatus.PENDING,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }
 
     await activityService.logActivity(newRecord)
 
     const setItemCall = localStorageMock.setItem.mock.calls[0]
     const savedArray = JSON.parse(setItemCall[1])
-    
+
     expect(savedArray.length).toBe(100)
     expect(savedArray[0].id).toBe('tx-101')
     expect(savedArray[99].id).toBe('tx-98')
@@ -110,11 +110,11 @@ describe('ActivityService', () => {
       status: ActivityStatus.PENDING,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }
 
     localStorageMock.getItem.mockReturnValueOnce(JSON.stringify([record]))
-    
+
     const history = await activityService.getHistory({ walletAddress: '0x123' })
     expect(history).toEqual([record])
   })
@@ -126,21 +126,23 @@ describe('ActivityService', () => {
       status: ActivityStatus.PENDING,
       chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
-      walletAddress: '0x123'
+      walletAddress: '0x123',
     }
 
     localStorageMock.getItem.mockReturnValue(JSON.stringify([record]))
     sdkManagerMock.intentSwaps.checkOrder.mockResolvedValueOnce({
-      order: { status: 'fulfilled' }
+      order: { status: 'fulfilled' },
     })
 
     await activityService.syncPending('0x123')
 
-    expect(sdkManagerMock.intentSwaps.checkOrder).toHaveBeenCalledWith({ orderId: 'intent-1', chainId: ChainIds.Mainnet })
+    expect(sdkManagerMock.intentSwaps.checkOrder).toHaveBeenCalledWith({
+      orderId: 'intent-1',
+      chainId: ChainIds.Mainnet,
+    })
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'redefi_activity_history_0x123',
-      JSON.stringify([{ ...record, status: ActivityStatus.SUCCESS }])
+      JSON.stringify([{ ...record, status: ActivityStatus.SUCCESS }]),
     )
   })
 })
-

@@ -9,7 +9,7 @@ import type { ContractAbi } from '@thesolidchain/abi-provider-common'
 /**
  * GenericContractWrapper
  * A specialized wrapper for contracts that allows dynamic ABI assignment.
- * It provides built-in utilities to cast the contract interface into standard 
+ * It provides built-in utilities to cast the contract interface into standard
  * abstractions like ERC20 or ERC4626 dynamically.
  */
 export class GenericContractWrapper<
@@ -71,7 +71,7 @@ export class GenericContractWrapper<
   /**
    * Casts the underlying generic contract representation into a typed `IERC20` interface.
    * Useful when the generic contract is known to implement the ERC20 standard.
-   * 
+   *
    * @returns An `IERC20` implementation wrapper
    */
   asErc20(): IERC20 {
@@ -85,7 +85,7 @@ export class GenericContractWrapper<
   /**
    * Casts the underlying generic contract representation into a typed `IERC4626` interface.
    * Useful when the generic contract is known to implement the ERC4626 Vault standard.
-   * 
+   *
    * @returns An `IERC4626` implementation wrapper
    */
   asErc4626(): IERC4626 {

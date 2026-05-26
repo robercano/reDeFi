@@ -12,7 +12,7 @@ vi.mock('@thesolidchain/sdk-client', () => {
       protocols: { getPosition: vi.fn() },
       tokens: { getTokenBySymbol: vi.fn() },
       oracle: { getSpotPrice: vi.fn() },
-      swaps: { getSwapQuote: vi.fn() }
+      swaps: { getSwapQuote: vi.fn() },
     })),
   }
 })
@@ -28,7 +28,7 @@ describe('SDK React | Unit | useSDK', () => {
     const { result } = renderHook(() => useSDK({ chainId: 1, walletAddress: '0x123' }), { wrapper })
 
     expect(makeSDK).toHaveBeenCalledWith({ apiURL: 'https://api.example.com', apiKey: 'test-key' })
-    
+
     // Check if handlers are returned
     expect(result.current.getChainInfo).toBeDefined()
     expect(result.current.getSpotPrice).toBeDefined()
@@ -38,19 +38,17 @@ describe('SDK React | Unit | useSDK', () => {
 
   it('should evaluate handlers directly without breaking', async () => {
     const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <SDKProvider apiURL="https://api.example.com">
-        {children}
-      </SDKProvider>
+      <SDKProvider apiURL="https://api.example.com">{children}</SDKProvider>
     )
 
     const { result } = renderHook(() => useSDK({ chainId: 1, walletAddress: '0x123' }), { wrapper })
-    
+
     const spotPrice = result.current.getSpotPrice
     expect(typeof spotPrice).toBe('function')
 
     const tokenBySymbol = result.current.getTokenBySymbol
     expect(typeof tokenBySymbol).toBe('function')
-    
+
     const chainInfo = result.current.getChainInfo()
     expect(chainInfo.chainId).toBe(1)
   })

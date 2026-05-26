@@ -133,7 +133,7 @@ export const createSDKContext = async (opts: SDKContextOptions): Promise<SDKAppC
     protocolManager,
     blockchainClientProvider,
     swapManager,
-    allowanceManager
+    allowanceManager,
   )
 
   return {

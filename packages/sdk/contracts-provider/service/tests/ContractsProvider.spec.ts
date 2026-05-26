@@ -20,7 +20,9 @@ describe('ContractsProvider', () => {
 
   const mockChainInfo = { chainId: 1 } as unknown as IChainInfo
   const mockAddress = { value: '0x123' } as unknown as IAddress
-  const mockBlockchainClient = { request: vi.fn() } as unknown as import('@thesolidchain/blockchain-client-common').IBlockchainClient
+  const mockBlockchainClient = {
+    request: vi.fn(),
+  } as unknown as import('@thesolidchain/blockchain-client-common').IBlockchainClient
 
   beforeEach(() => {
     mockConfigProvider = {
@@ -39,7 +41,9 @@ describe('ContractsProvider', () => {
 
   it('should get ERC20 contract through ContractsFactory', async () => {
     const mockERC20Contract = { symbol: 'USDC' }
-    vi.mocked(ContractsFactory.getERC20).mockReturnValue(mockERC20Contract as unknown as ReturnType<typeof ContractsFactory.getERC20>)
+    vi.mocked(ContractsFactory.getERC20).mockReturnValue(
+      mockERC20Contract as unknown as ReturnType<typeof ContractsFactory.getERC20>,
+    )
 
     const contract = await contractsProvider.getErc20Contract({
       chainInfo: mockChainInfo,
@@ -59,7 +63,9 @@ describe('ContractsProvider', () => {
 
   it('should get ERC4626 contract through ContractsFactory', async () => {
     const mockERC4626Contract = { asset: '0xabc' }
-    vi.mocked(ContractsFactory.getERC4626).mockReturnValue(mockERC4626Contract as unknown as ReturnType<typeof ContractsFactory.getERC4626>)
+    vi.mocked(ContractsFactory.getERC4626).mockReturnValue(
+      mockERC4626Contract as unknown as ReturnType<typeof ContractsFactory.getERC4626>,
+    )
 
     const contract = await contractsProvider.getErc4626Contract({
       chainInfo: mockChainInfo,

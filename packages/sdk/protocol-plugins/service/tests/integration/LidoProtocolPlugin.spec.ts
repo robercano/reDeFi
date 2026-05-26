@@ -71,17 +71,17 @@ describe('Lido Protocol Plugin (Integration)', () => {
     expect(poolInfo.underlyingToken.symbol).toBe('MOCK')
     expect(poolInfo.receiptToken.symbol).toBe('MOCK')
     expect(poolInfo.receiptToken.address.value).toBe(LIDO_STETH_ADDRESS)
-    
+
     expect(poolInfo.currentApy).toBeInstanceOf(Percentage)
     expect(Number(poolInfo.currentApy.value)).toBeGreaterThan(0)
-    
+
     expect(poolInfo.totalValueLocked).toBeDefined()
     expect(Number(poolInfo.totalValueLocked!.amount)).toBeGreaterThan(0)
   })
 
   it('correctly retrieves user lending position data from blockchain after deposit', async () => {
     const userAddress = '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' as const // Test User
-    
+
     // Set user balance directly via Anvil custom RPC
     await fork.setETHBalance({
       amount: 10000000000000000000n, // 10 ETH

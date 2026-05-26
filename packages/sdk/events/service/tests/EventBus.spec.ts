@@ -57,7 +57,7 @@ describe('EventBus', () => {
 
   it('should continue executing other listeners if one throws an error', () => {
     const eventBus = new EventBus()
-    
+
     // Silence console.error for this test as the EventBus logs errors
     const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
 

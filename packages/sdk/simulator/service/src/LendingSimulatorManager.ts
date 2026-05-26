@@ -13,7 +13,7 @@ import {
 export class LendingSimulatorManager implements ILendingSimulatorManager {
   public constructor(
     private readonly protocolManager: IProtocolManager,
-    private readonly blockchainManager: IBlockchainManager
+    private readonly blockchainManager: IBlockchainManager,
   ) {}
 
   async simulateSupply(params: {

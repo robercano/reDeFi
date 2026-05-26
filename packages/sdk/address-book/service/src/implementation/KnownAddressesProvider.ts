@@ -29,7 +29,7 @@ export class KnownAddressesProvider implements IKnownAddressesProvider {
     // ChainId.Polygon
     137: {
       Multicall3: '0xcA11bde05977b3631167028862bE2a173976CA11',
-    }
+    },
   }
 
   /**
@@ -42,14 +42,14 @@ export class KnownAddressesProvider implements IKnownAddressesProvider {
   /** @see IKnownAddressesProvider.getAddress */
   getAddress(params: { chainInfo: IChainInfo; name: string }): Maybe<IAddress> {
     const chainAddresses = KnownAddressesProvider.addresses[params.chainInfo.chainId]
-    
+
     // 1. Check if we have a specific address defined for this chain
     if (chainAddresses && chainAddresses[params.name]) {
       return Address.createFromEthereum({
         value: chainAddresses[params.name] as AddressValue,
       })
     }
-    
+
     // 2. Fallback to deterministic addresses
     if (KnownAddressesProvider.deterministicAddresses[params.name]) {
       return Address.createFromEthereum({

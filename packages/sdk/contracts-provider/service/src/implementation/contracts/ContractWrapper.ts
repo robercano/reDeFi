@@ -16,7 +16,7 @@ import {
  * Base abstract class for all strictly-typed contract wrappers in the SDK.
  * It manages the underlying `viem` contract instance and provides standardized
  * methods to build transaction calldata.
- * 
+ *
  * @typeParam TAbi - The exact literal type of the contract ABI
  * @typeParam TClient - The specific client type (e.g. PublicClient, WalletClient)
  * @typeParam TAddress - The constrained IAddress type identifying the contract
@@ -33,7 +33,7 @@ export abstract class ContractWrapper<
 
   /**
    * Initializes the ContractWrapper, automatically instantiating the viem `getContract` reference.
-   * 
+   *
    * @param params.blockchainClient - The viem client instance bound to this contract
    * @param params.chainInfo - Information about the chain where the contract resides
    * @param params.address - The strictly-typed contract address
@@ -82,7 +82,7 @@ export abstract class ContractWrapper<
   /**
    * Helper function to construct a `TransactionInfo` object representing a contract interaction.
    * Automatically encodes the function data using the contract ABI.
-   * 
+   *
    * @param params.functionName - The typed name of the function to call
    * @param params.args - The typed arguments matching the function signature
    * @param params.description - Human-readable description of the intent (e.g. 'Approve USDC')

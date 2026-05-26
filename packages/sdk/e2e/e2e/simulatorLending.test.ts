@@ -47,8 +47,12 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
     } as unknown as ILendingPoolId
 
     const mockSupplyTx = {
-      transaction: { target: '0x1234567890123456789012345678901234567890', calldata: '0xbeef', value: '0' },
-      description: 'Aave Supply'
+      transaction: {
+        target: '0x1234567890123456789012345678901234567890',
+        calldata: '0xbeef',
+        value: '0',
+      },
+      description: 'Aave Supply',
     }
 
     const mockPlugin = {
@@ -56,11 +60,11 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
         getLendingPoolInfo: vi.fn().mockResolvedValue({}),
         getSupplyTransaction: vi.fn().mockResolvedValue(mockSupplyTx),
         getBorrowTransaction: vi.fn().mockResolvedValue(null),
-      }
+      },
     }
 
     const mockProtocolManager = {
-      lending: mockPlugin.lending
+      lending: mockPlugin.lending,
     } as any
 
     // 1. Simulate the Supply
@@ -79,16 +83,19 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
       simulation,
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
-        getPlugin: vi.fn().mockReturnValue(mockPlugin)
+        getPlugin: vi.fn().mockReturnValue(mockPlugin),
       } as any,
     } as any)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
-    assert.strictEqual(order.transactions[0].transaction.target, '0x1234567890123456789012345678901234567890')
+    assert.strictEqual(
+      order.transactions[0].transaction.target,
+      '0x1234567890123456789012345678901234567890',
+    )
     assert.strictEqual(order.transactions[0].transaction.calldata, '0xbeef')
     assert.strictEqual(order.transactions[0].description, 'Aave Supply')
-    
+
     console.log('Successfully verified Lending Supply simulation and order planning!')
   })
 
@@ -111,18 +118,25 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
     })
 
     const mockPositionId = {
-      poolId: { protocol: { name: 'Aave V3' }, address: '0x1234567890123456789012345678901234567890' },
+      poolId: {
+        protocol: { name: 'Aave V3' },
+        address: '0x1234567890123456789012345678901234567890',
+      },
       userAddress,
     } as unknown as ILendingPositionId
 
     const mockPosition = {
       id: mockPositionId,
-      pool: { id: mockPositionId.poolId }
+      pool: { id: mockPositionId.poolId },
     }
 
     const mockWithdrawTx = {
-      transaction: { target: '0x1234567890123456789012345678901234567890', calldata: '0xdead', value: '0' },
-      description: 'Aave Withdraw'
+      transaction: {
+        target: '0x1234567890123456789012345678901234567890',
+        calldata: '0xdead',
+        value: '0',
+      },
+      description: 'Aave Withdraw',
     }
 
     const mockPlugin = {
@@ -130,11 +144,11 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
         getLendingPosition: vi.fn().mockResolvedValue(mockPosition),
         getWithdrawTransaction: vi.fn().mockResolvedValue(mockWithdrawTx),
         getRepayTransaction: vi.fn().mockResolvedValue(null),
-      }
+      },
     }
 
     const mockProtocolManager = {
-      lending: mockPlugin.lending
+      lending: mockPlugin.lending,
     } as any
 
     // 1. Simulate the Withdraw
@@ -153,16 +167,19 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
       simulation,
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
-        getPlugin: vi.fn().mockReturnValue(mockPlugin)
+        getPlugin: vi.fn().mockReturnValue(mockPlugin),
       } as any,
     } as any)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
-    assert.strictEqual(order.transactions[0].transaction.target, '0x1234567890123456789012345678901234567890')
+    assert.strictEqual(
+      order.transactions[0].transaction.target,
+      '0x1234567890123456789012345678901234567890',
+    )
     assert.strictEqual(order.transactions[0].transaction.calldata, '0xdead')
     assert.strictEqual(order.transactions[0].description, 'Aave Withdraw')
-    
+
     console.log('Successfully verified Lending Withdraw simulation and order planning!')
   })
 })

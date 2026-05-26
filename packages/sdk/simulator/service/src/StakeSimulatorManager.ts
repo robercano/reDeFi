@@ -5,6 +5,6 @@ import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
 export class StakeSimulatorManager implements IStakeSimulatorManager {
   public constructor(
     private readonly protocolManager: IProtocolManager,
-    private readonly blockchainManager: IBlockchainManager
+    private readonly blockchainManager: IBlockchainManager,
   ) {}
 }

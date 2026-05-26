@@ -1,4 +1,9 @@
-import { ILendingPoolId, ILendingPositionId, ISimulation, ITokenAmount } from '@thesolidchain/sdk-common'
+import {
+  ILendingPoolId,
+  ILendingPositionId,
+  ISimulation,
+  ITokenAmount,
+} from '@thesolidchain/sdk-common'
 
 export interface ILendingSimulator {
   simulateSupply(params: { poolId: ILendingPoolId; amount: ITokenAmount }): Promise<ISimulation>

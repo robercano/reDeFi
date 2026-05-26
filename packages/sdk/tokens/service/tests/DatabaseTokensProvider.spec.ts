@@ -26,7 +26,10 @@ describe('DatabaseTokensProvider', () => {
   let configProvider: import('@thesolidchain/configuration-provider-common').IConfigurationProvider
   let blockchainClientProvider: import('@thesolidchain/blockchain-client-common').IBlockchainClientProvider
   let contractsProvider: import('@thesolidchain/contracts-provider-common').IContractsProvider
-  const chainInfo = { chainId: ChainIds.Mainnet, name: 'Ethereum' } as unknown as import('@thesolidchain/sdk-common').IChainInfo
+  const chainInfo = {
+    chainId: ChainIds.Mainnet,
+    name: 'Ethereum',
+  } as unknown as import('@thesolidchain/sdk-common').IChainInfo
 
   beforeEach(() => {
     vi.clearAllMocks()

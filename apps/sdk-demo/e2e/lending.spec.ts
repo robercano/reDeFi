@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test'
 
 test.describe('SDK Demo App - Lending Simulator', () => {
-  test('should simulate a lending operation successfully and not display validation errors', async ({ page }) => {
+  test('should simulate a lending operation successfully and not display validation errors', async ({
+    page,
+  }) => {
     // Navigate to the local development server
     await page.goto('/')
 
@@ -19,8 +21,10 @@ test.describe('SDK Demo App - Lending Simulator', () => {
 
     // We should NOT see "Error: "
     await expect(page.locator('text=Error:')).toBeHidden({ timeout: 10000 })
-    
+
     // We should see a success state, or an Execute Order button
-    await expect(page.locator('button', { hasText: 'Execute Order' })).toBeVisible({ timeout: 15000 })
+    await expect(page.locator('button', { hasText: 'Execute Order' })).toBeVisible({
+      timeout: 15000,
+    })
   })
 })

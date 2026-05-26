@@ -4,7 +4,7 @@ import { IEventBus, ISDKEventMap } from '@thesolidchain/events-common'
  * EventBus
  * A lightweight, strongly-typed event bus implementation used across the reDeFi SDK
  * to facilitate pub/sub communication between decoupled services.
- * 
+ *
  * New developers: Use this class to emit or subscribe to SDK-wide events defined
  * in the ISDKEventMap interface without tightly coupling components.
  */
@@ -18,9 +18,9 @@ export class EventBus implements IEventBus {
 
   /**
    * Subscribes a listener function to a specific event type.
-   * 
+   *
    * @param event - The key of the event to listen for, as defined in `ISDKEventMap`.
-   * @param listener - The callback function to execute when the event is emitted. 
+   * @param listener - The callback function to execute when the event is emitted.
    *                   It receives the strictly typed payload for that event.
    */
   public on<K extends keyof ISDKEventMap>(
@@ -35,7 +35,7 @@ export class EventBus implements IEventBus {
 
   /**
    * Unsubscribes a specific listener function from an event type.
-   * 
+   *
    * @param event - The key of the event to stop listening for.
    * @param listener - The exact callback function reference that was previously registered.
    */
@@ -56,7 +56,7 @@ export class EventBus implements IEventBus {
    * Emits an event, triggering all registered listeners synchronously.
    * Listeners are executed in an isolated try-catch block so that if one listener
    * throws an error, subsequent listeners will still execute.
-   * 
+   *
    * @param event - The key of the event to emit.
    * @param payload - The data payload associated with the event, properly typed according to `ISDKEventMap`.
    */

@@ -104,7 +104,9 @@ export class LidoProtocolPlugin extends BaseProtocolPlugin implements IYieldProt
       throw new Error(`Invalid Lido Pool ID: ${JSON.stringify(params.poolId)}`)
     }
 
-    const submitAbi = parseAbi(['function submit(address _referral) external payable returns (uint256)'])
+    const submitAbi = parseAbi([
+      'function submit(address _referral) external payable returns (uint256)',
+    ])
     const calldata = encodeFunctionData({
       abi: submitAbi,
       functionName: 'submit',
@@ -131,15 +133,15 @@ export class LidoProtocolPlugin extends BaseProtocolPlugin implements IYieldProt
     }
 
     const requestWithdrawalsAbi = parseAbi([
-      'function requestWithdrawals(uint256[] _amounts, address _owner) external returns (uint256[])'
+      'function requestWithdrawals(uint256[] _amounts, address _owner) external returns (uint256[])',
     ])
-    
+
     const calldata = encodeFunctionData({
       abi: requestWithdrawalsAbi,
       functionName: 'requestWithdrawals',
       args: [
         [BigInt(params.amount.toSolidityValue())],
-        params.user.wallet.address.value as `0x${string}`
+        params.user.wallet.address.value as `0x${string}`,
       ],
     })
 

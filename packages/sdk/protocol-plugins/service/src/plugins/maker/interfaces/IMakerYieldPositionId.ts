@@ -1,4 +1,8 @@
-import { IYieldPositionId, YieldPositionIdDataSchema, __YieldPositionIdSignature__ } from '@thesolidchain/sdk-common'
+import {
+  IYieldPositionId,
+  YieldPositionIdDataSchema,
+  __YieldPositionIdSignature__,
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IMakerProtocol, isMakerProtocol } from './IMakerProtocol'
 
@@ -28,4 +32,3 @@ export interface IMakerYieldPositionId extends IYieldPositionId {
   /** The address of the wallet that holds the position */
   readonly walletAddress: string
 }
-

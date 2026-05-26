@@ -1,4 +1,10 @@
-import type { QuoteData, IToken, ITokenAmount, IPercentage, IAddress } from '@thesolidchain/sdk-common'
+import type {
+  QuoteData,
+  IToken,
+  ITokenAmount,
+  IPercentage,
+  IAddress,
+} from '@thesolidchain/sdk-common'
 
 /**
  * ISwapManagerClient

@@ -3,7 +3,21 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount, useSendTransaction, usePublicClient } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken, TokenAmount, ISimulation, Order, SimulationSteps, ExecutionType, SwapStep, Percentage, User, ChainInfo, Wallet, Address } from '@thesolidchain/sdk-common'
+import {
+  formatTokenAmountHumanReadable,
+  IToken,
+  TokenAmount,
+  ISimulation,
+  Order,
+  SimulationSteps,
+  ExecutionType,
+  SwapStep,
+  Percentage,
+  User,
+  ChainInfo,
+  Wallet,
+  Address,
+} from '@thesolidchain/sdk-common'
 
 export function SwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')
@@ -21,7 +35,7 @@ export function SwapViewer() {
 
   const logDebug = (msg: string) => {
     console.log('[SwapViewer Debug]', msg)
-    setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${msg}`])
+    setDebugLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${msg}`])
   }
 
   const { chainId } = useAccount()
@@ -61,15 +75,22 @@ export function SwapViewer() {
           amount: fromAmount,
           token: fromToken as IToken,
         })
-        let user;
+        let user
         try {
           user = sdk.getCurrentUser()
         } catch (e) {
-          if (process.env.NEXT_PUBLIC_BUILD_TYPE === 'development' || process.env.NEXT_PUBLIC_BUILD_TYPE === 'test') {
+          if (
+            process.env.NEXT_PUBLIC_BUILD_TYPE === 'development' ||
+            process.env.NEXT_PUBLIC_BUILD_TYPE === 'test'
+          ) {
             console.warn('Wallet not connected. Using mock user for simulation.')
             user = User.createFrom({
               chainInfo: ChainInfo.createFrom({ chainId: 1, name: 'Ethereum' }),
-              wallet: Wallet.createFrom({ address: Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' }) })
+              wallet: Wallet.createFrom({
+                address: Address.createFromEthereum({
+                  value: '0x1234567890123456789012345678901234567890',
+                }),
+              }),
             })
           } else {
             throw e
@@ -89,9 +110,9 @@ export function SwapViewer() {
 
         // 3. Build the Execution Order
         const orderData = await sdk.buildOrder({
-           user: user,
-           simulation: simulationData,
-           executionType: ExecutionType.Multicall,
+          user: user,
+          simulation: simulationData,
+          executionType: ExecutionType.Multicall,
         })
         setOrder(orderData || null)
       } catch (err) {
@@ -115,24 +136,24 @@ export function SwapViewer() {
       setError(null)
       setSuccessMsg(null)
       setDebugLog([])
-      
+
       for (let i = 0; i < order.transactions.length; i++) {
         setExecutingIndex(i)
         const txInfo = order.transactions[i]
-        
+
         const hash = await sendTransactionAsync({
           to: txInfo.transaction.target.value as `0x${string}`,
           data: txInfo.transaction.calldata as `0x${string}`,
           value: BigInt(txInfo.transaction.value || 0),
         })
-        
+
         logDebug(`Transaction ${i + 1}/${order.transactions.length} submitted. Hash: ${hash}`)
-        
+
         if (publicClient) {
           const rpcUrl = publicClient.chain?.rpcUrls?.default?.http?.[0] || 'Unknown RPC'
           logDebug(`PublicClient RPC URL: ${rpcUrl}`)
           logDebug(`Waiting for receipt for ${hash}...`)
-          
+
           const receipt = await publicClient.waitForTransactionReceipt({ hash })
           logDebug(`Receipt received! Status: ${receipt.status}`)
           if (receipt.status === 'reverted') {
@@ -143,7 +164,7 @@ export function SwapViewer() {
           logDebug('No publicClient available!')
         }
       }
-      
+
       logDebug('All transactions finished! Setting success message.')
       setSuccessMsg(`All ${order.transactions.length} transactions executed successfully!`)
       logDebug('Calling fetchQuote(true) to refresh balances...')
@@ -153,8 +174,11 @@ export function SwapViewer() {
       logDebug(`Error caught: ${(err as Error)?.message}`)
       console.error(err)
       const message = (err as Error)?.message || ''
-      
-      if (message.includes('User rejected the request') || message.includes('User denied transaction signature')) {
+
+      if (
+        message.includes('User rejected the request') ||
+        message.includes('User denied transaction signature')
+      ) {
         setError('Transaction was rejected by the user. Please try again when you are ready.')
       } else {
         setError(message || 'Failed to execute swap.')
@@ -280,7 +304,9 @@ export function SwapViewer() {
 
       {debugLog.length > 0 && (
         <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-700 text-neutral-300 mb-6 font-mono text-xs break-words max-h-40 overflow-y-auto">
-          <div className="text-[var(--neon-orange)] mb-2 font-bold uppercase">Execution Log (Debug)</div>
+          <div className="text-[var(--neon-orange)] mb-2 font-bold uppercase">
+            Execution Log (Debug)
+          </div>
           {debugLog.map((log, i) => (
             <div key={i}>{log}</div>
           ))}
@@ -300,8 +326,14 @@ export function SwapViewer() {
               <div className="text-sm text-neutral-500 mb-1">Pay</div>
               <div className="text-2xl font-bold text-white break-words">
                 {(() => {
-                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
-                  return swapStep ? formatTokenAmountHumanReadable(swapStep.inputs.inputAmount) + ' ' + swapStep.inputs.inputAmount.token.symbol : ''
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as
+                    | SwapStep
+                    | undefined
+                  return swapStep
+                    ? formatTokenAmountHumanReadable(swapStep.inputs.inputAmount) +
+                        ' ' +
+                        swapStep.inputs.inputAmount.token.symbol
+                    : ''
                 })()}
               </div>
             </div>
@@ -321,8 +353,14 @@ export function SwapViewer() {
               <div className="text-sm text-neutral-500 mb-1">Receive (Estimated)</div>
               <div className="text-2xl font-bold text-[var(--neon-cyan)] break-words">
                 {(() => {
-                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
-                  return swapStep ? formatTokenAmountHumanReadable(swapStep.outputs.received) + ' ' + swapStep.outputs.received.token.symbol : ''
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as
+                    | SwapStep
+                    | undefined
+                  return swapStep
+                    ? formatTokenAmountHumanReadable(swapStep.outputs.received) +
+                        ' ' +
+                        swapStep.outputs.received.token.symbol
+                    : ''
                 })()}
               </div>
             </div>
@@ -333,7 +371,9 @@ export function SwapViewer() {
               <div className="text-xs text-neutral-500 uppercase font-semibold mb-1">Provider</div>
               <div className="font-mono text-white text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
                 {(() => {
-                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as SwapStep | undefined
+                  const swapStep = simulation.steps.find((s) => s.type === SimulationSteps.Swap) as
+                    | SwapStep
+                    | undefined
                   return swapStep ? swapStep.inputs.provider : 'Unknown'
                 })()}
               </div>
@@ -343,11 +383,12 @@ export function SwapViewer() {
                 Steps Required
               </div>
               <div className="font-mono text-[var(--neon-orange)] text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
-                {simulation.steps.length} ({simulation.steps.map(s => s.type.split('_').pop()).join(' + ')})
+                {simulation.steps.length} (
+                {simulation.steps.map((s) => s.type.split('_').pop()).join(' + ')})
               </div>
             </div>
           </div>
-          
+
           <button
             onClick={handleExecute}
             disabled={loading || !order || order.transactions.length === 0}
@@ -356,10 +397,10 @@ export function SwapViewer() {
             {loading && executingIndex >= 0 && order
               ? `Executing ${executingIndex + 1}/${order.transactions.length}: ${order.transactions[executingIndex].description}`
               : loading
-              ? 'Executing...'
-              : order && order.transactions.length > 1
-              ? `Execute Swap (${order.transactions.length} steps)`
-              : 'Execute Swap'}
+                ? 'Executing...'
+                : order && order.transactions.length > 1
+                  ? `Execute Swap (${order.transactions.length} steps)`
+                  : 'Execute Swap'}
           </button>
         </div>
       )}

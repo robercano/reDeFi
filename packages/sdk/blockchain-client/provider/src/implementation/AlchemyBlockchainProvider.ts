@@ -22,7 +22,15 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
   public readonly configProvider: IConfigurationProvider
 
   private readonly _blockchainClients: Map<number, IBlockchainClient> = new Map()
-  private readonly _supportedChains: Chain[] = [mainnet, arbitrum, base, sonic, hyperliquid, sepolia, optimism]
+  private readonly _supportedChains: Chain[] = [
+    mainnet,
+    arbitrum,
+    base,
+    sonic,
+    hyperliquid,
+    sepolia,
+    optimism,
+  ]
   private readonly _apiKey: string
   private readonly _tenderlyForkUrl: string | undefined
 
@@ -49,7 +57,7 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
       const environmentTag = this.configProvider.getConfigurationItem({
         name: 'ENVIRONMENT_TAG',
       }) as string
-      
+
       // Safety check: Ensure the fork is ONLY used in development mode
       if (environmentTag !== 'development' && environmentTag !== 'dev') {
         this._tenderlyForkUrl = undefined
@@ -141,9 +149,9 @@ export class AlchemyBlockchainProvider implements IBlockchainClientProvider {
     if (chainId === mainnet.id && this._tenderlyForkUrl) {
       return this._tenderlyForkUrl
     }
-    
+
     if (!this._apiKey) return undefined
-    
+
     if (chainId === mainnet.id) {
       return `https://eth-mainnet.g.alchemy.com/v2/${this._apiKey}`
     } else if (chainId === base.id) {

@@ -25,7 +25,9 @@ export class DefaultLidoDataSource implements ILidoDataSource {
 
     // For Lido on Ethereum, the underlying is always ETH.
     // We fetch ETH's metadata from the tokensManager using the zero address or '0xeeee...'
-    const ethAddressObj = Address.createFromEthereum({ value: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' })
+    const ethAddressObj = Address.createFromEthereum({
+      value: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    })
     const underlyingToken = await this.context.tokensManager.getTokenByAddress({
       chainInfo,
       address: ethAddressObj,
@@ -75,14 +77,16 @@ export class DefaultLidoDataSource implements ILidoDataSource {
     const chainInfo = this.context.provider.chain as unknown as IChainInfo
 
     // Fetch the underlying token (ETH)
-    const ethAddressObj = Address.createFromEthereum({ value: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee' })
+    const ethAddressObj = Address.createFromEthereum({
+      value: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
+    })
     const underlyingToken = await this.context.tokensManager.getTokenByAddress({
       chainInfo,
       address: ethAddressObj,
     })
 
     const balanceAbi = parseAbi(['function balanceOf(address) view returns (uint256)'])
-    
+
     // For stETH, balanceOf already returns the rebased underlying amount.
     // For wstETH, we would need to check if it's wstETH and multiply by stEthPerToken().
     // We assume stETH here based on standard Lido integration.

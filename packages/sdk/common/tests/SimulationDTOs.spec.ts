@@ -9,9 +9,9 @@ import { SimulationType } from '../src/simulation/enums/SimulationType'
 describe('Simulation DTOs', () => {
   it('should construct BalanceChange', () => {
     const dto = new BalanceChange({
-      token: {} as any,
-      amount: {} as any,
-      fiatValue: {} as any,
+      token: {} as unknown as import('../src/common/interfaces/IToken').IToken,
+      amount: {} as unknown as import('../src/common/interfaces/ITokenAmount').ITokenAmount,
+      fiatValue: {} as unknown as import('../src/common/interfaces/IFiatCurrencyAmount').IFiatCurrencyAmount,
     })
     expect(dto.token).toBeDefined()
     expect(dto.amount).toBeDefined()
@@ -20,8 +20,8 @@ describe('Simulation DTOs', () => {
 
   it('should construct GasEstimation', () => {
     const dto = new GasEstimation({
-      gasTokenAmount: {} as any,
-      gasFiatValue: {} as any,
+      gasTokenAmount: {} as unknown as import('../src/common/interfaces/ITokenAmount').ITokenAmount,
+      gasFiatValue: {} as unknown as import('../src/common/interfaces/IFiatCurrencyAmount').IFiatCurrencyAmount,
     })
     expect(dto.gasTokenAmount).toBeDefined()
     expect(dto.gasFiatValue).toBeDefined()

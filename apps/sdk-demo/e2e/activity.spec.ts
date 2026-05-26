@@ -6,7 +6,7 @@ test.describe('SDK Demo App - Activity Tracking', () => {
 
     // Verify the Activity History section is visible
     await expect(page.locator('text=Activity History')).toBeVisible()
-    
+
     // Check that it shows no recent activity
     await expect(page.locator('text=No recent activity found.')).toBeVisible()
   })
@@ -23,10 +23,10 @@ test.describe('SDK Demo App - Activity Tracking', () => {
       const getQuoteButton = page.locator('button', { hasText: 'Get Intent Quote' })
       if (await getQuoteButton.isVisible()) {
         await getQuoteButton.click()
-        
+
         // Wait for success
         await expect(page.locator('text=Optimal Intent Found')).toBeVisible({ timeout: 15000 })
-        
+
         const signButton = page.locator('button', { hasText: 'Sign & Submit Intent' })
         await expect(signButton).toBeVisible()
         await signButton.click()

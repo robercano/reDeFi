@@ -21,7 +21,7 @@ export type Vnet = {
 
 /**
  * Tenderly
- * Utility class for interacting with the Tenderly API. 
+ * Utility class for interacting with the Tenderly API.
  * Allows creating, forking, snapping, and manipulating virtual testnets (Vnets)
  * natively via fetch endpoints.
  *
@@ -36,7 +36,7 @@ export class Tenderly {
   /**
    * Initializes the Tenderly client.
    * Relies on `TENDERLY_USER`, `TENDERLY_PROJECT`, and `TENDERLY_ACCESS_KEY` environment variables.
-   * 
+   *
    * @throws Error if any required environment variable is missing.
    */
   constructor() {
@@ -55,7 +55,7 @@ export class Tenderly {
   /**
    * createVnet
    * Provisions a new Tenderly Virtual Network (Vnet) based on a specific chain and block.
-   * 
+   *
    * @param params.chainInfo - Information about the chain to fork
    * @param params.atBlock - The specific block number to fork from, or 'latest'
    * @returns A promise resolving to a `Vnet` interface that controls the created virtual network

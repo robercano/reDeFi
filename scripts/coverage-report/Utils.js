@@ -22,7 +22,9 @@ const EXCLUDED_PACKAGES = [
 
 function isExcluded(dir) {
   const normalizedDir = dir.replace(/\\/g, '/')
-  return EXCLUDED_PACKAGES.some((ex) => normalizedDir.includes(ex)) || normalizedDir.endsWith('/common')
+  return (
+    EXCLUDED_PACKAGES.some((ex) => normalizedDir.includes(ex)) || normalizedDir.endsWith('/common')
+  )
 }
 
 function getAllPathsForPackagesSummaries() {

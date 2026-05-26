@@ -41,10 +41,12 @@ export class AnvilFork {
   }) {
     // Generate a random port to avoid parallel test conflicts
     const port = params.port || 8545 + Math.floor(Math.random() * 1000)
-    
+
     const anvil = createAnvil({
       forkUrl: params.forkUrl,
-      ...(params.atBlock && params.atBlock !== 'latest' ? { forkBlockNumber: BigInt(params.atBlock) } : {}),
+      ...(params.atBlock && params.atBlock !== 'latest'
+        ? { forkBlockNumber: BigInt(params.atBlock) }
+        : {}),
       port,
     })
 

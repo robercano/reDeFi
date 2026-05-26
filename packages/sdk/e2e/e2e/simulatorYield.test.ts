@@ -46,19 +46,23 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
     } as unknown as IYieldPoolId
 
     const mockTransactionInfo = {
-      transaction: { target: '0x1234567890123456789012345678901234567890', calldata: '0xdeadbeef', value: '0' },
-      description: 'Lido Deposit'
+      transaction: {
+        target: '0x1234567890123456789012345678901234567890',
+        calldata: '0xdeadbeef',
+        value: '0',
+      },
+      description: 'Lido Deposit',
     }
 
     const mockPlugin = {
       yield: {
         getYieldPoolInfo: vi.fn().mockResolvedValue({}),
-        getDepositTransaction: vi.fn().mockResolvedValue(mockTransactionInfo)
-      }
+        getDepositTransaction: vi.fn().mockResolvedValue(mockTransactionInfo),
+      },
     }
 
     const mockProtocolManager = {
-      yield: mockPlugin.yield
+      yield: mockPlugin.yield,
     } as any
 
     // 1. Simulate the Deposit
@@ -77,16 +81,19 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
       simulation,
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
-        getPlugin: vi.fn().mockReturnValue(mockPlugin)
+        getPlugin: vi.fn().mockReturnValue(mockPlugin),
       } as any,
     } as any)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
-    assert.strictEqual(order.transactions[0].transaction.target, '0x1234567890123456789012345678901234567890')
+    assert.strictEqual(
+      order.transactions[0].transaction.target,
+      '0x1234567890123456789012345678901234567890',
+    )
     assert.strictEqual(order.transactions[0].transaction.calldata, '0xdeadbeef')
     assert.strictEqual(order.transactions[0].description, 'Lido Deposit')
-    
+
     console.log('Successfully verified Yield Deposit simulation and order planning!')
   })
 
@@ -114,19 +121,23 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
     } as unknown as IYieldPositionId
 
     const mockTransactionInfo = {
-      transaction: { target: '0x1234567890123456789012345678901234567890', calldata: '0xbeefdead', value: '0' },
-      description: 'Lido Withdraw'
+      transaction: {
+        target: '0x1234567890123456789012345678901234567890',
+        calldata: '0xbeefdead',
+        value: '0',
+      },
+      description: 'Lido Withdraw',
     }
 
     const mockPlugin = {
       yield: {
         getYieldPosition: vi.fn().mockResolvedValue({}),
-        getWithdrawTransaction: vi.fn().mockResolvedValue(mockTransactionInfo)
-      }
+        getWithdrawTransaction: vi.fn().mockResolvedValue(mockTransactionInfo),
+      },
     }
 
     const mockProtocolManager = {
-      yield: mockPlugin.yield
+      yield: mockPlugin.yield,
     } as any
 
     // 1. Simulate the Withdraw
@@ -145,16 +156,19 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
       simulation,
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
-        getPlugin: vi.fn().mockReturnValue(mockPlugin)
+        getPlugin: vi.fn().mockReturnValue(mockPlugin),
       } as any,
     } as any)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
-    assert.strictEqual(order.transactions[0].transaction.target, '0x1234567890123456789012345678901234567890')
+    assert.strictEqual(
+      order.transactions[0].transaction.target,
+      '0x1234567890123456789012345678901234567890',
+    )
     assert.strictEqual(order.transactions[0].transaction.calldata, '0xbeefdead')
     assert.strictEqual(order.transactions[0].description, 'Lido Withdraw')
-    
+
     console.log('Successfully verified Yield Withdraw simulation and order planning!')
   })
 })

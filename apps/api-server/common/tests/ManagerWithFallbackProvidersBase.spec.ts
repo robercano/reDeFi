@@ -71,7 +71,7 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
       testManager.getBestProvider({
         chainInfo: ChainFamilyMap.Ethereum.Mainnet,
         forceUseProvider: 'UnknownProvider' as TestProviderType,
-      })
+      }),
     ).toThrow('Forced provider not found: UnknownProvider')
   })
 
@@ -98,7 +98,7 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
         chainInfo: ChainFamilyMap.Ethereum.Mainnet,
         forceUseProvider: 'UnknownProvider' as TestProviderType,
         action: async (provider) => provider.type,
-      })
+      }),
     ).rejects.toThrow('Forced provider not found: UnknownProvider')
   })
 
@@ -107,7 +107,7 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
       testManager.executeWithFallback({
         chainInfo: ChainFamilyMap.Optimism.Optimism,
         action: async (provider) => provider.type,
-      })
+      }),
     ).rejects.toThrow('No provider found for chainId: 10')
   })
 
@@ -137,7 +137,7 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
         return provider.type
       },
     })
-    
+
     expect(result).toBe(TestProviderType.ArbitrumProvider)
   })
 
@@ -148,7 +148,7 @@ describe('SDK Server Common | Unit | ManagerProviderBase', () => {
         action: async () => {
           throw new Error('All providers failed exception')
         },
-      })
+      }),
     ).rejects.toThrow('All providers failed exception')
   })
 })

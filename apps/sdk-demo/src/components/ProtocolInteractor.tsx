@@ -1,7 +1,23 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useAccount, useSendTransaction } from 'wagmi'
-import { ChainFamilyMap, ILendingPool, ILendingPoolInfo, Order, IYieldPositionId, TokenAmount, Address, IUser, ISimulation } from '@thesolidchain/sdk-common'
-import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType, LidoYieldPoolId, YearnYieldPoolId } from '@thesolidchain/protocol-plugins'
+import {
+  ChainFamilyMap,
+  ILendingPool,
+  ILendingPoolInfo,
+  Order,
+  IYieldPositionId,
+  TokenAmount,
+  Address,
+  IUser,
+  ISimulation,
+} from '@thesolidchain/sdk-common'
+import {
+  AaveV3LendingPoolId,
+  AaveV3Protocol,
+  EmodeType,
+  LidoYieldPoolId,
+  YearnYieldPoolId,
+} from '@thesolidchain/protocol-plugins'
 import { useSDK } from '@thesolidchain/sdk-react'
 
 type ProtocolType = 'Aave V3' | 'Yearn' | 'Lido'
@@ -22,14 +38,14 @@ const MOCK_PROTOCOLS: Record<ProtocolType, ProtocolDetails> = {
     apy: '5.2',
     type: 'Lending',
   },
-  'Yearn': {
+  Yearn: {
     name: 'Yearn Vaults',
     asset: 'yvUSDC',
     network: 'Ethereum Mainnet',
     apy: '7.8',
     type: 'Yield',
   },
-  'Lido': {
+  Lido: {
     name: 'Lido Staking',
     asset: 'stETH',
     network: 'Ethereum Mainnet',
@@ -46,7 +62,7 @@ export const ProtocolInteractor: FC = () => {
   const [selectedProtocol, setSelectedProtocol] = useState<ProtocolType>('Aave V3')
   const [actionType, setActionType] = useState<'Deposit' | 'Withdraw'>('Deposit')
   const [amount, setAmount] = useState<string>('')
-  
+
   const [loading, setLoading] = useState<boolean>(false)
   const [aavePool, setAavePool] = useState<ILendingPool | null>(null)
   const [aavePoolInfo, setAavePoolInfo] = useState<ILendingPoolInfo | null>(null)
@@ -58,7 +74,10 @@ export const ProtocolInteractor: FC = () => {
     const fetchAaveData = async () => {
       try {
         const chainInfo = ChainFamilyMap.Ethereum.Mainnet
-        const collateralToken = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'WETH' })
+        const collateralToken = await sdk.getTokenBySymbol({
+          chainId: chainInfo.chainId,
+          symbol: 'WETH',
+        })
         const debtToken = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'USDC' })
 
         if (!collateralToken || !debtToken) return
@@ -92,49 +111,85 @@ export const ProtocolInteractor: FC = () => {
     try {
       let finalOrder: Order | null = null
       const chainInfo = ChainFamilyMap.Ethereum.Mainnet
-      
+
       if (selectedProtocol === 'Aave V3' && aavePoolIdObj) {
-         // Fake order for Aave since we didn't implement fully for the UI yet
-         finalOrder = {
-           simulation: {} as unknown as ISimulation,
-           transactions: [{
-             description: 'Aave Mock Transaction',
-             transaction: {
-               target: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
-               calldata: '0x',
-               value: '0',
-             }
-           }]
-         } as unknown as Order
+        // Fake order for Aave since we didn't implement fully for the UI yet
+        finalOrder = {
+          simulation: {} as unknown as ISimulation,
+          transactions: [
+            {
+              description: 'Aave Mock Transaction',
+              transaction: {
+                target: Address.createFromEthereum({
+                  value: '0x0000000000000000000000000000000000000000',
+                }),
+                calldata: '0x',
+                value: '0',
+              },
+            },
+          ],
+        } as unknown as Order
       } else if (selectedProtocol === 'Lido') {
-         const poolId = new LidoYieldPoolId('0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84', chainInfo)
-         const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'WETH' }) // we use WETH or ETH
-         const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
-         const sdkUser = { wallet: { address: Address.createFromEthereum({ value: address! }) } } as unknown as IUser
-         
-         if (actionType === 'Deposit') {
-           const simulation = await sdk.simulator.yield.simulateDeposit({ poolId, amount: tokenAmount })
-           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
-         } else {
-           // We need a dummy position for simulation!
-           const positionId = { poolId, userAddress: sdkUser.wallet.address, type: 'Yield', tokenAddress: poolId.tokenAddress, walletAddress: sdkUser.wallet.address } as unknown as IYieldPositionId
-           const simulation = await sdk.simulator.yield.simulateWithdraw({ positionId, amount: tokenAmount })
-           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
-         }
+        const poolId = new LidoYieldPoolId('0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84', chainInfo)
+        const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'WETH' }) // we use WETH or ETH
+        const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
+        const sdkUser = {
+          wallet: { address: Address.createFromEthereum({ value: address! }) },
+        } as unknown as IUser
+
+        if (actionType === 'Deposit') {
+          const simulation = await sdk.simulator.yield.simulateDeposit({
+            poolId,
+            amount: tokenAmount,
+          })
+          finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+        } else {
+          // We need a dummy position for simulation!
+          const positionId = {
+            poolId,
+            userAddress: sdkUser.wallet.address,
+            type: 'Yield',
+            tokenAddress: poolId.tokenAddress,
+            walletAddress: sdkUser.wallet.address,
+          } as unknown as IYieldPositionId
+          const simulation = await sdk.simulator.yield.simulateWithdraw({
+            positionId,
+            amount: tokenAmount,
+          })
+          finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+        }
       } else if (selectedProtocol === 'Yearn') {
-         const poolId = new YearnYieldPoolId('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', chainInfo, '0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE')
-         const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'USDC' })
-         const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
-         const sdkUser = { wallet: { address: Address.createFromEthereum({ value: address! }) } } as unknown as IUser
-         
-         if (actionType === 'Deposit') {
-           const simulation = await sdk.simulator.yield.simulateDeposit({ poolId, amount: tokenAmount })
-           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
-         } else {
-           const positionId = { poolId, userAddress: sdkUser.wallet.address, type: 'Yield', tokenAddress: poolId.tokenAddress, walletAddress: sdkUser.wallet.address } as unknown as IYieldPositionId
-           const simulation = await sdk.simulator.yield.simulateWithdraw({ positionId, amount: tokenAmount })
-           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
-         }
+        const poolId = new YearnYieldPoolId(
+          '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+          chainInfo,
+          '0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE',
+        )
+        const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'USDC' })
+        const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
+        const sdkUser = {
+          wallet: { address: Address.createFromEthereum({ value: address! }) },
+        } as unknown as IUser
+
+        if (actionType === 'Deposit') {
+          const simulation = await sdk.simulator.yield.simulateDeposit({
+            poolId,
+            amount: tokenAmount,
+          })
+          finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+        } else {
+          const positionId = {
+            poolId,
+            userAddress: sdkUser.wallet.address,
+            type: 'Yield',
+            tokenAddress: poolId.tokenAddress,
+            walletAddress: sdkUser.wallet.address,
+          } as unknown as IYieldPositionId
+          const simulation = await sdk.simulator.yield.simulateWithdraw({
+            positionId,
+            amount: tokenAmount,
+          })
+          finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+        }
       }
 
       setOrder(finalOrder)
@@ -164,14 +219,19 @@ export const ProtocolInteractor: FC = () => {
   }
 
   const protocolData = MOCK_PROTOCOLS[selectedProtocol]
-  const displayApy = selectedProtocol === 'Aave V3' && aavePoolInfo ? ((aavePoolInfo as unknown as { apy: number }).apy || protocolData.apy) : protocolData.apy
+  const displayApy =
+    selectedProtocol === 'Aave V3' && aavePoolInfo
+      ? (aavePoolInfo as unknown as { apy: number }).apy || protocolData.apy
+      : protocolData.apy
 
   return (
     <div className="w-full max-w-2xl mx-auto bg-neutral-900/40 border border-white/10 rounded-2xl p-8 backdrop-blur-xl shadow-2xl">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h2 className="text-2xl font-bold text-white mb-1">Protocol Interactions</h2>
-          <p className="text-neutral-400 text-sm">Create positions or withdraw across integrated protocols.</p>
+          <p className="text-neutral-400 text-sm">
+            Create positions or withdraw across integrated protocols.
+          </p>
         </div>
       </div>
 
@@ -196,7 +256,9 @@ export const ProtocolInteractor: FC = () => {
       </div>
 
       <div className="bg-black/30 border border-white/5 rounded-xl p-5 mb-8">
-        <h4 className="text-xs uppercase tracking-wider text-neutral-500 font-bold mb-3">Selected Protocol</h4>
+        <h4 className="text-xs uppercase tracking-wider text-neutral-500 font-bold mb-3">
+          Selected Protocol
+        </h4>
         <div className="flex justify-between items-center">
           <div>
             <div className="text-lg text-white font-semibold mb-1">{protocolData.name}</div>
@@ -259,7 +321,14 @@ export const ProtocolInteractor: FC = () => {
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Execute {actionType}
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
               </span>
             </button>
           </div>

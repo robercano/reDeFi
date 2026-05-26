@@ -92,7 +92,10 @@ describe('Handlers', () => {
     poolId: lendingPoolId,
     walletAddress: address,
   })
-  const user = User.createFrom({ wallet: { address } as unknown as import('@thesolidchain/sdk-common').IWallet, chainInfo })
+  const user = User.createFrom({
+    wallet: { address } as unknown as import('@thesolidchain/sdk-common').IWallet,
+    chainInfo,
+  })
 
   beforeEach(() => {
     caller = createCaller(mockCtx)
@@ -108,18 +111,24 @@ describe('Handlers', () => {
 
   describe('protocols', () => {
     it('getPosition', async () => {
-      await expect(caller.protocols.getPosition(positionId as unknown as Parameters<typeof caller.protocols.getPosition>[0])).rejects.toThrow(
-        'Not implemented',
-      )
+      await expect(
+        caller.protocols.getPosition(
+          positionId as unknown as Parameters<typeof caller.protocols.getPosition>[0],
+        ),
+      ).rejects.toThrow('Not implemented')
     })
     it('getLendingPool', async () => {
       mockProtocolManager.lending.getLendingPool.mockResolvedValue('pool')
-      const res = await caller.protocols.getLendingPool(lendingPoolId as unknown as Parameters<typeof caller.protocols.getLendingPool>[0])
+      const res = await caller.protocols.getLendingPool(
+        lendingPoolId as unknown as Parameters<typeof caller.protocols.getLendingPool>[0],
+      )
       expect(res).toBe('pool')
     })
     it('getLendingPoolInfo', async () => {
       mockProtocolManager.lending.getLendingPoolInfo.mockResolvedValue('poolInfo')
-      const res = await caller.protocols.getLendingPoolInfo(lendingPoolId as unknown as Parameters<typeof caller.protocols.getLendingPoolInfo>[0])
+      const res = await caller.protocols.getLendingPoolInfo(
+        lendingPoolId as unknown as Parameters<typeof caller.protocols.getLendingPoolInfo>[0],
+      )
       expect(res).toBe('poolInfo')
     })
   })
@@ -153,7 +162,13 @@ describe('Handlers', () => {
   describe('orders', () => {
     it('buildOrder', async () => {
       await expect(
-        caller.orders.buildOrder({ chainInfo, user, intent: { intentType: 0 } as unknown as Parameters<typeof caller.orders.buildOrder>[0]['intent'] }),
+        caller.orders.buildOrder({
+          chainInfo,
+          user,
+          intent: { intentType: 0 } as unknown as Parameters<
+            typeof caller.orders.buildOrder
+          >[0]['intent'],
+        }),
       ).rejects.toThrow('Required')
     })
   })
@@ -178,7 +193,9 @@ describe('Handlers', () => {
         fromAmount: tokenAmount,
         sender: address,
         order: {},
-        signingResult: { signature: sig, signingScheme: 'eip712' } as unknown as Parameters<typeof caller.intentSwaps.sendOrder>[0]['signingResult'],
+        signingResult: { signature: sig, signingScheme: 'eip712' } as unknown as Parameters<
+          typeof caller.intentSwaps.sendOrder
+        >[0]['signingResult'],
       } as unknown as Parameters<typeof caller.intentSwaps.sendOrder>[0])
       expect(res).toBe('send')
     })
@@ -187,7 +204,9 @@ describe('Handlers', () => {
         providerType: IntentSwapProviderType.CowSwap,
         chainId: ChainIds.Mainnet,
         orderId: '0x123',
-        signingResult: { signature: sig, signingScheme: 'eip712' } as unknown as Parameters<typeof caller.intentSwaps.cancelOrder>[0]['signingResult'],
+        signingResult: { signature: sig, signingScheme: 'eip712' } as unknown as Parameters<
+          typeof caller.intentSwaps.cancelOrder
+        >[0]['signingResult'],
       } as unknown as Parameters<typeof caller.intentSwaps.cancelOrder>[0])
       expect(res).toBe('cancel')
     })
@@ -209,7 +228,9 @@ describe('Handlers', () => {
         fromAmount: tokenAmount,
         toToken: token,
         recipient: address,
-        slippage: { value: 1 } as unknown as Parameters<typeof caller.swaps.getSwapDataExactInput>[0]['slippage'],
+        slippage: { value: 1 } as unknown as Parameters<
+          typeof caller.swaps.getSwapDataExactInput
+        >[0]['slippage'],
       } as unknown as Parameters<typeof caller.swaps.getSwapDataExactInput>[0])
       expect(res).toBe('data')
     })
@@ -219,7 +240,9 @@ describe('Handlers', () => {
         providerType: SwapProviderType.OneInch,
         fromAmount: tokenAmount,
         toToken: token,
-        slippage: { value: 1 } as unknown as Parameters<typeof caller.swaps.getSwapQuoteExactInput>[0]['slippage'],
+        slippage: { value: 1 } as unknown as Parameters<
+          typeof caller.swaps.getSwapQuoteExactInput
+        >[0]['slippage'],
       } as unknown as Parameters<typeof caller.swaps.getSwapQuoteExactInput>[0])
       expect(res).toBe('quote')
     })
@@ -228,12 +251,17 @@ describe('Handlers', () => {
   describe('oracle', () => {
     it('getSpotPrice', async () => {
       mockOracleManager.getSpotPrice.mockResolvedValue('price')
-      const res = await caller.oracle.getSpotPrice({ baseToken: token } as unknown as Parameters<typeof caller.oracle.getSpotPrice>[0])
+      const res = await caller.oracle.getSpotPrice({ baseToken: token } as unknown as Parameters<
+        typeof caller.oracle.getSpotPrice
+      >[0])
       expect(res).toBe('price')
     })
     it('getSpotPrices', async () => {
       mockOracleManager.getSpotPrices.mockResolvedValue('prices')
-      const res = await caller.oracle.getSpotPrices({ baseTokens: [token], chainInfo } as unknown as Parameters<typeof caller.oracle.getSpotPrices>[0])
+      const res = await caller.oracle.getSpotPrices({
+        baseTokens: [token],
+        chainInfo,
+      } as unknown as Parameters<typeof caller.oracle.getSpotPrices>[0])
       expect(res).toBe('prices')
     })
   })
@@ -241,12 +269,16 @@ describe('Handlers', () => {
   describe('portfolio', () => {
     it('getWalletHoldings', async () => {
       mockPortfolioManager.getWalletHoldings.mockResolvedValue('holdings')
-      const res = await caller.portfolio.getWalletHoldings({ user } as unknown as Parameters<typeof caller.portfolio.getWalletHoldings>[0])
+      const res = await caller.portfolio.getWalletHoldings({ user } as unknown as Parameters<
+        typeof caller.portfolio.getWalletHoldings
+      >[0])
       expect(res).toBe('holdings')
     })
     it('getUserPortfolio', async () => {
       mockPortfolioManager.getUserPortfolio.mockResolvedValue('portfolio')
-      const res = await caller.portfolio.getUserPortfolio({ user } as unknown as Parameters<typeof caller.portfolio.getUserPortfolio>[0])
+      const res = await caller.portfolio.getUserPortfolio({ user } as unknown as Parameters<
+        typeof caller.portfolio.getUserPortfolio
+      >[0])
       expect(res).toBe('portfolio')
     })
   })

@@ -18,7 +18,7 @@ export class ContractsProvider implements IContractsProvider {
 
   /**
    * Initializes the ContractsProvider
-   * 
+   *
    * @param params.configProvider - The configuration provider to access SDK config
    * @param params.blockchainClientProvider - The manager responsible for providing active blockchain clients
    */
@@ -34,7 +34,7 @@ export class ContractsProvider implements IContractsProvider {
 
   /**
    * Retrieves an instance of an ERC20 contract bounded to the specific chain's client.
-   * 
+   *
    * @param params.chainInfo - Information about the chain where the contract is deployed
    * @param params.address - The on-chain address of the ERC20 contract
    * @returns A promise resolving to an `IERC20` interface for interacting with the contract
@@ -51,7 +51,7 @@ export class ContractsProvider implements IContractsProvider {
 
   /**
    * Retrieves an instance of an ERC4626 Vault contract bounded to the specific chain's client.
-   * 
+   *
    * @param params.chainInfo - Information about the chain where the contract is deployed
    * @param params.address - The on-chain address of the ERC4626 contract
    * @returns A promise resolving to an `IERC4626` interface for interacting with the vault

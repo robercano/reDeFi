@@ -345,8 +345,7 @@ export class OneInchSwapProvider
           ? []
           : ONE_INCH_EXCLUDED_SWAP_PROTOCOLS.split(','),
       },
-      chainIds: ONE_INCH_SWAP_CHAIN_IDS.split(',')
-        .map((id: string) => parseInt(id)) as ChainId[],
+      chainIds: ONE_INCH_SWAP_CHAIN_IDS.split(',').map((id: string) => parseInt(id)) as ChainId[],
     }
   }
 

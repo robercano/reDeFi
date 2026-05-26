@@ -40,10 +40,10 @@ describe('SDK React | Unit | Handlers', () => {
   it('getCurrentUserHandler should assemble a user object from chain and wallet handlers', () => {
     const chainInfoFn = vi.fn().mockReturnValue(ChainFamilyMap.Ethereum.Mainnet)
     const walletAddressFn = vi.fn().mockReturnValue({ value: '0x123' })
-    
+
     const userFn = getCurrentUserHandler(chainInfoFn, walletAddressFn)
     const user = userFn()
-    
+
     expect(user.chainInfo.chainId).toBe(1)
     expect(user.wallet.address.value).toBe('0x123')
   })
@@ -55,7 +55,7 @@ describe('SDK React | Unit | Handlers', () => {
           tokens: {
             getTokenBySymbol: vi.fn().mockResolvedValue({}),
             getTokenTotalSupply: vi.fn().mockResolvedValue({}),
-          }
+          },
         }),
       },
       protocols: {
@@ -78,46 +78,77 @@ describe('SDK React | Unit | Handlers', () => {
       },
       orders: {
         buildOrder: vi.fn().mockResolvedValue({}),
-      }
+      },
     } as unknown as Parameters<typeof getLendingPoolHandler>[0]
 
     const mockChainProvider = vi.fn().mockResolvedValue(mockSdk.chains.getChainById())
 
-    await getLendingPoolHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getLendingPoolHandler>>[0])
+    await getLendingPoolHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof getLendingPoolHandler>>[0],
+    )
     expect(mockSdk.protocols.getLendingPool).toHaveBeenCalled()
 
-    await getLendingPoolInfoHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getLendingPoolInfoHandler>>[0])
+    await getLendingPoolInfoHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof getLendingPoolInfoHandler>>[0],
+    )
     expect(mockSdk.protocols.getLendingPoolInfo).toHaveBeenCalled()
 
-    await getSpotPriceHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getSpotPriceHandler>>[0])
+    await getSpotPriceHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof getSpotPriceHandler>>[0],
+    )
     expect(mockSdk.oracle.getSpotPrice).toHaveBeenCalled()
 
-    await getSpotPricesHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getSpotPricesHandler>>[0])
+    await getSpotPricesHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof getSpotPricesHandler>>[0],
+    )
     expect(mockSdk.oracle.getSpotPrices).toHaveBeenCalled()
 
-    await getSwapQuoteHandler(mockSdk)({ 
-      fromToken: { chainInfo: { chainId: 1, familyName: 'Ethereum' }, address: { value: '0x0000000000000000000000000000000000000123' }, symbol: 'USDC', decimals: 6 },
-      toToken: { chainInfo: { chainId: 1, familyName: 'Ethereum' }, address: { value: '0x0000000000000000000000000000000000000456' }, symbol: 'DAI', decimals: 18 },
+    await getSwapQuoteHandler(mockSdk)({
+      fromToken: {
+        chainInfo: { chainId: 1, familyName: 'Ethereum' },
+        address: { value: '0x0000000000000000000000000000000000000123' },
+        symbol: 'USDC',
+        decimals: 6,
+      },
+      toToken: {
+        chainInfo: { chainId: 1, familyName: 'Ethereum' },
+        address: { value: '0x0000000000000000000000000000000000000456' },
+        symbol: 'DAI',
+        decimals: 18,
+      },
       fromAmount: '100',
-      slippage: 1
+      slippage: 1,
     } as unknown as Parameters<ReturnType<typeof getSwapQuoteHandler>>[0])
     expect(mockSdk.swaps.getSwapQuoteExactInput).toHaveBeenCalled()
 
-    await getUserPortfolioHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getUserPortfolioHandler>>[0])
+    await getUserPortfolioHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof getUserPortfolioHandler>>[0],
+    )
     expect(mockSdk.portfolio.getUserPortfolio).toHaveBeenCalled()
 
-    await buildOrderHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof buildOrderHandler>>[0])
+    await buildOrderHandler(mockSdk)(
+      {} as unknown as Parameters<ReturnType<typeof buildOrderHandler>>[0],
+    )
     expect(mockSdk.orders.buildOrder).toHaveBeenCalled()
 
     await getChainHandler(mockSdk)({ chainId: 1 })
 
     const chainTokenSpy = (await mockSdk.chains.getChainById()).tokens.getTokenBySymbol
-    await getTokenBySymbolHandler(mockChainProvider as unknown as Parameters<typeof getTokenBySymbolHandler>[0])({ chainId: 1, symbol: 'USDC' })
+    await getTokenBySymbolHandler(
+      mockChainProvider as unknown as Parameters<typeof getTokenBySymbolHandler>[0],
+    )({ chainId: 1, symbol: 'USDC' })
     expect(chainTokenSpy).toHaveBeenCalled()
 
     const chainTokenSupplySpy = (await mockSdk.chains.getChainById()).tokens.getTokenTotalSupply
-    await getTokenTotalSupplyHandler(mockChainProvider as unknown as Parameters<typeof getTokenTotalSupplyHandler>[0])({ 
-      token: { chainInfo: { chainId: 1, familyName: 'Ethereum' }, address: '0x0000000000000000000000000000000000000123', symbol: 'USDC', decimals: 6 } as unknown as Parameters<ReturnType<typeof getTokenTotalSupplyHandler>>[0]['token'] 
+    await getTokenTotalSupplyHandler(
+      mockChainProvider as unknown as Parameters<typeof getTokenTotalSupplyHandler>[0],
+    )({
+      token: {
+        chainInfo: { chainId: 1, familyName: 'Ethereum' },
+        address: '0x0000000000000000000000000000000000000123',
+        symbol: 'USDC',
+        decimals: 6,
+      } as unknown as Parameters<ReturnType<typeof getTokenTotalSupplyHandler>>[0]['token'],
     })
     expect(chainTokenSupplySpy).toHaveBeenCalled()
   })

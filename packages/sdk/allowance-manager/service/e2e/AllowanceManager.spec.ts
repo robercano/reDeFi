@@ -32,7 +32,10 @@ describe('Armada Protocol Service', () => {
   beforeEach(() => {
     process.env.INFURA_ENDPOINT_API_KEY = 'dummy'
     const configProvider = new ConfigurationProvider()
-    const blockchainClientProvider = new BlockchainClientProviderMock({ configProvider, rpcUrl: 'http://localhost:8545' })
+    const blockchainClientProvider = new BlockchainClientProviderMock({
+      configProvider,
+      rpcUrl: 'http://localhost:8545',
+    })
     const contractsProvider = ContractsProviderFactory.newContractsProvider({
       configProvider,
       blockchainClientProvider,

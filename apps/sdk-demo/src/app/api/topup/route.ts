@@ -7,9 +7,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Address is required' }, { status: 400 })
     }
 
-    const tenderlyUrl = process.env.NEXT_PUBLIC_TENDERLY_RPC_URL || process.env.E2E_SDK_FORK_URL_MAINNET
+    const tenderlyUrl =
+      process.env.NEXT_PUBLIC_TENDERLY_RPC_URL || process.env.E2E_SDK_FORK_URL_MAINNET
     if (!tenderlyUrl) {
-      return NextResponse.json({ error: 'Tenderly RPC URL not configured in environment variables' }, { status: 500 })
+      return NextResponse.json(
+        { error: 'Tenderly RPC URL not configured in environment variables' },
+        { status: 500 },
+      )
     }
 
     const tokensToTopUp = [
@@ -37,7 +41,11 @@ export async function POST(request: Request) {
           id: index,
         }
       } else {
-        const amount = token.address === '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' || token.address === '0xdAC17F958D2ee523a2206206994597C13D831ec7' ? usdcAmountHex : genericAmountHex
+        const amount =
+          token.address === '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' ||
+          token.address === '0xdAC17F958D2ee523a2206206994597C13D831ec7'
+            ? usdcAmountHex
+            : genericAmountHex
         return {
           jsonrpc: '2.0',
           method: 'tenderly_setErc20Balance',

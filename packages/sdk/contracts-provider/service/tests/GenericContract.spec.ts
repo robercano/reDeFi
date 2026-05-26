@@ -83,11 +83,23 @@ describe('GenericContractWrapper', () => {
     })
 
     // Access the protected _createTransaction method for testing
-    const tx = await (wrapper as unknown as { _createTransaction: (opts: { functionName: string, args: unknown[], description: string, value: bigint }) => Promise<{ transaction: { target: IAddress, calldata: string, value: string }, description: string }> })._createTransaction({
+    const tx = await (
+      wrapper as unknown as {
+        _createTransaction: (opts: {
+          functionName: string
+          args: unknown[]
+          description: string
+          value: bigint
+        }) => Promise<{
+          transaction: { target: IAddress; calldata: string; value: string }
+          description: string
+        }>
+      }
+    )._createTransaction({
       functionName: 'test',
       args: [],
       description: 'Test call',
-      value: 100n
+      value: 100n,
     })
 
     expect(tx.transaction.target).toBe(mockAddress)

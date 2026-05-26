@@ -8,10 +8,10 @@ const mockOff = vi.fn()
 vi.mock('../src/hooks/useSDK', () => {
   return {
     useSDK: vi.fn(() => ({
-      eventBus: { 
+      eventBus: {
         on: mockOn,
-        off: mockOff
-      }
+        off: mockOff,
+      },
     })),
   }
 })
@@ -19,14 +19,14 @@ vi.mock('../src/hooks/useSDK', () => {
 describe('SDK React | Unit | useSDKEvent', () => {
   it('should register and unregister event listeners on mount and unmount', () => {
     const callback = vi.fn()
-    const { unmount } = renderHook(
-      () => useSDKEvent({ chainId: 1, walletAddress: '0x123' }, 'NewBlockMined', callback)
+    const { unmount } = renderHook(() =>
+      useSDKEvent({ chainId: 1, walletAddress: '0x123' }, 'NewBlockMined', callback),
     )
 
     expect(mockOn).toHaveBeenCalledWith('NewBlockMined', callback)
-    
+
     unmount()
-    
+
     expect(mockOff).toHaveBeenCalledWith('NewBlockMined', callback)
   })
 })

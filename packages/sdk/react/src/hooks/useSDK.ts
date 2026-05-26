@@ -93,12 +93,15 @@ export const useSDK = (params: UseSdk) => {
   const buildOrder = useMemo(() => buildOrderHandler(sdk), [sdk])
 
   // INTENT SWAPS
-  const intentSwaps = useMemo(() => ({
-    getSellOrderQuote: getSellOrderQuoteHandler(sdk),
-    sendOrder: sendOrderHandler(sdk),
-    checkOrder: checkOrderHandler(sdk),
-    cancelOrder: cancelOrderHandler(sdk),
-  }), [sdk])
+  const intentSwaps = useMemo(
+    () => ({
+      getSellOrderQuote: getSellOrderQuoteHandler(sdk),
+      sendOrder: sendOrderHandler(sdk),
+      checkOrder: checkOrderHandler(sdk),
+      cancelOrder: cancelOrderHandler(sdk),
+    }),
+    [sdk],
+  )
 
   const memo = useMemo(
     () => ({
