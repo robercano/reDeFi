@@ -101,4 +101,22 @@ export abstract class BaseLendingProtocolPlugin
     amount: TokenAmount
     user: IUser
   }): Promise<TransactionInfo>
+
+  abstract getWithdrawTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
+
+  abstract getBorrowTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
+
+  abstract getRepayTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
 }

@@ -22,4 +22,19 @@ export interface ILendingProtocolFeatures {
     amount: TokenAmount
     user: IUser
   }): Promise<TransactionInfo>
+  getWithdrawTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
+  getBorrowTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
+  getRepayTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo>
 }

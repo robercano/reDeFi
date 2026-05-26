@@ -1,4 +1,4 @@
-import { isLendingPoolId, isTokenAmount, isYieldPoolId, isYieldPositionId } from '@thesolidchain/sdk-common'
+import { isLendingPoolId, isLendingPositionId, isTokenAmount, isYieldPoolId, isYieldPositionId } from '@thesolidchain/sdk-common'
 import { publicProcedure, router } from '../SDKTRPC'
 import { z } from 'zod'
 
@@ -17,6 +17,20 @@ export const simulatorRouter = router({
         throw new Error('Invalid input for simulateBorrow')
       }
       return opts.ctx.simulatorManager.lend.simulateBorrow({ poolId, amount })
+    }),
+    simulateWithdraw: publicProcedure.input(z.any()).query(async (opts) => {
+      const { positionId, amount } = opts.input
+      if (!isLendingPositionId(positionId) || !isTokenAmount(amount)) {
+        throw new Error('Invalid input for simulateWithdraw')
+      }
+      return opts.ctx.simulatorManager.lend.simulateWithdraw({ positionId, amount })
+    }),
+    simulateRepay: publicProcedure.input(z.any()).query(async (opts) => {
+      const { positionId, amount } = opts.input
+      if (!isLendingPositionId(positionId) || !isTokenAmount(amount)) {
+        throw new Error('Invalid input for simulateRepay')
+      }
+      return opts.ctx.simulatorManager.lend.simulateRepay({ positionId, amount })
     }),
   }),
   swap: router({

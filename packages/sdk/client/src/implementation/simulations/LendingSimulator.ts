@@ -4,6 +4,7 @@ import {
   ITokenAmount,
   ILendingPoolId,
   ISimulation,
+  ILendingPositionId,
 } from '@thesolidchain/sdk-common'
 
 export class LendingSimulator implements ILendingSimulator {
@@ -21,5 +22,19 @@ export class LendingSimulator implements ILendingSimulator {
     amount: ITokenAmount
   }): Promise<ISimulation> {
     return await this.rpcClient.simulator.lend.simulateBorrow.query(params)
+  }
+
+  async simulateWithdraw(params: {
+    positionId: ILendingPositionId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
+    return await this.rpcClient.simulator.lend.simulateWithdraw.query(params)
+  }
+
+  async simulateRepay(params: {
+    positionId: ILendingPositionId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
+    return await this.rpcClient.simulator.lend.simulateRepay.query(params)
   }
 }

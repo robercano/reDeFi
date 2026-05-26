@@ -10,6 +10,7 @@ describe('LendingSimulatorManager', () => {
   const mockProtocolManager = {
     lending: {
       getLendingPoolInfo: mockGetLendingPoolInfo,
+      getLendingPosition: vi.fn(),
     },
   } as unknown as IProtocolManager
 
@@ -31,9 +32,12 @@ describe('LendingSimulatorManager', () => {
     expect(mockGetLendingPoolInfo).toHaveBeenCalledWith(mockPoolId)
     expect(simulation.steps).toHaveLength(1)
     expect(simulation.steps[0].type).toBe(SimulationSteps.DepositBorrow)
-    expect(simulation.steps[0].input.depositAmount.value).toBe(mockAmount)
-    expect(simulation.steps[0].input.borrowAmount.value).toBeUndefined()
-    expect(simulation.steps[0].output.depositAmount).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.depositAmount.value).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.borrowAmount.value).toBeUndefined()
+    // @ts-ignore
+    expect(simulation.steps[0].outputs.depositAmount).toBe(mockAmount)
   })
 
   it('should simulate borrow correctly', async () => {
@@ -47,8 +51,49 @@ describe('LendingSimulatorManager', () => {
     expect(mockGetLendingPoolInfo).toHaveBeenCalledWith(mockPoolId)
     expect(simulation.steps).toHaveLength(1)
     expect(simulation.steps[0].type).toBe(SimulationSteps.DepositBorrow)
-    expect(simulation.steps[0].input.depositAmount.value).toBeUndefined()
-    expect(simulation.steps[0].input.borrowAmount.value).toBe(mockAmount)
-    expect(simulation.steps[0].output.borrowAmount).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.depositAmount.value).toBeUndefined()
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.borrowAmount.value).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].outputs.borrowAmount).toBe(mockAmount)
+  })
+
+  it('should simulate withdraw correctly', async () => {
+    mockProtocolManager.lending.getLendingPosition = vi.fn().mockResolvedValueOnce({})
+
+    const simulation = await manager.simulateWithdraw({
+      positionId: mockPoolId as any,
+      amount: mockAmount,
+    })
+
+    expect(mockProtocolManager.lending.getLendingPosition).toHaveBeenCalledWith(mockPoolId)
+    expect(simulation.steps).toHaveLength(1)
+    expect(simulation.steps[0].type).toBe(SimulationSteps.PaybackWithdraw)
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.paybackAmount.value).toBeUndefined()
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.withdrawAmount.value).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].outputs.withdrawAmount).toBe(mockAmount)
+  })
+
+  it('should simulate repay correctly', async () => {
+    mockProtocolManager.lending.getLendingPosition = vi.fn().mockResolvedValueOnce({})
+
+    const simulation = await manager.simulateRepay({
+      positionId: mockPoolId as any,
+      amount: mockAmount,
+    })
+
+    expect(mockProtocolManager.lending.getLendingPosition).toHaveBeenCalledWith(mockPoolId)
+    expect(simulation.steps).toHaveLength(1)
+    expect(simulation.steps[0].type).toBe(SimulationSteps.PaybackWithdraw)
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.withdrawAmount.value).toBeUndefined()
+    // @ts-ignore
+    expect(simulation.steps[0].inputs.paybackAmount.value).toBe(mockAmount)
+    // @ts-ignore
+    expect(simulation.steps[0].outputs.paybackAmount).toBe(mockAmount)
   })
 })

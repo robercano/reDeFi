@@ -7,6 +7,7 @@ import { YieldViewer } from '../components/YieldViewer'
 import { SwapViewer } from '../components/SwapViewer'
 import { IntentSwapViewer } from '../components/IntentSwapViewer'
 import { ProtocolInteractor } from '../components/ProtocolInteractor'
+import { LendingViewer } from '../components/LendingViewer'
 
 // Tool registry representing the available SDK demonstrations
 const SDK_TOOLS = [
@@ -28,6 +29,12 @@ const SDK_TOOLS = [
     name: 'Yield Positions',
     description: 'Track and monitor your active yield-bearing positions across various protocols.',
     component: YieldViewer,
+  },
+  {
+    id: 'lending-viewer',
+    name: 'Lending Simulator',
+    description: 'Simulate lending protocols to supply, borrow, and manage collateral efficiently.',
+    component: LendingViewer,
   },
   {
     id: 'token-fetcher',

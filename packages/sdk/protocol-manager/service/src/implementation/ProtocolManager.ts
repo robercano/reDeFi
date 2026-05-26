@@ -87,6 +87,7 @@ export class ProtocolManager implements IProtocolManager {
 
     throw new Error('Not implemented')
   }
+
   /** @see IYieldProtocolManagerFeatures.getYieldPoolInfo */
   async getYieldPoolInfo(poolId: IYieldPoolId): Promise<IYieldPoolInfo> {
     this._validateYieldPoolId(poolId)
