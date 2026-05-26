@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react'
 import { useAccount, useSendTransaction } from 'wagmi'
-import { ChainFamilyMap, ILendingPool, ILendingPoolInfo } from '@thesolidchain/sdk-common'
-import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType } from '@thesolidchain/protocol-plugins'
+import { ChainFamilyMap, ILendingPool, ILendingPoolInfo, Order, IYieldPositionId, TokenAmount, Address, IUser, ISimulation } from '@thesolidchain/sdk-common'
+import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType, LidoYieldPoolId, YearnYieldPoolId } from '@thesolidchain/protocol-plugins'
 import { useSDK } from '@thesolidchain/sdk-react'
 
 type ProtocolType = 'Aave V3' | 'Yearn' | 'Lido'
@@ -51,15 +51,8 @@ export const ProtocolInteractor: FC = () => {
   const [aavePool, setAavePool] = useState<ILendingPool | null>(null)
   const [aavePoolInfo, setAavePoolInfo] = useState<ILendingPoolInfo | null>(null)
 
-  type OrderMock = {
-    transactionParams: {
-      to: `0x${string}`
-      data: `0x${string}`
-      value: string
-    }
-  }
-
-  const [order, setOrder] = useState<OrderMock | null>(null)
+  const [order, setOrder] = useState<Order | null>(null)
+  const [aavePoolIdObj, setAavePoolIdObj] = useState<unknown>(null)
 
   useEffect(() => {
     const fetchAaveData = async () => {
@@ -82,6 +75,7 @@ export const ProtocolInteractor: FC = () => {
 
         setAavePool(p || null)
         setAavePoolInfo(pInfo || null)
+        setAavePoolIdObj(poolId)
       } catch (error) {
         console.error('Failed to fetch Aave V3 data:', error)
       }
@@ -96,23 +90,57 @@ export const ProtocolInteractor: FC = () => {
     if (!amount) return
     setLoading(true)
     try {
-      // Simulate order building via the SDK's simulators or fall back to a mock for unimplemented ones
-      const builtOrder: OrderMock = {
-        transactionParams: {
-          to: '0x0000000000000000000000000000000000000000' as `0x${string}`,
-          data: '0x' as `0x${string}`,
-          value: '0',
-        },
+      let finalOrder: Order | null = null
+      const chainInfo = ChainFamilyMap.Ethereum.Mainnet
+      
+      if (selectedProtocol === 'Aave V3' && aavePoolIdObj) {
+         // Fake order for Aave since we didn't implement fully for the UI yet
+         finalOrder = {
+           simulation: {} as unknown as ISimulation,
+           transactions: [{
+             description: 'Aave Mock Transaction',
+             transaction: {
+               target: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' }),
+               calldata: '0x',
+               value: '0',
+             }
+           }]
+         } as unknown as Order
+      } else if (selectedProtocol === 'Lido') {
+         const poolId = new LidoYieldPoolId('0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84', chainInfo)
+         const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'WETH' }) // we use WETH or ETH
+         const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
+         const sdkUser = { wallet: { address: Address.createFromEthereum({ value: address! }) } } as unknown as IUser
+         
+         if (actionType === 'Deposit') {
+           const simulation = await sdk.simulator.yield.simulateDeposit({ poolId, amount: tokenAmount })
+           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+         } else {
+           // We need a dummy position for simulation!
+           const positionId = { poolId, userAddress: sdkUser.wallet.address, type: 'Yield', tokenAddress: poolId.tokenAddress, walletAddress: sdkUser.wallet.address } as unknown as IYieldPositionId
+           const simulation = await sdk.simulator.yield.simulateWithdraw({ positionId, amount: tokenAmount })
+           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+         }
+      } else if (selectedProtocol === 'Yearn') {
+         const poolId = new YearnYieldPoolId('0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', chainInfo, '0xa354F35829Ae975e850e23e9615b11Da1B3dC4DE')
+         const token = await sdk.getTokenBySymbol({ chainId: chainInfo.chainId, symbol: 'USDC' })
+         const tokenAmount = TokenAmount.createFrom({ token: token!, amount })
+         const sdkUser = { wallet: { address: Address.createFromEthereum({ value: address! }) } } as unknown as IUser
+         
+         if (actionType === 'Deposit') {
+           const simulation = await sdk.simulator.yield.simulateDeposit({ poolId, amount: tokenAmount })
+           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+         } else {
+           const positionId = { poolId, userAddress: sdkUser.wallet.address, type: 'Yield', tokenAddress: poolId.tokenAddress, walletAddress: sdkUser.wallet.address } as unknown as IYieldPositionId
+           const simulation = await sdk.simulator.yield.simulateWithdraw({ positionId, amount: tokenAmount })
+           finalOrder = (await sdk.buildOrder({ user: sdkUser, simulation })) || null
+         }
       }
 
-      // In a real scenario we could call sdk.simulator.lend.simulateSupply, etc.
-      // e.g. await sdk.simulator.lend.simulateSupply(...)
-
-      await new Promise((resolve) => setTimeout(resolve, 1200)) // Artificial delay
-
-      setOrder(builtOrder)
+      setOrder(finalOrder)
     } catch (error) {
       console.error('Failed to build order:', error)
+      alert(`Simulation failed: ${(error as Error).message}`)
     } finally {
       setLoading(false)
     }
@@ -121,10 +149,11 @@ export const ProtocolInteractor: FC = () => {
   const handleExecuteOrder = async () => {
     if (!order) return
     try {
+      const txInfo = order.transactions?.[0]?.transaction
       const txHash = await sendTransactionAsync({
-        to: order.transactionParams.to,
-        data: order.transactionParams.data,
-        value: BigInt(order.transactionParams.value),
+        to: txInfo?.target?.value || '0x',
+        data: txInfo?.calldata || '0x',
+        value: BigInt(txInfo?.value || '0'),
       })
       console.log('Transaction Executed:', txHash)
       setOrder(null)
