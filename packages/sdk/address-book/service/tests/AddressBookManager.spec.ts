@@ -33,6 +33,7 @@ describe('AddressBookManager', () => {
     addressBookManager = new AddressBookManager({
       deployments: deployments,
       deploymentTag: 'standard',
+      knownAddressesProvider: { getAddress: async () => undefined } as any,
     })
   })
 

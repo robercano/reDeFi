@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { ActivityService } from '../src/implementation/ActivityService'
-import { ActivityStatus, ActivityType, ChainId, IActivityRecord } from '@thesolidchain/sdk-common'
+import { ActivityStatus, ActivityType, ChainIds, IActivityRecord } from '@thesolidchain/sdk-common'
 import { ISDKManager } from '../src/interfaces/ISDKManager'
 
 describe('ActivityService', () => {
@@ -35,7 +35,7 @@ describe('ActivityService', () => {
       id: 'tx-1',
       type: ActivityType.TRANSACTION,
       status: ActivityStatus.PENDING,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }
@@ -56,7 +56,7 @@ describe('ActivityService', () => {
       id: 'tx-1',
       type: ActivityType.TRANSACTION,
       status: ActivityStatus.PENDING,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }
@@ -77,7 +77,7 @@ describe('ActivityService', () => {
       id: `tx-${i}`,
       type: ActivityType.TRANSACTION,
       status: ActivityStatus.SUCCESS,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }))
@@ -88,7 +88,7 @@ describe('ActivityService', () => {
       id: 'tx-101',
       type: ActivityType.TRANSACTION,
       status: ActivityStatus.PENDING,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }
@@ -108,7 +108,7 @@ describe('ActivityService', () => {
       id: 'tx-1',
       type: ActivityType.TRANSACTION,
       status: ActivityStatus.PENDING,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }
@@ -124,7 +124,7 @@ describe('ActivityService', () => {
       id: 'intent-1',
       type: ActivityType.INTENT,
       status: ActivityStatus.PENDING,
-      chainId: ChainId.MAINNET,
+      chainId: ChainIds.Mainnet,
       timestamp: Date.now(),
       walletAddress: '0x123'
     }
@@ -136,10 +136,11 @@ describe('ActivityService', () => {
 
     await activityService.syncPending('0x123')
 
-    expect(sdkManagerMock.intentSwaps.checkOrder).toHaveBeenCalledWith({ orderId: 'intent-1', chainId: ChainId.MAINNET })
+    expect(sdkManagerMock.intentSwaps.checkOrder).toHaveBeenCalledWith({ orderId: 'intent-1', chainId: ChainIds.Mainnet })
     expect(localStorageMock.setItem).toHaveBeenCalledWith(
       'redefi_activity_history_0x123',
       JSON.stringify([{ ...record, status: ActivityStatus.SUCCESS }])
     )
   })
 })
+

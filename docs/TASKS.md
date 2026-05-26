@@ -29,7 +29,7 @@ Build the concrete plugins following the `IYieldProtocolManagerFeatures`, `ILend
 - [x] **Yearn Finance:** (`YearnProtocolPlugin` - Yield)
 - [x] **Lido:** (`LidoProtocolPlugin` - Staking/Yield)
 - [x] **Aave V3:** (`AaveV3ProtocolPlugin` - Lending)
-- [ ] **Maker / Sky:** (`MakerProtocolPlugin` - Yield)
+- [x] **Maker / Sky:** (`MakerProtocolPlugin` - Yield)
 - [ ] **Uniswap V3:** (`UniswapV3ProtocolPlugin` - Liquidity)
 - [ ] **Curve Finance:** (`CurveProtocolPlugin` - Liquidity/Yield)
 - [ ] **Compound V3:** (`CompoundV3ProtocolPlugin` - Lending)

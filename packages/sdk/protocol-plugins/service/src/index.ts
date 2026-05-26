@@ -134,3 +134,27 @@ export {
   type IYearnYieldPositionId,
   type IYearnYieldPositionIdData,
 } from './plugins/yearn/interfaces/IYearnYieldPositionId'
+
+// Maker / Sky
+export { MakerProtocolPlugin } from './plugins/maker/implementation/MakerProtocolPlugin'
+export { MakerProtocol } from './plugins/maker/implementation/MakerProtocol'
+export { MakerYieldPoolId } from './plugins/maker/implementation/MakerYieldPoolId'
+export { MakerYieldPositionId } from './plugins/maker/implementation/MakerYieldPositionId'
+export {
+  isMakerProtocol,
+  MakerProtocolDataSchema,
+  type IMakerProtocol,
+  type IMakerProtocolData,
+} from './plugins/maker/interfaces/IMakerProtocol'
+export {
+  isMakerYieldPoolId,
+  MakerYieldPoolIdDataSchema,
+  type IMakerYieldPoolId,
+  type IMakerYieldPoolIdData,
+} from './plugins/maker/interfaces/IMakerYieldPoolId'
+export {
+  isMakerYieldPositionId,
+  MakerYieldPositionIdDataSchema,
+  type IMakerYieldPositionId,
+  type IMakerYieldPositionIdData,
+} from './plugins/maker/interfaces/IMakerYieldPositionId'

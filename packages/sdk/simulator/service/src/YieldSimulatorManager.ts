@@ -46,14 +46,14 @@ export class YieldSimulatorManager implements IYieldSimulatorManager {
     positionId: IYieldPositionId
     amount: ITokenAmount
   }): Promise<ISimulation> {
-    await this.protocolManager.yield.getYieldPosition(params.positionId)
+    const position = await this.protocolManager.yield.getYieldPosition(params.positionId)
 
     const steps = [
       {
         type: SimulationSteps.WithdrawYield,
         inputs: {
           withdrawAmount: { value: params.amount },
-          position: params.positionId, // Notice: We store ID here, order planner will resolve
+          position: position,
         },
         outputs: {
           withdrawAmount: params.amount,
