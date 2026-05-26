@@ -25,11 +25,11 @@ export class YieldSimulatorManager implements IYieldSimulatorManager {
     const steps = [
       {
         type: SimulationSteps.DepositYield,
-        input: {
+        inputs: {
           depositAmount: { value: params.amount },
           poolId: params.poolId,
         },
-        output: {
+        outputs: {
           depositAmount: params.amount,
         },
       } as unknown as ISimulation['steps'][number],
@@ -51,11 +51,11 @@ export class YieldSimulatorManager implements IYieldSimulatorManager {
     const steps = [
       {
         type: SimulationSteps.WithdrawYield,
-        input: {
+        inputs: {
           withdrawAmount: { value: params.amount },
           position: params.positionId, // Notice: We store ID here, order planner will resolve
         },
-        output: {
+        outputs: {
           withdrawAmount: params.amount,
         },
       } as unknown as ISimulation['steps'][number],
