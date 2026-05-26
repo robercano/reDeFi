@@ -1,6 +1,10 @@
 import { PoolType, IChainInfo, PoolId, __YieldPoolIdSignature__ } from '@thesolidchain/sdk-common'
 import { LidoProtocol } from './LidoProtocol'
-import { ILidoYieldPoolId, ILidoYieldPoolIdData, __signature__ } from '../interfaces/ILidoYieldPoolId'
+import {
+  ILidoYieldPoolId,
+  ILidoYieldPoolIdData,
+  __signature__,
+} from '../interfaces/ILidoYieldPoolId'
 
 export class LidoYieldPoolId extends PoolId implements ILidoYieldPoolId {
   public readonly [__signature__] = __signature__

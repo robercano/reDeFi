@@ -1,9 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import { OrderPlannerService } from '../src/implementation/OrderPlannerService'
-import {
-  BuildOrderParams,
-  IOrderPlanner,
-} from '@thesolidchain/order-planner-common'
+import { BuildOrderParams, IOrderPlanner } from '@thesolidchain/order-planner-common'
 import { SDKError, SimulationType } from '@thesolidchain/sdk-common'
 
 describe('OrderPlannerService', () => {
@@ -54,7 +51,7 @@ describe('OrderPlannerService', () => {
     const mockPlannerInstance = {
       getAcceptedSimulations: vi.fn().mockReturnValue([SimulationType.Yield]),
     }
-    
+
     // Create a mock class that instantiates our mock instance
     class MockPlannerClass {
       constructor() {
@@ -67,5 +64,4 @@ describe('OrderPlannerService', () => {
     expect(service._orderPlanners.has(SimulationType.Yield)).toBe(true)
     expect(service._orderPlanners.get(SimulationType.Yield)).toBe(mockPlannerInstance)
   })
-
-});
+})

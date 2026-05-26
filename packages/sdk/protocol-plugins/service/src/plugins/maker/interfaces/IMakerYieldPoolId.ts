@@ -1,4 +1,8 @@
-import { IYieldPoolId, YieldPoolIdDataSchema, __YieldPoolIdSignature__ } from '@thesolidchain/sdk-common'
+import {
+  IYieldPoolId,
+  YieldPoolIdDataSchema,
+  __YieldPoolIdSignature__,
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IMakerProtocol, isMakerProtocol } from './IMakerProtocol'
 
@@ -25,4 +29,3 @@ export interface IMakerYieldPoolId extends IYieldPoolId {
   /** The address of the Maker vault (e.g., sDAI or sUSDS contract) */
   readonly vaultAddress: string
 }
-

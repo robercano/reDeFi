@@ -115,7 +115,10 @@ export default $config({
     sdkGateway.url.apply((gatewayUrl) => {
       const apiKey = process.env.SDK_API_KEY || 'default-dev-key'
       const baseUrl = `${gatewayUrl}/sdk/trpc/`
-      require('fs').writeFileSync('.env.local', `NEXT_PUBLIC_API_URL='${baseUrl}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`)
+      require('fs').writeFileSync(
+        '.env.local',
+        `NEXT_PUBLIC_API_URL='${baseUrl}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`,
+      )
     })
 
     return {

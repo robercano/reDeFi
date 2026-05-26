@@ -40,9 +40,9 @@ export class SerializationService {
             throw error
           }
         },
-        deserialize: (serializedData: any) => {
+        deserialize: (serializedData: unknown) => {
           try {
-            const parsedData = SuperJSON.deserialize(serializedData)
+            const parsedData = SuperJSON.deserialize(serializedData as import('superjson/dist/types').SuperJSONResult)
             return parsedData
           } catch (error) {
             LoggingService.error(' => deserialize request error :: ', serializedData, error)
@@ -60,9 +60,9 @@ export class SerializationService {
             throw error
           }
         },
-        deserialize: (serializedData: any) => {
+        deserialize: (serializedData: unknown) => {
           try {
-            const parsedData = SuperJSON.deserialize(serializedData)
+            const parsedData = SuperJSON.deserialize(serializedData as import('superjson/dist/types').SuperJSONResult)
             return parsedData
           } catch (error) {
             LoggingService.error(' => deserialize response error :: ', serializedData, error)

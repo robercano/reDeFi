@@ -85,9 +85,12 @@ export class ProtocolManager implements IProtocolManager {
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     this._validatePositionId(positionId)
 
-    const protocolName = (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    const protocolName =
+      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
     if (!protocolName) {
-      throw new Error(`Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`)
+      throw new Error(
+        `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
+      )
     }
 
     const plugin = this._pluginsRegistry.getPlugin({ protocolName })
@@ -95,9 +98,7 @@ export class ProtocolManager implements IProtocolManager {
       throw new Error(`Protocol plugin for protocol ${protocolName} not found`)
     }
     if (!plugin.lending) {
-      throw new Error(
-        `Protocol plugin for protocol ${protocolName} does not support lending`,
-      )
+      throw new Error(`Protocol plugin for protocol ${protocolName} does not support lending`)
     }
     return plugin.lending.getLendingPosition(positionId)
   }
@@ -120,9 +121,12 @@ export class ProtocolManager implements IProtocolManager {
   async getYieldPosition(positionId: IYieldPositionId): Promise<IYieldPosition> {
     this._validateYieldPositionId(positionId)
 
-    const protocolName = (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    const protocolName =
+      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
     if (!protocolName) {
-      throw new Error(`Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`)
+      throw new Error(
+        `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
+      )
     }
 
     const plugin = this._pluginsRegistry.getPlugin({ protocolName })

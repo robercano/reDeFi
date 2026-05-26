@@ -85,15 +85,24 @@ describe('Tenderly', () => {
     // test setErc20Balance
     vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.setErc20Balance({
-      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
-      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
+      amount: {
+        token: { address: { value: '0xtoken' } },
+        toSolidityValue: () => 100n,
+      } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: {
+        value: '0xwallet',
+      } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
 
     // test setBalance
     vi.mocked(global.fetch).mockResolvedValueOnce({ ok: true } as unknown as Response)
     await vnet.setBalance({
-      amount: { toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
-      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
+      amount: {
+        toSolidityValue: () => 100n,
+      } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: {
+        value: '0xwallet',
+      } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
 
     // test delete
@@ -114,7 +123,7 @@ describe('Tenderly', () => {
     await expect(
       tenderly.createVnet({
         chainInfo: { chainId: 1 } as IChainInfo,
-      })
+      }),
     ).rejects.toThrow('Failed to create Tenderly fork: Bad Request')
   })
 })

@@ -1,5 +1,15 @@
-import { PositionType, IChainInfo, PositionId, ProtocolName, __YieldPositionIdSignature__ } from '@thesolidchain/sdk-common'
-import { IMakerYieldPositionId, IMakerYieldPositionIdData, __signature__ } from '../interfaces/IMakerYieldPositionId'
+import {
+  PositionType,
+  IChainInfo,
+  PositionId,
+  ProtocolName,
+  __YieldPositionIdSignature__,
+} from '@thesolidchain/sdk-common'
+import {
+  IMakerYieldPositionId,
+  IMakerYieldPositionIdData,
+  __signature__,
+} from '../interfaces/IMakerYieldPositionId'
 import { MakerProtocol } from './MakerProtocol'
 
 /**

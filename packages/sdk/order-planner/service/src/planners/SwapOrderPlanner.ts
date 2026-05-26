@@ -19,24 +19,24 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
 
   async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
     const { simulation, executionType = ExecutionType.Direct, contractsProvider } = params
-    
+
     // Convert SimulationSteps into raw TransactionInfo payloads
     const transactions: TransactionInfo[] = []
-    
+
     // In a full implementation we would iterate through simulation.steps
     // E.g.:
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
-         transactions.push({
-           transaction: (step as any).outputs.transaction,
-           description: (step as any).description || 'Approve token',
-         })
+        transactions.push({
+          transaction: (step as any).outputs.transaction,
+          description: (step as any).description || 'Approve token',
+        })
       }
       if (step.type === SimulationSteps.Swap) {
-         transactions.push({
-           transaction: (step as any).outputs.transaction,
-           description: (step as any).description || 'Swap token',
-         })
+        transactions.push({
+          transaction: (step as any).outputs.transaction,
+          description: (step as any).description || 'Swap token',
+        })
       }
     }
 
@@ -55,38 +55,40 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
               components: [
                 { internalType: 'address', name: 'target', type: 'address' },
                 { internalType: 'bool', name: 'allowFailure', type: 'bool' },
-                { internalType: 'bytes', name: 'callData', type: 'bytes' }
+                { internalType: 'bytes', name: 'callData', type: 'bytes' },
               ],
               internalType: 'struct Multicall3.Call3[]',
               name: 'calls',
-              type: 'tuple[]'
-            }
+              type: 'tuple[]',
+            },
           ],
           name: 'aggregate3',
-          outputs: [{
-            components: [
-              { internalType: 'bool', name: 'success', type: 'bool' },
-              { internalType: 'bytes', name: 'returnData', type: 'bytes' }
-            ],
-            internalType: 'struct Multicall3.Result[]',
-            name: 'returnData',
-            type: 'tuple[]'
-          }],
+          outputs: [
+            {
+              components: [
+                { internalType: 'bool', name: 'success', type: 'bool' },
+                { internalType: 'bytes', name: 'returnData', type: 'bytes' },
+              ],
+              internalType: 'struct Multicall3.Result[]',
+              name: 'returnData',
+              type: 'tuple[]',
+            },
+          ],
           stateMutability: 'payable',
-          type: 'function'
-        }
+          type: 'function',
+        },
       ] as const
 
       const multicallData = encodeFunctionData({
         abi: MULTICALL3_ABI,
         functionName: 'aggregate3',
         args: [
-          transactions.map(txInfo => ({
+          transactions.map((txInfo) => ({
             target: txInfo.transaction.target.value as `0x${string}`,
             allowFailure: true,
             callData: txInfo.transaction.calldata as `0x${string}`,
-          }))
-        ]
+          })),
+        ],
       })
 
       const multicallAddress = await params.addressBookManager.getAddressByName({
@@ -108,18 +110,20 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
             transaction: {
               target: multicallAddress,
               calldata: multicallData,
-              value: transactions.reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n).toString(),
+              value: transactions
+                .reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n)
+                .toString(),
             },
             description: 'Bundled Swap Execution (Multicall)',
-          }
-        ]
+          },
+        ],
       }
     }
 
     // Direct / Default fallback
     return {
       simulation,
-      transactions
+      transactions,
     }
   }
 }

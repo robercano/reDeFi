@@ -9,7 +9,7 @@ import { ContractsProvider } from './ContractsProvider'
 export class ContractsProviderFactory {
   /**
    * Instantiates a new ContractsProvider with the required configuration and client providers.
-   * 
+   *
    * @param params.configProvider - Provider for accessing environment configurations
    * @param params.blockchainClientProvider - Manager for resolving correct RPC clients per chain
    * @returns A concrete instance of ContractsProvider

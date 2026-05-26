@@ -8,7 +8,9 @@ import { RpcUrls } from './utils/testConfig'
  */
 describe('AnvilFork Integration Test', () => {
   let anvilFork: AnvilFork
-  const testWallet = Address.createFromEthereum({ value: '0x1234567890123456789012345678901234567890' })
+  const testWallet = Address.createFromEthereum({
+    value: '0x1234567890123456789012345678901234567890',
+  })
 
   beforeAll(async () => {
     anvilFork = await AnvilFork.create({

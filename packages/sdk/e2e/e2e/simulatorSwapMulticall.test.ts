@@ -83,7 +83,11 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
 
     const mockSwapManager = {
       getSwapDataExactInput: async () => ({
-        transaction: { target: '0x0000000000000000000000000000000000000002', calldata: '0x2222', value: '0' },
+        transaction: {
+          target: '0x0000000000000000000000000000000000000002',
+          calldata: '0x2222',
+          value: '0',
+        },
         quote: {
           provider: '1inch',
           routes: [],
@@ -91,15 +95,19 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
           offerPrice: { value: '0', decimals: 18 },
           toTokenAmount: { token: toToken, amount: '0' },
         },
-        allowanceTarget: '0x0000000000000000000000000000000000000003'
-      })
+        allowanceTarget: '0x0000000000000000000000000000000000000003',
+      }),
     } as any
 
     const mockAllowanceManager = {
       getApproval: async () => ({
         allowanceAmount: { token: fromToken, amount: '0' },
-        transaction: { target: '0x0000000000000000000000000000000000000003', calldata: '0x1111', value: '0' }
-      })
+        transaction: {
+          target: '0x0000000000000000000000000000000000000003',
+          calldata: '0x1111',
+          value: '0',
+        },
+      }),
     } as any
 
     // 1. Simulate the Swap using the manager directly
@@ -125,8 +133,15 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
     } as any)
 
     assert(order, 'Order should be successfully built')
-    assert.strictEqual(order.transactions.length, 1, 'Multicall should bundle into exactly 1 transaction')
-    assert.strictEqual(order.transactions[0].transaction.target, '0xcA11bde05977b3631167028862bE2a173976CA11')
+    assert.strictEqual(
+      order.transactions.length,
+      1,
+      'Multicall should bundle into exactly 1 transaction',
+    )
+    assert.strictEqual(
+      order.transactions[0].transaction.target,
+      '0xcA11bde05977b3631167028862bE2a173976CA11',
+    )
 
     // 3. Verify the generated Multicall Transaction
     const tx = order.transactions[0].transaction
@@ -136,7 +151,7 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
     })
 
     assert.strictEqual(decoded.functionName, 'aggregate3')
-    
+
     // Type casting to access the arguments since it's a tuple array
     const calls = decoded.args?.[0] as any[]
     assert.strictEqual(calls.length, 2) // Approve + Swap
@@ -150,7 +165,7 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
     assert.strictEqual(calls[1].target.toLowerCase(), '0x0000000000000000000000000000000000000002')
     assert.strictEqual(calls[1].allowFailure, true)
     assert.strictEqual(calls[1].callData, '0x2222')
-    
+
     console.log('Successfully verified Multicall transaction encoding!')
   })
 })

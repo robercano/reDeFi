@@ -1,5 +1,12 @@
 import type { ISDKManager } from '@thesolidchain/sdk-client'
-import type { IAddress, IPercentage, IToken, ITokenAmount, SwapData, SwapProviderType } from '@thesolidchain/sdk-common'
+import type {
+  IAddress,
+  IPercentage,
+  IToken,
+  ITokenAmount,
+  SwapData,
+  SwapProviderType,
+} from '@thesolidchain/sdk-common'
 
 /**
  * @name getSwapDataHandler

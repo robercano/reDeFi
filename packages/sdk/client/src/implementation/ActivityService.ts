@@ -4,7 +4,7 @@ import {
   IActivityRecord,
   IActivityService,
   ChainId,
-  getViemChain
+  getViemChain,
 } from '@thesolidchain/sdk-common'
 import { ISDKManager } from '../interfaces/ISDKManager'
 import { createPublicClient, http } from 'viem'
@@ -92,11 +92,11 @@ export class ActivityService implements IActivityService {
             if (res?.order?.status) {
               const csStatus = res.order.status
               let mappedStatus: ActivityStatus = record.status
-              
+
               if (csStatus === 'fulfilled') mappedStatus = ActivityStatus.SUCCESS
               else if (csStatus === 'cancelled') mappedStatus = ActivityStatus.CANCELLED
               else if (csStatus === 'expired') mappedStatus = ActivityStatus.EXPIRED
-              
+
               if (mappedStatus !== record.status) {
                 hasUpdates = true
                 return { ...record, status: mappedStatus }
@@ -107,13 +107,16 @@ export class ActivityService implements IActivityService {
             try {
               const viemChain = getViemChain(record.chainId as ChainId)
               const client = createPublicClient({ chain: viemChain, transport: http() })
-              
-              const receipt = await client.getTransactionReceipt({ hash: record.id as `0x${string}` })
+
+              const receipt = await client.getTransactionReceipt({
+                hash: record.id as `0x${string}`,
+              })
               if (receipt) {
                 hasUpdates = true
                 return {
                   ...record,
-                  status: receipt.status === 'success' ? ActivityStatus.SUCCESS : ActivityStatus.FAILED,
+                  status:
+                    receipt.status === 'success' ? ActivityStatus.SUCCESS : ActivityStatus.FAILED,
                 }
               }
             } catch (err) {
@@ -125,7 +128,7 @@ export class ActivityService implements IActivityService {
         }
 
         return record
-      })
+      }),
     )
 
     if (hasUpdates) {

@@ -28,7 +28,7 @@ export class SimulatorManager implements ISimulatorManager {
     protocolManager: IProtocolManager,
     blockchainManager: IBlockchainManager,
     swapManager: ISwapManager,
-    allowanceManager: IAllowanceManager
+    allowanceManager: IAllowanceManager,
   ) {
     this.lend = new LendingSimulatorManager(protocolManager, blockchainManager)
     this.stake = new StakeSimulatorManager(protocolManager, blockchainManager)

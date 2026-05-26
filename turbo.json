@@ -187,14 +187,8 @@
       "dependsOn": ["cicheck", "^deploy:staging"]
     },
     "//#docs:generate": {
-      "inputs": [
-        "packages/sdk/**",
-        "typedoc.json",
-        "package.json"
-      ],
-      "outputs": [
-        "apps/sdk-demo/public/api-reference/**"
-      ]
+      "inputs": ["packages/sdk/**", "typedoc.json", "package.json"],
+      "outputs": ["apps/sdk-demo/public/api-reference/**"]
     }
   }
 }

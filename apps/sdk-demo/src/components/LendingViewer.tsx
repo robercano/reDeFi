@@ -1,6 +1,14 @@
 import { FC, useEffect, useState } from 'react'
 import { useAccount, useSendTransaction } from 'wagmi'
-import { ChainFamilyMap, ILendingPool, ILendingPoolInfo, Order, ExecutionType, TokenAmount, ISimulation } from '@thesolidchain/sdk-common'
+import {
+  ChainFamilyMap,
+  ILendingPool,
+  ILendingPoolInfo,
+  Order,
+  ExecutionType,
+  TokenAmount,
+  ISimulation,
+} from '@thesolidchain/sdk-common'
 import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType } from '@thesolidchain/protocol-plugins'
 import { useSDK } from '@thesolidchain/sdk-react'
 
@@ -25,7 +33,8 @@ export const LendingViewer: FC = () => {
       setLoading(true)
       try {
         const activeChainId = chainId ?? 8453
-        const chainInfo = activeChainId === 1 ? ChainFamilyMap.Ethereum.Mainnet : ChainFamilyMap.Base.Base
+        const chainInfo =
+          activeChainId === 1 ? ChainFamilyMap.Ethereum.Mainnet : ChainFamilyMap.Base.Base
 
         // Resolve collateral and debt tokens (Mocking WETH/USDC)
         const collateralToken = await sdk.getTokenBySymbol({
@@ -45,7 +54,7 @@ export const LendingViewer: FC = () => {
           emodeType: EmodeType.None,
         })
 
-        let p, pInfo;
+        let p, pInfo
         try {
           p = await sdk.getLendingPool({ poolId })
           pInfo = await sdk.getLendingPoolInfo({ poolId })
@@ -53,8 +62,8 @@ export const LendingViewer: FC = () => {
           console.warn('Backend failed to fetch pool details:', err)
         }
 
-        setPool(p || { id: poolId } as any)
-        setPoolInfo(pInfo || { apy: 2.4 } as any)
+        setPool(p || ({ id: poolId } as any))
+        setPoolInfo(pInfo || ({ apy: 2.4 } as any))
       } catch (error) {
         console.error('Failed to fetch lending pool', error)
       } finally {
@@ -87,12 +96,14 @@ export const LendingViewer: FC = () => {
 
       setSimulation(sim)
 
-      let user;
+      let user
       try {
         user = sdk.getCurrentUser()
       } catch (e) {
         // Fallback for unconnected state in testing
-        user = { wallet: { address: { value: address || '0x1234567890123456789012345678901234567890' } } } as any
+        user = {
+          wallet: { address: { value: address || '0x1234567890123456789012345678901234567890' } },
+        } as any
       }
 
       // Generate the order using OrderPlanner
@@ -108,7 +119,10 @@ export const LendingViewer: FC = () => {
         setErrorMsg('Order Planner returned no transactions')
       }
     } catch (error: any) {
-      console.warn('Backend simulation failed, falling back to mock order for UI demo:', error.message)
+      console.warn(
+        'Backend simulation failed, falling back to mock order for UI demo:',
+        error.message,
+      )
       // Mocking the built order for the Lending Simulator UI
       const mockOrder: any = {
         transactions: [
@@ -116,11 +130,11 @@ export const LendingViewer: FC = () => {
             transaction: {
               target: pool.id.protocol.chainInfo.chainId.toString(),
               calldata: '0x000000',
-              value: '0'
+              value: '0',
             },
-            description: 'Mock Lending Execution'
-          }
-        ]
+            description: 'Mock Lending Execution',
+          },
+        ],
       }
       setOrder(mockOrder)
     } finally {
@@ -220,9 +234,7 @@ export const LendingViewer: FC = () => {
         </div>
 
         {errorMsg && (
-          <div className="text-red-500 text-sm p-3 bg-red-500/10 rounded-lg">
-            Error: {errorMsg}
-          </div>
+          <div className="text-red-500 text-sm p-3 bg-red-500/10 rounded-lg">Error: {errorMsg}</div>
         )}
 
         {order ? (

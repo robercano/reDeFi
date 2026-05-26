@@ -65,7 +65,8 @@ describe('OneInchOracleProvider', () => {
 
   beforeEach(() => {
     provider = new OneInchOracleProvider({
-      configProvider: mockConfigProvider as unknown as import('@thesolidchain/configuration-provider-common').IConfigurationProvider,
+      configProvider:
+        mockConfigProvider as unknown as import('@thesolidchain/configuration-provider-common').IConfigurationProvider,
     })
     fetchMock.mockReset()
   })

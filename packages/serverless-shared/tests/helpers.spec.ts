@@ -1,7 +1,12 @@
 import { describe, it, expect } from 'vitest'
 import { isBigInt, safeParseBigInt } from '../src/numbers-helpers'
 import { serialize } from '../src/serialize'
-import { DebankNetworkNameToOurs, DebankNetworkNames, DEBANK_SUPPORTED_CHAIN_IDS, DEBANK_SUPPORTED_PROTOCOL_IDS } from '../src/debank-helpers'
+import {
+  DebankNetworkNameToOurs,
+  DebankNetworkNames,
+  DEBANK_SUPPORTED_CHAIN_IDS,
+  DEBANK_SUPPORTED_PROTOCOL_IDS,
+} from '../src/debank-helpers'
 import { getRpcGatewayEndpoint } from '../src/getRpcGatewayEndpoint'
 import { isValidAddress, isValidMorphoBluePool } from '../src/guards'
 import { ChainId } from '../src/domain-types'
@@ -27,7 +32,7 @@ describe('helpers', () => {
     it('should serialize objects and convert bigints to string', () => {
       expect(serialize({ a: 1n, b: 'test' })).toBe('{"a":"1","b":"test"}')
     })
-    
+
     it('should handle cyclical structures gracefully or return undefined/log', () => {
       const a: any = {}
       a.a = a
@@ -44,7 +49,13 @@ describe('helpers', () => {
   })
 
   describe('getRpcGatewayEndpoint', () => {
-    const config = { skipCache: true, skipMulticall: false, skipGraph: true, stage: 'dev', source: 'test' }
+    const config = {
+      skipCache: true,
+      skipMulticall: false,
+      skipGraph: true,
+      stage: 'dev',
+      source: 'test',
+    }
     const url = 'http://gateway'
 
     it('should return valid RPC endpoint', () => {
@@ -70,7 +81,9 @@ describe('helpers', () => {
     })
 
     it('isValidMorphoBluePool', () => {
-      expect(isValidMorphoBluePool('0x1234567890123456789012345678901234567890123456789012345678901234')).toBe(true)
+      expect(
+        isValidMorphoBluePool('0x1234567890123456789012345678901234567890123456789012345678901234'),
+      ).toBe(true)
       expect(isValidMorphoBluePool('0x123')).toBe(false)
       expect(isValidMorphoBluePool(123)).toBe(false)
     })

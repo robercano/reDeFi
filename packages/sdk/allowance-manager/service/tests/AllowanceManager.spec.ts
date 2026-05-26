@@ -10,7 +10,10 @@ describe('AllowanceManager', () => {
   let mockErc20Contract: Record<string, import('vitest').Mock>
   let allowanceManager: AllowanceManager
 
-  const mockChainInfo = { chainId: 1, name: 'Ethereum' } as unknown as import('@thesolidchain/sdk-common').IChainInfo
+  const mockChainInfo = {
+    chainId: 1,
+    name: 'Ethereum',
+  } as unknown as import('@thesolidchain/sdk-common').IChainInfo
 
   const mockToken = {
     address: { value: '0x1111111111111111111111111111111111111111' },
@@ -46,7 +49,7 @@ describe('AllowanceManager', () => {
     it('should return undefined if the owner has sufficient allowance', async () => {
       // 2000 allowance is greater than 1000 needed
       mockErc20Contract.allowance.mockResolvedValue(2000n)
-      
+
       const result = await allowanceManager.getApproval({
         amount: mockAmount,
         spender: mockSpender,
@@ -58,11 +61,11 @@ describe('AllowanceManager', () => {
         expect.objectContaining({
           address: expect.objectContaining({ value: '0x1111111111111111111111111111111111111111' }),
           chainInfo: mockChainInfo,
-        })
+        }),
       )
       expect(mockErc20Contract.allowance).toHaveBeenCalledWith(
         '0x2222222222222222222222222222222222222222',
-        '0x3333333333333333333333333333333333333333'
+        '0x3333333333333333333333333333333333333333',
       )
       expect(result).toBeUndefined()
     })
@@ -70,7 +73,10 @@ describe('AllowanceManager', () => {
     it('should return an approval transaction if the owner has insufficient allowance', async () => {
       // 500 allowance is less than 1000 needed
       mockErc20Contract.allowance.mockResolvedValue(500n)
-      mockErc20Contract.approve.mockResolvedValue({ to: '0x1111111111111111111111111111111111111111', data: '0xapprove' } as unknown as import('@thesolidchain/sdk-common').ApproveTransactionInfo)
+      mockErc20Contract.approve.mockResolvedValue({
+        to: '0x1111111111111111111111111111111111111111',
+        data: '0xapprove',
+      } as unknown as import('@thesolidchain/sdk-common').ApproveTransactionInfo)
 
       const result = await allowanceManager.getApproval({
         amount: mockAmount,
@@ -81,7 +87,9 @@ describe('AllowanceManager', () => {
 
       expect(result).toBeDefined()
       expect(result?.type).toBe(TransactionType.Approve)
-      expect((result as unknown as { to: string })?.to).toBe('0x1111111111111111111111111111111111111111')
+      expect((result as unknown as { to: string })?.to).toBe(
+        '0x1111111111111111111111111111111111111111',
+      )
       expect((result as unknown as { data: string })?.data).toBe('0xapprove')
       expect(result?.metadata?.approvalAmount).toBe(mockAmount)
       expect(result?.metadata?.approvalSpender).toBe(mockSpender)
@@ -89,7 +97,10 @@ describe('AllowanceManager', () => {
 
     it('should return an approval transaction if owner is not provided', async () => {
       // if no owner is provided, it must return the transaction without checking allowance
-      mockErc20Contract.approve.mockResolvedValue({ to: '0xtoken', data: '0xapprove' } as unknown as import('@thesolidchain/sdk-common').ApproveTransactionInfo)
+      mockErc20Contract.approve.mockResolvedValue({
+        to: '0xtoken',
+        data: '0xapprove',
+      } as unknown as import('@thesolidchain/sdk-common').ApproveTransactionInfo)
 
       const result = await allowanceManager.getApproval({
         amount: mockAmount,
@@ -98,8 +109,11 @@ describe('AllowanceManager', () => {
       })
 
       expect(mockErc20Contract.allowance).not.toHaveBeenCalled()
-      expect(mockErc20Contract.approve).toHaveBeenCalledWith('0x3333333333333333333333333333333333333333', 1000n)
-      
+      expect(mockErc20Contract.approve).toHaveBeenCalledWith(
+        '0x3333333333333333333333333333333333333333',
+        1000n,
+      )
+
       expect(result).toBeDefined()
       expect(result?.type).toBe(TransactionType.Approve)
       expect(result?.metadata?.approvalAmount).toBe(mockAmount)

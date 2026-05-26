@@ -1,16 +1,53 @@
-import { 
-  LoggingService, SerializationService,
-  Token, TokenAmount, ChainInfo, Address, FiatCurrencyAmount, Percentage, PoolId, PositionId, Price, Protocol, RiskRatio, SDKError, Vault, Wallet,
-  BalanceChange, GasEstimation, LendingSimulation, YieldSimulation,
-  Holding, UserPortfolio, User
+import {
+  LoggingService,
+  SerializationService,
+  Token,
+  TokenAmount,
+  ChainInfo,
+  Address,
+  FiatCurrencyAmount,
+  Percentage,
+  PoolId,
+  PositionId,
+  Price,
+  Protocol,
+  RiskRatio,
+  SDKError,
+  Vault,
+  Wallet,
+  BalanceChange,
+  GasEstimation,
+  LendingSimulation,
+  YieldSimulation,
+  Holding,
+  UserPortfolio,
+  User,
 } from '@thesolidchain/sdk-common'
 import type { SDKAppRouter } from '@thesolidchain/api-server'
 
 // Ensure DTO classes are not tree-shaken by Webpack so their SerializationService.registerClass side effects run
 const _ensureRegistered = [
-  Token, TokenAmount, ChainInfo, Address, FiatCurrencyAmount, Percentage, PoolId, PositionId, Price, Protocol, RiskRatio, SDKError, Vault, Wallet,
-  BalanceChange, GasEstimation, LendingSimulation, YieldSimulation,
-  Holding, UserPortfolio, User
+  Token,
+  TokenAmount,
+  ChainInfo,
+  Address,
+  FiatCurrencyAmount,
+  Percentage,
+  PoolId,
+  PositionId,
+  Price,
+  Protocol,
+  RiskRatio,
+  SDKError,
+  Vault,
+  Wallet,
+  BalanceChange,
+  GasEstimation,
+  LendingSimulation,
+  YieldSimulation,
+  Holding,
+  UserPortfolio,
+  User,
 ]
 
 import { createTRPCClient, httpBatchLink, loggerLink } from '@trpc/client'

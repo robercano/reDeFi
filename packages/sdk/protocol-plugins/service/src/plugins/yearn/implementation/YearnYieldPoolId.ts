@@ -1,6 +1,10 @@
 import { PoolType, IChainInfo, PoolId, __YieldPoolIdSignature__ } from '@thesolidchain/sdk-common'
 import { YearnProtocol } from './YearnProtocol'
-import { IYearnYieldPoolId, IYearnYieldPoolIdData, __signature__ } from '../interfaces/IYearnYieldPoolId'
+import {
+  IYearnYieldPoolId,
+  IYearnYieldPoolIdData,
+  __signature__,
+} from '../interfaces/IYearnYieldPoolId'
 
 /**
  * Unique identifier for a Yearn Vault Pool.

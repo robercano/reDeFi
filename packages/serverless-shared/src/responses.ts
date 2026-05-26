@@ -4,7 +4,7 @@ import { serialize } from './serialize'
 
 /**
  * Serializes an object to JSON, specifically handling BigInt serialization.
- * 
+ *
  * @param obj - The object to be serialized
  * @returns A JSON string representation of the object
  */
@@ -26,7 +26,7 @@ export function createHeaders(): Record<string, string | number | boolean> {
 
 /**
  * Constructs a 200 OK API Gateway Proxy Result.
- * 
+ *
  * @param params.body - The response body object
  * @returns An `APIGatewayProxyResultV2` object with 200 status code
  */

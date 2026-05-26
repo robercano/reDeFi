@@ -57,7 +57,7 @@ import { encodeFunctionData } from 'viem'
 export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
   /** The unique name identifying this protocol. */
   readonly protocolName = ProtocolName.AaveV3
-  
+
   /** The list of chains on which this protocol is supported. */
   readonly supportedChains = valuesOfChainFamilyMap([
     ChainFamilyName.Ethereum,

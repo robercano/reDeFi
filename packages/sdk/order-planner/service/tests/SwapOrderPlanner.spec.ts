@@ -48,7 +48,16 @@ describe('SwapOrderPlanner', () => {
       simulation: {
         type: SimulationType.Swap,
         steps: [
-          { type: SimulationSteps.Swap, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' } } }
+          {
+            type: SimulationSteps.Swap,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000002' },
+                calldata: '0xSwapData',
+                value: '100',
+              },
+            },
+          },
         ],
         balanceChanges: [],
         gasEstimations: [],
@@ -60,9 +69,13 @@ describe('SwapOrderPlanner', () => {
     const order = await planner.buildOrder(params)
     expect(order?.transactions).toEqual([
       {
-        transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' },
+        transaction: {
+          target: { value: '0x0000000000000000000000000000000000000002' },
+          calldata: '0xSwapData',
+          value: '100',
+        },
         description: 'Swap token',
-      }
+      },
     ])
   })
 
@@ -71,14 +84,32 @@ describe('SwapOrderPlanner', () => {
       user: {
         chainInfo: {
           chainId: 1,
-          name: 'Ethereum'
-        }
+          name: 'Ethereum',
+        },
       },
       simulation: {
         type: SimulationType.Swap,
         steps: [
-          { type: SimulationSteps.Approve, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000001' }, calldata: '0xApprove', value: '0' } } },
-          { type: SimulationSteps.Swap, outputs: { transaction: { target: { value: '0x0000000000000000000000000000000000000002' }, calldata: '0xSwapData', value: '100' } } }
+          {
+            type: SimulationSteps.Approve,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000001' },
+                calldata: '0xApprove',
+                value: '0',
+              },
+            },
+          },
+          {
+            type: SimulationSteps.Swap,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000002' },
+                calldata: '0xSwapData',
+                value: '100',
+              },
+            },
+          },
         ],
         balanceChanges: [],
         gasEstimations: [],
@@ -86,14 +117,17 @@ describe('SwapOrderPlanner', () => {
       executionType: ExecutionType.Multicall,
       contractsProvider: mockContractsProvider,
       addressBookManager: {
-        getAddressByName: async () => Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
+        getAddressByName: async () =>
+          Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
       } as any,
     } as unknown as BuildOrderParams
 
     const order = await planner.buildOrder(params)
     expect(order?.transactions).toHaveLength(1)
     expect(order?.transactions[0].description).toBe('Bundled Swap Execution (Multicall)')
-    expect(order?.transactions[0].transaction.target.value).toBe('0xcA11bde05977b3631167028862bE2a173976CA11')
+    expect(order?.transactions[0].transaction.target.value).toBe(
+      '0xcA11bde05977b3631167028862bE2a173976CA11',
+    )
     expect(order?.transactions[0].transaction.value).toBe('100')
   })
 })

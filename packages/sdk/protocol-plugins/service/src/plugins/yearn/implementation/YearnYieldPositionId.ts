@@ -1,4 +1,9 @@
-import { PositionType, IChainInfo, PositionId, __YieldPositionIdSignature__ } from '@thesolidchain/sdk-common'
+import {
+  PositionType,
+  IChainInfo,
+  PositionId,
+  __YieldPositionIdSignature__,
+} from '@thesolidchain/sdk-common'
 import { YearnProtocol } from './YearnProtocol'
 import {
   IYearnYieldPositionId,

@@ -29,7 +29,7 @@ export class AllowanceManager implements IAllowanceManager {
    * Evaluates the current token allowance of a user for a specific spender and amount.
    * If the owner's allowance is equal to or greater than the required amount, no approval is needed.
    * Otherwise, it generates the unsigned transaction data required to approve the spender for the exact amount.
-   * 
+   *
    * @param params.amount - The required token amount needed by the spender.
    * @param params.spender - The address of the spender (e.g., a protocol vault or router).
    * @param params.owner - Optional owner address. If missing, it always generates an approval transaction.

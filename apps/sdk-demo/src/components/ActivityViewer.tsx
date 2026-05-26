@@ -24,14 +24,14 @@ export function ActivityViewer() {
     }
 
     fetchActivities()
-    
+
     // Poll every 5 seconds while open
     const interval = setInterval(fetchActivities, 5000)
 
     return () => clearInterval(interval)
   }, [address, isOpen, sdk])
 
-  const pendingCount = activities.filter(a => a.status === ActivityStatus.PENDING).length
+  const pendingCount = activities.filter((a) => a.status === ActivityStatus.PENDING).length
 
   return (
     <div className="relative">
@@ -55,36 +55,55 @@ export function ActivityViewer() {
               ✕
             </button>
           </div>
-          
+
           <div className="p-2 space-y-1">
             {!address ? (
-              <div className="p-4 text-center text-sm text-neutral-500">Connect wallet to view history.</div>
+              <div className="p-4 text-center text-sm text-neutral-500">
+                Connect wallet to view history.
+              </div>
             ) : activities.length === 0 ? (
-              <div className="p-4 text-center text-sm text-neutral-500">No recent activity found.</div>
+              <div className="p-4 text-center text-sm text-neutral-500">
+                No recent activity found.
+              </div>
             ) : (
               activities.map((act) => (
-                <div key={act.id} className="p-3 rounded-lg hover:bg-white/5 transition-colors flex flex-col gap-1 border border-transparent hover:border-neutral-800">
+                <div
+                  key={act.id}
+                  className="p-3 rounded-lg hover:bg-white/5 transition-colors flex flex-col gap-1 border border-transparent hover:border-neutral-800"
+                >
                   <div className="flex justify-between items-start">
                     <span className="text-sm font-semibold text-white">{act.metadata.title}</span>
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase
+                    <span
+                      className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase
                       ${act.status === ActivityStatus.SUCCESS ? 'bg-green-500/20 text-green-400' : ''}
                       ${act.status === ActivityStatus.PENDING ? 'bg-orange-500/20 text-orange-400 animate-pulse' : ''}
                       ${act.status === ActivityStatus.FAILED || act.status === ActivityStatus.CANCELLED || act.status === ActivityStatus.EXPIRED ? 'bg-red-500/20 text-red-400' : ''}
-                    `}>
+                    `}
+                    >
                       {act.status}
                     </span>
                   </div>
-                  
+
                   <div className="text-xs text-neutral-500 flex justify-between items-center">
                     <span>{new Date(act.timestamp).toLocaleTimeString()}</span>
-                    
+
                     {act.type === 'intent' && (
-                      <a href={`https://explorer.cow.fi/sepolia/orders/${act.id}`} target="_blank" rel="noreferrer" className="text-[var(--neon-cyan)] hover:underline">
+                      <a
+                        href={`https://explorer.cow.fi/sepolia/orders/${act.id}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[var(--neon-cyan)] hover:underline"
+                      >
                         View Intent ↗
                       </a>
                     )}
                     {act.type === 'transaction' && (
-                      <a href={`https://sepolia.etherscan.io/tx/${act.id}`} target="_blank" rel="noreferrer" className="text-[var(--neon-cyan)] hover:underline">
+                      <a
+                        href={`https://sepolia.etherscan.io/tx/${act.id}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-[var(--neon-cyan)] hover:underline"
+                      >
                         View Tx ↗
                       </a>
                     )}

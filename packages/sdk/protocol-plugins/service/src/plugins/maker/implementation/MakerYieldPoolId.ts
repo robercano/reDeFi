@@ -1,5 +1,15 @@
-import { PoolType, IChainInfo, PoolId, ProtocolName, __YieldPoolIdSignature__ } from '@thesolidchain/sdk-common'
-import { IMakerYieldPoolId, IMakerYieldPoolIdData, __signature__ } from '../interfaces/IMakerYieldPoolId'
+import {
+  PoolType,
+  IChainInfo,
+  PoolId,
+  ProtocolName,
+  __YieldPoolIdSignature__,
+} from '@thesolidchain/sdk-common'
+import {
+  IMakerYieldPoolId,
+  IMakerYieldPoolIdData,
+  __signature__,
+} from '../interfaces/IMakerYieldPoolId'
 import { MakerProtocol } from './MakerProtocol'
 
 /**

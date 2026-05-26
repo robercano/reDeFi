@@ -10,15 +10,15 @@ vi.mock('axios', () => {
         post: vi.fn().mockResolvedValue({
           data: {
             id: 'fork-id',
-            rpcs: [{ name: 'Admin RPC', url: 'http://fork.rpc' }]
-          }
+            rpcs: [{ name: 'Admin RPC', url: 'http://fork.rpc' }],
+          },
         }),
         delete: vi.fn().mockResolvedValue({}),
         get: vi.fn().mockResolvedValue({
-          data: { fork_transactions: [] }
-        })
-      })
-    }
+          data: { fork_transactions: [] },
+        }),
+      }),
+    },
   }
 })
 
@@ -28,13 +28,13 @@ vi.mock('ethers', () => ({
   })),
   ethers: {
     toQuantity: vi.fn().mockReturnValue('0x123'),
-  }
+  },
 }))
 
 vi.mock('@thesolidchain/testing-utils', () => ({
   TransactionUtils: vi.fn().mockImplementation(() => ({
     sendTransactionWithReceipt: vi.fn().mockResolvedValue({ status: 1 }),
-  }))
+  })),
 }))
 
 describe('TenderlyFork', () => {
@@ -97,7 +97,10 @@ describe('TenderlyFork', () => {
 
     const receipt = await fork.sendTransaction({
       walletPrivateKey: '0xabc',
-      transaction: { to: { value: '0x123' }, data: '0x' } as unknown as import('@thesolidchain/sdk-common').Transaction,
+      transaction: {
+        to: { value: '0x123' },
+        data: '0x',
+      } as unknown as import('@thesolidchain/sdk-common').Transaction,
     })
     expect(receipt).toEqual({ status: 1 })
   })
@@ -111,8 +114,13 @@ describe('TenderlyFork', () => {
     })
 
     await fork.setErc20Balance({
-      amount: { token: { address: { value: '0xtoken' } }, toSolidityValue: () => 100n } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
-      walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress,
+      amount: {
+        token: { address: { value: '0xtoken' } },
+        toSolidityValue: () => 100n,
+      } as unknown as import('@thesolidchain/sdk-common').ITokenAmount,
+      walletAddress: {
+        value: '0xwallet',
+      } as unknown as import('@thesolidchain/sdk-common').IAddress,
     })
   })
 
@@ -124,8 +132,18 @@ describe('TenderlyFork', () => {
       atBlock: 'latest',
     })
 
-    await fork.setETHBalance({ amount: 100n, walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress })
-    const bal = await fork.getETHBalance({ walletAddress: { value: '0xwallet' } as unknown as import('@thesolidchain/sdk-common').IAddress, atBlock: 123 })
+    await fork.setETHBalance({
+      amount: 100n,
+      walletAddress: {
+        value: '0xwallet',
+      } as unknown as import('@thesolidchain/sdk-common').IAddress,
+    })
+    const bal = await fork.getETHBalance({
+      walletAddress: {
+        value: '0xwallet',
+      } as unknown as import('@thesolidchain/sdk-common').IAddress,
+      atBlock: 123,
+    })
     expect(bal).toBe('0xsnapshot')
   })
 
@@ -155,7 +173,7 @@ describe('TenderlyFork', () => {
         tenderlyAccessKey: 'key',
         chainInfo: { chainId: 1 } as IChainInfo,
         atBlock: 'latest',
-      })
+      }),
     ).rejects.toThrow('Error creating fork: {"error":"Bad Request"}')
   })
 })

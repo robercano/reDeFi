@@ -44,7 +44,9 @@ export class SepoliaSwapProvider
         amount: mockOutputAmount.toString(),
       }),
       calldata: '0x0' as any, // Mock calldata
-      targetContract: Address.createFromEthereum({ value: '0x0000000000000000000000000000000000000000' as any }),
+      targetContract: Address.createFromEthereum({
+        value: '0x0000000000000000000000000000000000000000' as any,
+      }),
       value: '0',
       gasPrice: '1000000000', // 1 gwei
     }
@@ -78,9 +80,9 @@ export class SepoliaSwapProvider
     if (fromDecimals === toDecimals) {
       return fromValue
     } else if (fromDecimals > toDecimals) {
-      return fromValue / (10n ** BigInt(fromDecimals - toDecimals))
+      return fromValue / 10n ** BigInt(fromDecimals - toDecimals)
     } else {
-      return fromValue * (10n ** BigInt(toDecimals - fromDecimals))
+      return fromValue * 10n ** BigInt(toDecimals - fromDecimals)
     }
   }
 }

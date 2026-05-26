@@ -352,12 +352,7 @@ export * from './simulation/implementation/LendingSimulation'
 
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'
-export type {
-  ApproveStep,
-  PermitStep,
-  Permit2Step,
-  SwapStep,
-} from './simulation/interfaces/Steps'
+export type { ApproveStep, PermitStep, Permit2Step, SwapStep } from './simulation/interfaces/Steps'
 export type { ISwapSimulationParams } from './simulation/interfaces/ISwapSimulationParams'
 export type { SimulationStrategy, StrategyStep } from './simulation/interfaces/SimulationStrategy'
 export { getValueFromReference, isValueReference } from './simulation/interfaces/ValueReference'

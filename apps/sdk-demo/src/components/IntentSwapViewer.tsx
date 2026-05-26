@@ -3,9 +3,16 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useAppSDK } from '../app/AppSDKContext'
 import { useAccount, useSendTransaction, usePublicClient } from 'wagmi'
-import { formatTokenAmountHumanReadable, IToken, TokenAmount, IntentQuoteData, Address, ChainId, ActivityType, ActivityStatus } from '@thesolidchain/sdk-common'
-
-
+import {
+  formatTokenAmountHumanReadable,
+  IToken,
+  TokenAmount,
+  IntentQuoteData,
+  Address,
+  ChainId,
+  ActivityType,
+  ActivityStatus,
+} from '@thesolidchain/sdk-common'
 
 export function IntentSwapViewer() {
   const [fromSymbol, setFromSymbol] = useState('WETH')
@@ -19,10 +26,9 @@ export function IntentSwapViewer() {
   const [isPolling, setIsPolling] = useState(false)
   const [debugLog, setDebugLog] = useState<string[]>([])
 
-
   const logDebug = (msg: string) => {
     console.log('[IntentSwapViewer Debug]', msg)
-    setDebugLog(prev => [...prev, `${new Date().toLocaleTimeString()} - ${msg}`])
+    setDebugLog((prev) => [...prev, `${new Date().toLocaleTimeString()} - ${msg}`])
   }
 
   const { chainId, address } = useAccount()
@@ -60,19 +66,18 @@ export function IntentSwapViewer() {
           amount: fromAmount,
           token: fromToken as IToken,
         })
-        
+
         const userAddress = address || '0x1234567890123456789012345678901234567890'
 
         // Fetch Quote using intentSwaps
         const quoteData = await sdk.intentSwaps.getSellOrderQuote({
           fromAmount: fromAmountToken,
           toToken: toToken as IToken,
-          sender: Address.createFromEthereum({ value: userAddress })
+          sender: Address.createFromEthereum({ value: userAddress }),
         })
 
         setIntentQuote(quoteData)
         if (isSilent) setError(null)
-
       } catch (err) {
         console.error(err)
         setError((err as Error)?.message || 'Failed to fetch intent quote.')
@@ -86,7 +91,7 @@ export function IntentSwapViewer() {
 
   const publicClient = usePublicClient()
   const { sendTransactionAsync } = useSendTransaction()
-  
+
   const handleExecute = async () => {
     if (!intentQuote) return
     try {
@@ -95,94 +100,102 @@ export function IntentSwapViewer() {
       setError(null)
       setSuccessMsg(null)
       setDebugLog([])
-      
+
       const activeChainId = chainId ?? 11155111
       const userAddress = address || '0x1234567890123456789012345678901234567890'
 
       logDebug('Requesting signature / sending order...')
-      
+
       const result = await sdk.intentSwaps.sendOrder({
-         fromAmount: intentQuote.fromAmount,
-         sender: Address.createFromEthereum({ value: userAddress }),
-         chainId: activeChainId as ChainId,
-         order: intentQuote.order,
+        fromAmount: intentQuote.fromAmount,
+        sender: Address.createFromEthereum({ value: userAddress }),
+        chainId: activeChainId as ChainId,
+        order: intentQuote.order,
       })
 
       if (result.status === 'allowance_needed' || result.status === 'wrap_to_native') {
-         logDebug(`Prerequisite required: ${result.status}`)
-         const tx = result.transactionInfo.transaction
-         
-         const hash = await sendTransactionAsync({
-            to: tx.target.value as `0x${string}`,
-            data: tx.calldata as `0x${string}`,
-            value: BigInt(tx.value || 0),
-         })
-         logDebug(`Submitted prerequisite tx: ${hash}. Waiting for receipt...`)
-         
-         // Log the transaction
-         await sdk.activity.logActivity({
-           id: hash,
-           type: ActivityType.TRANSACTION,
-           status: ActivityStatus.PENDING,
-           chainId: activeChainId,
-           timestamp: Date.now(),
-           walletAddress: userAddress,
-           metadata: {
-             title: result.status === 'allowance_needed' ? `Approve ${intentQuote.fromAmount.token.symbol}` : `Wrap Native Token`,
-             explorerLink: `https://sepolia.etherscan.io/tx/${hash}`
-           }
-         })
+        logDebug(`Prerequisite required: ${result.status}`)
+        const tx = result.transactionInfo.transaction
 
-         if (publicClient) {
-           await publicClient.waitForTransactionReceipt({ hash })
-           logDebug('Receipt confirmed! Re-attempting sendOrder...')
-           
-           // Update transaction status
-           await sdk.activity.logActivity({
-             id: hash,
-             type: ActivityType.TRANSACTION,
-             status: ActivityStatus.SUCCESS,
-             chainId: activeChainId,
-             timestamp: Date.now(),
-             walletAddress: userAddress,
-             metadata: {
-               title: result.status === 'allowance_needed' ? `Approve ${intentQuote.fromAmount.token.symbol}` : `Wrap Native Token`,
-               explorerLink: `https://sepolia.etherscan.io/tx/${hash}`
-             }
-           })
+        const hash = await sendTransactionAsync({
+          to: tx.target.value as `0x${string}`,
+          data: tx.calldata as `0x${string}`,
+          value: BigInt(tx.value || 0),
+        })
+        logDebug(`Submitted prerequisite tx: ${hash}. Waiting for receipt...`)
 
-           // Re-trigger handleExecute now that prerequisite is met
-           await handleExecute()
-           return
-         }
+        // Log the transaction
+        await sdk.activity.logActivity({
+          id: hash,
+          type: ActivityType.TRANSACTION,
+          status: ActivityStatus.PENDING,
+          chainId: activeChainId,
+          timestamp: Date.now(),
+          walletAddress: userAddress,
+          metadata: {
+            title:
+              result.status === 'allowance_needed'
+                ? `Approve ${intentQuote.fromAmount.token.symbol}`
+                : `Wrap Native Token`,
+            explorerLink: `https://sepolia.etherscan.io/tx/${hash}`,
+          },
+        })
+
+        if (publicClient) {
+          await publicClient.waitForTransactionReceipt({ hash })
+          logDebug('Receipt confirmed! Re-attempting sendOrder...')
+
+          // Update transaction status
+          await sdk.activity.logActivity({
+            id: hash,
+            type: ActivityType.TRANSACTION,
+            status: ActivityStatus.SUCCESS,
+            chainId: activeChainId,
+            timestamp: Date.now(),
+            walletAddress: userAddress,
+            metadata: {
+              title:
+                result.status === 'allowance_needed'
+                  ? `Approve ${intentQuote.fromAmount.token.symbol}`
+                  : `Wrap Native Token`,
+              explorerLink: `https://sepolia.etherscan.io/tx/${hash}`,
+            },
+          })
+
+          // Re-trigger handleExecute now that prerequisite is met
+          await handleExecute()
+          return
+        }
       }
 
       if (result.status === 'order_sent') {
-         logDebug(`Order sent successfully! Order ID: ${result.orderId}`)
-         setSuccessMsg(`Intent successfully sent to CowSwap solvers! Order ID: ${result.orderId}`)
-         
-         // Log to global activity tracker
-         await sdk.activity.logActivity({
-           id: result.orderId,
-           type: ActivityType.INTENT,
-           status: ActivityStatus.PENDING,
-           chainId: activeChainId,
-           timestamp: Date.now(),
-           walletAddress: userAddress,
-           metadata: {
-             title: `Swap ${formatTokenAmountHumanReadable(intentQuote.fromAmount)} ${intentQuote.fromAmount.token.symbol} for ${intentQuote.toAmount.token.symbol}`,
-           }
-         })
+        logDebug(`Order sent successfully! Order ID: ${result.orderId}`)
+        setSuccessMsg(`Intent successfully sent to CowSwap solvers! Order ID: ${result.orderId}`)
 
-         fetchQuote(true)
+        // Log to global activity tracker
+        await sdk.activity.logActivity({
+          id: result.orderId,
+          type: ActivityType.INTENT,
+          status: ActivityStatus.PENDING,
+          chainId: activeChainId,
+          timestamp: Date.now(),
+          walletAddress: userAddress,
+          metadata: {
+            title: `Swap ${formatTokenAmountHumanReadable(intentQuote.fromAmount)} ${intentQuote.fromAmount.token.symbol} for ${intentQuote.toAmount.token.symbol}`,
+          },
+        })
+
+        fetchQuote(true)
       }
-      
     } catch (err) {
       logDebug(`Error caught: ${(err as Error)?.message}`)
       console.error(err)
       const message = (err as Error)?.message || ''
-      
-      if (message.includes('User rejected the request') || message.includes('User denied transaction signature')) {
+
+      if (
+        message.includes('User rejected the request') ||
+        message.includes('User denied transaction signature')
+      ) {
         setError('Signature was rejected by the user.')
       } else {
         setError(message || 'Failed to execute intent swap.')
@@ -206,8 +219,6 @@ export function IntentSwapViewer() {
       if (interval) clearInterval(interval)
     }
   }, [isPolling, fromSymbol, toSymbol, fromAmount, fetchQuote])
-
-
 
   return (
     <div className="w-full max-w-2xl mx-auto mt-8 p-8 rounded-2xl border border-neutral-800 bg-neutral-900/50 backdrop-blur-sm relative z-10 text-left">
@@ -309,7 +320,9 @@ export function IntentSwapViewer() {
 
       {debugLog.length > 0 && (
         <div className="p-4 rounded-xl bg-neutral-900 border border-neutral-700 text-neutral-300 mb-6 font-mono text-xs break-words max-h-40 overflow-y-auto">
-          <div className="text-[var(--neon-orange)] mb-2 font-bold uppercase">Execution Log (Debug)</div>
+          <div className="text-[var(--neon-orange)] mb-2 font-bold uppercase">
+            Execution Log (Debug)
+          </div>
           {debugLog.map((log, i) => (
             <div key={i}>{log}</div>
           ))}
@@ -328,20 +341,27 @@ export function IntentSwapViewer() {
             <div className="flex-1">
               <div className="text-sm text-neutral-500 mb-1">Pay</div>
               <div className="text-2xl font-bold text-white break-words">
-                {formatTokenAmountHumanReadable(intentQuote.fromAmount)} {intentQuote.fromAmount.token.symbol}
+                {formatTokenAmountHumanReadable(intentQuote.fromAmount)}{' '}
+                {intentQuote.fromAmount.token.symbol}
               </div>
             </div>
 
             <div className="px-4 text-[var(--neon-orange)]">
               <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </div>
 
             <div className="flex-1 text-right">
               <div className="text-sm text-neutral-500 mb-1">Receive (Estimated)</div>
               <div className="text-2xl font-bold text-[var(--neon-cyan)] break-words">
-                {formatTokenAmountHumanReadable(intentQuote.toAmount)} {intentQuote.toAmount.token.symbol}
+                {formatTokenAmountHumanReadable(intentQuote.toAmount)}{' '}
+                {intentQuote.toAmount.token.symbol}
               </div>
             </div>
           </div>
@@ -354,15 +374,13 @@ export function IntentSwapViewer() {
               </div>
             </div>
             <div>
-              <div className="text-xs text-neutral-500 uppercase font-semibold mb-1">
-                Valid To
-              </div>
+              <div className="text-xs text-neutral-500 uppercase font-semibold mb-1">Valid To</div>
               <div className="font-mono text-[var(--neon-orange)] text-sm bg-neutral-900/80 px-3 py-2 rounded-lg border border-neutral-800">
                 {new Date(intentQuote.validTo * 1000).toLocaleTimeString()}
               </div>
             </div>
           </div>
-          
+
           <button
             onClick={handleExecute}
             disabled={loading || !intentQuote}
@@ -372,7 +390,6 @@ export function IntentSwapViewer() {
           </button>
         </div>
       )}
-
     </div>
   )
 }

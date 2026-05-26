@@ -30,13 +30,15 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
   })
 
   it('should initialize correctly with a table name from config', () => {
-    expect(mockConfigProvider.getConfigurationItem).toHaveBeenCalledWith({ name: 'CACHE_TABLE_NAME' })
+    expect(mockConfigProvider.getConfigurationItem).toHaveBeenCalledWith({
+      name: 'CACHE_TABLE_NAME',
+    })
     expect(mockEventBus.on).toHaveBeenCalledWith('NewBlockMined', expect.any(Function))
   })
 
   it('should return undefined if cache miss', async () => {
     ddbMock.on(GetCommand).resolves({})
-    
+
     const result = await cacheService.get('missing-key')
     expect(result).toBeUndefined()
   })
@@ -50,7 +52,7 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
         expiresAt: pastTime,
       },
     })
-    
+
     const result = await cacheService.get('expired-key')
     expect(result).toBeUndefined()
   })
@@ -64,23 +66,23 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
         expiresAt: futureTime,
       },
     })
-    
+
     const result = await cacheService.get<{ data: string }>('valid-key')
     expect(result).toEqual({ data: 'valid-test' })
   })
 
   it('should return undefined and not throw if an error occurs during get', async () => {
     ddbMock.on(GetCommand).rejects(new Error('DynamoDB Error'))
-    
+
     const result = await cacheService.get('error-key')
     expect(result).toBeUndefined()
   })
 
   it('should set an item in the cache successfully', async () => {
     ddbMock.on(PutCommand).resolves({})
-    
+
     await cacheService.set('new-key', { info: 'stored' }, 60)
-    
+
     expect(ddbMock.calls()).toHaveLength(1)
     const call = ddbMock.call(0)
     expect(call.args[0].input.TableName).toBe('test-table-name')
@@ -91,7 +93,7 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
 
   it('should not throw if an error occurs during set', async () => {
     ddbMock.on(PutCommand).rejects(new Error('DynamoDB Write Error'))
-    
+
     await expect(cacheService.set('error-key', { info: 'failed' }, 60)).resolves.toBeUndefined()
   })
 })

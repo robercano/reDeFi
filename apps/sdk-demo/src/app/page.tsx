@@ -21,7 +21,8 @@ const SDK_TOOLS = [
   {
     id: 'protocol-interactor',
     name: 'Protocol Interactor',
-    description: 'Interact with protocols (Aave, Yearn, Lido) to simulate and execute deposits or withdrawals.',
+    description:
+      'Interact with protocols (Aave, Yearn, Lido) to simulate and execute deposits or withdrawals.',
     component: ProtocolInteractor,
   },
   {
@@ -83,50 +84,53 @@ export default function Home() {
 
       {/* Top Navigation */}
       <nav className="w-full relative z-20 flex flex-wrap justify-center sm:justify-end p-4 md:p-6 md:px-12 items-center gap-2 md:gap-4">
-          <button
-            onClick={async () => {
-              try {
-                setIsToppingUp(true)
-                setTopUpMessage('Topping up...')
-                
-                // Top up the requested test address
-                const res1 = await fetch('/api/topup', {
-                  method: 'POST',
-                  body: JSON.stringify({ address: '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' }),
-                })
-                if (!res1.ok) {
-                  const errorData = await res1.json().catch(() => ({}))
-                  throw new Error(errorData.error || `HTTP ${res1.status}`)
-                }
-                
-                // Top up the connected user wallet just in case they are different
-                if (address && address.toLowerCase() !== '0xaaf00613a099deae24eeb2c21ad2965cadeac244') {
-                  const res2 = await fetch('/api/topup', {
-                    method: 'POST',
-                    body: JSON.stringify({ address }),
-                  })
-                  if (!res2.ok) {
-                    const errorData = await res2.json().catch(() => ({}))
-                    throw new Error(errorData.error || `HTTP ${res2.status}`)
-                  }
-                }
+        <button
+          onClick={async () => {
+            try {
+              setIsToppingUp(true)
+              setTopUpMessage('Topping up...')
 
-                setTopUpMessage('Success!')
-              } catch (err) {
-                const error = err as Error
-                console.error("Top up error:", error)
-                setTopUpMessage(`Error: ${error.message.substring(0, 30)}...`)
-                alert(`Top up failed details: ${error.message}`)
-              } finally {
-                setIsToppingUp(false)
-                setTimeout(() => setTopUpMessage(''), 3000)
+              // Top up the requested test address
+              const res1 = await fetch('/api/topup', {
+                method: 'POST',
+                body: JSON.stringify({ address: '0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244' }),
+              })
+              if (!res1.ok) {
+                const errorData = await res1.json().catch(() => ({}))
+                throw new Error(errorData.error || `HTTP ${res1.status}`)
               }
-            }}
-            disabled={isToppingUp}
-            className="px-3 py-2 md:px-4 md:py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-xs md:text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md whitespace-nowrap disabled:opacity-50"
-          >
-            {isToppingUp ? 'Topping up...' : topUpMessage || 'Top Up Fork'}
-          </button>
+
+              // Top up the connected user wallet just in case they are different
+              if (
+                address &&
+                address.toLowerCase() !== '0xaaf00613a099deae24eeb2c21ad2965cadeac244'
+              ) {
+                const res2 = await fetch('/api/topup', {
+                  method: 'POST',
+                  body: JSON.stringify({ address }),
+                })
+                if (!res2.ok) {
+                  const errorData = await res2.json().catch(() => ({}))
+                  throw new Error(errorData.error || `HTTP ${res2.status}`)
+                }
+              }
+
+              setTopUpMessage('Success!')
+            } catch (err) {
+              const error = err as Error
+              console.error('Top up error:', error)
+              setTopUpMessage(`Error: ${error.message.substring(0, 30)}...`)
+              alert(`Top up failed details: ${error.message}`)
+            } finally {
+              setIsToppingUp(false)
+              setTimeout(() => setTopUpMessage(''), 3000)
+            }
+          }}
+          disabled={isToppingUp}
+          className="px-3 py-2 md:px-4 md:py-2 bg-[var(--neon-orange)]/10 text-[var(--neon-orange)] border border-[var(--neon-orange)]/30 rounded-xl text-xs md:text-sm font-bold shadow-sm hover:bg-[var(--neon-orange)]/20 transition-all backdrop-blur-md whitespace-nowrap disabled:opacity-50"
+        >
+          {isToppingUp ? 'Topping up...' : topUpMessage || 'Top Up Fork'}
+        </button>
         <a
           href="/api-reference/index.html"
           target="_blank"
