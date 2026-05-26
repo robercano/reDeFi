@@ -8,6 +8,7 @@ import { Maybe, Order, SDKError, SDKErrorType, SimulationType } from '@thesolidc
 import { assert } from 'console'
 import { SwapOrderPlanner } from '../planners/SwapOrderPlanner'
 import { YieldOrderPlanner } from '../planners/YieldOrderPlanner'
+import { LendingOrderPlanner } from '../planners/LendingOrderPlanner'
 
 /**
  * OrderPlannerService
@@ -27,6 +28,7 @@ export class OrderPlannerService implements IOrderPlannerService {
   constructor() {
     this._registerOrderPlanner(SwapOrderPlanner)
     this._registerOrderPlanner(YieldOrderPlanner)
+    this._registerOrderPlanner(LendingOrderPlanner)
   }
 
   /**

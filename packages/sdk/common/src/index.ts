@@ -163,6 +163,10 @@ export type {
   IYieldPosition,
   IYieldPositionData,
 } from './yield-protocols/interfaces/IYieldPosition'
+
+export { YieldPoolInfo } from './yield-protocols/implementation/YieldPoolInfo'
+export { YieldPosition } from './yield-protocols/implementation/YieldPosition'
+export { YieldPool } from './yield-protocols/implementation/YieldPool'
 export { isAddressValue, type AddressValue } from './common/types/AddressValue'
 export { isAmountValue, type AmountValue } from './common/types/AmountValue'
 export type { ArmadaMigratablePosition } from './common/types/ArmadaMigratablePosition'

@@ -2,6 +2,7 @@ import { IAddressBookManager } from '@thesolidchain/address-book-common'
 import { type IConfigurationProvider } from '@thesolidchain/configuration-provider-common'
 import { DeploymentIndex } from '@thesolidchain/deployment-utils'
 import { AddressBookManager } from './AddressBookManager'
+import { KnownAddressesProvider } from './KnownAddressesProvider'
 
 /**
  * AddressBookManagerFactory
@@ -20,6 +21,7 @@ export class AddressBookManagerFactory {
     return new AddressBookManager({
       deployments: {} as DeploymentIndex,
       deploymentTag: 'standard',
+      knownAddressesProvider: new KnownAddressesProvider(),
     })
   }
 }

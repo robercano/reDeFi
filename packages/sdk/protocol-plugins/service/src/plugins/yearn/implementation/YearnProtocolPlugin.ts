@@ -13,6 +13,8 @@ import {
   ITokenAmount,
   IUser,
   TransactionInfo,
+  YieldPoolInfo,
+  YieldPosition,
 } from '@thesolidchain/sdk-common'
 import {
   IProtocolPluginContext,
@@ -73,18 +75,14 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
 
     const vaultDto = await this.dataSource.getVault(poolId.vaultAddress)
 
-    return {
-      [Symbol.for('@thesolidchain/sdk-common/IYieldPoolInfo')]: Symbol.for(
-        '@thesolidchain/sdk-common/IYieldPoolInfo',
-      ) as unknown as symbol,
-      type: PoolType.Yield,
+    return YieldPoolInfo.createFrom({
       id: poolId,
       underlyingToken: vaultDto.underlyingToken,
       receiptToken: vaultDto.receiptToken,
       yieldType: YieldType.ValueAccruing,
       currentApy: vaultDto.currentApy,
       totalValueLocked: vaultDto.totalValueLocked,
-    } as unknown as IYieldPoolInfo
+    })
   }
 
   /**
@@ -107,11 +105,7 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
       positionId.walletAddress,
     )
 
-    return {
-      [Symbol.for('@thesolidchain/sdk-common/IYieldPosition')]: Symbol.for(
-        '@thesolidchain/sdk-common/IYieldPosition',
-      ) as unknown as symbol,
-      type: PositionType.Yield,
+    return YieldPosition.createFrom({
       id: positionId,
       poolId: new YearnYieldPoolId(
         positionId.vaultAddress,
@@ -120,7 +114,7 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
       principalAmount: positionDto.principalAmount,
       currentAmount: positionDto.currentAmount,
       claimableRewards: [],
-    } as unknown as IYieldPosition
+    })
   }
 
   public async getDepositTransaction(): Promise<TransactionInfo> {

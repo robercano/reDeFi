@@ -6,6 +6,8 @@ import {
   SimulationSteps,
   TransactionInfo,
   Order,
+  Percentage,
+  Address,
 } from '@thesolidchain/sdk-common'
 import { BuildOrderParams } from '@thesolidchain/order-planner-common'
 
@@ -66,6 +68,12 @@ describe('SwapOrderPlanner', () => {
 
   it('should bundle transactions if executionType is Multicall', async () => {
     const params = {
+      user: {
+        chainInfo: {
+          chainId: 1,
+          name: 'Ethereum'
+        }
+      },
       simulation: {
         type: SimulationType.Swap,
         steps: [
@@ -77,6 +85,9 @@ describe('SwapOrderPlanner', () => {
       },
       executionType: ExecutionType.Multicall,
       contractsProvider: mockContractsProvider,
+      addressBookManager: {
+        getAddressByName: async () => Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
+      } as any,
     } as unknown as BuildOrderParams
 
     const order = await planner.buildOrder(params)

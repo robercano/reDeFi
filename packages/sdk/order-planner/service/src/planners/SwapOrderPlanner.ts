@@ -10,12 +10,7 @@ import {
 } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
 import { Address } from '@thesolidchain/sdk-common'
-
-/**
- * Standard Multicall3 Contract Address
- * Deployed on mainnet and most testnets/L2s at this exact address
- */
-const MULTICALL3_ADDRESS = '0xcA11bde05977b3631167028862bE2a173976CA11'
+import { SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 
 export class SwapOrderPlanner implements ISwapOrderPlanner {
   getAcceptedSimulations(): SimulationType[] {
@@ -94,12 +89,24 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
         ]
       })
 
+      const multicallAddress = await params.addressBookManager.getAddressByName({
+        chainInfo: params.user.chainInfo,
+        name: 'Multicall3',
+      })
+      if (!multicallAddress) {
+        throw SDKError.createFrom({
+          type: SDKErrorType.OrderPlannerError,
+          reason: 'Address Not Found',
+          message: `Could not find Multicall3 address for chain ${params.user.chainInfo.name}`,
+        })
+      }
+
       return {
         simulation,
         transactions: [
           {
             transaction: {
-              target: Address.createFromEthereum({ value: MULTICALL3_ADDRESS }),
+              target: multicallAddress,
               calldata: multicallData,
               value: transactions.reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n).toString(),
             },

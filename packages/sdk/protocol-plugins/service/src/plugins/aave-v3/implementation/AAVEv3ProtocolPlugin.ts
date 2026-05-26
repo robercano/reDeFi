@@ -464,6 +464,121 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     }
   }
 
+  /**
+   * Generates a withdraw transaction to remove tokens from an Aave V3 pool.
+   *
+   * @param params - The withdraw parameters.
+   * @param params.poolId - The lending pool ID to withdraw from.
+   * @param params.amount - The token amount to withdraw.
+   * @param params.user - The user initiating the withdraw transaction.
+   * @returns A promise that resolves to the withdraw transaction information.
+   */
+  async getWithdrawTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    const chainInfo = params.poolId.protocol.chainInfo
+    const aavePoolContract = await this._getContractDef({ chainInfo, contractName: 'AavePool' })
+
+    const asset = params.amount.token.address.value
+    // If the amount is equal to max uint256, it withdraws everything.
+    const amount = params.amount.toSolidityValue()
+    const to = params.user.wallet.address.value
+
+    const data = encodeFunctionData({
+      abi: aavePoolContract.abi,
+      functionName: 'withdraw',
+      args: [asset, amount, to],
+    })
+
+    return {
+      transaction: {
+        target: { value: aavePoolContract.address } as IAddress,
+        calldata: data as HexData,
+        value: '0',
+      },
+      description: 'Withdraw tokens from Aave V3',
+    }
+  }
+
+  /**
+   * Generates a borrow transaction to borrow tokens from an Aave V3 pool.
+   *
+   * @param params - The borrow parameters.
+   * @param params.poolId - The lending pool ID to borrow from.
+   * @param params.amount - The token amount to borrow.
+   * @param params.user - The user initiating the borrow transaction.
+   * @returns A promise that resolves to the borrow transaction information.
+   */
+  async getBorrowTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    const chainInfo = params.poolId.protocol.chainInfo
+    const aavePoolContract = await this._getContractDef({ chainInfo, contractName: 'AavePool' })
+
+    const asset = params.amount.token.address.value
+    const amount = params.amount.toSolidityValue()
+    const interestRateMode = 2n // Variable rate mode
+    const referralCode = 0
+    const onBehalfOf = params.user.wallet.address.value
+
+    const data = encodeFunctionData({
+      abi: aavePoolContract.abi,
+      functionName: 'borrow',
+      args: [asset, amount, interestRateMode, referralCode, onBehalfOf],
+    })
+
+    return {
+      transaction: {
+        target: { value: aavePoolContract.address } as IAddress,
+        calldata: data as HexData,
+        value: '0',
+      },
+      description: 'Borrow tokens from Aave V3',
+    }
+  }
+
+  /**
+   * Generates a repay transaction to repay borrowed tokens to an Aave V3 pool.
+   *
+   * @param params - The repay parameters.
+   * @param params.poolId - The lending pool ID to repay to.
+   * @param params.amount - The token amount to repay.
+   * @param params.user - The user initiating the repay transaction.
+   * @returns A promise that resolves to the repay transaction information.
+   */
+  async getRepayTransaction(params: {
+    poolId: ILendingPoolIdData
+    amount: TokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    const chainInfo = params.poolId.protocol.chainInfo
+    const aavePoolContract = await this._getContractDef({ chainInfo, contractName: 'AavePool' })
+
+    const asset = params.amount.token.address.value
+    const amount = params.amount.toSolidityValue()
+    const interestRateMode = 2n // Variable rate mode
+    const onBehalfOf = params.user.wallet.address.value
+
+    const data = encodeFunctionData({
+      abi: aavePoolContract.abi,
+      functionName: 'repay',
+      args: [asset, amount, interestRateMode, onBehalfOf],
+    })
+
+    return {
+      transaction: {
+        target: { value: aavePoolContract.address } as IAddress,
+        calldata: data as HexData,
+        value: '0',
+      },
+      description: 'Repay tokens to Aave V3',
+    }
+  }
+
   /** PRIVATE */
 
   protected async _getContractDef(params: {

@@ -1,5 +1,5 @@
 import type { Maybe, IAddress, IChainInfo } from '@thesolidchain/sdk-common'
-import { IAddressBookManager } from '@thesolidchain/address-book-common'
+import { IAddressBookManager, IKnownAddressesProvider } from '@thesolidchain/address-book-common'
 import { DeploymentIndex } from '@thesolidchain/deployment-utils'
 import { Address, AddressValue } from '@thesolidchain/sdk-common'
 
@@ -10,11 +10,17 @@ import { Address, AddressValue } from '@thesolidchain/sdk-common'
 export class AddressBookManager implements IAddressBookManager {
   readonly deployments: DeploymentIndex
   readonly deploymentsTag: string
+  readonly knownAddressesProvider: IKnownAddressesProvider
 
   /** CONSTRUCTOR */
-  constructor(params: { deployments: DeploymentIndex; deploymentTag: string }) {
+  constructor(params: {
+    deployments: DeploymentIndex
+    deploymentTag: string
+    knownAddressesProvider: IKnownAddressesProvider
+  }) {
     this.deployments = params.deployments
     this.deploymentsTag = params.deploymentTag
+    this.knownAddressesProvider = params.knownAddressesProvider
   }
 
   /** PUBLIC METHODS */
@@ -34,7 +40,7 @@ export class AddressBookManager implements IAddressBookManager {
 
     const contractInfo = deployment.contracts[params.name] || deployment.dependencies[params.name]
     if (!contractInfo) {
-      return undefined
+      return this.knownAddressesProvider.getAddress(params)
     }
 
     return Address.createFromEthereum({

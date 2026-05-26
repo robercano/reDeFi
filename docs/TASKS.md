@@ -27,8 +27,8 @@ The reDeFi SDK has a well-defined architecture. Any tasks must comply with this 
 Build the concrete plugins following the `IYieldProtocolManagerFeatures`, `ILendingProtocolManagerFeatures`, and `ILiquidityProtocolManagerFeatures` interfaces. Ensure comprehensive test coverage (>80%) and simulator end-to-end integration for each:
 
 - [x] **Yearn Finance:** (`YearnProtocolPlugin` - Yield)
-- [ ] **Lido:** (`LidoProtocolPlugin` - Staking/Yield)
-- [ ] **Aave V3:** (`AaveV3ProtocolPlugin` - Lending)
+- [x] **Lido:** (`LidoProtocolPlugin` - Staking/Yield)
+- [x] **Aave V3:** (`AaveV3ProtocolPlugin` - Lending)
 - [ ] **Maker / Sky:** (`MakerProtocolPlugin` - Yield)
 - [ ] **Uniswap V3:** (`UniswapV3ProtocolPlugin` - Liquidity)
 - [ ] **Curve Finance:** (`CurveProtocolPlugin` - Liquidity/Yield)

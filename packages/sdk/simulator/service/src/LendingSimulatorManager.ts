@@ -7,6 +7,7 @@ import {
   ISimulation,
   SimulationSteps,
   LendingSimulation,
+  ILendingPositionId,
 } from '@thesolidchain/sdk-common'
 
 export class LendingSimulatorManager implements ILendingSimulatorManager {
@@ -24,12 +25,12 @@ export class LendingSimulatorManager implements ILendingSimulatorManager {
     const steps = [
       {
         type: SimulationSteps.DepositBorrow,
-        input: {
+        inputs: {
           depositAmount: { value: params.amount },
           borrowAmount: { value: undefined },
           poolId: params.poolId,
         },
-        output: {
+        outputs: {
           depositAmount: params.amount,
         },
       } as unknown as ISimulation['steps'][number],
@@ -51,13 +52,67 @@ export class LendingSimulatorManager implements ILendingSimulatorManager {
     const steps = [
       {
         type: SimulationSteps.DepositBorrow,
-        input: {
+        inputs: {
           depositAmount: { value: undefined },
           borrowAmount: { value: params.amount },
           poolId: params.poolId,
         },
-        output: {
+        outputs: {
           borrowAmount: params.amount,
+        },
+      } as unknown as ISimulation['steps'][number],
+    ]
+
+    return new LendingSimulation({
+      steps,
+      balanceChanges: [],
+      gasEstimations: [],
+    })
+  }
+
+  async simulateWithdraw(params: {
+    positionId: ILendingPositionId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
+    const position = await this.protocolManager.lending.getLendingPosition(params.positionId)
+
+    const steps = [
+      {
+        type: SimulationSteps.PaybackWithdraw,
+        inputs: {
+          paybackAmount: { value: undefined },
+          withdrawAmount: { value: params.amount },
+          position: position,
+        },
+        outputs: {
+          withdrawAmount: params.amount,
+        },
+      } as unknown as ISimulation['steps'][number],
+    ]
+
+    return new LendingSimulation({
+      steps,
+      balanceChanges: [],
+      gasEstimations: [],
+    })
+  }
+
+  async simulateRepay(params: {
+    positionId: ILendingPositionId
+    amount: ITokenAmount
+  }): Promise<ISimulation> {
+    const position = await this.protocolManager.lending.getLendingPosition(params.positionId)
+
+    const steps = [
+      {
+        type: SimulationSteps.PaybackWithdraw,
+        inputs: {
+          paybackAmount: { value: params.amount },
+          withdrawAmount: { value: undefined },
+          position: position,
+        },
+        outputs: {
+          paybackAmount: params.amount,
         },
       } as unknown as ISimulation['steps'][number],
     ]

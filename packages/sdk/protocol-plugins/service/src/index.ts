@@ -110,3 +110,27 @@ export {
   type ILidoYieldPositionId,
   type ILidoYieldPositionIdData,
 } from './plugins/lido/interfaces/ILidoYieldPositionId'
+
+// Yearn plugin
+export { YearnProtocolPlugin } from './plugins/yearn/implementation/YearnProtocolPlugin'
+export { YearnProtocol } from './plugins/yearn/implementation/YearnProtocol'
+export { YearnYieldPoolId } from './plugins/yearn/implementation/YearnYieldPoolId'
+export { YearnYieldPositionId } from './plugins/yearn/implementation/YearnYieldPositionId'
+export {
+  isYearnProtocol,
+  YearnProtocolDataSchema,
+  type IYearnProtocol,
+  type IYearnProtocolData,
+} from './plugins/yearn/interfaces/IYearnProtocol'
+export {
+  isYearnYieldPoolId,
+  YearnYieldPoolIdDataSchema,
+  type IYearnYieldPoolId,
+  type IYearnYieldPoolIdData,
+} from './plugins/yearn/interfaces/IYearnYieldPoolId'
+export {
+  isYearnYieldPositionId,
+  YearnYieldPositionIdDataSchema,
+  type IYearnYieldPositionId,
+  type IYearnYieldPositionIdData,
+} from './plugins/yearn/interfaces/IYearnYieldPositionId'

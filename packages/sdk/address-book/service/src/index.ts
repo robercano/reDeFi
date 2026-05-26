@@ -1,2 +1,3 @@
 export { AddressBookManager } from './implementation/AddressBookManager'
 export { AddressBookManagerFactory } from './implementation/AddressBookManagerFactory'
+export * from './implementation/KnownAddressesProvider'
