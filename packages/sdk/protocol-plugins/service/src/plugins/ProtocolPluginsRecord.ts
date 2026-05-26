@@ -3,6 +3,7 @@ import { ProtocolPluginsRecordType } from '../implementation/ProtocolPluginsRegi
 import { AaveV3ProtocolPlugin } from './aave-v3/implementation/AAVEv3ProtocolPlugin'
 import { YearnProtocolPlugin } from './yearn/implementation/YearnProtocolPlugin'
 import { LidoProtocolPlugin } from './lido/implementation/LidoProtocolPlugin'
+import { MakerProtocolPlugin } from './maker/implementation/MakerProtocolPlugin'
 
 /**
  * Protocol plugins record
@@ -13,4 +14,5 @@ export const ProtocolPluginsRecord: ProtocolPluginsRecordType = {
   [ProtocolName.AaveV3]: AaveV3ProtocolPlugin,
   [ProtocolName.Yearn]: YearnProtocolPlugin,
   [ProtocolName.Lido]: LidoProtocolPlugin,
+  [ProtocolName.Maker]: MakerProtocolPlugin,
 }
