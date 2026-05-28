@@ -7,6 +7,7 @@ export type { IContractProvider } from './interfaces/IContractProvider'
 export type { ILendingProtocolFeatures } from './interfaces/ILendingProtocolFeatures'
 export type { IYieldProtocolFeatures } from './interfaces/IYieldProtocolFeatures'
 export type { IStakeProtocolFeatures } from './interfaces/IStakeProtocolFeatures'
+export type { ILiquidityProtocolFeatures } from './interfaces/ILiquidityProtocolFeatures'
 export type {
   StorageAliasMap,
   StorageInputsType,

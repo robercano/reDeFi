@@ -5,6 +5,7 @@ import {
   ITransferSimulatorManager,
   IYieldSimulatorManager,
   ISwapSimulatorManager,
+  ILiquiditySimulatorManager,
 } from '@thesolidchain/simulator-common'
 import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
 import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
@@ -14,6 +15,7 @@ import { IAllowanceManager } from '@thesolidchain/allowance-manager-common'
 import { LendingSimulatorManager } from './LendingSimulatorManager'
 import { YieldSimulatorManager } from './YieldSimulatorManager'
 import { StakeSimulatorManager } from './StakeSimulatorManager'
+import { LiquiditySimulatorManager } from './LiquiditySimulatorManager'
 import { TransferSimulatorManager } from './TransferSimulatorManager'
 import { SwapSimulatorManager } from './managers/SwapSimulatorManager'
 
@@ -23,6 +25,7 @@ export class SimulatorManager implements ISimulatorManager {
   readonly transfer: ITransferSimulatorManager
   readonly yield: IYieldSimulatorManager
   readonly swap: ISwapSimulatorManager
+  readonly liquidity: ILiquiditySimulatorManager
 
   constructor(
     protocolManager: IProtocolManager,
@@ -35,5 +38,6 @@ export class SimulatorManager implements ISimulatorManager {
     this.transfer = new TransferSimulatorManager(protocolManager, blockchainManager)
     this.yield = new YieldSimulatorManager(protocolManager, blockchainManager)
     this.swap = new SwapSimulatorManager(swapManager, allowanceManager)
+    this.liquidity = new LiquiditySimulatorManager(protocolManager, blockchainManager)
   }
 }

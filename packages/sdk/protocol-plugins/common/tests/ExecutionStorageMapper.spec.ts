@@ -404,11 +404,13 @@ describe('Execution Storage Mapper', () => {
   })
 
   it('should use default value if step has no outputs defined', () => {
-    const derivedStep: steps.ReturnFundsStep = {
-      type: SimulationSteps.ReturnFunds,
-      name: 'ReturnFunds',
+    const derivedStep: steps.ApproveStep = {
+      type: SimulationSteps.Approve,
+      name: 'Approve',
       inputs: {
         token: DAI,
+        amount: depositAmount,
+        spender: '0x123',
       },
       outputs: undefined,
     }

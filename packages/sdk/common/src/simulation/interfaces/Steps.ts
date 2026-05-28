@@ -10,6 +10,8 @@ import { SimulationSteps } from '../enums/SimulationSteps'
 import { ReferenceableField, ValueReference } from './ValueReference'
 import { IYieldPoolId } from '../../yield-protocols/interfaces/IYieldPoolId'
 import { IYieldPosition } from '../../yield-protocols/interfaces/IYieldPosition'
+import { ILiquidityPoolId } from '../../liquidity-protocols/interfaces/ILiquidityPoolId'
+import { ILiquidityPosition } from '../../liquidity-protocols/interfaces/ILiquidityPosition'
 
 export interface Step<T extends SimulationSteps, I, O = undefined> {
   type: T
@@ -122,12 +124,38 @@ export type Permit2Step = Step<
   }
 >
 
+export type ProvideLiquidityStep = Step<
+  SimulationSteps.ProvideLiquidity,
+  {
+    amounts: ReferenceableField<ITokenAmount[]>
+    poolId: ILiquidityPoolId
+    tickLower?: number
+    tickUpper?: number
+  },
+  {
+    amounts: ITokenAmount[]
+  }
+>
+
+export type RemoveLiquidityStep = Step<
+  SimulationSteps.RemoveLiquidity,
+  {
+    removeAmount: ReferenceableField<ITokenAmount> // e.g. amount of LP tokens/liquidity units
+    position: ILiquidityPosition
+  },
+  {
+    removeAmount: ITokenAmount
+  }
+>
+
 export type Steps =
   | DepositBorrowStep
   | PaybackWithdrawStep
   | SwapStep
   | DepositYieldStep
   | WithdrawYieldStep
+  | ProvideLiquidityStep
+  | RemoveLiquidityStep
   | ApproveStep
   | PermitStep
   | Permit2Step

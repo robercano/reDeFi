@@ -12,4 +12,6 @@ export enum SimulationType {
   Yield = 'Yield',
   /** Swapping tokens through a DEX or Aggregator */
   Swap = 'Swap',
+  /** Providing or removing liquidity in an AMM */
+  Liquidity = 'Liquidity',
 }

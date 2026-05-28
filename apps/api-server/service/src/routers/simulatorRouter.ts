@@ -61,4 +61,21 @@ export const simulatorRouter = router({
       return opts.ctx.simulatorManager.yield.simulateWithdraw({ positionId, amount })
     }),
   }),
+  liquidity: router({
+    simulateProvide: publicProcedure.input(z.any()).query(async (opts) => {
+      const { poolId, amounts, tickLower, tickUpper } = opts.input
+      // Basic validation
+      if (!poolId || !amounts) {
+        throw new Error('Invalid input for simulateProvide')
+      }
+      return opts.ctx.simulatorManager.liquidity.simulateProvide({ poolId, amounts, tickLower, tickUpper })
+    }),
+    simulateRemove: publicProcedure.input(z.any()).query(async (opts) => {
+      const { positionId, amount } = opts.input
+      if (!positionId || !amount) {
+        throw new Error('Invalid input for simulateRemove')
+      }
+      return opts.ctx.simulatorManager.liquidity.simulateRemove({ positionId, amount })
+    }),
+  }),
 })

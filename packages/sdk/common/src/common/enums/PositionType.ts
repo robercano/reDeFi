@@ -13,6 +13,8 @@ export enum PositionType {
   Armada = 'Armada',
   /** Passive Yield position (e.g., Yearn, Lido, etc.) */
   Yield = 'Yield',
+  /** AMM Liquidity position */
+  Liquidity = 'Liquidity',
 }
 
 /**
