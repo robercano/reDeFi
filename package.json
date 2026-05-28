@@ -13,6 +13,8 @@
     "lint:fix": "turbo run lint:fix",
     "test": "turbo run test --cache-dir=.turbo",
     "test:integration": "turbo run test:integration --cache-dir=.turbo",
+    "test:e2e": "pnpm --filter sdk-demo run test:e2e",
+    "test:e2e:ui": "pnpm --filter sdk-demo run test:e2e:ui",
     "check-circular": "turbo run check-circular --cache-dir=.turbo",
     "db:migrate": "turbo run db:migrate --cache-dir=.turbo",
     "cicheck": "turbo run cicheck --cache-dir=.turbo --filter=./packages/** && pnpm run coverage:total",

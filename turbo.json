@@ -159,6 +159,12 @@
       "dependsOn": ["prebuild", "build", "^test:integration"],
       "outputs": ["coverage/**"]
     },
+    "test:e2e": {
+      "dependsOn": ["prebuild", "build"]
+    },
+    "test:e2e:ui": {
+      "dependsOn": ["prebuild", "build"]
+    },
     "lint": {
       "dependsOn": ["prebuild", "build", "^lint"]
     },
