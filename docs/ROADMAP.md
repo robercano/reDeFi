@@ -62,3 +62,14 @@ The project ensures high reliability through a multi-layered testing stack:
 - **Unit Testing (Vitest):** Exhaustive testing of pure logic, Action Builders, and Protocol Plugins to ensure exact EVM payload generation.
 - **Component Testing (Vitest + RTL):** Testing isolated React components (`YieldViewer`, `PortfolioViewer`) in the SDK/Demo.
 - **Web3 Integration (Anvil/Hardhat):** E2E testing against local nodes to verify intent execution, smart contract deployment, and actual state changes.
+
+---
+
+## 5. Post-V1 Expansion Strategy (Market Dominance)
+
+Based on comprehensive competitor analysis (evaluating Enso Finance, Li.Fi, Socket, and Wagmi), the reDeFi SDK is positioned to bridge the gap between low-level EVM execution and high-level intent solvers. To achieve market dominance, the architecture will evolve to support:
+
+1. **Cross-Chain Intent Abstraction:** Expanding the `SimulatorManager` and `OrderPlanner` to natively interpret cross-chain bridging routes alongside standard Swaps and Yield generation.
+2. **Native ERC-4337 & Paymaster Integration:** Enabling seamless gas sponsorship and Smart Account (bundler) execution directly within the `OrderPlanner`, offering gasless transactions for end-users out-of-the-box.
+3. **Action Batching (Recipes):** Allowing developers to bundle arbitrary sequences of intents (e.g., Unstake -> Swap -> Re-stake) into a deterministic client-side simulation and execution cycle, removing the reliance on centralized off-chain solvers.
+4. **DeFi Discovery Layer:** Implementing a centralized index of real-time APYs and Health Factors across supported plugins to actively guide user intents towards optimal yields.
