@@ -156,7 +156,7 @@
       "outputs": ["coverage/**"]
     },
     "test:integration": {
-      "dependsOn": ["prebuild", "build", "^test:integration"],
+      "dependsOn": ["prebuild", "build", "^test:integration", "test"],
       "outputs": ["coverage/**"]
     },
     "test:e2e": {

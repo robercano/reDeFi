@@ -115,7 +115,9 @@ export class TenderlyFork {
     try {
       return await this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
     } catch (error: any) {
-      throw new Error(`Error disposing fork: ${error.message}`)
+      if (error.response?.status !== 404) {
+        console.warn(`Warning disposing fork: ${error.message}`)
+      }
     }
   }
 
