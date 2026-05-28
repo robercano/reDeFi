@@ -48,9 +48,14 @@ export class AnvilFork {
         ? { forkBlockNumber: BigInt(params.atBlock) }
         : {}),
       port,
+      startTimeout: 60000,
     })
 
-    await anvil.start()
+    try {
+      await anvil.start()
+    } catch (error: any) {
+      throw new Error(`Failed to start local Anvil node. Error: ${error?.message || error}`)
+    }
 
     const localRpcUrl = `http://127.0.0.1:${port}`
 
