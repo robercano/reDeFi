@@ -12,6 +12,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
+    "test": "vitest run tests/",
     "build": "tsc -b --preserveWatchOutput tsconfig.build.json",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"

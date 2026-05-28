@@ -12,6 +12,7 @@
   "scripts": {
     "tsc": "tsc",
     "watch": "tsc -w",
+    "test": "vitest run tests/",
     "e2e": "vitest run e2e/",
     "testw": "vitest watch",
     "prebuild": "npx tsx ../../tools/abi-wrapper-generator.ts",
