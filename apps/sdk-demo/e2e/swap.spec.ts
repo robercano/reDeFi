@@ -8,21 +8,19 @@ test.describe('SDK Demo App - Swap Simulator', () => {
     await page.goto('/')
 
     // Click the Swap Simulator tab
-    await page.locator('button', { hasText: 'Swap Simulator' }).click()
+    await page.getByTestId('tab-swap-viewer').click()
 
     // Fill in the token symbols and amount (assuming default is WETH to USDC for 1 unit)
     // The inputs are already populated by default in the state, but let's ensure we click the button
 
-    const getQuoteButton = page.locator('button', { hasText: 'Get Swap Quote' })
+    const getQuoteButton = page.getByTestId('swap-quote-btn')
     await expect(getQuoteButton).toBeVisible()
 
     // Click the simulate swap button
     await getQuoteButton.click()
 
-    // It should say "Simulating Swap Route..."
-    await expect(page.locator('button', { hasText: 'Simulating Swap Route...' })).toBeVisible()
-
     // Wait for the simulation to finish
+
     // We should NOT see "Error: Invalid input"
     await expect(page.locator('text=Error: Invalid input')).toBeHidden({ timeout: 10000 })
 

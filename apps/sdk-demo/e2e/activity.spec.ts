@@ -4,11 +4,15 @@ test.describe('SDK Demo App - Activity Tracking', () => {
   test('should display empty activity history initially', async ({ page }) => {
     await page.goto('/')
 
+    // Click the activity button to open the modal
+    await page.getByTestId('activity-btn').click()
+
     // Verify the Activity History section is visible
     await expect(page.locator('text=Activity History')).toBeVisible()
 
     // Check that it shows no recent activity
-    await expect(page.locator('text=No recent activity found.')).toBeVisible()
+    // Because the activity is fetched asynchronously, wait for the text
+    await expect(page.locator('text=Connect wallet to view history.')).toBeVisible({ timeout: 10000 })
   })
 
   test('should log an intent in the activity history after execution', async ({ page }) => {
