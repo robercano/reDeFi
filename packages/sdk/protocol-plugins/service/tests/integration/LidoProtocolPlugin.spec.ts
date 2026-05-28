@@ -13,24 +13,25 @@ import { LidoProtocolPlugin } from '../../src/plugins/lido/implementation/LidoPr
 import { LidoYieldPoolId } from '../../src/plugins/lido/implementation/LidoYieldPoolId'
 import { LidoYieldPositionId } from '../../src/plugins/lido/implementation/LidoYieldPositionId'
 import { createProtocolPluginContext } from '../utils/CreateProtocolPluginContext'
-import { AnvilFork, OracleManagerMock } from '@thesolidchain/testing-utils'
+import { OracleManagerMock } from '@thesolidchain/testing-utils'
+import { TenderlyFork } from '@thesolidchain/tenderly-utils'
 import { Price, FiatCurrency } from '@thesolidchain/sdk-common'
 
 const LIDO_STETH_ADDRESS = '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84'
-const ETH_RPC_URL = process.env.E2E_SDK_FORK_URL_MAINNET || 'https://rpc.ankr.com/eth'
 
 describe('Lido Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext
   let validLidoPoolId: LidoYieldPoolId
   let plugin: LidoProtocolPlugin
-  let fork: AnvilFork
+  let fork: TenderlyFork
   let snapshotId: string
 
   beforeAll(async () => {
-    // Spawn local Anvil node natively
-    fork = await AnvilFork.create({
-      forkUrl: ETH_RPC_URL,
+    fork = await TenderlyFork.create({
+      tenderlyApiUrl: `https://api.tenderly.co/api/v1/account/${process.env.TENDERLY_USER}/project/${process.env.TENDERLY_PROJECT}`,
+      tenderlyAccessKey: process.env.TENDERLY_ACCESS_KEY as string,
       chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      atBlock: 'latest',
     })
 
     ctx = await createProtocolPluginContext(ChainFamilyMap.Ethereum.Mainnet, {}, fork.forkUrl)
@@ -100,9 +101,6 @@ describe('Lido Protocol Plugin (Integration)', () => {
     const publicClient = createPublicClient({ chain: localChain, transport: http(rpcUrl) })
     const walletClient = createWalletClient({ chain: localChain, transport: http(rpcUrl) })
 
-    const testClient = fork.transactionUtils.testClient
-    await testClient.impersonateAccount({ address: userAddress })
-
     // Simulate sending 1 ETH to the Lido contract (fallback mints stETH)
     const depositHash = await walletClient.sendTransaction({
       account: userAddress,
@@ -111,7 +109,6 @@ describe('Lido Protocol Plugin (Integration)', () => {
       chain: null,
     })
     await publicClient.waitForTransactionReceipt({ hash: depositHash })
-    await testClient.stopImpersonatingAccount({ address: userAddress })
 
     const positionId = new LidoYieldPositionId(
       LIDO_STETH_ADDRESS,
