@@ -45,6 +45,11 @@ Build the concrete plugins following the `IYieldProtocolManagerFeatures`, `ILend
 - [ ] Test Smart Contract / Web3 integrations using a local Anvil/Hardhat node.
 - [ ] Expand Vitest component testing in `packages/sdk-react`.
 
-## 5. Expansion & Competitor Analysis
+## 5. Expansion & Competitor Analysis (Post-V1)
 
-- [ ] Analyze what could be added to the SDK to make it the ultimate tool for anybody working in the DeFi environment: what's missing, what has more value, and how can we compete against other similar products in the market.
+Derived from our competitor analysis against Enso, Li.Fi, and Wagmi/viem, the following features are prioritized to dominate the DeFi aggregation market:
+
+- [ ] **Cross-Chain Abstracted Intents:** Integrate a bridge abstraction into the `SimulatorManager` to allow cross-chain deposits/swaps (e.g., bridging Polygon USDC to Ethereum Lido).
+- [ ] **Paymaster & Gas Abstraction:** Leverage `ExecutionType.ERC4337` to integrate bundlers/paymasters (like Pimlico or Biconomy), enabling sponsored, gasless transactions natively within the `OrderPlanner`.
+- [ ] **Action Batching / Recipe Builder:** Enhance `SimulatorManager` to accept and dry-run sequential intents (e.g., Swap -> Approve -> Stake) and output a unified EIP-712 / Multicall bundle.
+- [ ] **Yield / APY Discovery API:** Build a `DiscoveryManager` that indexes real-time APY across all supported yield/lending plugins, enabling a "deposit into best yield" routing intent.
