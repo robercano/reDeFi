@@ -2,6 +2,14 @@
 
 The reDeFi SDK has a well-defined architecture. Any tasks must comply with this architecture as defined in the [ROADMAP.md](./ROADMAP.md). If it is not clear how to adhere to the architecture, you must ask for advice.
 
+## 0. CI/CD & Testing Infrastructure
+
+- [ ] Configure Github Actions to run `cicheck` on every push to `main` and automatically commit/publish the test coverage to `docs/TEST_COVERAGE.md`.
+- [ ] Configure Github Actions to automatically add/update status badges in `README.md` upon successful `cicheck` execution.
+- [ ] Complete E2E testing foundation using Playwright in `apps/sdk-demo`.
+- [ ] Expand Vitest component testing in `packages/sdk-react`.
+- [ ] Solidify smart contract/web3 integrations using the local Anvil/Hardhat node.
+
 ## 1. Core Architecture Refactoring
 
 - [x] **Simulator Scope Expansion:**
@@ -39,13 +47,7 @@ Build the concrete plugins following the `IYieldProtocolManagerFeatures`, `ILend
 
 *NOTE: Replace mock data with real on-chain/subgraph data for the plugins once the integration works end-to-end.*
 
-## 4. Testing & Quality Assurance
-
-- [ ] Complete E2E testing foundation using Playwright in `apps/sdk-demo`.
-- [ ] Test Smart Contract / Web3 integrations using a local Anvil/Hardhat node.
-- [ ] Expand Vitest component testing in `packages/sdk-react`.
-
-## 5. Expansion & Competitor Analysis (Post-V1)
+## 4. Expansion & Competitor Analysis (Post-V1)
 
 Derived from our competitor analysis against Enso, Li.Fi, and Wagmi/viem, the following features are prioritized to dominate the DeFi aggregation market:
 
