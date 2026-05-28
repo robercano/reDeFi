@@ -1,7 +1,7 @@
 # ⚡ reDeFi Framework
 
 [![CI](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml/badge.svg)](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml)
-![Coverage](https://img.shields.io/badge/Coverage-80.38%25-brightgreen.svg)
+![Coverage](https://img.shields.io/badge/Coverage-80.37%25-brightgreen.svg)
 
 Building modern decentralized finance interfaces shouldn't require copy-pasting hundreds of ABIs, writing custom GraphQL layers for broken subgraphs, or managing brittle contract transaction wrappers.
 

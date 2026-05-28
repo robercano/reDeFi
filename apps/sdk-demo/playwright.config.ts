@@ -5,6 +5,7 @@ import { defineConfig, devices } from '@playwright/test'
  */
 export default defineConfig({
   testDir: './e2e',
+  globalSetup: require.resolve('./e2e/global.setup'),
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
   expect: {
