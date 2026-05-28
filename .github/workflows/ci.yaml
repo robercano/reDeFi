@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       id-token: write
-      contents: read
+      contents: write
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
       AWS_PROFILE: ${{ secrets.AWS_PROFILE }}
@@ -106,3 +106,9 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Commit Coverage and README Badges
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(ci): update test coverage report and badges"
+          file_pattern: "docs/TEST_COVERAGE.md README.md"

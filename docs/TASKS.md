@@ -4,8 +4,8 @@ The reDeFi SDK has a well-defined architecture. Any tasks must comply with this 
 
 ## 0. CI/CD & Testing Infrastructure
 
-- [ ] Configure Github Actions to run `cicheck` on every push to `main` and automatically commit/publish the test coverage to `docs/TEST_COVERAGE.md`.
-- [ ] Configure Github Actions to automatically add/update status badges in `README.md` upon successful `cicheck` execution.
+- [x] Configure Github Actions to run `cicheck` on every push to `main` and automatically commit/publish the test coverage to `docs/TEST_COVERAGE.md`.
+- [x] Configure Github Actions to automatically add/update status badges in `README.md` upon successful `cicheck` execution.
 - [ ] Complete E2E testing foundation using Playwright in `apps/sdk-demo`.
 - [ ] Expand Vitest component testing in `packages/sdk-react`.
 - [ ] Solidify smart contract/web3 integrations using the local Anvil/Hardhat node.

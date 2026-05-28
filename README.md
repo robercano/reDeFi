@@ -1,8 +1,13 @@
 # ⚡ reDeFi Framework
 
+[![CI](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml/badge.svg)](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml)
+![Coverage](https://img.shields.io/badge/Coverage-50.7%25-red.svg)
+
 Building modern decentralized finance interfaces shouldn't require copy-pasting hundreds of ABIs, writing custom GraphQL layers for broken subgraphs, or managing brittle contract transaction wrappers.
 
 **reDeFi** is a unified, strongly-typed execution and state-management framework built to dramatically simplify on-chain integration without compromising on power. Whether you are building an aggregator, a wallet, or a specialized yield application, reDeFi abstracts away the friction of EVM interaction so you can focus on building your product's core value.
+
+[View the full automated Test Coverage Report here](./docs/TEST_COVERAGE.md).
 
 ---
 
