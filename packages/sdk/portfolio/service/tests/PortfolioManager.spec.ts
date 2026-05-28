@@ -70,7 +70,7 @@ describe('PortfolioManager', () => {
         async ({ symbol }: { symbol: string }) => {
           if (symbol === CommonTokenSymbols.USDC)
             return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-          return undefined as any
+          return undefined as unknown as import('@thesolidchain/sdk-common').TokenAmount
         },
       )
 
@@ -101,7 +101,7 @@ describe('PortfolioManager', () => {
         async ({ symbol }: { symbol: string }) => {
           if (symbol === CommonTokenSymbols.USDC)
             return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-          return undefined as any
+          return undefined as unknown as import('@thesolidchain/sdk-common').TokenAmount
         },
       )
 
@@ -121,7 +121,9 @@ describe('PortfolioManager', () => {
         walletHoldings: [],
         totalFiatValue: FiatCurrencyAmount.createFrom({ fiat: FiatCurrency.USD, amount: '0' }),
       }
-      mockCacheService.get.mockResolvedValue(mockCachedPortfolio as any)
+      mockCacheService.get.mockResolvedValue(
+        mockCachedPortfolio as unknown as Awaited<ReturnType<typeof portfolioManager.getUserPortfolio>>
+      )
 
       const portfolio = await portfolioManager.getUserPortfolio({ user: mockUser })
 
@@ -137,7 +139,7 @@ describe('PortfolioManager', () => {
         async ({ symbol }: { symbol: string }) => {
           if (symbol === CommonTokenSymbols.USDC)
             return mockBalance as unknown as import('@thesolidchain/sdk-common').TokenAmount
-          return undefined as any
+          return undefined as unknown as import('@thesolidchain/sdk-common').TokenAmount
         },
       )
 
