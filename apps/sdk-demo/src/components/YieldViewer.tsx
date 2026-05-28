@@ -168,6 +168,7 @@ export const YieldViewer: FC = () => {
           <div className="relative">
             <input
               type="number"
+              data-testid="yield-amount-input"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="0.00"
@@ -182,6 +183,7 @@ export const YieldViewer: FC = () => {
 
         {order ? (
           <button
+            data-testid="yield-execute-btn"
             onClick={handleExecuteOrder}
             className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-xl py-3 transition-colors"
           >
@@ -189,6 +191,7 @@ export const YieldViewer: FC = () => {
           </button>
         ) : (
           <button
+            data-testid="yield-simulate-btn"
             onClick={handleBuildOrder}
             disabled={!amount || loading || !pool}
             className="w-full bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
