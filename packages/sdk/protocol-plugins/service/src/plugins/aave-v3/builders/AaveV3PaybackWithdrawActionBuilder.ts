@@ -5,7 +5,6 @@ import {
 import {
   Address,
   IAddress,
-  TokenTransferTargetType,
   getValueFromReference,
   steps,
 } from '@thesolidchain/sdk-common'
@@ -36,7 +35,7 @@ export class AaveV3PaybackWithdrawActionBuilder extends BaseActionBuilder<steps.
         chainInfo: user.chainInfo,
         contractName: 'AavePool',
       }),
-      this._getWithdrawTargetAddress(params),
+      params.positionsManager.address,
     ])
 
     const paybackAmount = getValueFromReference(step.inputs.paybackAmount)
@@ -90,28 +89,4 @@ export class AaveV3PaybackWithdrawActionBuilder extends BaseActionBuilder<steps.
     })
   }
 
-  /**
-   * Resolves the target address for the withdraw action based on the withdraw target type
-   * @param params.params The parameters for the action builder
-   * @returns The address of the target contract
-   */
-  private async _getWithdrawTargetAddress(
-    params: ActionBuilderParams<steps.PaybackWithdrawStep>,
-  ): Promise<IAddress> {
-    const { user, step, positionsManager, addressBookManager } = params
-
-    switch (step.inputs.withdrawTargetType) {
-      case TokenTransferTargetType.PositionsManager:
-        return positionsManager.address
-
-      case TokenTransferTargetType.StrategyExecutor:
-        return getContractAddress({
-          addressBookManager,
-          chainInfo: user.chainInfo,
-          contractName: 'OperationExecutor',
-        })
-      default:
-        throw new Error(`Invalid withdraw target type: ${step.inputs.withdrawTargetType}`)
-    }
-  }
 }

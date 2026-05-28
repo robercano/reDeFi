@@ -4,7 +4,6 @@ import {
 } from '@thesolidchain/protocol-plugins-common'
 import {
   IAddress,
-  TokenTransferTargetType,
   getValueFromReference,
   steps,
 } from '@thesolidchain/sdk-common'
@@ -35,7 +34,7 @@ export class AaveV3DepositBorrowActionBuilder extends BaseActionBuilder<steps.De
         chainInfo: user.chainInfo,
         contractName: 'AavePool',
       }),
-      this._getBorrowTargetAddress(params),
+      params.positionsManager.address,
     ])
 
     context.addActionCall({
@@ -84,28 +83,4 @@ export class AaveV3DepositBorrowActionBuilder extends BaseActionBuilder<steps.De
     })
   }
 
-  /**
-   * Resolves the target address for the borrow action based on the borrow target type
-   * @param params.params The parameters for the action builder
-   * @returns The address of the target contract
-   */
-  private async _getBorrowTargetAddress(
-    params: ActionBuilderParams<steps.DepositBorrowStep>,
-  ): Promise<IAddress> {
-    const { user, step, positionsManager, addressBookManager } = params
-
-    switch (step.inputs.borrowTargetType) {
-      case TokenTransferTargetType.PositionsManager:
-        return positionsManager.address
-
-      case TokenTransferTargetType.StrategyExecutor:
-        return getContractAddress({
-          addressBookManager,
-          chainInfo: user.chainInfo,
-          contractName: 'OperationExecutor',
-        })
-      default:
-        throw new Error(`Invalid borrow target type: ${step.inputs.borrowTargetType}`)
-    }
-  }
 }

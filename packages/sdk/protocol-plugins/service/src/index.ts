@@ -66,7 +66,7 @@ export { AaveV3SetEmodeAction } from './plugins/aave-v3/actions/AaveV3SetEmodeAc
 
 export { AaveV3DepositBorrowActionBuilder } from './plugins/aave-v3/builders/AaveV3DepositBorrowActionBuilder'
 export { AaveV3PaybackWithdrawActionBuilder } from './plugins/aave-v3/builders/AaveV3PaybackWithdrawActionBuilder'
-export { AaveV3OpenPositionActionBuilder } from './plugins/aave-v3/builders/AaveV3OpenPositionActionBuilder'
+
 
 export { EmodeType, EmodeTypeSchema, isEmodeType } from './plugins/common/enums/EmodeType'
 export { ProtocolPluginsRegistry } from './implementation/ProtocolPluginsRegistry'
@@ -79,13 +79,8 @@ export { BaseLendingProtocolPlugin } from './implementation/BaseLendingProtocolP
 
 // Common builders
 export { DepositBorrowActionBuilder } from './plugins/common/builders/DepositBorrowActionBuilder'
-export { FlashloanActionBuilder } from './plugins/common/builders/FlashloanActionBuilder'
 export { PaybackWithdrawActionBuilder } from './plugins/common/builders/PaybackWithdrawActionBuilder'
-export { PullTokenActionBuilder } from './plugins/common/builders/PullTokenActionBuilder'
-export { RepayFlashloanActionBuilder } from './plugins/common/builders/RepayFlashloanActionBuilder'
-export { ReturnFundsActionBuilder } from './plugins/common/builders/ReturnFundsActionBuilder'
 export { SwapActionBuilder } from './plugins/common/builders/SwapActionBuilder'
-export { OpenPositionActionBuilder } from './plugins/common/builders/OpenPositionActionBuilder'
 
 // Lido plugin
 export { LidoProtocolPlugin } from './plugins/lido/implementation/LidoProtocolPlugin'
