@@ -97,7 +97,7 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
         },
         allowanceTarget: '0x0000000000000000000000000000000000000003',
       }),
-    } as any
+    } as never
 
     const mockAllowanceManager = {
       getApproval: async () => ({
@@ -108,16 +108,16 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
           value: '0',
         },
       }),
-    } as any
+    } as never
 
     // 1. Simulate the Swap using the manager directly
     const swapSimulator = new SwapSimulatorManager(mockSwapManager, mockAllowanceManager)
     const simulation = await swapSimulator.simulateSwap({
-      user: { wallet: { address: userAddress } } as any,
+      user: { wallet: { address: userAddress } } as never,
       sellToken: fromToken,
       buyToken: toToken,
       sellAmount: fromAmount,
-      slippage: { value: '0.005' } as any,
+      slippage: { value: '0.005' } as never,
     })
 
     assert.strictEqual(simulation.type, SimulationType.Swap)
@@ -129,8 +129,8 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
       simulation,
       executionType: ExecutionType.Multicall,
       // mock the contracts provider for the test since SwapOrderPlanner uses viem encodeFunctionData directly
-      contractsProvider: {} as any,
-    } as any)
+      contractsProvider: {} as never,
+    } as never)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(
@@ -153,7 +153,7 @@ describe('Simulator -> OrderPlanner Swap Multicall', () => {
     assert.strictEqual(decoded.functionName, 'aggregate3')
 
     // Type casting to access the arguments since it's a tuple array
-    const calls = decoded.args?.[0] as any[]
+    const calls = decoded.args?.[0] as never[]
     assert.strictEqual(calls.length, 2) // Approve + Swap
 
     // Assert the mocked approval step

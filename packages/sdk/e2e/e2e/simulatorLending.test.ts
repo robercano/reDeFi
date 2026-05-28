@@ -65,10 +65,10 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
 
     const mockProtocolManager = {
       lending: mockPlugin.lending,
-    } as any
+    } as never
 
     // 1. Simulate the Supply
-    const lendingSimulator = new LendingSimulatorManager(mockProtocolManager, {} as any)
+    const lendingSimulator = new LendingSimulatorManager(mockProtocolManager, {} as never)
     const simulation = await lendingSimulator.simulateSupply({
       poolId: mockPoolId,
       amount,
@@ -84,8 +84,8 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
         getPlugin: vi.fn().mockReturnValue(mockPlugin),
-      } as any,
-    } as any)
+      } as never,
+    } as never)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
@@ -149,10 +149,10 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
 
     const mockProtocolManager = {
       lending: mockPlugin.lending,
-    } as any
+    } as never
 
     // 1. Simulate the Withdraw
-    const lendingSimulator = new LendingSimulatorManager(mockProtocolManager, {} as any)
+    const lendingSimulator = new LendingSimulatorManager(mockProtocolManager, {} as never)
     const simulation = await lendingSimulator.simulateWithdraw({
       positionId: mockPositionId,
       amount,
@@ -168,8 +168,8 @@ describe('Simulator -> OrderPlanner Lending Execution', () => {
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
         getPlugin: vi.fn().mockReturnValue(mockPlugin),
-      } as any,
-    } as any)
+      } as never,
+    } as never)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')

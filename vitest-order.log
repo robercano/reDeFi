@@ -1,0 +1,70 @@
+.                                        |  WARN  Unsupported engine: wanted: {"node":">=24"} (current: {"node":"v20.20.2","pnpm":"8.15.9"})
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v1.6.1 /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service
+      Coverage enabled with v8
+
+Assertion failed: Order planner for simulation type Yield already registered
+ ✓ tests/SwapOrderPlanner.spec.ts  (4 tests) 6ms
+ ❯ tests/LendingOrderPlanner.spec.ts  (4 tests | 3 failed) 14ms
+   ❯ tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should process DepositBorrow steps and query getSupplyTransaction and getBorrowTransaction
+     → expected "spy" to be called at least once
+   ❯ tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should process PaybackWithdraw steps and query getRepayTransaction and getWithdrawTransaction
+     → expected "spy" to be called at least once
+   ❯ tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should bundle transactions if executionType is Multicall
+     → expected [] to have a length of 1 but got +0
+ ✓ tests/OrderPlannerService.spec.ts  (3 tests) 5ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 3 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should process DepositBorrow steps and query getSupplyTransaction and getBorrowTransaction
+AssertionError: expected "spy" to be called at least once
+ ❯ tests/LendingOrderPlanner.spec.ts:83:53
+     81|     const order = await planner.buildOrder(params)
+     82| 
+     83|     expect(mockPlugin.lending.getSupplyTransaction).toHaveBeenCalled()
+       |                                                     ^
+     84|     expect(mockPlugin.lending.getBorrowTransaction).toHaveBeenCalled()
+     85|     expect(order?.transactions).toHaveLength(2)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/3]⎯
+
+ FAIL  tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should process PaybackWithdraw steps and query getRepayTransaction and getWithdrawTransaction
+AssertionError: expected "spy" to be called at least once
+ ❯ tests/LendingOrderPlanner.spec.ts:147:52
+    145|     const order = await planner.buildOrder(params)
+    146| 
+    147|     expect(mockPlugin.lending.getRepayTransaction).toHaveBeenCalled()
+       |                                                    ^
+    148|     expect(mockPlugin.lending.getWithdrawTransaction).toHaveBeenCalled…
+    149|     expect(order?.transactions).toHaveLength(2)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/3]⎯
+
+ FAIL  tests/LendingOrderPlanner.spec.ts > LendingOrderPlanner > should bundle transactions if executionType is Multicall
+AssertionError: expected [] to have a length of 1 but got +0
+
+- Expected
++ Received
+
+- 1
++ 0
+
+ ❯ tests/LendingOrderPlanner.spec.ts:212:33
+    210|     const order = await planner.buildOrder(params)
+    211| 
+    212|     expect(order?.transactions).toHaveLength(1)
+       |                                 ^
+    213|     expect(order?.transactions[0].description).toBe('Bundled Lend Exec…
+    214|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/3]⎯
+
+ Test Files  1 failed | 2 passed (3)
+      Tests  3 failed | 8 passed (11)
+   Start at  10:40:24
+   Duration  2.11s (transform 640ms, setup 0ms, collect 4.70s, tests 25ms, environment 1ms, prepare 449ms)
+
+undefined
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service:
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command failed with exit code 1: vitest run

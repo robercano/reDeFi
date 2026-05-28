@@ -2,7 +2,7 @@ import { describe, it, expect, vi } from 'vitest'
 import { LendingSimulatorManager } from '../src/LendingSimulatorManager'
 import { IProtocolManager } from '@thesolidchain/protocol-manager-common'
 import { IBlockchainManager } from '@thesolidchain/blockchain-client-common'
-import { ILendingPoolId, ITokenAmount, SimulationSteps } from '@thesolidchain/sdk-common'
+import { ILendingPoolId, ILendingPositionId, ITokenAmount, SimulationSteps } from '@thesolidchain/sdk-common'
 
 describe('LendingSimulatorManager', () => {
   const mockGetLendingPoolInfo = vi.fn()
@@ -63,7 +63,7 @@ describe('LendingSimulatorManager', () => {
     mockProtocolManager.lending.getLendingPosition = vi.fn().mockResolvedValueOnce({})
 
     const simulation = await manager.simulateWithdraw({
-      positionId: mockPoolId as any,
+      positionId: mockPoolId as unknown as ILendingPositionId,
       amount: mockAmount,
     })
 
@@ -82,7 +82,7 @@ describe('LendingSimulatorManager', () => {
     mockProtocolManager.lending.getLendingPosition = vi.fn().mockResolvedValueOnce({})
 
     const simulation = await manager.simulateRepay({
-      positionId: mockPoolId as any,
+      positionId: mockPoolId as unknown as ILendingPositionId,
       amount: mockAmount,
     })
 

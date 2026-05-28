@@ -8,6 +8,7 @@ import {
   SimulationSteps,
   steps,
   getValueFromReference,
+  TokenAmount,
 } from '@thesolidchain/sdk-common'
 
 export class YieldOrderPlanner implements IOrderPlanner {
@@ -16,16 +17,19 @@ export class YieldOrderPlanner implements IOrderPlanner {
   }
 
   async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
-    const { simulation, executionType = ExecutionType.Direct } = params
+    const { simulation } = params
 
     const transactions: TransactionInfo[] = []
 
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
-        transactions.push({
-          transaction: (step as any).outputs.transaction,
-          description: (step as any).description || 'Approve token',
-        })
+        const typedStep = step as steps.ApproveStep
+        if (typedStep.outputs?.transaction) {
+          transactions.push({
+            transaction: typedStep.outputs.transaction,
+            description: typedStep.name || 'Approve token',
+          })
+        }
       }
       if (step.type === SimulationSteps.DepositYield) {
         const inputs = step.inputs as steps.DepositYieldStep['inputs']
@@ -35,7 +39,7 @@ export class YieldOrderPlanner implements IOrderPlanner {
         if (!plugin || !plugin.yield) throw new Error('Yield plugin not found')
         const txInfo = await plugin.yield.getDepositTransaction({
           poolId: inputs.poolId,
-          amount: getValueFromReference(inputs.depositAmount),
+          amount: getValueFromReference(inputs.depositAmount) as TokenAmount,
           user: params.user,
         })
         transactions.push(txInfo)
@@ -48,7 +52,7 @@ export class YieldOrderPlanner implements IOrderPlanner {
         if (!plugin || !plugin.yield) throw new Error('Yield plugin not found')
         const txInfo = await plugin.yield.getWithdrawTransaction({
           positionId: inputs.position.id,
-          amount: getValueFromReference(inputs.withdrawAmount),
+          amount: getValueFromReference(inputs.withdrawAmount) as TokenAmount,
           user: params.user,
         })
         transactions.push(txInfo)

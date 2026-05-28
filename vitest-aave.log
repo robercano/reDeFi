@@ -1,0 +1,36 @@
+.                                        |  WARN  Unsupported engine: wanted: {"node":">=24"} (current: {"node":"v20.20.2","pnpm":"8.15.9"})
+
+> @thesolidchain/protocol-plugins@0.0.1 test:integration /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+> vitest run tests/integration "tests/integration/AAVEv3ProtocolPlugin.spec.ts"
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v1.6.1 /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+      Coverage enabled with v8
+
+ ❯ tests/integration/AAVEv3ProtocolPlugin.spec.ts  (4 tests | 2 skipped) 3547ms
+ ✓ tests/integration/LidoProtocolPlugin.spec.ts  (2 tests) 7642ms
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/AAVEv3ProtocolPlugin.spec.ts > AAVEv3 Protocol Plugin (Integration)
+Error: Error disposing fork: Request failed with status code 404
+ ❯ TenderlyFork.dispose ../../tenderly-utils/src/TenderlyFork.ts:118:13
+    116|       return await this.apiRequestClient.delete(`${this.tenderlyApiUrl…
+    117|     } catch (error: any) {
+    118|       throw new Error(`Error disposing fork: ${error.message}`)
+       |             ^
+    119|     }
+    120|   }
+ ❯ tests/integration/AAVEv3ProtocolPlugin.spec.ts:59:7
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  4 passed | 2 skipped (6)
+   Start at  10:01:56
+   Duration  10.24s (transform 945ms, setup 0ms, collect 4.58s, tests 11.19s, environment 0ms, prepare 223ms)
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @thesolidchain/protocol-plugins@0.0.1 test:integration: `vitest run tests/integration "tests/integration/AAVEv3ProtocolPlugin.spec.ts"`
+Exit status 1

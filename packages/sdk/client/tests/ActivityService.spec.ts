@@ -4,9 +4,9 @@ import { ActivityStatus, ActivityType, ChainIds, IActivityRecord } from '@thesol
 import { ISDKManager } from '../src/interfaces/ISDKManager'
 
 describe('ActivityService', () => {
-  let sdkManagerMock: any
+  let sdkManagerMock: { intentSwaps: { checkOrder: ReturnType<typeof vi.fn> } }
   let activityService: ActivityService
-  let localStorageMock: any
+  let localStorageMock: { getItem: ReturnType<typeof vi.fn>, setItem: ReturnType<typeof vi.fn>, removeItem: ReturnType<typeof vi.fn>, clear: ReturnType<typeof vi.fn> }
 
   beforeEach(() => {
     localStorageMock = {
@@ -22,7 +22,7 @@ describe('ActivityService', () => {
         checkOrder: vi.fn(),
       },
     }
-    activityService = new ActivityService(sdkManagerMock as any)
+    activityService = new ActivityService(sdkManagerMock as unknown as ISDKManager)
   })
 
   afterEach(() => {

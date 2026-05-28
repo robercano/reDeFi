@@ -1,4 +1,4 @@
-import { HexData, IAddress, IChainInfo, ITokenAmount, Transaction } from '@thesolidchain/sdk-common'
+import { HexData, IAddress, IChainInfo, Transaction } from '@thesolidchain/sdk-common'
 import { TransactionUtils } from './TransactionUtils'
 import { createAnvil, type Anvil } from '@viem/anvil'
 import { TransactionReceipt } from 'viem'
@@ -53,8 +53,9 @@ export class AnvilFork {
 
     try {
       await anvil.start()
-    } catch (error: any) {
-      throw new Error(`Failed to start local Anvil node. Error: ${error?.message || error}`)
+    } catch (error) {
+      const e = error as Error
+      throw new Error(`Failed to start local Anvil node. Error: ${e?.message || e}`)
     }
 
     const localRpcUrl = `http://127.0.0.1:${port}`

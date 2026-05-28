@@ -8,6 +8,7 @@ import {
   SimulationSteps,
   steps,
   getValueFromReference,
+  TokenAmount,
 } from '@thesolidchain/sdk-common'
 
 export class LiquidityOrderPlanner implements IOrderPlanner {
@@ -16,16 +17,19 @@ export class LiquidityOrderPlanner implements IOrderPlanner {
   }
 
   async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
-    const { simulation, executionType = ExecutionType.Direct } = params
+    const { simulation } = params
 
     const transactions: TransactionInfo[] = []
 
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
-        transactions.push({
-          transaction: (step as any).outputs.transaction,
-          description: (step as any).description || 'Approve token',
-        })
+        const typedStep = step as steps.ApproveStep
+        if (typedStep.outputs?.transaction) {
+          transactions.push({
+            transaction: typedStep.outputs.transaction,
+            description: typedStep.name || 'Approve token',
+          })
+        }
       }
       if (step.type === SimulationSteps.ProvideLiquidity) {
         const inputs = step.inputs as steps.ProvideLiquidityStep['inputs']
@@ -35,7 +39,7 @@ export class LiquidityOrderPlanner implements IOrderPlanner {
         if (!plugin || !plugin.liquidity) throw new Error('Liquidity plugin not found')
         const txInfo = await plugin.liquidity.getProvideLiquidityTransaction({
           poolId: inputs.poolId,
-          amounts: getValueFromReference(inputs.amounts),
+          amounts: getValueFromReference(inputs.amounts) as TokenAmount[],
           user: params.user,
           tickLower: inputs.tickLower,
           tickUpper: inputs.tickUpper,
@@ -50,7 +54,7 @@ export class LiquidityOrderPlanner implements IOrderPlanner {
         if (!plugin || !plugin.liquidity) throw new Error('Liquidity plugin not found')
         const txInfo = await plugin.liquidity.getRemoveLiquidityTransaction({
           positionId: inputs.position.id,
-          amount: getValueFromReference(inputs.removeAmount),
+          amount: getValueFromReference(inputs.removeAmount) as TokenAmount,
           user: params.user,
         })
         transactions.push(txInfo)

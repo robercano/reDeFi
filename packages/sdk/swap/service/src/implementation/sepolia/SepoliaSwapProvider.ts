@@ -11,6 +11,7 @@ import {
   SwapProviderType,
   TokenAmount,
   Address,
+  HexData,
 } from '@thesolidchain/sdk-common'
 import { ISwapProvider } from '@thesolidchain/swap-common'
 
@@ -43,9 +44,9 @@ export class SepoliaSwapProvider
         token: params.toToken,
         amount: mockOutputAmount.toString(),
       }),
-      calldata: '0x0' as any, // Mock calldata
+      calldata: '0x0' as HexData, // Mock calldata
       targetContract: Address.createFromEthereum({
-        value: '0x0000000000000000000000000000000000000000' as any,
+        value: '0x0000000000000000000000000000000000000000' as `0x${string}`,
       }),
       value: '0',
       gasPrice: '1000000000', // 1 gwei
