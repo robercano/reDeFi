@@ -224,6 +224,7 @@ export const LendingViewer: FC = () => {
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
               placeholder="0.00"
+              data-testid="lending-amount-input"
               className="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-emerald-500 transition-colors"
             />
             <div className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400">
@@ -240,6 +241,7 @@ export const LendingViewer: FC = () => {
         {order ? (
           <button
             onClick={handleExecuteOrder}
+            data-testid="lending-execute-btn"
             className="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-medium rounded-xl py-3 transition-colors"
           >
             Execute Order
@@ -248,6 +250,7 @@ export const LendingViewer: FC = () => {
           <button
             onClick={handleBuildOrder}
             disabled={!amount || loading || !pool}
+            data-testid="lending-simulate-btn"
             className="w-full bg-white/10 hover:bg-white/20 text-white font-medium rounded-xl py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {loading ? 'Simulating...' : 'Simulate Lending'}

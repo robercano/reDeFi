@@ -37,6 +37,7 @@ export function ActivityViewer() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
+        data-testid="activity-btn"
         className="flex items-center gap-2 px-4 py-2 rounded-xl bg-neutral-900 border border-neutral-700 hover:border-neutral-500 transition-colors"
       >
         <span className="text-sm font-semibold">Activity</span>

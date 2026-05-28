@@ -8,14 +8,14 @@ test.describe('SDK Demo App - Lending Simulator', () => {
     await page.goto('/')
 
     // Click the Lending Simulator tab
-    await page.locator('button', { hasText: 'Lending Simulator' }).click()
+    await page.getByTestId('tab-lending-viewer').click()
 
     // Fill the amount input
-    const amountInput = page.locator('input[type="number"]')
+    const amountInput = page.getByTestId('lending-amount-input')
     await amountInput.fill('1')
 
     // Click the simulate button
-    const simulateButton = page.locator('button', { hasText: 'Simulate Lending' })
+    const simulateButton = page.getByTestId('lending-simulate-btn')
     await expect(simulateButton).toBeVisible()
     await simulateButton.click()
 
@@ -23,7 +23,7 @@ test.describe('SDK Demo App - Lending Simulator', () => {
     await expect(page.locator('text=Error:')).toBeHidden({ timeout: 10000 })
 
     // We should see a success state, or an Execute Order button
-    await expect(page.locator('button', { hasText: 'Execute Order' })).toBeVisible({
+    await expect(page.getByTestId('lending-execute-btn')).toBeVisible({
       timeout: 15000,
     })
   })

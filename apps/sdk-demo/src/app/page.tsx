@@ -183,6 +183,7 @@ export default function Home() {
             return (
               <button
                 key={tool.id}
+                data-testid={`tab-${tool.id}`}
                 onClick={() => setActiveToolId(tool.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-300 border backdrop-blur-md ${
                   isActive

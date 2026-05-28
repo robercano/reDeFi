@@ -33,6 +33,7 @@ describe('AddressBookManager', () => {
     addressBookManager = new AddressBookManager({
       deployments: deployments,
       deploymentTag: 'standard',
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       knownAddressesProvider: { getAddress: async () => undefined } as any,
     })
   })

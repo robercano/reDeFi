@@ -271,6 +271,7 @@ export function SwapViewer() {
           <button
             onClick={() => fetchQuote(false)}
             disabled={loading}
+            data-testid="swap-quote-btn"
             className="flex-[2] px-6 py-4 rounded-xl font-bold text-black bg-gradient-to-r from-[var(--neon-orange)] to-[var(--neon-cyan)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:shadow-none"
           >
             {loading ? 'Simulating Swap Route...' : 'Get Swap Quote'}
@@ -392,6 +393,7 @@ export function SwapViewer() {
           <button
             onClick={handleExecute}
             disabled={loading || !order || order.transactions.length === 0}
+            data-testid="swap-execute-btn"
             className="w-full px-6 py-4 rounded-xl font-bold text-black bg-gradient-to-r from-[var(--neon-cyan)] to-[var(--neon-orange)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:shadow-none"
           >
             {loading && executingIndex >= 0 && order
