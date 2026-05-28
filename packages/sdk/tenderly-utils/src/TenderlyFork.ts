@@ -112,7 +112,11 @@ export class TenderlyFork {
    * Deletes the fork
    */
   public async dispose() {
-    return this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
+    try {
+      return await this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
+    } catch (error: any) {
+      throw new Error(`Error disposing fork: ${error.message}`)
+    }
   }
 
   /**
@@ -120,10 +124,14 @@ export class TenderlyFork {
    * @returns The list of simulations
    */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public getSimulations(): Promise<any> {
-    return this.apiRequestClient.get(
-      `${this.tenderlyApiUrl}/${this.forkId}/transactions?page=1&perPage=20`,
-    )
+  public async getSimulations(): Promise<any> {
+    try {
+      return await this.apiRequestClient.get(
+        `${this.tenderlyApiUrl}/${this.forkId}/transactions?page=1&perPage=20`,
+      )
+    } catch (error: any) {
+      throw new Error(`Error getting simulations: ${error.message}`)
+    }
   }
 
   /**
