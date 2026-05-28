@@ -1,0 +1,126 @@
+.                                        |  WARN  Unsupported engine: wanted: {"node":">=24"} (current: {"node":"v20.20.2","pnpm":"8.15.9"})
+
+> @thesolidchain/protocol-plugins@0.0.1 test:integration /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+> vitest run tests/integration "tests/integration/LidoProtocolPlugin.spec.ts"
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v1.6.1 /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+      Coverage enabled with v8
+
+ ✓ tests/integration/LidoProtocolPlugin.spec.ts  (2 tests) 7465ms
+
+⎯⎯⎯⎯⎯⎯ Unhandled Errors ⎯⎯⎯⎯⎯⎯
+
+Vitest caught 1 unhandled error during the test run.
+This might cause false positive tests. Resolve unhandled errors to make sure your tests are not affected.
+
+⎯⎯⎯⎯⎯⎯ Unhandled Error ⎯⎯⎯⎯⎯⎯⎯
+{ type: 'Unhandled Error', stacks: [] }
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯
+
+ Test Files  1 passed (2)
+      Tests  4 passed | 2 skipped (6)
+     Errors  1 error
+   Start at  09:59:08
+   Duration  10.24s (transform 972ms, setup 0ms, collect 4.88s, tests 7.46s, environment 0ms, prepare 195ms)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   67.66 |    64.15 |   43.93 |   67.66 |                   
+ src               |     100 |      100 |     100 |     100 |                   
+  index.ts         |     100 |      100 |     100 |     100 |                   
+ ...implementation |   81.45 |    53.84 |   54.54 |   81.45 |                   
+  ...ionBuilder.ts |   77.94 |      100 |       0 |   77.94 | 44-48,58-67       
+  ...ocolPlugin.ts |    91.8 |      100 |   33.33 |    91.8 | 77-81,85-89       
+  ...ocolPlugin.ts |   88.76 |    54.54 |     100 |   88.76 | ...48,54-55,86-87 
+  ...nsRegistry.ts |      48 |        0 |       0 |      48 | 25-50             
+ src/plugins       |     100 |      100 |     100 |     100 |                   
+  ...ginsRecord.ts |     100 |      100 |     100 |     100 |                   
+ ...s/aave-v3/abis |     100 |      100 |     100 |     100 |                   
+  AaveV3ABIS.ts    |     100 |      100 |     100 |     100 |                   
+  ...ressAbiMap.ts |     100 |      100 |     100 |     100 |                   
+ ...ave-v3/actions |   46.55 |      100 |   33.33 |   46.55 |                   
+  ...rrowAction.ts |      50 |      100 |   33.33 |      50 | 14-27,30-31       
+  ...ositAction.ts |   43.24 |      100 |   33.33 |   43.24 | 14-32,35-36       
+  ...backAction.ts |   43.24 |      100 |   33.33 |   43.24 | 14-32,35-36       
+  ...modeAction.ts |   51.51 |      100 |   33.33 |   51.51 | 15-28,31-32       
+  ...drawAction.ts |   45.71 |      100 |   33.33 |   45.71 | 14-30,33-34       
+ ...ve-v3/builders |   19.66 |        0 |       0 |   19.66 |                   
+  ...ionBuilder.ts |   19.76 |        0 |       0 |   19.76 | 18-86             
+  ...ionBuilder.ts |   19.56 |        0 |       0 |   19.56 | 19-92             
+ ...implementation |   62.73 |    85.18 |   70.96 |   62.73 |                   
+  ...ocolPlugin.ts |    50.5 |    72.72 |      50 |    50.5 | ...15-542,554-580 
+  ...endingPool.ts |     100 |      100 |     100 |     100 |                   
+  ...dingPoolId.ts |   96.15 |      100 |      75 |   96.15 | 48-49             
+  ...ngPoolInfo.ts |   52.63 |        0 |       0 |   52.63 | 19-36             
+  ...ngPosition.ts |     100 |      100 |     100 |     100 |                   
+  ...PositionId.ts |     100 |      100 |     100 |     100 |                   
+  ...V3Protocol.ts |     100 |      100 |     100 |     100 |                   
+  ...ategoryMap.ts |     100 |      100 |     100 |     100 |                   
+ ...-v3/interfaces |   91.42 |    88.88 |   42.85 |   91.42 |                   
+  ...endingPool.ts |   90.69 |      100 |       0 |   90.69 | 40-43             
+  ...dingPoolId.ts |     100 |      100 |     100 |     100 |                   
+  ...ngPoolInfo.ts |    91.3 |      100 |       0 |    91.3 | 43-46             
+  ...ngPosition.ts |    93.1 |      100 |       0 |    93.1 | 55-58             
+  ...PositionId.ts |     100 |      100 |     100 |     100 |                   
+  ...V3Protocol.ts |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 | 1-15              
+ ...common/actions |   15.52 |    28.57 |   18.18 |   15.52 |                   
+  ...loanAction.ts |       0 |        0 |       0 |       0 | 1-41              
+  ...okenAction.ts |       0 |        0 |       0 |       0 | 1-32              
+  ...undsAction.ts |       0 |        0 |       0 |       0 | 1-27              
+  ...okenAction.ts |       0 |        0 |       0 |       0 | 1-32              
+  ...ovalAction.ts |   43.24 |      100 |   33.33 |   43.24 | 14-32,35-36       
+  SwapAction.ts    |    40.9 |      100 |   33.33 |    40.9 | 16-39,42-43       
+  index.ts         |       0 |        0 |       0 |       0 | 1-6               
+ ...ommon/builders |   32.05 |        0 |       0 |   32.05 |                   
+  ...ionBuilder.ts |   47.05 |        0 |       0 |   47.05 | 9-17              
+  ...ionBuilder.ts |   47.05 |        0 |       0 |   47.05 | 9-17              
+  ...ionBuilder.ts |   20.45 |        0 |       0 |   20.45 | 10-44             
+ ...mmon/constants |     100 |      100 |     100 |     100 |                   
+  ...eConstants.ts |     100 |      100 |     100 |     100 |                   
+ ...s/common/enums |   93.54 |      100 |       0 |   93.54 |                   
+  EmodeType.ts     |   93.54 |      100 |       0 |   93.54 | 24-25             
+ ...implementation |   77.96 |    66.66 |   77.77 |   77.96 |                   
+  ...DataSource.ts |   97.41 |       50 |     100 |   97.41 | 45-46,66          
+  LidoProtocol.ts  |     100 |      100 |     100 |     100 |                   
+  ...ocolPlugin.ts |   60.62 |       50 |   66.66 |   60.62 | ...99-124,127-159 
+  ...ieldPoolId.ts |      80 |      100 |   66.66 |      80 | 24-29             
+  ...PositionId.ts |   78.94 |      100 |   66.66 |   78.94 | 30-37             
+ ...ido/interfaces |     100 |      100 |     100 |     100 |                   
+  ILidoProtocol.ts |     100 |      100 |     100 |     100 |                   
+  ...ieldPoolId.ts |     100 |      100 |     100 |     100 |                   
+  ...PositionId.ts |     100 |      100 |     100 |     100 |                   
+ ...implementation |   27.11 |        0 |       0 |   27.11 |                   
+  ...DataSource.ts |   17.18 |      100 |       0 |   17.18 | 20-71,74-127      
+  MakerProtocol.ts |   47.22 |        0 |       0 |   47.22 | 16-34             
+  ...ocolPlugin.ts |   21.89 |        0 |       0 |   21.89 | 38-169            
+  ...ieldPoolId.ts |   47.36 |        0 |       0 |   47.36 | 19-38             
+  ...PositionId.ts |   42.85 |        0 |       0 |   42.85 | 19-42             
+ ...ker/interfaces |   92.94 |      100 |       0 |   92.94 |                   
+  ...erProtocol.ts |      90 |      100 |       0 |      90 | 19-20             
+  ...ieldPoolId.ts |   93.54 |      100 |       0 |   93.54 | 20-21             
+  ...PositionId.ts |   94.11 |      100 |       0 |   94.11 | 21-22             
+ ...ins/uniswap-v3 |   35.37 |        0 |       0 |   35.37 |                   
+  ...tyFeatures.ts |   27.92 |      100 |       0 |   27.92 | ...0,33-75,78-110 
+  ...ocolPlugin.ts |   58.33 |        0 |       0 |   58.33 | 22-36             
+ src/plugins/utils |   91.54 |       75 |      75 |   91.54 |                   
+  ...ctProvider.ts |   94.87 |      100 |   66.66 |   94.87 | 37-38             
+  ...actAddress.ts |    87.5 |       50 |     100 |    87.5 | 26-29             
+ ...implementation |      30 |        0 |       0 |      30 |                   
+  ...DataSource.ts |   27.22 |      100 |       0 |   27.22 | 38-111,123-179    
+  YearnProtocol.ts |   47.22 |        0 |       0 |   47.22 | 16-34             
+  ...ocolPlugin.ts |   28.34 |        0 |       0 |   28.34 | 37-127            
+  ...ieldPoolId.ts |   28.57 |        0 |       0 |   28.57 | 15-49             
+  ...PositionId.ts |   32.75 |        0 |       0 |   32.75 | 20-58             
+ ...arn/interfaces |   95.62 |      100 |       0 |   95.62 |                   
+  ...rnProtocol.ts |   95.23 |      100 |       0 |   95.23 | 41-42             
+  ...ieldPoolId.ts |   95.65 |      100 |       0 |   95.65 | 45-46             
+  ...PositionId.ts |   95.91 |      100 |       0 |   95.91 | 48-49             
+-------------------|---------|----------|---------|---------|-------------------
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @thesolidchain/protocol-plugins@0.0.1 test:integration: `vitest run tests/integration "tests/integration/LidoProtocolPlugin.spec.ts"`
+Exit status 1

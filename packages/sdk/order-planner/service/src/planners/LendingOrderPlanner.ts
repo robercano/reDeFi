@@ -11,9 +11,9 @@ import {
   ILendingPoolId,
   ILendingPosition,
   Address,
-} from '@thesolidchain/sdk-common'
+  TokenAmount,
+  SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
-import { SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 
 export class LendingOrderPlanner implements IOrderPlanner {
   getAcceptedSimulations(): SimulationType[] {
@@ -27,20 +27,23 @@ export class LendingOrderPlanner implements IOrderPlanner {
 
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
-        transactions.push({
-          transaction: (step as any).outputs.transaction,
-          description: (step as any).description || 'Approve token',
-        })
+        const typedStep = step as steps.ApproveStep
+        if (typedStep.outputs?.transaction) {
+          transactions.push({
+            transaction: typedStep.outputs.transaction,
+            description: typedStep.name || 'Approve token',
+          })
+        }
       }
       if (step.type === SimulationSteps.DepositBorrow) {
-        const inputs = (step as any).input || (step as any).inputs
-        // simulator fakes poolId when position doesn't exist yet
-        const poolId = inputs.poolId as ILendingPoolId
+        const typedStep = step as steps.DepositBorrowStep
+        const inputs = typedStep.inputs
+        const poolId = (inputs.poolId || inputs.position?.pool.id) as ILendingPoolId
         const plugin = params.protocolsRegistry.getPlugin({ protocolName: poolId.protocol.name })
         if (!plugin || !plugin.lending) throw new Error('Lending plugin not found')
 
-        const depositAmount = getValueFromReference(inputs.depositAmount)
-        if (depositAmount && depositAmount.value !== undefined) {
+        const depositAmount = getValueFromReference(inputs.depositAmount) as TokenAmount
+        if (depositAmount && depositAmount.amount !== undefined) {
           const txInfo = await plugin.lending.getSupplyTransaction({
             poolId,
             amount: depositAmount,
@@ -49,8 +52,8 @@ export class LendingOrderPlanner implements IOrderPlanner {
           transactions.push(txInfo)
         }
 
-        const borrowAmount = getValueFromReference(inputs.borrowAmount)
-        if (borrowAmount && borrowAmount.value !== undefined) {
+        const borrowAmount = getValueFromReference(inputs.borrowAmount) as TokenAmount
+        if (borrowAmount && borrowAmount.amount !== undefined) {
           const txInfo = await plugin.lending.getBorrowTransaction({
             poolId,
             amount: borrowAmount,
@@ -60,15 +63,15 @@ export class LendingOrderPlanner implements IOrderPlanner {
         }
       }
       if (step.type === SimulationSteps.PaybackWithdraw) {
-        const inputs = (step as any).input || (step as any).inputs
-        // position is the full ILendingPosition object
+        const typedStep = step as steps.PaybackWithdrawStep
+        const inputs = typedStep.inputs
         const position = inputs.position as ILendingPosition
         const poolId = position.pool.id as ILendingPoolId
         const plugin = params.protocolsRegistry.getPlugin({ protocolName: poolId.protocol.name })
         if (!plugin || !plugin.lending) throw new Error('Lending plugin not found')
 
-        const paybackAmount = getValueFromReference(inputs.paybackAmount)
-        if (paybackAmount && paybackAmount.value !== undefined) {
+        const paybackAmount = getValueFromReference(inputs.paybackAmount) as TokenAmount
+        if (paybackAmount && paybackAmount.amount !== undefined) {
           const txInfo = await plugin.lending.getRepayTransaction({
             poolId,
             amount: paybackAmount,
@@ -77,8 +80,8 @@ export class LendingOrderPlanner implements IOrderPlanner {
           transactions.push(txInfo)
         }
 
-        const withdrawAmount = getValueFromReference(inputs.withdrawAmount)
-        if (withdrawAmount && withdrawAmount.value !== undefined) {
+        const withdrawAmount = getValueFromReference(inputs.withdrawAmount) as TokenAmount
+        if (withdrawAmount && withdrawAmount.amount !== undefined) {
           const txInfo = await plugin.lending.getWithdrawTransaction({
             poolId,
             amount: withdrawAmount,
@@ -129,13 +132,16 @@ export class LendingOrderPlanner implements IOrderPlanner {
         abi: MULTICALL3_ABI,
         functionName: 'aggregate3',
         args: [
-          transactions.map((txInfo) => ({
-            target: (txInfo.transaction.target as any).value
-              ? ((txInfo.transaction.target as any).value as `0x${string}`)
-              : (txInfo.transaction.target as unknown as `0x${string}`),
-            allowFailure: true,
-            callData: txInfo.transaction.calldata as `0x${string}`,
-          })),
+          transactions.map((txInfo) => {
+            const txTarget = txInfo.transaction.target as unknown as { value?: string }
+            return {
+              target: txTarget.value
+                ? (txTarget.value as `0x${string}`)
+                : (txInfo.transaction.target as unknown as `0x${string}`),
+              allowFailure: true,
+              callData: txInfo.transaction.calldata as `0x${string}`,
+            }
+          }),
         ],
       })
 

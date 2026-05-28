@@ -3,6 +3,7 @@ import { IPrice } from '../../common/interfaces/IPrice'
 import { IToken } from '../../common/interfaces/IToken'
 import { ITokenAmount } from '../../common/interfaces/ITokenAmount'
 import { ILendingPosition } from '../../lending-protocols/interfaces/ILendingPosition'
+import { ILendingPoolId } from '../../lending-protocols/interfaces/ILendingPoolId'
 import { SwapProviderType } from '../../swap/enums/SwapProviderType'
 
 import { SwapRoute } from '../../swap/implementation/QuoteData'
@@ -12,6 +13,8 @@ import { IYieldPoolId } from '../../yield-protocols/interfaces/IYieldPoolId'
 import { IYieldPosition } from '../../yield-protocols/interfaces/IYieldPosition'
 import { ILiquidityPoolId } from '../../liquidity-protocols/interfaces/ILiquidityPoolId'
 import { ILiquidityPosition } from '../../liquidity-protocols/interfaces/ILiquidityPosition'
+
+import { Transaction } from '../../orders/common/types/Transaction'
 
 export interface Step<T extends SimulationSteps, I, O = undefined> {
   type: T
@@ -26,7 +29,8 @@ export type DepositBorrowStep = Step<
   {
     depositAmount: ReferenceableField<ITokenAmount>
     borrowAmount: ReferenceableField<ITokenAmount>
-    position: ILendingPosition
+    position?: ILendingPosition
+    poolId?: ILendingPoolId
     additionalDeposit?: ValueReference<ITokenAmount>
   },
   {
@@ -69,6 +73,7 @@ export type SwapStep = Step<
   {
     /** Effective amount received after the actual swap */
     received: ITokenAmount
+    transaction?: Transaction
   }
 >
 
@@ -100,6 +105,9 @@ export type ApproveStep = Step<
     token: IToken
     amount: ReferenceableField<ITokenAmount>
     spender: string
+  },
+  {
+    transaction?: Transaction
   }
 >
 

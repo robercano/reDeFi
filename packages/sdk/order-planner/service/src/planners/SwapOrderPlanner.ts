@@ -7,10 +7,9 @@ import {
   TransactionInfo,
   IAddress,
   SimulationSteps,
-} from '@thesolidchain/sdk-common'
+  steps,
+ Address , SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
-import { Address } from '@thesolidchain/sdk-common'
-import { SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
 
 export class SwapOrderPlanner implements ISwapOrderPlanner {
   getAcceptedSimulations(): SimulationType[] {
@@ -27,16 +26,22 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
     // E.g.:
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
-        transactions.push({
-          transaction: (step as any).outputs.transaction,
-          description: (step as any).description || 'Approve token',
-        })
+        const typedStep = step as steps.ApproveStep
+        if (typedStep.outputs?.transaction) {
+          transactions.push({
+            transaction: typedStep.outputs.transaction,
+            description: typedStep.name || 'Approve token',
+          })
+        }
       }
       if (step.type === SimulationSteps.Swap) {
-        transactions.push({
-          transaction: (step as any).outputs.transaction,
-          description: (step as any).description || 'Swap token',
-        })
+        const typedStep = step as steps.SwapStep
+        if (typedStep.outputs?.transaction) {
+          transactions.push({
+            transaction: typedStep.outputs.transaction,
+            description: typedStep.name || 'Swap token',
+          })
+        }
       }
     }
 

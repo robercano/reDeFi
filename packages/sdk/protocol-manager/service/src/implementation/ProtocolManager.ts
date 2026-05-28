@@ -22,6 +22,7 @@ import {
   ILiquidityPositionId,
   isLiquidityPoolId,
   isLiquidityPositionId,
+  ProtocolName,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -92,8 +93,8 @@ export class ProtocolManager implements IProtocolManager {
   async getLendingPosition(positionId: ILendingPositionId): Promise<ILendingPosition> {
     this._validatePositionId(positionId)
 
-    const protocolName =
-      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    const typedPositionId = positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
     if (!protocolName) {
       throw new Error(
         `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
@@ -128,8 +129,8 @@ export class ProtocolManager implements IProtocolManager {
   async getYieldPosition(positionId: IYieldPositionId): Promise<IYieldPosition> {
     this._validateYieldPositionId(positionId)
 
-    const protocolName =
-      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    const typedPositionId = positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
     if (!protocolName) {
       throw new Error(
         `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
@@ -166,8 +167,8 @@ export class ProtocolManager implements IProtocolManager {
   async getLiquidityPosition(positionId: ILiquidityPositionId): Promise<ILiquidityPosition> {
     this._validateLiquidityPositionId(positionId)
 
-    const protocolName =
-      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    const typedPositionId = positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
     if (!protocolName) {
       throw new Error(
         `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,

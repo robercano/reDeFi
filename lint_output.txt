@@ -1,0 +1,48 @@
+.                                        |  WARN  Unsupported engine: wanted: {"node":">=24"} (current: {"node":"v20.20.2","pnpm":"8.15.9"})
+
+> @thesolidchain/order-planner-service@0.0.1 lint /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service
+> eslint .
+
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service/src/planners/LendingOrderPlanner.ts
+    9:3   warning  'steps' is defined but never used. Allowed unused vars must match /^_/u                                  @typescript-eslint/no-unused-vars
+   13:3   warning  'Address' is defined but never used. Allowed unused vars must match /^_/u                                @typescript-eslint/no-unused-vars
+   14:8   warning  '/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/index.ts' imported multiple times  import/no-duplicates
+   16:40  warning  '/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/index.ts' imported multiple times  import/no-duplicates
+   31:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   32:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   36:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   36:56  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   63:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+   63:56  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  133:51  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  134:48  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service/src/planners/LiquidityOrderPlanner.ts
+  19:25  warning  'executionType' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  26:33  error    Unexpected any. Specify a different type                                                  @typescript-eslint/no-explicit-any
+  27:33  error    Unexpected any. Specify a different type                                                  @typescript-eslint/no-explicit-any
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service/src/planners/SwapOrderPlanner.ts
+   8:3   warning  'IAddress' is defined but never used. Allowed unused vars must match /^_/u                               @typescript-eslint/no-unused-vars
+  10:8   warning  '/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/index.ts' imported multiple times  import/no-duplicates
+  12:10  warning  'Address' is defined but never used. Allowed unused vars must match /^_/u                                @typescript-eslint/no-unused-vars
+  12:25  warning  '/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/index.ts' imported multiple times  import/no-duplicates
+  13:40  warning  '/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/common/src/index.ts' imported multiple times  import/no-duplicates
+  21:63  warning  'contractsProvider' is assigned a value but never used. Allowed unused vars must match /^_/u             @typescript-eslint/no-unused-vars
+  31:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  32:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  37:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+  38:33  error    Unexpected any. Specify a different type                                                                 @typescript-eslint/no-explicit-any
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service/src/planners/YieldOrderPlanner.ts
+  19:25  warning  'executionType' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  26:33  error    Unexpected any. Specify a different type                                                  @typescript-eslint/no-explicit-any
+  27:33  error    Unexpected any. Specify a different type                                                  @typescript-eslint/no-explicit-any
+
+✖ 28 problems (16 errors, 12 warnings)
+  0 errors and 2 warnings potentially fixable with the `--fix` option.
+
+/home/rcano/Development/thesolidchain/reDeFi/packages/sdk/order-planner/service:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @thesolidchain/order-planner-service@0.0.1 lint: `eslint .`
+Exit status 1

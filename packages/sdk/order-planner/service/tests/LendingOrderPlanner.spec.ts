@@ -64,8 +64,8 @@ describe('LendingOrderPlanner', () => {
             type: SimulationSteps.DepositBorrow,
             inputs: {
               poolId: mockPoolId,
-              depositAmount: { value: mockAmount },
-              borrowAmount: { value: mockAmount },
+              depositAmount: mockAmount,
+              borrowAmount: mockAmount,
             },
           },
         ],
@@ -128,8 +128,8 @@ describe('LendingOrderPlanner', () => {
             type: SimulationSteps.PaybackWithdraw,
             inputs: {
               position: { pool: { id: mockPositionId.poolId } },
-              paybackAmount: { value: mockAmount },
-              withdrawAmount: { value: mockAmount },
+              paybackAmount: mockAmount,
+              withdrawAmount: mockAmount,
             },
           },
         ],
@@ -192,7 +192,7 @@ describe('LendingOrderPlanner', () => {
             type: SimulationSteps.PaybackWithdraw,
             inputs: {
               position: { pool: { id: mockPositionId.poolId } },
-              paybackAmount: { value: mockAmount },
+              paybackAmount: mockAmount,
             },
           },
         ],

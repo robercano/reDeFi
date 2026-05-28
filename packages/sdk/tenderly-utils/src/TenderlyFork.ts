@@ -114,9 +114,10 @@ export class TenderlyFork {
   public async dispose() {
     try {
       return await this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
-    } catch (error: any) {
-      if (error.response?.status !== 404) {
-        console.warn(`Warning disposing fork: ${error.message}`)
+    } catch (error) {
+      const e = error as Error & { response?: { status: number } }
+      if (e.response?.status !== 404) {
+        console.warn(`Warning disposing fork: ${e.message}`)
       }
     }
   }
@@ -131,8 +132,9 @@ export class TenderlyFork {
       return await this.apiRequestClient.get(
         `${this.tenderlyApiUrl}/${this.forkId}/transactions?page=1&perPage=20`,
       )
-    } catch (error: any) {
-      throw new Error(`Error getting simulations: ${error.message}`)
+    } catch (error) {
+      const e = error as Error
+      throw new Error(`Error getting simulations: ${e.message}`)
     }
   }
 

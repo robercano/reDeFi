@@ -63,10 +63,10 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
 
     const mockProtocolManager = {
       yield: mockPlugin.yield,
-    } as any
+    } as never
 
     // 1. Simulate the Deposit
-    const yieldSimulator = new YieldSimulatorManager(mockProtocolManager, {} as any)
+    const yieldSimulator = new YieldSimulatorManager(mockProtocolManager, {} as never)
     const simulation = await yieldSimulator.simulateDeposit({
       poolId: mockPoolId,
       amount,
@@ -82,8 +82,8 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
         getPlugin: vi.fn().mockReturnValue(mockPlugin),
-      } as any,
-    } as any)
+      } as never,
+    } as never)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
@@ -138,10 +138,10 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
 
     const mockProtocolManager = {
       yield: mockPlugin.yield,
-    } as any
+    } as never
 
     // 1. Simulate the Withdraw
-    const yieldSimulator = new YieldSimulatorManager(mockProtocolManager, {} as any)
+    const yieldSimulator = new YieldSimulatorManager(mockProtocolManager, {} as never)
     const simulation = await yieldSimulator.simulateWithdraw({
       positionId: mockPositionId,
       amount,
@@ -157,8 +157,8 @@ describe('Simulator -> OrderPlanner Yield Execution', () => {
       executionType: ExecutionType.Direct,
       protocolsRegistry: {
         getPlugin: vi.fn().mockReturnValue(mockPlugin),
-      } as any,
-    } as any)
+      } as never,
+    } as never)
 
     assert(order, 'Order should be successfully built')
     assert.strictEqual(order.transactions.length, 1, 'Should have exactly 1 transaction')
