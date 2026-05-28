@@ -24,7 +24,7 @@ export class AaveV3DepositBorrowActionBuilder extends BaseActionBuilder<steps.De
   async build(params: ActionBuilderParams<steps.DepositBorrowStep>): Promise<void> {
     const { context, step, addressBookManager, user } = params
 
-    if (!isAaveV3LendingPool(step.inputs.position.pool)) {
+    if (!step.inputs.position || !isAaveV3LendingPool(step.inputs.position.pool)) {
       throw new Error('Invalid AaveV3 lending pool')
     }
 
