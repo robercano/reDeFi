@@ -5,6 +5,7 @@ import { StakeSimulator } from './StakeSimulator'
 import { TransferSimulator } from './TransferSimulator'
 import { YieldSimulator } from './YieldSimulator'
 import { SwapSimulator } from './SwapSimulator'
+import { LiquiditySimulator } from './LiquiditySimulator'
 
 /**
  * SimulatorClient
@@ -16,6 +17,7 @@ export class SimulatorClient implements ISimulatorClient {
   public readonly lend: LendingSimulator
   public readonly yield: YieldSimulator
   public readonly swap: SwapSimulator
+  public readonly liquidity: LiquiditySimulator
 
   public constructor(rpcClient: RPCMainClientType) {
     this.transfer = new TransferSimulator(rpcClient)
@@ -23,5 +25,6 @@ export class SimulatorClient implements ISimulatorClient {
     this.lend = new LendingSimulator(rpcClient)
     this.yield = new YieldSimulator(rpcClient)
     this.swap = new SwapSimulator({ rpcClient })
+    this.liquidity = new LiquiditySimulator(rpcClient)
   }
 }

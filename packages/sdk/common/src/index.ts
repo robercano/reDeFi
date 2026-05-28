@@ -164,6 +164,47 @@ export type {
   IYieldPositionData,
 } from './yield-protocols/interfaces/IYieldPosition'
 
+// Liquidity Protocols
+export {
+  __signature__ as __LiquidityPoolIdSignature__,
+  isLiquidityPoolId,
+  LiquidityPoolIdSchema,
+} from './liquidity-protocols/interfaces/ILiquidityPoolId'
+export type {
+  ILiquidityPoolId,
+  ILiquidityPoolIdData,
+} from './liquidity-protocols/interfaces/ILiquidityPoolId'
+
+export {
+  __signature__ as __LiquidityPositionIdSignature__,
+  isLiquidityPositionId,
+  LiquidityPositionIdSchema,
+} from './liquidity-protocols/interfaces/ILiquidityPositionId'
+export type {
+  ILiquidityPositionId,
+  ILiquidityPositionIdData,
+} from './liquidity-protocols/interfaces/ILiquidityPositionId'
+
+export {
+  __signature__ as __LiquidityPoolInfoSignature__,
+  isLiquidityPoolInfo,
+  LiquidityPoolInfoDataSchema,
+} from './liquidity-protocols/interfaces/ILiquidityPoolInfo'
+export type {
+  ILiquidityPoolInfo,
+  ILiquidityPoolInfoData,
+} from './liquidity-protocols/interfaces/ILiquidityPoolInfo'
+
+export {
+  __signature__ as __LiquidityPositionSignature__,
+  isLiquidityPosition,
+  LiquidityPositionDataSchema,
+} from './liquidity-protocols/interfaces/ILiquidityPosition'
+export type {
+  ILiquidityPosition,
+  ILiquidityPositionData,
+} from './liquidity-protocols/interfaces/ILiquidityPosition'
+
 export { YieldPoolInfo } from './yield-protocols/implementation/YieldPoolInfo'
 export { YieldPosition } from './yield-protocols/implementation/YieldPosition'
 export { YieldPool } from './yield-protocols/implementation/YieldPool'
@@ -349,10 +390,18 @@ export { GasEstimation } from './simulation/implementation/GasEstimation'
 // SIMULATION IMPLEMENTATIONS
 export * from './simulation/implementation/YieldSimulation'
 export * from './simulation/implementation/LendingSimulation'
+export * from './simulation/implementation/LiquiditySimulation'
 
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'
-export type { ApproveStep, PermitStep, Permit2Step, SwapStep } from './simulation/interfaces/Steps'
+export type {
+  ApproveStep,
+  PermitStep,
+  Permit2Step,
+  SwapStep,
+  ProvideLiquidityStep,
+  RemoveLiquidityStep,
+} from './simulation/interfaces/Steps'
 export type { ISwapSimulationParams } from './simulation/interfaces/ISwapSimulationParams'
 export type { SimulationStrategy, StrategyStep } from './simulation/interfaces/SimulationStrategy'
 export { getValueFromReference, isValueReference } from './simulation/interfaces/ValueReference'

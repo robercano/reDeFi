@@ -4,6 +4,7 @@ import { type IProtocolPluginContext } from './IProtocolPluginContext'
 import { ILendingProtocolFeatures } from './ILendingProtocolFeatures'
 import { IYieldProtocolFeatures } from './IYieldProtocolFeatures'
 import { IStakeProtocolFeatures } from './IStakeProtocolFeatures'
+import { ILiquidityProtocolFeatures } from './ILiquidityProtocolFeatures'
 
 /**
  * @interface IProtocolPlugin
@@ -35,4 +36,10 @@ export interface IProtocolPlugin {
    * Defined if the protocol supports staking operations.
    */
   readonly stake?: IStakeProtocolFeatures
+
+  /**
+   * Liquidity features (optional).
+   * Defined if the protocol supports liquidity operations (AMMs).
+   */
+  readonly liquidity?: ILiquidityProtocolFeatures
 }

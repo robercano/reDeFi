@@ -16,6 +16,12 @@ import {
   IYieldPositionId,
   isYieldPoolId,
   isYieldPositionId,
+  ILiquidityPoolId,
+  ILiquidityPoolInfo,
+  ILiquidityPosition,
+  ILiquidityPositionId,
+  isLiquidityPoolId,
+  isLiquidityPositionId,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -33,6 +39,7 @@ export class ProtocolManager implements IProtocolManager {
   /** Feature modules */
   readonly lending = this
   readonly yield = this
+  readonly liquidity = this
   readonly stake: unknown = undefined
 
   /**
@@ -139,6 +146,44 @@ export class ProtocolManager implements IProtocolManager {
     return plugin.yield.getYieldPosition(positionId)
   }
 
+  /** @see ILiquidityProtocolManagerFeatures.getLiquidityPoolInfo */
+  async getLiquidityPoolInfo(poolId: ILiquidityPoolId): Promise<ILiquidityPoolInfo> {
+    this._validateLiquidityPoolId(poolId)
+
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName: poolId.protocol.name })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
+    }
+    if (!plugin.liquidity) {
+      throw new Error(
+        `Protocol plugin for protocol ${poolId.protocol.name} does not support liquidity`,
+      )
+    }
+    return plugin.liquidity.getLiquidityPoolInfo(poolId)
+  }
+
+  /** @see ILiquidityProtocolManagerFeatures.getLiquidityPosition */
+  async getLiquidityPosition(positionId: ILiquidityPositionId): Promise<ILiquidityPosition> {
+    this._validateLiquidityPositionId(positionId)
+
+    const protocolName =
+      (positionId as any).protocol?.name || (positionId as any).poolId?.protocol?.name
+    if (!protocolName) {
+      throw new Error(
+        `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
+      )
+    }
+
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} not found`)
+    }
+    if (!plugin.liquidity) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} does not support liquidity`)
+    }
+    return plugin.liquidity.getLiquidityPosition(positionId)
+  }
+
   /** PRIVATE */
 
   /**
@@ -186,6 +231,32 @@ export class ProtocolManager implements IProtocolManager {
   private _validateYieldPositionId(candidate: unknown): asserts candidate is IYieldPositionId {
     if (!isYieldPositionId(candidate)) {
       throw new Error(`Invalid yield position ID: ${JSON.stringify(candidate)}`)
+    }
+  }
+
+  /**
+   * _validateLiquidityPoolId
+   * Validates that the candidate is a valid liquidity pool ID for the specific protocol
+   * @param params.candidate The candidate to validate
+   * @returns asserts that the candidate is a valid liquidity pool ID for the specific protocol
+   */
+  private _validateLiquidityPoolId(candidate: unknown): asserts candidate is ILiquidityPoolId {
+    if (!isLiquidityPoolId(candidate)) {
+      throw new Error(`Invalid liquidity pool ID: ${JSON.stringify(candidate)}`)
+    }
+  }
+
+  /**
+   * _validateLiquidityPositionId
+   * Validates that the candidate is a valid liquidity position ID
+   * @param params.candidate The candidate to validate
+   * @returns asserts that the candidate is a valid liquidity position ID
+   */
+  private _validateLiquidityPositionId(
+    candidate: unknown,
+  ): asserts candidate is ILiquidityPositionId {
+    if (!isLiquidityPositionId(candidate)) {
+      throw new Error(`Invalid liquidity position ID: ${JSON.stringify(candidate)}`)
     }
   }
 }

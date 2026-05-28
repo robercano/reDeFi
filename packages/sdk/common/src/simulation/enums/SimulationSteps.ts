@@ -10,4 +10,6 @@ export enum SimulationSteps {
   Swap = 'Swap',
   DepositYield = 'DepositYield',
   WithdrawYield = 'WithdrawYield',
+  ProvideLiquidity = 'ProvideLiquidity',
+  RemoveLiquidity = 'RemoveLiquidity',
 }

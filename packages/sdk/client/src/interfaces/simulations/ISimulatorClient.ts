@@ -4,6 +4,8 @@ import { ITransferSimulator } from './ITransferSimulator'
 import { IYieldSimulator } from './IYieldSimulator'
 import { ISwapSimulatorManager } from '@thesolidchain/simulator-common'
 
+import { ILiquiditySimulator } from './ILiquiditySimulator'
+
 /**
  * Interface for the Simulator Client
  *
@@ -21,4 +23,6 @@ export interface ISimulatorClient {
   readonly yield: IYieldSimulator
   /** Swap operations */
   readonly swap: ISwapSimulatorManager
+  /** Liquidity operations (AMMs) */
+  readonly liquidity: ILiquiditySimulator
 }

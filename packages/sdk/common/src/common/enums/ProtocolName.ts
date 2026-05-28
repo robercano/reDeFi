@@ -14,6 +14,7 @@ export enum ProtocolName {
   Armada = 'Armada',
   Yearn = 'Yearn',
   Lido = 'Lido',
+  UniswapV3 = 'UniswapV3',
 }
 
 /**
