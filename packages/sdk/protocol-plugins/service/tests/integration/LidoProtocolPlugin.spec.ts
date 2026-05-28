@@ -17,7 +17,7 @@ import { AnvilFork, OracleManagerMock } from '@thesolidchain/testing-utils'
 import { Price, FiatCurrency } from '@thesolidchain/sdk-common'
 
 const LIDO_STETH_ADDRESS = '0xae7ab96520DE3A18E5e111B5EaAb095312D7fE84'
-const ETH_RPC_URL = process.env.E2E_SDK_FORK_URL_MAINNET || 'https://cloudflare-eth.com'
+const ETH_RPC_URL = process.env.E2E_SDK_FORK_URL_MAINNET || 'https://rpc.ankr.com/eth'
 
 describe('Lido Protocol Plugin (Integration)', () => {
   let ctx: IProtocolPluginContext
