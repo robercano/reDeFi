@@ -29,12 +29,14 @@
     ".": {
       "import": "./dist/index.js",
       "types": "./dist/index.d.ts",
-      "default": "./dist/index.js"
+      "default": "./dist/index.js",
+      "require": "./dist/index.js"
     },
     "./*": {
       "import": "./dist/*.js",
       "types": "./dist/*.d.ts",
-      "default": "./dist/*.js"
+      "default": "./dist/*.js",
+      "require": "./dist/*.js"
     }
   }
 }

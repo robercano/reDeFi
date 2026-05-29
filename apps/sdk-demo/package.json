@@ -33,6 +33,7 @@
     "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4",
     "@thesolidchain/testing-utils": "workspace:^",
+    "@thesolidchain/tenderly-utils": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
