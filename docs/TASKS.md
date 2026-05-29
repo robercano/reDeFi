@@ -39,11 +39,11 @@ Build the concrete plugins following the `IYieldProtocolManagerFeatures`, `ILend
 - [x] **Aave V3:** (`AaveV3ProtocolPlugin` - Lending)
 - [x] **Maker / Sky:** (`MakerProtocolPlugin` - Yield)
 - [x] **Uniswap V3:** (`UniswapV3ProtocolPlugin` - Liquidity)
-- [ ] **Curve Finance:** (`CurveProtocolPlugin` - Liquidity/Yield)
 - [ ] **Compound V3:** (`CompoundV3ProtocolPlugin` - Lending)
 - [ ] **Convex Finance:** (`ConvexProtocolPlugin` - Yield)
 - [ ] **EigenLayer:** (`EigenLayerProtocolPlugin` - Staking)
 - [ ] **Pendle:** (`PendleProtocolPlugin` - Yield)
+- [ ] **Curve Finance:** (`CurveProtocolPlugin` - Liquidity/Yield)
 
 *NOTE: Replace mock data with real on-chain/subgraph data for the plugins once the integration works end-to-end.*
 
