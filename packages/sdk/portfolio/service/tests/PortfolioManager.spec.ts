@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from 'vitest'
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest'
 import { PortfolioManager } from '../src/implementation/PortfolioManager'
 import { PortfolioManagerFactory } from '../src/implementation/PortfolioManagerFactory'
 import { ITokensManager } from '@thesolidchain/tokens-common'
@@ -37,6 +37,9 @@ describe('PortfolioManager', () => {
   }
 
   beforeEach(() => {
+    vi.spyOn(console, 'log').mockImplementation(() => {})
+    vi.spyOn(console, 'warn').mockImplementation(() => {})
+
     mockTokensManager = {
       getTokenBalanceBySymbol: vi.fn(),
       getTokenBySymbol: vi.fn(),
@@ -62,6 +65,10 @@ describe('PortfolioManager', () => {
       cacheService: mockCacheService,
       cacheTTLSeconds: 60,
     }) as PortfolioManager
+  })
+
+  afterEach(() => {
+    vi.restoreAllMocks()
   })
 
   describe('getWalletHoldings', () => {
