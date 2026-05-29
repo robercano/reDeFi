@@ -9,4 +9,5 @@ export type {
   MakerProtocolPips,
   MakerContractNames,
 } from './maker'
+export type { CompoundV3ContractNames, CompoundV3ProtocolConfig } from './compoundV3'
 export type { ProtocolsConfig } from './protocols'

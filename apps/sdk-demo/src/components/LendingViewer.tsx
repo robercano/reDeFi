@@ -9,8 +9,8 @@ import {
   TokenAmount,
   ISimulation,
 } from '@thesolidchain/sdk-common'
-import { AaveV3LendingPoolId, AaveV3Protocol, EmodeType } from '@thesolidchain/protocol-plugins'
 import { useSDK } from '@thesolidchain/sdk-react'
+import { CompoundV3LendingPoolId, CompoundV3Protocol } from '@thesolidchain/protocol-plugins'
 
 export const LendingViewer: FC = () => {
   const { address, chainId } = useAccount()
@@ -22,6 +22,7 @@ export const LendingViewer: FC = () => {
 
   const [amount, setAmount] = useState<string>('')
   const [actionType, setActionType] = useState<'Supply' | 'Withdraw'>('Supply')
+  const [protocolType, setProtocolType] = useState<'AaveV3' | 'CompoundV3'>('AaveV3')
 
   const [loading, setLoading] = useState<boolean>(false)
   const [order, setOrder] = useState<Order | null>(null)
@@ -47,12 +48,22 @@ export const LendingViewer: FC = () => {
           throw new Error('Failed to resolve tokens')
         }
 
-        const poolId = AaveV3LendingPoolId.createFrom({
-          protocol: AaveV3Protocol.createFrom({ chainInfo }),
-          collateralToken,
-          debtToken,
-          emodeType: EmodeType.None,
-        })
+        let poolId
+        if (protocolType === 'AaveV3') {
+          poolId = AaveV3LendingPoolId.createFrom({
+            protocol: AaveV3Protocol.createFrom({ chainInfo }),
+            collateralToken,
+            debtToken,
+            emodeType: EmodeType.None,
+          })
+        } else {
+          poolId = CompoundV3LendingPoolId.createFrom({
+            protocol: CompoundV3Protocol.createFrom({ chainInfo }),
+            collateralToken: debtToken, // Compound V3 base asset
+            debtToken: debtToken,
+            address: { value: '0xc3d688B66703497DAA19211EEdff47f25384cdc3', type: 'Ethereum' } as any, // cUSDCv3 Mainnet
+          } as any)
+        }
 
         let p, pInfo
         try {
@@ -72,7 +83,7 @@ export const LendingViewer: FC = () => {
     }
 
     fetchPool()
-  }, [sdk])
+  }, [sdk, protocolType])
 
   const handleBuildOrder = async () => {
     if (!pool || !amount) return
@@ -163,6 +174,29 @@ export const LendingViewer: FC = () => {
     <div className="bg-white/5 border border-white/10 rounded-2xl p-6 w-full max-w-lg mx-auto">
       <h3 className="text-xl font-medium text-white mb-6">Lending Simulator</h3>
 
+      <div className="flex gap-4 mb-6">
+        <button
+          onClick={() => setProtocolType('AaveV3')}
+          className={`flex-1 py-2 rounded-lg font-medium transition-colors ${
+            protocolType === 'AaveV3'
+              ? 'bg-purple-500 text-white'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10'
+          }`}
+        >
+          Aave V3
+        </button>
+        <button
+          onClick={() => setProtocolType('CompoundV3')}
+          className={`flex-1 py-2 rounded-lg font-medium transition-colors ${
+            protocolType === 'CompoundV3'
+              ? 'bg-green-500 text-white'
+              : 'bg-white/5 text-gray-400 hover:bg-white/10'
+          }`}
+        >
+          Compound V3
+        </button>
+      </div>
+
       <div className="bg-white/5 rounded-xl p-4 mb-6">
         <h4 className="text-sm text-gray-400 mb-2">Selected Pool</h4>
         {loading && !pool ? (
@@ -171,7 +205,7 @@ export const LendingViewer: FC = () => {
           <div className="flex justify-between items-center">
             <div>
               <div className="text-white font-medium">
-                Aave V3{' '}
+                {protocolType === 'AaveV3' ? 'Aave V3' : 'Compound V3'}{' '}
                 {
                   (pool.id as unknown as { collateralToken: { symbol: string } }).collateralToken
                     ?.symbol
