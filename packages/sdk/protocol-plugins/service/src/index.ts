@@ -153,3 +153,43 @@ export {
   type IMakerYieldPositionId,
   type IMakerYieldPositionIdData,
 } from './plugins/maker/interfaces/IMakerYieldPositionId'
+
+// Compound V3
+export { CompoundV3ProtocolPlugin } from './plugins/compound-v3/CompoundV3ProtocolPlugin'
+export { CompoundV3Protocol } from './plugins/compound-v3/implementation/CompoundV3Protocol'
+export { CompoundV3LendingPoolId } from './plugins/compound-v3/implementation/CompoundV3LendingPoolId'
+export { CompoundV3LendingPositionId } from './plugins/compound-v3/implementation/CompoundV3LendingPositionId'
+export { CompoundV3YieldPoolId } from './plugins/compound-v3/implementation/CompoundV3YieldPoolId'
+export { CompoundV3YieldPositionId } from './plugins/compound-v3/implementation/CompoundV3YieldPositionId'
+export { CompoundV3LendingPoolInfo } from './plugins/compound-v3/implementation/CompoundV3LendingPoolInfo'
+export { CompoundV3LendingPosition } from './plugins/compound-v3/implementation/CompoundV3LendingPosition'
+export {
+  isCompoundV3Protocol,
+  CompoundV3ProtocolDataSchema,
+  type ICompoundV3Protocol,
+  type ICompoundV3ProtocolData,
+} from './plugins/compound-v3/interfaces/ICompoundV3Protocol'
+export {
+  isCompoundV3LendingPoolId,
+  CompoundV3LendingPoolIdDataSchema,
+  type ICompoundV3LendingPoolId,
+  type ICompoundV3LendingPoolIdData,
+} from './plugins/compound-v3/interfaces/ICompoundV3LendingPoolId'
+export {
+  isCompoundV3LendingPositionId,
+  CompoundV3LendingPositionIdDataSchema,
+  type ICompoundV3LendingPositionId,
+  type ICompoundV3LendingPositionIdData,
+} from './plugins/compound-v3/interfaces/ICompoundV3LendingPositionId'
+export {
+  isCompoundV3YieldPoolId,
+  CompoundV3YieldPoolIdDataSchema,
+  type ICompoundV3YieldPoolId,
+  type ICompoundV3YieldPoolIdData,
+} from './plugins/compound-v3/interfaces/ICompoundV3YieldPoolId'
+export {
+  isCompoundV3YieldPositionId,
+  CompoundV3YieldPositionIdDataSchema,
+  type ICompoundV3YieldPositionId,
+  type ICompoundV3YieldPositionIdData,
+} from './plugins/compound-v3/interfaces/ICompoundV3YieldPositionId'

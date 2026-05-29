@@ -1,0 +1,121 @@
+
+> @thesolidchain/protocol-plugins@0.0.1 test /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+> vitest run tests/unit "tests/integration/CompoundV3ProtocolPlugin.spec.ts"
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+
+ RUN  v1.6.1 /home/rcano/Development/thesolidchain/reDeFi/packages/sdk/protocol-plugins/service
+      Coverage enabled with v8
+
+ ✓ tests/unit/plugins/DefaultYearnDataSource.spec.ts  (3 tests) 12ms
+ ✓ tests/unit/plugins/LidoProtocolPlugin.spec.ts  (5 tests) 16ms
+ ✓ tests/unit/actions/FlashloanAction.spec.ts  (2 tests) 17ms
+ ✓ tests/unit/plugins/MakerProtocolPlugin.spec.ts  (5 tests) 17ms
+ ✓ tests/unit/plugins/YearnProtocolPlugin.spec.ts  (5 tests) 17ms
+ ✓ tests/unit/actions/ReturnFundsAction.spec.ts  (2 tests) 17ms
+ ✓ tests/unit/actions/SwapAction.spec.ts  (2 tests) 20ms
+ ✓ tests/unit/actions/PullTokenAction.spec.ts  (2 tests) 32ms
+ ✓ tests/unit/actions/SetApprovalAction.spec.ts  (2 tests) 21ms
+ ✓ tests/unit/actions/aaveV3/AaveV3WithdrawAction.spec.ts  (2 tests) 19ms
+ ✓ tests/unit/actions/aaveV3/AaveV3DepositAction.spec.ts  (2 tests) 65ms
+ ✓ tests/unit/actions/aaveV3/AaveV3PaybackAction.spec.ts  (2 tests) 18ms
+ ✓ tests/unit/actions/aaveV3/AaveV3BorrowAction.spec.ts  (2 tests) 41ms
+ ✓ tests/unit/plugins/CompoundV3ProtocolPlugin.spec.ts  (1 test) 11ms
+ ✓ tests/unit/plugins/AAVEv3ProtocolPlugin.spec.ts  (7 tests) 45ms
+ ↓ tests/unit/plugins/BaseProtocolPlugin.spec.ts  (1 test | 1 skipped)
+ ✓ tests/unit/actions/aaveV3/AaveV3SetEModeAction.spec.ts  (2 tests) 7ms
+stdout | tests/integration/CompoundV3ProtocolPlugin.spec.ts > Compound V3 Protocol Plugin (Integration) > executes getSupplyTransaction on the fork and updates lending position
+POSITION ID POOL: CompoundV3LendingPoolId {
+  type: 'Lending',
+  protocol: CompoundV3Protocol {
+    chainInfo: undefined,
+    name: 'CompoundV3',
+    Symbol(): Symbol(),
+    Symbol(): Symbol()
+  },
+  collateralToken: Token {
+    symbol: 'cUSDCv3',
+    name: 'Compound USDC III',
+    chainInfo: ChainInfo { chainId: 1, name: 'Mainnet', Symbol(): Symbol() },
+    address: Address {
+      value: '0xc3d688B66703497DAA19211EEdff47f25384cdc3',
+      type: 'Ethereum',
+      Symbol(): Symbol()
+    },
+    decimals: 6,
+    logoURI: undefined,
+    Symbol(): Symbol()
+  },
+  debtToken: Token {
+    symbol: 'USDC',
+    name: 'USD Coin',
+    chainInfo: ChainInfo { chainId: 1, name: 'Mainnet', Symbol(): Symbol() },
+    address: Address {
+      value: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48',
+      type: 'Ethereum',
+      Symbol(): Symbol()
+    },
+    decimals: 6,
+    logoURI: undefined,
+    Symbol(): Symbol()
+  },
+  address: Address {
+    value: '0xc3d688B66703497DAA19211EEdff47f25384cdc3',
+    type: 'Ethereum',
+    Symbol(): Symbol()
+  },
+  Symbol(): Symbol(),
+  Symbol(): Symbol(),
+  Symbol(): Symbol()
+}
+{
+  "_errors": [],
+  "poolId": {
+    "_errors": [
+      "Invalid input"
+    ]
+  }
+}
+
+ ❯ tests/integration/CompoundV3ProtocolPlugin.spec.ts  (2 tests | 2 failed) 2694ms
+   ❯ tests/integration/CompoundV3ProtocolPlugin.spec.ts > Compound V3 Protocol Plugin (Integration) > correctly populates lending pool info
+     → Invalid CompoundV3 pool ID: {"type":"Lending","protocol":{"name":"CompoundV3"},"collateralToken":{"symbol":"cUSDCv3","name":"Compound USDC III","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"},"decimals":6},"debtToken":{"symbol":"USDC","name":"USD Coin","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","type":"Ethereum"},"decimals":6},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"}}
+   ❯ tests/integration/CompoundV3ProtocolPlugin.spec.ts > Compound V3 Protocol Plugin (Integration) > executes getSupplyTransaction on the fork and updates lending position
+     → Invalid CompoundV3 position ID: {"id":"forkPositionId","type":"Lending","poolId":{"type":"Lending","protocol":{"name":"CompoundV3"},"collateralToken":{"symbol":"cUSDCv3","name":"Compound USDC III","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"},"decimals":6},"debtToken":{"symbol":"USDC","name":"USD Coin","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","type":"Ethereum"},"decimals":6},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"}},"walletAddress":{"value":"0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244","type":"Ethereum"}}
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 2 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/integration/CompoundV3ProtocolPlugin.spec.ts > Compound V3 Protocol Plugin (Integration) > correctly populates lending pool info
+Error: Invalid CompoundV3 pool ID: {"type":"Lending","protocol":{"name":"CompoundV3"},"collateralToken":{"symbol":"cUSDCv3","name":"Compound USDC III","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"},"decimals":6},"debtToken":{"symbol":"USDC","name":"USD Coin","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","type":"Ethereum"},"decimals":6},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"}}
+ ❯ CompoundV3LendingFeatures._validateLendingPoolId src/plugins/compound-v3/implementation/CompoundV3LendingFeatures.ts:71:13
+     69|   ): asserts candidate is ICompoundV3LendingPoolIdData {
+     70|     if (!isCompoundV3LendingPoolId(candidate)) {
+     71|       throw new Error(`Invalid CompoundV3 pool ID: ${JSON.stringify(ca…
+       |             ^
+     72|     }
+     73|   }
+ ❯ CompoundV3LendingFeatures.getLendingPoolInfo src/implementation/BaseLendingProtocolPlugin.ts:85:10
+ ❯ tests/integration/CompoundV3ProtocolPlugin.spec.ts:92:62
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/2]⎯
+
+ FAIL  tests/integration/CompoundV3ProtocolPlugin.spec.ts > Compound V3 Protocol Plugin (Integration) > executes getSupplyTransaction on the fork and updates lending position
+Error: Invalid CompoundV3 position ID: {"id":"forkPositionId","type":"Lending","poolId":{"type":"Lending","protocol":{"name":"CompoundV3"},"collateralToken":{"symbol":"cUSDCv3","name":"Compound USDC III","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"},"decimals":6},"debtToken":{"symbol":"USDC","name":"USD Coin","chainInfo":{"chainId":1,"name":"Mainnet"},"address":{"value":"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48","type":"Ethereum"},"decimals":6},"address":{"value":"0xc3d688B66703497DAA19211EEdff47f25384cdc3","type":"Ethereum"}},"walletAddress":{"value":"0xAAf00613A099DeAe24EeB2c21Ad2965CaDEac244","type":"Ethereum"}}
+ ❯ CompoundV3LendingFeatures._validateLendingPositionId src/plugins/compound-v3/implementation/CompoundV3LendingFeatures.ts:79:13
+     77|   ): asserts candidate is ICompoundV3LendingPositionIdData {
+     78|     if (!isCompoundV3LendingPositionId(candidate)) {
+     79|       throw new Error(`Invalid CompoundV3 position ID: ${JSON.stringif…
+       |             ^
+     80|     }
+     81|   }
+ ❯ CompoundV3LendingFeatures.getLendingPosition src/plugins/compound-v3/implementation/CompoundV3LendingFeatures.ts:188:10
+ ❯ tests/integration/CompoundV3ProtocolPlugin.spec.ts:181:65
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/2]⎯
+
+ Test Files  1 failed | 16 passed | 1 skipped (18)
+      Tests  2 failed | 46 passed | 1 skipped (49)
+   Start at  16:35:00
+   Duration  6.38s (transform 2.65s, setup 2ms, collect 43.46s, tests 3.07s, environment 5ms, prepare 2.93s)
+
+ ELIFECYCLE  Test failed. See above for more details.

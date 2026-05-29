@@ -5,6 +5,7 @@ import { YearnProtocolPlugin } from './yearn/implementation/YearnProtocolPlugin'
 import { LidoProtocolPlugin } from './lido/implementation/LidoProtocolPlugin'
 import { MakerProtocolPlugin } from './maker/implementation/MakerProtocolPlugin'
 import { UniswapV3ProtocolPlugin } from './uniswap-v3/UniswapV3ProtocolPlugin'
+import { CompoundV3ProtocolPlugin } from './compound-v3/CompoundV3ProtocolPlugin'
 
 /**
  * Protocol plugins record
@@ -17,4 +18,5 @@ export const ProtocolPluginsRecord: ProtocolPluginsRecordType = {
   [ProtocolName.Lido]: LidoProtocolPlugin,
   [ProtocolName.Maker]: MakerProtocolPlugin,
   [ProtocolName.UniswapV3]: UniswapV3ProtocolPlugin,
+  [ProtocolName.CompoundV3]: CompoundV3ProtocolPlugin,
 }
