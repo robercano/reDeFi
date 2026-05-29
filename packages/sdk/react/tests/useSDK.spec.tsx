@@ -3,11 +3,18 @@ import { renderHook } from '@testing-library/react'
 import { describe, it, expect, vi } from 'vitest'
 import { useSDK } from '../src/hooks/useSDK'
 import { SDKProvider } from '../src/components/SDKProvider'
-import { makeSDK } from '@thesolidchain/sdk-client'
+import { makeSDK, makeSDKWithSigner } from '@thesolidchain/sdk-client'
 
 vi.mock('@thesolidchain/sdk-client', () => {
   return {
     makeSDK: vi.fn(() => ({
+      eventBus: { on: vi.fn() },
+      protocols: { getPosition: vi.fn() },
+      tokens: { getTokenBySymbol: vi.fn() },
+      oracle: { getSpotPrice: vi.fn() },
+      swaps: { getSwapQuote: vi.fn() },
+    })),
+    makeSDKWithSigner: vi.fn(() => ({
       eventBus: { on: vi.fn() },
       protocols: { getPosition: vi.fn() },
       tokens: { getTokenBySymbol: vi.fn() },
@@ -51,5 +58,28 @@ describe('SDK React | Unit | useSDK', () => {
 
     const chainInfo = result.current.getChainInfo()
     expect(chainInfo.chainId).toBe(1)
+  })
+
+  it('should call makeSDKWithSigner if a signer is provided', () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <SDKProvider apiURL="https://api.example.com">{children}</SDKProvider>
+    )
+
+    const dummySigner = {} as unknown as import('@thesolidchain/sdk-client').SDKSigner
+    renderHook(() => useSDK({ chainId: 1, walletAddress: '0x123', signer: dummySigner }), { wrapper })
+
+    expect(makeSDKWithSigner).toHaveBeenCalledWith({ apiURL: 'https://api.example.com', apiKey: undefined, signer: dummySigner })
+  })
+
+  it('getTargetChainInfo should return correct chain info for a specific chainId', () => {
+    const wrapper = ({ children }: { children: React.ReactNode }) => (
+      <SDKProvider apiURL="https://api.example.com">{children}</SDKProvider>
+    )
+
+    const { result } = renderHook(() => useSDK({ chainId: 1 }), { wrapper })
+
+    const chainInfo = result.current.getTargetChainInfo(8453) // Base chainId
+    expect(chainInfo.chainId).toBe(8453)
+    expect(chainInfo.name).toBe('Base')
   })
 })

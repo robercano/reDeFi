@@ -1,5 +1,5 @@
 import { makeSDK, makeSDKWithSigner } from '@thesolidchain/sdk-client'
-import type { ISimulatorClient, SimulatorClient, SDKSigner } from '@thesolidchain/sdk-client'
+import type { ISimulatorClient, SDKSigner } from '@thesolidchain/sdk-client'
 import type { IActivityService } from '@thesolidchain/sdk-common'
 import { useCallback, useMemo } from 'react'
 

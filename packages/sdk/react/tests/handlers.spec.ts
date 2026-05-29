@@ -12,6 +12,11 @@ import { getUserPortfolioHandler } from '../src/handlers/getUserPortfolioHandler
 import { getLendingPoolHandler } from '../src/handlers/getLendingPoolHandler'
 import { getLendingPoolInfoHandler } from '../src/handlers/getLendingPoolInfoHandler'
 import { buildOrderHandler } from '../src/handlers/buildOrderHandler'
+import { cancelOrderHandler } from '../src/handlers/cancelOrderHandler'
+import { checkOrderHandler } from '../src/handlers/checkOrderHandler'
+import { getSellOrderQuoteHandler } from '../src/handlers/getSellOrderQuoteHandler'
+import { sendOrderHandler } from '../src/handlers/sendOrderHandler'
+import { getSwapDataHandler } from '../src/handlers/getSwapDataHandler'
 import { ChainFamilyMap } from '@thesolidchain/sdk-common'
 
 describe('SDK React | Unit | Handlers', () => {
@@ -72,12 +77,19 @@ describe('SDK React | Unit | Handlers', () => {
       },
       swaps: {
         getSwapQuoteExactInput: vi.fn().mockResolvedValue({}),
+        getSwapDataExactInput: vi.fn().mockResolvedValue({}),
       },
       portfolio: {
         getUserPortfolio: vi.fn().mockResolvedValue({}),
       },
       orders: {
         buildOrder: vi.fn().mockResolvedValue({}),
+      },
+      intentSwaps: {
+        cancelOrder: vi.fn().mockResolvedValue({}),
+        checkOrder: vi.fn().mockResolvedValue({}),
+        getSellOrderQuote: vi.fn().mockResolvedValue({}),
+        sendOrder: vi.fn().mockResolvedValue({}),
       },
     } as unknown as Parameters<typeof getLendingPoolHandler>[0]
 
@@ -131,6 +143,27 @@ describe('SDK React | Unit | Handlers', () => {
     )
     expect(mockSdk.orders.buildOrder).toHaveBeenCalled()
 
+    await getSwapDataHandler(mockSdk)({
+      fromToken: { chainInfo: { chainId: 1, familyName: 'Ethereum' }, address: { value: '0x123' }, symbol: 'USDC', decimals: 6 },
+      toToken: { chainInfo: { chainId: 1, familyName: 'Ethereum' }, address: { value: '0x456' }, symbol: 'DAI', decimals: 18 },
+      fromAmount: '100',
+      slippage: 1,
+      receiver: { value: '0x789' }
+    } as unknown as Parameters<ReturnType<typeof getSwapDataHandler>>[0])
+    expect(mockSdk.swaps.getSwapDataExactInput).toHaveBeenCalled()
+
+    await cancelOrderHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof cancelOrderHandler>>[0])
+    expect(mockSdk.intentSwaps.cancelOrder).toHaveBeenCalled()
+
+    await checkOrderHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof checkOrderHandler>>[0])
+    expect(mockSdk.intentSwaps.checkOrder).toHaveBeenCalled()
+
+    await getSellOrderQuoteHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof getSellOrderQuoteHandler>>[0])
+    expect(mockSdk.intentSwaps.getSellOrderQuote).toHaveBeenCalled()
+
+    await sendOrderHandler(mockSdk)({} as unknown as Parameters<ReturnType<typeof sendOrderHandler>>[0])
+    expect(mockSdk.intentSwaps.sendOrder).toHaveBeenCalled()
+
     await getChainHandler(mockSdk)({ chainId: 1 })
 
     const chainTokenSpy = (await mockSdk.chains.getChainById()).tokens.getTokenBySymbol
@@ -151,5 +184,27 @@ describe('SDK React | Unit | Handlers', () => {
       } as unknown as Parameters<ReturnType<typeof getTokenTotalSupplyHandler>>[0]['token'],
     })
     expect(chainTokenSupplySpy).toHaveBeenCalled()
+  })
+
+  it('getChainHandler should throw if chain is undefined', async () => {
+    const mockSdk = { chains: { getChainById: vi.fn().mockResolvedValue(undefined) } } as unknown as import('@thesolidchain/sdk-client').ISDKManager
+    await expect(getChainHandler(mockSdk)({ chainId: 1 })).rejects.toThrow('Chain not found')
+  })
+
+  it('getTokenBySymbolHandler should throw if token is undefined or throws', async () => {
+    const mockChainProvider = vi.fn().mockResolvedValue({ tokens: { getTokenBySymbol: vi.fn().mockResolvedValue(undefined) } }) as unknown as Parameters<typeof getTokenBySymbolHandler>[0]
+    await expect(getTokenBySymbolHandler(mockChainProvider)({ chainId: 1, symbol: 'USDC' })).rejects.toThrow('SDK: Unsupport token: USDC')
+
+    const mockChainProviderThrows = vi.fn().mockResolvedValue({ tokens: { getTokenBySymbol: vi.fn().mockRejectedValue(new Error('Network error')) } }) as unknown as Parameters<typeof getTokenBySymbolHandler>[0]
+    await expect(getTokenBySymbolHandler(mockChainProviderThrows)({ chainId: 1, symbol: 'USDC' })).rejects.toThrow('Failed to get token: Network error')
+  })
+
+  it('getTokenTotalSupplyHandler should throw if total supply is undefined or throws', async () => {
+    const mockChainProvider = vi.fn().mockResolvedValue({ tokens: { getTokenTotalSupply: vi.fn().mockResolvedValue(undefined) } }) as unknown as Parameters<typeof getTokenTotalSupplyHandler>[0]
+    const dummyToken = { chainInfo: { chainId: 1 }, symbol: 'USDC' } as unknown as import('@thesolidchain/sdk-common').IToken
+    await expect(getTokenTotalSupplyHandler(mockChainProvider)({ token: dummyToken })).rejects.toThrow('SDK: Failed to get total supply for token: USDC')
+
+    const mockChainProviderThrows = vi.fn().mockResolvedValue({ tokens: { getTokenTotalSupply: vi.fn().mockRejectedValue(new Error('Network error')) } }) as unknown as Parameters<typeof getTokenTotalSupplyHandler>[0]
+    await expect(getTokenTotalSupplyHandler(mockChainProviderThrows)({ token: dummyToken })).rejects.toThrow('Failed to get token total supply: Network error')
   })
 })
