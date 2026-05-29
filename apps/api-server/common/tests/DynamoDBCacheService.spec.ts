@@ -72,10 +72,12 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
   })
 
   it('should return undefined and not throw if an error occurs during get', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     ddbMock.on(GetCommand).rejects(new Error('DynamoDB Error'))
 
     const result = await cacheService.get('error-key')
     expect(result).toBeUndefined()
+    consoleSpy.mockRestore()
   })
 
   it('should set an item in the cache successfully', async () => {
@@ -92,8 +94,10 @@ describe('SDK Server Common | Unit | DynamoDBCacheService', () => {
   })
 
   it('should not throw if an error occurs during set', async () => {
+    const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {})
     ddbMock.on(PutCommand).rejects(new Error('DynamoDB Write Error'))
 
     await expect(cacheService.set('error-key', { info: 'failed' }, 60)).resolves.toBeUndefined()
+    consoleSpy.mockRestore()
   })
 })
