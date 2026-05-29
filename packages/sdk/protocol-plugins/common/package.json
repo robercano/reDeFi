@@ -3,7 +3,9 @@
   "version": "0.0.1",
   "exports": {
     ".": {
+      "require": "./src/index.ts",
       "import": "./src/index.ts",
+      "default": "./src/index.ts",
       "types": "./src/index.d.ts"
     }
   },

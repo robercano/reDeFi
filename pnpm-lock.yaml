@@ -407,6 +407,9 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4
         version: 4.2.2
+      '@thesolidchain/tenderly-utils':
+        specifier: workspace:*
+        version: link:../../packages/sdk/tenderly-utils
       '@thesolidchain/testing-utils':
         specifier: workspace:^
         version: link:../../packages/sdk/testing-utils
