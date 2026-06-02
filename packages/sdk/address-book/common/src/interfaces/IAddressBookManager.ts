@@ -20,4 +20,12 @@ export interface IAddressBookManager {
    * @returns The address of the contract with the given name
    */
   getAddressByName(params: { chainInfo: IChainInfo; name: string }): Promise<Maybe<IAddress>>
+
+  /**
+   * registerAddresses
+   * Allows plugins or services to register their own addresses statically
+   *
+   * @param addresses A nested record mapping chainId to a map of contract names to addresses
+   */
+  registerAddresses(addresses: Record<number, Record<string, string>>): void
 }

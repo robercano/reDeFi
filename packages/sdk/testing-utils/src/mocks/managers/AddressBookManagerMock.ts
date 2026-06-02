@@ -26,6 +26,21 @@ export class AddressBookManagerMock implements IAddressBookManager {
     addressMap.set(params.name, params.address)
   }
 
+  registerAddresses(addresses: Record<number, Record<string, string>>): void {
+    for (const [chainIdStr, newAddresses] of Object.entries(addresses)) {
+      const chainId = parseInt(chainIdStr, 10) as ChainId
+      if (!this.addressBook.has(chainId)) {
+        this.addressBook.set(chainId, new Map<string, AddressValue>())
+      }
+      const addressMap = this.addressBook.get(chainId)
+      assert(addressMap)
+
+      for (const [name, address] of Object.entries(newAddresses)) {
+        addressMap.set(name, address as AddressValue)
+      }
+    }
+  }
+
   async getAddressByName(params: {
     chainInfo: IChainInfo
     name: string
