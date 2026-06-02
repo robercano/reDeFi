@@ -124,4 +124,8 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
   public async getWithdrawTransaction(): Promise<TransactionInfo> {
     throw new Error('Method not implemented.')
   }
+
+  public async getClaimTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method getClaimTransaction is not supported for Yearn protocol (value-accruing)')
+  }
 }

@@ -157,4 +157,8 @@ export class LidoProtocolPlugin extends BaseProtocolPlugin implements IYieldProt
       description: 'Request withdrawal of stETH from Lido',
     }
   }
+
+  public async getClaimTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method getClaimTransaction is not supported for Lido protocol (rebasing)')
+  }
 }
