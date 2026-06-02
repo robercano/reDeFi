@@ -25,4 +25,9 @@ export interface IYieldProtocolFeatures {
     amount: ITokenAmount
     user: IUser
   }): Promise<TransactionInfo>
+
+  getClaimTransaction(params: {
+    positionId: IYieldPositionId
+    user: IUser
+  }): Promise<TransactionInfo>
 }

@@ -200,6 +200,10 @@ export class CompoundV3YieldFeatures extends BaseProtocolPlugin implements IYiel
     }
   }
 
+  public async getClaimTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method getClaimTransaction is not currently implemented for CompoundV3')
+  }
+
   protected async _getContractDef(params: {
     chainInfo: IChainInfo
     contractName: CompoundV3ContractNames

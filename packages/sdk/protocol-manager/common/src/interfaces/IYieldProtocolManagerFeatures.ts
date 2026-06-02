@@ -13,4 +13,8 @@ import {
 export interface IYieldProtocolManagerFeatures {
   getYieldPoolInfo(poolId: IYieldPoolId): Promise<IYieldPoolInfo>
   getYieldPosition(positionId: IYieldPositionId): Promise<IYieldPosition>
+  getClaimTransaction(params: {
+    positionId: IYieldPositionId
+    user: import('@thesolidchain/sdk-common').IUser
+  }): Promise<import('@thesolidchain/sdk-common').TransactionInfo>
 }

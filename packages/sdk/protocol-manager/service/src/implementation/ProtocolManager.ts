@@ -147,6 +147,31 @@ export class ProtocolManager implements IProtocolManager {
     return plugin.yield.getYieldPosition(positionId)
   }
 
+  /** @see IYieldProtocolManagerFeatures.getClaimTransaction */
+  async getClaimTransaction(params: {
+    positionId: IYieldPositionId
+    user: import('@thesolidchain/sdk-common').IUser
+  }): Promise<import('@thesolidchain/sdk-common').TransactionInfo> {
+    this._validateYieldPositionId(params.positionId)
+
+    const typedPositionId = params.positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
+    if (!protocolName) {
+      throw new Error(
+        `Unable to determine protocol from position ID: ${JSON.stringify(params.positionId)}`,
+      )
+    }
+
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} not found`)
+    }
+    if (!plugin.yield) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} does not support yield`)
+    }
+    return plugin.yield.getClaimTransaction(params)
+  }
+
   /** @see ILiquidityProtocolManagerFeatures.getLiquidityPoolInfo */
   async getLiquidityPoolInfo(poolId: ILiquidityPoolId): Promise<ILiquidityPoolInfo> {
     this._validateLiquidityPoolId(poolId)

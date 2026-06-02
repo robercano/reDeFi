@@ -166,4 +166,8 @@ export class MakerProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
       description: 'Withdraw from Maker Vault',
     }
   }
+
+  public async getClaimTransaction(): Promise<TransactionInfo> {
+    throw new Error('Method getClaimTransaction is not supported for Maker protocol (value-accruing)')
+  }
 }
