@@ -23,6 +23,12 @@ import {
   isLiquidityPoolId,
   isLiquidityPositionId,
   ProtocolName,
+  IStakingPoolId,
+  IStakingPoolInfo,
+  IStakingPosition,
+  IStakingPositionId,
+  isStakingPoolId,
+  isStakingPositionId,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -41,7 +47,7 @@ export class ProtocolManager implements IProtocolManager {
   readonly lending = this
   readonly yield = this
   readonly liquidity = this
-  readonly stake: unknown = undefined
+  readonly stake = this
 
   /**
    * createWith
@@ -148,12 +154,11 @@ export class ProtocolManager implements IProtocolManager {
   }
 
   /** @see IYieldProtocolManagerFeatures.getClaimTransaction */
+  /** @see IStakingProtocolManagerFeatures.getClaimTransaction */
   async getClaimTransaction(params: {
-    positionId: IYieldPositionId
+    positionId: IYieldPositionId | IStakingPositionId
     user: import('@thesolidchain/sdk-common').IUser
   }): Promise<import('@thesolidchain/sdk-common').TransactionInfo> {
-    this._validateYieldPositionId(params.positionId)
-
     const typedPositionId = params.positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
     const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
     if (!protocolName) {
@@ -166,11 +171,83 @@ export class ProtocolManager implements IProtocolManager {
     if (!plugin) {
       throw new Error(`Protocol plugin for protocol ${protocolName} not found`)
     }
-    if (!plugin.yield) {
-      throw new Error(`Protocol plugin for protocol ${protocolName} does not support yield`)
+
+    if (isYieldPositionId(params.positionId)) {
+      this._validateYieldPositionId(params.positionId)
+      if (!plugin.yield) throw new Error(`Protocol plugin for protocol ${protocolName} does not support yield`)
+      return plugin.yield.getClaimTransaction({ ...params, positionId: params.positionId })
+    } else if (isStakingPositionId(params.positionId)) {
+      this._validateStakingPositionId(params.positionId)
+      if (!plugin.stake) throw new Error(`Protocol plugin for protocol ${protocolName} does not support staking`)
+      return plugin.stake.getClaimTransaction({ ...params, positionId: params.positionId })
+    } else {
+      throw new Error(`Invalid position ID for claim transaction: ${JSON.stringify(params.positionId)}`)
     }
-    return plugin.yield.getClaimTransaction(params)
   }
+
+  /** @see IStakingProtocolManagerFeatures.getStakingPoolInfo */
+  async getStakingPoolInfo(poolId: IStakingPoolId): Promise<IStakingPoolInfo> {
+    this._validateStakingPoolId(poolId)
+
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName: poolId.protocol.name })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} not found`)
+    }
+    if (!plugin.stake) {
+      throw new Error(`Protocol plugin for protocol ${poolId.protocol.name} does not support staking`)
+    }
+    return plugin.stake.getStakingPoolInfo(poolId)
+  }
+
+  /** @see IStakingProtocolManagerFeatures.getStakingPosition */
+  async getStakingPosition(positionId: IStakingPositionId): Promise<IStakingPosition> {
+    this._validateStakingPositionId(positionId)
+
+    const typedPositionId = positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
+    if (!protocolName) {
+      throw new Error(
+        `Unable to determine protocol from position ID: ${JSON.stringify(positionId)}`,
+      )
+    }
+
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName })
+    if (!plugin) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} not found`)
+    }
+    if (!plugin.stake) {
+      throw new Error(`Protocol plugin for protocol ${protocolName} does not support staking`)
+    }
+    return plugin.stake.getStakingPosition(positionId)
+  }
+
+  /** @see IStakingProtocolManagerFeatures.getStakeTransaction */
+  async getStakeTransaction(params: {
+    poolId: IStakingPoolId
+    amount: import('@thesolidchain/sdk-common').ITokenAmount
+    user: import('@thesolidchain/sdk-common').IUser
+  }): Promise<import('@thesolidchain/sdk-common').TransactionInfo> {
+    this._validateStakingPoolId(params.poolId)
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName: params.poolId.protocol.name })
+    if (!plugin || !plugin.stake) throw new Error(`Staking not supported for protocol ${params.poolId.protocol.name}`)
+    return plugin.stake.getStakeTransaction(params)
+  }
+
+  /** @see IStakingProtocolManagerFeatures.getUnstakeTransaction */
+  async getUnstakeTransaction(params: {
+    positionId: IStakingPositionId
+    amount: import('@thesolidchain/sdk-common').ITokenAmount
+    user: import('@thesolidchain/sdk-common').IUser
+  }): Promise<import('@thesolidchain/sdk-common').TransactionInfo> {
+    this._validateStakingPositionId(params.positionId)
+    const typedPositionId = params.positionId as IPositionId & { protocol?: { name: string }, poolId?: { protocol: { name: string } } }
+    const protocolName = (typedPositionId.protocol?.name || typedPositionId.poolId?.protocol?.name) as ProtocolName
+    const plugin = this._pluginsRegistry.getPlugin({ protocolName })
+    if (!plugin || !plugin.stake) throw new Error(`Staking not supported for protocol ${protocolName}`)
+    return plugin.stake.getUnstakeTransaction(params)
+  }
+
+
 
   /** @see ILiquidityProtocolManagerFeatures.getLiquidityPoolInfo */
   async getLiquidityPoolInfo(poolId: ILiquidityPoolId): Promise<ILiquidityPoolInfo> {
@@ -283,6 +360,30 @@ export class ProtocolManager implements IProtocolManager {
   ): asserts candidate is ILiquidityPositionId {
     if (!isLiquidityPositionId(candidate)) {
       throw new Error(`Invalid liquidity position ID: ${JSON.stringify(candidate)}`)
+    }
+  }
+
+  /**
+   * _validateStakingPoolId
+   * Validates that the candidate is a valid staking pool ID for the specific protocol
+   * @param params.candidate The candidate to validate
+   * @returns asserts that the candidate is a valid staking pool ID for the specific protocol
+   */
+  private _validateStakingPoolId(candidate: unknown): asserts candidate is IStakingPoolId {
+    if (!isStakingPoolId(candidate)) {
+      throw new Error(`Invalid staking pool ID: ${JSON.stringify(candidate)}`)
+    }
+  }
+
+  /**
+   * _validateStakingPositionId
+   * Validates that the candidate is a valid staking position ID
+   * @param params.candidate The candidate to validate
+   * @returns asserts that the candidate is a valid staking position ID
+   */
+  private _validateStakingPositionId(candidate: unknown): asserts candidate is IStakingPositionId {
+    if (!isStakingPositionId(candidate)) {
+      throw new Error(`Invalid staking position ID: ${JSON.stringify(candidate)}`)
     }
   }
 }

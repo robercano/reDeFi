@@ -3,6 +3,14 @@ import {
   ILendingPool,
   ILendingPoolIdData,
   ILendingPoolInfo,
+  IYieldPoolIdData,
+  IYieldPoolInfo,
+  IYieldPositionIdData,
+  IYieldPosition,
+  IStakingPoolIdData,
+  IStakingPoolInfo,
+  IStakingPositionIdData,
+  IStakingPosition,
 } from '@thesolidchain/sdk-common'
 
 /**
@@ -26,4 +34,10 @@ export interface IProtocolsManagerClient {
    * @returns {Promise<Maybe<ILendingPoolInfo>>} The lending pool info
    */
   getLendingPoolInfo(params: { poolId: ILendingPoolIdData }): Promise<Maybe<ILendingPoolInfo>>
+
+  getYieldPoolInfo(params: { poolId: IYieldPoolIdData }): Promise<Maybe<IYieldPoolInfo>>
+  getYieldPosition(params: { positionId: IYieldPositionIdData }): Promise<Maybe<IYieldPosition>>
+
+  getStakingPoolInfo(params: { poolId: IStakingPoolIdData }): Promise<Maybe<IStakingPoolInfo>>
+  getStakingPosition(params: { positionId: IStakingPositionIdData }): Promise<Maybe<IStakingPosition>>
 }

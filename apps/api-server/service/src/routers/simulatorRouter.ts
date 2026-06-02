@@ -4,6 +4,8 @@ import {
   isTokenAmount,
   isYieldPoolId,
   isYieldPositionId,
+  isStakingPoolId,
+  isStakingPositionId,
 } from '@thesolidchain/sdk-common'
 import { publicProcedure, router } from '../SDKTRPC'
 import { z } from 'zod'
@@ -76,6 +78,29 @@ export const simulatorRouter = router({
         throw new Error('Invalid input for simulateRemove')
       }
       return opts.ctx.simulatorManager.liquidity.simulateRemove({ positionId, amount })
+    }),
+  }),
+  stake: router({
+    simulateStake: publicProcedure.input(z.any()).query(async (opts) => {
+      const { poolId, amount } = opts.input
+      if (!isStakingPoolId(poolId) || !isTokenAmount(amount)) {
+        throw new Error('Invalid input for simulateStake')
+      }
+      return opts.ctx.simulatorManager.stake.simulateStake({ poolId, amount })
+    }),
+    simulateUnstake: publicProcedure.input(z.any()).query(async (opts) => {
+      const { positionId, amount } = opts.input
+      if (!isStakingPositionId(positionId) || !isTokenAmount(amount)) {
+        throw new Error('Invalid input for simulateUnstake')
+      }
+      return opts.ctx.simulatorManager.stake.simulateUnstake({ positionId, amount })
+    }),
+    simulateClaim: publicProcedure.input(z.any()).query(async (opts) => {
+      const { positionId } = opts.input
+      if (!isStakingPositionId(positionId)) {
+        throw new Error('Invalid input for simulateClaim')
+      }
+      return opts.ctx.simulatorManager.stake.simulateClaim({ positionId })
     }),
   }),
 })

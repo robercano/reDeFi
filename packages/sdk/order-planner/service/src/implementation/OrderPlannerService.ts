@@ -10,6 +10,7 @@ import { SwapOrderPlanner } from '../planners/SwapOrderPlanner'
 import { YieldOrderPlanner } from '../planners/YieldOrderPlanner'
 import { LendingOrderPlanner } from '../planners/LendingOrderPlanner'
 import { LiquidityOrderPlanner } from '../planners/LiquidityOrderPlanner'
+import { StakingOrderPlanner } from '../planners/StakingOrderPlanner'
 
 /**
  * OrderPlannerService
@@ -31,6 +32,7 @@ export class OrderPlannerService implements IOrderPlannerService {
     this._registerOrderPlanner(YieldOrderPlanner)
     this._registerOrderPlanner(LendingOrderPlanner)
     this._registerOrderPlanner(LiquidityOrderPlanner)
+    this._registerOrderPlanner(StakingOrderPlanner)
   }
 
   /**

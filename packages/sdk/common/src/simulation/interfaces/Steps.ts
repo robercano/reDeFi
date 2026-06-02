@@ -13,6 +13,8 @@ import { IYieldPoolId } from '../../yield-protocols/interfaces/IYieldPoolId'
 import { IYieldPosition } from '../../yield-protocols/interfaces/IYieldPosition'
 import { ILiquidityPoolId } from '../../liquidity-protocols/interfaces/ILiquidityPoolId'
 import { ILiquidityPosition } from '../../liquidity-protocols/interfaces/ILiquidityPosition'
+import { IStakingPoolId } from '../../staking-protocols/interfaces/IStakingPoolId'
+import { IStakingPosition } from '../../staking-protocols/interfaces/IStakingPosition'
 
 import { Transaction } from '../../orders/common/types/Transaction'
 
@@ -156,6 +158,36 @@ export type RemoveLiquidityStep = Step<
   }
 >
 
+export type StakeStep = Step<
+  SimulationSteps.Stake,
+  {
+    depositAmount: ReferenceableField<ITokenAmount>
+    poolId: IStakingPoolId
+  },
+  {
+    depositAmount: ITokenAmount
+  }
+>
+
+export type UnstakeStep = Step<
+  SimulationSteps.Unstake,
+  {
+    withdrawAmount: ReferenceableField<ITokenAmount>
+    position: IStakingPosition
+  },
+  {
+    withdrawAmount: ITokenAmount
+  }
+>
+
+export type ClaimStakeRewardsStep = Step<
+  SimulationSteps.ClaimStakeRewards,
+  {
+    position: IStakingPosition
+  },
+  {}
+>
+
 export type Steps =
   | DepositBorrowStep
   | PaybackWithdrawStep
@@ -167,3 +199,6 @@ export type Steps =
   | ApproveStep
   | PermitStep
   | Permit2Step
+  | StakeStep
+  | UnstakeStep
+  | ClaimStakeRewardsStep

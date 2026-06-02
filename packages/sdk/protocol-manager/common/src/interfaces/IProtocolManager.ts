@@ -1,6 +1,7 @@
 import { ILendingProtocolManagerFeatures } from './ILendingProtocolManagerFeatures'
 import { IYieldProtocolManagerFeatures } from './IYieldProtocolManagerFeatures'
 import { ILiquidityProtocolManagerFeatures } from './ILiquidityProtocolManagerFeatures'
+import { IStakingProtocolManagerFeatures } from './IStakingProtocolManagerFeatures'
 
 /**
  * @interface IProtocolManager
@@ -20,7 +21,7 @@ export interface IProtocolManager {
   /**
    * Staking features router.
    */
-  readonly stake: unknown // Hinted for future implementation, could be IStakeProtocolManagerFeatures
+  readonly stake: IStakingProtocolManagerFeatures
 
   /**
    * Liquidity features router.
