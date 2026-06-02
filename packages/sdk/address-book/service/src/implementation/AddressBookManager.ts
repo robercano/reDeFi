@@ -11,6 +11,7 @@ export class AddressBookManager implements IAddressBookManager {
   readonly deployments: DeploymentIndex
   readonly deploymentsTag: string
   readonly knownAddressesProvider: IKnownAddressesProvider
+  private _registeredAddresses: Record<number, Record<string, string>> = {}
 
   /** CONSTRUCTOR */
   constructor(params: {
@@ -23,7 +24,19 @@ export class AddressBookManager implements IAddressBookManager {
     this.knownAddressesProvider = params.knownAddressesProvider
   }
 
+
   /** PUBLIC METHODS */
+
+  /** @see IAddressBookManager.registerAddresses */
+  public registerAddresses(addresses: Record<number, Record<string, string>>): void {
+    for (const [chainIdStr, newAddresses] of Object.entries(addresses)) {
+      const chainId = parseInt(chainIdStr, 10)
+      if (!this._registeredAddresses[chainId]) {
+        this._registeredAddresses[chainId] = {}
+      }
+      Object.assign(this._registeredAddresses[chainId], newAddresses)
+    }
+  }
 
   /** @see IAddressBookManager.getAddressByName */
   async getAddressByName(params: {
@@ -39,14 +52,23 @@ export class AddressBookManager implements IAddressBookManager {
     }
 
     const contractInfo = deployment.contracts[params.name] || deployment.dependencies[params.name]
-    if (!contractInfo) {
-      return this.knownAddressesProvider.getAddress(params)
+    if (contractInfo) {
+      return Address.createFromEthereum({
+        value: contractInfo.address as AddressValue,
+      })
     }
 
-    return Address.createFromEthereum({
-      value: contractInfo.address as AddressValue,
-    })
+    const registeredAddress = this._registeredAddresses[params.chainInfo.chainId]?.[params.name]
+    if (registeredAddress) {
+      return Address.createFromEthereum({
+        value: registeredAddress as AddressValue,
+      })
+    }
+
+    return this.knownAddressesProvider.getAddress(params)
+
   }
+
 
   /** PRIVATE */
 

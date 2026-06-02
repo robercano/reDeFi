@@ -32,6 +32,7 @@ import { BaseLendingProtocolPlugin } from '../../../implementation/BaseLendingPr
 import { ContractInfo } from '../../common/types/ContractInfo'
 import { ChainContractsProvider } from '../../utils/ChainContractProvider'
 import { AaveV3AbiMap } from '../abis/AaveV3AddressAbiMap'
+import { AaveV3Addresses } from '../config/AaveV3Addresses'
 import {
   IAaveV3LendingPoolId,
   IAaveV3LendingPoolIdData,
@@ -86,6 +87,9 @@ export class AaveV3ProtocolPlugin extends BaseLendingProtocolPlugin {
     ) {
       throw new Error(`Chain ID ${this.context.provider.chain?.id} is not supported`)
     }
+
+    // Register Aave V3 core contract addresses dynamically
+    this.context.addressBookManager.registerAddresses(AaveV3Addresses)
   }
 
   /** VALIDATORS */
