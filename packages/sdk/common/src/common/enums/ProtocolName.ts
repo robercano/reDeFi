@@ -16,6 +16,7 @@ export enum ProtocolName {
   Lido = 'Lido',
   UniswapV3 = 'UniswapV3',
   CompoundV3 = 'CompoundV3',
+  Convex = 'Convex',
 }
 
 /**

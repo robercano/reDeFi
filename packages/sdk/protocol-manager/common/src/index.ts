@@ -3,3 +3,4 @@ export type { IProtocolManagerContext } from './interfaces/IProtocolManagerConte
 export type { ILendingProtocolManagerFeatures } from './interfaces/ILendingProtocolManagerFeatures'
 export type { IYieldProtocolManagerFeatures } from './interfaces/IYieldProtocolManagerFeatures'
 export type { ILiquidityProtocolManagerFeatures } from './interfaces/ILiquidityProtocolManagerFeatures'
+export type { IStakingProtocolManagerFeatures } from './interfaces/IStakingProtocolManagerFeatures'

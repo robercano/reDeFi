@@ -15,6 +15,8 @@ export enum PoolType {
   Yield = 'Yield',
   /** AMM Liquidity Pool */
   Liquidity = 'Liquidity',
+  /** Staking pool (e.g. CVX Staking, EigenLayer) */
+  Staking = 'Staking',
 }
 
 /**

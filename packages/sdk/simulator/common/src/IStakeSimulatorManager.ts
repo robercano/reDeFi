@@ -1,3 +1,15 @@
+import {
+  ITokenAmount,
+  IStakingPoolId,
+  IStakingPositionId,
+  ISimulation,
+} from '@thesolidchain/sdk-common'
+
 export interface IStakeSimulatorManager {
-  // Stub for stake simulator manager
+  simulateStake(params: { poolId: IStakingPoolId; amount: ITokenAmount }): Promise<ISimulation>
+  simulateUnstake(params: {
+    positionId: IStakingPositionId
+    amount: ITokenAmount
+  }): Promise<ISimulation>
+  simulateClaim(params: { positionId: IStakingPositionId }): Promise<ISimulation>
 }

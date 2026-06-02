@@ -205,6 +205,50 @@ export type {
   ILiquidityPositionData,
 } from './liquidity-protocols/interfaces/ILiquidityPosition'
 
+// Staking Protocols
+export {
+  __signature__ as __StakingPoolIdSignature__,
+  isStakingPoolId,
+  StakingPoolIdDataSchema,
+} from './staking-protocols/interfaces/IStakingPoolId'
+export type {
+  IStakingPoolId,
+  IStakingPoolIdData,
+} from './staking-protocols/interfaces/IStakingPoolId'
+
+export {
+  __signature__ as __StakingPositionIdSignature__,
+  isStakingPositionId,
+  StakingPositionIdDataSchema,
+} from './staking-protocols/interfaces/IStakingPositionId'
+export type {
+  IStakingPositionId,
+  IStakingPositionIdData,
+} from './staking-protocols/interfaces/IStakingPositionId'
+
+export {
+  __signature__ as __StakingPoolInfoSignature__,
+  isStakingPoolInfo,
+  StakingPoolInfoDataSchema,
+} from './staking-protocols/interfaces/IStakingPoolInfo'
+export type {
+  IStakingPoolInfo,
+  IStakingPoolInfoData,
+} from './staking-protocols/interfaces/IStakingPoolInfo'
+
+export {
+  __signature__ as __StakingPositionSignature__,
+  isStakingPosition,
+  StakingPositionDataSchema,
+} from './staking-protocols/interfaces/IStakingPosition'
+export type {
+  IStakingPosition,
+  IStakingPositionData,
+} from './staking-protocols/interfaces/IStakingPosition'
+
+export { StakingPoolInfo } from './staking-protocols/types/StakingPoolInfo'
+export { StakingPosition } from './staking-protocols/types/StakingPosition'
+
 export { YieldPoolInfo } from './yield-protocols/implementation/YieldPoolInfo'
 export { YieldPosition } from './yield-protocols/implementation/YieldPosition'
 export { YieldPool } from './yield-protocols/implementation/YieldPool'
@@ -391,6 +435,7 @@ export { GasEstimation } from './simulation/implementation/GasEstimation'
 export * from './simulation/implementation/YieldSimulation'
 export * from './simulation/implementation/LendingSimulation'
 export * from './simulation/implementation/LiquiditySimulation'
+export * from './simulation/implementation/StakingSimulation'
 
 export { isSimulation, SimulationSchema } from './simulation/interfaces/ISimulation'
 export type { ISimulation, ISimulationData } from './simulation/interfaces/ISimulation'

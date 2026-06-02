@@ -6,6 +6,7 @@ import { LidoProtocolPlugin } from './lido/implementation/LidoProtocolPlugin'
 import { MakerProtocolPlugin } from './maker/implementation/MakerProtocolPlugin'
 import { UniswapV3ProtocolPlugin } from './uniswap-v3/UniswapV3ProtocolPlugin'
 import { CompoundV3ProtocolPlugin } from './compound-v3/CompoundV3ProtocolPlugin'
+import { ConvexProtocolPlugin } from './convex/implementation/ConvexProtocolPlugin'
 
 /**
  * Protocol plugins record
@@ -19,4 +20,5 @@ export const ProtocolPluginsRecord: ProtocolPluginsRecordType = {
   [ProtocolName.Maker]: MakerProtocolPlugin,
   [ProtocolName.UniswapV3]: UniswapV3ProtocolPlugin,
   [ProtocolName.CompoundV3]: CompoundV3ProtocolPlugin,
+  [ProtocolName.Convex]: ConvexProtocolPlugin,
 }

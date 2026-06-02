@@ -15,6 +15,8 @@ export enum PositionType {
   Yield = 'Yield',
   /** AMM Liquidity position */
   Liquidity = 'Liquidity',
+  /** Staking position */
+  Staking = 'Staking',
 }
 
 /**

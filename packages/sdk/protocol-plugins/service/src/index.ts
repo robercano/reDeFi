@@ -193,3 +193,42 @@ export {
   type ICompoundV3YieldPositionId,
   type ICompoundV3YieldPositionIdData,
 } from './plugins/compound-v3/interfaces/ICompoundV3YieldPositionId'
+
+// Convex
+export { ConvexProtocolPlugin } from './plugins/convex/implementation/ConvexProtocolPlugin'
+export { ConvexProtocol } from './plugins/convex/implementation/ConvexProtocol'
+export { ConvexYieldPoolId } from './plugins/convex/implementation/ConvexYieldPoolId'
+export { ConvexYieldPositionId } from './plugins/convex/implementation/ConvexYieldPositionId'
+export { ConvexStakingPoolId } from './plugins/convex/implementation/ConvexStakingPoolId'
+export { ConvexStakingPositionId } from './plugins/convex/implementation/ConvexStakingPositionId'
+export { DefaultConvexDataSource } from './plugins/convex/implementation/DefaultConvexDataSource'
+export {
+  isConvexProtocol,
+  ConvexProtocolDataSchema,
+  type IConvexProtocol,
+  type IConvexProtocolData,
+} from './plugins/convex/interfaces/IConvexProtocol'
+export {
+  isConvexYieldPoolId,
+  ConvexYieldPoolIdDataSchema,
+  type IConvexYieldPoolId,
+  type IConvexYieldPoolIdData,
+} from './plugins/convex/interfaces/IConvexYieldPoolId'
+export {
+  isConvexYieldPositionId,
+  ConvexYieldPositionIdDataSchema,
+  type IConvexYieldPositionId,
+  type IConvexYieldPositionIdData,
+} from './plugins/convex/interfaces/IConvexYieldPositionId'
+export {
+  isConvexStakingPoolId,
+  ConvexStakingPoolIdDataSchema,
+  type IConvexStakingPoolId,
+  type IConvexStakingPoolIdData,
+} from './plugins/convex/interfaces/IConvexStakingPoolId'
+export {
+  isConvexStakingPositionId,
+  ConvexStakingPositionIdDataSchema,
+  type IConvexStakingPositionId,
+  type IConvexStakingPositionIdData,
+} from './plugins/convex/interfaces/IConvexStakingPositionId'

@@ -9,10 +9,10 @@ import {
 } from '@thesolidchain/sdk-common'
 
 /**
- * @interface IStakeProtocolFeatures
- * Contains all staking-specific capabilities for a protocol plugin.
+ * @interface IStakingProtocolManagerFeatures
+ * Features for retrieving pool info and generating transaction payloads for Staking across protocols.
  */
-export interface IStakeProtocolFeatures {
+export interface IStakingProtocolManagerFeatures {
   /**
    * getStakingPoolInfo
    * @param poolId The ID of the staking pool

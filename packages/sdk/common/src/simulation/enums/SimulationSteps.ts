@@ -12,4 +12,7 @@ export enum SimulationSteps {
   WithdrawYield = 'WithdrawYield',
   ProvideLiquidity = 'ProvideLiquidity',
   RemoveLiquidity = 'RemoveLiquidity',
+  Stake = 'Stake',
+  Unstake = 'Unstake',
+  ClaimStakeRewards = 'ClaimStakeRewards',
 }
