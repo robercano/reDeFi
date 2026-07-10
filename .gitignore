@@ -93,3 +93,7 @@ test-results/
 cmd.in
 cmd.out
 apps/sdk-demo/public/api-reference/
+.env.*
+!.env.example
+.claude/settings.local.json
+.claude/state/

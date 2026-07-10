@@ -107,6 +107,7 @@
     "TOKENS_TABLE_NAME",
     "CACHE_TABLE_NAME"
   ],
+  "globalPassThroughEnv": ["TMPDIR"],
   "tasks": {
     "dev": {
       "cache": false,
