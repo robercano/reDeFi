@@ -185,7 +185,7 @@ export type ClaimStakeRewardsStep = Step<
   {
     position: IStakingPosition
   },
-  {}
+  Record<string, never>
 >
 
 export type Steps =
