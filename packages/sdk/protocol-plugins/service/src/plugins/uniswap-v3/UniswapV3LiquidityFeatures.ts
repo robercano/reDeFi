@@ -21,11 +21,11 @@ const NONFUNGIBLE_POSITION_MANAGER_ADDRESS = '0xC36442b4a4522E871399CD717aBDD847
 export class UniswapV3LiquidityFeatures implements ILiquidityProtocolFeatures {
   constructor(private readonly context: IProtocolPluginContext) {}
 
-  async getLiquidityPoolInfo(id: ILiquidityPoolId): Promise<ILiquidityPoolInfo> {
+  async getLiquidityPoolInfo(_id: ILiquidityPoolId): Promise<ILiquidityPoolInfo> {
     throw new Error('Method not implemented.')
   }
 
-  async getLiquidityPosition(id: ILiquidityPositionId): Promise<ILiquidityPosition> {
+  async getLiquidityPosition(_id: ILiquidityPositionId): Promise<ILiquidityPosition> {
     throw new Error('Method not implemented.')
   }
 

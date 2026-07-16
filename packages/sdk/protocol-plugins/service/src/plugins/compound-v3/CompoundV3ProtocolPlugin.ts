@@ -1,7 +1,5 @@
 import {
   IProtocolPlugin,
-  ILendingProtocolFeatures,
-  IYieldProtocolFeatures,
   IProtocolPluginContext,
 } from '@thesolidchain/protocol-plugins-common'
 import {

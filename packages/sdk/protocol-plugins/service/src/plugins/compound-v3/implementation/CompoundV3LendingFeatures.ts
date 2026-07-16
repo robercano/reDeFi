@@ -41,7 +41,6 @@ import {
   ICompoundV3LendingPositionId,
   isCompoundV3LendingPositionId,
 } from '../interfaces/ICompoundV3LendingPositionId'
-import { CompoundV3LendingPositionId } from './CompoundV3LendingPositionId'
 import { CompoundV3LendingPoolId } from './CompoundV3LendingPoolId'
 import { CompoundV3LendingPoolInfo } from './CompoundV3LendingPoolInfo'
 import { CompoundV3LendingPosition } from './CompoundV3LendingPosition'

@@ -25,7 +25,7 @@ export class DefaultConvexDataSource implements IConvexDataSource {
     // Real implementation would query the Booster or Reward pool for its underlying LP token.
     const underlyingToken = receiptToken
 
-    let currentApyValue = 0 // Mock APY
+    const currentApyValue = 0 // Mock APY
 
     // Fallback calculation for TVL
     const totalAssetsAbi = parseAbi(['function totalSupply() view returns (uint256)'])

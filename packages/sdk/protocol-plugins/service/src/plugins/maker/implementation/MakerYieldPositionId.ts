@@ -2,7 +2,6 @@ import {
   PositionType,
   IChainInfo,
   PositionId,
-  ProtocolName,
   __YieldPositionIdSignature__,
 } from '@thesolidchain/sdk-common'
 import {

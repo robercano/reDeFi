@@ -5,13 +5,6 @@ import {
 } from '@thesolidchain/protocol-plugins-common'
 import {
   ProtocolName,
-  ILiquidityPoolId,
-  ILiquidityPoolInfo,
-  ILiquidityPosition,
-  ILiquidityPositionId,
-  ITokenAmount,
-  IUser,
-  TransactionInfo,
   valuesOfChainFamilyMap,
   ChainFamilyName,
 } from '@thesolidchain/sdk-common'

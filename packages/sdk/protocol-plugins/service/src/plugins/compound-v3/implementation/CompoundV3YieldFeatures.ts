@@ -3,7 +3,6 @@ import { IProtocolPluginContext, IYieldProtocolFeatures } from '@thesolidchain/p
 import {
   ChainFamilyName,
   IChainInfo,
-  IPositionIdData,
   IUser,
   ProtocolName,
   TokenAmount,

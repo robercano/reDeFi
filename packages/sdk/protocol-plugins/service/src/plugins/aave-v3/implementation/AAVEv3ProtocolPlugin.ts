@@ -5,7 +5,6 @@ import {
   ChainFamilyName,
   IChainInfo,
   IPositionIdData,
-  Maybe,
   ProtocolName,
   valuesOfChainFamilyMap,
   ILendingPoolIdData,

@@ -22,7 +22,6 @@ import {
   StakingPoolInfo,
   StakingPosition,
   IFiatCurrencyAmount,
-  StakingBucket,
 } from '@thesolidchain/sdk-common'
 import { parseAbi, encodeFunctionData } from 'viem'
 import {
@@ -33,11 +32,8 @@ import {
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 import { ConvexYieldPoolId } from './ConvexYieldPoolId'
 import { isConvexYieldPoolId } from '../interfaces/IConvexYieldPoolId'
-import { ConvexYieldPositionId } from './ConvexYieldPositionId'
 import { isConvexYieldPositionId, IConvexYieldPositionId } from '../interfaces/IConvexYieldPositionId'
-import { ConvexStakingPoolId } from './ConvexStakingPoolId'
 import { isConvexStakingPoolId } from '../interfaces/IConvexStakingPoolId'
-import { ConvexStakingPositionId } from './ConvexStakingPositionId'
 import { isConvexStakingPositionId, IConvexStakingPositionId } from '../interfaces/IConvexStakingPositionId'
 import { IConvexDataSource } from '../interfaces/IConvexDataSource'
 import { DefaultConvexDataSource } from './DefaultConvexDataSource'

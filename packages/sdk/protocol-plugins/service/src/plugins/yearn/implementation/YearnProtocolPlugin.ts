@@ -6,12 +6,8 @@ import {
   IYieldPosition,
   ProtocolName,
   valuesOfChainFamilyMap,
-  PoolType,
   YieldType,
-  PositionType,
   IChainInfo,
-  ITokenAmount,
-  IUser,
   TransactionInfo,
   YieldPoolInfo,
   YieldPosition,
@@ -23,7 +19,6 @@ import {
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 import { YearnYieldPoolId } from './YearnYieldPoolId'
 import { isYearnYieldPoolId } from '../interfaces/IYearnYieldPoolId'
-import { YearnYieldPositionId } from './YearnYieldPositionId'
 import { isYearnYieldPositionId } from '../interfaces/IYearnYieldPositionId'
 import { IYearnDataSource } from '../interfaces/IYearnDataSource'
 import { DefaultYearnDataSource } from './DefaultYearnDataSource'

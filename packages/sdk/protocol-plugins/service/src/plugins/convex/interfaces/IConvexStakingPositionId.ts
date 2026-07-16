@@ -1,8 +1,12 @@
-import { IStakingPositionId, StakingPositionIdDataSchema } from '@thesolidchain/sdk-common'
+import {
+  IStakingPositionId,
+  StakingPositionIdDataSchema,
+  IWallet,
+  isWallet,
+} from '@thesolidchain/sdk-common'
 import { z } from 'zod'
 import { IConvexProtocol, isConvexProtocol } from './IConvexProtocol'
 import { IConvexStakingPoolId, isConvexStakingPoolId } from './IConvexStakingPoolId'
-import { IWallet, isWallet } from '@thesolidchain/sdk-common'
 
 /** Unique signature to identify Convex Staking Position IDs */
 export const __signature__: unique symbol = Symbol()
@@ -34,7 +38,9 @@ export const ConvexStakingPositionIdDataSchema = z.object({
  * Type representing the serialized data of a Convex Staking Position ID.
  * @public
  */
-export type IConvexStakingPositionIdData = Readonly<z.infer<typeof ConvexStakingPositionIdDataSchema>>
+export type IConvexStakingPositionIdData = Readonly<
+  z.infer<typeof ConvexStakingPositionIdDataSchema>
+>
 
 /**
  * Type guard to check if an unknown object is a valid `IConvexStakingPositionId`.

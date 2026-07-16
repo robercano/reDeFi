@@ -2,7 +2,6 @@ import {
   PoolType,
   IChainInfo,
   PoolId,
-  ProtocolName,
   __YieldPoolIdSignature__,
 } from '@thesolidchain/sdk-common'
 import {

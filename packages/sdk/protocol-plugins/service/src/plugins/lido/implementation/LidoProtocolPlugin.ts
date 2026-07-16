@@ -6,16 +6,13 @@ import {
   IYieldPosition,
   ProtocolName,
   valuesOfChainFamilyMap,
-  PoolType,
   YieldType,
-  PositionType,
   IChainInfo,
   ITokenAmount,
   IUser,
   TransactionInfo,
   Address,
   HexData,
-  SimulationSteps,
   YieldPoolInfo,
   YieldPosition,
   IFiatCurrencyAmount,
@@ -28,7 +25,6 @@ import {
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 import { LidoYieldPoolId } from './LidoYieldPoolId'
 import { isLidoYieldPoolId } from '../interfaces/ILidoYieldPoolId'
-import { LidoYieldPositionId } from './LidoYieldPositionId'
 import { isLidoYieldPositionId } from '../interfaces/ILidoYieldPositionId'
 import { ILidoDataSource } from '../interfaces/ILidoDataSource'
 import { DefaultLidoDataSource } from './DefaultLidoDataSource'

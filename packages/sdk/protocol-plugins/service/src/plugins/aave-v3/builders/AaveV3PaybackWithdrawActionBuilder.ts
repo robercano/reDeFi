@@ -4,7 +4,6 @@ import {
 } from '@thesolidchain/protocol-plugins-common'
 import {
   Address,
-  IAddress,
   getValueFromReference,
   steps,
 } from '@thesolidchain/sdk-common'

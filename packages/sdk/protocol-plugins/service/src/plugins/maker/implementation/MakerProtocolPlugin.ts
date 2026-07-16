@@ -25,7 +25,6 @@ import {
 import { BaseProtocolPlugin } from '../../../implementation/BaseProtocolPlugin'
 import { MakerYieldPoolId } from './MakerYieldPoolId'
 import { isMakerYieldPoolId } from '../interfaces/IMakerYieldPoolId'
-import { MakerYieldPositionId } from './MakerYieldPositionId'
 import { isMakerYieldPositionId } from '../interfaces/IMakerYieldPositionId'
 import { IMakerDataSource } from '../interfaces/IMakerDataSource'
 import { DefaultMakerDataSource } from './DefaultMakerDataSource'

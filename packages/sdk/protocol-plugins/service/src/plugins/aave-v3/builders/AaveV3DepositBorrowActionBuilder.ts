@@ -2,11 +2,7 @@ import {
   ActionBuilderParams,
   ActionBuilderUsedAction,
 } from '@thesolidchain/protocol-plugins-common'
-import {
-  IAddress,
-  getValueFromReference,
-  steps,
-} from '@thesolidchain/sdk-common'
+import { getValueFromReference, steps } from '@thesolidchain/sdk-common'
 import { BaseActionBuilder } from '../../../implementation/BaseActionBuilder'
 import { SetApprovalAction } from '../../common/actions/SetApprovalAction'
 import { getContractAddress } from '../../utils/GetContractAddress'
