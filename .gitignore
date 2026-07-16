@@ -97,3 +97,7 @@ apps/sdk-demo/public/api-reference/
 !.env.example
 .claude/settings.local.json
 .claude/state/
+
+# Secrets — never commit tokens (see issue #4 / ROADMAP W0.1)
+gh_token.txt
+*.token
