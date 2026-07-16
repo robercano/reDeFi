@@ -101,3 +101,12 @@ apps/sdk-demo/public/api-reference/
 # Secrets — never commit tokens (see issue #4 / ROADMAP W0.1)
 gh_token.txt
 *.token
+
+# W0.2: untracked local junk/scratch/log files
+k.py
+k.sh
+kill.js
+scratch.ts
+test_tenderly.js
+lint_output.txt
+vitest-*.log
