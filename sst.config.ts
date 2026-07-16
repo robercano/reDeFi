@@ -20,6 +20,13 @@ export default $config({
     const production = isProductionStage($app.stage)
     const deployedVersions = Object.values(sdkDeployedVersionsMap)
 
+    const sdkApiKey = process.env.SDK_API_KEY
+    if (!sdkApiKey) {
+      throw new Error(
+        'SDK_API_KEY environment variable must be set — refusing to deploy without a real API key.',
+      )
+    }
+
     // Load bundle package details
     const { version: clientVersion } = await import('./packages/sdk/client/bundle/package.json')
 
@@ -40,7 +47,7 @@ export default $config({
       handler: 'apps/api-authorizer/src/index.handler',
       runtime: 'nodejs22.x',
       environment: {
-        SDK_API_KEY: process.env.SDK_API_KEY || 'default-dev-key',
+        SDK_API_KEY: sdkApiKey,
       },
       logging: {
         format: 'json',
@@ -113,11 +120,10 @@ export default $config({
     }
 
     sdkGateway.url.apply((gatewayUrl) => {
-      const apiKey = process.env.SDK_API_KEY || 'default-dev-key'
       const baseUrl = `${gatewayUrl}/sdk/trpc/`
       require('fs').writeFileSync(
         '.env.local',
-        `NEXT_PUBLIC_API_URL='${baseUrl}'\nNEXT_PUBLIC_API_KEY='${apiKey}'\n`,
+        `NEXT_PUBLIC_API_URL='${baseUrl}'\nNEXT_PUBLIC_API_KEY='${sdkApiKey}'\n`,
       )
     })
 

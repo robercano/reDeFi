@@ -11,24 +11,18 @@ export function proxy(req: NextRequest) {
     return NextResponse.next()
   }
 
-  // 2. Bypass authentication for MetaMask Mobile's embedded browser
-  // (Basic Auth popups often break or fail to render in embedded Web3 wallet browsers)
-  const userAgent = req.headers.get('user-agent') || ''
-  if (userAgent.toLowerCase().includes('metamask') || userAgent.toLowerCase().includes('wallet')) {
-    return NextResponse.next()
-  }
-
-  // 3. Require Basic Auth for all other normal visitors
+  // 2. Require Basic Auth for all other normal visitors
   const basicAuth = req.headers.get('authorization')
   if (basicAuth) {
     const authValue = basicAuth.split(' ')[1]
     const [user, pwd] = atob(authValue).split(':')
 
-    // Read credentials from environment variables (fallback to default for demo)
+    // Read credentials from environment variables. DEMO_PASSWORD has no
+    // hardcoded default: if it is unset/empty, auth must fail closed.
     const expectedUser = process.env.DEMO_USER || 'admin'
-    const expectedPassword = process.env.DEMO_PASSWORD || 'redefi2026'
+    const expectedPassword = process.env.DEMO_PASSWORD
 
-    if (user === expectedUser && pwd === expectedPassword) {
+    if (expectedPassword && user === expectedUser && pwd === expectedPassword) {
       return NextResponse.next()
     }
   }

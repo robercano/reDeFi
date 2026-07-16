@@ -24,7 +24,7 @@ export const handler = async (
   const isAuthorized = parsedKey === validKey
 
   if (!isAuthorized) {
-    console.warn('Unauthorized request key attempted:', parsedKey)
+    console.warn('Unauthorized request: API key rejected')
   }
 
   return {
