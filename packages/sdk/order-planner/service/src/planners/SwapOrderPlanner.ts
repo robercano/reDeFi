@@ -5,10 +5,11 @@ import {
   Maybe,
   ExecutionType,
   TransactionInfo,
-  IAddress,
   SimulationSteps,
   steps,
- Address , SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
+  SDKError,
+  SDKErrorType,
+} from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
 
 export class SwapOrderPlanner implements ISwapOrderPlanner {
@@ -17,7 +18,7 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
   }
 
   async buildOrder(params: BuildOrderParams): Promise<Maybe<Order>> {
-    const { simulation, executionType = ExecutionType.Direct, contractsProvider } = params
+    const { simulation, executionType = ExecutionType.Direct } = params
 
     // Convert SimulationSteps into raw TransactionInfo payloads
     const transactions: TransactionInfo[] = []

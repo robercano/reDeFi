@@ -10,9 +10,10 @@ import {
   getValueFromReference,
   ILendingPoolId,
   ILendingPosition,
-  Address,
   TokenAmount,
-  SDKError, SDKErrorType } from '@thesolidchain/sdk-common'
+  SDKError,
+  SDKErrorType,
+} from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
 
 export class LendingOrderPlanner implements IOrderPlanner {
