@@ -173,4 +173,35 @@ describe('DefaultConvexDataSource', () => {
       expect(pool.currentApy.value).toBe(0)
     })
   })
+
+  describe('getPid', () => {
+    it('resolves the real on-chain pid from a single pid() read', async () => {
+      ;(ctx.provider.readContract as any).mockImplementation(
+        async ({ functionName }: { functionName: string }) => {
+          if (functionName === 'pid') {
+            return 99n
+          }
+          throw new Error(`unexpected call: ${functionName}`)
+        },
+      )
+
+      const pid = await dataSource.getPid(rewardPoolAddress)
+
+      expect(pid).toBe(99n)
+      expect(ctx.provider.readContract).toHaveBeenCalledTimes(1)
+      expect(ctx.provider.readContract).toHaveBeenCalledWith(
+        expect.objectContaining({ address: rewardPoolAddress, functionName: 'pid' }),
+      )
+    })
+
+    it('propagates the error instead of defaulting to 0 when the pid() read reverts', async () => {
+      ;(ctx.provider.readContract as any).mockRejectedValueOnce(
+        new Error('reward pool contract reverted'),
+      )
+
+      await expect(dataSource.getPid(rewardPoolAddress)).rejects.toThrow(
+        'reward pool contract reverted',
+      )
+    })
+  })
 })

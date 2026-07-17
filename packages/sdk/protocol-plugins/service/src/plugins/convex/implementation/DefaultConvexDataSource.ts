@@ -98,6 +98,27 @@ export class DefaultConvexDataSource implements IConvexDataSource {
   }
 
   /**
+   * Resolves ONLY the real Convex Booster pool ID for the reward pool at `tokenAddress`, via a
+   * single `pid()` read on that same reward pool contract (see #10). This is the lightweight
+   * path for `getDepositTransaction` — unlike `getPool`, it does not run token-metadata
+   * lookups, TVL, or APY calculations, since those are irrelevant to building a deposit and
+   * would otherwise add several serial RPC/oracle stages to the fund-movement hot path.
+   *
+   * Fund-safety invariant: this read is intentionally NOT wrapped in a try/catch and has no
+   * fallback/default — a deposit built with the wrong pid moves user funds into an unrelated
+   * Convex pool, so a revert here must propagate rather than silently resolve to pool 0.
+   */
+  async getPid(tokenAddress: string): Promise<bigint> {
+    const pid = (await this.context.provider.readContract({
+      address: tokenAddress as `0x${string}`,
+      abi: rewardPoolAbi,
+      functionName: 'pid',
+    })) as bigint
+
+    return pid
+  }
+
+  /**
    * Computes a real, on-chain-derived base APY from the reward pool's primary reward token
    * emission rate (`rewardRate`), valued against the underlying LP token TVL (see #10 — this
    * replaces the previous hardcoded `0` mock APY).

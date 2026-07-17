@@ -49,6 +49,7 @@ describe('ConvexProtocolPlugin', () => {
         totalValueLocked: undefined,
         pid: 0n,
       }),
+      getPid: vi.fn().mockResolvedValue(0n),
       getUserPosition: vi.fn().mockResolvedValue({
         currentAmount: TokenAmount.createFrom({ token: mockToken, amount: '1000' }),
         principalAmount: TokenAmount.createFrom({ token: mockToken, amount: '1000' }),

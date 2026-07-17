@@ -58,6 +58,7 @@ describe('ConvexProtocolPlugin — pool ID resolution (#10)', () => {
         totalValueLocked: undefined,
         pid,
       }),
+      getPid: vi.fn().mockResolvedValue(pid),
       getUserPosition: vi.fn().mockResolvedValue({
         currentAmount: TokenAmount.createFrom({ token: mockToken, amount: '1000' }),
         principalAmount: TokenAmount.createFrom({ token: mockToken, amount: '1000' }),
@@ -81,7 +82,8 @@ describe('ConvexProtocolPlugin — pool ID resolution (#10)', () => {
     const [pidArg] = decoded.args
 
     expect(pidArg).toBe(137n)
-    expect(mockDataSource.getPool).toHaveBeenCalledWith(yieldPoolId.tokenAddress)
+    expect(mockDataSource.getPid).toHaveBeenCalledWith(yieldPoolId.tokenAddress)
+    expect(mockDataSource.getPool).not.toHaveBeenCalled()
   })
 
   it('reflects a pid of 0 only when the data source genuinely resolves pool 0 on-chain', async () => {
@@ -110,7 +112,7 @@ describe('ConvexProtocolPlugin — pool ID resolution (#10)', () => {
 
   it('propagates a data source failure instead of falling back to an unsafe default pid', async () => {
     setupWithPid(0n)
-    ;(mockDataSource.getPool as any).mockRejectedValueOnce(new Error('pid resolution failed'))
+    ;(mockDataSource.getPid as any).mockRejectedValueOnce(new Error('pid resolution failed'))
 
     await expect(
       plugin.getDepositTransaction({ poolId: yieldPoolId, amount, user: mockUser }),
