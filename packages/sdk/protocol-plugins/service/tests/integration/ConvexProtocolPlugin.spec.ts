@@ -47,6 +47,7 @@ describe('ConvexProtocolPlugin', () => {
         receiptToken: mockToken,
         currentApy: Percentage.createFrom({ value: 5 }),
         totalValueLocked: undefined,
+        pid: 0n,
       }),
       getUserPosition: vi.fn().mockResolvedValue({
         currentAmount: TokenAmount.createFrom({ token: mockToken, amount: '1000' }),
