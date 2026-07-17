@@ -14,7 +14,7 @@ This is the automatically generated coverage report for the monorepo.
 | sdk-protocol-plugins-service | 72.29% | 72.29% | 41.49% | 70.39% | 38.77% |
 | sdk-protocol-manager-service | 53.07% | 53.07% | 34.78% | 70.58% | 35.82% |
 | sdk-portfolio-service | 98.84% | 98.84% | 83.33% | 94.44% | 26.32% |
-| sdk-order-planner-service | 70.01% | 70.01% | 73.33% | 71.05% | 20% |
+| sdk-order-planner-service | 69.96% | 69.96% | 73.33% | 71.05% | 20% |
 | sdk-oracle-service | 81.09% | 81.09% | 89.65% | 57.44% | 43.66% |
 | sdk-events-service | 98.71% | 98.71% | 83.33% | 90.9% | 80% |
 | sdk-contracts-provider-service | 93.98% | 93.98% | 88% | 90.69% | 57.08% |
