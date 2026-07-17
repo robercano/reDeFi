@@ -64,7 +64,8 @@ export async function POST(request: Request) {
     const data = await response.json()
 
     return NextResponse.json({ success: true, data })
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    return NextResponse.json({ error: message }, { status: 500 })
   }
 }
