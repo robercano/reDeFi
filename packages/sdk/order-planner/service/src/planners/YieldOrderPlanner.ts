@@ -3,7 +3,6 @@ import {
   SimulationType,
   Order,
   Maybe,
-  ExecutionType,
   TransactionInfo,
   SimulationSteps,
   steps,
