@@ -4,6 +4,9 @@ import {
   ChainFamilyMap,
   ILendingPool,
   ILendingPoolInfo,
+  ILendingPositionId,
+  IToken,
+  IUser,
   Order,
   ExecutionType,
   TokenAmount,
@@ -61,8 +64,8 @@ export const LendingViewer: FC = () => {
             protocol: CompoundV3Protocol.createFrom({ chainInfo }),
             collateralToken: debtToken, // Compound V3 base asset
             debtToken: debtToken,
-            address: { value: '0xc3d688B66703497DAA19211EEdff47f25384cdc3', type: 'Ethereum' } as any, // cUSDCv3 Mainnet
-          } as any)
+            address: { value: '0xc3d688B66703497DAA19211EEdff47f25384cdc3', type: 'Ethereum' }, // cUSDCv3 Mainnet
+          } as unknown as Parameters<typeof CompoundV3LendingPoolId.createFrom>[0])
         }
 
         let p, pInfo
@@ -73,8 +76,8 @@ export const LendingViewer: FC = () => {
           console.warn('Backend failed to fetch pool details:', err)
         }
 
-        setPool(p || ({ id: poolId } as any))
-        setPoolInfo(pInfo || ({ apy: 2.4 } as any))
+        setPool(p || ({ id: poolId } as unknown as ILendingPool))
+        setPoolInfo(pInfo || ({ apy: 2.4 } as unknown as ILendingPoolInfo))
       } catch (error) {
         console.error('Failed to fetch lending pool', error)
       } finally {
@@ -93,7 +96,7 @@ export const LendingViewer: FC = () => {
     try {
       const tokenAmount = TokenAmount.createFrom({
         amount,
-        token: (pool.id as unknown as { collateralToken: any }).collateralToken,
+        token: (pool.id as unknown as { collateralToken: IToken }).collateralToken,
       })
 
       let sim: ISimulation
@@ -101,7 +104,7 @@ export const LendingViewer: FC = () => {
         sim = await sdk.simulator.lend.simulateSupply({ poolId: pool.id, amount: tokenAmount })
       } else {
         // Since we are mocking positions, we'll pretend there is one
-        const positionId = { poolId: pool.id, userAddress: address } as any
+        const positionId = { poolId: pool.id, userAddress: address } as unknown as ILendingPositionId
         sim = await sdk.simulator.lend.simulateWithdraw({ positionId, amount: tokenAmount })
       }
 
@@ -114,7 +117,7 @@ export const LendingViewer: FC = () => {
         // Fallback for unconnected state in testing
         user = {
           wallet: { address: { value: address || '0x1234567890123456789012345678901234567890' } },
-        } as any
+        } as unknown as IUser
       }
 
       // Generate the order using OrderPlanner
@@ -129,13 +132,13 @@ export const LendingViewer: FC = () => {
       } else {
         setErrorMsg('Order Planner returned no transactions')
       }
-    } catch (error: any) {
+    } catch (error) {
       console.warn(
         'Backend simulation failed, falling back to mock order for UI demo:',
-        error.message,
+        error instanceof Error ? error.message : String(error),
       )
       // Mocking the built order for the Lending Simulator UI
-      const mockOrder: any = {
+      const mockOrder = {
         transactions: [
           {
             transaction: {
@@ -146,7 +149,7 @@ export const LendingViewer: FC = () => {
             description: 'Mock Lending Execution',
           },
         ],
-      }
+      } as unknown as Order
       setOrder(mockOrder)
     } finally {
       setLoading(false)
