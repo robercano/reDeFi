@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, ReactNode } from 'react'
 import { useSDK, SdkClient } from '@thesolidchain/sdk-react'
+import type { SDKSigner } from '@thesolidchain/sdk-client'
 import { useAccount } from 'wagmi'
 import { useEthersSigner } from './useEthersSigner'
 
@@ -13,7 +14,7 @@ export function AppSDKProvider({ children }: { children: ReactNode }) {
   // We use useAccount().chainId to guarantee we track the physical wallet's network, not just wagmi's default config.
   const { address, chainId } = useAccount()
 
-  const signer = useEthersSigner({ chainId }) as any
+  const signer = useEthersSigner({ chainId }) as unknown as SDKSigner | undefined
 
   // Initialize the SDK, syncing it perfectly with the connected wallet.
   // The server handles data, but formulating write operations requires awareness of who the user is.
