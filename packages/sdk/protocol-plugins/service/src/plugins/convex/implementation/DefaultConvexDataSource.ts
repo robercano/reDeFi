@@ -38,7 +38,7 @@ export class DefaultConvexDataSource implements IConvexDataSource {
         functionName: 'totalSupply',
       })) as bigint
 
-      const totalSupplyAmount = TokenAmount.createFrom({
+      const totalSupplyAmount = TokenAmount.createFromBaseUnit({
         token: receiptToken,
         amount: totalSupplyRaw.toString(),
       })
@@ -85,12 +85,12 @@ export class DefaultConvexDataSource implements IConvexDataSource {
       console.warn('Failed to fetch Convex position balance', e)
     }
 
-    const currentAmount = TokenAmount.createFrom({
+    const currentAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: balanceRaw.toString(),
     })
 
-    const principalAmount = TokenAmount.createFrom({
+    const principalAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: balanceRaw.toString(),
     })
