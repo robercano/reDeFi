@@ -91,7 +91,7 @@ export class DefaultYearnDataSource implements IYearnDataSource {
         functionName: 'totalAssets',
       })) as bigint
 
-      const totalAssetsAmount = TokenAmount.createFrom({
+      const totalAssetsAmount = TokenAmount.createFromBaseUnit({
         token: underlyingToken,
         amount: totalAssetsRaw.toString(),
       })
@@ -161,13 +161,13 @@ export class DefaultYearnDataSource implements IYearnDataSource {
     // raw underlying = (balance * pricePerShare) / 10**sharesDecimals
     const underlyingBalanceRaw = (balance * pricePerShare) / 10n ** BigInt(sharesDecimals)
 
-    const currentAmount = TokenAmount.createFrom({
+    const currentAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: underlyingBalanceRaw.toString(),
     })
 
     // Using currentAmount as a proxy for principalAmount since we don't have historical data natively.
-    const principalAmount = TokenAmount.createFrom({
+    const principalAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: underlyingBalanceRaw.toString(),
     })

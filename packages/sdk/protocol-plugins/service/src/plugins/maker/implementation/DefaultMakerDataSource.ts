@@ -50,7 +50,7 @@ export class DefaultMakerDataSource implements IMakerDataSource {
       functionName: 'totalAssets',
     })) as bigint
 
-    const totalAssetsAmount = TokenAmount.createFrom({
+    const totalAssetsAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: totalAssetsRaw.toString(),
     })
@@ -109,13 +109,13 @@ export class DefaultMakerDataSource implements IMakerDataSource {
       })) as bigint
     }
 
-    const currentAmount = TokenAmount.createFrom({
+    const currentAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: currentAssetsRaw.toString(),
     })
 
     // Without historical subgraphs, default principal to current
-    const principalAmount = TokenAmount.createFrom({
+    const principalAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: currentAssetsRaw.toString(),
     })

@@ -53,7 +53,7 @@ export class DefaultLidoDataSource implements ILidoDataSource {
       functionName: 'totalSupply',
     })) as bigint
 
-    const totalSupplyAmount = TokenAmount.createFrom({
+    const totalSupplyAmount = TokenAmount.createFromBaseUnit({
       token: receiptToken,
       amount: totalSupplyRaw.toString(),
     })
@@ -97,13 +97,13 @@ export class DefaultLidoDataSource implements ILidoDataSource {
       args: [userAddress as `0x${string}`],
     })) as bigint
 
-    const currentAmount = TokenAmount.createFrom({
+    const currentAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: balanceRaw.toString(),
     })
 
     // Without historical indexed data, we default principal to current.
-    const principalAmount = TokenAmount.createFrom({
+    const principalAmount = TokenAmount.createFromBaseUnit({
       token: underlyingToken,
       amount: balanceRaw.toString(),
     })
