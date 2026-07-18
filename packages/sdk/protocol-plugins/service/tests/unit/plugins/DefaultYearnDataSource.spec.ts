@@ -111,8 +111,8 @@ describe('DefaultYearnDataSource', () => {
     const result = await dataSource.getVault('0x1111111111111111111111111111111111111111')
 
     expect(result.currentApy.value).toBe(0)
-    // 1000000000n at 6 decimals = 1000 USDC * 1 USD/USDC = 1000 USD, raw amount is 1000000000
-    expect(result.totalValueLocked?.amount).toBe('1000000000')
+    // 1000000000n raw at 6 decimals = 1000 USDC * 1 USD/USDC = 1000 USD
+    expect(result.totalValueLocked?.amount).toBe('1000')
   })
 
   it('should get user position', async () => {
@@ -146,8 +146,45 @@ describe('DefaultYearnDataSource', () => {
       '0x2222222222222222222222222222222222222222',
     )
 
-    // balance = 2e18 * 1e6 / 1e18 = 2e6 = 2 USDC
-    expect(result.currentAmount.amount).toBe('2000000')
-    expect(result.principalAmount.amount).toBe('2000000')
+    // balance = 2e18 * 1e6 / 1e18 = 2e6 raw units at 6 decimals = 2 USDC
+    expect(result.currentAmount.amount).toBe('2')
+    expect(result.principalAmount.amount).toBe('2')
+  })
+
+  it('should return human-readable amounts, not inflated base-unit values, for a known position', async () => {
+    const mockReceiptToken = {
+      decimals: 18,
+      symbol: 'yvUSDC',
+      name: 'yvUSDC',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0x1111111111111111111111111111111111111111', type: 'Ethereum' },
+    } as any
+    const mockUnderlyingToken = {
+      decimals: 6,
+      symbol: 'USDC',
+      name: 'USDC',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', type: 'Ethereum' },
+    } as any
+
+    ctx.tokensManager.getTokenByAddress
+      .mockResolvedValueOnce(mockReceiptToken)
+      .mockResolvedValueOnce(mockUnderlyingToken)
+
+    // pricePerShare = 1e18 (1:1), balance = 2e18 shares -> underlying raw = 2e6 (2 USDC base units)
+    ctx.provider.multicall.mockResolvedValueOnce([
+      { result: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48' }, // token()
+      { result: 1000000000000000000n }, // pricePerShare (1e18)
+      { result: 2000000n }, // balanceOf shares such that underlying raw = 2000000 (2 USDC)
+    ])
+
+    const result = await dataSource.getUserPosition(
+      '0x1111111111111111111111111111111111111111',
+      '0x2222222222222222222222222222222222222222',
+    )
+
+    // 2 USDC base-unit (2000000, 6 decimals) must map to human-readable "2", NOT "2000000"
+    expect(result.currentAmount.amount).toBe('2')
+    expect(result.principalAmount.amount).toBe('2')
   })
 })

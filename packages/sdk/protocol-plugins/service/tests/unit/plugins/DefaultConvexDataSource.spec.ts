@@ -204,4 +204,77 @@ describe('DefaultConvexDataSource', () => {
       )
     })
   })
+
+  // Ported from the W1.1 decimals-fix spec (#9): raw base-unit amounts from chain reads must
+  // surface as human-readable amounts (createFromBaseUnit), never as the inflated raw value.
+  describe('decimals regression (#9)', () => {
+    it('computes a human-readable TVL from on-chain totalSupply, not the inflated raw base-unit value', async () => {
+      ;(ctx.tokensManager.getTokenByAddress as any)
+        .mockResolvedValueOnce(mockReceiptToken)
+        .mockResolvedValueOnce(mockUnderlyingToken)
+        .mockResolvedValueOnce(mockRewardToken)
+
+      ;(ctx.provider.readContract as any).mockImplementation(
+        async ({ functionName }: { functionName: string }) => {
+          switch (functionName) {
+            case 'pid':
+              return 1n
+            case 'stakingToken':
+              return lpTokenAddress
+            case 'totalSupply':
+              // totalSupply raw = 250e18 base units => 250 LP tokens human-readable
+              return 250n * 10n ** 18n
+            case 'rewardToken':
+              return crvAddress
+            case 'rewardRate':
+              return 0n
+            default:
+              throw new Error(`unexpected call: ${functionName}`)
+          }
+        },
+      )
+
+      // Price only the receipt token (TVL path); APY pricing soft-fails to 0.
+      ;(ctx.oracleManager.getSpotPrice as any).mockImplementation(
+        async ({ baseToken }: { baseToken: { symbol: string } }) => {
+          if (baseToken.symbol === 'cvxLP') {
+            return {
+              price: Price.createFrom({ value: '1', base: mockReceiptToken, quote: FiatCurrency.USD }),
+            }
+          }
+          return { price: undefined }
+        },
+      )
+
+      const pool = await dataSource.getPool(rewardPoolAddress)
+
+      // 250 LP at 1 USD/LP = 250 USD, NOT 2.5e20
+      expect(pool.totalValueLocked?.amount).toBe('250')
+      expect(pool.currentApy.value).toBe(0)
+    })
+
+    it('returns a human-readable user position amount for a known base-unit balance', async () => {
+      const mockUsdcToken = {
+        decimals: 6,
+        symbol: 'USDC',
+        name: 'USDC',
+        chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+        address: { value: '0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48', type: 'Ethereum' },
+      } as any
+
+      ;(ctx.tokensManager.getTokenByAddress as any).mockResolvedValueOnce(mockUsdcToken)
+
+      // 2 USDC in base units (6 decimals)
+      ;(ctx.provider.readContract as any).mockResolvedValueOnce(2000000n)
+
+      const result = await dataSource.getUserPosition(
+        rewardPoolAddress,
+        '0x2222222222222222222222222222222222222222',
+      )
+
+      // 2 USDC base-unit (2000000, 6 decimals) must map to human-readable "2", NOT "2000000"
+      expect(result.currentAmount.amount).toBe('2')
+      expect(result.principalAmount.amount).toBe('2')
+    })
+  })
 })
