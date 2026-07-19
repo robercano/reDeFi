@@ -122,10 +122,14 @@ export class ConvexProtocolPlugin extends BaseProtocolPlugin implements IYieldPr
     const depositAbi = parseAbi([
       'function deposit(uint256 _pid, uint256 _amount, bool _stake) external returns (bool)',
     ])
-    
-    // We assume tokenAddress contains the PID encoded or mapped. For simplicity, we parse it as number if possible,
-    // or just use a generic PID 0 in this placeholder implementation.
-    const pid = 0n // In real implementation, the PID would be extracted or mapped from the poolId
+
+    // Resolve the REAL Convex Booster pool ID on-chain from the reward pool contract itself
+    // (see #10). Depositing with the wrong pid moves user funds into an unrelated pool, so
+    // this is never hardcoded/defaulted — `getPid` throws if it cannot be resolved. Use the
+    // lightweight `getPid` (a single `pid()` read) rather than `getPool`, which additionally
+    // runs token-metadata lookups, TVL, and APY calculations that are irrelevant here and
+    // would otherwise add several serial RPC/oracle stages to this fund-movement hot path.
+    const pid = await this.dataSource.getPid(params.poolId.tokenAddress)
 
     const calldata = encodeFunctionData({
       abi: depositAbi,
