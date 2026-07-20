@@ -3,6 +3,7 @@ import {
   ILiquidityPoolInfo,
   ILiquidityPosition,
   ILiquidityPositionId,
+  IPercentage,
   ITokenAmount,
   IUser,
   TransactionInfo,
@@ -30,6 +31,10 @@ export interface ILiquidityProtocolFeatures {
   /**
    * getProvideLiquidityTransaction
    * @param params Parameters for providing liquidity
+   * @param params.slippageTolerance Optional slippage tolerance used to compute the minimum
+   *              amounts accepted for the deposit (`amount0Min`/`amount1Min` for Uniswap V3).
+   *              Implementations should apply a sane default when omitted; it must never be
+   *              treated as `0` (no slippage protection).
    * @returns Transaction info
    */
   getProvideLiquidityTransaction(params: {
@@ -38,16 +43,22 @@ export interface ILiquidityProtocolFeatures {
     user: IUser
     tickLower?: number
     tickUpper?: number
+    slippageTolerance?: IPercentage
   }): Promise<TransactionInfo>
 
   /**
    * getRemoveLiquidityTransaction
    * @param params Parameters for removing liquidity
+   * @param params.slippageTolerance Optional slippage tolerance used to compute the minimum
+   *              amounts accepted when withdrawing (`amount0Min`/`amount1Min` for Uniswap V3).
+   *              Implementations should apply a sane default when omitted; it must never be
+   *              treated as `0` (no slippage protection).
    * @returns Transaction info
    */
   getRemoveLiquidityTransaction(params: {
     positionId: ILiquidityPositionId
     amount: ITokenAmount
     user: IUser
+    slippageTolerance?: IPercentage
   }): Promise<TransactionInfo>
 }
