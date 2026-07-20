@@ -83,6 +83,34 @@ describe('Yearn Protocol Plugin', () => {
     expect(isYearnYieldPoolId(poolIdMock)).toBe(true)
   })
 
+  it('should serialize a YearnYieldPoolId into its DTO shape', () => {
+    const serialized = poolIdMock.serialize()
+
+    expect(serialized).toEqual({
+      type: poolIdMock.type,
+      protocol: poolIdMock.protocol,
+      vaultAddress: '0x1111111111111111111111111111111111111111',
+    })
+  })
+
+  it('should serialize a YearnYieldPositionId into its DTO shape', () => {
+    const positionId = new YearnYieldPositionId(
+      '0x1111111111111111111111111111111111111111',
+      '0x2222222222222222222222222222222222222222',
+      ChainFamilyMap.Ethereum.Mainnet,
+    )
+
+    const serialized = positionId.serialize()
+
+    expect(serialized).toEqual({
+      id: positionId.id,
+      type: positionId.type,
+      protocol: positionId.protocol,
+      vaultAddress: '0x1111111111111111111111111111111111111111',
+      walletAddress: '0x2222222222222222222222222222222222222222',
+    })
+  })
+
   it('should throw an error when provided with an invalid poolId format', async () => {
     const invalidId = {
       protocol: { name: ProtocolName.Maker },
@@ -133,6 +161,22 @@ describe('Yearn Protocol Plugin', () => {
     expect(position.principalAmount.amount.toString()).toBe('100')
     expect((position.poolId as YearnYieldPoolId).vaultAddress).toBe(
       '0x1111111111111111111111111111111111111111',
+    )
+  })
+
+  it('should throw an error when calling getYieldPosition with an invalid positionId format', async () => {
+    const invalidPositionId = {
+      protocol: { name: ProtocolName.Maker },
+    } as any
+
+    await expect(plugin.getYieldPosition(invalidPositionId)).rejects.toThrow(
+      'Invalid Yearn Position ID',
+    )
+  })
+
+  it('should throw an error when calling getClaimTransaction, since Yearn is value-accruing', async () => {
+    await expect(plugin.getClaimTransaction()).rejects.toThrow(
+      'Method getClaimTransaction is not supported for Yearn protocol (value-accruing)',
     )
   })
 
