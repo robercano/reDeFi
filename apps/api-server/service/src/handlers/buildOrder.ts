@@ -26,5 +26,6 @@ export const buildOrder = publicProcedure
       addressBookManager: opts.ctx.addressBookManager,
       protocolsRegistry: opts.ctx.protocolsRegistry,
       contractsProvider: opts.ctx.contractsProvider,
+      executionType: opts.input.executionType,
     })
   })

@@ -10,6 +10,8 @@ import {
   IntentSwapProviderType,
   SwapProviderType,
   User,
+  ExecutionType,
+  SimulationType,
 } from '@thesolidchain/sdk-common'
 import {
   AaveV3LendingPoolId,
@@ -170,6 +172,28 @@ describe('Handlers', () => {
           >[0]['intent'],
         }),
       ).rejects.toThrow('Required')
+    })
+
+    it('buildOrder forwards executionType to orderPlannerService.buildOrder', async () => {
+      mockOrderPlanner.buildOrder.mockResolvedValue('order')
+
+      const simulation = {
+        type: SimulationType.Swap,
+        steps: [],
+        balanceChanges: [],
+        gasEstimations: [],
+      }
+
+      const res = await caller.orders.buildOrder({
+        user,
+        simulation,
+        executionType: ExecutionType.Multicall,
+      } as unknown as Parameters<typeof caller.orders.buildOrder>[0])
+
+      expect(res).toBe('order')
+      expect(mockOrderPlanner.buildOrder).toHaveBeenCalledWith(
+        expect.objectContaining({ executionType: ExecutionType.Multicall }),
+      )
     })
   })
 
