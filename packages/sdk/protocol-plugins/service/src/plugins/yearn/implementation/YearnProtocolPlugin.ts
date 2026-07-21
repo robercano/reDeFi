@@ -13,9 +13,12 @@ import {
   ITokenAmount,
   IUser,
   TransactionInfo,
+  Address,
+  HexData,
   YieldPoolInfo,
   YieldPosition,
 } from '@thesolidchain/sdk-common'
+import { parseAbi, encodeFunctionData } from 'viem'
 import {
   IProtocolPluginContext,
   IYieldProtocolFeatures,
@@ -117,12 +120,98 @@ export class YearnProtocolPlugin extends BaseProtocolPlugin implements IYieldPro
     })
   }
 
-  public async getDepositTransaction(): Promise<TransactionInfo> {
-    throw new Error('Method not implemented.')
+  /**
+   * Builds the calldata for depositing the underlying asset into a Yearn Vault.
+   *
+   * Yearn V3 vaults implement the ERC-4626 standard, so this is a plain
+   * `deposit(uint256 assets, address receiver)` call targeting the vault contract.
+   *
+   * @param params - The deposit parameters.
+   * @param params.poolId - The unique identifier for the Yearn vault.
+   * @param params.amount - The amount of the underlying asset to deposit.
+   * @param params.user - The user performing the deposit; also the receiver of the vault shares.
+   * @returns A promise that resolves to the deposit transaction info.
+   * @throws Will throw an error if the poolId is not a valid YearnYieldPoolId.
+   */
+  public async getDepositTransaction(params: {
+    poolId: IYieldPoolId
+    amount: ITokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    if (!isYearnYieldPoolId(params.poolId)) {
+      throw new Error(`Invalid Yearn Pool ID: ${JSON.stringify(params.poolId)}`)
+    }
+
+    // Standard ERC-4626 deposit function
+    const depositAbi = parseAbi([
+      'function deposit(uint256 assets, address receiver) external returns (uint256)',
+    ])
+
+    const calldata = encodeFunctionData({
+      abi: depositAbi,
+      functionName: 'deposit',
+      args: [
+        BigInt(params.amount.toSolidityValue()),
+        params.user.wallet.address.value as `0x${string}`,
+      ],
+    })
+
+    return {
+      transaction: {
+        target: Address.createFromEthereum({ value: params.poolId.vaultAddress }),
+        calldata: calldata as HexData,
+        value: '0',
+      },
+      description: 'Deposit into Yearn Vault',
+    }
   }
 
-  public async getWithdrawTransaction(): Promise<TransactionInfo> {
-    throw new Error('Method not implemented.')
+  /**
+   * Builds the calldata for withdrawing the underlying asset from a Yearn Vault.
+   *
+   * Yearn V3 vaults implement the ERC-4626 standard. Since `params.amount` represents the
+   * *underlying* asset amount the user wants back (rather than a share amount), this uses
+   * `withdraw(uint256 assets, address receiver, address owner)` rather than `redeem`.
+   *
+   * @param params - The withdraw parameters.
+   * @param params.positionId - The unique identifier for the user's Yearn vault position.
+   * @param params.amount - The amount of the underlying asset to withdraw.
+   * @param params.user - The user performing the withdrawal; also the receiver and owner.
+   * @returns A promise that resolves to the withdraw transaction info.
+   * @throws Will throw an error if the positionId is not a valid YearnYieldPositionId.
+   */
+  public async getWithdrawTransaction(params: {
+    positionId: IYieldPositionId
+    amount: ITokenAmount
+    user: IUser
+  }): Promise<TransactionInfo> {
+    if (!isYearnYieldPositionId(params.positionId)) {
+      throw new Error(`Invalid Yearn Position ID: ${JSON.stringify(params.positionId)}`)
+    }
+
+    // ERC-4626: withdraw(uint256 assets, address receiver, address owner)
+    const withdrawAbi = parseAbi([
+      'function withdraw(uint256 assets, address receiver, address owner) external returns (uint256)',
+    ])
+
+    const calldata = encodeFunctionData({
+      abi: withdrawAbi,
+      functionName: 'withdraw',
+      args: [
+        BigInt(params.amount.toSolidityValue()),
+        params.user.wallet.address.value as `0x${string}`, // receiver
+        params.user.wallet.address.value as `0x${string}`, // owner
+      ],
+    })
+
+    return {
+      transaction: {
+        target: Address.createFromEthereum({ value: params.positionId.vaultAddress }),
+        calldata: calldata as HexData,
+        value: '0',
+      },
+      description: 'Withdraw from Yearn Vault',
+    }
   }
 
   public async getClaimTransaction(): Promise<TransactionInfo> {

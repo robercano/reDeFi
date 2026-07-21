@@ -1,6 +1,7 @@
 import { IProtocolPluginContext } from '@thesolidchain/protocol-plugins-common'
 import { ChainFamilyMap, ProtocolName } from '@thesolidchain/sdk-common'
 import assert from 'assert'
+import { decodeFunctionData, parseAbi } from 'viem'
 import { YearnProtocolPlugin } from '../../../src/plugins/yearn/implementation/YearnProtocolPlugin'
 import { YearnYieldPoolId } from '../../../src/plugins/yearn/implementation/YearnYieldPoolId'
 import { YearnYieldPositionId } from '../../../src/plugins/yearn/implementation/YearnYieldPositionId'
@@ -13,8 +14,15 @@ import {
   YearnVaultDto,
   YearnPositionDto,
 } from '../../../src/plugins/yearn/interfaces/IYearnDataSource'
-import { Percentage, TokenAmount } from '@thesolidchain/sdk-common'
+import { Percentage, TokenAmount, User, Wallet, Address } from '@thesolidchain/sdk-common'
 import BigNumber from 'bignumber.js'
+
+const depositAbi = parseAbi([
+  'function deposit(uint256 assets, address receiver) external returns (uint256)',
+])
+const withdrawAbi = parseAbi([
+  'function withdraw(uint256 assets, address receiver, address owner) external returns (uint256)',
+])
 
 const mockUnderlyingToken = {
   address: { value: '0x0000000000000000000000000000000000000000' } as any,
@@ -75,6 +83,34 @@ describe('Yearn Protocol Plugin', () => {
     expect(isYearnYieldPoolId(poolIdMock)).toBe(true)
   })
 
+  it('should serialize a YearnYieldPoolId into its DTO shape', () => {
+    const serialized = poolIdMock.serialize()
+
+    expect(serialized).toEqual({
+      type: poolIdMock.type,
+      protocol: poolIdMock.protocol,
+      vaultAddress: '0x1111111111111111111111111111111111111111',
+    })
+  })
+
+  it('should serialize a YearnYieldPositionId into its DTO shape', () => {
+    const positionId = new YearnYieldPositionId(
+      '0x1111111111111111111111111111111111111111',
+      '0x2222222222222222222222222222222222222222',
+      ChainFamilyMap.Ethereum.Mainnet,
+    )
+
+    const serialized = positionId.serialize()
+
+    expect(serialized).toEqual({
+      id: positionId.id,
+      type: positionId.type,
+      protocol: positionId.protocol,
+      vaultAddress: '0x1111111111111111111111111111111111111111',
+      walletAddress: '0x2222222222222222222222222222222222222222',
+    })
+  })
+
   it('should throw an error when provided with an invalid poolId format', async () => {
     const invalidId = {
       protocol: { name: ProtocolName.Maker },
@@ -126,5 +162,109 @@ describe('Yearn Protocol Plugin', () => {
     expect((position.poolId as YearnYieldPoolId).vaultAddress).toBe(
       '0x1111111111111111111111111111111111111111',
     )
+  })
+
+  it('should throw an error when calling getYieldPosition with an invalid positionId format', async () => {
+    const invalidPositionId = {
+      protocol: { name: ProtocolName.Maker },
+    } as any
+
+    await expect(plugin.getYieldPosition(invalidPositionId)).rejects.toThrow(
+      'Invalid Yearn Position ID',
+    )
+  })
+
+  it('should throw an error when calling getClaimTransaction, since Yearn is value-accruing', async () => {
+    await expect(plugin.getClaimTransaction()).rejects.toThrow(
+      'Method getClaimTransaction is not supported for Yearn protocol (value-accruing)',
+    )
+  })
+
+  describe('getDepositTransaction', () => {
+    it('builds ERC-4626 deposit calldata targeting the vault, with the user as receiver', async () => {
+      const poolId = new YearnYieldPoolId(
+        '0x2222222222222222222222222222222222222222',
+        ChainFamilyMap.Ethereum.Mainnet,
+      )
+      const amount = TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '1' })
+      const user = User.createFrom({
+        wallet: Wallet.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x3333333333333333333333333333333333333333',
+          }),
+        }),
+      })
+
+      const result = await plugin.getDepositTransaction({ poolId, amount, user })
+
+      expect(result.transaction.target.value).toBe('0x2222222222222222222222222222222222222222')
+      expect(result.transaction.value).toBe('0')
+
+      const decoded = decodeFunctionData({ abi: depositAbi, data: result.transaction.calldata })
+      expect(decoded.functionName).toBe('deposit')
+      expect(decoded.args[0]).toBe(1000000000000000000n)
+      expect(decoded.args[1]).toBe('0x3333333333333333333333333333333333333333')
+    })
+
+    it('rejects an invalid pool ID', async () => {
+      const invalidPoolId = { protocol: { name: ProtocolName.Maker } } as any
+      const amount = TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '1' })
+      const user = User.createFrom({
+        wallet: Wallet.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x3333333333333333333333333333333333333333',
+          }),
+        }),
+      })
+
+      await expect(
+        plugin.getDepositTransaction({ poolId: invalidPoolId, amount, user }),
+      ).rejects.toThrow('Invalid Yearn Pool ID')
+    })
+  })
+
+  describe('getWithdrawTransaction', () => {
+    it('builds ERC-4626 withdraw calldata targeting the vault, with the user as receiver and owner', async () => {
+      const positionId = new YearnYieldPositionId(
+        '0x2222222222222222222222222222222222222222',
+        '0x3333333333333333333333333333333333333333',
+        ChainFamilyMap.Ethereum.Mainnet,
+      )
+      const amount = TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '1' })
+      const user = User.createFrom({
+        wallet: Wallet.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x3333333333333333333333333333333333333333',
+          }),
+        }),
+      })
+
+      const result = await plugin.getWithdrawTransaction({ positionId, amount, user })
+
+      expect(result.transaction.target.value).toBe('0x2222222222222222222222222222222222222222')
+      expect(result.transaction.value).toBe('0')
+
+      const decoded = decodeFunctionData({ abi: withdrawAbi, data: result.transaction.calldata })
+      expect(decoded.functionName).toBe('withdraw')
+      expect(decoded.args[0]).toBe(1000000000000000000n)
+      expect(decoded.args[1]).toBe('0x3333333333333333333333333333333333333333')
+      expect(decoded.args[2]).toBe('0x3333333333333333333333333333333333333333')
+    })
+
+    it('rejects an invalid position ID', async () => {
+      const invalidPositionId = { protocol: { name: ProtocolName.Maker } } as any
+      const amount = TokenAmount.createFrom({ token: mockUnderlyingToken, amount: '1' })
+      const user = User.createFrom({
+        wallet: Wallet.createFrom({
+          address: Address.createFromEthereum({
+            value: '0x3333333333333333333333333333333333333333',
+          }),
+        }),
+      })
+
+      await expect(
+        plugin.getWithdrawTransaction({ positionId: invalidPositionId, amount, user }),
+      ).rejects.toThrow('Invalid Yearn Position ID')
+    })
   })
 })
