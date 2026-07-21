@@ -9,6 +9,7 @@ import {
   steps,
   SDKError,
   SDKErrorType,
+  multicall3Abi,
 } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
 
@@ -22,6 +23,10 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
 
     // Convert SimulationSteps into raw TransactionInfo payloads
     const transactions: TransactionInfo[] = []
+    // Approval steps are tracked separately so the Multicall branch below can bundle
+    // only non-approval steps (see the executionType === Multicall handling).
+    const approvalTransactions: TransactionInfo[] = []
+    const nonApprovalTransactions: TransactionInfo[] = []
 
     // In a full implementation we would iterate through simulation.steps
     // E.g.:
@@ -29,19 +34,23 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
       if (step.type === SimulationSteps.Approve) {
         const typedStep = step as steps.ApproveStep
         if (typedStep.outputs?.transaction) {
-          transactions.push({
+          const txInfo = {
             transaction: typedStep.outputs.transaction,
             description: typedStep.name || 'Approve token',
-          })
+          }
+          transactions.push(txInfo)
+          approvalTransactions.push(txInfo)
         }
       }
       if (step.type === SimulationSteps.Swap) {
         const typedStep = step as steps.SwapStep
         if (typedStep.outputs?.transaction) {
-          transactions.push({
+          const txInfo = {
             transaction: typedStep.outputs.transaction,
             description: typedStep.name || 'Swap token',
-          })
+          }
+          transactions.push(txInfo)
+          nonApprovalTransactions.push(txInfo)
         }
       }
     }
@@ -52,46 +61,25 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
     }
 
     if (executionType === ExecutionType.Multicall) {
-      // Encode all transaction data into a single Multicall payload
-      // aggregate3(Call3[] calls) where Call3 = (address target, bool allowFailure, bytes callData)
-      const MULTICALL3_ABI = [
-        {
-          inputs: [
-            {
-              components: [
-                { internalType: 'address', name: 'target', type: 'address' },
-                { internalType: 'bool', name: 'allowFailure', type: 'bool' },
-                { internalType: 'bytes', name: 'callData', type: 'bytes' },
-              ],
-              internalType: 'struct Multicall3.Call3[]',
-              name: 'calls',
-              type: 'tuple[]',
-            },
-          ],
-          name: 'aggregate3',
-          outputs: [
-            {
-              components: [
-                { internalType: 'bool', name: 'success', type: 'bool' },
-                { internalType: 'bytes', name: 'returnData', type: 'bytes' },
-              ],
-              internalType: 'struct Multicall3.Result[]',
-              name: 'returnData',
-              type: 'tuple[]',
-            },
-          ],
-          stateMutability: 'payable',
-          type: 'function',
-        },
-      ] as const
+      // Approvals are always kept as separate, direct transactions and never bundled into
+      // the Multicall3 aggregate3 call: an approve() executed via aggregate3 would set the
+      // allowance FROM the Multicall3 contract rather than from the user's EOA, which is
+      // not the intent of an approval step. This is a scope-limited fix; the broader
+      // msg.sender-dependent bundling problem (e.g. via Permit2 or ERC-4337 account
+      // abstraction) is deferred to W6.2/W6.3.
+      if (nonApprovalTransactions.length === 0) {
+        return { simulation, transactions: approvalTransactions }
+      }
 
+      // Encode the non-approval transaction data into a single Multicall payload
+      // aggregate3(Call3[] calls) where Call3 = (address target, bool allowFailure, bytes callData)
       const multicallData = encodeFunctionData({
-        abi: MULTICALL3_ABI,
+        abi: multicall3Abi,
         functionName: 'aggregate3',
         args: [
-          transactions.map((txInfo) => ({
+          nonApprovalTransactions.map((txInfo) => ({
             target: txInfo.transaction.target.value as `0x${string}`,
-            allowFailure: true,
+            allowFailure: false,
             callData: txInfo.transaction.calldata as `0x${string}`,
           })),
         ],
@@ -112,11 +100,12 @@ export class SwapOrderPlanner implements ISwapOrderPlanner {
       return {
         simulation,
         transactions: [
+          ...approvalTransactions,
           {
             transaction: {
               target: multicallAddress,
               calldata: multicallData,
-              value: transactions
+              value: nonApprovalTransactions
                 .reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n)
                 .toString(),
             },
