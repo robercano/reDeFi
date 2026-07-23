@@ -149,6 +149,9 @@
       }
       .statusline .mode { background: var(--fi); color: #06121d; font-weight: 700; padding: 7px 14px; }
       .statusline .seg { padding: 7px 14px; color: var(--dim); border-right: 1px solid var(--edge); }
+      .statusline .seg a { color: var(--dim); text-decoration: none; }
+      .statusline .seg a:hover, .statusline .seg a:focus-visible { color: var(--ink); outline: none; }
+      .statusline .seg .cur { color: var(--fi); }
       .statusline .seg b { color: var(--ink); }
       .statusline .grow { flex: 1; }
       .statusline .pos { padding: 7px 14px; color: var(--accent); }
@@ -267,8 +270,8 @@
       <span class="mode">-- BETA --</span>
       <span class="seg"><b>reDeFi</b> &lt;=&gt; v0.x</span>
       <span class="seg">7 plugins</span>
-      <span class="seg">eth · base</span>
-      <span class="seg">© 2026 the solid chain</span>
+      <span class="seg">family: <a href="https://recode.thesolidchain.com">reCode &lt;/&gt;</a> · <a href="https://redeploy.thesolidchain.com">reDeploy ^^</a> · <span class="cur">reDeFi &lt;=&gt;</span></span>
+      <span class="seg">© 2026 <a href="https://thesolidchain.com">the solid chain</a></span>
       <span class="grow"></span>
       <span class="pos">utf-8 · unix · 100%</span>
     </div>
