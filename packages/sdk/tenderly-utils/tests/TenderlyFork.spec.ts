@@ -60,7 +60,7 @@ describe('TenderlyFork', () => {
     })
 
     await fork.dispose()
-    expect(fork.apiRequestClient.delete).toHaveBeenCalledWith('http://api.test/fork-id')
+    expect(fork.apiRequestClient.delete).toHaveBeenCalledWith('http://api.test/vnets/fork-id')
   })
 
   it('should get transaction count', async () => {

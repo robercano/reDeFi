@@ -109,11 +109,14 @@ export class TenderlyFork {
 
   /**
    * dispose
-   * Deletes the fork
+   * Deletes the fork. The delete path must mirror the creation path
+   * (`POST {tenderlyApiUrl}/vnets`): deleting `{tenderlyApiUrl}/{forkId}`
+   * without the `/vnets/` segment 404s, and the 404 guard below would
+   * swallow it — leaking one virtual testnet per test run.
    */
   public async dispose() {
     try {
-      return await this.apiRequestClient.delete(`${this.tenderlyApiUrl}/${this.forkId}`)
+      return await this.apiRequestClient.delete(`${this.tenderlyApiUrl}/vnets/${this.forkId}`)
     } catch (error) {
       const e = error as Error & { response?: { status: number } }
       if (e.response?.status !== 404) {
