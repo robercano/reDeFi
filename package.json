@@ -1,6 +1,7 @@
 {
   "name": "redefi",
   "private": true,
+  "license": "MIT",
   "scripts": {
     "dev": "turbo run dev --concurrency=100",
     "mrproper": "bash scripts/clean.sh",

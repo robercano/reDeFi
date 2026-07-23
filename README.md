@@ -2,6 +2,7 @@
 
 [![CI](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml/badge.svg)](https://github.com/robercano/reDeFi/actions/workflows/ci.yaml)
 ![Coverage](https://img.shields.io/badge/Coverage-78.96%25-yellow.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-7ac4ff.svg)](./LICENSE)
 
 reDeFi is a multi-chain DeFi SDK and protocol ecosystem: a strongly-typed **TypeScript SDK** for swaps,
 portfolio tracking, allowance management, and order planning/routing across DeFi protocols, backed by a
@@ -185,6 +186,12 @@ hook for complete, working call sites for all of the above.
 - `packages/config/` — shared eslint/jest/typescript/vitest configs.
 - `docs/` — project and SDK documentation, including the [Roadmap](./docs/ROADMAP.md) and
   [Tasks](./docs/TASKS.md).
+
+---
+
+## 📄 License
+
+[MIT](./LICENSE) © 2026 Roberto Cano — The Solid Chain.
 
 ---
 
