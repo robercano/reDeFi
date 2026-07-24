@@ -50,22 +50,16 @@
       .cursor { display: inline-block; width: 8px; height: 14px; margin-left: auto; background: var(--accent); animation: blink 1.1s steps(1) infinite; }
       @keyframes blink { 50% { opacity: 0; } }
       @media (prefers-reduced-motion: reduce) { .cursor { animation: none; } }
-      /* top tab bar — tmux style */
-      .tabs {
-        display: flex; gap: 2px; align-items: stretch; flex-wrap: wrap;
-        background: var(--panel); border-bottom: 1px solid var(--edge);
-        padding: 6px 10px 0; font-size: 12px;
+      /* subbar — slim product strip, mirrors reCode/reDeploy */
+      .subbar {
+        display: flex; gap: 14px; flex-wrap: wrap; align-items: center;
+        padding: 6px 18px; background: var(--bg);
+        border-bottom: 1px solid var(--edge);
+        font-size: 11.5px; color: var(--dim);
         flex: 0 0 auto;
       }
-      .tabs .session { color: var(--accent); padding: 6px 12px 8px 6px; }
-      .tabs a {
-        color: var(--dim); text-decoration: none; padding: 6px 14px 8px;
-        border: 1px solid transparent; border-bottom: 0; border-radius: 6px 6px 0 0;
-      }
-      .tabs a.on { color: var(--fi); background: var(--bg); border-color: var(--edge); }
-      .tabs a:hover, .tabs a:focus-visible { color: var(--fi); outline: none; }
-      .tabs .right { margin-left: auto; color: var(--dim); padding: 6px 6px 8px; }
-      .tabs .right b { color: var(--ok); }
+      .subbar .glyph { color: var(--fi); font-weight: 700; }
+      .subbar b { color: var(--ink); font-weight: 600; }
       /* pane workspace — the only scrolling region */
       .scroll { flex: 1 1 auto; overflow-y: auto; scroll-behavior: smooth; }
       .work {
@@ -167,14 +161,9 @@
       <span>region: <b>es-remote-1</b></span>
       <span class="cursor" aria-hidden="true"></span>
     </div>
-    <div class="tabs">
-      <span class="session">[redefi]</span>
-      <a class="on" href="#overview">1:overview</a>
-      <a href="#protocols">2:protocols</a>
-      <a href="#pipeline">3:pipeline</a>
-      <a href="#sdk">4:sdk</a>
-      <a href="#contact">5:contact</a>
-      <span class="right">chains <b>eth·base</b> · sim <b>on</b></span>
+    <div class="subbar">
+      <span class="glyph">&lt;=&gt;</span>
+      <span><b>reDeFi</b> — one SDK, every protocol · swap · lend · yield · stake · simulated on a fork before you sign</span>
     </div>
 
     <div class="scroll">
