@@ -233,6 +233,182 @@ describe('DefaultMakerDataSource', () => {
     expect(result.currentApy.value).toBe(0)
   })
 
+  it('should clamp currentApy to 0 (not Infinity) when the vault returns a hostile, extremely large rate', async () => {
+    const mockReceiptToken = {
+      decimals: 18,
+      symbol: 'sUSDS',
+      name: 'Savings USDS',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0x4444444444444444444444444444444444444444', type: 'Ethereum' },
+    } as any
+    const mockUnderlyingToken = {
+      decimals: 18,
+      symbol: 'USDS',
+      name: 'USDS Stablecoin',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0xdC035D45d973E3EC169d2276DDab16f1e407384F', type: 'Ethereum' },
+    } as any
+
+    ctx.tokensManager.getTokenByAddress
+      .mockResolvedValueOnce(mockReceiptToken)
+      .mockResolvedValueOnce(mockUnderlyingToken)
+
+    // Max uint256 - a hostile/malicious vault could return this from ssr(), which would otherwise
+    // annualize to Infinity via Math.pow and always win max-APY route selection.
+    const hostileRate = 2n ** 256n - 1n
+
+    ctx.provider.readContract.mockImplementation(
+      async ({ functionName }: { functionName: string }) => {
+        switch (functionName) {
+          case 'asset':
+            return '0xdC035D45d973E3EC169d2276DDab16f1e407384F'
+          case 'ssr':
+            return hostileRate
+          case 'totalAssets':
+            return 0n
+          default:
+            throw new Error(`unexpected call: ${functionName}`)
+        }
+      },
+    )
+
+    ctx.oracleManager.getSpotPrice.mockResolvedValueOnce(undefined)
+
+    const result = await dataSource.getVault('0x4444444444444444444444444444444444444444')
+
+    expect(result.currentApy.value).toBe(0)
+    expect(Number.isFinite(result.currentApy.value)).toBe(true)
+  })
+
+  it('should clamp currentApy to 0 when the vault returns a rate several times RAY (implausibly large APY)', async () => {
+    const mockReceiptToken = {
+      decimals: 18,
+      symbol: 'sUSDS',
+      name: 'Savings USDS',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0x4444444444444444444444444444444444444444', type: 'Ethereum' },
+    } as any
+    const mockUnderlyingToken = {
+      decimals: 18,
+      symbol: 'USDS',
+      name: 'USDS Stablecoin',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0xdC035D45d973E3EC169d2276DDab16f1e407384F', type: 'Ethereum' },
+    } as any
+
+    ctx.tokensManager.getTokenByAddress
+      .mockResolvedValueOnce(mockReceiptToken)
+      .mockResolvedValueOnce(mockUnderlyingToken)
+
+    // 3x RAY as a per-second rate is wildly implausible (would compound to an astronomical APY).
+    const implausibleRate = RAY * 3n
+
+    ctx.provider.readContract.mockImplementation(
+      async ({ functionName }: { functionName: string }) => {
+        switch (functionName) {
+          case 'asset':
+            return '0xdC035D45d973E3EC169d2276DDab16f1e407384F'
+          case 'ssr':
+            return implausibleRate
+          case 'totalAssets':
+            return 0n
+          default:
+            throw new Error(`unexpected call: ${functionName}`)
+        }
+      },
+    )
+
+    ctx.oracleManager.getSpotPrice.mockResolvedValueOnce(undefined)
+
+    const result = await dataSource.getVault('0x4444444444444444444444444444444444444444')
+
+    expect(result.currentApy.value).toBe(0)
+  })
+
+  it('should clamp currentApy to 0 (not -1/-100%) when the vault returns a rate of 0', async () => {
+    const mockReceiptToken = {
+      decimals: 18,
+      symbol: 'sUSDS',
+      name: 'Savings USDS',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0x4444444444444444444444444444444444444444', type: 'Ethereum' },
+    } as any
+    const mockUnderlyingToken = {
+      decimals: 18,
+      symbol: 'USDS',
+      name: 'USDS Stablecoin',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0xdC035D45d973E3EC169d2276DDab16f1e407384F', type: 'Ethereum' },
+    } as any
+
+    ctx.tokensManager.getTokenByAddress
+      .mockResolvedValueOnce(mockReceiptToken)
+      .mockResolvedValueOnce(mockUnderlyingToken)
+
+    ctx.provider.readContract.mockImplementation(
+      async ({ functionName }: { functionName: string }) => {
+        switch (functionName) {
+          case 'asset':
+            return '0xdC035D45d973E3EC169d2276DDab16f1e407384F'
+          case 'ssr':
+            return 0n
+          case 'totalAssets':
+            return 0n
+          default:
+            throw new Error(`unexpected call: ${functionName}`)
+        }
+      },
+    )
+
+    ctx.oracleManager.getSpotPrice.mockResolvedValueOnce(undefined)
+
+    const result = await dataSource.getVault('0x4444444444444444444444444444444444444444')
+
+    expect(result.currentApy.value).toBe(0)
+  })
+
+  it('should clamp currentApy to 0 when the vault returns a rate slightly below RAY (negative APY)', async () => {
+    const mockReceiptToken = {
+      decimals: 18,
+      symbol: 'sUSDS',
+      name: 'Savings USDS',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0x4444444444444444444444444444444444444444', type: 'Ethereum' },
+    } as any
+    const mockUnderlyingToken = {
+      decimals: 18,
+      symbol: 'USDS',
+      name: 'USDS Stablecoin',
+      chainInfo: ChainFamilyMap.Ethereum.Mainnet,
+      address: { value: '0xdC035D45d973E3EC169d2276DDab16f1e407384F', type: 'Ethereum' },
+    } as any
+
+    ctx.tokensManager.getTokenByAddress
+      .mockResolvedValueOnce(mockReceiptToken)
+      .mockResolvedValueOnce(mockUnderlyingToken)
+
+    ctx.provider.readContract.mockImplementation(
+      async ({ functionName }: { functionName: string }) => {
+        switch (functionName) {
+          case 'asset':
+            return '0xdC035D45d973E3EC169d2276DDab16f1e407384F'
+          case 'ssr':
+            return RAY - 1n
+          case 'totalAssets':
+            return 0n
+          default:
+            throw new Error(`unexpected call: ${functionName}`)
+        }
+      },
+    )
+
+    ctx.oracleManager.getSpotPrice.mockResolvedValueOnce(undefined)
+
+    const result = await dataSource.getVault('0x4444444444444444444444444444444444444444')
+
+    expect(result.currentApy.value).toBe(0)
+  })
+
   it('should return a human-readable user position amount for a known base-unit balance', async () => {
     const mockUnderlyingToken = {
       decimals: 6,

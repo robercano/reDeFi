@@ -17,6 +17,18 @@ const RAY = new BigNumber(10).pow(27)
 const SECONDS_PER_YEAR = 31_536_000
 
 /**
+ * Sane upper bound on a plausible annualized DSR/SSR APY, expressed as a fraction (10.0 = 1000%).
+ * Real-world DSR/SSR values are low single-digit percentages; even a generous, never-seen-in-practice
+ * rate would not approach 1000%. The vault contract's `ssr()`/`dsr()` return value is
+ * attacker-influenceable (it flows from `vaultAddress`, which ultimately derives from an
+ * unvalidated `poolId.vaultAddress`), so a hostile vault could return an arbitrary `uint256`
+ * (e.g. `2**256-1`), which would otherwise annualize to `Infinity`. Since an `Infinity`/implausible
+ * APY would always win max-APY route selection in a yield router, any annualized value above this
+ * cap - or any non-finite/negative result - is treated as bogus and clamped to 0 rather than trusted.
+ */
+const MAX_PLAUSIBLE_APY = 10.0
+
+/**
  * Default implementation of the Maker data source.
  * This reads the real DSR/SSR APY (from the Pot/sUSDS per-second savings rate), TVL, and user
  * balances on-chain using the ERC-4626 standard.
@@ -74,9 +86,27 @@ export class DefaultMakerDataSource implements IMakerDataSource {
    * @returns The fractional APY (e.g. 0.05 for 5%).
    */
   private _annualizeSavingsRate(ratePerSecondRay: bigint): number {
-    const rateIncrement = new BigNumber(ratePerSecondRay.toString()).minus(RAY).dividedBy(RAY)
+    const rateRay = new BigNumber(ratePerSecondRay.toString())
+
+    // A per-second rate below RAY (1.0) would annualize to a negative APY, which is not a valid
+    // DSR/SSR outcome (the rate only ever accrues). Treat it as bogus rather than propagating a
+    // negative currentApy.
+    if (rateRay.isLessThan(RAY)) {
+      return 0
+    }
+
+    const rateIncrement = rateRay.minus(RAY).dividedBy(RAY)
     const perSecondRate = 1 + rateIncrement.toNumber()
-    return Math.pow(perSecondRate, SECONDS_PER_YEAR) - 1
+    const apy = Math.pow(perSecondRate, SECONDS_PER_YEAR) - 1
+
+    // Reject implausibly large annualized rates (including Infinity from a hostile/overflowing
+    // vault return value) and any non-finite or negative result, falling back to the safe default
+    // of 0 rather than letting an attacker-controlled vault win max-APY route selection.
+    if (!Number.isFinite(apy) || apy < 0 || apy > MAX_PLAUSIBLE_APY) {
+      return 0
+    }
+
+    return apy
   }
 
   async getVault(vaultAddress: string): Promise<MakerVaultDto> {
