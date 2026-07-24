@@ -9,8 +9,10 @@ import {
   Address,
   TokenAmount,
   Token,
+  multicall3Abi,
 } from '@thesolidchain/sdk-common'
 import { BuildOrderParams } from '@thesolidchain/order-planner-common'
+import { decodeFunctionData } from 'viem'
 
 describe('LendingOrderPlanner', () => {
   let planner: LendingOrderPlanner
@@ -211,5 +213,132 @@ describe('LendingOrderPlanner', () => {
 
     expect(order?.transactions).toHaveLength(1)
     expect(order?.transactions[0].description).toBe('Bundled Lend Execution (Multicall)')
+
+    // allowFailure must be false so failures are no longer masked
+    const decoded = decodeFunctionData({
+      abi: multicall3Abi,
+      data: order?.transactions[0].transaction.calldata as `0x${string}`,
+    })
+    const [calls] = decoded.args
+    expect(calls).toHaveLength(1)
+    expect(calls[0].allowFailure).toBe(false)
+  })
+
+  it('should keep approval steps as a separate direct transaction and exclude them from the Multicall bundle', async () => {
+    const mockUser = Address.createFromEthereum({
+      value: '0x1111111111111111111111111111111111111111',
+    })
+    const mockAmount = TokenAmount.createFrom({
+      amount: '10',
+      token: Token.createFrom({
+        decimals: 18,
+        address: mockUser,
+        chainInfo: {} as any,
+        name: 'T',
+        symbol: 'T',
+      }),
+    })
+    const mockPositionId = { poolId: { protocol: { name: 'Aave V3' } } }
+
+    const mockRepayTx = {
+      transaction: {
+        target: { value: '0x1111111111111111111111111111111111111111' },
+        calldata: '0x0c0c0c0c',
+        value: '0',
+      },
+      description: 'Repay',
+    }
+
+    const mockPlugin = {
+      lending: {
+        getRepayTransaction: vi.fn().mockResolvedValue(mockRepayTx),
+        getWithdrawTransaction: vi.fn(),
+      },
+    }
+
+    const params = {
+      user: mockUser,
+      simulation: {
+        type: SimulationType.Lend,
+        steps: [
+          {
+            type: SimulationSteps.Approve,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000001' },
+                calldata: '0x0a0a0a0a',
+                value: '0',
+              },
+            },
+          },
+          {
+            type: SimulationSteps.PaybackWithdraw,
+            inputs: {
+              position: { pool: { id: mockPositionId.poolId } },
+              paybackAmount: mockAmount,
+            },
+          },
+        ],
+      },
+      executionType: ExecutionType.Multicall,
+      protocolsRegistry: {
+        getPlugin: vi.fn().mockReturnValue(mockPlugin),
+      },
+      addressBookManager: {
+        getAddressByName: async () =>
+          Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
+      },
+    } as unknown as BuildOrderParams
+
+    const order = await planner.buildOrder(params)
+
+    // Approval stays direct, followed by the bundled Multicall tx (repay only)
+    expect(order?.transactions).toHaveLength(2)
+    expect(order?.transactions[0].description).toBe('Approve token')
+    expect(order?.transactions[0].transaction.calldata).toBe('0x0a0a0a0a')
+
+    const bundledTx = order?.transactions[1]
+    expect(bundledTx?.description).toBe('Bundled Lend Execution (Multicall)')
+
+    const decoded = decodeFunctionData({
+      abi: multicall3Abi,
+      data: bundledTx?.transaction.calldata as `0x${string}`,
+    })
+    const [calls] = decoded.args
+    expect(calls).toHaveLength(1)
+    expect(calls[0].callData).toBe('0x0c0c0c0c')
+    expect(calls[0].allowFailure).toBe(false)
+  })
+
+  it('should return only the approval as a direct transaction if Multicall has no non-approval steps', async () => {
+    const params = {
+      simulation: {
+        type: SimulationType.Lend,
+        steps: [
+          {
+            type: SimulationSteps.Approve,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000001' },
+                calldata: '0xApprove',
+                value: '0',
+              },
+            },
+          },
+        ],
+      },
+      executionType: ExecutionType.Multicall,
+      protocolsRegistry: {
+        getPlugin: vi.fn(),
+      },
+      addressBookManager: {
+        getAddressByName: vi.fn(),
+      },
+    } as unknown as BuildOrderParams
+
+    const order = await planner.buildOrder(params)
+    expect(order?.transactions).toHaveLength(1)
+    expect(order?.transactions[0].description).toBe('Approve token')
+    expect(params.addressBookManager.getAddressByName).not.toHaveBeenCalled()
   })
 })

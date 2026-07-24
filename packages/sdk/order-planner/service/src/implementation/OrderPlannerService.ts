@@ -67,6 +67,7 @@ export class OrderPlannerService implements IOrderPlannerService {
       swapManager: params.swapManager,
       protocolsRegistry: params.protocolsRegistry,
       contractsProvider: params.contractsProvider,
+      executionType: params.executionType,
     })
   }
 

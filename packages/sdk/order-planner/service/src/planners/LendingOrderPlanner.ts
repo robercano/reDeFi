@@ -13,6 +13,7 @@ import {
   TokenAmount,
   SDKError,
   SDKErrorType,
+  multicall3Abi,
 } from '@thesolidchain/sdk-common'
 import { encodeFunctionData } from 'viem'
 
@@ -25,15 +26,21 @@ export class LendingOrderPlanner implements IOrderPlanner {
     const { simulation, executionType = ExecutionType.Direct } = params
 
     const transactions: TransactionInfo[] = []
+    // Approval steps are tracked separately so the Multicall branch below can bundle
+    // only non-approval steps (see the executionType === Multicall handling).
+    const approvalTransactions: TransactionInfo[] = []
+    const nonApprovalTransactions: TransactionInfo[] = []
 
     for (const step of simulation.steps) {
       if (step.type === SimulationSteps.Approve) {
         const typedStep = step as steps.ApproveStep
         if (typedStep.outputs?.transaction) {
-          transactions.push({
+          const txInfo = {
             transaction: typedStep.outputs.transaction,
             description: typedStep.name || 'Approve token',
-          })
+          }
+          transactions.push(txInfo)
+          approvalTransactions.push(txInfo)
         }
       }
       if (step.type === SimulationSteps.DepositBorrow) {
@@ -51,6 +58,7 @@ export class LendingOrderPlanner implements IOrderPlanner {
             user: params.user,
           })
           transactions.push(txInfo)
+          nonApprovalTransactions.push(txInfo)
         }
 
         const borrowAmount = getValueFromReference(inputs.borrowAmount) as TokenAmount
@@ -61,6 +69,7 @@ export class LendingOrderPlanner implements IOrderPlanner {
             user: params.user,
           })
           transactions.push(txInfo)
+          nonApprovalTransactions.push(txInfo)
         }
       }
       if (step.type === SimulationSteps.PaybackWithdraw) {
@@ -79,6 +88,7 @@ export class LendingOrderPlanner implements IOrderPlanner {
             user: params.user,
           })
           transactions.push(txInfo)
+          nonApprovalTransactions.push(txInfo)
         }
 
         const withdrawAmount = getValueFromReference(inputs.withdrawAmount) as TokenAmount
@@ -89,6 +99,7 @@ export class LendingOrderPlanner implements IOrderPlanner {
             user: params.user,
           })
           transactions.push(txInfo)
+          nonApprovalTransactions.push(txInfo)
         }
       }
     }
@@ -98,48 +109,27 @@ export class LendingOrderPlanner implements IOrderPlanner {
     }
 
     if (executionType === ExecutionType.Multicall) {
-      const MULTICALL3_ABI = [
-        {
-          inputs: [
-            {
-              components: [
-                { internalType: 'address', name: 'target', type: 'address' },
-                { internalType: 'bool', name: 'allowFailure', type: 'bool' },
-                { internalType: 'bytes', name: 'callData', type: 'bytes' },
-              ],
-              internalType: 'struct Multicall3.Call3[]',
-              name: 'calls',
-              type: 'tuple[]',
-            },
-          ],
-          name: 'aggregate3',
-          outputs: [
-            {
-              components: [
-                { internalType: 'bool', name: 'success', type: 'bool' },
-                { internalType: 'bytes', name: 'returnData', type: 'bytes' },
-              ],
-              internalType: 'struct Multicall3.Result[]',
-              name: 'returnData',
-              type: 'tuple[]',
-            },
-          ],
-          stateMutability: 'payable',
-          type: 'function',
-        },
-      ] as const
+      // Approvals are always kept as separate, direct transactions and never bundled into
+      // the Multicall3 aggregate3 call: an approve() executed via aggregate3 would set the
+      // allowance FROM the Multicall3 contract rather than from the user's EOA, which is
+      // not the intent of an approval step. This is a scope-limited fix; the broader
+      // msg.sender-dependent bundling problem (e.g. via Permit2 or ERC-4337 account
+      // abstraction) is deferred to W6.2/W6.3.
+      if (nonApprovalTransactions.length === 0) {
+        return { simulation, transactions: approvalTransactions }
+      }
 
       const multicallData = encodeFunctionData({
-        abi: MULTICALL3_ABI,
+        abi: multicall3Abi,
         functionName: 'aggregate3',
         args: [
-          transactions.map((txInfo) => {
+          nonApprovalTransactions.map((txInfo) => {
             const txTarget = txInfo.transaction.target as unknown as { value?: string }
             return {
               target: txTarget.value
                 ? (txTarget.value as `0x${string}`)
                 : (txInfo.transaction.target as unknown as `0x${string}`),
-              allowFailure: true,
+              allowFailure: false,
               callData: txInfo.transaction.calldata as `0x${string}`,
             }
           }),
@@ -161,11 +151,12 @@ export class LendingOrderPlanner implements IOrderPlanner {
       return {
         simulation,
         transactions: [
+          ...approvalTransactions,
           {
             transaction: {
               target: multicallAddress,
               calldata: multicallData,
-              value: transactions
+              value: nonApprovalTransactions
                 .reduce((acc, txInfo) => acc + BigInt(txInfo.transaction.value || 0), 0n)
                 .toString(),
             },

@@ -8,8 +8,10 @@ import {
   Order,
   Percentage,
   Address,
+  multicall3Abi,
 } from '@thesolidchain/sdk-common'
 import { BuildOrderParams } from '@thesolidchain/order-planner-common'
+import { decodeFunctionData } from 'viem'
 
 describe('SwapOrderPlanner', () => {
   let planner: SwapOrderPlanner
@@ -79,7 +81,75 @@ describe('SwapOrderPlanner', () => {
     ])
   })
 
-  it('should bundle transactions if executionType is Multicall', async () => {
+  it('should bundle only non-approval transactions if executionType is Multicall, keeping approval direct', async () => {
+    const params = {
+      user: {
+        chainInfo: {
+          chainId: 1,
+          name: 'Ethereum',
+        },
+      },
+      simulation: {
+        type: SimulationType.Swap,
+        steps: [
+          {
+            type: SimulationSteps.Approve,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000001' },
+                calldata: '0x0a0a0a0a',
+                value: '0',
+              },
+            },
+          },
+          {
+            type: SimulationSteps.Swap,
+            outputs: {
+              transaction: {
+                target: { value: '0x0000000000000000000000000000000000000002' },
+                calldata: '0x0b0b0b0b',
+                value: '100',
+              },
+            },
+          },
+        ],
+        balanceChanges: [],
+        gasEstimations: [],
+      },
+      executionType: ExecutionType.Multicall,
+      contractsProvider: mockContractsProvider,
+      addressBookManager: {
+        getAddressByName: async () =>
+          Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
+      } as any,
+    } as unknown as BuildOrderParams
+
+    const order = await planner.buildOrder(params)
+
+    // Approval stays as its own direct transaction, followed by the bundled Multicall tx
+    expect(order?.transactions).toHaveLength(2)
+    expect(order?.transactions[0].description).toBe('Approve token')
+    expect(order?.transactions[0].transaction.calldata).toBe('0x0a0a0a0a')
+
+    const bundledTx = order?.transactions[1]
+    expect(bundledTx?.description).toBe('Bundled Swap Execution (Multicall)')
+    expect(bundledTx?.transaction.target.value).toBe('0xcA11bde05977b3631167028862bE2a173976CA11')
+    // Only the non-approval (swap) transaction's value is bundled into the Multicall value
+    expect(bundledTx?.transaction.value).toBe('100')
+
+    // The approval calldata must not be part of the bundled aggregate3 calls, and
+    // allowFailure must be false so failures are no longer masked.
+    const decoded = decodeFunctionData({
+      abi: multicall3Abi,
+      data: bundledTx?.transaction.calldata as `0x${string}`,
+    })
+    const [calls] = decoded.args
+    expect(calls).toHaveLength(1)
+    expect(calls[0].callData).toBe('0x0b0b0b0b')
+    expect(calls[0].allowFailure).toBe(false)
+  })
+
+  it('should return only the approval as a direct transaction if Multicall has no non-approval steps', async () => {
     const params = {
       user: {
         chainInfo: {
@@ -100,16 +170,6 @@ describe('SwapOrderPlanner', () => {
               },
             },
           },
-          {
-            type: SimulationSteps.Swap,
-            outputs: {
-              transaction: {
-                target: { value: '0x0000000000000000000000000000000000000002' },
-                calldata: '0xSwapData',
-                value: '100',
-              },
-            },
-          },
         ],
         balanceChanges: [],
         gasEstimations: [],
@@ -117,17 +177,13 @@ describe('SwapOrderPlanner', () => {
       executionType: ExecutionType.Multicall,
       contractsProvider: mockContractsProvider,
       addressBookManager: {
-        getAddressByName: async () =>
-          Address.createFromEthereum({ value: '0xcA11bde05977b3631167028862bE2a173976CA11' }),
+        getAddressByName: vi.fn(),
       } as any,
     } as unknown as BuildOrderParams
 
     const order = await planner.buildOrder(params)
     expect(order?.transactions).toHaveLength(1)
-    expect(order?.transactions[0].description).toBe('Bundled Swap Execution (Multicall)')
-    expect(order?.transactions[0].transaction.target.value).toBe(
-      '0xcA11bde05977b3631167028862bE2a173976CA11',
-    )
-    expect(order?.transactions[0].transaction.value).toBe('100')
+    expect(order?.transactions[0].description).toBe('Approve token')
+    expect(params.addressBookManager.getAddressByName).not.toHaveBeenCalled()
   })
 })
